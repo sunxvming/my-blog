@@ -1,6 +1,7 @@
 <!-- filetree -->
 
  - [README.md](.\README.md)
+ - [index.md](.\index.md)
    - **IT/**
      - [LINUX服务器的性能能分析.md](.\blog\IT\LINUX服务器的性能能分析.md)
      - [lua死循环检查.md](.\blog\IT\lua死循环检查.md)
