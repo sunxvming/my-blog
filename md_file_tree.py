@@ -103,7 +103,7 @@ def create_index(cwd, headings=False, wikilinks=False):
     for root, dirs, files in os.walk(cwd):
         files = sorted([f for f in files if not f[0] == '.' and os.path.splitext(f)[-1] in md_exts])
         dirs[:] = sorted([d for d in dirs if not d[0] == '.'])
-        if len(files) > 0:
+        if 1:  # len(files) > 0:
             level = root.count(os.sep) - base_level
             indent = '  ' * level
             if root != cwd:
@@ -113,17 +113,22 @@ def create_index(cwd, headings=False, wikilinks=False):
                                                             TOC_LIST_PREFIX))
             rel_dir = '.{1}{0}'.format(os.sep, root[base_len:])
             for md_filename in files:
+                md_filename_without_ext = os.path.splitext(md_filename)[0]
+                # 链接中的空格替换掉，不然markdown解析不了链接 比如：[Google C++ Style Guide](./Google C++ Style Guide)
+                md_filename = md_filename.replace(" ", "&#32;")
                 indent = '  ' * level
                 if wikilinks:
-                    md_lines.append('{0} {3} [[{2}{1}]]\n'.format(indent,
-                                                                  os.path.splitext(md_filename)[0],
+                    md_lines.append('{0} {3} [[{2}{4}]]\n'.format(indent,
+                                                                  md_filename_without_ext,
                                                                   rel_dir,
-                                                                  TOC_LIST_PREFIX))
+                                                                  TOC_LIST_PREFIX,
+                                                                  md_filename_without_ext + ".html"))
                 else:
-                    md_lines.append('{0} {3} [{1}]({2}{1})\n'.format(indent,
-                                                                     md_filename,
+                    md_lines.append('{0} {3} [{1}]({2}{4})\n'.format(indent,
+                                                                     md_filename_without_ext,
                                                                      rel_dir,
-                                                                     TOC_LIST_PREFIX))
+                                                                     TOC_LIST_PREFIX,
+                                                                     md_filename_without_ext + ".html"))
                 if headings:
                     results = get_headers(os.path.join(root, md_filename))
                     if len(results) > 0:
@@ -149,6 +154,7 @@ def replace_index(filename, new_index):
     pre = True
     post = False
     try:
+        print(filename)
         with open(filename, 'r') as md_in:
             for line in md_in:
                 if '<!-- filetree' in line:

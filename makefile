@@ -47,3 +47,10 @@ check:
 clean:
 	@rm $(Q_HTML) -f
 
+test:
+	@echo "WIKI=============="
+	@echo $(WIKI)
+	@echo "HTML=============="
+	@echo $(HTML)
+	@echo "Q_HTML=============="
+	@echo $(Q_HTML)
