@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<div id="header">
+    <p class="header_titleline">忧郁的大能猫的博客</p>
+    <p class="header_subline"><a href="/index.html">首页</a></p>
+</div>
+
+
+ <!--if(title)-->
+
+<p>目录:</p>
+<div id="TOC">
+<ul>
+<li><a href="#大话c模板编程的来龙去脉"> 大话C++模板编程的来龙去脉</a></li>
+<li><a href="#c函数模板的重载"> C++函数模板的重载</a></li>
+<li><a href="#c函数模板的实参推断"> C++函数模板的实参推断</a></li>
+<li><a href="#c模板的显式具体化特化"> C++模板的显式具体化(特化)</a></li>
+<li><a href="#c模板中的非类型参数"> C++模板中的非类型参数</a></li>
+<li><a href="#c模板的实例化"> C++模板的实例化</a></li>
+<li><a href="#将c模板应用于多文件编程"> 将C++模板应用于多文件编程</a></li>
+<li><a href="#c模板的显式实例化"> C++模板的显式实例化</a></li>
+<li><a href="#c类模板与继承详解"> C++类模板与继承详解</a></li>
+<li><a href="#c类模板与友元详解"> C++类模板与友元详解</a></li>
+<li><a href="#c类模板中的静态成员"> C++类模板中的静态成员</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>所谓“泛型”，指的是算法只要实现一遍，就能适用于多种数据类型。优势在于能够减少重复代码的编写。<strong>本质的类型参数化</strong>。 泛型程序设计就是大量编写模板、使用模板的程序设计。泛型程序设计在 C++ 中的重要性和带来的好处不亚于面向对象的特性。 在C++中，数据的类型也可以通过参数来传递，在<strong>函数定义时</strong>可以不指明具体的数据类型，当发生函数调用时，编译器可以根据传入的<strong>实参自动推断</strong>数据类型。这就是类型的参数化。 在 C++ 中，模板分为<strong>函数模板</strong>和<strong>类模板</strong>两种。熟练的 C++ 程序员，在编写函数时都会考虑能否将其写成函数模板，编写类时都会考虑能否将其写成类模板，以便实现重用。 ### C++函数模板5分钟入门教程 所谓函数模板，编写函数的时候用<strong>类型参数</strong>代替真正的参数，<strong>函数调用时</strong>再通过参数判断类型。</p>
+<pre><code>template&lt;typename T&gt;
+void Swap(T &amp;a, T &amp;b){
+    T temp = a;
+    a = b;
+    b = temp;
+}</code></pre>
+<pre><code>bool b1 = false, b2 = true;
+Swap(&amp;b1, &amp;b2); //编译器会根据参数自动判断类型</code></pre>
+<p>typename关键字也可以使用class关键字替代，它们没有任何区别。C++ 早期对模板的支持并不严谨，没有引入新的关键字，而是用 class 来指明类型参数，但是 class 关键字本来已经用在类的定义中了，这样做显得不太友好，所以后来 C++ 又引入了一个新的关键字 typename，专门用来定义类型参数。不过至今仍然有很多代码在使用 class 关键字，包括 C++ 标准库、一些开源程序等。 ### C++类模板5分钟入门教程 一但声明了类模板，就可以<strong>将类型参数用于</strong>类的<strong>成员函数</strong>和<strong>成员变量</strong>了。换句话说，原来使用 int、float、char 等内置类型的地方，都可以用类型参数来代替。 模板类声明：</p>
+<pre><code>template&lt;typename T1, typename T2&gt; //这里不能有分号
+class Point{
+public:
+    Point(T1 x, T2 y): m_x(x), m_y(y){ }
+public:
+    T1 getX() const; //获取x坐标
+    void setX(T1 x); //设置x坐标
+    T2 getY() const; //获取y坐标
+    void setY(T2 y); //设置y坐标
+private:
+    T1 m_x; //x坐标
+    T2 m_y; //y坐标
+};</code></pre>
+<p>模板类方法定义：</p>
+<pre><code>template&lt;typename T1, typename T2&gt; //模板头
+T1 Point&lt;T1, T2&gt;::getX() const /*函数头*/ {
+    return m_x;
+}</code></pre>
+<p>注意:<strong>类名后面也要带上类型参数，只是不加typename关键字了</strong>。</p>
+<p>使用类模板创建对象：</p>
+<pre><code>Point&lt;int, int&gt; p1(10, 20);
+Point&lt;int, float&gt; p2(10, 15.5);
+Point&lt;float, float&gt; *p1 = new Point&lt;float, float&gt;(10.6, 109.3);
+Point&lt;char*, char*&gt; *p = new Point&lt;char*, char*&gt;(&quot;东经180度&quot;, &quot;北纬210度&quot;);</code></pre>
+<p>与函数模板不同的是，类模板在实例化时<strong>必须显式地指明数据类型</strong>，编译器不能根据给定的数据推演出数据类型。</p>
+<h3 id="大话c模板编程的来龙去脉"> 大话C++模板编程的来龙去脉</h3>
+<p>计算机编程语言种类繁多，这些编程语言根据不同的标准可以分为不同的种类，根据“在定义变量时是否需要显式地指明数据类型”可以分为<strong>强类型语言</strong>和<strong>弱类型语言</strong>。 对于强类型的语言，变量的类型从始至终都是确定的、不变的，编译器在编译期间就能检测某个变量的操作是否正确，这样最终生成的程序中就<strong>不用再维护一套类型信息了</strong>，从而减少了内存的使用，加快了程序的运行。 不过这种说法也不是绝对的，有些特殊情况还是要等到运行阶段才能确定变量的类型信息。比如 C++ 中的多态，编译器在编译阶段会在对象内存模型中增加虚函数表、type_info 对象等辅助信息，以维护一个完整的继承链，等到程序运行后再执行一段代码才能确定调用哪个函数 对于弱类型的语言，变量的类型可以随时改变，赋予它什么类型的数据它就是什么类型，编译器在编译期间不好确定变量的类型，只有等到程序运行后、真的赋给变量一个值了，才能确定变量当前是什么类型，所以<strong>传统的编译对弱类型语言意义不大</strong>，因为<strong>即使编译了也有很多东西确定不下来</strong>。 我们将这种一边执行一边编译的语言称为<strong>解释型语言</strong>，而将传统的先编译后执行的语言称为<strong>编译型语言</strong>。 <strong>强类型语言</strong>较为严谨，在编译时就能发现很多错误，适合开发大型的、系统级的、工业级的项目； 而<strong>弱类型语言</strong>较为灵活，编码效率高，部署容易，学习成本低，在 Web 开发中大显身手。另外，强类型语言的 IDE 一般都比较强大，代码感知能力好，提示信息丰富；而弱类型语言一般都是在编辑器中直接书写代码。</p>
+<p>C++ 模板也是被迫推出的，最直接的动力来源于<strong>对数据结构的封装</strong>。数据结构关注的是数据的存储，以及存储后如何进行增加、删除、修改和查询操作，它是一门基础性的学科，在实际开发中有着非常广泛的应用。C++ 开发者们希望为线性表、链表、图、树等常见的数据结构都定义一个类，并把它们加入到标准库中，这样以后程序员就不用重复造轮子了，直接拿来使用即可。 但是这个时候遇到了一个无法解决的问题，就是数据结构中每份数据的类型无法提前预测。以链表为例，它的每个节点可以用来存储小数、整数、字符串等，也可以用来存储一名学生、教师、司机等，还可以直接存储二进制数据，这些都是可以的，没有任何限制。而 C++ 又是强类型的，数据的种类受到了严格的限制，这种矛盾是无法调和的，于是模板就诞生了。模板虽然不是 C++ 的首创，但是却在 C++ 中大放异彩，后来也被 Java、C# 等其他强类型语言采用。</p>
+<h3 id="c函数模板的重载"> C++函数模板的重载</h3>
+<pre><code>template&lt;class T&gt; void Swap(T &amp;a, T &amp;b); //模板①：交换基本类型的值
+template&lt;typename T&gt; void Swap(T a[], T b[], int len); //模板②：交换两个数组,注意：最后一个参数可以是非泛型的</code></pre>
+<h3 id="c函数模板的实参推断"> C++函数模板的实参推断</h3>
+<h4 id="类型转换"> 类型转换</h4>
+<p>对于非模板函数，发生函数调用时<strong>会对实参的类型进行适当的转换</strong>，以适应形参的类型。这些转换包括： <em> 算数转换：例如 int 转换为 float，char 转换为 int，double 转换为 int 等。 </em> 派生类向基类的转换：也就是向上转型 <em> const 转换：也即将非 const 类型转换为 const 类型，例如将 <code>char *</code> 转换为 <code>const char *</code>。 </em> 数组或函数指针转换：如数组名会转换为数组指针，函数名也会转换为函数指针。 * 用户自定的类型转换。</p>
+<p>而对于函数模板，类型转换则受到了更多的限制，仅能进行<strong>「const 转换」和「数组或函数指针转换」</strong></p>
+<h4 id="为函数模板显式地指明实参也就是具体的类型"> 为函数模板显式地指明实参（也就是具体的类型）</h4>
+<p>函数模板的实参推断是指「在函数调用过程中根据实参的类型来寻找类型参数的具体类型」的过程，这在大部分情况下是奏效的，但是当函数参数少于类型参数时。 下面是一个实参推断失败的例子：</p>
+<pre><code>template&lt;typename T1, typename T2&gt; void func(T1 a){
+    T2 b;
+}
+func(10); //函数调用</code></pre>
+<p>「为函数模板显式地指明实参」和「为类模板显式地指明实参」的形式是类似的，就是在<strong>函数名后面添加尖括号<code>&lt; &gt;</code></strong>，里面包含具体的类型。</p>
+<pre><code>func&lt;int, int&gt;(10);</code></pre>
+<h4 id="显式地指明实参时可以应用正常的类型转换"> 显式地指明实参时可以应用正常的类型转换</h4>
+<p>上面我们提到，函数模板仅能进行「const 转换」和「数组或函数指针转换」两种形式的类型转换，但是当我们显式地指明类型参数的实参（具体类型）时，就可以使用正常的类型转换（非模板函数可以使用的类型转换）了。 例如对于下面的函数模板：</p>
+<pre><code>template&lt;typename T&gt; void func(T a, T b);</code></pre>
+<p>它的具体调用形式如下：</p>
+<pre><code>func(10, 23.5); //Error
+func&lt;float&gt;(20, 93.7); //Correct</code></pre>
+<p>显示的指明模板的实参是个好习惯。</p>
+<h3 id="c模板的显式具体化特化"> C++模板的显式具体化(特化)</h3>
+<p>C++ <strong>没有办法限制类型参数的范围</strong>，我们可以使用任意一种类型来实例化模板。但是模板中的语句（函数体或者类体）不一定就能适应所有的类型，可能会有个别的类型没有意义，或者会导致语法错误。 但是现在我们希望改变这种“游戏规则”，让模板能够<strong>针对某种具体的类型使用不同的算法</strong>（函数体或类体不同），这在 C++ 中是可以做到的，这种技术称为模板的<strong>显示具体化（Explicit Specialization）</strong>。 #### 函数模板的显式具体化(全特化) 语法：1. <code>template&lt;&gt;</code> 2. 其他的类型参数都换成具体类型。</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+typedef struct{
+    string name;
+    int age;
+    float score;
+} STU;
+
+//函数模板
+template&lt;class T&gt; const T&amp; Max(const T&amp; a, const T&amp; b);
+
+//函数模板的显示具体化（针对STU类型的显示具体化）
+template&lt;&gt; const STU&amp; Max&lt;STU&gt;(const STU&amp; a, const STU&amp; b);
+
+//重载&lt;&lt;
+ostream &amp; operator&lt;&lt;(ostream &amp;out, const STU &amp;stu);
+
+int main(){
+    int a = 10;
+    int b = 20;
+    cout&lt;&lt;Max(a, b)&lt;&lt;endl;
+    STU stu1 = { &quot;王明&quot;, 16, 95.5};
+    STU stu2 = { &quot;徐亮&quot;, 17, 90.0};
+    cout&lt;&lt;Max(stu1, stu2)&lt;&lt;endl;
+    return 0;
+}
+template&lt;class T&gt; const T&amp; Max(const T&amp; a, const T&amp; b){
+    return a &gt; b ? a : b;
+}
+template&lt;&gt; const STU&amp; Max&lt;STU&gt;(const STU&amp; a, const STU&amp; b){ //函数模板的显示具体化
+    return a.score &gt; b.score ? a : b;
+}
+ostream &amp; operator&lt;&lt;(ostream &amp;out, const STU &amp;stu){
+    out&lt;&lt;stu.name&lt;&lt;&quot; , &quot;&lt;&lt;stu.age &lt;&lt;&quot; , &quot;&lt;&lt;stu.score;
+    return out;
+}</code></pre>
+<p>在 C++ 中，对于给定的函数名，可以有1.非模板函数、2.模板函数、3.显示具体化模板函数以及它们的重载版本 在调用函数时: 非模板函数 &gt; 显示具体化 &gt; 常规模板</p>
+<h4 id="类模板的显式具体化全特化"> 类模板的显式具体化(全特化)</h4>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+//类模板
+template&lt;class T1, class T2&gt; class Point{
+public:
+    Point(T1 x, T2 y): m_x(x), m_y(y){ }
+public:
+    T1 getX() const{ return m_x; }
+    void setX(T1 x){ m_x = x; }
+    T2 getY() const{ return m_y; }
+    void setY(T2 y){ m_y = y; }
+    void display() const;
+private:
+    T1 m_x;
+    T2 m_y;
+};
+
+template&lt;class T1, class T2&gt; //这里要带上模板头
+void Point&lt;T1, T2&gt;::display() const{
+    cout&lt;&lt;&quot;x=&quot;&lt;&lt;m_x&lt;&lt;&quot;, y=&quot;&lt;&lt;m_y&lt;&lt;endl;
+}
+
+//类模板的显示具体化（针对字符串类型的显示具体化）
+template&lt;&gt; class Point&lt;char*, char*&gt;{
+public:
+    Point(char *x, char *y): m_x(x), m_y(y){ }
+public:
+    char *getX() const{ return m_x; }
+    void setX(char *x){ m_x = x; }
+    char *getY() const{ return m_y; }
+    void setY(char *y){ m_y = y; }
+    void display() const;
+private:
+    char *m_x; //x坐标
+    char *m_y; //y坐标
+};
+//这里不能带模板头template&lt;&gt;
+void Point&lt;char*, char*&gt;::display() const{
+    cout&lt;&lt;&quot;x=&quot;&lt;&lt;m_x&lt;&lt;&quot; | y=&quot;&lt;&lt;m_y&lt;&lt;endl;
+}
+int main(){
+    ( new Point&lt;int, int&gt;(10, 20) ) -&gt; display();
+    ( new Point&lt;int, char*&gt;(10, &quot;东京180度&quot;) ) -&gt; display();
+    ( new Point&lt;char*, char*&gt;(&quot;东京180度&quot;, &quot;北纬210度&quot;) ) -&gt; display();
+    return 0;
+}</code></pre>
+<p>需要定义两套类，一个模板的，一个具体类型的。 #### 部分显式具体化(偏特化) 在上面的显式具体化例子中，我们<strong>为所有的类型参数都提供了实参</strong>，所以最后的模板头为空，也即template&lt;&gt;。另外 C++ 还允许只为一部分类型参数提供实参，这称为部分显式具体化。 部分显式具体化只能用于类模板，不能用于函数模板。 此种方法依然是重写一套类，只不过类中可以部分的是类型参数。</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+//类模板
+template&lt;class T1, class T2&gt; class Point{
+public:
+    Point(T1 x, T2 y): m_x(x), m_y(y){ }
+public:
+    T1 getX() const{ return m_x; }
+    void setX(T1 x){ m_x = x; }
+    T2 getY() const{ return m_y; }
+    void setY(T2 y){ m_y = y; }
+    void display() const;
+private:
+    T1 m_x;
+    T2 m_y;
+};
+template&lt;class T1, class T2&gt; //这里需要带上模板头
+void Point&lt;T1, T2&gt;::display() const{
+    cout&lt;&lt;&quot;x=&quot;&lt;&lt;m_x&lt;&lt;&quot;, y=&quot;&lt;&lt;m_y&lt;&lt;endl;
+}
+//类模板的部分显示具体化
+template&lt;typename T2&gt; class Point&lt;char*, T2&gt;{
+public:
+    Point(char *x, T2 y): m_x(x), m_y(y){ }
+public:
+    char *getX() const{ return m_x; }
+    void setX(char *x){ m_x = x; }
+    T2 getY() const{ return m_y; }
+    void setY(T2 y){ m_y = y; }
+    void display() const;
+private:
+    char *m_x; //x坐标
+    T2 m_y; //y坐标
+};
+template&lt;typename T2&gt; //这里需要带上模板头
+void Point&lt;char*, T2&gt;::display() const{
+    cout&lt;&lt;&quot;x=&quot;&lt;&lt;m_x&lt;&lt;&quot; | y=&quot;&lt;&lt;m_y&lt;&lt;endl;
+}</code></pre>
+<h3 id="c模板中的非类型参数"> C++模板中的非类型参数</h3>
+<p>模板是一种泛型技术，目的是将数据的类型参数化，以增强 C++ 语言（强类型语言）的灵活性。C++ 对模板的支持非常自由，模板中除了可以包含类型参数，还可以包含<strong>非类型参数</strong>，例如：</p>
+<pre><code>template&lt;typename T, int N&gt; class Demo{ };
+template&lt;class T, int N&gt; void func(T (&amp;arr)[N]);</code></pre>
+<h4 id="在函数模板中使用非类型参数"> 在函数模板中使用非类型参数</h4>
+<p><code>template&lt;typename T&gt; void Swap(T a[], T b[], int len);</code> 多出来的形参 len 给编码带来了不便，我们可以借助模板中的非类型参数将它消除。</p>
+<pre><code>template&lt;typename T, unsigned N&gt; void Swap(T (&amp;a)[N], T (&amp;b)[N]){
+    T temp;
+    for(int i=0; i&lt;N; i++){
+        temp = a[i];
+        a[i] = b[i];
+        b[i] = temp;
+    }
+}
+//调用
+int a[5] = { 1, 2, 3, 4, 5 };
+int b[5] = { 10, 20, 30, 40, 50 };
+Swap(a, b);</code></pre>
+<p><code>T (&amp;a)[N]</code>表明 a 是一个引用，它引用的数据的类型是<code>T [N]</code>，也即一个数组；分析一个引用和分析一个指针的方法类似，编译器总是从它的名字开始读取，然后<strong>按照优先级顺序依次解析</strong></p>
+<h4 id="在类模板中使用非类型参数"> 在类模板中使用非类型参数</h4>
+<p>以动态数组为例讲解</p>
+<pre><code>template&lt;typename T, int N&gt;
+Array&lt;T, N&gt;::Array(){
+    m_p = new T[N];
+    m_capacity = m_length = N;
+}</code></pre>
+<p>Array 是一个类模板，它有一个类型参数T和一个非类型参数N，<code>T</code> 指明了数组元素的类型，<code>N</code> 指明了数组长度。</p>
+<h3 id="c模板的实例化"> C++模板的实例化</h3>
+<p>模板（Templet）并不是真正的函数或类，它仅仅是编译器用来生成函数或类的一个模板。<strong>模板不会占用内存</strong>，最终生成的函数或者类才会占用内存。由模板生成函数或类的过程叫做<strong>模板的实例化（Instantiate）</strong>，相应地，针对某个类型生成的特定版本的函数或类叫做<strong>模板的一个实例</strong>（Instantiation）。 编译器会帮助我们自动地生成这些代码。从这个角度理解，模板也可以看做是编译器的一组指令，它命令编译器生成我们想要的代码。 模板的实例化是<strong>按需进行的</strong>，用到哪个类型就生成针对哪个类型的函数或类，不会提前生成过多的代码。也就是说，编译器会根据传递给类型参数的实参（也可以是编译器自己推演出来的实参）来生成一个特定版本的函数或类，并且相同的类型只生成一次。实例化的过程也很简单，就是将所有的类型参数用实参代替。 另外需要注意的是类模板的实例化，通过类模板创建对象时并<strong>不会实例化所有的成员函数</strong>，只有等到真正调用它们时才会被实例化；如果一个成员函数永远不会被调用，那它就永远不会被实例化。这说明类的实例化是延迟的、局部的，编译器并不着急生成所有的代码。 通过类模板创建对象时，一般只需要实例化<strong>成员变量</strong>和<strong>构造函数</strong>。成员变量被实例化后就能够知道对象的大小了（占用的字节数），构造函数被实例化后就能够知道如何初始化了；对象的创建过程就是分配一块大小已知的内存，并对这块内存进行初始化。</p>
+<h3 id="将c模板应用于多文件编程"> 将C++模板应用于多文件编程</h3>
+<p>将类的声明和类的实现分别放到头文件和源文件中。类的声明已经包含了所有成员变量的定义和所有成员函数的声明（也可以是 inline 形式的定义），这样就知道如何创建对象了，也知道如何调用成员函数了，只是还不能将函数调用与函数实现对应起来，但是这又有什么关系呢，反正链接器可以帮助我们完成这项工作。 不管是函数还是类，声明和定义（实现）的分离其实是一回事，都是将函数定义放到其他文件中，最终要解决的问题也只有一个，就是把<strong>函数调用和函数定义对应起来</strong>（找到函数定义的地址，并填充到函数调用处），而保证完成这项工作的就是<strong>链接器</strong>。 基于传统的编程思维，初学者往往也会将模板（函数模板和类模板）的声明和定义分散到不同的文件中，以期达到「模块化编程」的目的。但事实证明这种做法是不对的，程序员惯用的做法是<strong>将模板的声明和定义都放到头文件中</strong>。 <strong>模板并不是真正的函数或类</strong>，它仅仅是用来生成函数或类的一张“图纸”，在这个生成过程中有三点需要明确： <em> 模板的实例化是按需进行的，用到哪个类型就生成针对哪个类型的函数或类，不会提前生成过多的代码； </em> 模板的实例化是由<strong>编译器</strong>完成的，而不是由<strong>链接器</strong>完成的； * 在实例化过程中需要知道<strong>模板的所有细节，包含声明和定义</strong>(如果只包含声明的话，也即只包含头文件的话，由于没有定义而不会生成所需的方法)</p>
+<h3 id="c模板的显式实例化"> C++模板的显式实例化</h3>
+<p>前面讲到的模板的实例化是在<strong>调用函数</strong>或者<strong>创建对象</strong>时由编译器自动完成的，因此称为<strong>隐式实例化</strong>。 相对应的，我们也可以通过代码明确地告诉编译器需要针对哪个类型进行实例化，这称为<strong>显式实例化</strong>。</p>
+<p>编译器在实例化的过程中需要知道模板的所有细节：对于函数模板，也就是函数定义；对于类模板，需要同时知道类声明和类定义。我们必须将显式实例化的代码放在包含了模板定义的源文件中，这样编译器在编译时会在当前的<code>.o</code>w文件中生成实例化后的代码</p>
+<p>显式实例化的一个好处是：<strong>可以将模板的声明和定义（实现）分散到不同的文件中了</strong>。 #### 函数模板的显式实例化</p>
+<pre><code>template void Swap(double &amp;a, double &amp;b); // //显式实例化定义</code></pre>
+<p>这条语言由两部分组成，前边是一个template关键字（后面不带&lt; &gt;），后面是一个普通的函数原型。 显式实例化也包括声明和定义，定义要放在模板定义（实现）所在的源文件，声明要放在模板声明所在的头文件（当然也可以不写）。</p>
+<h4 id="类模板的显式实例化"> 类模板的显式实例化</h4>
+<p>类模板的显式实例化和函数模板类似。以上节的 Point 类为例，针对<code>char*</code>类型的显式实例化（定义形式）代码为： <code>template class Point&lt;char*, char*&gt;;</code> 相应地，它的声明形式为： <code>extern template class Point&lt;char*, char*&gt;;</code> 不管是声明还是定义，都要带上class关键字，以表明这是针对类模板的。 另外需要注意的是，显式实例化一个类模板时，会一次性<strong>实例化该类的所有成员</strong>，包括成员变量和成员函数。</p>
+<h4 id="显式实例化的缺陷"> 显式实例化的缺陷</h4>
+<p>1. C++ 支持显式实例化的目的是为<strong>模块化编程</strong>提供一种解决方案，这种方案虽然有效，但是也有明显的缺陷：程序员必须要在模板的定义文件（实现文件）中对所有使用到的类型进行实例化。这就意味着，每次更改了模板使用文件（调用函数模板的文件，或者通过类模板创建对象的文件），<strong>也要相应地更改模板定义文件</strong>，以增加对新类型的实例化，或者删除无用类型的实例化。 2. 而对于库的开发者来说，他不能提前假设用户会使用哪些类型，所以根本就无法使用显式实例化，只能将模板的声明和定义（实现）全部放到头文件中；C++标准库几乎都是用模板来实现的，这些模板的代码也都位于头文件中。 总起来说，如果我们开发的模板<strong>只有我们自己使用</strong>，那也可以勉强使用显式实例化；如果希望让其他人使用（例如库、组件等），那只能将模板的声明和定义都放到头文件中了。</p>
+<h3 id="c类模板与继承详解"> C++类模板与继承详解</h3>
+<p>类模板和类模板之间、类模板和类之间可以互相继承。它们之间的派生关系有以下四种情况。 #### 1. 类模板从类模板派生 派生的类模板实例化的时候，编译器会自动生成其基类模板的模板类和派生类模板的模板类。 #### 2. 类模板从模板类派生 派生的类模板实例化的时候，编译器会自动生成其基类的模板类和派生类的模板类。 #### 3. 类模板从普通类派生 #### 4. 普通类从模板类派生</p>
+<pre><code>template &lt;class T&gt;
+class A{ T v1; int n; };
+class B: public A &lt;int&gt; { double v; };
+int main() { B obj1; return 0; }</code></pre>
+<h3 id="c类模板与友元详解"> C++类模板与友元详解</h3>
+<h4 id="函数类类的成员函数作为类模板的友元"> 1. 函数、类、类的成员函数作为 类模板 的友元</h4>
+<h4 id="函数模板作为类模板的友元"> 2. 函数模板作为类模板的友元</h4>
+<p>比如全局的输入输出重载运算符做类的有元 #### 3. 函数模板作为类的友元 最终生成的只是具体的模板函数 #### 4. 类模板作为类模板的友元</p>
+<h3 id="c类模板中的静态成员"> C++类模板中的静态成员</h3>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+template &lt;class T&gt;
+class A
+{
+private:
+    static int count;
+public:
+    A() { count ++; }
+    ~A() { count -- ; };
+    A(A &amp;) { count ++ ; }
+    static void PrintCount() { cout &lt;&lt; count &lt;&lt; endl; }
+};
+template&lt;&gt; int A&lt;int&gt;::count = 0; //初始化，对静态成员变量在类外部加以声明是必需的
+template&lt;&gt; int A&lt;double&gt;::count = 0; //初始化
+int main()
+{
+    A&lt;int&gt; ia;
+    A&lt;double&gt; da;
+    ia.PrintCount();
+    da.PrintCount();
+    return 0;
+}</code></pre>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<div id="header">
+    <p class="header_titleline">忧郁的大能猫的博客</p>
+    <p class="header_subline"><a href="/index.html">首页</a></p>
+</div>
+
+
+ <!--if(title)-->
+
+<p>目录:</p>
+<div id="TOC">
+<ul>
+<li><a href="#glob"> glob  </a></li>
+<li><a href="#system"> system</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h3 id="glob"> glob  </h3>
+<p>函数查找匹配指定模式的文件名或目录。功能强大</p>
+<pre><code>#include &lt;glob.h&gt;
+int glob(const char *pattern, int flags,int errfunc(const char *epath, int eerrno),glob_t *pglob);</code></pre>
+<h3 id="system"> system</h3>
+<p>属于stdlib.h中的，linux下，system（）会调用fork（）产生子进程，由子进程来用exec调用/bin/sh -c string来执行参数string字符串所代表的命令，此命令执行完后随即返回原调用的进程</p>
+<pre><code>system(&quot;start notepad&quot;);   多个进程的打开(异步的打开)
+system(&quot;notepad&quot;) 单个的打开(同步的打开)
+
+system(&quot;pause&quot;);      cmd窗口的停止
+system(&quot;explorer.exe  C:\\Program Files&quot;); 打开资源管理器并进入相应的目录</code></pre>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

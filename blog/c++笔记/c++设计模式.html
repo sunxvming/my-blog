@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<div id="header">
+    <p class="header_titleline">忧郁的大能猫的博客</p>
+    <p class="header_subline"><a href="/index.html">首页</a></p>
+</div>
+
+
+ <!--if(title)-->
+
+<p>目录:</p>
+<div id="TOC">
+<ul>
+<li><a href="#pimpl"> Pimpl</a></li>
+<li><a href="#创建型模式"> 创建型模式</a></li>
+<li><a href="#结构型模式"> 结构型模式</a><ul>
+<li><a href="#适配器模式"> 适配器模式</a></li>
+<li><a href="#外观模式"> 外观模式</a></li>
+<li><a href="#代理模式"> 代理模式</a></li>
+</ul></li>
+<li><a href="#行为模式"> 行为模式</a><ul>
+<li><a href="#责任链命令"> 责任链&amp;&amp;命令</a></li>
+<li><a href="#策略模式"> 策略模式</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="pimpl"> Pimpl</h2>
+<p>Pimpl是“pointer to implementation”的缩写，意为指向实现的指针。Pimpl是针对C++的设计模式，它将所有的私有数据成员、私有成员函数隔离到一个.cpp文件中独立实现的类或结构体内，在.h中仅需要包含指向该类实例的不透明指针（opaque pointer）即可。 好处：1.接口和实现完全分离 2.修改实现文件，使用的地方不用重新编译</p>
+<pre><code>class AutoTimer
+{
+public:
+    explicit AutoTimer(const std::string &amp;name);
+    ~AutoTimer();
+private:
+    class Impl;
+    Impl *pmImpl;
+};</code></pre>
+<h2 id="创建型模式"> 创建型模式</h2>
+<p>* 工厂模式 对 new 的封装”，make_unique()、make_shared() 这两个函数，就是工厂模式的具体应用</p>
+<h2 id="结构型模式"> 结构型模式</h2>
+<p>它关注的是对象的<strong>静态联系</strong>，以灵活、可拆卸、可装配的方式组合出新的对象。 结构型模式一共有 7 个，其中，我觉得在 C++ 里比较有用、常用的是适配器、外观和代理。</p>
+<h3 id="适配器模式"> 适配器模式</h3>
+<p>适配器模式的目的是<strong>接口转换</strong>，不需要修改源码，就能够把一个对象转换成可以在本系统中使用的形式 适配器模式在 C++ 里多出现在有第三方库或者外部接口的时候，通常这些接口不会恰好符合我们自己的系统，功能很好，但不能直接用，想改源码很难，甚至是不可能的。所以，就需要用适配器模式给“适配”一下，让外部工具能够“match”我们的系统，而两边都不需要变动，“皆大欢喜”。 标准库中的容器 array 就是一个适配器，适配c/c++的原生数组，包装了 c/c++ 的原生数组，转换成了容器的形式，让<strong>裸内存数据</strong>也可以接入标准库的泛型体系。</p>
+<pre><code>array&lt;int, 5&gt; arr = {0,1,2,3,4};
+auto b = begin(arr);
+auto e = end(arr);
+for_each(b, e, [](int x){...});</code></pre>
+<h3 id="外观模式"> 外观模式</h3>
+<p>再来看外观模式，它封装了一组对象，目的是简化这组对象的通信关系，提供一个高层次的易用接口，让外部用户更容易使用，降低系统的复杂度。 外观模式的特点是<strong>内部会操作很多对象</strong>，然后对外表现成一个对象。使用它的话，你就可以不用“事必躬亲”了，只要发一个指令，后面的杂事就都由它代劳了，就像是一个“大管家”。 不过要注意，外观模式并不绝对控制、屏蔽内部包装的那些对象。如果你觉得外观不好用，完全可以越过它，自己“深入基层”，去实现外观没有提供的功能。 <code>async()</code> 就是外观模式的一个例子，它封装了线程的创建、调度等细节，用起来很简单，但也不排斥你直接使用 thread、mutex 等底层线程工具。</p>
+<pre><code>auto f = std::async([](){...});
+f.wait();</code></pre>
+<h3 id="代理模式"> 代理模式</h3>
+<p>它和适配器有点像，都是包装一个对象，但关键在于它们的目的、意图有差异：不是为了适配插入系统，而是要“控制”对象，不允许外部直接与内部对象通信，所以叫作“代理”。 代理模式的应用非常广泛，如果你想限制、屏蔽、隐藏、增强或者优化一个类，就可以使用代理。这样，客户代码看到的只是代理对象，不知道原始对象（被代理的对象）是什么样， 只能用代理对象给出的接口，这样就实现了控制的目的。 代理在 C++ 里的一个典型应用就是<strong>智能指针</strong>，它接管了原始指针，限制了某些危险操作，并且添加了自动生命周期管理，虽然少了些自由，但获得了更多的安全。</p>
+<h2 id="行为模式"> 行为模式</h2>
+<p>行为模式，它描述了对象之间动态的<strong>消息传递</strong>，也就是对象的“行为”、工作的方式。 因为行为模式都是在运行时才建立联系，所以通常都很复杂，不太好理解对象之间的关系和通信机制。 我觉得比较难用，或者说是要尽量避免使用的模式有解释器和中介者，它们的结构比较难懂，会增加系统的复杂度。而比较容易理解、容易使用的有<strong>职责链、命令和策略</strong>，所以我重点说说它们。</p>
+<h3 id="责任链命令"> 责任链&amp;&amp;命令</h3>
+<p>职责链和命令这两个模式经常联合起来使用。职责链把多个对象串成一个“链条”，让链条 里的每个对象都有机会去处理请求。而请求通常使用的是命令模式，把相关的数据打包成一 个对象，解耦请求的发送方和接收方。 其实，你仔细想一下就会发现，C++ 的异常处理机制（  第 9 讲）就是“职责链 + 命 令”的一个实际应用。 在异常处理的过程中，异常类 exception 就是一个命令对象，throw 抛出异常就是发起了 一个请求处理流程。而一系列的 try-catch 块就构成了处理异常的职责链，异常会自下而上 地走过函数调用栈——也就是职责链，直到在链条中找到一个能够处理的 catch 块。</p>
+<h3 id="策略模式"> 策略模式</h3>
+<p>策略模式的要点是“策略”这两个字，它封装了不同的算法，可以在运行的时候灵活地互相 替换，从而在外部“非侵入”地改变系统的行为内核。 策略模式有点像装饰模式和状态模式，你可不要弄混了。跟它们相比，策略模式的的特点是 不会改变类的外部表现和内部状态，只是动态替换一个很小的算法功能模块。 前面讲过的容器和算法用到的<strong>比较函数</strong>、<strong>散列函数</strong>，还有 <strong>for_each</strong> 算法里的 lambda 表达 式，它们都可以算是策略模式的具体应用。 另外，策略模式也非常适合应用在有 if-else/switch-case 这样“分支决策”的代码里，你 可以把每个分支逻辑都封装成类或者 lambda 表达式，再把它们存进容器，让容器来帮你 查找最合适的处理策略。</p>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

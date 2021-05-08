@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<div id="header">
+    <p class="header_titleline">忧郁的大能猫的博客</p>
+    <p class="header_subline"><a href="/index.html">首页</a></p>
+</div>
+
+
+ <!--if(title)-->
+
+<p>目录:</p>
+<div id="TOC">
+<ul>
+<li><a href="#单个对象的内存模型"> 单个对象的内存模型</a></li>
+<li><a href="#继承时的对象内存模型"> 继承时的对象内存模型</a></li>
+<li><a href="#多继承时的对象内存模型"> 多继承时的对象内存模型</a></li>
+<li><a href="#c虚继承下的内存模型"> C++虚继承下的内存模型</a><ul>
+<li><a href="#虚基类指针方式cfront解决方案"> 1.虚基类指针方式（cfront解决方案）</a></li>
+<li><a href="#虚基类表方式vc解决方案"> 2.虚基类表方式（VC解决方案）</a></li>
+</ul></li>
+<li><a href="#多态下对象内存模型">  多态下对象内存模型</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="单个对象的内存模型"> 单个对象的内存模型</h2>
+<p>对象所占用的存储空间的大小等于各成员变量所占用的存储空间的大小之和（如果不考虑成员变量对齐问题的话）。 对象的大小只受<strong>成员变量的影响</strong>，和成员函数没有关系。成员函数放在代码区。 和结构体非常类似，对象也会有内存对齐的问题 static 成员变量和普通 static 变量一样，都在内存分区中的<strong>全局数据区</strong>分配内存，<strong>到程序结束时才释放</strong>。 这就意味着，static 成员变量不随对象的创建而分配内存，也不随对象的销毁而释放内存。 静态成员变量必须初始化，而且只能在类体外进行</p>
+<h2 id="继承时的对象内存模型"> 继承时的对象内存模型</h2>
+<p>有继承关系时，派生类的内存模型可以看成是基类成员变量和新增成员变量的总和,而所有成员函数仍然存储在另外一个区域——代码区，由所有对象共享。 <strong>成员变量按照派生的层级依次排列，新增成员变量始终在最后</strong>,当基类的成员变量被<strong>遮蔽</strong>时，仍然会留在派生类对象的内存中。 在派生类的对象模型中，会包含所有基类的成员变量。这种设计方案的优点是访问效率高，能够在派生类对象中直接访问基类变量，无需经过好几层间接计算。 A类的m_b 和 B类的m_c，被C类给遮蔽了。如果访问A类的m_b成员，得加上作用域符号  A::m_b</p>
+<div class="figure">
+<img src="index_files/c752a8ae-7417-4d5c-8f66-49ec0771045e.png" />
+</div>
+<h2 id="多继承时的对象内存模型"> 多继承时的对象内存模型</h2>
+<p>基类对象的排列顺序和继承时声明的顺序相同。 class C: public A, public B{ } 的示意图： <img src="index_files/4ee0fb3d-c2aa-44b8-a21b-dd52a7222f69.png" /></p>
+<h2 id="c虚继承下的内存模型"> C++虚继承下的内存模型</h2>
+<p>编译器在知道对象首地址的情况下，通过计算偏移来存取成员变量。对于普通继承，基类成员变量的偏移是固定的，不会随着继承层级的增加而改变，存取起来非常方便。</p>
+<p>而对于虚继承，恰恰和普通继承相反，大部分编译器会把基类成员变量放在<strong>派生类成员变量的后面</strong>，这样随着继承层级的增加，<strong>基类成员变量的偏移</strong>就会改变，就得通过其他方案来计算偏移量。</p>
+<p>虚继承时的派生类对象被分成了两部分： <em> 偏移量不会随着继承层次的增加而改变，称为<strong>固定部分</strong>； </em> 偏移量会随着继承层次的增加而改变(虚继承，基类成员变量放在派生类成员变量的后面)，称为<strong>共享部分</strong>。</p>
+<p>当要访问对象的成员变量时，需要知道对象的首地址和变量的偏移，对象的首地址很好获得，关键是变量的偏移。 对于固定部分，偏移是不变的，很好计算； 而对于共享部分，偏移会随着继承层次的增加而改变，这就需要设计一种方案，在<strong>偏移不断变化的过程中准确地计算偏移</strong>。 各个编译器正是在设计这一方案时出现了分歧，<strong>不同的编译器</strong>设计了不同的方案来计算<strong>共享部分的偏移</strong>。 &gt; 对于虚继承，将派生类分为固定部分和共享部分，并把共享部分放在最后，几乎所有的编译器都在这一点上达成了共识。主要的<strong>分歧就是如何计算共享部分的偏移</strong>，可谓是百花齐放，没有统一标准。</p>
+<p><strong>共享部分放在最后原因？</strong> 虚基类的成员的处理方式不同，比如菱形继承只有一份会继承，那如何单独处理只保留一份虚继承的数据呢，放在对象之后，编译器就会根据后面的虚继承的成员单从而去重，以达到只保留一份虚基类的数据。</p>
+<p>假设 A 是 B 的虚基类，B 又是 C 的虚基类，那么各个对象的内存模型如下图所示： <img src="index_files/f5d8b96f-589e-4e5d-bf6e-d6f96234bf8b.png" /></p>
+<h3 id="虚基类指针方式cfront解决方案"> 1.虚基类指针方式（cfront解决方案）</h3>
+<p>早期的 cfront 编译器会在派生类对象中安插一些指针，每个指针指向一个虚基类的子对象，要存取继承来的成员变量，可以使用指针间接完成。 其<strong>实质</strong>是增加一个指向虚基类的指针作为虚派生类的一个成员。 1. A 是 B 的虚基类 <img src="index_files/ba5e436d-f457-49bb-97f9-2b63b55b5dd9.jpg" /></p>
+<p>2. A 是 B 的虚基类，同时 B 也是 C 的虚基类 <img src="index_files/8016efb8-cf0a-42e3-92f3-9e767b89dcb3.jpg" /></p>
+<p>3. 假设 A、B、C、D 类的继承关系为 <img src="index_files/19d3018c-3dd5-49a9-8ea1-72fe3cb50d97.jpg" /> 内存模型为： <img src="index_files/dd19304c-5eae-4cbc-8621-425ce0894b0a.jpg" /></p>
+<p>缺点: <em> 随着虚继承层次的增加，访问顶层基类需要的间接转换会越来越多，效率越来越低。 </em> 当有多个虚基类时，派生类要为每个虚基类都安插一个指针，会增加对象的体积。</p>
+<h3 id="虚基类表方式vc解决方案"> 2.虚基类表方式（VC解决方案）</h3>
+<p>VC 引入了<strong>虚基类表</strong>，如果某个派生类有一个或多个虚基类，编译器就会在派生类对象中安插一个指针，指向虚基类表。虚基类表其实就是一个数组，数组中的元素存放的是各个虚基类的偏移。 其<strong>实质</strong>是增加一个指向虚基类的指针的数组(虚基类表)，然后派生类再指向这个虚基类表。 1. A 是 B 的虚基类 <img src="index_files/10a51de7-d47b-44c5-a658-b46ec4b1c85d.png" /> 2. A 是 B 的虚基类，同时 B 又是 C 的虚基类 <img src="index_files/9e50e19f-de91-4eb5-a525-7e85ffc42966.png" /> 3.  A、B、C、D 类的继承关系为 <img src="index_files/749b1ae8-75c4-461f-a1fe-02414f47b06b.jpg" /> 内存模型为： <img src="index_files/052fb5f6-48b7-4b23-b6af-eabea6567681.jpg" /></p>
+<h2 id="多态下对象内存模型">  多态下对象内存模型</h2>
+<p><em> <strong>如果一个类包含了虚函数，那么在创建该类的对象时就会额外地增加一个数组，数组中的每一个元素都是虚函数的入口地址</strong>。不过数组和对象是<strong>分开存储</strong>的，为了将对象和数组关联起来，编译器还要在对象中安插一个指针，指向数组的起始位置。这里的数组就是<strong>虚函数表</strong>（Virtual function table），简写为<code>vtable</code> </em> 在对象的开头位置有一个指针 <code>vfptr</code>，指向虚函数表，并且这个指针始终位于<strong>对象的开头位置</strong>。 * 基类的虚函数在 vtable 中的索引是固定的，不会随着继承层次的增加而改变，派生类新增的虚函数放在 vtable 的最后。如果派生类有同名的虚函数遮蔽（覆盖）了基类的虚函数，那么将使用派生类的虚函数<strong>替换</strong>基类的虚函数(<strong>这就是多态的原因</strong>)。</p>
+<div class="figure">
+<img src="index_files/e1db42a8-f727-43e5-8bba-ca507aa05efb.png" />
+</div>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<div id="header">
+    <p class="header_titleline">忧郁的大能猫的博客</p>
+    <p class="header_subline"><a href="/index.html">首页</a></p>
+</div>
+
+
+ <!--if(title)-->
+
+<p>目录:</p>
+<div id="TOC">
+<ul>
+<li><a href="#网络编程基础"> 网络编程基础</a><ul>
+<li><a href="#bind函数"> bind函数</a></li>
+<li><a href="#网络字节序"> 网络字节序</a></li>
+<li><a href="#网络地址的初始化与分配"> 网络地址的初始化与分配</a></li>
+<li><a href="#改变和更改文件属性的办法"> 改变和更改文件属性的办法</a></li>
+<li><a href="#域名及网络地址"> 域名及网络地址</a></li>
+<li><a href="#tcp和udp"> TCP和UDP</a></li>
+<li><a href="#tcp版代码示例"> TCP版代码示例</a></li>
+<li><a href="#udp版代码示例"> UDP版代码示例</a></li>
+</ul></li>
+<li><a href="#常见网络编程模式"> 常见网络编程模式</a><ul>
+<li><a href="#每次只处理一个连接"> 1.每次只处理一个连接</a></li>
+<li><a href="#多进程版每个连接分配一个进程"> 2.多进程版，每个连接分配一个进程</a></li>
+<li><a href="#多线程版每个连接分配一个线程"> 3.多线程版，每个连接分配一个线程</a></li>
+<li><a href="#io多路复用版"> 4.I/O多路复用版</a></li>
+<li><a href="#proactor和reactor"> 5.Proactor 和 Reactor：</a></li>
+</ul></li>
+<li><a href="#unixdomain"> UNIX Domain</a><ul>
+<li><a href="#unixdomainsocketipc"> UNIX Domain Socket IPC</a></li>
+<li><a href="#af_inet和af_unix区别"> AF_INET 和 AF_UNIX区别</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="网络编程基础"> 网络编程基础</h2>
+<p><strong>套接字是通信端点的抽象</strong>。与文件描述符一样，套接字需要使用套接字描述符。 套接字在Linux上也是通过文件实现的，所以传统的write和read同样适用于套接字。</p>
+<h3 id="bind函数"> bind函数</h3>
+<p><em> 在调用bind函数是，可以指定一个端口号，或指定一个IP地址，也可以两者都指定，还可以都不指定。 如果一个TCP客户或服务器未曾调用bind捆绑一个<strong>端口</strong>，当调用connect或listen时，内核就要为相应的套接字选择一个临时端口。 </em> 进程可以把一个特定的IP地址 捆绑到它的套接字上，不过这个IP地址必须属于其所在主机的网络接口之一。对于TCP客户，这就为在该套接字上发送的IP数据报指派了源IP地址。对于TCP服务器，这就限定该套接字只接受那些目的地为这个IP地址的客户连接。TCP客户通常不bind ip和端口。 * 如果在bind时指定端口号位0，那么内核就在bind被调用时选择一个临时端口。如果指定IP地址为通配地址，那么这台机器上的所有ip都会监听</p>
+<h3 id="网络字节序"> 网络字节序</h3>
+<p>不同的 CPU 中，4 字节整数值1在内存空间保存方式是不同的。 <em> 大端序（Big Endian）：最高有效位放到低地址，低地址存高位 </em> 小端序（Little Endian）：最低有效位放到低地址，低地址存低位</p>
+<p>在通过网络传输数据时必须约定统一的方式，这种约定被称为网络字节序，，统一为大端序。即，先把数据数组转化成大端序格式再进行网络传输。</p>
+<p>帮助转换字节序的函数：</p>
+<pre><code>unsigned short htons(unsigned short);
+unsigned short ntohs(unsigned short);
+unsigned long htonl(unsigned long);
+unsigned long ntohl(unsigned long);</code></pre>
+<p>其中： htons 的 h 代表主机（host）字节序。 htons 的 n 代表网络（network）字节序。 s 代表 short l 代表 long</p>
+<h3 id="网络地址的初始化与分配"> 网络地址的初始化与分配</h3>
+<p>将字符串信息转换为网络字节序的整数型</p>
+<pre><code>#include &lt;arpa/inet.h&gt;
+in_addr_t inet_addr(const char *string);</code></pre>
+<p>inet_aton 函数与 inet_addr 函数在功能上完全相同，也是将字符串形式的IP地址转换成整数型的IP地址。只不过该函数用了 in_addr 结构体，且使用频率更高</p>
+<pre><code>#include &lt;arpa/inet.h&gt;
+int inet_aton(const char *string, struct in_addr *addr);</code></pre>
+<p>还有一个函数，与 inet_aton() 正好相反，它可以把网络字节序整数型IP地址转换成我们熟悉的字符串形式</p>
+<pre><code>#include &lt;arpa/inet.h&gt;
+char *inet_ntoa(struct in_addr adr);</code></pre>
+<h3 id="改变和更改文件属性的办法"> 改变和更改文件属性的办法</h3>
+<p>int opts = fcntl(st, F_GETFL);  opts = opts | O_NONBLOCK;   //设置nobloking fcntl(st, F_SETFL, opts)</p>
+<h3 id="域名及网络地址"> 域名及网络地址</h3>
+<p>利用域名获取IP地址</p>
+<pre><code>#include &lt;netdb.h&gt;
+struct hostent *gethostbyname(const char *hostname);</code></pre>
+<p>利用IP地址获取域名</p>
+<pre><code>#include &lt;netdb.h&gt;
+struct hostent *gethostbyaddr(const char *addr, socklen_t len, int family);</code></pre>
+<h3 id="tcp和udp"> TCP和UDP</h3>
+<p>TCP是面向连接的协议 TCP保证可靠的，保证顺序，不会丢包 TCP需要创建并保持一个连接，给系统带来很大开销。 TCP有流量控制和拥塞控制 TCP数据传输效率低 如果要传输一个重要的数据，丢失一点就会破坏整个数据，那么需要选择TCP</p>
+<p>UDP是无连接协议 UDP没有因接收方没有收到数据包重传而带来开销。 UDP处理的细节比TCP少。 UDP不能保证消息被传送到目的地。 UDP不能保证数据包的传递顺序 UDP需要程序员必须创建代码监测数据包的正确性，必要时重传。 UDP需要程序员必须把大数据包分片。 UDP需要需要程序员额外的做一些工作</p>
+<p>流媒体为了保证很窄的网络带宽来传送更多的数据，基本采用UDP</p>
+<p>一些消息重要程度不高，或者有规律重复，可以使用UDP。 设计用在<strong>局域网</strong>的应用可以采用UDP，因为在<strong>局域网中丢失数据包的可能性很低</strong></p>
+<h3 id="tcp版代码示例"> TCP版代码示例</h3>
+<pre><code>//cliet
+socket = socket(PF_INET,SOCK_STREAM)
+connet(socket, address)
+while(1)
+{
+    write(socket, buf, buf_len)
+    read(socket, buf, buf_len)
+}
+close()</code></pre>
+<pre><code>//server
+s_socket = socket(PF_INET,SOCK_STREAM)
+bind(s_socket,address)
+listen(s_socket,queuelen)
+c_socket = accept(s_socket, client_address)
+while(read(c_socket, buf, buf_len)!=0)
+{
+    write(c_socket, buf, buf_len)
+}
+close(c_socket)
+close(s_socket)</code></pre>
+<h3 id="udp版代码示例"> UDP版代码示例</h3>
+<pre><code>s_socket = socket(PF_INET,SOCK_DGRAM)
+bind(s_socket,address)
+while(1)
+{
+    str_len = recvfrom(s_socket, buf, buf_len, 0, &amp;client_addr, addr_size);
+    sendto(s_socket, buf, buf_len, 0,&amp;client_addr, addr_size);
+}
+close(s_socket)</code></pre>
+<pre><code>sock = socket(PF_INET,SOCK_DGRAM)
+bind(s_socket,address)
+while(1)
+{
+    sendto(sock, buf, buf_len, 0,&amp;client_addr, addr_size);
+    recvfrom(sock, buf, buf_len, 0, &amp;client_addr, addr_size);
+}
+close(sock)</code></pre>
+<h2 id="常见网络编程模式"> 常见网络编程模式</h2>
+<h3 id="每次只处理一个连接"> 1.每次只处理一个连接</h3>
+<pre><code>s_socket = socket(PF_INET,SOCK_STREAM)
+bind(s_socket,address)
+listen(s_socket,queuelen)
+while(1)
+{
+    c_socket = accept(s_socket, client_address)
+    while(read(c_socket, buf, buf_len)!=0)
+    {
+        write(c_socket, buf, buf_len)
+    }
+    close(c_socket)
+}
+close(s_socket)</code></pre>
+<h3 id="多进程版每个连接分配一个进程"> 2.多进程版，每个连接分配一个进程</h3>
+<pre><code>s_socket = socket(PF_INET,SOCK_STREAM)
+bind(s_socket,address)
+listen(s_socket,queuelen)
+while(1)
+{
+    c_socket = accept(s_socket, client_address)
+    pid = fork()
+    if(pid &gt; 0 )
+    {
+        close(c_socket)
+    }else if(pid == 0)
+    {
+        close(s_socket)
+        while(read(c_socket, buf, buf_len)!=0)
+        {
+            write(c_socket, buf, buf_len)
+        }
+        close(c_socket)
+    }
+}
+close(s_socket)</code></pre>
+<h3 id="多线程版每个连接分配一个线程"> 3.多线程版，每个连接分配一个线程</h3>
+<pre><code>void *handle_clinet(void *arg )
+{
+    c_socket = *((int *)arg)
+    while(read(c_socket, buf, buf_len)!=0)
+    {
+        write(c_socket, buf, buf_len)
+    }
+}
+pthread_t tid
+s_socket = socket(PF_INET,SOCK_STREAM)
+bind(s_socket,address)
+listen(s_socket,queuelen)
+while(1)
+{
+    c_socket = accept(s_socket, client_address)
+    pthread_create(&amp;tid, NULL, handle_client, (void *)&amp;c_socket);
+    pthread_detach(tid);
+}
+close(s_socket)</code></pre>
+<h3 id="io多路复用版"> 4.I/O多路复用版</h3>
+<h4 id="select模型"> select模型</h4>
+<p>select要注意最大文件描述符是1024，超过了会崩溃的。 使用select可以将多个socket集中到一起统一监视，监视内容为：接收事件，非阻塞传输事件(those in writefds will be watched to see if a write will not block)，异常 刚开始时把server_soket设置到fd_set文件描述符集合中，然后开始循环调用select去监视所有socet的变化， 当select返回值大于0，说明有变化，然后遍历fd_set的集合，判断哪些socket发生变化， 如果是server_socket发生变化则将accept到的cliet_socket设置到fd_set中 如果是cliet_socket发生变化则进行读写操作，若断开则FD_CLR()掉</p>
+<pre><code>fd_max=100
+fd_set read_set
+s_socket = socket(PF_INET,SOCK_STREAM)
+bind(s_socket,address)
+listen(s_socket,queuelen)
+
+
+FD_ZERO(&amp;read_set)
+FD_SET(s_socket, &amp;read_set)
+while(1)
+{
+    temp_read_set = read_set        //每次都要复制
+    count = select(fd_max, temp_read_set, NULL, NULL, timeout )
+    if(count == 0) continue
+    for(i = 1, i &lt; fd_max, i++)
+    {
+        if(FD_ISSET(i, &amp;temp_read_set)) //是否有变化,在select的时候被设置
+        {
+            if(i==serv_sock)
+            {
+                c_socket = accept(s_socket, client_address)
+                FD_SET(c_socket, &amp;read_set);
+            }else
+            {
+                ret = read(i, buf, buf_len)
+                if(ret &gt; 0)
+                {
+                    write(i, buf, buf_len)
+                }else
+                {
+                    FD_CLR(i, &amp;read_set);
+                    close(i);
+                }
+             }
+        }
+    }
+}
+close(s_socket)</code></pre>
+<h4 id="epoll模型"> epoll模型</h4>
+<p><strong>select慢的原因</strong>： 1. 调用 select 函数后针对所有文件描述符的循环语句，即使只有一个socket改变了 2. 每次调用 select 函数时都需要向该函数传递<strong>fd集合(fd_set)</strong>，涉及到向内核传递数据。</p>
+<p>select 的兼容性比较高，这样就可以支持很多的操作系统，不受平台的限制，使用select函数满足以下两个条件： 1. 服务器接入者少 2. 程序应该具有兼容性</p>
+<p>下面是epoll函数的功能： <em> epoll_create：创建保存epoll文件描述符的空间,everything is file,当然epoll的也不例外 </em> epoll_ctl：向空间注册并注销文件描述符 * epoll_wait：与 select 函数类似，等待文件描述符发生变化</p>
+<p>select 函数中为了保存监视对象的文件描述符，直接声明了 fd_set 变量，但 epoll 方式下<strong>操作系统</strong>负责保存监视对象文件描述符，因此需要向操作系统请求创建保存文件描述符的空间，此时用的函数就是 epoll_create。好处是不用在用户空间和内核空间传送数据了。</p>
+<p><strong>epoll流程</strong>： 1. epoll_create创建一个保存epoll文件描述符的空间， 2. 动态分配内存，给将要监视的 epoll_wait，以读取所有发生事件的socket 3. 利用epoll_ctl添加server_socket的EPOLLIN事件 4. 利用epoll_wait来获取改变的文件描述符,把结果存在epoll_event类型的指针内存中 5. 处理发生事件的socket 6. 重复4-5步骤</p>
+<pre><code>EPOLL_SIZE = 100
+struct epoll_event *events;  //保存所有事件
+struct epoll_event event;
+s_socket = socket(PF_INET,SOCK_STREAM)
+bind(s_socket,address)
+listen(s_socket,queuelen)
+// setnonblockingmode(s_socket);
+
+ep_fd = epoll_create() //可以忽略这个参数，填入的参数为操作系统参考
+events = malloc(sizeof(struct epoll_event)*EPOLL_SIZE);
+
+
+event.events = EPOLLIN
+event.data.fd = s_socket
+epoll_ctl(ep_fd, EPOLL_CTL_ADD, s_socket, &amp;event)
+while(1)
+{
+    count = epoll_wait(ep_fd, events, EPOLL_SIZE, -1);  //-1是设置成永不超时
+    for(i = 1, i &lt; count, i++)
+    {
+        fd = events[i].data.fd
+        if(fd == s_socket)
+        {
+            c_socket = accept(s_socket, client_address)
+            event.events=EPOLLIN  // 设置监视类型
+            // event.events = EPOLLIN | EPOLLET; //改成边缘触发
+            // setnonblockingmode(c_socket); //将 accept 创建的套接字改为非阻塞模式
+            event.data.fd=c_socket
+            epoll_ctl(ep_fd, EPOLL_CTL_ADD, c_socket, &amp;event)
+        }else
+        {
+            ret = read(i, buf, buf_len)
+            if(ret &gt; 0)
+            {
+                write(fd, buf, buf_len)
+            }else
+            {
+                epoll_ctl(ep_fd, EPOLL_CTL_DEL, fd, NULL);
+                close(fd);
+            }
+            /* ET触发
+            while(1) 
+            {
+                ret = read(i, buf, buf_len)
+                if(ret &gt; 0)
+                {
+                    write(fd, buf, buf_len)
+                }else if(ret&lt;0)
+                {
+                  if(errno = EAGAIN) braek;
+                }
+                else
+                {
+                    epoll_ctl(ep_fd, EPOLL_CTL_DEL, fd, NULL);
+                    close(fd);
+                }
+            }
+            */
+         }
+    }
+}
+close(s_socket)
+close(ep_fd)
+free(events)
+events = NULL</code></pre>
+<p><strong> 水平触发(level trigger)和边缘触发(edge trigger)</strong> epoll默认以水平触发方式工作，select也是以条件触发模式工作的。 两者区别：在于发生事件的时间点 <em> 水平触发：只要输入缓冲有数据就一直通知该事件 比如：服务器端输入缓冲收到50字节数据时，read了30字节，还剩20，仍会触发事件 </em> 边缘触发：输入缓冲收到数据时仅注册一次事件，即使输入缓冲中还留有数据</p>
+<p><em> 边缘触发优点： 分离接收数据和处理数据的时间点，给服务端的实现带来很大灵活性。性能上使用得当会优于条件触发。 </em> 边缘触发的要点： 1. read时缓存空，返回 -1，变量 errno 中的值变成 EAGAIN 时，说明没有数据可读 2. 为了完成非阻塞（Non-blocking）I/O ，更改套接字特性。</p>
+<h3 id="proactor和reactor"> 5.Proactor 和 Reactor：</h3>
+<p>这两种模式都是针对IO操作的，我的理解是Reactor只是告诉调用者什么时候事件到来，但是需要进行什么操作，需要调用者自己处理。Preactor不是当事件到来时通知，而是针对此事件对应的操作完成时，通知调用者，一般通知方式都是异步回调。 举例，Reactor中注册读事件，那么文件描述符可读时，需要调用者自己调用read系统调用读取数据，若工作在Preactor模式，注册读事件，同时提供一个buffer用于存储读取的数据，那么Preactor通过回调函数通知用户时，用户无需在调用系统调用读取数据，因为数据已经存储在buffer中了。显然epoll是Reactor的。</p>
+<h2 id="unixdomain"> UNIX Domain</h2>
+<h3 id="unixdomainsocketipc"> UNIX Domain Socket IPC</h3>
+<p>socket API原本是为网络通讯设计的，但后来在socket的框架上发展出一种IPC机制，就是UNIXDomain Socket。 UNIX Domain Socket也提供面向流和面向数据包两种API接口，类似于TCP和UDP，但是面向消息 的UNIX Domain Socket也是可靠的，消息既不会丢失也不会顺序错乱。 UNIX Domain Socket是全双工的，API接口语义丰富，相比其它IPC机制有明显的优越性，目前已成为使用最广泛的IPC机制。 #### 使用 使用UNIX Domain Socket的过程和网络socket十分相似，也要先调用socket()创建一 个socket文件描述符，address family指定为<code>AF_UNIX</code>，type可以选择SOCK_DGRAM或SOCK_STREAM，protocol参数仍然指定为0即可。 UNIX Domain Socket与网络socket编程最明显的不同在于<strong>地址格式不同</strong>，用结构 体sockaddr_un表示，网络编程的socket地址是IP地址加端口号，而UNIX Domain Socket的地 址是一个<strong>socket类型的文件在文件系统中的路径</strong>，这个socket文件由bind()调用创建，如果调 用bind()时该文件已存在，则bind()错误返回。 通过accept得到客户端地址也应该是一个socket文件，如果不 是socket文件就返回错误码，如果是socket文件，在建立连接后这个文件就没有用了，调 用unlink把它删掉，通过传出参数uidptr返回客户端程序的user id #### 客户端显式的bind 与网络socket编程不同的是，UNIX Domain Socket客户端一般 要<strong>显式调用bind函数</strong>，而不依赖系统自动分配的地址。客户端bind一个自己指定的socket文件名 的好处是，该文件名可以包含客户端的pid以便服务器区分不同的客户端。</p>
+<h3 id="af_inet和af_unix区别"> AF_INET 和 AF_UNIX区别</h3>
+<h4 id="af_inet域socket通信过程"> 1.AF_INET域socket通信过程</h4>
+<div class="figure">
+<img src="index_files/25741395-5427-4821-a08d-f93c0385791b.png" />
+</div>
+<p>发送方、接收方依赖IP:Port来标识. 发送方通过系统调用send()将原始数据发送到操作系统内核缓冲区中。内核缓冲区从上到下依次经过TCP层、IP层、链路层的编码，分别添加对应的头部信息，经过网卡将一个数据包发送到网络中。经过网络路由到接收方的网卡。网卡通过系统中断将数据包通知到接收方的操作系统，再沿着发送方编码的反方向进行解码，即依次经过链路层、IP层、TCP层去除头部、检查校验等，最终将原始数据上报到接收方进程。 #### 2.AF_UNIX域socket通信过程 典型的本地IPC，<strong>依赖路径名标识</strong>发送方和接收方。即发送数据时，<strong>指定接收方绑定的路径名</strong>，操作系统根据该路径名可以直接找到对应的接收方，并<strong>将原始数据直接拷贝到接收方的内核缓冲区中，并上报给接收方进程进行处理</strong>。同样的接收方可以从收到的数据包中获取到发送方的路径名，并通过此路径名向其发送数据。 <img src="index_files/dd236489-47d7-4656-9e54-c21265c58da9.jpg" /> #### 3.相同点 操作系统提供的接口socket(),bind(),connect(),accept(),send(),recv()，以及用来对其进行多路复用事件检测的select(),poll(),epoll()都是完全相同的。都有tcp和udp的协议。收发数据的过程中，上层应用感知不到底层的差别。 #### 4.不同点 <em> 建立socket传递的地址域，及bind()的地址结构稍有区别：     + socket() 分别传递不同的域AF_INET和AF_UNIX     + bind()的地址结构分别为sockaddr_in（制定IP端口）和sockaddr_un（指定路径名） </em> AF_INET需经过多个协议层的编解码，消耗系统cpu，并且数据传输需要经过网卡，受到网卡带宽的限制，且网络层是不可靠的。 AF_UNIX数据到达内核缓冲区后，由内核根据指定路径名找到接收方socket对应的内核缓冲区，直接将数据拷贝过去，不经过协议层编解码，节省系统cpu，并且不经过网卡，因此不受网卡带宽的限制，通讯是可靠的。</p>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

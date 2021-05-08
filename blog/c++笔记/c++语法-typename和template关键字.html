@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<div id="header">
+    <p class="header_titleline">忧郁的大能猫的博客</p>
+    <p class="header_subline"><a href="/index.html">首页</a></p>
+</div>
+
+
+ <!--if(title)-->
+
+<p>目录:</p>
+<div id="TOC">
+<ul>
+<li><a href="#typename">typename</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="typename">typename</h2>
+<pre><code>struct X { typedef int       foo;       }; 
+struct Y { static  int const foo = 123; }; 
+
+
+// T::foo 的可能是一个类型，也可能是一个变量，这个就存在歧义了
+template&lt;class T&gt; void f_tmpl () { T::foo * x; }</code></pre>
+<p>c++中这种情况被称为dependent names，</p>
+<pre><code>template&lt;typename T&gt;
+struct MyType {
+  using iterator = ...;         //c++中这叫做alias template
+  ...
+};
+template&lt;typename T&gt;
+using MyTypeIterator = typename MyType&lt;T&gt;::iterator;       // typename必须有
+MyTypeIterator&lt;int&gt; pos;</code></pre>
+<p>上面的注释说明了：typename MyType<T>::iterator里的typename是必须的，因为这里的typename代表后面紧跟的是一个定义在类内的类型，否则，iterator会被当成一个静态变量或者枚举.</p>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

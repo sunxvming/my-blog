@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<div id="header">
+    <p class="header_titleline">忧郁的大能猫的博客</p>
+    <p class="header_subline"><a href="/index.html">首页</a></p>
+</div>
+
+
+ <!--if(title)-->
+
+<p>目录:</p>
+<div id="TOC">
+<ul>
+<li><a href="#向文件中输出栈调用信息"> 向文件中输出栈调用信息</a></li>
+<li><a href="#muduo网络库中的实现"> muduo网络库中的实现</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="向文件中输出栈调用信息"> 向文件中输出栈调用信息</h2>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;execinfo.h&gt;
+#include &lt;signal.h&gt;
+
+
+void dump(int signo)
+{
+        fprintf(stderr,&quot;catch Segmentation fault!!!\n&quot;);
+#define SIZE 100
+        FILE *fh;
+        if(!(fh = fopen(&quot;./dbg_msg.log&quot;, &quot;w+&quot;)))
+                exit(0);
+        void *buffer[100];
+        int nptrs;
+        nptrs = backtrace(buffer,SIZE);
+        backtrace_symbols_fd(buffer, nptrs, fileno(fh));
+        fflush(fh);
+        exit(-1);
+}
+
+
+int main(){
+   signal(SIGSEGV, &amp;dump); 
+   char *p;  
+   p = NULL;  
+   *p = &#39;x&#39;;  
+   printf(&quot;%c&quot;, *p);  
+   return 0;
+}</code></pre>
+<p>打印格式</p>
+<pre><code>./main[0x4010b9]
+/lib64/libc.so.6(+0x36400)[0x7f8d88b87400]
+./main[0x401117]
+/lib64/libc.so.6(__libc_start_main+0xf5)[0x7f8d88b73555]
+./main[0x400db9]</code></pre>
+<p>打印的是程序的地址，需要用工具把地址转成文件的行号</p>
+<pre><code>addr2line -e &lt;带符号库&gt; &lt;内存地址&gt;
+addr2line -e main 0x4010b9
+addr2line -e main 0x401117
+addr2line -e main 0x400db9</code></pre>
+<h2 id="muduo网络库中的实现"> muduo网络库中的实现</h2>
+<pre><code>// 代码位置：muduo/base/CurrentThread.h
+
+string stackTrace(bool demangle)
+{
+  string stack;
+  const int max_frames = 200;
+  void* frame[max_frames];
+  int nptrs = ::backtrace(frame, max_frames);
+  char** strings = ::backtrace_symbols(frame, nptrs);
+  if (strings)
+  {
+    size_t len = 256;
+    char* demangled = demangle ? static_cast&lt;char*&gt;(::malloc(len)) : nullptr;
+    for (int i = 1; i &lt; nptrs; ++i)  // skipping the 0-th, which is this function
+    {
+      if (demangle)
+      {
+        // https://panthema.net/2008/0901-stacktrace-demangled/
+        // bin/exception_test(_ZN3Bar4testEv+0x79) [0x401909]
+        char* left_par = nullptr;
+        char* plus = nullptr;
+        for (char* p = strings[i]; *p; ++p)
+        {
+          if (*p == &#39;(&#39;)
+            left_par = p;
+          else if (*p == &#39;+&#39;)
+            plus = p;
+        }
+
+        if (left_par &amp;&amp; plus)
+        {
+          *plus = &#39;\0&#39;;
+          int status = 0;
+          char* ret = abi::__cxa_demangle(left_par+1, demangled, &amp;len, &amp;status);
+          *plus = &#39;+&#39;;
+          if (status == 0)
+          {
+            demangled = ret;  // ret could be realloc()
+            stack.append(strings[i], left_par+1);
+            stack.append(demangled);
+            stack.append(plus);
+            stack.push_back(&#39;\n&#39;);
+            continue;
+          }
+        }
+      }
+      // Fallback to mangled names
+      stack.append(strings[i]);
+      stack.push_back(&#39;\n&#39;);
+    }
+    free(demangled);
+    free(strings);
+  }
+  return stack;
+}</code></pre>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

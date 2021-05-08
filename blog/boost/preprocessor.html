@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<div id="header">
+    <p class="header_titleline">忧郁的大能猫的博客</p>
+    <p class="header_subline"><a href="/index.html">首页</a></p>
+</div>
+
+
+ <!--if(title)-->
+
+<p>目录:</p>
+<div id="TOC">
+<ul>
+<li><a href="#参数加引号">参数加引号</a></li>
+<li><a href="#参数加括号">参数加括号</a></li>
+<li><a href="#用宏循环某个参数列表-boost_pp_seq_for_each">用宏循环某个参数列表 BOOST_PP_SEQ_FOR_EACH</a></li>
+<li><a href="#include">include <iostream></a></li>
+<li><a href="#include-1">include <boost/preprocessor/facilities/overload.hpp></a></li>
+<li><a href="#define-macro_1number-macro_2number-10">define MACRO_1(number) MACRO_2(number, 10)</a><ul>
+<li><a href="#自增变量">自增变量</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="参数加引号">参数加引号</h2>
+<pre><code>BOOST_PP_STRINGIZE(BOOST_PP_CAT(a, b)) // expands to &quot;ab&quot;</code></pre>
+<h2 id="参数加括号">参数加括号</h2>
+<p>来源:eos中的wasm_interface_private.hpp</p>
+<pre><code>#include &lt;boost/preprocessor/cat.hpp&gt;
+#include &lt;boost/preprocessor/seq/for_each.hpp&gt;
+
+
+
+
+#define _ADD_PAREN_1(...) ((__VA_ARGS__)) _ADD_PAREN_2
+#define _ADD_PAREN_2(...) ((__VA_ARGS__)) _ADD_PAREN_1
+#define _ADD_PAREN_1_END
+#define _ADD_PAREN_2_END
+#define _WRAPPED_SEQ(SEQ) BOOST_PP_CAT(_ADD_PAREN_1 SEQ, _END)
+
+
+// _ADD_PAREN_1(aa)(bb)(cc)会展开如下：
+// _ADD_PAREN_1(aa)_ADD_PAREN_2(bb)_ADD_PAREN_1(cc)_ADD_PAREN_2
+// 最终结果是给每个参数加上括号   
+
+
+_WRAPPED_SEQ((aa)(bb)(cc))   //((aa)) ((bb)) ((cc))</code></pre>
+<h2 id="用宏循环某个参数列表-boost_pp_seq_for_each">用宏循环某个参数列表 BOOST_PP_SEQ_FOR_EACH</h2>
+<pre><code>BOOST_PP_SEQ_FOR_EACH(macro, data, seq)
+
+
+变量：
+macro
+一个以格式macro(r, data, elem)定义的三元宏。该宏被BOOST_PP_SEQ_FOR_EACH按照seq中每个元素进行展开。展开该宏，需要用到下一个BOOST_PP_FOR的重复项、备用数据data和当前元素。
+
+
+data
+备用数据，用于传给macro
+
+
+seq
+用于供macro按照哪个序列进行展开
+
+
+用法：
+BOOST_PP_SEQ_FOR_EACH是一个重复项的宏。
+如果序列是(a)(b)(c)，则展开为：
+macro(r, data, a) macro(r, data, b) macro(r, data, c)</code></pre>
+<p>示例代码：</p>
+<pre><code>#include &lt;boost/preprocessor/cat.hpp&gt;
+#include &lt;boost/preprocessor/seq/for_each.hpp&gt;
+
+
+#define SEQ (w)(x)(y)(z)
+
+
+#define MACRO(r, data, elem) BOOST_PP_CAT(elem, data)
+
+
+BOOST_PP_SEQ_FOR_EACH(MACRO, _, SEQ) // expands to w_ x_ y_ z_</code></pre>
+<pre><code>#include &lt;boost/preprocessor/cat.hpp&gt;
+#include &lt;boost/preprocessor/seq/for_each.hpp&gt;
+
+
+#define SEQ (w)(x)(y)(z)
+
+
+#define MACRO(r, data, elem) elem::GetInstance()
+
+
+BOOST_PP_SEQ_FOR_EACH(MACRO, _, SEQ) // expands to w::GetInstance() x::GetInstance() y::GetInstance() z::GetInstance() ```
+
+
+## 用宏做函数重载  BOOST_PP_OVERLOAD</code></pre>
+<h1 id="include">include <iostream></h1>
+<h1 id="include-1">include <boost/preprocessor/facilities/overload.hpp></h1>
+<p>int add(int number1, int number2);</p>
+<h1 id="define-macro_1number-macro_2number-10">define MACRO_1(number) MACRO_2(number, 10)</h1>
+<p>// mmp, 它会先检查add的原型, 然后再去做替换, 看来这里还是 #define MACRO_2(number1, number2) add(number1, number2) // 多参数的宏展开实现重载 // 若BOOST_PP_OVERLOAD(MACRO_, <strong>VA_ARGS</strong>)参数为一个则生成MACRO_1 // 若BOOST_PP_OVERLOAD(MACRO_, <strong>VA_ARGS</strong>)参数为两个则生成MACRO_2 #define MACRO_ADD_NUMBERS(...) BOOST_PP_OVERLOAD(MACRO_, <strong>VA_ARGS</strong>)(<strong>VA_ARGS</strong>)</p>
+<p>int main() { std::cout &lt;&lt; &quot;MACRO_ADD_NUMBERS(1) = &quot; &lt;&lt; MACRO_ADD_NUMBERS(1) &lt;&lt; std::endl; std::cout &lt;&lt; &quot;MACRO_ADD_NUMBERS(1, 2) = &quot; &lt;&lt; MACRO_ADD_NUMBERS(1, 2) &lt;&lt; std::endl; return 0; }</p>
+<p>int add(int number1, int number2) { return number1 + number2; } ```</p>
+<h2 id="自增变量">自增变量</h2>
+<p><strong>COUNTER</strong><br />The <strong>COUNTER</strong> symbol is provided by VC++ and GCC, and gives an increasing non-negative integral value each time it is used.</p>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>
