@@ -31,12 +31,23 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
-<!--SyntaxHighlighter-->
-<script type="text/javascript" src="scripts/shCore.js"></script>
-<script type="text/javascript" src="scripts/shBrushPython.js"></script>
-<script type="text/javascript" src="scripts/shBrushJScript.js"></script>
-<link type="text/css" rel="stylesheet" href="styles/shCoreFadeToGrey.css"/>
-<script type="text/javascript">SyntaxHighlighter.all();</script>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
 
 </head>
 
