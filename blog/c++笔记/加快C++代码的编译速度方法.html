@@ -36,23 +36,164 @@ jQuery(document).ready(function(){
 <body>
 <div id="wrapper">
 
-<div id="header">
-    <p class="header_titleline">忧郁的大能猫的博客</p>
-    <p class="header_subline"><a href="/index.html">首页</a></p>
-</div>
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
 
 
  <!--if(title)-->
 
-<p>目录:</p>
+<p>内容纲要:</p>
 <div id="TOC">
 <ul>
 <li><a href="#加快c代码的编译速度方法">加快C++代码的编译速度方法</a><ul>
 <li><a href="#为什么c它就编译的这么慢呢">为什么C++它就编译的这么慢呢？</a></li>
 <li><a href="#优化方法">优化方法</a><ul>
-<li><a href="#一代码角度">一、代码角度</a></li>
-<li><a href="#二综合技巧">二、综合技巧</a></li>
-<li><a href="#三编译资源">三、编译资源</a></li>
+<li><a href="#一代码角度">一、代码角度</a><ul>
+<li><a href="#在头文件中使用前置声明而不是直接包含头文件">1、在头文件中使用前置声明，而不是直接包含头文件。</a></li>
+<li><a href="#使用pimpl模式">2、使用Pimpl模式</a></li>
+<li><a href="#高度模块化">3、高度模块化</a></li>
+<li><a href="#删除冗余的头文件">4、删除冗余的头文件</a></li>
+<li><a href="#特别注意inline和template">5、特别注意inline和template</a></li>
+</ul></li>
+<li><a href="#二综合技巧">二、综合技巧</a><ul>
+<li><a href="#预编译头文件pch">1、预编译头文件（PCH）</a></li>
+<li><a href="#unity-build">2、Unity Build</a></li>
+<li><a href="#ccache">3、ccache</a></li>
+<li><a href="#不要有太多的additional-include-directories">4、不要有太多的Additional Include Directories</a></li>
+<li><a href="#module编译">Module编译</a></li>
+<li><a href="#外部模板">外部模板</a></li>
+<li><a href="#替换boost库">替换Boost库</a></li>
+</ul></li>
+<li><a href="#三编译资源">三、编译资源</a><ul>
+<li><a href="#并行编译">1、并行编译</a></li>
+<li><a href="#更好的磁盘">2、更好的磁盘</a></li>
+<li><a href="#分布式编译">3、分布式编译</a></li>
+<li><a href="#并行其实还可以这么做">4、并行，其实还可以这么做。</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#具体项目的编译时间分析">具体项目的编译时间分析</a><ul>
 <li><a href="#编译展开分析">编译展开分析</a></li>

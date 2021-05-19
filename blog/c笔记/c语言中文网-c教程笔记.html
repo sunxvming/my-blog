@@ -36,15 +36,137 @@ jQuery(document).ready(function(){
 <body>
 <div id="wrapper">
 
-<div id="header">
-    <p class="header_titleline">忧郁的大能猫的博客</p>
-    <p class="header_subline"><a href="/index.html">首页</a></p>
-</div>
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
 
 
  <!--if(title)-->
 
-<p>目录:</p>
+<p>内容纲要:</p>
 <div id="TOC">
 <ul>
 <li><a href="#编程基础"> 编程基础</a><ul>
@@ -52,7 +174,10 @@ jQuery(document).ready(function(){
 <li><a href="#c语言是菜鸟和大神的分水岭"> C语言是菜鸟和大神的分水岭</a></li>
 <li><a href="#学编程难吗多久能入门"> 学编程难吗？多久能入门？</a></li>
 <li><a href="#学了c语言到底能做什么能从事什么工作"> 学了C语言到底能做什么，能从事什么工作？</a></li>
-<li><a href="#ascii编码将英文存储到计算机"> ASCII编码，将英文存储到计算机</a></li>
+<li><a href="#ascii编码将英文存储到计算机"> ASCII编码，将英文存储到计算机</a><ul>
+<li><a href="#乱码问题"> 乱码问题</a></li>
+<li><a href="#宽字符和窄字符多字节字符"> 宽字符和窄字符（多字节字符）</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#c语言初探"> C语言初探</a><ul>
 <li><a href="#c语言的三套标准c89c99和c11"> C语言的三套标准：C89、C99和C11</a></li>
@@ -71,7 +196,10 @@ jQuery(document).ready(function(){
 </ul></li>
 <li><a href="#c语言输入输出"> C语言输入输出</a><ul>
 <li><a href="#进入缓冲区缓存的世界破解一切与输入输出有关的疑难杂症"> 进入缓冲区（缓存）的世界，破解一切与输入输出有关的疑难杂症</a></li>
-<li><a href="#c语言清空刷新缓冲区从根本上消除那些奇怪的行为"> C语言清空（刷新）缓冲区，从根本上消除那些奇怪的行为</a></li>
+<li><a href="#c语言清空刷新缓冲区从根本上消除那些奇怪的行为"> C语言清空（刷新）缓冲区，从根本上消除那些奇怪的行为</a><ul>
+<li><a href="#清空输出缓冲区"> 清空输出缓冲区</a></li>
+<li><a href="#清空输入缓冲区"> 清空输入缓冲区</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#循环结构和选择结构"> 循环结构和选择结构</a></li>
 <li><a href="#c语言数组详解"> C语言数组详解</a><ul>
@@ -104,8 +232,14 @@ jQuery(document).ready(function(){
 <li><a href="#c语言头文件的编写多文件编程"> C语言头文件的编写（多文件编程）</a><ul>
 <li><a href="#从extern关键字开始谈c语言多文件编程"> 从extern关键字开始谈C语言多文件编程</a></li>
 <li><a href="#那些被编译器隐藏了的过程"> 那些被编译器隐藏了的过程</a></li>
-<li><a href="#目标文件和可执行文件里面都有什么"> 目标文件和可执行文件里面都有什么？</a></li>
-<li><a href="#到底什么是链接它起到了什么作用"> 到底什么是链接，它起到了什么作用？</a></li>
+<li><a href="#目标文件和可执行文件里面都有什么"> 目标文件和可执行文件里面都有什么？</a><ul>
+<li><a href="#目标文件的组织形式"> 目标文件的组织形式</a></li>
+<li><a href="#可执行文件的组织形式"> 可执行文件的组织形式</a></li>
+<li><a href="#段section的合并"> 段（Section）的合并</a></li>
+</ul></li>
+<li><a href="#到底什么是链接它起到了什么作用"> 到底什么是链接，它起到了什么作用？</a><ul>
+<li><a href="#模块化开发"> 模块化开发</a></li>
+</ul></li>
 <li><a href="#符号链接的粘合剂"> 符号——链接的粘合剂</a></li>
 <li><a href="#强符号和弱符号"> 强符号和弱符号</a></li>
 <li><a href="#强引用和弱引用"> 强引用和弱引用</a></li>

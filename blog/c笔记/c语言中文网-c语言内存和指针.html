@@ -36,23 +36,152 @@ jQuery(document).ready(function(){
 <body>
 <div id="wrapper">
 
-<div id="header">
-    <p class="header_titleline">忧郁的大能猫的博客</p>
-    <p class="header_subline"><a href="/index.html">首页</a></p>
-</div>
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
 
 
  <!--if(title)-->
 
-<p>目录:</p>
+<p>内容纲要:</p>
 <div id="TOC">
 <ul>
 <li><a href="#内存">## 内存</a><ul>
-<li><a href="#程序编译后的text段data段和bss段"> 程序编译后的text段、data段和bss段 </a></li>
+<li><a href="#程序编译后的text段data段和bss段"> 程序编译后的text段、data段和bss段 </a><ul>
+<li><a href="#关于data和bss段区别"> 关于data和bss段区别</a></li>
+</ul></li>
 <li><a href="#一个程序在计算机中到底是如何运行的"> 一个程序在计算机中到底是如何运行的？</a></li>
 <li><a href="#虚拟内存到底是什么为什么我们在c语言中看到的地址是假的"> 虚拟内存到底是什么？为什么我们在C语言中看到的地址是假的？</a></li>
-<li><a href="#虚拟地址空间以及编译模式"> 虚拟地址空间以及编译模式</a></li>
-<li><a href="#c语言内存对齐提高寻址效率"> C语言内存对齐，提高寻址效率</a></li>
+<li><a href="#虚拟地址空间以及编译模式"> 虚拟地址空间以及编译模式</a><ul>
+<li><a href="#实际支持的物理内存"> 实际支持的物理内存</a></li>
+<li><a href="#编译模式"> 编译模式</a></li>
+</ul></li>
+<li><a href="#c语言内存对齐提高寻址效率"> C语言内存对齐，提高寻址效率</a><ul>
+<li><a href="#改变对齐方式"> 改变对齐方式</a></li>
+</ul></li>
 <li><a href="#内存分页机制完成虚拟地址的映射"> 内存分页机制，完成虚拟地址的映射</a></li>
 <li><a href="#分页机制究竟是如何实现的"> 分页机制究竟是如何实现的？</a></li>
 <li><a href="#mmu部件以及对内存权限的控制"> MMU部件以及对内存权限的控制</a></li>
@@ -60,14 +189,32 @@ jQuery(document).ready(function(){
 <li><a href="#windows下c语言程序的内存布局内存模型"> Windows下C语言程序的内存布局（内存模型）</a></li>
 <li><a href="#用户模式和内核模式"> 用户模式和内核模式</a></li>
 <li><a href="#栈stack是什么栈溢出又是怎么回事"> 栈（Stack）是什么？栈溢出又是怎么回事？</a></li>
-<li><a href="#一个函数在栈上到底是怎样的"> 一个函数在栈上到底是怎样的？</a></li>
+<li><a href="#一个函数在栈上到底是怎样的"> 一个函数在栈上到底是怎样的？</a><ul>
+<li><a href="#关于数据的定位"> 关于数据的定位</a></li>
+</ul></li>
 <li><a href="#函数调用惯例callingconvention"> 函数调用惯例(Calling Convention)</a></li>
 <li><a href="#用一个实例来深入剖析函数进栈出栈的过程"> 用一个实例来深入剖析函数进栈出栈的过程</a></li>
 <li><a href="#栈溢出攻击的原理是什么"> 栈溢出攻击的原理是什么？</a></li>
-<li><a href="#c语言动态内存分配"> C语言动态内存分配</a></li>
-<li><a href="#malloc函数背后的实现原理内存池"> malloc函数背后的实现原理——内存池</a></li>
-<li><a href="#空指针和野指针悬挂指针"> 空指针和野指针（悬挂指针）</a></li>
-<li><a href="#内存泄露"> 内存泄露</a></li>
+<li><a href="#c语言动态内存分配"> C语言动态内存分配</a><ul>
+<li><a href="#动态内存分配函数"> 动态内存分配函数</a></li>
+</ul></li>
+<li><a href="#malloc函数背后的实现原理内存池"> malloc函数背后的实现原理——内存池</a><ul>
+<li><a href="#链表式内存管理"> 链表式内存管理</a></li>
+<li><a href="#链表式内存管理缺点"> 链表式内存管理缺点：</a></li>
+<li><a href="#内存池"> 内存池</a></li>
+</ul></li>
+<li><a href="#空指针和野指针悬挂指针"> 空指针和野指针（悬挂指针）</a><ul>
+<li><a href="#使用未初始化的指针"> 1.使用未初始化的指针</a></li>
+<li><a href="#操作null指针"> 2.操作NULL指针</a></li>
+<li><a href="#使用指向释放掉的内存"> 3.使用指向释放掉的内存</a></li>
+<li><a href="#指针指向常量区且对其写访问"> 5.指针指向常量区且对其写访问</a></li>
+<li><a href="#realloc函数使用不当"> 6.realloc函数使用不当</a></li>
+</ul></li>
+<li><a href="#内存泄露"> 内存泄露</a><ul>
+<li><a href="#函数中调用malloc返回分配的地址但是调用函数没用free"> 0.函数中调用malloc()返回分配的地址，但是调用函数没用free()</a></li>
+<li><a href="#malloc两次都指向同一个指针变量"> 1.malloc两次都指向同一个指针变量</a></li>
+<li><a href="#一个指针变量赋给了另一个"> 2.一个指针变量赋给了另一个</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#指针">## 指针</a><ul>
 <li><a href="#c语言指针是什么1分钟彻底理解c语言指针的概念"> C语言指针是什么？1分钟彻底理解C语言指针的概念</a></li>

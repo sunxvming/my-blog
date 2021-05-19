@@ -5,7 +5,7 @@ Q_HTML=$(WIKI:%.md="%.html")  #加上双引号是因为目标文件中有特殊�
 
 
 # pandoc选项
-PANDOC_FLAG=  --toc # 自动生成目录
+PANDOC_FLAG=  --toc  --toc-depth=4 # 自动生成目录
 PANDOC_FLAG+= --css="style.css" # 指名css样式文件.
 PANDOC_FLAG+= --template=./template/pandoctpl.html # pandoc模板.
 PANDOC_FLAG+= --tab-stop=4
