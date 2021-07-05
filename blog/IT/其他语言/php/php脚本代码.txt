@@ -1,0 +1,24 @@
+
+
+ deletepart.php   定时删mysql分区数据的功能
+ getcsv.php 把interface=game_enter&gid=26&sid=1&oldsid=1 中格式的文件内容转成csv的格式
+ logapi.php 读mysql数据库提供一个json的接口
+ readfile-mongo.php 读文件入数据库
+ readfile-mysql.php 读文件入数据库
+ scantime.php 扫服务器时间，非阻塞的向服务器请求接口并记录返回的数据
+ tz.php php探针，获取服务器的各种信息的
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

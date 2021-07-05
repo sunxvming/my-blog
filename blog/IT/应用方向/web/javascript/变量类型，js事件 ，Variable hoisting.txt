@@ -1,0 +1,1318 @@
+javascript基本数据类型
+
+javascript数据类型分为两种：
+原始类型与对象类型（引用类型）
+
+
+原始类型：
+数字、字符串、布尔值、null、undefined
+其中
+null
+与
+undefined
+代表了各自特殊类型的唯一成员
+对象类型：
+普通的对象时
+无序键值对
+，
+有序
+的键值对便是我们的数组了
+
+数字
+
+javascript是不区分整数与浮点数的，所 有数均用浮点数表示
+
+Math
+
+Math.round(0.6) 四舍五入
+
+Math.random() 生成一个大于等于0小于1的伪随机数，前闭后开
+
+运算溢出
+
+当js运算 溢出 时不会报错，会使用无穷大 infinity 与无穷小 -infinity 表示；
+
+若是出现没有意义的运算便会返回NaN，NaN的判断无论如何都是false（他与自身也不相等），所以判断他要使用 isNaN() 函数
+
+parseInt与parseFloat
+
+parseInt(string, radix) 
+radix，表示转换的基数，也就是我们常说的2进制、8进制、10进制、16进制等。范围从2~36，但我们在JS中一般调用该方法时，基本都是以10为基数进行转换的。
+如果该参数小于 2 或者大于 36，则 parseInt() 将返回 NaN。
+
+parseInt这个函数非常有用的，可以将一个字符串返回为整数
+
+<
+script 
+type
+="text/javascript"
+>
+var
+ a 
+=
+ parseInt(
+'
+334dd
+'
+);  334
+    
+var
+ b 
+=
+ parseInt(
+'
+3d34dd
+'
+); 3
+    
+var
+ c 
+=
+ parseInt(
+'
+ss3d34dd
+'
+);  NaN
+    s 
+=
+ 
+''
+;
+
+</
+script
+> 字符串
+
+字符串是由一组16位值组成的不可变有序序列，每个字符通常来源于Unicode字符集。
+
+字符串一旦定义 便不会改变 ，我们使用函数操作他也只是 返回了新的字符串 ，下面介绍下与字符串有关的函数
+
+var s = 'hellow world';
+s.charAt(0);//h
+s.charAt(s.length - 1);//d
+s.substring(1, 4);ell第2到第四的字符
+s.slice(1, 4);//同上
+s.slice(-3);//rld，最后三个字符
+s.indexOf('l');//2 首次出现l的位置
+s.lastIndexOf('l');//最后一次出现l的位置，10
+s.indexOf('l', 3);//3在在位置3以后首次出现l的位置
+s.split(', ');//使用", "分割将字符串变为数组，非常有用的家伙
+s.replace('h', 'H');//全文字替换，
+支持正则表达式
+
+s.toUpperCase();//转换为大写 null和undefined
+
+null在js中式用来描述“空值”的，使用typeof null 会返回对象（object），也就是说null为特殊的对象，但是该对象只有他一个人；
+
+undefined表示值的空缺，表示变量没有被初始化，比如
+
+var a，这种情况a便是undefined， 若是我们定义一个对象，但他开始没值便可设置其为null。 包装对象
+
+我们前面看到s为字符串，却可以执行很多函数，这简直就是对象的行为嘛，原因是他确实变成对象了。。。
+
+javascript通过new String(s)，将字符串转换为对象，所以s便拥有了方法，一旦 函数操作结束 新建的对象便会被销毁，临时生成的一个对象 类型转换
+
+javascript的类型非常灵活，类型的转换有时候便会自动发生：
+
+10 + ' sss' 
+//
+=> 10 sss     
+'7' * '4'/28
+
+1 - 'd'
+//
+NaN                
+1 - 'd' + 's'//NaNs(注意啦) 对象 字面量
+
+var
+ obj = {
+'name': '叶小钗',
+age: '秘密',
+sayName: 
+function
+ () {
+alert(
+this
+.name);
+}};
+
+我们通过.或者[]的方式访问对象：
+
+obj.name
+obj['name']       
+记得要加引号
+
+
+若是要判断对象是否包含某个属性，使用：
+obj.
+hasOwnProperty
+('age') 数组
+
+动态添加数组项
+
+var
+ arr = [];
+arr[arr.length] = 1;
+arr.push(1);
+
+
+
+join
+
+该函数与字符串的spilt对应，可以将一个数转换为字符串，很不错的家伙
+
+var
+ arr = [1, 2, 3];
+arr.join();
+//
+'1,2,3'
+
+arr.join(';');
+//
+'1;2;3'
+
+reverse   用于翻转数组
+
+sort
+
+这个家伙我们一定要记住他，因为他很常用的：
+
+<script type="text/javascript">
+    
+var
+ arr = [1, 4, 562, 43, 4346, 433, 645];
+    arr.sort();
+    
+var
+ ss = arr.join();
+    
+var
+ s ='';
+</script>
+
+
+
+
+我们当然会遇到更复杂的情况，比如我们要为年龄排序了，而我们数组也不是那么单一的：
+
+<script type="text/javascript">    对 对象数组排序
+    
+var
+ arr = [{ name: '叶小钗', age: 123 }, { name: '一页书', age: 456 }, { name: '素还真', age: 222 }, {name: '素续缘', age: 14}];
+    arr.sort(
+function 
+(a, b) {
+        
+return
+ a.age - b.age;
+    });
+    
+var
+ s ='';
+</script>
+
+
+
+concat()
+
+创建并返回一个新数组：
+
+var
+ a = [1, 2];
+a.concat(3, 4);
+//
+1,2,3,4
+
+a.concat([2], [3, 3]); //1,2,2,3,3
+a.concat(4, [5, [6, 7]]);
+//
+1,2,3,4,5,[6,7]
+
+slice()
+
+返回指定数组的片段：
+
+var
+ arr = [1, 2, 3, 4, 5];
+a.slice(0, 3);
+//
+1,2,3
+
+a.slice(3);
+//
+4,5
+
+a.slice(1, -1);
+//
+2,3,4
+
+a.slice(-3, -2);
+//
+3
+
+//
+负数便是相对于最后一个元素的位置
+
+
+splice()      arrayObject. splice (index,howmany,element1,.....,elementX)   从第几个开始，有几个，要被替换成那几个 运算符
+
+function
+ (a) {
+a = a || {};
+}
+
+//
+此处若是a不存在便初始化a为对象以免报错   
+这个用法是非常有用的。 in运算符
+
+in用于判断一个属性是否在对象中：
+
+var
+ obj = {x: 1, y: 2};
+'x' 
+in
+ obj;
+//
+true
+
+'z' 
+in
+ obj;
+//
+false 
+for
+ (
+var
+ k 
+in
+ obj) {
+
+//
+遍历对象
+
+} instanceof运算符
+
+该操作符用于判断某个对象是否属于某类：
+
+var
+ d = 
+new
+ Date();
+d 
+instanceof
+ Date; 
+//
+true
+
+d 
+instanceof
+ Object;
+//
+true
+
+d 
+instanceof
+ Number;
+//
+false eval运算符
+
+eval这个家伙很强大！！！他相当于一个js编译器，可以将你的字符串作为js执行，当然安全性效率会有一定问题。
+
+eval('2+3');
+//
+5
+function
+ a() {
+alert('aa');
+}
+eval('a();');
+
+
+
+自定义属性
+
+我平时定义自定义属性时候五花八门，所以便需要用到set/getAttribute，但是这样却破坏了HTML的有效性，这样并不好。
+
+HTML5中，提供一种解决方案， 任何以data-前缀的自定义属性认为是合法的，所以我们以后的自定义属性还是需要注意的， 我们有时候会异步加载js，于是会有以下代码：
+
+function
+ loadAsncJs(url) {
+    
+var
+ head = document.getElementsByName('head')[0];
+    
+var
+ s = document.createElement('script');
+    s.setAttribute('src', url); 
+//
+s.src=url
+
+    head.appendChild(s);
+}
+
+
+
+有时候我们需要判断用户选取了哪些文本，并做处理:
+
+function
+ getSecText
+() {
+    
+if
+ (window.getSection) {
+        
+return
+ window.getSelection(); 
+//
+html5
+
+    } 
+else
+ 
+if
+ (document.selection){
+        
+return
+ document.selection.createRange().text;
+    }
+}
+
+
+
+javascript的计时器有setTimeout与setInterval两种，一个是在一定时间后执行，一个是重复执行。
+
+
+这两个东西大家应该都很熟悉了，但是在实际应用中，setTimeout却带给了我们不一样的东西，比如
+优化
+！
+
+
+setTimeout的优化点可以是以下地方：
+
+
+① 鼠标移动标签上加载数据（发起http请求），
+但我们鼠标可能无意义的划过，所以延迟点加载若是无意义请求便取消
+
+
+② 无论鼠标事件或者窗口改变事件，我们都可以使用这个家伙
+
+
+一个简单的例子：
+
+(
+function
+ () {
+    
+var
+ ajax = $('#ajax');
+    
+var
+ TIMER = 
+null
+;
+    
+var
+ TIMER_STEP = 500;
+    ajax.mousemove(loadMenu);
+    ajax.mouseout(
+function
+ () {
+        
+if
+ (TIMER) clearTimeout(TIMER);   
+ //离开就取消
+
+    });
+    
+function
+ loadMenu() {
+        
+if
+ (TIMER) clearTimeout(TIMER);
+        TIMER = setTimeout(
+function
+ () {
+            
+//
+do someting
+
+        }, TIMER_STEP);
+    } 
+})();
+
+
+
+在javascript中，所有全局变量和函数都是作为window对象的属性或者方法创建的，所以我们创建变量时候一定要使用“var”，避免其全局化。
+
+
+某个执行环境的代码执行结束后，该环境就会被销毁，比如还是
+内部变量在函数执行结束后就销毁了
+，当然闭包是个例外，我们后面说一下。
+
+
+编程语言中，作用域控制着变量与参数的
+可见性及生命周期
+，作用域的提出
+减少了变量冲突，提供自动内存管理
+，这就是作用域的意义。
+原型链
+
+最初javascript没有class的概念，我们使用的类是以function模拟，继承的实现手段一般依靠原型链，继承的使用也是评价一个jser的重要指标
+
+每个函数都会包含一个原型对象prototype
+
+原型对象prototype包含一个指向构造函数的指针constructor
+
+实例对象包含一个内部属性__proto__指针指向原型对象prototype
+
+这是他们之间的三角关系：
+
+
+
+(
+function
+ () {
+    
+var
+ Person = 
+function
+ (name) {
+        
+this
+.name = name;
+    };
+    
+//
+Person.prototype = {};//这句将影响十分具有constructor属性
+
+    Person.prototype.getName = 
+function
+ () {
+        
+return
+ 
+this
+.name;
+    };
+
+    
+var
+ Student = 
+function
+ (name, sex, id) {
+        
+this
+.name = name || '无名氏';
+        
+this
+.sex = sex || '不明';
+        
+this
+.id = id || '未填'; 
+//
+学号
+    };
+    
+//
+相当于将其prototype复制了一次，若是包含constructor的话将指向Person
+
+    Student.prototype = 
+new
+ Person();
+    Student.prototype.getId = 
+function
+ () {
+        
+return
+ 
+this
+.id;
+    }
+    
+var
+ y = 
+new
+ Person();
+    
+var
+ s = 
+new
+ Student;
+    
+var
+ s1 = y 
+instanceof
+ Person;
+    
+var
+ s2 = s 
+instanceof
+ Student;
+    
+var
+ s3 = s 
+instanceof
+ Person;
+    
+var
+ s4 = Student.prototype.constructor === Person;
+    
+var
+ s5 = Student.constructor === Person;
+    
+var
+ s6 = Student.constructor === Function;
+
+    
+var
+ s = '';
+})();
+
+
+一般形式的继承方式如上，偶尔我们会这样干：
+
+Student.prototype = {}
+
+但是这样会导致prototype对象的constructor对象丢失，所以需要找回来，另外一个问题是，这里继承需要执行父类的构造方法，这样是有问题的
+
+比如，父类的构造函数中有一些事件绑定什么的与子类无关，便会导致该类继承无用，所以很多时候我们需要自己实现继承，比较优雅的是prototype的做法，我这里对其进行了一定改造
+
+
+var
+ arr = [];
+
+var
+ slice = arr.slice;
+
+
+function
+ create() {
+  
+if
+ (arguments.length == 0 || arguments.length > 2) 
+throw
+ '参数错误';
+
+  
+var
+ parent = 
+null
+;
+  
+//
+将参数转换为数组
+var
+ properties = slice.call(arguments);
+
+  
+//
+如果第一个参数为类（function），那么就将之取出
+if
+ (
+typeof
+ properties[0] === 'function')
+    parent = properties.shift();
+  properties = properties[0];
+
+  
+function
+ klass() {
+    
+this
+.initialize.apply(
+this
+, arguments);
+  }
+
+  klass.superclass = parent;
+  klass.subclasses = [];
+
+  
+if
+ (parent) {
+    
+var
+ subclass = 
+function
+ () { };
+    subclass.prototype = parent.prototype;
+    klass.prototype = 
+new
+ subclass;
+    parent.subclasses.push(klass);
+  }
+
+  
+var
+ ancestor = klass.superclass && klass.superclass.prototype;
+  
+for
+ (
+var
+ k 
+in
+ properties) {
+    
+var
+ value = properties[k];
+
+    
+//
+满足条件就重写
+if
+ (ancestor && 
+typeof
+ value == 'function') {
+      
+var
+ argslist = /^\s*function\s*\(([^\(\)]*?)\)\s*?\{/i.exec(value.toString())[1].replace(/\s/i, '').split(',');
+      
+//
+只有在第一个参数为$super情况下才需要处理（是否具有重复方法需要用户自己决定）
+if
+ (argslist[0] === '$super' && ancestor[k]) {
+        value = (
+function
+ (methodName, fn) {
+          
+return
+ 
+function
+ () {
+            
+var
+ scope = 
+this
+;
+            
+var
+ args = [
+function
+ () {
+              
+return
+ ancestor[methodName].apply(scope, arguments);
+            } ];
+            
+return
+ fn.apply(
+this
+, args.concat(slice.call(arguments)));
+          };
+        })(k, value);
+      }
+    }
+
+    klass.prototype[k] = value;
+  }
+
+  
+if
+ (!klass.prototype.initialize)
+    klass.prototype.initialize = 
+function
+ () { };
+
+  klass.prototype.constructor = klass;
+
+  
+return
+ klass;
+}
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+行为,结构,样式分离的页面
+
+
+ 
+
+ 
+
+
+绑定事件的3种方式
+
+1
+
+<div id="school" onclick="t();">
+
+这种写法最古老,兼容性最强.属于DOM的lev0级的标准.  
+
+这个效果,等同于在点击div的时候,执行"t();"这一语句,
+
+在 全局范围内 执行,因此,t函数内部的this指代全局对象-->window
+
+想操作被点击的DOM对象,用this就不行了.
+
+
+
+
+2
+
+DOM对象.onclick = function () {}
+
+这种绑定是把一个DOM对象onclick属性赋值为一个函数,
+
+因此,函数内部的 this 直接指向该 DOM对象 .
+
+ 
+
+在这种绑定方式中,只能给一个事件,绑定一个处理函数
+
+即 .onclick = fn1;  .onclick = fn2;
+
+最终的效果, 是.onclick = fn2;
+
+如果用函数来调用其他函数的形式
+
+例.onclick = function () {fn1(),fn2()}
+
+那么此时，　fn1,fn2中的this又指向window．
+
+ 
+
+3
+
+DOM lev3的事件绑定标准
+
+添加和去除监听事件.
+
+addEventListener('事件',函数);  // 第一个参数事件参数, 没有前缀"on", w3c的标准,IE不支持
+
+注意点1 : 如果添加了多个事件处理函数, 按"添加时的先后顺序来执行"
+
+注意占2:  事件处理函数中的this 指代 DOM节点自身 (w3c标准)
+
+注意点3:  第一个事件参数,一律把事件名称的'on'去掉 (w3c标准)
+
+去除绑定
+
+removeEventListener('事件',函数)
+
+ 
+
+IE下绑定事件与解除事件的方法
+
+attachEvent('事件',函数)    // 注意: 事件 要加on
+
+detachEvent('事件',函数)  // 事件依然要加on
+
+ 
+
+总结一下:
+
+W3c addEventListener 与IE的attachEvent()的不同
+
+1: 事件名不同, IE下要加on,w3c不加on
+
+2: 加事件后的执行顺序不同, w3c按绑定事件的顺序来执行, 而IE6,7,8,是后绑定的事件先发生.
+
+3: this的指向, w3c中,绑定函数中的this指向 DOM对象, 而IE6,7,8中,指向window对象
+
+
+
+
+事件的捕捉与冒泡模型
+
+在w3c的模型中, 
+
+addEventListener 支持  第3个参数 来声明事件的模型为冒泡还是捕捉.
+
+如果声明为 true,则为捕捉方式（先大再小）
+
+如果声明为false, 或者不声明, 则为冒泡方式  
+
+注意: IE的attchEvent 没有第3个参数,不支持捕捉模型
+
+  事件对象 :
+
+
+当事件对应的函数被触发时, 函数会接收到一个事件参数, // w3c标准
+
+例 xx.onclick = function ( ev)  {alert(ev)}
+
+点击后,ev 参数就代表单击那一瞬间的"各个参数",以一个对象的方式传过去.
+
+对于IE, 当事件发生的瞬间,事件对象赋值给 window.event 属性
+
+
+
+
+ev.target = ev.target || ev.srcElement;
+
+
+ 
+
+事件的中断
+
+如何中断事件的传播
+
+在w3c:  事件 stopPropagation();
+
+在IE中,  事件对象. cancelBubble = true; 取消默认效果 
+preventDefautl( ) ;// w3c取消事件效果
+
+returnValue = false; // IE取消事件效果
+
+
+
+
+
+ 
+    // 兼容阻止事件的传播
+    if(ev.stopPropagation) {
+         ev.stopPropagation()
+    } else {
+         ev.cancelBubble = true;
+    }
+ 
+    // 兼容取消事件的默认效果
+    if(ev.preventDefault) {
+        ev.preventDefault();
+    } else {
+        ev.returnValue = false;
+    }
+
+Js 之作用域链
+
+
+
+  js并不是一句一句顺序执行的,先进行词法分析
+
+函数与 激活对象
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+如果函数嵌套
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+箭头反过来则是闭包（外部访问内部）
+
+AO上有哪些属性
+
+对于函数的AO,属性来自于3个方面
+
+1:参数
+
+2:局部变量声明
+
+3:函数声明
+
+-----------------------------------------------------------------------------------------------
+
+
+// will return a value of undefined          
+
+var
+ myvar 
+=
+ 
+"my value"
+;
+(
+function
+(
+)
+ 
+{
+
+  console
+.
+log
+(
+myvar
+)
+;
+ // undefined
+
+  
+var
+ myvar 
+=
+ 
+"local value"
+;
+}
+)
+(
+)
+;   //因为先查找立即执行的函数里的作用域里的myvar对象，有此变量就不往外面找了
+
+
+
+AO对象是和 执行环境 相关的一个概念
+
+
+在 函数调用 的瞬间,  AO 这样来形成,-----------------------> Variable hoisting 的原因就是这个    
+
+  出于实用的目的，我们就采用了”hoisting”这个概念， 这种ECMAScript标准中并未定义，通常用来描述行为。
+
+
+
+
+
+首先 分析参数, 把分析的参数,形成AO的属性
+
+如果传来实参,则把实参赋给相应的属性.
+
+
+
+其次 ,分析 var 声明
+
+以var str = 'hello';
+
+把str声明为AO的属性, 值为  undefined;
+
+如果var 声明的变量名与 形参名称一致,不产生影响,因为AＯ的str属性已经存在．
+
+ 
+
+最后, 分析函数声明
+
+Function 函数名() {
+
+}  // 有函数名
+
+
+
+
+此前为分析阶段，之后是执行阶段
+
+执行时该赋值的赋值（此处要注意）
+
+-------------------------------------------------------------------------------------------------
+
+
+  function t3(x,y) {
+    var x = 7 ;
+    console.log(x); // 7            一开始有AO.x=5,  后来x又被附值为7
+    console.log(y); // undefined
+}
+t3( 5 );
+-------------------
+var str1 = 'global' ;
+function t4() {
+    console.log(str1); //global,向上层找
+    console.log(str2);   //undefined
+    var str2 = 'local' ;
+    console.log(str2); //local
+}
+t4();
+--------------------
+function t(x,y) {
+    function x ( ) {
+        alert( 'hello' );
+    }
+    var y = 99 ;
+    console.log(x); //x();
+    console.log(y);   //99
+}
+t( 3 , 4 );
+
+-------------------
+
+
+
+函数声明 , 假设函数名为fn, 
+
+函数声明会把函数赋为 AO.fn 属性的值.
+
+ 
+
+* 函数声明与函数表达式的区别
+
+表达式必有返回值 ,把返回值(即匿名函数)赋给了一个变量.
+
+此时 就是普通的赋值过程.
+
+例: var fn = function () {}   , 这是一个函数表达式
+
+对于上例, 函数表达式返回函数, 并把函数作为值, 赋给fn
+
+
+
+
+而函数声明的优先级高
+
+例: function fn() {
+
+}
+
+则会把 AO.fn = function fn() { }
+
+======================================================
+This, 与 arguments
+
+当一个函数运行的时候,函数内部能引用的变量有这么几种
+
+AO
+
+arguments
+
+this
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+对于 arguments和this, 每个函数都有自己独有的arguments和this, 且 不进行链式查找
+
+
+
+
+  arguments是什么?
+
+1:arguments是收到的实参副本
+
+在词法分析中, 首先按形参形成AO的属性,值为undefined
+
+当实参传来时, 再修改AO的相应属性.
+
+2:并把所有收到实参收集起来,放到一个arguments对象里
+
+t(a,b,c){},  
+
+调用时: t(1,2,3,4,5) 个参数 
+
+此时 ,  AO属性只有a,bc,3个属性, arguments里有1,3,3,4,5, 所有的值
+
+对于超出形参个数之外的实参, 可以通过arguments来获得
+
+3:arguments 的索引 从 0, 1,2,....递增,与实参逐个对应
+
+4:arguments.length 属性代表实参的个数
+
+5:Arguments一定不是数组, 是长的比较像数组的一个对象,虽然也有length属性
+
+6:Arguments每个函数都会有,因此,arguemnts只会在内部找自身的arguments,
+
+无法引用到外层的arguments
+
+    function t2(c,d,e) {
+
+        if(arguments.length == 2) {
+
+            alert(c*d);
+
+        } else if(arguments.length == 3) {
+
+            alert(c*d*e);
+
+        } else if(arguments.length == 4) {
+
+            alert(c+d-e-arguments[3]);
+
+        }
+
+    } -----------------------------------------------
+
+
+This是谁    This是指调用上下文
+
+针对函数的应用场景来讨论
+
+函数的4种调用方式 
+
+1:函数方式
+
+直接调用函数名,或函数表达式的返回值, 
+
+This指代全局对象,window
+
+2:属性方式(对象方法方式)
+
+This指代该对象(方法的属主)
+var a = 3 ; 
+var ob = {};   //或var ob=new Object();
+ob.a = 1 ;
+ob.test = function (){
+var a = 2 ;
+alert( this .a);
+};
+ob.test();   //1
+
+
+
+
+
+
+
+
+
+3:构造器方式
+
+通过 new 函数 名() , 来创建对象
+
+在js里, 构造函数与对象的关系比较松散, 
+
+对象就是"属性->值"的集合
+
+构造器的作用,是 制造一个对象,把this指向该对象,
+function life (age,name) {
+    this .age = age;
+    this .name = name;
+    this .sayhello = function () {
+    alert( '我是' + this .name + ',' + this .age + '岁' );
+    }
+}
+var xiaoming = new life( 10 , 'xiaoming' );
+xiaoming.sayhello();
+
+
+
+
+
+
+
+4:call,apply方式
+
+函数本身即是对象,对象就有方法
+
+函数名.call(对象,参数1,参数2,参数3);
+
+以fn.call(obj,'a','b');
+
+实际效果相当于
+
+1: fn内部的this指向了obj
+
+2:fn('a','b');
+
+     var dog = {id:3,age:5};
+
+    function t(c,d) {
+
+        alert(c*d);
+
+        alert(this.id)
+
+    }
+
+    // 在js中,函数就是变量,而且是 一种对象型的变量,他也有方法.
+
+    t.call(dog,8,9);
+
+
+
+
+Apply的效果与call一样, 只不过传参时,把所有参数包装在数组里,传过去.
+
+例 fn.call(obj,'a',' b')  ===> fn.apply(obj,['a','b']);
+
+5.  With 语句   一种改变this的方法
+
+With(对象) {
+
+语句1
+
+语句2
+
+.....
+
+}
+
+在with内部的语句,就把参数中的对象当成的上下文环境.
+
+=========================================================
+
+
+
+
+
+继承
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+当调用老虎的属性或者方法时, 首先在老虎的对象上查找属性或者方法,
+
+如果查询不到,则到老虎的构造函数的原型对象上查找,
+
+并不是把原型上的属性复制到自身
+
+ 
+
+在查找属性或方法的过程中, 沿着原型链来查找属性,
+
+对象->原型->原型的原型....->空对象-->NULL
+
+原型形成一条链
+
+这个查找属性的方式,称为 js的原型链
+
+==========================
+        var lib = (function ($) {
+            var maxBannerWidth = 1280;
+            return {
+                fitBanner: function (img) {
+                    var h = $(window).height(), w = $(window).width();
+                    if (w < maxBannerWidth) {
+                        img.width(w);
+                    }
+                },
+                fitParent: function (img) {
+                    var obj = img.parent();
+                    if (obj) {
+                        var w = obj.height();
+                        img.width(w);
+                    }
+                }
+            };
+        })($);

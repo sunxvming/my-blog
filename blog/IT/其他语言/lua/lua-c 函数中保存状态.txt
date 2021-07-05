@@ -1,0 +1,93 @@
+什么叫做在C函数中保存状态？比如你现在使用Lua调用了C函数Func1，但是Func1中有一些数据在调用完以后保存下来，供以后使用。而这些数据就是所谓的状态，也就是我们需要保存的东东
+ 
+方法一：注册表；
+方法二：环境；
+方法三：upvalue。
+注册表是一个全局的table，它只能被C代码访问。通常，可以用它来保存那种需要在几个模块中共享的数据；但是，如果需要保存一个模块的私有数据，那么应该使用环境，与Lua函数一样，每个C函数都有自己的环境table，通常情况下，一个模块内的所有函数共享同一个环境table，由此它们可以共享数据。最后，C函数也可以拥有upvalue， upvalue是一种与特定函数相关联的Lua值。 【注册表】
+注册表总是位于一个“伪索引”上，这个索引值由LUA_REGISTRYINDEX定义。伪索引就像是一个栈中的索引，但它所关联的值不在栈中；所完这句话，你想到了什么？C++中，使用new开辟空间，这个空间是在堆上开辟的，而指向这个堆的变量却是存放在栈上的。伪索引和这个意思差不多。Lua API中的大多数函数都能接受伪索引，但像lua_remove和lua_insert这种操作栈本身的函数却只能使用普通索引。
+ 
+注册表是一个普通的Lua  table ，可以使用任何Lua值（nil除外）来索引它。例如，要获取注册表中key为“JellyThink”的值，可以这么做：
+ 
+lua_getfield(L, LUA_REGISTRYINDEX, "JellyThink");
+现在就出现了一个很棘手的问题，由于所有的C模块共享同一个注册表，为了 避免使用冲突 ，必须谨慎的选择key的值，为了保证key的唯一性，避免冲突，建议使用UUID作为key值。
+ 
+在注册表中，不要使用数字类型的key，因为这种key是被“引用系统”所保留的。“引用系统”是由辅助库中的一系列函数组成的，它可以在向一个table存储value时，忽略如何创建一个唯一的key。例如以下调用：
+ 
+int r = luaL_ref(L, LUA_REGISTRYINDEX);
+会从栈中弹出一个值，然后用一个新分配的整数key来将这个值保存到注册表中，最后返回这个整数key。这个key被称为“ 引用 ”。
+ 
+ 例子 ： 向注册表中放一个function
+ 
+static int RegisterFunc(lua_State *L)
+{
+    // 第一个参数是function，检查参数
+    luaL_checktype(L, 1, LUA_TFUNCTION);
+ 
+    // 复制一份到栈顶
+    lua_pushvalue(L, 1);
+    lua_pushvalue(L, 1);
+ 
+    // 将这个function注册到注册表中，会把栈顶的function作为iRef的value
+    int iRef = luaL_ref(L, LUA_REGISTRYINDEX);
+ 
+    // 再用key来建立索引，key是JellyThink_Function
+    lua_setfield(L, LUA_REGISTRYINDEX, "JellyThink_Func");
+ 
+    // 将这个iRef压入栈返回，在CModule2中根据这个ref引用得到对应的function
+    lua_pushinteger(L, iRef);
+ 
+    // 返回一个参数
+    return 1;
+}
+
+【环境】
+从5.1开始， 在Lua中注册的所有C函数都有自己的环境table 。一个函数可以像访问注册表那样，通过一个伪索引来访问它的环境table。环境table的 伪索引是LUA_ENVIRONINDEX。
+ 
+这种使用环境的方法与在Lua模块中使用环境的方法差不多，都是先为模块创建一个新的table，然后使模块中的所有函数都共享这个table。只不过，在Lua中使用了一个 setfenv 函数，而在C模块中，只不过是设置table为LUA_ENVIRONINDEX。下面就来看一段环境的代码。
+ 
+int luaopen_EnvironIndexDemo(lua_State *L)
+{
+    lua_newtable(L);
+    lua_replace(L, LUA_ENVIRONINDEX);
+    luaL_register(L, "CModule", arrayFunc);
+    return 1;
+}
+这个注册函数比以前写的注册函数要多两行代码，先要创建一个新的table，然后调用lua_replace将新的table作环境table。然后调用luaL_register时， 所有新建的函数都会继承当前环境。
+ 
+static int SetValue(lua_State *L)
+{
+    // Lua传递的值，先检查参数
+    luaL_checkinteger(L, 1);
+    lua_pushvalue(L, 1);
+    lua_setfield(L, LUA_ENVIRONINDEX , "JellyThink");
+    return 0;
+}
+ 
+// 从环境中取出对应的值
+static int GetValue(lua_State *L)
+{
+    lua_getfield(L, LUA_ENVIRONINDEX , "JellyThink");
+    return 1;
+}
+上面先将值设置到模块环境table中。然后再从中取出来。这个和上面说的注册表有很多的相似之处。尽管可能使用环境来代替注册表，但是如果没有在不同模块之间共享数据的需要，就尽可能的不要使用注册表；使用环境创建的引用，只是在本模块中可见，这样缩小了数据的使用范围了，减小了数据被错改的可能，增加了数据的安全性。 【upvalue】
+注册表提供了全局变量的存储，环境提供了模块变量的存储，而upvalue机制则实现了一种 类似于C语言中静态变量 的机制。而这种upvalue机制， 可以让我们定义一个只在特定的函数中可见的变量。 每当在Lua中创建一个函数时，都可以将任意数量的upvalue与这个函数相关联。每个upvalue都可以保存一个Lua值。以后，在调用这个函数时，就可以通过 伪索引 来访问这些upvalue了。
+ 
+将这种C函数与upvalue的关联称为closure。一个C closure类似于Lua closure。closure可以用同一个函数代码来创建多个closure，每个closure可以拥有不同的upvalue。接下来，来一个简单的实例，上代码：
+ 
+static int count(lua_State *L)
+{
+    int iValue = lua_tointeger(L, lua_upvalueindex(1));
+    lua_pushinteger(L, ++iValue);
+    lua_pushvalue(L, -1);
+    lua_replace(L, lua_upvalueindex(1));
+    return 1;
+}
+ 
+static int newCount(lua_State *L)
+{
+    lua_pushcclosure(L, &count, 1);
+    return 1;
+}
+以上是部分重要代码，在Lua中，调用newCount，就能得到一个闭包函数count，在Lua中，就可以像使用普通变量一样来使用这个count函数了，在Lua中每次调用count函数，它每次会从upvalue中得到之前保存的upvalue，返回给Lua。
+ 
+

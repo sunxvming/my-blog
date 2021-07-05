@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../style.css" type="text/css" />
+
+
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#终端"> 终端</a><ul>
+<li><a href="#终端设备的输入和输出队列缓冲区"> 终端设备的输入和输出队列缓冲区</a></li>
+<li><a href="#虚拟终端和网络终端"> 虚拟终端和网络终端</a></li>
+<li><a href="#网络登录过程"> 网络登录过程</a></li>
+</ul></li>
+<li><a href="#作业控制"> 作业控制</a><ul>
+<li><a href="#session与进程组"> Session与进程组</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="终端"> 终端</h2>
+<p>内核中处理终端设备的模块包括<strong>硬件驱动程序</strong>和<strong>线路规程</strong>（Line Discipline） 硬件驱动程序负责读写实际的硬件设备，比如从键盘读入字符和把字符输出到显示器，线路规 程像一个过滤器，对于某些特殊字符并不是让它直接通过，而是做特殊处理，比如在键盘上按 下Ctrl-Z，对应的字符并不会被用户程序的 read 读到，而是被线路规程截获，解释成 SIGTSTP 信 号发给前台进程，通常会使该进程停止。线路规程应该过滤哪些字符和做哪些特殊处理是可以配置的。</p>
+<h3 id="终端设备的输入和输出队列缓冲区"> 终端设备的输入和输出队列缓冲区</h3>
+<p>以输入队列为例，从键盘输入的字符经线路规程过滤后进入输入队列，用户程序以先进先出的 顺序从队列中读取字符，一般情况下，当输入队列满的时候再输入字符会丢失，同时系统会响 铃警报。终端可以配置成回显（Echo）模式，在这种模式下，输入队列中的每个字符既送给用 户程序也送给输出队列，因此我们在命令行键入字符时，该字符不仅可以被程序读取，我们也 可以同时在屏幕上看到该字符的回显。</p>
+<h3 id="虚拟终端和网络终端"> 虚拟终端和网络终端</h3>
+<p>虚拟终端或串口终端的数目是有限的，虚拟终端一般就是 /dev/tty1 ~ /dev/tty6 六个，串口终端 的数目也不超过串口的数目 网络终端或图形终端窗口的数目却是不受限制的，这是通过 <strong>伪终端</strong>（Pseudo TTY）实现的。一套伪终端由一个主设备（PTY Master）和一个从设备 （PTY Slave）组成。主设备在概念上相当于键盘和显示器，只不过它不是真正的硬件而是一个 内核模块，操作它的也不是用户而是另外一个进程。从设备和上面介绍的 /dev/tty1 这样的终端 设备模块类似，只不过它的底层驱动程序不是访问硬件而是访问主设备。伪终端的文件在 /dev/pts/0 、 /dev/pts/1 下面</p>
+<h3 id="网络登录过程"> 网络登录过程</h3>
+<p>1. 用户通过 telnet 客户端连接服务器。如果服务器配置为独立（Standalone）模式，则在服 务器监听连接请求是一个 telnetd 进程，它 fork 出一个 telnetd 子进程来服务客户端，父进 程仍监听其它连接请求。 另外一种可能是服务器端由系统服务程序 inetd 或 xinetd 监听连接请求， inetd 称为Internet Super-Server，它监听系统中的多个网络服务端口，如果连接请求的端口号和 telnet 服务 端口号一致，则 fork / exec 一个 telnetd 子进程来服务客户端。 xinetd 是 inetd 的升级版本， 配置更为灵活。 2. telnetd 子进程打开一个伪终端设备，然后再经过 fork 一分为二：父进程操作伪终端主设 备，子进程将伪终端从设备作为它的控制终端，并且将文件描述符0、1、2指向控制终 端，二者通过伪终端通信，父进程还负责和 telnet 客户端通信，而子进程负责用户的登录 过程，提示输入帐号，然后调用 exec 变成 login 进程，提示输入密码，然后调用 exec 变 成Shell进程。这个Shell进程认为自己的控制终端是伪终端从设备，伪终端主设备可以看 作键盘显示器等硬件，而操作这个伪终端的“用户”就是父进程 telnetd 。 3. 当用户输入命令时， telnet 客户端将用户输入的字符通过网络发给 telnetd 服务器， 由 telnetd 服务器代表用户将这些字符输入伪终端。<strong>Shell进程并不知道自己连接的是伪终 端而不是真正的键盘显示器，也不知道操作终端的“用户”其实是 telnetd 服务器而不是真正 的用户</strong>。Shell仍然解释执行命令，将标准输出和标准错误输出写到终端设备，这些数据最 终由 telnetd 服务器发回给 telnet 客户端，然后显示给用户看。</p>
+<h2 id="作业控制"> 作业控制</h2>
+<h3 id="session与进程组"> Session与进程组</h3>
+<p>Shell分前后台来控制的不是进程而是作业（Job）或者进程组（Process Group）。一个前台作业可以由多个进程组成，一个后台作 业也可以由多个进程组成，Shell可以同时运行一个前台作业和任意多个后台作业，这称为作业控制（Job Control）。 例如用以下命令启动5个进程：</p>
+<pre><code>$ proc1 | proc2 &amp;
+$ proc3 | proc4 | proc5</code></pre>
+<p>其中 proc1 和 proc2 属于同一个后台进程组， proc3 、 proc4 、 proc5 属于同一个前台进程 组，Shell进程本身属于一个单独的进程组。这些进程组的控制终端相同，它们属于同一个<strong>Session</strong>。 ### 登录和执行命令的过程(Session和进程组角度) 1. getty 或 telnetd 进程在打开终端设备之前调用 <code>setsid</code> 函数创建一个新的Session，该进程 称为Session Leader，该进程的id也可以看作Session的id，然后该进程打开终端设备作为 这个Session中所有进程的控制终端。在创建新Session的同时也创建了一个新的进程组， 该进程是这个进程组的Process Group Leader，该进程的id也是进程组的id。 2. 在登录过程中， getty 或 telnetd 进程变成 login ，然后变成Shell，但仍然是同一个进程， 仍然是Session Leader。 3. 由Shell进程 fork 出的子进程本来具有和Shell相同的Session、进程组和控制终端，但 是Shell调用 <code>setpgid</code> 函数将作业中的某个子进程指定为一个新进程组的Leader，然后调 用 setpgid将该作业中的其它子进程也转移到这个进程组中。如果这个进程组需要在前台 运行，就调用 tcsetpgrp 函数将它设置为前台进程组，由于一个Session只能有一个前台进 程组，所以Shell所在的进程组就自动变成后台进程组。 <code>jobs</code> 命令可以查看当前有哪些作业。<code>fg</code> 命令可以将某个作业提至前台运行，如果该作业的进程 组正在后台运行则提至前台运行，如果该作业处于停止状态，则给进程组的每个进程 发 SIGCONT 信号使它继续运行。</p>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

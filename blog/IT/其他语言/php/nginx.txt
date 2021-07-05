@@ -1,0 +1,1684 @@
+1.nginx  的安装 Nginx ("engine x") 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。
+
+安装准备: nginx依赖于pcre库,要先安装pcre   #先安装pcre,正则表达式的库
+
+yum install pcre pcre-devel (开发的包）
+
+ cd /usr/local/src/      Unix System Resource 
+
+
+
+
+http://nginx.org/download/   源码的列表
+
+
+ wget  http://nginx.org/download/nginx-1.4.2.tar.gz
+
+tar zxvf nginx-1.4.2.tar.gz 
+
+cd nginx-1.4.2
+
+./configure --prefix=/usr/local/nginx
+
+make && make install
+
+启动:
+
+cd /usr/local/nginx, 看到如下4个目录
+
+./
+
+ .... conf  配置文件   
+
+ ...  html  网页文件
+
+ ... logs   日志文件  
+
+ ... sbin   主要二进制程序
+
+ ./sbin/nginx 
+
+------------------------------------------------------------------------
+
+外网用浏览器访问不了：
+
+1.先在服务器上 wget http://127.0.0.1   
+
+2.service iptables status
+
+3.上两步都ok的话，若用的是云服，可能还需要在云服上配置开放的端口 2.Nginx 的信号控制
+
+
+
+
+ TERM, INT
+
+ Quick shutdown    （轻易别这样用）
+
+
+ QUIT
+
+ Graceful shutdown   优雅的关闭进程,即等请求结束后再关闭
+
+
+ HUP
+
+ Configuration reload  , Start the new worker processes with
+
+  a new configuration   Gracefully shutdown the old worker processes
+
+ 改变配置文件 ,平滑的重读配置文件   改配置文件后不用重启服务器
+
+
+ USR1
+
+ Reopen the log files  重读日志,在日志按月/日志割时有用，备份
+
+
+ USR2
+
+ Upgrade Executable on the fly  平滑的升级
+
+
+ WINCH
+
+ Gracefully shutdown the worker processes  优雅关闭旧的进程(配合USR2来进行升级)
+
+
+ 
+
+具体语法:
+
+ps aux|grep nginx
+
+Kill -信号选项 nginx的主进程号
+
+Kill -HUP 4873
+
+Kill -信号控制 `cat /xxx/path/log/nginx.pid`
+
+Kill -USER1 进程号
+
+Kill -USR1  `cat /xxx/path/log/nginx.pid`  nginx.pid 中有进程号  用执行引号引起来
+
+  ./sbin/nignx -s达到同样的效果
+
+./sbin/nignx -h   查看帮助命令
+
+
+
+
+netstat -n|grep 8080 |awk '{print $5}' |sort|uniq -u|wc -l                $5是远端的ip和端口号
+
+
+
+
+
+
+
+
+webbench -c 1000 -t 100 http://114.55.175.233:8888/header.php
+
+Speed=800001 pages/min, 2773819 bytes/sec.
+
+
+
+Requests: 1333336 susceed, 0 failed. 3.Nginx 配置段
+
+// 全局区
+worker_processes 1; // 有1个工作的子进程,可以自行修改,但太大无益,因为要争夺CPU,一般设置为  CPU数*核数
+
+Event {
+
+     // 一般是配置nginx连接的特性
+
+     // 如1个worker能同时允许多少连接
+
+      worker_connections  1024;  // 这是指 一个子进程最大允许连1024个连接
+
+}
+
+http {                         //这是配置http服务器的主要段
+
+     Server1 {              // 这是虚拟主机段        
+
+            Location {    //定位,把特殊的路径或文件再次定位 ,如image目录单独处理（刷你流量）
+
+            }                   // 如.php单独处理
+
+     }
+
+     Server2 {
+
+     }
+
+}
+
+虚拟主机配置
+
+例子1: 基于 域名 的虚拟主机
+
+    server {
+
+        listen 80;   #监听端口
+
+        server_name a.com;  #监听域名
+
+        location / {                     
+
+                root /var/www/a.com;    #根目录定位
+
+                index index.html;
+
+        }
+
+    }
+
+例子2: 基于 端口 的虚拟主机配置 ，和 基于ip 的虚拟主机配置
+
+ 
+
+    server {
+
+        listen 8080;                                              
+
+        server_name 192.168.1.204;
+
+        location / {
+
+                root /var/www/html8080;
+
+                index index.html;
+
+        }
+
+}
+
+
+4.日志管理
+
+我们观察nginx的server段,可以看到如下类似信息
+
+ #access_log  logs/host.access.log  main;
+
+这说明 该server, 它的访问日志的文件是  logs/host.access.log , 使用的格式 ” main ” 格式.
+
+除了main格式,你可以自定义其他格式.
+
+ 
+
+main格式是我们定义好一种日志的格式,并起个名字,便于引用.
+
+ 
+
+1: 日志格式 是指记录哪些选项
+
+默认的日志格式: main
+
+      l og_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+
+                            '$status $body_bytes_sent "$http_referer" '
+
+                            '"$http_user_agent" "$http_x_forwarded_for"';
+
+ 
+
+如默认的main日志格式,记录这么几项
+
+远程IP- 远程用户/用户时间 请求方法(如GET/POST) 请求体body长度 referer来源信息
+
+http-user-agent用户代理/蜘蛛 ,被转发的请求的原始IP  浏览器
+
+http_x_forwarded_for:在经过代理时,代理把你的本来IP加在此头信息中,传输你的原始IP
+
+ 
+
+2: 声明一个独特的log_format并命名
+
+ 
+
+    log_format   mylog  '$remote_addr- "$request" '
+
+                     '$status $body_bytes_sent "$http_referer" '
+
+                        '"$http_user_agent" "$http_x_forwarded_for"';
+
+在下面的server/location,我们就可以引用 mylog
+
+ 
+
+在server段中,这样来声明
+
+Nginx允许针对不同的server做不同的Log  ,(有的web服务器不支持,如lighttp)
+
+access_log   logs/access_8080.log   mylog;    
+
+声明log         log位置                         log格式;
+
+ 
+
+服务器运维，大网站的日志一天可能会很大，一天几G很正常，故要分割备份日志
+
+实际应用: shell+定时任务+nginx信号管理,完成日志按日期存储
+
+分析思路: 
+
+凌晨00:00:01,把昨天的日志重命名,放在相应的目录下
+
+再USR1信息号控制nginx重新生成新的日志文件
+
+
+具体脚本:
+
+#!/bin/bash
+
+base_path='/usr/local/nginx/logs'
+
+log_path=$(date -d yesterday +"%Y%m")                 //   例如想要取得核心版本的设定： ‘version=$(uname -r)’再‘echo $version’可得‘2.6.18-128.el5’  执行其中的命令
+
+day=$(date -d yesterday +"%d")                              // date -d yesterday +%y/%m/%d    2015/11/11 昨天的日期
+
+mkdir -p $base_path/$log_path
+
+mv $base_path/access.log $base_path/$log_path/access_$day.log
+
+#echo $base_path/$log_path/access_$day.log
+
+Touch $base_path/access.log
+
+kill -USR1 `cat /usr/local/nginx/logs/nginx.pid`
+
+ 
+
+定时任务                         //   crontab 除了可以使用指令执行外，亦可编辑 /etc/crontab        /etc/init.d/atd restart    service atd start  两个都能使
+
+Crontab 编辑定时任务
+
+01 00 * * * / xxx/path /b.sh   每天0时1分(建议在02-04点之间,系统负载小)
+
+
+5.location  语法
+try_files    $uri $uri/  /index.php?_url=/$uri&$args;
+try_files的作用是按顺序检查文件是否存在，返回第一个找到的文件或文件夹（结尾加斜线表示为文件夹），如果所有的文件或文件夹都找不到，会进行一个内部重定向到最后一个参数。
+$args 表示url中的参数。  $arg_xx,表示特定的那个参数
+$is_args 如果$args设置,值为"?",否则为""
+
+
+
+
+location 有 ” 定位 ” 的意思, 根据uri来进行不同的定位.
+
+在虚拟主机的配置中,是必不可少的,location可以把网站的不同部分,定位到不同的处理方式上.
+
+比如, 碰到.php, 如何调用PHP解释器?  --这时就需要location
+
+location 的语法
+
+location [=|~|~*|^~] patt {
+
+}
+
+中括号可以不写任何参数,此时称为   一般匹配
+
+也可以写参数
+
+因此,大类型可以分为3种
+
+location = patt {} [精准匹配]
+
+location patt{}  [一般匹配]
+
+location ~ patt{} [正则匹配]
+
+ 
+
+如何发挥作用?:
+
+首先看有没有精准匹配,如果有,则停止匹配过程.
+
+若都没有匹配上，则继承全局的配置
+
+location = patt {
+
+    config A
+
+}
+
+如果 $uri == patt,匹配成功，使用configA
+
+-------------------------------------------------
+
+
+   location = / {
+
+              root   /var/www/html/;       //root表根目录
+
+             index  index.htm index.html;
+
+        }
+
+         
+
+  location / {
+
+             root   /usr/local/nginx/html;
+
+            index  index.html index.htm;
+
+  }
+
+ 
+
+如果访问　　 http://xxx.com /
+
+定位流程是　
+
+1: 精准匹配中　 ” / ”    ,得到index页为　　index.htm
+
+2: 再次访问 /index.htm , 此次内部转跳uri已经是 ” /index.htm ”  , 
+
+根目录为/usr/local/nginx/html
+
+3: 最终结果,访问了 /usr/local/nginx/html/index.htm
+
+-------------------------------------------------
+
+
+
+再来看,正则也来参与.
+
+location / {
+
+            root   /usr/local/nginx/html;
+
+            index  index.html index.htm;
+
+        }
+
+ 
+
+location ~ image {
+
+           root /var/www/image;
+
+           index index.html;
+
+}
+
+ 
+
+如果我们访问   http://xx.com/image/logo.png
+
+此时,  “ / ”  与 ” /image/logo.png ”  匹配
+
+同时, ” image ” 正则 与 ” image/logo.png ” 也能匹配,谁发挥作用?
+
+正则表达式的成果将会使用.
+
+图片真正会访问 /var/www/image/logo.png 
+
+-------------------------------------------------
+
+
+location / {
+
+             root   /usr/local/nginx/html;
+
+             index  index.html index.htm;
+
+         }
+
+ 
+
+location /foo {
+
+            root /var/www/html;
+
+             index index.html;
+
+}
+
+我们访问 http://xxx.com/foo
+
+ 对于uri  “ /foo ” ,   两个location的patt,都能匹配他们
+
+即  ‘ / ’ 能从左前缀匹配  ‘ /foo ’ ,  ‘ /foo ’ 也能左前缀匹配 ’ /foo ’ ,
+
+此时, 真正访问 /var/www/html/index.html 
+
+原因: ’ /foo ’ 匹配的更长,因此使用之.;
+
+-------------------------------------------------
+
+ 
+
+ 
+
+
+6.rewrite 重写
+
+
+
+重写中用到的指令
+
+if  (条件) {}  设定条件,再进行重写 
+
+set #设置变量
+
+return #返回状态码 
+
+break #跳出rewrite
+
+rewrite #重写
+
+ 
+
+If  语法格式
+
+If  空格  (条件) {
+
+    重写模式
+
+}
+
+ 
+
+条件又怎么写?
+
+答:3种写法
+
+1:  “ = ” 来判断相等, 用于字符串比较
+
+2:  “ ~ ”  用正则来匹配(此处的正则 区分 大小写)
+
+    ~*  不区分大小写的正则
+
+3: -f -d -e   来判断是否为文件,为目录,是否存在.
+
+ 
+
+例子：
+
+            if    ($remote_addr = 192.168.1.100) {
+
+                return 403;
+
+            }
+
+  if  ($http_user_agent ~ MSIE) {    浏览器是ie的话
+
+                rewrite ^.*$    /ie.htm;
+
+                break;  # (不break会循环重定向)
+
+  }
+
+ 
+
+           if (!-e $document_root$fastcgi_script_name) {           //在这之前发生的， .php的被转到fastcgi_pass,然后没有这个脚本，再然后就被重定向
+
+                rewrite ^.*$    /404.html  break ;
+
+            }  
+
+            注, 此处还要加break,
+
+Nginx有权访问的变量在 nginx/conf/fastcgi.conf 中有说明
+
+Php中的一些全局变量有的是apache  、nginx传过来的    负责两个进程之间通话的变量
+
+以 xx.com/dsafsd.html这个不存在页面为例,
+
+我们观察访问日志, 日志中显示的访问路径,依然是GET /dsafsd.html HTTP/1.1
+
+提示: 服务器内部的rewrite和302跳转不一样. 
+
+跳转的话URL都变了,变成 重新http请求 404.html, 而内部rewrite, 上下文没变,
+
+就是说  fastcgi_script_name  仍然是  dsafsd.html ,因此 会循环重定向.
+
+set 是设置变量用的, 可以用来达到多条件判断时作标志用.  达到apache下的 rewrite_condition的效果
+
+如下: 判断IE并重写,且不用break; 我们用set变量来达到目的
+
+             if ($http_user_agent ~* msie) {
+
+                set $isie 1;
+
+            }
+
+            if ($fastcgi_script_name = ie.html) {
+
+                set $isie 0;
+
+            }
+
+            if ($isie 1) {
+
+                rewrite ^.*$ ie.html;
+
+            }
+
+ 
+
+
+Rewrite语法
+
+Rewrite 正则表达式  定向后的位置 模式
+
+ 
+
+Goods-3.html ---->Goods.php?goods_id=3
+
+goods-([\d]+)\.html ---> goods.php?goods_id =$1  
+
+ 
+
+location /ecshop {
+
+index index.php;
+
+rewrite goods-([\d]+)\.html$   /ecshop/goods.php?id=$1;
+
+rewrite article-([\d]+)\.html$   /ecshop/article.php?id=$1;
+
+rewrite category-(\d+)-b(\d+)\.html    /ecshop/category.php?id=$1&brand=$2;
+
+ 
+
+rewrite category-(\d+)-b(\d+)-min(\d+)-max(\d+)-attr([\d\.]+)\.html 
+
+/ecshop/category.php?id=$1&brand=$2&price_min=$3&price_max=$4&filter_attr=$5;
+
+ 
+
+rewrite category-(\d+)-b(\d+)-min(\d+)-max(\d+)-attr([\d+\.])-(\d+)-([^-]+)-([^-]+)\.html /ecshop/category.php?id=$1&brand=$2&price_min=$3&price_max=$4&filter_attr=$5&page=$6&sort=$7&order=$8;
+
+}
+
+注意:用url重写时, 正则里如果有 ” {} ” ,正则要用双引号包起来
+
+
+
+
+重定向例子
+ location ~^/mclient {
+      rewrite ^/mclient/(\w+)/.*$   /mclient/$1/ark.exe break;
+ } 7.nginx+php的编译
+
+apache一般是把php当做自己的一个模块来启动的.
+
+而nginx则是把http请求变量(如get,user_agent等)转发给 php进程,即 php独立进程,与nginx进行通信.  称为 fastcgi运行方式.
+
+因此,为apache所编译的php,是不能用于nginx的.
+
+ 
+
+注意: 我们编译的PHP 要有如下功能:
+
+连接mysql, gd, ttf, 以fpm(fascgi)方式运行
+
+如何去找： ./configure -help |grep mysql      然后再去看具体的配置
+
+若没成功少了.h头文件 就需再安装后加-devel (开发的包）
+
+./configure  --prefix=/usr/local/fastphp \
+
+--with-mysql=mysqlnd \
+
+--enable-mysqlnd \
+
+--with-gd \
+
+--enable-gd-native-ttf \
+
+--enable-gd-jis-conv
+
+--enable-fpm   （以独立进程编译） FastCGI Process Manager
+
+
+--with-apxs2=/usr/local/http2/bin/apxs \  以apache模块编译
+
+
+php7的话记得把默认的配置文件都改掉， etc下的  和php-fpm.d下的
+编译前一定要想好那些编译选项是必须的，比如我弄curl的时候就忘了弄了，后来又重新安装了一遍
+
+
+
+
+
+
+
+fastCGI 负责两个进程之间的通话 php nginx       启动的时候就启动 php-fpm
+
+nginx一般是把请求发fastcgi管理进程处理，fascgi管理进程选择cgi子进程处理结果并返回被nginx
+
+
+PHP-FPM 提供了更好的PHP进程管理方式，可以有效控制内存和进程、 可以平滑重载PHP配置 ，比spawn-fcgi具有更多优点，所以被PHP官方收录了。
+
+
+编译完毕后 : 
+
+1:
+
+nginx+php的配置比较简单,核心就一句话----
+
+把请求的信息转发给9000端口的PHP进程, 
+
+让PHP进程处理 指定目录下的PHP文件.
+
+如下例子:
+
+location ~ \.php$ {          \.  转义
+
+            root html;
+
+            fastcgi_pass   127.0.0.1:9000;
+
+            fastcgi_index  index.php;
+
+            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+
+            include    fastcgi_params;  
+
+        }
+
+ 
+
+1:碰到php文件,
+
+2: 把根目录定位到 html,
+
+3: 把请求上下文转交给 9000端口PHP进程,
+
+4: 并告诉PHP进程,当前的脚本是 $document_root$fastcgi_script_name
+
+(注:PHP会去找这个脚本并处理,所以脚本的位置要指对)
+
+ 
+
+安装ecshop时找不到数据库是因为：linux下和数据库通讯用的是socket而不是tcp/ip
+
+解决：1、数据库主机改为ip地址  2、php的改配置文件
+
+Mysql_default_socket=/var/lib/mysql/mysql.socket  
+
+出现警告提示信息有一种情况是ecshop的用的php版本低，而运行的版本较高，此时可修改报错级别，修改的时候再安装前修改，若在之后修改的话会有缓存，仍会提示的
+
+修改的文件是install/index.php     有好几个文件都需要修改
+
+
+
+
+
+/php/sbin/php-fpm -D  启动php
+8.网页内容的压缩编码与传输速度优化
+
+
+
+我们观察news.163.com的头信息
+
+请求 :
+
+Accept-Encoding :gzip,deflate,sdch
+
+响应 :
+
+Content-Encoding: gzip
+
+Content-Length:36093
+
+再把页面另存下来,观察,约10W字节,实际传输的36093字节   
+
+从http协议的角度看--请求头 声明 acceopt-encoding: gzip deflate sdch  (是指压缩算法,其中sdch是google倡导的一种压缩方式,目前支持的服务器尚不多)
+
+ 
+
+gzip配置的常用参数              这需作为nginx的 模块来编译 的， 配置的时候可去官网查看所放的位置，上下文
+
+gzip on|off;  #是否开启gzip   
+
+gzip_buffers 32 4K| 16 8K #缓冲(压缩在内存中缓冲几块? 每块多大?)
+
+gzip_comp_level [1-9] #推荐6 压缩级别(级别越高,压的越小,越浪费CPU计算资源)
+
+gzip_disable #正则匹配UA 什么样的Uri不进行gzip
+
+gzip_min_length 200 # 开始压缩的最小长度(再小就不要压缩了,意义不在)
+
+gzip_http_version 1.0|1.1 # 开始压缩的http协议版本(可以不设置,目前几乎全是1.1协议)
+
+gzip_proxied          # 设置请求者代理服务器,该如何缓存内容
+
+gzip_types text/plain  application/xml # 对哪些类型的文件用压缩 如txt,xml,html ,css	 
+
+html默认就有
+
+Nignx/conf/mime.types 中有类型的说明
+
+gzip_vary on|off  # 是否传输gzip压缩标志
+
+注意: 
+
+图片/mp3这样的二进制文件,不必压缩
+
+因为压缩率比较小, 比如100->80字节,而且压缩也是耗费CPU资源的.
+
+比较小的文件不必压缩,
+
+
+
+ 
+
+Vary的作用:
+
+
+ 
+
+Vary是用来标志缓存的依据.
+
+思考:
+
+1: 如果2个人,一个浏览器支持gzip,一个浏览器不支持gzip
+
+2个同时请求同个页面, chinaCache缓存压缩后,还是未压缩的?
+
+ 
+
+2: 如果1人,再次请求页面,chinaCache返回压缩后的缓存内容,还是压缩前的缓存内容?
+
+ 
+
+这个时候 Vary的作用体现出来.
+
+即------缓存的内容受 Accept-Encoding头信息的影响.
+
+所以如果--
+
+请求时,不支持gzip, 缓存服务器将会生成一份未gzip的内容.
+
+请求时,支持gzip, 缓存服务器将会生成一份gzip的内容.
+
+下次再请求时, 缓存服务器会考虑客户端的Accept-Encoding因素,并合理的返回信息
+
+
+
+
+9.nginx的缓存设置  提高网站性能
+
+
+
+Nginx对于图片,js等静态文件的缓存设置
+
+注:这个缓存是指针对 浏览器 所做的缓存,不是指服务器端的数据缓存.
+
+主要知识点:  location expires指令
+
+ 
+
+        location ~ \.(jpg|jpeg|png|gif)$ {
+
+            expires 1d;
+
+        }
+
+        location ~ \.js$ {
+
+           expires 1h;
+
+        }
+
+设置并载入新配置文件,用firebug观察,
+
+会发现 图片内容,没有再次产生新的请求,原因--利用了本地缓存的效果.
+
+注: 在大型的新闻站,或文章站中,图片变动的可能性很小,建议做1周左右的缓存
+
+Js,css等小时级的缓存.
+
+
+
+
+如果信息流动比较快,也可以不用expires指令,
+
+用 last_modified, etag 功能(主流的web服务器都支持这2个头信息)
+
+原理是:
+
+响应: 计算响应内容的签名, etag 和 上次修改时间
+
+请求: 发送 etatg, If-Modified-Since 头信息.
+
+服务器收到后,判断etag是否一致, 最后修改时间是否大于if-Modifiled-Since 
+
+如果监测到服务器的内容有变化,则返回304,
+
+浏览器就知道,内容没变,直接用缓存.
+
+304 比起上面的 expires  指令
+
+多了1次请求,
+
+但是比200状态,少了传输内容.
+
+
+
+对于网站的图片,尤其是新闻站, 图片一旦发布, 改动的可能是非常小的.我们希望 能否在用户访问一次后, 图片缓存在用户的浏览器端,且时间比较长的缓存.
+
+可以, 用到 nginx的expires设置 .
+
+nginx中设置过期时间,非常简单,
+
+在location或if段里,来写.
+
+格式  expires 30s;
+
+      expires 30m;
+
+      expires 2h;
+
+      expires 30d;
+
+
+
+
+
+
+location ~ .*\.(jpg|png|gif|bmp)$ {
+
+expires 30d;          连请求都没有
+
+}
+
+
+
+(注意:服务器的日期要准确,如果服务器的日期落后于实际日期,可能导致缓存失效)
+
+响应头信息中有一个 expires 字段，用于说明什么时候过期。
+
+另: 304 也是一种很好的缓存手段
+
+原理是: 服务器响应文件内容是,同时响应etag标签(内容的签名,内容一变,他也变), 和 last_modified_since 2个标签值
+
+浏览器下次去请求时,头信息发送这两个标签, 服务器检测文件有没有发生变化,如无,直接头信息返回 etag,last_modified_since
+
+浏览器知道内容无改变,于是直接调用本地缓存.
+
+这个过程,也请求了服务器,但是传着的内容极少.
+
+对于变化周期较短的,如静态html,js,css,比较适于用这个方式
+
+
+10.nginx反向代理服务器+负载均衡
+
+
+用户A始终认为它访问的是原始服务器B而不是代理服务器Z，但实用际上反向代理服务器接  受用户A的应答，
+从原始资源服务器B中取得用户A的需求资源，然后发送给用户A。由于防火墙的作用， 只允
+许代理服务器Z 访问原始资源服务器B。尽管在这个虚拟的环境下，防火墙和反向代理的共同
+作用保护了原始资源服务器B，但用户A并不知情。 
+
+
+
+用nginx做反向代理和负载均衡非常简单,
+
+支持两个用法  1个proxy, 1个upstream ,分别用来做反向代理,和负载均衡
+
+以反向代理为例, nginx不自己处理php的相关请求,而是把php的相关请求转发给apache来处理.
+
+ 
+
+ 
+
+ 
+
+----这不就是传说的 ” 动静分离 ” ,动静分离不是一个严谨的说法,叫反向代理比较规范.
+
+  location ~ \.php$ {
+
+       profix_pass   http://域名：端口  
+
+  }     这样配置就转到了apache
+
+反向代理导致后端的服务器ip为前端的ip，而不是客户端真正的ip 。
+
+
+决绝：         location ~ .*\.(jpg|png|gif|bmp)$ {
+
+            proxy_set_header X-Forwarded-For $remote_addr;
+
+            proxy_pass http://192.168.1.204:8080;
+
+       }
+
+------------------------------------------------------
+
+反向代理后端如果有多台服务器,自然可形成负载均衡,
+
+但proxy_pass如何指向多台服务器?
+
+把多台服务器用  upstream 指定绑定在一起并起个组名,
+
+然后proxy_pass指向该组     
+
+ 
+
+默认的均衡的算法很简单,就是针对后端服务器的顺序,逐个请求.
+
+也有其他负载均衡算法,如一致性哈希,需要安装第3方模块.
+
+(自行预习nginx第3方模块的安装,以安装 ngx_http_upstream_consistent_hash 为例)
+
+作业及下周实验课程
+
+
+1:在虚拟机上装3个端口的nginx服务器
+
+2: 利用3个端口的服务器,来实现简单的负载均衡.
+
+ 
+
+下周实验:
+
+1:数据 企业名称/电话/简介 等信息 约2500-3000万条
+
+2: 服务器 4台, 2G/4核(1)  8G/双核(3)
+
+3: 目标 3000PV 
+
+设计: 服务器的架构图, 包括nginx/mysql/php/memcached的分布.
+
+每人要出一个设计方案
+
+
+
+
+Nginx反向代理与负载均衡
+
+ 
+
+正向代理
+
+ 
+
+ 
+
+A,B,C,D
+
+ 
+
+ 
+
+ 
+
+ 
+
+           
+
+ 
+
+ 
+
+ 
+
+反向代理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+具体的负载均衡的方式
+
+注意:负载均衡是一种方案,实现办法有DNS轮询,
+
+如下图,DNS服务器允许一个域名有多个A记录,
+
+那么在用户访问时,一般按地域返回一个较近的解析记录.
+
+这样,全国不同的地区的用户,看到的163的主页,来自不同的服务器.
+
+ 
+
+ 
+
+ 
+
+第二步 : 当 解析出结果,比如浏览器连接60.217时,
+
+这台主机后面还有N台,也要做负载均衡.
+
+ 
+
+1: 硬件上做负载均衡, F5 BIG-IP ,硬件负载均衡(很贵).
+
+直接从TCP/IP的底层协议上,直接做数据包的中转.
+
+2: 软件负载均衡, LVS    Linux Virtual Server
+
+3: 反向代理+负载均衡
+
+
+
+反向代理与keep-alive连接
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+Nginx反向代理设置
+
+例 : 把图片重写到 8080端口(既然能写到8080端口,就意味着可以写到其他独立服务器上)
+
+        location ~ \.(jpg|jpeg|png|gif)$ {
+
+                proxy_pass http://192.168.1.204:8080;
+
+                expires 1d;
+
+        } nginx 与memcached的组合
+
+用法: nginx响应请求时,直接请求memcached,
+
+如果没有相应的内容,再 回调 PHP页面,去查询database,并写入memcached.
+
+ 
+
+分析: memcached是k/v存储, key-->value,
+
+nginx请求memecached时,用什么做key?
+
+一般用 uri arg 做key,  如 /abc.php?id=3 Nginx 第三方模块的安装
+
+以 ngx_http_php_memcache_standard_balancer-master 为例
+
+1: 解压  到 path/ngx_module
+
+ 
+
+配置:
+
+./configure --prefix=/xxx/xxx --add_module=/path/ngx_module
+
+编译 安装
+
+Make && make instal
+
+ 
+
+配置memcache集群
+
+ 
+
+    upstream  memserver  {   把用到的memcached节点,声明在一个组里
+
+        hash_key $request_uri;   // hash计算时的依据,以uri做依据来hash
+
+        server localhost:11211;
+
+        server localhost:11212;
+
+    }
+
+Location里
+
+ 
+
+        location / {
+
+           # root   html;
+
+           set $memcached_key $uri;
+
+           memcached_pass  memserver ;   // memserver为上面的memcache节点的名称
+
+           error_page 404 /writemem.php;
+
+           index  index.php index.html index.htm;
+
+        }
+
+ 
+
+在nginx中做集群与负载均衡,步骤都是一样的
+
+Upstream {}模块 把多台服务器加入到一个组
+
+然后 memcached_pass, fastcgi_pass, proxy_pass ==> upstream组
+
+ 
+
+默认的负载均衡的算法:
+
+是设置计数器,轮流请求N台服务器.
+
+可以安装第3方模式,来利用uri做hash等等.
+
+ 
+
+如 http://wiki.nginx.org/NginxHttpUpstreamConsistentHash  
+
+这个模块就是用一致性hash来请求后端结节,并且其算法,与PHP中的memcache模块的一致性hash算法,兼容.
+
+ 
+
+安装该模块后:
+
+Nginx.conf中
+
+    upstream memserver {
+
+        consistent_hash $request_uri;
+
+        server localhost:11211;
+
+        server localhost:11212;
+
+    }
+
+在PHP.ini中,如下配置
+
+
+memcache.hash_strategy = consistent
+
+这样: nginx与PHP即可完成对memcached的集群与负载均衡算法.
+
+=================================================
+
+
+
+1:定立优化目标
+
+2:排查瓶颈
+
+3:观察日志
+
+4:参数调整
+
+5:重新测试
+
+
+
+高性能的服务器的架设
+
+对于高性能网站  ,请求量大,如何支撑?
+
+1. 减少请求   对于开发人员----合并css, 背景图片, 减少mysql查询等.
+
+2: 对于运维 nginx的expires ,利用浏览器缓存等,减少查询.
+
+3: 利用cdn来响应请求  把资源交给别的服务器
+
+4: 最终剩下的,不可避免的请求----服务器集群+负载均衡来支撑.
+
+所以 , 来到第 4 步后 , 就不要再考虑减少请求这个方向了 .    而是思考如何更好的响应高并发请求.
+
+大的认识-----既然响应是不可避免的,我们要做的是把工作内容 ” 平均 ” 分给每台服务器.
+
+最理想的状态 每台服务器的性能都被充分利用.
+
+
+
+服务器介绍 :
+
+服务器以有讲究，有计算密集的，io密集的，进程密集的，分别使用不同的服务器
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+步骤:
+
+1:A号服务器    1.1安装 mysql   1.2并导入数据.    注意:先把表中的索引去掉,加快导入速度
+
+ 
+
+2: C号服务器:  2.1: 编译PHP   注意: enbale-fpm , with-mysql=mysqlnd   (编译成独立fpm进程,支持mysql,)
+
+  2.2: 下载第3方的memcached扩展 编译进来
+
+3: D号服:  3.1 编译 memcached
+
+  4: B号服:   Cd nginx-1.2.7
+
+./configure --prefix=/usr/local/nginx --add-module=/ app/ngx_http_consistent_hash-master
+
+注:红线部分是nginx的第3方模块,需要自己下载.
+
+安装统计模块, 便于观察nginx的状态
+
+./configure --prefix=/usr/local/nginx/ --add-module=/app/ngx_http_consistent_hash-master - -with-http_stub_status_module
+
+
+
+location /nginx_status {
+
+        # Turn on stats
+
+        stub_status on;
+
+        access_log   off;
+
+        # only allow access from 192.168.1.5 #
+
+        allow 192.168.1.5;
+
+        deny all;
+
+   }
+
+
+
+ 
+
+服务器集群与负载均衡搭建完毕
+
+1:问题  C-->A 的mysql连接很慢
+
+解决: my.cnf中的[mysqld]节点中,添加
+
+skip-name-resolve    // 这句话使mysql连接时忽略解析域名,在制定Mysql权限时,只能根据IP限制,不能根据域名限制.
+
+ 
+
+2: 问题  当memcache中没有相应的数据,从后台回调数据时,
+
+http的状态码是404,(虽然内容正常),这样不利于SEO
+
+解决: nginx/conf/nginx.conf
+
+ error_page 404    =200 /callback.php;   // 这样 404被改写成200来响应中
+
+
+
+
+
+
+压力测试:                       ulimit 命令。ulimit用于shell启动进程所占用的资源.
+
+模拟 前0-10万是热数据,     10-20万是冷门数据
+
+  请求热数据 0-10,请求9次        请求 冷门 数据 请求1次,     -----100万次的请求.
+
+
+
+
+优化思路:
+
+主要从系统的dmesg ,和nginx的error.log来观察
+
+优化过程
+
+1:判断nginx的瓶颈
+
+1.1: 首先把ab测试端的性能提高,使之能高并发的请求.
+
+
+易出问题: too many open files
+
+原因 :  ab在压力测试时,打开的socket过多
+
+解决: ulimit -n 30000 (重启失效)
+
+观察结果: nginx 不需要特殊优化的情况下, 5000个连接,1秒内响应. 
+
+满足要求,但 wating状态的连接过多.
+
+ 
+
+1.2: 解决waiting进程过多的问题.
+
+解决办法: keepalive_timeout = 0;  
+
+即: 请求结果后,不保留tcp连接. 
+
+在高并发的情况下, keepalive会占据大量的socket连接.
+
+结果: waiting状态的连接明显减少.
+
+ 
+
+1.3: 解决服务端 too many open files
+
+分析: nginx要响应, 
+
+1是要建立socket连接,
+
+2 是要读本地文件
+
+
+
+
+nginx的问题容易出在2点上:
+
+1: nginx接受的tcp连接多,能否建立起来?
+
+2: nginx响应过程,要打开许多文件 ,能否打开?
+
+系统内核层面:
+
+proc.sys.net.core.somaxconn = 4096 允许等待中的监听
+
+net.ipv4.tcp_tw_recycle = 1  tcp连接快速回收
+
+net.ipv4.tcp_tw_reuse = 1    tcp连接重用   
+
+net.ipv4.tcp_syncookies = 0  不抵御洪水攻击
+
+ulimit -n 30000
+
+Nginx层面:
+
+解决: nginx.conf 下面: work_connection 加大
+
+worker_connections  1024 0 ;
+
+Worker_rlimit_nofiles 10000;
+
+Keepalive_timeout 0;
+
+ 
+
+
+Nginx---->php-fpm之间的优化
+
+在很多个nginx来访问fpm时, fpm的进程要是不够用, 会生成子进程.(不用了会自动消失，对高并发的网站，时刻都需要子进程，）
+
+生成子进程需要内核来调度,比较耗时,    如果网站并发比较大,    我们可以用静态方式一次性生成若干子进程,保持在内存中.  
+
+方法 -- 修改php-fpm.conf
+
+Pm = static  让fpm进程始终保持,不要动态生成
+
+Pm.max_children= 32  始终保持的子进程数量
+
+
+Php-mysql的优化
+
+Linux机器下 ,php 通过IP连接其他mysql服务器时,容易出的问题
+
+能ping能,但connect不到.
+
+ 
+
+一般是由 :mysql服务器的防火墙影响的.  servers iptables stop
+
+
+
+
+并发1万连接,响应时间过长.
+
+ 
+
+优化思路: 同上的nginx
+
+1: 内核层面,加大连接数,并加快tcp回收
+
+2: mysql层面,增大连接数
+
+3: php层面,用长连接,节省连接数
+
+4: 用memcached缓存,减轻mysql负担
+
+ 
+
+具体:
+
+1.1  , PHP服务器增大 ulimint -n选项
+
+1.2 mysql服务器内核配置
+
+添加或修改如下选项
+
+net.ipv4.tcp_tw_recycle = 1
+
+net.ipv4.tcp_tw_reuse = 1
+
+net.ipv4.tcp_syncookies = 0
+
+ 
+
+# syscttl -p 使修改立即生效
+
+ 
+
+2.1  修改mysql.cnf
+
+Vi  /etc/my.conf
+
+# service mysqld restart 重启mysql
+
+ 
+
+3.1 PHP层面 ,用长连接
+
+Mysql_connect ---> mysql_pconnect
+
+注: pconnect 在PHP以apache模块的形式存在时,无效果.
+
+
+Nginx+phjp+mysql+nginx
+
+在引入memcached后,性能提升不明显,甚至还略有下降
+
+ 
+
+memcached使50%的请求变快了,但是一部分,反倒慢了.
+
+原因在于--PHP->memcached也要建立tcp连接,代价挺高,
+
+但缓存了数据之后,就省去了mysql的查询时间.
+
+ 
+
+总结: memcached适合存复杂的sql,尤其是连接查询/模糊查询的sql结果
+
+Memcached服务器的优化 ( 集中在内核的 ipv4 设置上 , 不再重复 )
+
+================================================================
+
+
+
+Nginx的事件处理机制：
+
+对于一个基本的web服务器来说，事件通常有三种类型，网络事件、信号、定时器。 
+
+首先看一个请求的基本过程：建立连接---接收数据---发送数据 。
+
+再次看系统底层的操作 ：上述过程（建立连接---接收数据---发送数据）在系统底层就是读写事件。
+
+1）如果采用阻塞调用的方式，当读写事件没有准备好时，必然不能够进行读写事件，那么久只好等待，等事件准备好了，
+
+才能进行读写事件。那么请求就会被耽搁 。阻塞调用会进入内核等待，cpu就会让出去给别人用了，对单线程的worker来说，
+
+显然不合适，当网络事件越多时，大家都在等待呢，cpu空闲下来没人用，cpu利用率自然上不去了，更别谈高并发了 。
+
+2）既然没有准备好阻塞调用不行，那么采用非阻塞方式。非阻塞就是，事件，马上返回EAGAIN，告诉你，事件还没准备好呢，
+
+你慌什么，过会再来吧。好吧，你过一会，再来检查一下事件，直到事件准备好了为止，在这期间，你就可以先去做其它事情，
+
+然后再来看看事件好了没。虽然不阻塞了，但你得不时地过来检查一下事件的状态，你可以做更多的事情了，但带来的开销也是不小的 
+
+小结：非阻塞通过不断检查事件的状态来判断是否进行读写操作，这样带来的开销很大。 
+
+3）因此才有了异步非阻塞的事件处理机制。具体到系统调用就是像select/poll/epoll/kqueue这样的系统调用。他们提供了一种机制，
+
+让你可以同时监控多个事件，调用他们是阻塞的，但可以设置超时时间，在超时时间之内，如果有事件准备好了，就返回。
+
+这种机制解决了我们上面两个问题。 
+
+以epoll为例：当事件没有准备好时，就放入epoll(队列)里面。如果有事件准备好了，那么就去处理；如果事件返回的是EAGAIN，(提示再试一次)
+
+那么继续将其放入epoll里面。从而，只要有事件准备好了，我们就去处理她，只有当所有时间都没有准备好时，才在epoll里面等着。
+
+这样，我们就可以并发处理大量的并发了，当然，这里的并发请求，是指未处理完的请求，线程只有一个，
+
+所以同时能处理的请求当然只有一个了，只是在请求间进行不断地切换而已，切换也是因为异步事件未准备好，而主动让出的。
+
+这里的切换是没有任何代价，你可以理解为循环处理多个准备好的事件，事实上就是这样的。 
+
+4）与多线程的比较：
+
+与多线程相比，这种事件处理方式是有很大的优势的，不需要创建线程，每个请求占用的内存也很少，
+
+没有上下文切换，事件处理非常的轻量级。并发数再多也不会导致无谓的资源浪费（上下文切换）。
+
+
+
+
+小结：通过异步非阻塞的事件处理机制，Nginx实现由进程循环处理多个准备好的事件，从而实现高并发和轻量级。 
+
+
+
+
+
+
+
+master/worker结构：一个master进程，生成一个或多个worker进程
+
+内存消耗小：处理大并发的请求内存消耗非常小。在3万并发连接下，开启的10个Nginx 进程才消耗150M内存（15M*10=150M） 
+
+成本低廉：Nginx为开源软件，可以免费使用。而购买F5 BIG-IP、NetScaler等硬件负载均衡交换机则需要十多万至几十万人民币
+
+内置的健康检查功能：如果 Nginx Proxy 后端的某台 Web 服务器宕机了，不会影响前端访问。
+
+节省带宽：支持 GZIP 压缩，可以添加浏览器本地缓存的 Header 头。
+
+稳定性高：用于反向代理，宕机的概率微乎其微
+
+
+
+
+
+
+
+nginx代理和后端web服务器间无需长连接；
+
+接收用户请求是异步的，即先将用户请求全部接收下来，再一次性发送后后端web服务器，极大的减轻后端web服务器的压力
+
+发送响应报文时，是边接收来自后端web服务器的数据，边发送给客户端的
+
+网络依赖型低。NGINX对网络的依赖程度非常低，理论上讲，只要能够ping通就可以实施负载均衡，而且可以有效区分内网和外网流量
+
+支持服务器检测。NGINX能够根据应用服务器处理页面返回的状态码、超时信息等检测服务器是否出现故障，
+
+并及时返回错误的请求重新提交到其它节点上
+
+
+
+ 
+
+
+
+
+
+
+nginx是以多进程的方式来工作的，当然nginx也是支持多线程的方式的,只是我们主流的方式还是多进程的方式，也是nginx的默认方式。nginx采用多进程的方式有诸多好处 .
+
+ (1) nginx在启动后，会有一个master进程和多个worker进程。master进程主要用来管理worker进程，包含：接收来自外界的信号，向各worker进程发送信号，监控 worker进程的运行状态,当worker进程退出后(异常情况下)，会自动重新启动新的worker进程。而基本的网络事件，则是放在worker进程中来处理了 。多个worker进程之间是对等的，他们同等竞争来自客户端的请求，各进程互相之间是独立的 。一个请求，只可能在一个worker进程中处理，一个worker进程，不可能处理其它进程的请求。 worker进程的个数是可以设置的，一般我们会设置与机器cpu核数一致，这里面的原因与nginx的进程模型以及事件处理模型是分不开的 。
+
+
+
+
+(2)Master接收到信号以后怎样进行处理（./nginx -s reload ）?首先master进程在接到信号后，会先重新加载配置文件，然后再启动新的进程，并向所有老的进程发送信号，告诉他们可以光荣退休了。新的进程在启动后，就开始接收新的请求，而老的进程在收到来自master的信号后，就不再接收新的请求，并且在当前进程中的所有未处理完的请求处理完成后，再退出 .
+
+
+
+
+(3) worker进程又是如何处理请求的呢？我们前面有提到，worker进程之间是平等的，每个进程，处理请求的机会也是一样的。当我们提供80端口的http服务时，一个连接请求过来，每个进程都有可能处理这个连接，怎么做到的呢？首先，每个worker进程都是从master进程fork过来，在master进程里面，先建立好需要listen的socket之后，然后再fork出多个worker进程，这样每个worker进程都可以去accept这个socket(当然不是同一个socket，只是每个进程的这个socket会监控在同一个ip地址与端口，这个在网络协议里面是允许的)。一般来说，当一个连接进来后，所有在accept在这个socket上面的进程，都会收到通知，而只有一个进程可以accept这个连接，其它的则accept失败，这是所谓的惊群现象。当然，nginx也不会视而不见，所以nginx提供了一个accept_mutex这个东西，从名字上，我们可以看这是一个加在accept上的一把共享锁。有了这把锁之后，同一时刻，就只会有一个进程在accpet连接，这样就不会有惊群问题了。accept_mutex是一个可控选项，我们可以显示地关掉，默认是打开的。当一个worker进程在accept这个连接之后，就开始读取请求，解析请求，处理请求，产生数据后，再返回给客户端，最后才断开连接，这样一个完整的请求就是这样的了。我们可以看到，一个请求，完全由worker进程来处理，而且只在一个worker进程中处理。 
+
+
+
+
+(4):，nginx采用这种进程模型有什么好处呢？采用独立的进程，可以让互相之间不会影响，一个进程退出后，其它进程还在工作，服务不会中断，master进程则很快重新启动新的worker进程。当然，worker进程的异常退出，肯定是程序有bug了，异常退出，会导致当前worker上的所有请求失败，不过不会影响到所有请求，所以降低了风险。当然，好处还有很多，大家可以慢慢体会。 
+
+
+
+
+(5).有人可能要问了，nginx采用多worker的方式来处理请求，每个worker里面只有一个主线程，那能够处理的并发数很有限啊，多少个worker就能处理多少个并发，何来高并发呢？非也，这就是nginx的高明之处，nginx采用了异步非阻塞的方式来处理请求，也就是说，nginx是可以同时处理成千上万个请求的 .对于IIS服务器每个请求会独占一个工作线程，当并发数上到几千时，就同时有几千的线程在处理请求了。这对操作系统来说，是个不小的挑战，线程带来的内存占用非常大，线程的上下文切换带来的cpu开销很大，自然性能就上不去了，而这些开销完全是没有意义的。我们之前说过，推荐设置worker的个数为cpu的核数，在这里就很容易理解了，更多的worker数，只会导致进程来竞争cpu资源了，从而带来不必要的上下文切换。而且，nginx为了更好的利用多核特性，提供了cpu亲缘性的绑定选项，我们可以将某一个进程绑定在某一个核上，这样就不会因为进程的切换带来cache的失效 
+
+常见问题
+权限问题导致Nginx 403 Forbidden错误的解决方法
+
+
+
+系统中的路径查询结果：
+[root@lizhong html]# ll /root/html/
+总用量 4
+-rw-r--r-- 1 root root 3 4月  18 11:07 index.html
+目录时存在，重启nginx还是这个错误，后来想到是不是权限问题？于是在nginx.conf头部加入一行：
+user  root;
+重启nginx再访问，就可以正常访问了
+
+
+
+如果不想使用root用户运行，可以通过修改目录访问权限解决403问题，但不能把目录放在root用户宿主目录下，放在任意一个位置并给它755，或者通过chown改变它的拥有者与nginx运行身份一致也可以解决权限问题。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

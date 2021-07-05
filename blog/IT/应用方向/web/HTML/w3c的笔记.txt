@@ -1,0 +1,582 @@
+
+
+<p title="About W3Schools">
+<p>Browsers usually indent blockquote elements.</p>
+<blockquote cite="http://www.worldwildlife.org/who/index.html">
+
+
+
+
+The <html> element is the document root. It is the recommended place for specifying the page language:
+<!DOCTYPE html>
+<html lang="en-US">     <div lang="zh">这是中文。</div>
+
+
+<meta http-equiv="refresh" content="30">
+ 
+The <base> element specifies the base URL and base target for all relative URLs in a page:
+<base href="http://www.w3schools.com/images/" target="_blank">
+
+
+URLs can only be sent over the Internet using the ASCII character-set.
+
+
+ <form action="action_page.php">
+<input list ="browsers">       //会有箭头，点了有提示
+< datalist id="browsers">
+  <option value="Internet Explorer">
+  <option value="Firefox">
+  <option value="Chrome">
+  <option value="Opera">
+  <option value="Safari">
+</datalist>
+</form>
+
+
+ <form>
+  Quantity (between 1 and 5):
+  <input type=" number " name="quantity" min="1" max="5">
+</form>
+
+
+ <form action="action_page.php" novalidate>
+  E-mail: <input type="email" name="user_email">
+  <input type="submit">
+</form> 
+
+
+ <form action="action_page.php" id="form1">
+  First name: <input type="text" name="fname"><br>
+  <input type="submit" value="Submit">
+</form>
+Last name: <input type="text" name="lname" form="form1">
+
+
+ <form action="action_page.php">      //一个form中可提交到不同的地址，用ajax也ok
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  <input type="submit" value="Submit"><br>
+  <input type="submit" formaction="demo_admin.asp"
+  value="Submit as admin">
+</form> 
+
+
+Country code: <input type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code">
+
+
+ <input type="text" name="fname" placeholder ="First name">
+
+
+Username: <input type="text" name="usrname" required >
+
+
+Local storage is a powerful replacement for cookies.
+
+
+
+
+Do not add a space between the property value and the unit (such as margin-left: 20 px;).
+ The correct way is: margin-left: 20px ; //css
+
+
+body {
+    background-image: url("w3css.gif");
+    background-repeat: no-repeat;
+    background- attachment: fixed;
+}
+
+
+The default color for a page is defined in the body selector.
+
+
+If you define the color property, you must also define the background-color property.   要不然设的字体是灰色，用户的浏览器的默认颜色也是灰色
+
+
+===============================js===============================================
+Its a good programming practice to declare all variables at the beginning of a script. 
+
+
+If you add a number to a string, the number will be treated as string, and concatenated. 
+If one operand is a string, JavaScript will treat all operands as strings.  
+
+
+
+
+In JavaScript, an array is a special type of object. Therefore typeof [1,2,3,4] returns   object.  
+
+ var car = "";                // The value is "", the typeof is string
+ 
+You can access object properties in two ways:
+objectName.propertyName or objectName[propertyName]
+
+
+In JavaScript, objects and functions, are also variables.
+
+
+In HTML, the global scope is the window object: All global variables belong to the window object.
+
+
+
+
+
+
+var x = 'It\'s alright';
+var y = "We are the so-called \"Vikings\" from the north."
+
+
+You can also break up a code line within a text string with a single backslash:
+Example
+document.getElementById("demo").innerHTML = "Hello \
+Dolly!"; 
+
+
+var x = "John";// type of x will return String
+var y = new String("John");// type of y will return Object
+Don t create strings as objects. It slows down execution speed, and produces nasty side effects:
+
+
+JavaScript Numbers are Always 64-bit Floating Point
+
+
+var myNumber = 2;
+while (myNumber != Infinity) {          // Execute until Infinity
+    myNumber = myNumber * myNumber;
+} 
+
+
+var x = 100 / "10";     // x will be 10
+
+
+var x = Number.MAX_VALUE; 
+ 
+var x = 6;
+var y = x.MAX_VALUE;    // y becomes undefined 
+
+
+In JavaScript, all data types have a valueOf( ) and a toString( ) method.
+The valueOf() method is the default behavior for an array. It returns an array as a string:
+valueOf() and toString() are equal.
+
+
+Math.floor(Math.random() * 11);   // returns a random number between 0 and 10 
+
+
+<script>
+var d = new Date();
+var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+document.getElementById("demo").innerHTML = days[d.getDay()];
+</script>
+
+
+<script>
+var d = new Date();
+d.setDate(d.getDate() + 50);
+document.getElementById("demo").innerHTML = d;
+</script>
+
+
+<script>
+var msec = Date.parse("March 21, 2012");
+var d = new Date(msec);
+document.getElementById("demo").innerHTML = d;
+</script>  
+
+
+var cars = ["Saab", "Volvo", "BMW"];   var cars = new Array("Saab", "Volvo", "BMW")
+The two examples above do exactly the same. There is no need to use new Array().
+For simplicity, readability and execution speed, use the first one (the array literal method).
+
+
+JavaScript variables can be objects. Arrays are special kinds of objects.
+Because of this, you can have variables of different types in the same Array.
+You can have objects in an Array. You can have functions in an Array.
+
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits[fruits.length] = "Lemon";     // adds a new element (Lemon) to fruits
+
+
+JavaScript does not support arrays with named indexes.
+In JavaScript, arrays use numbered indexes.   
+If you use a named index, when accessing an array, JavaScript will redefine the array to a standard object, 
+and all array methods and properties will produce undefined or incorrect results.
+Arrays are a special kind of objects, with numbered indexes.
+You should use objects when you want the element names to be strings (text).
+You should use arrays when you want the element names to be numbers.
+
+
+
+
+By default, the sort() function sorts values as strings.
+var points = [40, 100, 1, 5, 25, 10];            [1, 10, 100, 25, 40, 5]
+points.sort(function(a, b){return a-b}); 
+
+
+var arr1 = ["Cecilie", "Lone"];
+var arr2 = ["Emil", "Tobias","Linus"];
+var arr3 = ["Robin", "Morgan"];
+var myChildren = arr1.concat(arr2, arr3);     // Concatenates arr1 with arr2 and arr3 
+
+
+var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+var citrus = fruits.slice(1,3);//Orange,Lemon
+
+
+Boolean(10 > 9)        // returns true 
+(10 > 9)              // also returns true
+10 > 9                // also returns true 
+
+
+0  -0  ""  null  NaN  undifind   false
+
+
+You can initiate many values in statement 1 (separated by comma):
+Example:
+for ( var i = 0, len = cars.length, text = ""; i < len; i++) {           初始化的
+    text += cars[i] + "<br>";
+}
+
+
+And you can omit statement 1 (like when your values are set before the loop starts):
+var i = 2;
+var len = cars.length;
+var text = "";
+for (; i < len; i++) {
+    text += cars[i] + "<br>";
+}
+
+
+var person = {fname:"John", lname:"Doe", age:25};
+var text = "";
+var x;
+for (x in person) {
+    text += person[x];
+}
+
+
+var person = null;           // Value is null, but type is still an object
+var person = undefined;     // Value is undefined, type is undefined
+
+
+null === undefined           // false
+null == undefined            // true
+
+
+The constructor property returns the constructor function for all JavaScript variables.
+"John".constructor                 // Returns function String()  { [native code] }
+(3.14).constructor                 // Returns function Number()  { [native code] }
+false.constructor                  // Returns function Boolean() { [native code] }
+[1,2,3,4].constructor              // Returns function Array()   { [native code] }
+{name:'John', age:34}.constructor  // Returns function Object()  { [native code] }
+new Date().constructor             // Returns function Date()    { [native code] }
+function () {}.constructor         // Returns function Function(){ [native code] } 
+
+
+You can check the constructor property to find out if an object is an Array (contains the word "Array"):
+function isArray(myArray) {
+    return myArray.constructor.toString().indexOf("Array") > -1;
+} 
+
+
+d = new Date();
+d.getTime()        // returns 1404568027739 
+
+
+JavaScript automatically calls the variable s toString() function when you try to "output" an object or a variable:
+
+
+var str = "Visit W3Schools";
+var n = str.search(/w3schools/i); //6
+
+
+var str = "Visit Microsoft!";
+var res = str.replace(/microsoft/i, "W3Schools"); 
+
+
+var patt = /e/;
+patt.test("The best things in life are free!"); //return true
+/e/.test("The best things in life are free!") 
+
+
+/e/.exec("The best things in life are free!"); //return e
+
+
+
+
+<script>
+try {
+    adddlert("Welcome guest!");
+}
+catch( err ) {
+    document.getElementById("demo").innerHTML = err.message;
+}
+</script>
+
+
+Strict mode is declared by adding "use strict"; to the beginning of a JavaScript file, or a JavaScript function.
+"use strict";
+x = 3.14;       // This will cause an error
+myFunction();   // This will also cause an error
+function myFunction() {
+    x = 3.14;
+}
+
+
+x = 3.14;       // This will not cause an error.
+myFunction();   // This will cause an error
+function myFunction() {
+   "use strict";
+    x = 3.14;
+}
+------------------------------------------------------
+当你有一个对象的多个属性或者方法需要操作时，就可以使用with
+ 
+比如
+<body>
+test
+<script type="text/javascript">
+var o=document.createElement("div");
+with(o){
+    style.cursor="pointer";
+    style.zIndex="100";
+    innerHTML="aaaa";
+}
+document.body.appendChild(o);
+</script>
+</body>
+上面的代码相当于
+ 
+<body>
+test
+<script type="text/javascript">
+var o=document.createElement("div");
+    o.style.cursor="pointer";
+    o.style.zIndex="100";
+    o.innerHTML="aaaa";
+document.body.appendChild(o);
+</script>
+</body>
+ 
+所以with 用于简化 代码 操作。
+===================================php====================================================
+<?php
+$x = 5;
+$y = 10;
+
+
+function myTest() {
+    $GLOBALS['y'] = $GLOBALS['x'] + $GLOBALS['y'];
+}
+
+
+myTest();
+echo $y; // outputs 15
+?> 
+
+
+echo "This ", "string ", "was ", "made ", "with multiple parameters.";
+
+
+
+
+str_word_count("Hello world!"); // outputs 2
+
+
+
+
+The htmlspecialchars () function converts special characters to HTML entities. This means that it 
+will replace HTML characters like < and > with &lt; and &gt;. This prevents attackers from
+ exploiting the code by injecting HTML or Javascript code (Cross-site Scripting attacks) in forms.
+
+
+$email = test_input($_POST["email"]);
+if (! filter_var ($email, FILTER_VALIDATE_EMAIL)) {
+  $emailErr = "Invalid email format";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

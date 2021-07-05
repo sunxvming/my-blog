@@ -1,0 +1,200 @@
+userdata是啥？等同于c中的struct。让我们来想象一个场景，你可以在C中定义struct，当你在C中定义了一个struct，你有么有想过，如何让Lua表示这个struct，也就是说，Lua和C要进行沟通，如何让Lua也能正确的访问这个struct呢？ userdata提供了一块原始的内存区域，可以用来存储任何东西，操作struct。 并且，在Lua中userdata没有任何预定义的操作。
+ 
+函数lua_newuserdata会根据指定的大小分配一块内存，并将对应的userdata压入栈中，最后返回这个内存块的地址：
+ 
+void *lua_newuserdata(lua_State *L, size_t size);
+下面，就通过一简单的实例来说说userdata的使用。 【level 1】
+static struct StudentTag
+{
+    char *strName; // 学生姓名
+    char *strNum; // 学号
+    int iSex; // 学生性别
+    int iAge; // 学生年龄
+};
+定义一个学生结构体，之后的操作，都在这个学生结构体上进行，包括设置学生姓名，学号，性别和年龄。
+ 
+static int Student(lua_State *L)
+{
+    size_t iBytes = sizeof(struct StudentTag);
+    struct StudentTag *pStudent;
+    pStudent = (struct StudentTag *) lua_newuserdata (L, iBytes);
+ 
+    return 1; // 新的userdata已经在栈上了
+}
+创建一个新的学生结构体，使用的lua_newuserdata函数，创建完成以后，这个新的userdata就在栈上，可以直接返回给Lua。下面就以 设置姓名和获取姓 名为例子。
+static int GetName(lua_State *L)
+{
+    struct StudentTag *pStudent = (struct StudentTag *)lua_touserdata(L, 1);
+    luaL_argcheck(L, pStudent != NULL, 1, "Wrong Parameter");
+    lua_pushstring(L, pStudent->strName);
+ 
+    return 1;
+}
+ 
+static int SetName(lua_State *L)
+{
+    // 第一个参数是userdata
+    struct StudentTag *pStudent = (struct StudentTag *) lua_touserdata (L, 1);
+    luaL_argcheck(L, pStudent != NULL, 1, "Wrong Parameter");
+ 
+    // 第二个参数是一个字符串
+    const char *pName = luaL_checkstring(L, 2);
+    luaL_argcheck(L, pName != NULL && pName != "", 2, "Wrong Parameter");
+    pStudent->strName = pName;
+    return 0;
+} 【level  2】
+上述的代码有一个很严重的问题，为什么这么说呢？我先把上一个例子的Lua代码贴出来：
+static struct luaL_reg arrayFunc[] =
+{
+{ "new", Student },          //通过new把userdata暴露出来，userdata本身并没有带方法
+
+{ "getName", GetName },
+{ "setName", SetName },
+{ "getAge", GetAge },
+{ "setAge", SetAge },
+};
+luaL_register(L, "Student", arrayFunc);     //方法是通过这个模块暴露出来的
+
+ 
+require "userdatademo1"
+ 
+local objStudent = Student.new()
+Student.setName(objStudent, "果冻想")
+Student.setAge(objStudent, 15)
+ 
+local strName = Student.getName(objStudent)       //所以userdata需要被传进入
+local iAge = Student.getAge(objStudent)
+ 
+print(strName)
+print(iAge)
+调用Student的new得到一个Student实例以后，以后调用Student的其它函数时，第一个参数都是使用Student函数得到的userdata，也就是上面代码中的objStudent。在C模块侧，我们只是简单的判断了一下传进来的userdata是否为NULL，并没有 办法判断传进来的userdata参数是使用Student函数得到的 ；如果我传一个错误的userdata进去，程序也会继续运行，但有可能使内存遭到破坏。那如何确定我们传入的userdata正是我们需要的userdata呢？我们需要一种这样的机制来确保参数的合法性。
+ 
+一种 辨别不同类型 的userdata的方法是，为每种类型创建一个唯一的元表（什么是元表？）。每当创建了一个userdata后，就用相应的元表来标记它。而每当得到一个userdata后， 就检查它是否拥有正确的元表。由于Lua代码不能改变userdata的元表，因此也就无法欺骗代码了。
+ 
+为每个userdata都创建一个元表，那就需要有个地方来存储这个新的元表。在Lua中，通常习惯是将所有新的C类型注册到注册表中，以一个类型名作为key，元表作为value。由于注册表中还有其它的内容，所以必须小心地选择类型名，以避免与key冲突。
+ 
+Lua的辅助库中提供了一些函数来帮助实现上面说的内容，可以使用的辅助库函数有：
+ 
+int luaL_newmetatable(lua_State *L, const char *tname);
+void luaL_getmetatable(lua_State *L, const char *tname);
+void *luaL_checkudata(lua_State *L, int index, const char *tname);
+luaL_newmetatable函数会创建一个新的table用作元表，并将其压入栈顶，然后将这个table与注册表中的指定名称关联起来。luaL_getmetatable函数可以在注册表中检索与tname关联的元表。luaL_checkudata可以检查栈中指定位置上是否为一个userdata，并且是否具有与给定名称相匹配的元表，如果该对象不是一个userdata，或者它不具有正确的元表，就会引发一个错误；否则它就会返回这个userdata的地址。现在来重写上面的那个例子：
+ 
+int luaopen_userdatademo2(lua_State *L)
+{
+    // 创建一个新的元表
+    luaL_newmetatable(L, "Student");
+    luaL_register(L, "Student", arrayFunc);
+    return 1;
+}
+创建一个新元表，作为该userdata的唯一标识。
+ 
+static int Student(lua_State *L)
+{
+    size_t iBytes = sizeof(struct StudentTag);
+    struct StudentTag *pStudent;
+    pStudent = (struct StudentTag *)lua_newuserdata(L, iBytes);
+ 
+    // 设置元表
+    luaL_getmetatable (L, "Student");
+    lua_setmetatable (L, -2);
+ 
+    return 1; // 新的userdata已经在栈上了
+}
+在创建userdata的时候，设置该userdata的元表。在使用的时候，我们就可以调用luaL_checkudata对参数进行检查。
+ 
+static int GetName(lua_State *L)
+{
+    struct StudentTag *pStudent = (struct StudentTag *)luaL_checkudata(L, 1, "Student");
+    lua_pushstring(L, pStudent->strName);
+    return 1;
+}
+当写下一下Lua语句时：
+ 
+Student.getAge(io.stdin)
+就会抛出这样的异常错误：
+ 
+bad argument #1 to 'getAge' (Student expected, got userdata)
+现在，我想你应该懂得了如何去简单的使用userdata了吧。接下来，上点难的东西。单击这里下载完整项目工程userdatademo2.zip。 【level 3 】
+面向对象的访问
+在上面的Lua代码中，可以看到，我都是使用以下方式调用函数的：
+ 
+local strName = Student.getName(objStudent)
+这种调用方式无可厚非，但是从面向对象的角度来说，我new了一个对象，这就是一个独立的对象，我应该这样调用，才能更好理解啊。
+ 
+local strName = objStudent:getName()
+是吧。这又回到了《Lua中的面向对象编程》一文中说到的问题，由于getName、setName等这些函数都是在Student中定义的，而在objStudent对象中，并没有这些函数的定义，怎么办？还是老办法，我们需要设置objStudent的元表，设置__index字段，当在objStudent中找不到对应的函数时，就去Student中查找
+
+
+int luaopen_userdatademo3(lua_State *L)
+{
+    // 创建一个新的元表
+    luaL_newmetatable(L, "Student_Metatable");
+ 
+    // 元表.__index = 元表
+    lua_pushvalue(L, -1);
+    lua_setfield(L, -2, "__index");
+    luaL_register(L, NULL, arrayFunc_meta);
+    luaL_register(L, "Student", arrayFunc);
+ 
+    return 1;
+}
+上述代码中，有两个地方要特别注意。首先要设置Student.__index = Student，使用上面代码中的第7、8行实现的。还有一个需要注意的地方是luaL_register的特殊用法。在第一次调用luaL_register时，它的第二个参数是NULL，这样的话， luaL_register不会创建任何用于存储函数的table，而是以栈顶的table作为存储函数的table ，而现在栈顶的table就是luaL_newmetatable创建的元表。代码中，两个luaL_register的第三个参数是不一样的，它们的定义如下：
+ 
+static struct luaL_reg arrayFunc[] =
+{
+    { "new", Student },
+    { NULL, NULL }
+};
+ 
+static struct luaL_reg arrayFunc_meta[] =
+{
+    { "getName", GetName },
+    { "setName", SetName },
+    { "getAge", GetAge },
+    { "setAge", SetAge },
+    { "getSex", GetSex },
+    { "setSex", SetSex },
+    { "getNum", GetNum },
+    { "setNum", SetNum },
+    {NULL, NULL}
+};
+最终调用luaL_register(L, “Student”, arrayFunc);得到的Student表中，就只有一个函数new；而元表Student_Metatable中则有arrayFunc_meta数组中包含的所有方法。我在把Lua代码贴上来，然后再详细的分析一下流程。
+ 
+require "userdatademo3"
+ 
+local objStudent = Student.new()
+objStudent:setName("果冻想")
+objStudent:setAge(15)
+local strName = objStudent:getName()
+local iAge = objStudent:getAge()
+ 
+print(strName)
+print(iAge)
+调用require “userdatademo3″将得到一个Student表，在该表中，只有一个函数——new；
+调用Student.new()将得到一个Student结构体的userdata， 该userdata的元表为Student_Metatable；
+由于在userdata中本身就没有key，所以在userdata中没有table中那样的key的概念；当调用objStudent:setName时，就会去元表Student_Metatable中找setName，然后完成调用；
+由于Student本身没有被设置元表Student_Metatable；当调用Student.setName(objStudent, “果冻想”)时，就会出错。这样也好，Student本身就不是一个实际的“学生”对象，只是一个模板，使用Student直接调用setName出错，完全符合语义。
+当然了，除了__index可以重新被定义以外，其它预定义的元方法也可以被重新定义。在完整的项目工程中提供了__tostring元方法的实现，单击这里下载完整工程userdatademo3.zip。 【轻量级userdata】
+怎么又有了一个轻量级userdata了？这货又是什么？专业点，叫做“light userdata”。我在前面总结的userdata叫做“full userdata”。
+ 
+轻量级userdata是一种表示C指针的值（即void *）。由于它是一个值，所以不用创建它。要将一个轻量级userdata放入栈中，只需要调用lua_pushlightuserdata即可。
+ 
+void lua_pushlightuserdata(lua_State *L, void *p);
+尽管两种userdata在名称上差不多，但它们之间还是存在很大不同的。轻量级userdata不是缓冲，只是一个指针而已。它也没有元表，就像数字一样， 轻量级userdata不受到垃圾收集器的管理。
+ 
+轻量级userdata的真正用途是相等性判断 。一个完全userdata是一个对象，它只与自身相等。而一个轻量级userdata则表示了一个C指针的值。因此，它与所有表示同一个指针的轻量级userdata相等。可以将轻量级userdata用于查找Lua中的C对象。
+ 
+现在就来说一种轻量级userdata的使用，还记的我在《再说C模块的编写（2）》中总结的注册表么？谈及注册表的key的时候，说使用UUID是一种不错的方案，现在就使用轻量级的userdata结合static来实现无冲突的key。
+ 
+// 压入轻量级userdata，一个static变量的地址
+static char key = 'k';
+lua_pushlightuserdata(L, (void *)&key);
+lua_pushstring(L, "JellyThink");
+lua_settable(L, LUA_REGISTRYINDEX);
+由于静态变量的地址在一个进程中具有唯一性，所以绝对不会出现重复key的问题。
+ 
+// 从注册表中取对应的值
+lua_pushlightuserdata(L, (void *)&key);
+lua_gettable(L, LUA_REGISTRYINDEX);
+对于轻量级的userdata，我想我的总结不会到此结束的；但是，在这里也不会做更多的总结的，在以后，遇到了light userdata时，我再根据项目实例进行总结。而今天这篇博文就到此结束了。下一篇再见。

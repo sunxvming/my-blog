@@ -1,0 +1,126 @@
+
+Swiper 轮播器
+
+fullPage.js手机网站的上下翻动
+
+FlipClock.js倒计时的插件
+
+echarts 表格插件（百度做的）
+
+http://bassistance.de/jquery-plugins/jquery-plugin-treeview/    树插件 
+
+uploadfive  图片上传
+
+fancybox  图片预览   Lightbox（一样的东西）
+
+tiltviewer图片花样式展示的东西   https://www.simpleviewer.net/tiltviewer/
+
+
+
+
+
+
+
+Zepto是一个轻量级的针对现代高级浏览器的JavaScript库， 它与jquery有着类似的api。 如果你会用jquery，那么你也会用zepto。
+
+jquery ui    jquery easy ui
+
+
+
+
+
+jQuery slimScroll插件是一个支持把内容放在一个盒子里面，固定一个高度，超出的则使用滚动。
+
+
+
+
+        
+if
+ 
+(
+typeof
+ $
+.
+fn
+.
+slimScroll 
+!=
+ 
+'undefined'
+)
+ 
+{
+
+          $
+(
+".sidebar"
+).
+slimScroll
+({
+destroy
+:
+ 
+true
+}).
+height
+(
+"auto"
+);
+
+        
+}
+
+jQuery自定义滚动条样式插件mCustomScrollbar，比上面的功能更漂亮     $(".welcome_body").mCustomScrollbar({theme:"minimal-dark"});
+
+
+
+
+
+FastClick是一个非常方便的库，在移动浏览器上发生介于轻敲及点击之间的指令时，能够让你摆脱300毫秒的延迟。FastClick可以让你的应用程序更加灵敏迅捷。支持各种移动浏览器，比如Safari、Chrome、Opera等。
+
+
+
+
+
+Bootstrap Typeahead   自动补全的插件，bootstrap2.0版本有的，3了就没了好像
+
+bootstrap-treeview          jquery.ztree   树型菜单插件
+
+TouchSwipe a jQuery plugin for touch devices
+
+jQuery.jPlayer.2.6.0  视频和音频播放插件
+
+ckeditor 
+图片上传
+
+    1. plugins/image/dialogs   修改  id:"Upload",hidden:false,
+    2. config.extraPlugins = 'uploadimage,image2';
+        config.removePlugins = 'image';
+        config.removeDialogTabs = 'image:advanced;link:advanced';
+        config.uploadUrl = 'index.php?ctl=Upload&act=drop';     //拖动上传的url 
+        config.filebrowserUploadUrl = "index.php?ctl=Upload";   //点击按钮上传的url 
+    3. server端按钮上传返回<script type="text/javascript">window.parent.CKEDITOR.tools.callFunction(1, "upload/201611/147998892768.png");</script>
+        拖动上传返回  {'uploaded':1,'url':'xxxx'}
+    4.官网下载的包的插件可能不全，再去github上获取源码    
+
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

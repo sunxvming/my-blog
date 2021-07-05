@@ -1,0 +1,411 @@
+1.使用php
+$totalamount = 0.00;  格式决定类型
+
+$totalqty = 0;     $totalamount = (float)$totalqty;
+超级变量随处可访问，全局变量函数内部不可访问
+php配置文件中启用track_errors 错误信息会保存在全局变量$php_errormsg中
+数组操作符：$a + $b 返回所有元素内容     $a ==$b 俩数组键值都一样  $a === $b 顺序还一样
+if ($myObject instanceof sampleClass)
+
+$out = `ls -la`;        echo‘<pre>’.$out.’</pre>’;
+number_format($totalamount,2)
+
+ printis marginally slower than echo
+
+设置变量
+string gettype( mixed var);
+bool settype(mixed var, string type);
+
+
+is_array()—Checks whether the variable is an array.
+ is_double(),is_float(),is_real()(All the same function)—Checks whether the variable is a float.
+ is_long(),is_int(),is_integer()(All the same function)—Checks whether the variable is an integer.
+ is_string()—Checks whether the variable is a string.
+ is_bool()—Checks whether the variable is a boolean.
+is_object()—Checks whether the variable is an object.
+ is_resource()—Checks whether the variable is a resource.
+is_null()—Checks whether the variable is null.
+is_scalar()—Checks whether the variable is a scalar, that is, an integer, boolean, string, or float.
+is_numeric ()—Checks whether the variable is any kind of number or a numeric string.
+is_callable()—Checks whether the variable is the name of a valid function.
+
+
+empty  变量不存在  为空，为null  为 0，一维数组为空
+
+
+int intval(mixed var[, int base]);
+float floatval(mixed var);
+string strval(mixed var);
+
+
+可变变量
+for ($i=1; $i <= $numnames; $i++){
+     $temp=“name$i”;
+     echo $$temp.’<br />’; // or whatever processing you want to do
+}
+
+
+if ($totalqty == 0) :  另一种语法格式
+     echo "You did not order anything on the previous page!<br />";
+     exit;
+endif;
+declare (directive)    如ticks=n  每个n行就执行block中的代码
+{
+// block
+}
+
+
+$_SERVER[‘DOCUMENT_ROOT’]
+
+
+
+ you can open files via FTP  HTTP, and other protocols using fopen().You can disable this capability by turning off  the allow_url_fopen directive in the php.inifile. 
+----------------------
+@ $fp = fopen("$DOCUMENT_ROOT/../orders/orders.txt", 'ab');
+flock($fp, LOCK_EX);
+if (!$fp) {
+     echo "<p><strong> Your order could not be processed at this time.
+     Please try again later.</strong></p></body></html>";
+     exit;
+}
+fwrite($fp, $outputstring, strlen ($outputstring));
+flock($fp, LOCK_UN);
+fclose($fp);
+-------------------------------------
+fgetcsv   以行读取csv，返回数组
+
+3.使用数组
+$numbers = range(1,10);    $odds = range(1, 10, 2);    $letters = range(‘a’,‘z’);
+
+
+
+reset($prices);
+while ( list( $product, $price ) = each( $prices ) )
+     echo“$product - $price<br />”;
+
+
+sort( )  asort( )   ksort( )   rsort( ) arsort( )
+  shuffle( ) array_reverse
+
+
+
+                $key可忽略
+
+还有array_walk_recursive( )
+Converting Arrays to Scalar Variables: extract ()
+
+
+4.字符串和正则表达式
+trim( ) ltrim( ) rtrim( )  strstr（） strpos（）
+格式化的输出可用 printf（）  sprintf（）
+
+5.代码重用和函数编写
+The statements require()andinclude()are almost identical.The only difference  between them is that when they fail, the require()construct gives afatal error, whereas  the include()construct gives only a warning.
+
+6.面向对象的php
+__set  __get  调用不存在，或私有的属性会调用，public的不会调用
+调用父类方法：parent：：xxxx（）；
+
+
+.The type checking is equivalent to instanceof.For example, consider the following function:
+function check_hint(B $someclass)      若不是B类型的将会fatal error
+{
+//...
+}
+
+
+对象克隆   $a = clone $b    __clone( ） 会被调用，一般用来确保引用的属性能够正确的复制
+当方法不存在时被调用，$method为调用的方法，$p为参数
+
+
+
+function __autoload($name)
+{
+include_once $name.".php";}          实例化一个没有声明的类是调用
+
+
+
+
+
+
+反射
+
+7.错误和异常处理
+用exception就不用使用一个接一个的if，
+Exception中的方法大多是finel型的，所以大多数只能重写__toString方法了
+
+
+若没catch到匹配的exception则会fatel error  ，所以最后要用Exception的顶级类来catch 9.创建web数据库
+最少权限原则： A user (or process) should have the lowest level of privilege required to perform his   assigned task.
+这个是程序员最容易忽略的，经常用root用户
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

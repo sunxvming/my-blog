@@ -1,0 +1,114 @@
+一，安装brew
+
+
+
+1，安装brew
+
+curl -LsSf http://github.com/mxcl/homebrew/tarball/master | sudo tar xvz -C/usr/local --strip 1
+
+
+
+2，安装完成后执行
+
+brew
+
+提示：Please run brew update!
+
+
+
+3，按照提示更新，执行
+
+brew update
+
+报错：Error: /usr/local must be writable!
+
+
+
+4，赋给/usr/local目录权限，执行sudo chown -R $(whoami) /usr/local，即
+
+sudo chown -R fxp /usr/local
+
+其中fxp为系统当前用户名。
+
+此步骤可能会出错：需要关闭rootless以增加权限，开机时按住 Command-R 进入恢复分区. 然后在 实用工具 栏找到 终端启动运行.
+　　输入:csrutil disable; reboot  即可
+
+
+
+5，再次执行
+
+brew update
+
+提示：
+
+remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+
+HEAD is now at c3f959d Merge pull request #1542 from woodruffw/deprecate-utils-json
+
+To restore the stashed changes to /usr/local run:
+
+  'cd /usr/local && git stash pop'
+
+==> Homebrew has enabled anonymous aggregate user behaviour analytics
+
+Read the analytics documentation (and how to opt-out) here:
+
+  https://git.io/brew-analytics
+
+==> Tapping homebrew/core
+
+Cloning into '/usr/local/Library/Taps/homebrew/homebrew-core'...
+
+remote: Counting objects: 3757, done.
+
+remote: Compressing objects: 100% (3647/3647), done.
+
+remote: Total 3757 (delta 13), reused 305 (delta 1), pack-reused 0
+
+Receiving objects: 100% (3757/3757), 3.00 MiB | 30.00 KiB/s, done.
+
+Resolving deltas: 100% (13/13), done.
+
+Checking connectivity... done.
+
+Tapped 3636 formulae (3,784 files, 9.3M)
+
+Already up-to-date.
+
+Error: Could not link:
+
+/usr/local/share/doc/homebrew
+
+
+
+Please delete these paths and run `brew update`.
+
+==> Migrating HOMEBREW_REPOSITORY (please wait)...
+
+Error: Could not link:
+
+/usr/local/share/doc/homebrew
+
+
+
+Please delete these paths and run `brew update`.
+
+==> Migrated HOMEBREW_REPOSITORY to /usr/local/Homebrew!
+
+Homebrew no longer needs to have ownership of /usr/local. If you wish you can
+
+return /usr/local to its default ownership with:
+
+  sudo chown root:wheel /usr/local
+
+
+
+6，按照提示删除/usr/local/share/doc/homebrew，执行
+
+rm -r -f /usr/local/share/doc/homebrew
+
+
+
+7，再次执行
+
+brew update

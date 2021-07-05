@@ -1,0 +1,164 @@
+介绍 Apache Hadoop —— HDFS 和 MapReduce
+
+
+先快速说明一下: Hadoop并 不是 什么数据库，也 不是 程序库，甚至不是一个独立产品。实际上，Hadoop是一些 独立模块 的组合，包括一个分布式文件系统HDFS、一个分布式数据库HBase、一个大型分布式数据处理库MapReduce，等等等等。做一个类比的话，就好像是Microsoft Office，其实我们并没有一个叫做Office的应用，Office实际上指的是Word、Excel等一系列桌面应用的组合。
+
+在这篇文章里，我将主要介绍Hadoop分布式文件系统(HDFS)和MapReduce。这两个Hadoop的核心模块被广为运用，它们共同组成了一个非常强大的分布式批处理框架——这句话，我希望读者们能好好记住。 HDFS和MapReduce一起，共同组成了一个分布式批处理框架。
+
+实际上，Hadoop能完成的功能，我们用 grep、awk、bash 等Linux工具也能完成。但Hadoop的强项在于分布式，它能在成百上千个节点上并行地处理非常多的数据。云计算出现以后，很快成为了标准。由于分散的服务器产生了大量分散的日志，使得集中处理变得非常困难。以Google为例，它在全世界有许多数据中心，每个中心都有成千上万的web服务器。每个服务器会在本地磁盘上生成一个日志文件，结果就是有无数的日志文件分散存储在无数的服务器上。分析软件必须能将所有这些日志作为一个整体来查看。例如，下面的两个查询需要先处理单个日志，得到每个服务器的统计结果，然后再把所有服务器的结果累加起来，得到最终的结果:
+12:00-1:00间的独立用户数
+一天内，来自智利的用户数
+Hadoop的真正威力在于分布式，它能将非常多的数据分散到成百上千个节点上，同时进行处理。
+
+HDFS
+
+Hadoop的所有模块是构筑于一个分布式文件系统之上，它有一个很恰当的名字——Hadoop分布式文件系统(HDFS)。目前，最广为人知的分布式文件系统应该是网络文件系统(NFS)。HDFS与它在许多层面上都不同，尤其是在扩展性上。 注: HDFS的设计是基于Google文件系统(GFS)之上，GFS的原理见  这篇论文 。 HDFS的设计基于主从结构，主节点只有一个，负责记录和跟踪系统内的所有文件。这个主节点称为NameNode，它只存储文件的元数据信息，不存储真正的文件数据。数据存储于从节点DataNode上。文件在HDFS上以数据块(block)为单位来存储，每个数据块一般为64MB大小。
+
+NameNode vs DataNode: NameNode管理HDFS的名字空间，控制对文件及目录的访问。它将数据分散到各DataNode上，并将相关的映射信息记录下来。DataNode则负责存储数据，并满足客户端的读写请求。
+
+假设，我们需要在HDFS上存储一个133MB的文件，按它的大小，会被分成三个数据块(64+64+3)。NameNode将这三个块分散到DataNode上，并把映射信息记录下来。客户端如果要读这个文件，需要安装HDFS，然后从 NameNode 获取文件的信息，包括数据块的编号和位置，随后用这些信息， 从相应的 DataNode 直接下载这些块 。 如果需要对HDFS有更进一步的了解，建议查看以下链接: 
+http://hadoop.apache.org/docs/hdfs/current/hdfs_design.html MapReduce
+
+MapReduce（MR）是一个用来编写处理并行分布式数据程序的框架或库。同 HDFS 一样，它的架构也是基于主/从模式。“主机”是一个特殊的节点，负责协调多个工作节点之间的活动。
+
+以下是它的工作原理： “主机” 接收到要被处理的输入数据。 输入的数据被分成更小的块，所有这些块被分布在多个工作节点上并行处理。 这一步被称为 “映射” 。工作节点将结果返回给“主机”，“主机”聚合这些结果，并计算出最终结果。这一步被称为 “化简” 。
+
+注意：我过度简化了 MapReduce 的内部过程。“映射”的输出被分别写入到了“化简” “工人”的本地硬盘中。然后，这些地址被传递给分配工作的“主机”上。我推荐看看 Google 的真正介绍它的文章 。
+
+MR 应用必须至少提供以下三个输入参数：
+输入数据的地址（如一个由一个单一（罕见）或多个输入文件的目录）。
+映射、化简的函数的程序实现，以及其配置文件（如分配给“工人” JAVA 的 JAR文件）。
+输出数据的地址（如：'/ tmp/hadoop-output/`）。
+
+你应该牢记： 在 MR 中，所有的输入输出都是以 <key, value> 键值对形式出现的。 无处不是如此，无论是“映射”函数的输入输出，还是“化简”函数的输入输出，都是  <key, value> 键值对形式的。 示例
+
+为了更深刻的理解 MapReduce，让我们看一个例子。 假设你刚刚成为一家全球地震等级统计公司的技术总管。 在地球上，部署有数以千计的传感器，它们纪录地震信息，格式如下： nc,71920701,1,”Saturday, January 12, 2013 19:43:18 UTC”,38.7865,-122.7630, 1.5 ,1.10,27, “Northern California”
+
+每个条目都包含很多细节。 红色 的部分分别为地震的等级信息和发生的地域。
+
+
+
+
+这样的有效日志数百万条。此外，日志中也存在错误的条目，例如当传感器出错时，一个死循环能在一秒钟内产生数千条数据。输入的数据保存在50台机器内，日志文件高达10TB。你的开发总监要求你完成一条简单的任务：在部署了传感器的地域中，找到最高震级的地震纪录。
+
+现在，先思考一下。这个任务听上去很简单。当日志文件在一台电脑中时，你可以用 Linux 下的 ‘grep’、‘soft’ 甚至 ‘awk’ 工具完成这个任务。但是，日志并不在同一台电脑中——它们分散在50台电脑中。在每台电脑中单独查询然后合并结果的效率太低了（至少在开发总监的眼中如此）。
+
+这个时候，你可以利用分布式计算（Hadoop）。让我们看看你要怎么做：
+首先，你需要在50台机器上部署 HDFS （分布式文件系统），如此所有的机器都可以查看所有的文件。就假设你将所有的日志文件保存在了 HDFS 的一个名为  input/  的文件夹内。
+下一步，你将编写一个实现映射和化简函数的 JAVA 程序。
+
+ 01 /**
+
+ 02   * The `Mapper` function. It receives a line of input from the file,
+
+ 03   * extracts `region name` and `earthquake magnitude` from it, and outputs
+
+ 04   * the `region name` and `magnitude` in <key, value> manner.
+
+ 05   * @param key - The line offset in the file - ignored.
+
+ 06   * @param value - This is the line itself.
+
+ 07   * @param context - Provides access to the OutputCollector and Reporter.
+
+ 08   * @throws IOException
+
+ 09   * @throws InterruptedException
+
+ 10   */
+
+ 11 @Override
+
+ 12 public   void   map(LongWritable key, Text value, Context context)  throws
+
+ 13          IOException, InterruptedException {
+
+ 14  
+
+ 15      String[] line = value.toString().split( "," ,  12 );
+
+ 16  
+
+ 17      // Ignore invalid lines
+
+ 18      if   (line.length !=  12 ) {
+
+ 19          System.out.println( "- "   + line.length);
+
+ 20          return ;
+
+ 21      }
+
+ 22  
+
+ 23      // The output `key` is the name of the region
+
+ 24      String outputKey = line[ 11 ];
+
+ 25  
+
+ 26      // The output `value` is the magnitude of the earthquake
+
+ 27      double   outputValue = Double.parseDouble(line[ 8 ]);
+
+ 28  
+
+ 29      // Record the output in the Context object
+
+ 30      context.write( new   Text(outputKey),  new   DoubleWritable(outputValue));
+
+ 31 }
+
+ 01 /**
+
+ 02   * The `Reducer` function. Iterates through all earthquake magnitudes for a
+
+ 03   * region to find the maximum value. The output is the `region name` and the
+
+ 04   * `maximum value of the magnitude`.
+
+ 05   * @param key - The name of the region
+
+ 06   * @param values - Iterator over earthquake magnitudes in the region
+
+ 07   * @param context - Used for collecting output
+
+ 08   * @throws IOException
+
+ 09   * @throws InterruptedException
+
+ 10   */
+
+ 11 @Override
+
+ 12 public   void   reduce(Text key, Iterable values,
+
+ 13          Context context)  throws   IOException, InterruptedException {
+
+ 14  
+
+ 15      // Standard algorithm for finding the max value
+
+ 16      double   maxMagnitude = Double.MIN_VALUE;
+
+ 17      for   (DoubleWritable value : values) {
+
+ 18          maxMagnitude = Math.max(maxMagnitude, value.get());
+
+ 19      }
+
+ 20  
+
+ 21      context.write(key,  new   DoubleWritable(maxMagnitude));
+
+ 22 }
+
+接下来，您将在所有50台计算机上配置 MapReduce，以进行 本地化计算 ，日志文件的计算将在它所保存的计算机中进行，返回精简后的结果，以此节省带宽。
+运行 ‘hadoop’，将 HDFS 中的输入文件夹（ input/output/ ）传递给它，这就是你所需要做的事情。
+
+　　在  GitHub repository  你可以找到完整的代码。
+
+
+本文地址： http://www.oschina.net/translate/an-introduction-to-apache-hadoop-hdfs-mapreduce
+
+原文地址： http://10kloc.wordpress.com/2013/01/20/an-introduction-to-apache-hadoop-hdfs-mapreduce/

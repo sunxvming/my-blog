@@ -1,0 +1,570 @@
+Maven 安装
+
+1.  检查 jdk 安装的情况 ( 要 1.6 版本 ) :
+
+E cho %JAVA_HOME%
+
+J ava -version
+
+2.  对 apache-maven-3.0.3-bin.zip 进行解压缩，例如解压到如下目录 ( 解压目录最好不要有中文字 ) ：
+
+3.  设置系统环境变量， MAVEN_HOME
+
+ 
+
+4.  设置环境变量 Path ，将 %MAVEN_HOME%\bin 加入 Path 中，一定要注意要用分号；与其他值隔开
+
+ 
+
+5.  验证安装是否成功，打开 cmd 窗口，敲入 mvn  – v  查看
+
+ 
+
+
+生命周期
+生命周期Maven有三套相互独立的生命周期，请注意这里说的是“三套”，而且“相互独立”，这三套生命周期分别是： 
+
+
+Clean Lifecycle 在进行真正的构建之前进行一些清理工作。 
+Default Lifecycle 构建的核心部分，编译，测试，打包，部署等等。 
+Site Lifecycle 生成项目报告，站点，发布站点。 
+再次强调一下它们是相互独立的，你可以仅仅调用clean来清理工作目录，仅仅调用site来生成站点。当然你也可以直接运行 mvn clean install site 运行所有这三套生命周期。 
+
+
+clean生命周期每套生命周期都由一组阶段(Phase)组成，我们平时在命令行输入的命令总会对应于一个特定的阶段。比如，运行mvn clean ，这个的clean是Clean生命周期的一个阶段。有Clean生命周期，也有clean阶段。Clean生命周期一共包含了三个阶段： 
+
+
+pre-clean 执行一些需要在clean之前完成的工作 
+clean 移除所有上一次构建生成的文件 
+post-clean 执行一些需要在clean之后立刻完成的工作 
+mvn clean 中的clean就是上面的clean，在一个生命周期中， 运行某个阶段的时候，它之前的所有阶段都会被运行 ，也就是说，mvn clean 等同于 mvn pre-clean clean ，如果我们运行 mvn post-clean ，那么 pre-clean，clean 都会被运行。 这是Maven很重要的一个规则，可以大大简化命令行的输入。 
+
+
+Site生命周期pre-site 执行一些需要在生成站点文档之前完成的工作 
+site 生成项目的站点文档 
+post-site 执行一些需要在生成站点文档之后完成的工作，并且为部署做准备 
+site-deploy 将生成的站点文档部署到特定的服务器上 
+这里经常用到的是site阶段和site-deploy阶段，用以生成和发布Maven站点，这可是Maven相当强大的功能，Manager比较喜欢，文档及统计数据自动生成，很好看。 
+
+
+Default生命周期是Maven生命周期中最重要的一个，绝大部分工作都发生在这个生命周期中。这里，只解释一些比较重要和常用的阶段： 
+
+
+validate 
+generate-sources 
+process-sources 
+generate-resources 
+process-resources 复制并处理资源文件，至目标目录，准备打包。 
+compile 编译项目的源代码。 
+process-classes 
+generate-test-sources 
+process-test-sources 
+generate-test-resources 
+process-test-resources 复制并处理资源文件，至目标测试目录。 
+test-compile 编译测试源代码。 
+process-test-classes 
+test 使用合适的单元测试框架运行测试。这些测试代码不会被打包或部署。 
+prepare-package 
+package 接受编译好的代码，打包成可发布的格式，如 JAR 。 
+pre-integration-test 
+integration-test 
+post-integration-test 
+verify 
+install 将包安装至本地仓库，以让其它项目依赖。 
+deploy 将最终的包复制到远程的仓库，以让其它开发人员与项目共享。 
+运行任何一个阶段的时候，它前面的所有阶段都会被运行，这也就是为什么我们运行mvn install 的时候，代码会被编译，测试，打包。此外，Maven的插件机制是完全依赖Maven的生命周期的，因此理解生命周期至关重要。 
+
+
+========================
+第一步. 首先建立Hello项目同时建立Maven约定的目录结构
+Hello
+ --src
+ -----main
+ ----------java
+ ----------resources
+ -----test
+ ---------java
+ ---------resources
+ --pom.xml
+
+
+第二步：在项目Hello根目录建立pom.xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cn.itcast.maven</groupId>
+  <artifactId>Hello</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Hello</name>
+  
+<dependencies>
+<dependency>
+<groupId>junit</groupId>
+<artifactId>junit</artifactId>
+<version>4.9</version>
+<scope>test</scope>
+</dependency>
+</dependencies>
+</project>
+
+
+第三步：在src/main/java/cn/itcast/maven目录下新建文件Hello.java
+package cn.itcast.maven;
+public class Hello {
+public String sayHello(String name){
+return "Hello "+name+"!";
+}
+}
+
+
+第四步：在/src/test/java/cn/itcast/maven目录下新建测试文件HelloTest.java
+
+
+package cn.itcast.maven;
+
+
+import org.junit.Test;
+import static junit.framework.Assert.*;
+
+
+public class HelloTest {
+@Test
+public void testHello(){
+Hello hello = new Hello();
+String results = hello.sayHello("litingwei");
+assertEquals("Hello litingwei!",results);
+}
+}
+
+
+第五步：
+
+
+a)打开cmd命令行，进入Hello项目根目录执行 mvn compile命令，查看根目录变化
+b)cmd 中继续录入mvn clean命令，然后再次查看根目录变化
+c)cmd 中录入 mvn clean compile命令, 查看根目录变化
+d)cmd 中录入 mvn clean test命令，查看根目录变化
+e)cmd 中录入 mvn clean package命令,查看根目录变化
+
+
+
+
+第六步：新建第二个项目模块HelloFriend目录及约定的目录结构
+
+
+HelloFriend
+ --src
+ -----main
+ ----------java
+ ----------resources
+ -----test
+ ---------java
+ ---------resources
+ --pom.xml
+
+
+第七步：在项目HelloFriend根目录建立pom.xml
+
+
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cn.itcast.maven</groupId>
+  <artifactId>HelloFriend</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>HelloFriend</name>
+  
+<dependencies>
+<dependency>
+<groupId>junit</groupId>
+<artifactId>junit</artifactId>
+<version>4.9</version>
+<scope>test</scope>
+</dependency>
+
+<dependency>
+<groupId>cn.itcast.maven</groupId>
+<artifactId>Hello</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+<scope>compile</scope>
+</dependency>
+
+</dependencies>
+</project>
+
+
+第八步：在src/main/java/cn/itcast/maven目录下新建文件HelloFriend.java
+
+
+
+
+package cn.itcast.maven;
+
+
+import cn.itcast.maven.Hello;
+
+
+public class HelloFriend {
+
+
+public String sayHelloToFriend(String name){
+
+Hello hello = new Hello();
+String str = hello.sayHello(name)+" I am "+this.getMyName();
+System.out.println(str);
+return str;
+}
+
+public String getMyName(){
+return "John";
+}
+
+
+}
+
+
+第九步：在/src/test/java/cn/itcast/maven目录下新建测试文件HelloFriendTest.java
+package cn.itcast.maven;
+
+
+import static junit.framework.Assert.assertEquals;
+
+
+import org.junit.Test;
+
+
+import cn.itcast.maven.Hello;
+
+
+
+
+public class HelloFriendTest {
+@Test
+public void tesHelloFriend(){
+
+HelloFriend helloFriend = new HelloFriend();
+String results = helloFriend.sayHelloToFriend("litingwei");
+assertEquals("Hello litingwei! I am John",results);
+
+
+}
+}
+
+
+第十步：在HelloFriend目录下执行命令mvn package
+
+
+系统报错说没有找到依赖
+
+
+第十一步：需要重新构建Hello第一个项目并安装到数据仓库，在命令行Hello根目录下执行mvn clean install
+
+
+第十二步：重新在HelloFriend目录下执行命令mvn package
+=================================================
+依赖声明主要包含如下元素：
+<dependencies>
+<dependency>
+<groupId>junit</groupId>
+<artifactId>junit</artifactId>
+<version>4.10</version>
+<scope>test</scope>
+</dependency>
+</dependencies>
+
+
+其中依赖范围scope 用来控制依赖和编译，测试，运行的classpath的关系. 主要的是三种依赖关系如下：
+
+
+1.compile： 默认编译依赖范围。对于编译，测试，运行三种classpath都有效
+2.test：测试依赖范围。只对于测试classpath有效
+3.provided：已提供依赖范围。对于编译，测试的classpath都有效，但对于运行无效。因为由容器已经提供，例如servlet-api
+4.runtime:运行时提供。例如:jdbc驱动
+
+
+传递性依赖：
+
+
+依赖冲突之后的原则：
+b-->a1.0
+c-->C1.1
+1.路径最近者优先
+2.路径相同，第一声明者优先
+
+
+注意：
+1.dependencyManagement中定义的依赖子module不会共享
+2.dependencies中定义的依赖子module可以共享
+可选依赖不被传递
+===================插件的配置=======================
+在根目录pom.xml中加入如下配置：
+
+
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-antrun-plugin</artifactId>
+<executions>
+<execution>
+<phase>validate</phase>
+<goals>
+<goal>run</goal>
+</goals>
+</execution>
+</executions>
+</plugin>
+=================================================
+聚合与继承
+一，聚合配置代码：
+
+
+<modules>
+  <module>../Hello</module>  
+  <module>../HelloFriend</module>
+  <module>../MakeFriends</module>
+</modules>
+其中module的路径为相对路径。
+
+
+二，继承配置代码：
+<parent>  
+    <groupId>cn.itcast.maven</groupId>
+  <artifactId>Project</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+    <relativePath> ../Project/pom.xml </relativePath>  
+</parent>
+
+
+三，继承代码过程中，可以定义属性
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>4.9</junit.version>
+    <maven.version>0.0.1-SNAPSHOT</maven.version>
+</properties>
+
+
+访问属性的方式为${junit.version}，例如：
+<dependency>
+<groupId>junit</groupId>
+<artifactId>junit</artifactId>
+<version>${junit.version}</version>
+<scope>test</scope>
+</dependency>
+
+
+
+
+四，将父模块中将用dependencyManagement进行管理
+<dependencyManagement>
+    <dependencies>
+<dependency>
+<groupId>junit</groupId>
+<artifactId>junit</artifactId>
+<version>${junit.version}</version>
+<scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>cn.itcast.maven</groupId>
+    <artifactId>HelloFriend</artifactId>
+    <version>${maven.version}</version>
+    <type>jar</type>
+    <scope>compile</scope>
+  </dependency>   
+     </dependencies>
+  </dependencyManagement>
+这样的好处是子模块可以有选择行的继承，而不需要全部继承。
+==========================
+
+
+Nexus 私服安装
+
+ 
+
+第一步：下载 nexus-webapp-1.9.2.4.war 包，然后拷贝到 tomcat 下的 webapps 目录中
+
+第二步：启动 tomcat
+
+第三步：访问 http://localhost:8080/ nexus / 显示如下：
+
+ 
+
+ 
+
+第四步：点击右上角“ log in ” ，输入 username ： admin  和 Password ： admin123 登录
+
+ 
+
+第五步：登录成功
+
+ 
+
+第六步：点击 Views/Repositories  中 Repositories
+
+ 
+
+ 
+
+Nexus 内置仓库说明：
+
+（ 1 ） Maven Central ：该仓库代理 Maven 中央仓库，其策略为 Release ，因此只会下载和缓存中央仓库中的发布版本构件。
+
+（ 2 ） Releases ：这是一种策略为 Release 的宿主类型仓库，用来部署组织内部的发布版本构件。
+
+（ 3 ） Snapshots ：这是一个策略为 Snapshot 的宿主类型仓库，用来部署组织内部的快照版本构件。
+
+（ 4 ） 3rd party ：这是一个策略为 Release 的宿主类型仓库，用来部署无法从公共仓库获得的第三方发布版本构件。
+
+（ 5 ） Public Repositories ：该仓库组将上述所有策略为 Release 的仓库聚合并通过一致的地址提供服务。
+
+第七步：创建宿主目录和代理仓库
+
+·  Hosted ： 本地仓库，通常我们会部署自己的构件到这一类型的仓库。 
+
+o  包括 3rd party 仓库， Releases 仓库， Snapshots 仓库
+
+·  Proxy ： 代理仓库，它们被用来代理远程的公共仓库，如maven中央仓库。 
+
+·  Group ： 仓库组，用来合并多个hosted/proxy仓库，通常我们配置maven依赖仓库组。 
+
+第八步：创建仓库组
+
+点击 Public Repositories 仓库，在 Configurations 栏中选取需要合并的仓库 , 点击箭头加到左边保存即可
+
+ 
+
+ 
+
+第九步：下载 Index 索引并进行构建搜索（ GAV 搜索）
+
+第十步：配置所有构建均从私服下载，在 ~/.m2/setting.xml 中配置如下：
+
+<settings>
+
+ <mirrors>
+
+ <mirror>
+
+ <!-- 此处配置所有的构建均从私有仓库中下载  * 代表所有，也可以写 central -->
+
+ <id>nexus</id>
+
+ <mirrorOf>*</mirrorOf>
+
+ <url>http:// 192.168.1.100 :8000/nexus/content/groups/public</url>
+
+ </mirror>
+
+ </mirrors>
+
+ <profiles>
+
+ <profile>
+
+ <id>nexus</id>
+
+ <!— 所有请求均通过镜像  -->
+
+ <repositories>
+
+ <repository>
+
+ <id>central</id>
+
+ <url>http://central</url>
+
+ <releases><enabled>true</enabled></releases>
+
+   <snapshots><enabled>true</enabled></snapshots>
+
+ </repository>
+
+ </repositories>
+
+ <pluginRepositories>
+
+ <pluginRepository>
+
+ <id>central</id>
+
+ <url>http://central</url>
+
+ <releases><enabled>true</enabled></releases>
+
+ <snapshots><enabled>true</enabled></snapshots>
+
+ </pluginRepository>
+
+ </pluginRepositories>
+
+ </profile>
+
+ </profiles>
+
+<activeProfiles>
+
+ <!--make the profile active all the time -->
+
+ <activeProfile>nexus</activeProfile>
+
+ </activeProfiles>
+
+ 
+
+ 
+
+第十一步：部署构建到 Nexus ，包含 Release 和 Snapshot ，   在项目根目录中 pom.xml 中配置：
+
+<distributionManagement> 
+
+<repository> 
+
+    <id>releases</id> 
+
+    <name>Internal Releases</name> 
+
+    <url>http://localhost:80 00 /nexus/content/repositories/releases/</url> 
+
+</repository> 
+
+<snapshotRepository> 
+
+    <id> s napshots</id> 
+
+    <name>Internal Snapshots</name> 
+
+    <url>http://localhost:80 00 /nexu s /content/repositories/snapshots/</url> 
+
+</snapshotRepository> 
+
+  </distributionManagement>
+
+第十二步： Nexus 的访问权限控制，在 ~/m2/setting.xml 中配置如下：
+
+<!--  设置发布时的用户名  -->
+
+ <servers>
+
+  <server>
+
+  <id> releases </id>
+
+<username>admin</username>
+
+<password>admin123</password>
+
+</server>
+
+<server>
+
+<id>  s napshots </id>
+
+<username>admin</username>
+
+<password>admin123</password>
+
+ </server>
+
+ </servers>
+
+-----------------------------------------------------
+
+maven的依赖会被放到家目录下的 .m2文件中

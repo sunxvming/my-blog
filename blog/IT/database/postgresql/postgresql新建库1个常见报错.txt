@@ -1,0 +1,43 @@
+今天使用pg建库发现两个报错：
+ 
+ERROR:  new collation (zh_CN.UTF-8) is incompatible with the collation of the template database (en_US.UTF-8)
+ERROR:  source database "template1" is being accessed by other users
+ 
+ 
+建库语句：
+CREATE DATABASE tinadb
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'zh_CN.UTF-8'
+       LC_CTYPE = 'zh_CN.UTF-8'
+       CONNECTION LIMIT = -1
+       template template1;
+报错信息:
+ERROR:  new collation (zh_CN.UTF-8) is incompatible with the collation of the template database (en_US.UTF-8)
+HINT:  Use the same collation as in the template database, or use template0 as template.
+ 
+按照提示，我们应该使用跟模板数据库相同的collation，或者使用模板template0
+postgres=# \l
+                                   List of databases
+     Name     |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges  
+--------------+----------+----------+-------------+-------------+-----------------------
+postgres     | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+rename_check | postgres | UTF8     | zh_CN.UTF-8 | zh_CN.UTF-8 | =Tc/postgres         +
+              |          |          |             |             | postgres=CTc/postgres
+template0    | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+              |          |          |             |             | postgres=CTc/postgres
+template1    | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+              |          |          |             |             | postgres=CTc/postgres
+(4 rows)
+其实我们可以看到template0和template1的collate是一样的，但template0允许建立不同的collation的库
+ 
+解决办法：
+CREATE DATABASE rename_check
+WITH OWNER = postgres
+   ENCODING = 'UTF8'
+   TABLESPACE = pg_default
+   LC_COLLATE = 'zh_CN.UTF-8'
+   LC_CTYPE = 'zh_CN.UTF-8'
+   CONNECTION LIMIT = -1
+   TEMPLATE template0;    --使用template0 

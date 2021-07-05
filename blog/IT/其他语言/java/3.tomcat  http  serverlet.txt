@@ -1,0 +1,721 @@
+1、不管什么web资源，想被远程计算机访问，都必须有一个与之对应的网络通信程序，当用户来访问时，这个网络通信程序读取web资源数据，并把数据发送给来访者。
+2、WEB服务器就是这样一个程序，它用于完成底层网络通迅。使用这些服务器，用户只需要关注web资源怎么编写，而不需要关心资源如何发送到客户端手中，从而极大的减轻了开发者的开发工作量。
+
+
+ServerSocket ss = new ServerSocket(9999);
+while(true){
+Socket s = ss.accept();
+OutputStream os = s.getOutputStream();
+BufferedReader br = new BufferedReader(new FileReader("d:\\a.html"));
+String line = null;
+while ((line = br.readLine()) != null) {
+     os.write(line.getBytes());
+}
+s.close();
+}
+ 
+*3 安装tomcat web服务器
+
+  1)将某个文件提外界用户访问，必须有一个类似的网络应用程序来接收和响应用户的请求
+  2）web服务器有多种类型
+java开源：tomcat6/7。。。
+商用：weblogic，websphere
+  3)安装tomcat
+a)配置JDK正确版本[至少是JDK5]和路径
+b)执行tomcat/bin/startup.bat启动Web服务器
+        c)CATALINA_HOME指明需要启动哪台tomcat服务器
+        错误案例：
+a)tomcat端口被占用，可以通过server.xml文件修改默认端口号
+        c)窗口一闪而过，JAVA_HOME目录设置出错
+
+  4)tomcat目录的含义：
+*bin/启动和停止tomcat的脚本文件
+*conf/配置tomcat的文本，以xml文件为主
+*lib用到的第三方jar包
+logs服务器操作相关的日志文件
+temp运行时用到的一些临时文件
+      **webapps能被外界访问的符合标准目录结构的web应用
+work运行的工作目录
+--------------------------
+Web应用开发好后，若想供外界访问，需要把web应用交给web服务器管理，这个过程称之为配置虚拟目录。
+Tomcat6/7服务器会自动管理webapps目录下的所有web应用，并把它映射成虚似目录。换句话说，只要把web项目放置到tomcat服务器的webapps目录中，不需要做其它设置，这个web应用就可以直接被外界访问了。
+对计算机中的任意位置的WEB应用，若想被外界访问，就需要手工通知web服务器去管理，即通知web服务器把其映射成虚似目录，这样才能供外界访问。
+<Context path=“/itcast" docBase="c:\app" /> 
+-------------------------------- 
+*4 配置虚拟主机和目录
+  1)虚拟目录：在tomcat/conf/server.xml文件中设置如下代码：
+<Context path=" /qq " docBase="d:\mail"/>
+path="以/开头，表示虚拟目录"
+      docBase="web应用的真实目录"
+附加：
+reloadable="false"服务端会自动监视/WEB-INF/classes或lib目录下的变化情况，一旦变化，服务湍
+ 在设置成true的情况下，自动加载最新的内容，如果设置成false，服务端无法加载最
+ 新的资源，需要手工重新启动服务器，开发阶段设置为true，上线阶段设置为false。
+
+      unpackWAR ="true"服务器会自动将web压缩文件解压成标准的web目录结构
+
+
+  2)设置默认web应用
+<Context path="" docBase="d:\mail"/>
+  3)设置默认web资源
+mail-WEB-INF- web.xml 文件中设置如下代码：
+   < welcome-file-list >
+        <welcome-file>mail.html</welcome-file>
+       </welcome-file-list>
+
+  4)设置虚拟主机：在tomcat/conf/server.xml文件中设置如下代码： 
+      <Host name="www.163.com"  appBase="d:\sina">
+      <Context path=""          docBase="d:\sina\mail"/>
+      <Context path="/news" docBase="d:\sina\news"/>
+      </Host>
+      name表示虚拟主机名，与HOSTS文件中定义的一致
+      appBase虚拟主机对应的Web应用根目录
+      \表示真实目录
+      /表示外界通过浏览器访问的目录
+      以windowXP为例：C:\WINDOWS\system32\drivers\etc\HOSTS文件  
+  5)位于webapps/目录下的标准web应用，服务器会自动映射成一个虚拟目录
+<Context path="/day04" docBase="d:\apache-tomcat-6.0.29\webapps\day04"/>
+  6)某些旧版的tomcat服务器，可能无法自动映射webapps/目录下的标准web应用， 需要加上WEB-INF/web.xml 文件才行     
+   web.xml文件为web应用的配置文件，它必须放在web应用目录／WEB-INF目录下。
+web.xml文件用于对web应用下的web资源进行配置，例如将某个web资源配置为网站首页、将servlet程序映射到某个url地址上等等。
+------------------
+
+
+5 理解C/S和B/S结构的特点
+    CS结构：程序和数据分离在不同的端
+   *BS结构：程序和数据绑定在服务端
+  
+6 观察http协议 
+  1)超文本的传输协议，是基于TCP/UDP协议（底层）
+  2)有二个版本
+a)HTTP/1.0（一次用户请求，服务端响应后，立即断开）
+b)HTTP/1.1（一次用户请求，服务端响应后，会保持一定的时间，在该一定时间后，用户可以再次请求）
+  3）为了让客户端响应速度快，在满足业务需求的情况下，尽量减少HTTP请求数的发送
+----------------------------------------------
+1 HTTP协议特点
+  1)客户端->服务端(请求request)有三部份
+a)请求行
+b)请求头
+c)请求的内容，如果没有，就是空白字符  
+  2)服务端->客户端(响应response)有三部份
+a)响应行
+b)响应头
+c)响应的内容，如果没有，就是空白字符  
+
+
+*2 HTTP请求头和响应头含义
+  1)请求(客户端->服务端[request])
+    GET(请求的方式) /books/java.html(请求的目标资源) HTTP/1.1(请求采用的协议和版本号)
+    Accept: */*(客户端能接收的资源类型)
+    Accept-Language: en-us(客户端接收的语言类型)
+    Connection: Keep-Alive(维护客户端和服务端的连接关系)
+    Host: localhost:8080(连接的目标主机和端口号)
+    Referer: http://localhost/links.asp(从来于哪里)
+    User-Agent: Mozilla/4.0(客户端版本号的名字)
+    Accept-Encoding: gzip, deflate(客户端能接收的压缩数据的类型)
+    If-Modified-Since: Tue, 11 Jul 2000 18:23:51 GMT(缓存时间) 
+    Cookie(客户端暂存服务端的信息)
+    Date: Tue, 11 Jul 2000 18:23:51 GMT(客户端请求服务端的时间)
+
+
+  2)响应(服务端->客户端[response])
+    HTTP/1.1(响应采用的协议和版本号) 200(状态码) OK(描述信息)
+    302（暂时 客户端请求服务端，但服务端没有对应的资源，服务端要客户端再次请求找其它的服务端，即客户端二次请求，重定向） 
+    307（客户端请求服务端，但服务端没有对应的资源，服务端自行再次请求找其它的服务端，即客户端一次请求， 转发 ）
+    304（客户端请求服务端，此时客户端缓存中有，无需再从服务端下载新的内容,服务端叫客户端自行找缓存，优化）
+    500(客户端请求的资源，服务端存在，但在执行时出错）
+    Location: http://www.baidu.com(服务端需要客户端访问的页面路径) 
+    Server:apache tomcat(服务端的Web服务端名)
+    Content-Encoding: gzip(服务端能够发送压缩编码类型) 
+    Content-Length: 80(服务端发送的压缩数据的长度) 
+    Content-Language: zh-cn(服务端发送的语言类型) 
+    Content-Type: text/html; charset=GB2312(服务端发送的类型及采用的编码方式)
+    Last-Modified: Tue, 11 Jul 2000 18:23:51 GMT(服务端对该资源最后修改的时间)
+    Refresh: 1;url=http://www.it315.org(服务端要求客户端1秒钟后，刷新，然后访问指定的页面路径)
+    Content-Disposition: attachment; filename=aaa.zip(服务端要求客户端以下载文件的方式打开该文件)
+    Transfer-Encoding: chunked(分块传递数据到客户端）  
+    Set-Cookie:SS=Q0=5Lb_nQ; path=/search(服务端发送到客户端的暂存数据)
+    Expires: -1//3种(服务端禁止客户端缓存页面数据)
+    Cache-Control: no-cache(服务端禁止客户端缓存页面数据)  
+    Pragma: no-cache(服务端禁止客户端缓存页面数据)   
+    Connection: close(1.0)/(1.1)Keep-Alive(维护客户端和服务端的连接关系)  
+    Date: Tue, 11 Jul 2000 18:23:51 GMT(服务端响应客户端的时间)
+  
+  3)总结
+    想让浏览器有何种行为，服务端只能通过响应头的方式来设置
+    想让服务器知道何种行为，浏览器只能通过请求头的方式来设置
+  -------------------
+简单的说，SUN首先发展出SERVLET，其功能比较强劲，体系设计也很先进，只是，它输出HTML语句还是采用了老的CGI方式，是一句一句输出，所以，编写和修改HTML非常不方便。 
+
+  后来SUN推出了类似于ASP的镶嵌型的JSP，把JSP TAG镶嵌到HTML语句中，这样，就大大简化和方便了网页的设计和修改。新型的网络语言如ASP，PHP，JSP都是镶嵌型的SCRIPT语言。 
+
+  从网络三层结构的角度看，一个网络项目最少分三层：data layer,business layer, presentation layer。当然也可以更复杂。SERVLET用来写business layer是很强大的，但是对于写presentation layer就很不方便。JSP则主要是为了方便写presentation layer而设计的。当然也可以写business layer。写惯了ASP，PHP，CGI的朋友，经常会不自觉的把presentation layer和business layer混在一起。就象前面那个朋友，把数据库处理信息放到JSP中，其实，它应该放在business layer中。 
+
+  根据SUN自己的推荐，JSP中应该仅仅存放与presentation layer有关的东东，也就是说，只放输出HTML网页的部份。而所有的数据计算，数据分析，数据库联结处理，统统是属于business layer，应该放在JAVA BEANS中。通过JSP调用JAVA BEANS，实现两层的整合。 
+
+  实际上，微软前不久推出的DNA技术，简单说，就是ASP+COM/DCOM技术。与JSP+BEANS完全类似，所有的presentation layer由ASP完成，所有的business layer由COM/DCOM完成。通过调用，实现整合。 
+
+为什么要采用这些组件技术呢？因为单纯的ASP/JSP语言是非常低效率执行的，如果出现大量用户点击，纯SCRIPT语言很快就到达了他的功能上限，而组件技术就能大幅度提高功能上限，加快执行速度。 
+
+  另外一方面，纯SCRIPT语言将presentation layer和business layer混在一起，造成修改不方便，并且代码不能重复利用。如果想修改一个地方，经常会牵涉到十几页CODE，采用组件技术就只改组件就可以了。 
+
+综上所述，SERVLET是一个早期的不完善的产品，写business layer很好，写presentation layer就很臭，并且两层混杂。 
+
+  所以，推出JSP+BAEN，用JSP写presentation layer,用BAEN写business layer。SUN自己的意思也是将来用JSP替代SERVLET。 
+
+  可是，这不是说，学了SERVLET没用，实际上，你还是应该从SERVLET入门，再上JSP，再上JSP+BEAN。 
+
+  强调的是：学了JSP，不会用JAVA BEAN并进行整合，等于没学。大家多花点力气在JSP+BEAN上。 
+
+在补充几句： 
+
+  我们可以看到，当ASP+COM和JSP+BEAN都采用组件技术后，所有的组件都是先进行编译，并驻留内存，然后快速执行。所以，大家经常吹的SERVLET/JSP先编译驻内存后执行的速度优势就没有了。 
+
+反之，ASP+COM+IIS+NT紧密整合，应该会有较大的速度优势呈现。而且，ASP+COM+IIS+NT开发效率非常高，虽然BUG很多。 
+
+  那么，为什么还用JSP+BEAN？因为JAVA实在前途远大。微软分拆后，操作系统将群雄并起，应用软件的开发商必定要找一个通用开发语言进行开发，JAVA一统天下的时机就到了。如果微软分拆顺利，从中分出的应用软件公司将成为JAVA的新领导者。目前的JAVA大头SUN和IBM都死气沉沉，令人失望。希望新公司能注入新活力。不过，新公司很有可能和旧SUN展开JAVA标准大战，双方各自制定标准，影响JAVA夸平台。 
+
+  另外，现在的机器速度越来越快，JAVA的速度劣势很快就可以被克服。  
+
+       
+*3 Servlet入门
+按照一种约定俗成的称呼习惯，通常我们也把实现了 servlet接口的java程序，称之为Servlet
+
+  1）Servlet是SUN公司基于Java技术的一个开发动态资源支持的规范，以接口的形式出现， 最终的 实现类 与服务器有关
+  2）Servlet是一种特殊的Java类，运行时服务端/容器中， 接收每一个客户端的请求并响应，尊循HTTP协议
+
+
+*4 开发Servlet
+  1)类 实现 Servlet接口 + 在web.xml中配置
+<servlet>
+    <servlet-name>Demo11[servlet名字，可以任意]</servlet-name>
+    <servlet-class>cn.itcast.web.servlet.Demo11[servlet全路径]</servlet-class>
+  </servlet>
+        <servlet-mapping>
+   <servlet-name>Demo11[servlet名字，必须和上述一致]</servlet-name>
+   < url-pattern >/qq[以/开头，提供外界用户访问的路径]</url-pattern>     可写多个
+        </servlet-mapping>
+  2) 类 扩展 GenericServlet + 在web.xml中配置
+     如果需要输出中文，需要在Servlet中如下设置:
+//服务端通知浏览器以指定的编码方式来显示中文
+response. setContentType ("text/html;charset=UTF-8");
+response.getWriter().write("欢迎学习JavaServlet程序");
+
+
+  3) 类 扩展 HttpServlet + 在web.xml中配置
+     HttpServlet已经覆写service( )方法，程序员无需再次覆写，只需覆写doXxxx()方法
+ 该方法体内的代码会自动判断用户的请求方式，如为GET请求，则调用HttpServlet的doGet方法，如为Post请求，则调用doPost方法。因此，开发人员在编写Servlet时，通常只需要覆写doGet或doPost方法，而不要去覆写service方法。
+
+
+5 Servlet工作原理和生命周期------>是一个类
+  1）当浏览器第一次访问Servlet时，服务器会根据浏览器访问的路径，例如/Demo2，在web.xml文件中找到该Servlet的全路径， 进行反射。
+  2）调用init()为Servlet作初始化工作
+  3）调用doXxxxx()为浏览器响应
+  4）如果浏览器再次访问相同的Servlet，直实现从服务端维护的 Servlet实例集合 中取得对应的实现，为浏览器响应
+  5）同一个Servlet实例，在服务端只有一个（ 典型的单例  )
+  6)服务器在决定销毁Servlet实例之前，调用destory()方法，每个Servlet实例只会调用一次
+
+
+*6 Servlet细节
+  1)浏览器访问的url-pattern只是一个符合格式的任意字符串，以/开头
+  2）一个Servlet的url-pattern可以是1个或多个，有二种形式;
+a）*.xx
+        b）/xx/*
+        注意：/*不能一起直接使用
+  3)/*和*.do的映射关系，*.do最后
+  4)程序员编写的Servlet其实是由tomcat容器中的Servlet引擎来处理的， 引擎 会产生对应的HttpServletRequest和
+    HttpServletResponse对应传入到Servlet的doXxxx()方法中
+  5)通过在web.xml文件中配置代码，让Servlet在 部署时 就创建
+    <servlet>
+      <servlet-name>Demo21</servlet-name>
+      <servlet-class>cn.itcast.web.servlet.Demo21</servlet-class>
+      < load-on-startup >1</load-on-startup>
+  </servlet>
+       数字小的先加载，数据大的后加载，最小为0，如果为负数和没有设置一样，需要在浏览器第一次访问时创建 
+  6)url-pattern为 / 的servlet是一个 缺省 的servlet，用于处理当前web应用下，访问路径错误的请求 
+    任何web服务端都有一个缺省的servlet来处理
+  7)每个线程会共享同一个Servlet的 实例变量 ，所以要对敏感数据加锁
+    产生线程安全条件如下：
+  单例   &&    实例变量  &&    对 实例变量进行修改操作
+    通过加锁的方式，对敏感数据块进行代码同步(正道)
+  
+    如果你实现SingleThreadModel来解决线程安全有二个不足之处：
+a）SingleThreadModel接口的值与web服务器最多接收的线程数有关，可能会出现大值变小值的情况
+b）SingleThreadModel接口如果发现某个线程正在占用该Servlet实例，会自动创建一个新的Servlet实例为浏览器服务，
+  这就违背了Servlet单例的原则
+   ==============解决线程安全问题=====================
+    servlet容器，负责管理servlet生命周期。
+    web容器，负责管理和部署web应用，其本身可能具备servlet容器组件；如果没有，一般能将第三方servlet容器作为组件整合进web容器。
+    应用服务器，其功能远远大于web容器，因为它可以部署EJB应用，可以实现容器管理的事务，一般的应用服务器有weblogic和websphere等，它们都是商业服务器，功能强大但都是收费的。web容器最典型的就是tomcat了,Tomcat是web容器也是servlet容器。
+    由于spring的出现，应用服务器在容器管理的事务方面的价值正在褪去，因为spring的配置型事务管理特性能适用于绝大多数非分布式事务的应用场景。  
+//单例
+public   class   Demo4  
+     extends  HttpServlet{
+     private   int   counter  = 0;
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        
+         synchronized  ( this ) {
+             this . counter ++; //1:1234 //1:2345
+             try  {
+                Thread. sleep (1000);
+            }  catch  (Exception e) {
+                e.printStackTrace();
+            }
+            System. out .println( "counter="  +  this . counter  +  ":"
+                    +  this .hashCode());
+        }
+    }
+}
+--------------以废弃的-------------------
+public   class   Demo4  
+     extends  HttpServlet
+     implements   SingleThreadModel  {
+     private   int   counter  = 0;
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+         this . counter ++; //1:1234 //1:2345
+         try  {
+            Thread. sleep (1000);
+        }  catch  (Exception e) {
+            e.printStackTrace();
+        }
+        System. out .println( "counter=" + this . counter + ":" + this .hashCode());
+    }
+}     
+
+
+7 ServletConfig 对象
+  1)想让当前Servlet 读取 一些在 web.xml 文件配置的初始化参数，可以使用ServletConfig对象，它是Servlet运行时的配置对象
+  2)init( ServletConfig )方法由Web容器调用，调用时，会传入与容器相关的ServletConfig接口的实现
+
+
+
+
+=========================
+//使用JavaSocket编程，读取abc.html文件，写给每个浏览器客户端
+public   class  Demo1 {
+     public   static   void  main(String[]  args )  throws  Exception {
+        ServerSocket  ss  =  new  ServerSocket(9999);
+         while  ( true ) {
+            Socket  s  =  ss .accept();
+             // 得到输入流
+            InputStream  is  =  s .getInputStream();
+             // 将字节流包装成高级字符流， 目的是行行读
+            BufferedReader  br  =  new  BufferedReader( new  FileReader(
+                     "d:\\abc.html" ));
+             // 得到输出流
+            OutputStream  os  =  s .getOutputStream();
+            String  line  =  null ;
+             // 循环读取abc.html文件中的内容
+             while  (( line  =  br .readLine()) !=  null ) {
+                 // 输出到每个浏览器
+                 os .write( line .getBytes());
+            }
+             br .close();
+             os .close();
+             s .close();
+        }
+         /*
+         * 项目在一定放在try-catch-finally中在非空的情况下关闭 br.close(); is.close();
+         * os.close(); s.close(); ss.close();
+         */
+    }
+}
+======================================
+//重定向302+location响应头(服务端->客户端)
+public   class   Demo1   extends   HttpServlet  {
+     public   void  doGet(
+            HttpServletRequest request, 
+            HttpServletResponse response)
+     throws  ServletException, IOException {
+         //服务端通知客户端重定向
+        response.setStatus(302);
+         //服务端通知客户端重定向的目标资源
+        response.setHeader( "location" , "/day05/index.html" );
+    } }  
+----------------gzip压缩----------------
+  public   class   Demo2   extends  HttpServlet {
+
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response)     throws  ServletException, IOException {
+        
+        String data =  "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" ;
+        System. out .println( "压缩前"  + data.length());        
+         //以下代码完成将String类型压缩到byte[]中
+        ByteArrayOutputStream bout =  new  ByteArrayOutputStream(); 
+        GZIPOutputStream gout =  new  GZIPOutputStream(bout);
+        gout.write(data.getBytes());
+        gout.flush();
+        gout.close();       
+         //取出压缩后的数据
+         byte [] buf = bout.toByteArray();
+        System. out .println( "压缩后"  + buf. length );
+        
+         //将压缩后的数据输出到浏览器
+        response.setHeader( "content-encoding" , "gzip" );
+        response.setHeader( "content-length" ,buf. length + "" );
+        
+         //服务端以字节方式输出
+        response.getOutputStream().write(buf);
+    } }
+--------------以图片方式打开-----------------
+public   class   Demo3   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {        
+         //通知浏览器打开一副图片
+        response.setHeader( "content-type" , "image/jpeg" );
+        
+        InputStream is =  new  FileInputStream( new  File( "d:\\d1.jpg" ));
+        OutputStream os = response.getOutputStream();
+         byte [] buf =  new   byte [1024];
+         int  len = 0;
+         while ( (len=is.read(buf))>0 ){
+            os.write(buf,0,len);
+        }
+        is.close();
+        os.close();
+        
+    } }   
+
+-----------下载方式打开--------------
+public   class   Demo4   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+         //服务端通知浏览器以下载的方式打开图片
+        response.setHeader( "content-disposition" , "attachment;filename=d1.jpg" );
+        InputStream is =  new  FileInputStream( new  File( "d:\\d1.jpg" ));
+        OutputStream os = response.getOutputStream();
+         byte [] buf =  new   byte [1024];
+         int  len = 0;
+         while ( (len=is.read(buf))>0 ){
+            os.write(buf,0,len);
+        }
+        is.close();
+        os.close();
+    } }   
+
+------------------------------------
+public   class   Demo5   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+         //服务端通知浏览器3秒后转到目标页面
+         response .setHeader( "refresh" , "3;url=/day05/index.html" );
+    } }  
+--------------------------------
+public   class   Demo6   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+         //服务端控制各种浏览器禁止缓存页面资源
+        response.setHeader( "expires" , "-1" );
+        response.setHeader( "cache-control" , "no-cache" );
+        response.setHeader( "pragma" , "no-cache" );
+        
+         //服务端向浏览器输出内容
+        response.getWriter().write( "haha" );
+    }
+}
+---------web.xml配置------------------------
+
+  <servlet>
+    <servlet-name>Demo1</servlet-name>
+    <servlet-class>cn.itcast.web.http.Demo1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Demo1</servlet-name>
+    <url-pattern>/Demo1</url-pattern>
+  </servlet-mapping>
+=== ========================== 
+-----------------方法1--------------------
+//实现 Servlet 接口来开发 Servlet 程序
+public   class  Demo11  implements  Servlet {
+     public   void  destroy() {
+    }
+     public  ServletConfig getServletConfig() {
+         return   null ;
+    }
+     public  String getServletInfo() {
+         return   null ;
+    }
+     public   void  init(ServletConfig arg0)  throws  ServletException {
+    }
+     public   void  service(
+            ServletRequest request, 
+            ServletResponse response)
+             throws  ServletException, IOException {
+         //取得服务端向浏览器的输出流对象
+        PrintWriter pw = response.getWriter();
+        pw.write( "welcome to java web course!" );
+    }
+}
+-----------方法2-------------------------
+//扩展GenericServlet实现 Servlet 程序
+public   class   Demo12   extends  GenericServlet {
+     public   void   service (
+            ServletRequest request, 
+            ServletResponse response)
+     throws   ServletException , IOException {
+         //服务端通知浏览器以指定的编码方式来显示中文
+        response.setContentType( "text/html;charset=UTF-8" );
+        response.getWriter().write( "欢迎学习JavaServlet程序" );
+    } }   
+
+-------------方法3----------------------------
+//扩展 HttpServlet实现 Servlet 程序
+==============================
+
+  <servlet-mapping>
+          <servlet-name>Demo3</servlet-name>
+          <url-pattern>/</url-pattern>
+  </servlet-mapping>
+public   class   Demo3   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        ServletOutputStream sos = response.getOutputStream();
+        response.setContentType( "text/html;charset=UTF-8" );
+        sos.write( "你输的网址错误，进入114查询页面" .getBytes( "UTF-8" ));
+    } }   
+
+
+
+===========读取web.xml的配置=============
+  <servlet>
+    <servlet-name>Demo5</servlet-name>
+    <servlet-class>cn.itcast.web.servlet.Demo5</servlet-class>
+    < init-param >
+    <param-name>tel</param-name>
+    <param-value>1363233****</param-value>
+    </init-param>
+    <init-param>
+    <param-name>email</param-name>
+    <param-value>runsin0723@163.com</param-value>
+    </init-param>
+    <init-param>
+    <param-name>encoding</param-name>
+    <param-value>GBK</param-value>
+    </init-param>
+    < load-on-startup >1</load-on-startup>   // 让Servlet在部署时就创建此servlet的实例
+  </servlet>
+public   class   Demo5   extends  HttpServlet {
+     private  ServletConfig  config ;
+     //读取web.xml文件的初始化参数
+     public   void   init ( ServletConfig  config)  throws  ServletException { // config 对象是 tomcat 传进来的
+         this . config  = config;      
+        String tel = config. getInitParameter ( "tel" );
+         if (tel!= null ){
+            System. out .println( "tel=" +tel);
+        }
+        
+        Enumeration<String> enums =  config. getInitParameterNames () ;
+         while (enums.hasMoreElements()){
+            String key = enums.nextElement();
+            String value = config.getInitParameter(key);
+            System. out .println(key+ "-" +value);
+        }
+        
+    }
+     public   void  destroy() {
+    }
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        String encoding =  this . config .getInitParameter( "encoding" );
+        response.setContentType( "text/html;charset=" +encoding);
+        response.getWriter().write( "ServletContext对象" );
+    } }   
+
+=======================================================================
+**1 ServletContext对象
+ServletContext对象被包含在ServletConfig对象中，开发人员在编写servlet时，可以通过 ServletConfig .getServletContext方法获得对ServletContext对象的引用。
+
+
+由于一个WEB应用中的所有Servlet共享同一个ServletContext对象，因此Servlet对象之间可以通过ServletContext对象来实现通讯。ServletContext对象通常也被称之为context域对象。
+
+
+
+
+  1)在web应用中，由 服务器 创建的唯一的一个对象是ServletContext
+  2)ServletContext对象在每一个Servlet中取得都是相同到(全局的性质）
+  3)ServletContext对象在存取方法：
+存ServletContext.setAttribute(String,Object):void
+取ServletContext.getAttribute(String):Object
+====================================
+/*
+ * http://192.168.10.252:8080/day06/Demo11?username=jack回车
+ */
+public   class   Demo11   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {        
+         //取得客户端的请求参数
+        String username = request.getParameter( "username" );        
+         //取得唯一的一个ServletContext对象
+        ServletContext context =  this .getServletContext();
+        System. out .println( "Demo11:" +context.hashCode());        
+         //将信息存入ServletContext对象
+        context.setAttribute( "USERNAME" ,username);
+    } }   
+
+-----------------------
+/*
+ * http://192.168.10.252:8080/day06/Demo12回车
+ */
+public   class   Demo12   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        
+         //取得唯一的一个ServletContext对象
+        ServletContext context =  this .getServletContext();
+        System. out .println( "Demo12:" +context.hashCode());
+        
+         //根据name取得ServletContext对象中的值
+        String username = (String) context.getAttribute( "USERNAME" );
+        
+         //在浏览器中输出
+        response.setContentType( "text/html;charset=UTF-8" );
+        response.getWriter().write( "用户名："  + username +  "<br/>" );
+        
+    } }  
+======================================= 
+
+  4)在web应用中，可以取得web应用的初始化参数
+  <context- param >
+      <param-name>email</param-name>
+      <param-value>runsin0723@163. com </param-value>
+  </context- param >    
+  <context- param >
+      <param-name> tel </param-name>
+      <param-value>13632334557</param-value>   </context- param >       
+
+public   class   Demo2   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        ServletContext context =  this .getServletContext();
+        String email = context. getInitParameter ( "email" );
+        String tel = context. getInitParameter ( "tel" );
+         if (email!= null  && tel!= null ){
+            response.setContentType( "text/html;charset=UTF-8" );
+            response.getWriter().write( "赵老师邮箱："  + email +  "<br/>" );
+            response.getWriter().write( "赵老师电话："  + tel +  "<br/>" );
+        }
+    } }  
+================================
+ 
+
+  5)ServletContxt对象能够 实现转发功能 ，即307+location    对这两者的封装  
+         //根据返回值，转发到不同的页面
+         if (flag){
+            ServletContext context =  this .getServletContext();
+             //定位需要转发的路径
+            RequestDispatcher rd = context. getRequestDispatcher ( "/success.html" );
+             //真正转向页面
+            rd. forward (request,response);         }   
+
+也能
+request . getRequestDispatcher ( "/WEB-INF/fail.html" ) .forward(request,response);   
+
+--------------------- 读取文件 -----------------------
+  6)如果以传统方式读取资源文件（txt/xml/properties），是相对于web服务器的bin/目录而言
+ *7)如果以ServletContext方式读取资源文件（txt/xml/properties），是相对于web服务器的当前web应用目录而言
+    此时/表示:当前web应用，即day06
+ *8) 类加载器 只能加载IDE工具下src目录下的资源文件，其它目录无法加载
+    此时/表示:/WEB-INF/classes/目录
+
+
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        
+         /*传统方式
+        InputStream is = new FileInputStream(" src /config.properties");
+        Properties props = new Properties();
+        props.load(is);
+        System.out.println(props.getProperty("email"));
+        */
+        
+        ServletContext context =  this .getServletContext();
+        InputStream is = context. getResourceAsStream ( "/doc/config.properties" );
+        Properties props =  new  Properties();
+        props.load(is);
+        System. out .println(props.getProperty( "email" ));             }   
+
+-------------------------
+public   class   Demo5   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+         //取得当前对象的字节码对象
+         Class  clazz =  this .getClass();
+         //取得当前对象的类加载器
+        ClassLoader cl = clazz. getClassLoader ();
+         //通过类加载器加载资源文件
+        InputStream is = cl. getResourceAsStream ( "/cn/itcast/web/config/config.properties" );
+        Properties props =  new  Properties();
+        props.load(is);
+        System. out .println(props.getProperty( "email" ));
+    } }  
+============================================== 
+
+ 10)其实浏览器访问的静态资源，本质上是由一个缺省的Servlet来帮你处理的  
+  <servlet-mapping>
+    <servlet-name>Demo6</servlet-name>
+    <url-pattern>/</url-pattern>   </servlet-mapping>  
+
+
+=========让浏览器缓存静态资源=================== 
+
+*3 缓存应用
+  1)对于浏览器的刷新而言，当浏览器缓存中有资源，也会找服务端要资源，只有在回车访问情况下，才找缓存
+public   class   Demo6   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        String uri = request.getRequestURI();
+         //如果是一个 html 静态资源
+         if (uri!= null  && uri. endsWith ( "html" )){
+            String html =  this . getServletConfig() .getInitParameter( "html" );
+             if (html!= null ){
+                 long  end = Long. parseLong (html)*1000 + System. currentTimeMillis ();
+                response.setDateHeader( "expires" ,end);
+            }
+        }
+    } }   
+
+--------------------304的缓存------------------------
+  2)可以通过重写getLastModified()方法来阻止每次刷新都访问服务端，以减轻服务端的压力
+
+public   class   Demo7   extends  HttpServlet {
+     protected   long   getLastModified (HttpServletRequest req) {
+        System. out .println( "getLastModified()" );
+        String path =  this .getServletContext(). getRealPath ( "/doc/abc.txt" );  从根目录开始的
+        File file =  new  File(path);       从根目录开始的路径才能用
+         return  file.lastModified();       -1表200   其他为304
+    }
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        System. out .println( "doGet()" );
+        ServletContext context =  this .getServletContext();
+        InputStream is = context.getResourceAsStream( "/doc/abc.txt" );
+        OutputStream os = response.getOutputStream();
+         byte [] buf =  new   byte [1024];
+         int  len = 0;
+         while ((len=is.read(buf))>0){
+            os.write(buf,0,len);
+        }
+        is.close();
+        os.close();
+    } }   
+
+  
+2 关于路径的问题
+
+
+  1)二种加载方式的区别？
+     服务端
+    ServletContext方式：
+1)资源的文件的位置任意
+        2)加载文件时，只会 以流的方式 读取，不会一次性加载全部
+        3)/表示当前web应用，即day06
+
+
+    类加载器方式：
+1)资源文件的位置只能放置类路径下，即 IDE工具的src目录下
+        2)加载文件时， 会一次性加载全部文件
+        3)/表示当前/WEB-INF/classes/
+    
+   2)有关/的问题？
+     物理硬盘路径使用\[window系统]
+     网络路径使用/
+     如果/表示 客户端 路径的话，表示tomcat/webapps/目录
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../style.css" type="text/css" />
+
+
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#对新分区进行格式化">4.对新分区进行格式化</a></li>
+<li><a href="#对分区进行挂载取消挂载">5.对分区进行挂载、取消挂载</a></li>
+<li><a href="#如何装2t的硬盘">如何装2T的硬盘</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>Linux虚拟机下如何添加新磁盘 ## 1. 在虚拟机设置中添加新的硬盘 ## 2. 查看系统分区的详细情况 fdisk -l</p>
+<p>如果没有识别到新的磁盘即sdb，解决办法：重启虚拟机 reboot ## 3. 对新的磁盘进行分区 fdisk /dev/sdb</p>
+<p>按如上步骤，提示卷的起始地址和结束地址，都保持默认 用回车代替 查看是否分区成功 fdisk -l</p>
+<p>成功 如下图所示：</p>
+<h2 id="对新分区进行格式化">4.对新分区进行格式化</h2>
+<p>mkfs.ext3 /dev/sdb1 或者 mkfs -t ext3 /dev/sdb1 出现Proceed anyway？（y，n）时，这时输入“y”回车。</p>
+<h2 id="对分区进行挂载取消挂载">5.对分区进行挂载、取消挂载</h2>
+<p>mount /dev/sdb1 /data 查看分区挂载情况 df -h ## 6.开机时自动挂载 编辑开机自启动文件 vi /etc/rc.d/rc.local 添加 mount /dev/sdb1 /data</p>
+<hr />
+<h2 id="如何装2t的硬盘">如何装2T的硬盘</h2>
+<p>【1.查看所有的硬盘，确定自己新加大硬盘是哪一个】 fdisk -l</p>
+<p>【2.查看新加的磁盘的信息】 parted /dev/sdb 按p查看信息， parted&gt;mklabel gpt # 将MBR磁盘格式化为GPT磁盘</p>
+<p>parted&gt;mklabel msdos # 将GPT磁盘格式化为MBR磁盘</p>
+<p>这里要选gpt的，这个才能分2Tb以上的。 【3.分区】 Partition name? []? gpt2t ---指定分区名称</p>
+<p>File system type? [ext2]ext3 ----指定分区类型</p>
+<p>Start? 1 ---指定开始位置</p>
+<p>End? 2190GB ---指定结束位置</p>
+<p>(parted) P ----显示分区信息</p>
+<p>End? -1s # 表示硬盘最后一个扇区，就是硬盘的最末尾处 【4.格式化磁盘】 mkfs -t ext3 /dev/sdb1</p>
+<p>【5.挂载】 mount /dev/sdb1 /data</p>
+<p>一次断电之后，4T的那块硬盘在启动的时候没有被挂载上，于是去 mount /dev/sdb1 /data，结果报 mount: you must specify the filesystem type，后来才发现是我把名字搞错了，我挂载成了 硬盘的名字 了，而不是硬盘 分区的名字 了。</p>
+<p>mount -t ext3 /dev/sdb1 /data</p>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

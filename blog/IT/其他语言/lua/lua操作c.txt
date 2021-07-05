@@ -1,0 +1,120 @@
+【数组操作】
+在Lua中应该不能叫数组，而是一种table的东西；而在C语言中，没有table这种东西，只有数组。Lua中的table可以使关联的，也就是key=>value键值对，而C中，数组不是关联的，下标是从0开始的。当然了，Lua中的数组表示，只是table的一个子集，就是因为这种关系，就有了C数组和Lua table的交互关系了。
+比如lua_settable和lua_gettable这种操作table的API（其实之前我一直用的都是lua_setfield和lua_getfield）,也可以操作数组。然而，API为数组操作提供了专门的函数，出于以下两个原因：
+性能；我们一般使用C语言来扩展Lua，都是用来做一些Lua难以做到，而C却非常容易做到的事情，比如一些追求效率的算法；如果提高了访问数组的效率，那就能提高整个算法的性能了；
+便利；整数key是非常常用的，所以提供专门的API也会非常便利的。
+API为数组操作提供了两个函数：
+ 
+void lua_rawgeti(lua_State *L, int index, int key);
+void lua_rawseti(lua_State *L, int index, int key);
+lua_rawgeti和lua_rawseti的参数中涉及到两个索引，index表示table在栈中的位置，key表示元素在table中的元素。这两个函数都是原始操作，比涉及元表的table访问更快。通常，作为数组使用的table很少会用到元表。
+下面就来一个实例，看看如何使用上面的两个API函数，不知道你会不会PHP，在PHP中，有一个array_walk函数，这个函数允许用户定义一个函数，然后对数组中的每个函数都应用这个函数。我现在就来实现这个功能。把重点代码贴上来：
+static int array_walk(lua_State *L)
+{
+    // 和写别的函数一行，先检查参数的合法性
+    // 第一个参数必须是一个table
+    luaL_checktype(L, 1, LUA_TTABLE);
+ 
+    // 第二个参数必须是一个用户定义的函数
+    luaL_checktype(L, 2, LUA_TFUNCTION);
+ 
+    // 获取table的大小
+    int iLen = lua_objlen(L, 1);
+ 
+    for (int i = 1; i <= iLen; ++i)
+    {
+        // 将用户定义的函数压入栈
+        lua_pushvalue(L, 2);
+ 
+        // 将参数table的所以i对应的值压入栈
+        lua_rawgeti(L, 1, i);
+ 
+        // 调用用户定义的函数
+        lua_call(L, 1, 1);
+        lua_rawseti(L, 1, i);
+    }
+    // 没有返回值压入栈中
+    return 0;
+}
+代码比较简单，不多说，哪里不懂的地方，可以留言。对于代码中出现的luaL_checktype和lua_call函数，这里说一下。luaL_checktype用来检查给定的参数符合特定的类型，从而防止由于参数类型错误而引起的后续错误；如果参数不正确，这个函数就会引发一个错误。
+lua_call运行在无保护的模式下，这个是它和lua_pcall最大的区别，所以它在发生错误时，会传播错误，而不是简单的返回一个错误代码。在我们的实际编程开发中，在一个应用程序中编写主函数时，不应该使用lua_call，因为这样需要捕获所有的错误；而编写C函数时，通常可以用lua_call，当错误发生时，就应该让错误显示出来。
+上面只是贴出了关键代码，可以点击这里下载完整工程。 【字符串操作】
+实际开发中，我们都是在和各种字符串打交道，现在我们就来完成这个功能，Lua传进一个字符串到C模块中，C模块进行字符串处理。
+当一个C函数从Lua接收到一个字符串参数时，必须遵守两条规则：
+不要在访问字符串时，从栈中弹出它；
+不要修改字符串。
+当一个C函数需要创建一个字符串返回给Lua时，C代码还必须处理字符串缓冲的分配和释放等问题。Lua API也提供了一些函数来帮助完成这些任务。
+ 
+标准API为两种常用的字符串操作提供了支持：提取子串和字符串连接。lua_pushlstring支持提取子串，它接受一个额外的字符串长度参数，这就好比我们在压入栈时，对字符串进行了一个截取操作。下面我先来完成一个简单的功能，根据指定的切割符号来切割字符串，将子串保存在一个table中，然后向Lua返回这个table。来吧！！！
+ 
+static int split(lua_State *L)
+{
+    // 传进来两个参数，先检查参数的合法性
+    const char *pSrc = luaL_checkstring(L, 1);
+    const char *pSep = luaL_checkstring(L, 2);
+    lua_newtable(L);
+    int index = 1;
+    char *pLocation = NULL;
+    while ((pLocation = strchr(pSrc, *pSep)) != NULL)
+    {
+        // 压入字符串
+        lua_pushlstring(L, pSrc, pLocation - pSrc);
+ 
+        // 设置结果表
+        lua_rawseti(L, -2, index++);
+ 
+        // 跳过分隔符
+        pSrc = pLocation + 1;
+    }
+ 
+    // 把最后一部分压入table中
+    // eg.abc,def,cg
+    // 现在把cg放到结果表中
+    lua_pushstring(L, pSrc);
+    lua_rawseti(L, -2, index);
+    return 1;
+}
+把重点代码贴上来了。无需多解释，慢慢看，能看懂的。Lua测试代码如下：
+ 
+require "split"
+ 
+local str = "abc,de,fg"
+local strsep = ","
+local tbRet = MySplit.split(str, strsep)
+for _, v in pairs(tbRet) do
+    print(v)
+end
+单击这里下载完整项目代码。
+为了连接字符串，Lua API提供了一个叫lua_concat的函数。它类似于Lua中的“..”操作符。不过，它可以同时连接多个字符串，调用lua_concat(L, n)连接（并弹出）栈顶的n个值，然后压入结果。此外，这个函数会将数字转换为字符串，并在需要的时候调用元方法（__tostring）。还有另外一个有用的函数是lua_pushfstring，这个函数和C中的sprintf有点类似，它们都会根据一个格式字符串和一些额外的参数来创建一个新字符串；但是与sprintf不同的是，无需提供这个新字符串的缓冲。Lua会动态的创建一个足够大的缓冲区来存放字符串，确保不会有缓冲溢出的问题。这个函数会将结果字符串压入栈中，并返回一个指向它的指针，当前这个函数接受的指示符只有以下几种：
+%%，表示字符%；
+%s，表示字符串；
+%d，表示整数；
+%f，表示Lua中的数字， 即双精度浮点数；
+%c，接受一个整数，并将它格式化为一个字符，和string.char功能类似。
+除了上述列出的指示符以外，它不接受任何其它选项。
+ 
+如果只是连接一些字符串的话，这样简单的工作，lua_concat和lua_pushfstring就能够很简单的完成；但是，如果要连接很多字符串的话，为了提高效率，我们可以使用辅助库，也就是lauxlib.h中定义的API函数来完成这项工作。辅助库提供了什么呢？它提供了一种缓冲机制，包含了两个层面的缓冲：
+ 
+在本地缓冲区中收集较小的字符串，并在本地缓冲区满了以后，将结果传递给Lua（通过lua_pushlstring）；
+使用lua_concat或其它算法来连接多次缓冲区填满后的结果。
+为了更好的描述辅助库的缓冲机制，来看一段string.upper的源代码，可以去Lua源代码中的lstrlib.c文中查看。
+ 
+static int str_upper (lua_State *L) {
+  size_t l;
+  size_t i;
+  luaL_Buffer b;
+  const char *s = luaL_checklstring(L, 1, &l);
+  luaL_buffinit(L, &b);
+  for (i=0; i<l; i++)
+    luaL_addchar(&b, toupper(uchar(s[i])));
+  luaL_pushresult(&b);
+  return 1;
+}
+不要惊讶，Lua的代码你可以随心所欲的阅读，伟大的开源，分享的力量。使用缓冲区分为以下几步：
+声明一个luaL_Buffer变量；
+使用luaL_buffinit来初始化它；
+调用luaL_add*系列函数向缓冲区添加字符或字符串；
+调用luaL_pushresult更新缓冲区，将最终的结果字符串留在栈顶。
+在调用luaL_buffinit初始化以后，这个变量中就会保留一份状态L的副本，所以在后续调用luaL_add*系列函数时，就不用传递lua_State参数了。
+ 
+通过使用这些函数，就可以使用缓冲机制，我们也不用再去关心缓冲的分配、溢出等细节了。另外，这种连接算法也非常高效。用str_upper函数处理大型的字符串也不会有什么问题。

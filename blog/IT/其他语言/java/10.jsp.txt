@@ -1,0 +1,211 @@
+1 常用JSTL核心标签
+  1)<c:out value/default/escapeXml/> 
+  2)<c:set var/value/scope/target/propety/>
+  3)<c:remove var/scope/>
+  4)<c:catch var/>
+  5)<c:if var/test/scope/>
+ *6)<c:chooose/>
+    <c:when test/>
+    <c:otherwise/>
+    ${param.age}表示取得请求参数age的值
+ *7)<c:forEach var/items/begin/end/step/varStatus="表示迭代过程中每个元素的状态信息，例如是否为第一项，最后项..."
+ *8)<c:url var/value/scope/>
+ *9)<c:param name/value/>自动对中文进行URL编码
+ 10)<c:redirect url/>
+
+
+*2 EL的作用
+  a)获取数据
+普通变量/JavaBean/List/Set/Map，注意，一定要将其放置到域对象中
+        如果在域中找不到对应的值，返回空白字符串，不是NULL
+
+
+  b)执行运算
+算术/关系/逻辑
+有用的二个运算：empty和**?**:**(二元运算符)
+
+
+  c)获取web开发常用对象(11个隐式对象)
+
+
+
+
+  d)调用Java方法，即EL自定义函数
+        EL是对标签（自定义和JSTL标签） 补充和简化
+   
+jsp中9个内置对象    
+ page/pageContext->request->session->aplication
+response/out
+config/exception
+3 EL的11个内置对象
+       *pageContext，例如：${pageContext.request.contextPath}
+       *pageScope/requestScope/sessionScope/applicationScope
+       *param/paramValues(数组)
+header/headerValues（数组)
+cookie/initParam
+
+4 EL自定义函数和自定义标签有何不同？适合于什么样的场景？
+  函数：
+适合于与非Web相关的应用，例如字符串相关的处理
+相关函数的开发过程，参见<<EL自定义函数开发步骤.txt>>
+
+
+  标签：
+适合于与Web相关的应用，因为标签中有pageContext对象
+-----------------------------
+1 写一个EL函数类，该类无需继承和实现任何类或接口
+//${el:filter("")}//普通类
+public class Filter {
+    //EL自定义函数    
+    public static String filter(String message) {
+        if (message == null)
+            return (null);
+        char content[] = new char[message.length()];
+        message.getChars(0, message.length(), content, 0);
+        StringBuffer result = new StringBuffer(content.length + 50);
+        for (int i = 0; i < content.length; i++) {
+            switch (content[i]) {
+            case '<':
+                result.append("&lt;");
+                break;
+            case '>':
+                result.append("&gt;");
+                break;
+            case '&':
+                result.append("&amp;");
+                break;
+            case '"':
+                result.append("&quot;");
+                break;
+            default:
+                result.append(content[i]);
+            }
+        }
+        return (result.toString());
+    }
+}
+ 
+2 在WEB-INF/*.tld文件，描述自定义函数和对应处理类的关系
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+  version="2.0">
+  <tlib-version>1.0</tlib-version>
+  <short-name>el</short-name>
+  <uri>http://java.sun.com/jsp/jstl/el</uri>
+  <function>
+    <name>filter</name>(函数名)
+    <function-class>cn.itcast.web.jsp.el.Filter</function-class>( 函数处理类的完整路径 )
+    <function-signature>java.lang.String filter(java.lang.String)</function-signature>( 函数方法签名 )
+  </function>
+</taglib>
+ 
+3 在需要使用的jsp文件中，能过 <%@taglib%> 指令引入对应的EL函数
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/el" prefix="el" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <body>
+    ${el:filter('<script type="text/javascript">while(true){window.alert("haha");}</script>')}<br/>
+</body>
+</html>
+-----------------------------
+5 EL常用函数
+        转小写：${fn:toLowerCase("ww.ITCAST.cn")}<br/>
+  转大写：${fn:toUpperCase("ww.ITCAST.cn")}<br/>
+  去空格前的长度：${fn:length("  www.itcast.cn  ")}<br/>
+  去空格后的长度：${fn:length(fn:trim("  www.itcast.cn  "))}<br/>
+       *拆分字符串：${fn:split("www.itcast.cn",".")[2]}<br/>
+  <%
+  String[] sArr = {"www","itcast","cn"};
+  pageContext.setAttribute("SARR",sArr);
+  %>
+       *合并字符串：${fn:join(SARR,"#")}<br/>
+  查询字符串：${fn:indexOf("www.itcast.cn","it")}<br/>
+  <%-- 找到返回首字母的索引号，从0开始，找不找返回-1 --%>
+  包函字符串：${fn:contains("www.itcast.cn","itcast")}<br/> 
+  <%-- 找到返回true,否则返回false--%>
+  指定字符串开始：${fn:startsWith("http://localhost:8080/day17/welcome.jsp","http://")}<br/> 
+  指定字符串结束：${fn:endsWith("http://localhost:8080/day17/welcome.jsp",".jsp")}<br/> 
+替换字符串:${fn:replace("www.itcast.cn",".","@")}<br/>
+       *截取字符串：${fn:substring("http://localhost:8080/day17/welcome.jsp",7,16)}<br/>
+  截取字符串后：${fn:substringAfter("http://localhost:8080/day17/welcome.jsp","8080")}<br/>
+  截取字符串前：${fn:substringBefore("http://localhost:8080/day17/welcome.jsp","8080")}<br/>
+
+
+6 国际化
+  1)不同国家的用户，访问同一个jsp页面，显示的内容和样式是不同的，因此该jsp页面技术，叫国际化  
+  2)不能在index.jsp页面中写固定的字符串 
+  3)国际化的特征：
+*a)固定数据
+ResourceBundle ，创建时指定资源包的基名和对应的Locale（语言和国家的集合)
+
+                该命令是JDK6自带的一个将中文转成指定编码方式的命令
+d:\>native2ascii -encoding gb2312 a.txt message_zh_CN.properties(输出的目标文件) 
+
+
+开发步骤：
+a)写一个本地化的jsp页面
+b)再将本地化的jsp页面中的内容提出到资源包中，即*.properties文件
+c)通过ResourceBundle加载资源包
+注意：在Web页面中，如果请求中找不到对应的Locale，即访问缺省的资源包
+    非Web页面中，如果请求中找不到对应的Locale，即与操作系统对应的资源包
+
+
+常用标签：
+<fmt:setLocale    
+value=“${pageContext.request.locale}”/>(页面的Locale)
+ <fmt:setBundle
+basename=“cn/itcast/web/jsp/config/hello”/>(资源文件基名)
+ <fmt:message 
+   key=“itcast.hello”>(资源文件key)
+ <fmt:param
+   value=“itcast.name”/>(资源文件占位符)
+ <fmt:requestEncoding
+   value="UTF-8"/>
+b)动态数据
+日期时间/货币
+
+
+
+*7 日期时间
+   Date->Calendar(日历)->DateFormat->SimpleDateFormat
+
+
+中文：
+   short:11-11-1
+   default:2011-11-1
+   medium:2011-11-1
+   long:2011年11月1日
+   full:2011年11月1日 星期二
+
+
+英文：
+   short:11/1/11
+   default：Nov 1, 2011
+   medium:Nov 1, 2011
+   long:November 1, 2011  
+   full:Tuesday, November 1, 2011
+   1)DateFormat不适合对日期进行判段
+   2)DataFormat在多线程访问情况下，需要工手确保安全问题，例如：ThreadLocale<DateFormat>
+
+
+8 数字格式化
+  NumberFormat
+   a)Long类型
+   b)货币类型
+   c)百分比类型：Double
+
+
+
+
+9 格式化文本  
+  1)MessageFormat是对占位符字符串进入格式化
+  2)对于占位符有三种格式：
+a){0}{1}...{9}
+b){0,time或date样式}
+        c){0,time工date样式,5种显示样式}
+
+
+

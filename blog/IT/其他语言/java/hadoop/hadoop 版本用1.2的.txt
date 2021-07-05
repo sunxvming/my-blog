@@ -1,0 +1,149 @@
+hadoop 版本用1.2的
+
+
+wget -c   官网下载 解压
+java环境变量要提前配置好
+----------------------
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export JRE_HOME=$JAVA_HOME/jre
+export HADOOP_HOME=/opt/hadoop-1.2.1
+export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$HADOOP_HOME/bin:$PATH 
+----------伪分布模式-----------
+配置文件修改
+    1.  hadoop-env.sh         export java_home  的哪里要修改
+    2. conf/core-site.xml
+<property>
+<name>hadoop.tmp.dir</name>   工作目录
+<value>/hadoop</value>
+</property>
+<property>
+<name>dfs.name.dir</name>
+<value>/hadoop/name</value>
+</property>
+<property>
+<name>fs.default.name</name>
+<value>hdfs://localhost/</value>
+</property>     3.hdfs-site.xml
+<property>
+<name>dfs.data.dir</name>
+<value>/hadoop/data</value>
+</property> 4.mapred-site.xml <property> <name>mapred.job.tracker</name> <value>localhost:8021</value> </property>
+
+
+增加hadoop的环境变量
+hadoop  namenode -format   格式化文件系统
+Warning: $HADOOP_HOME is deprecated
+1.修改配置文件：vi ~/.bash_profile   添加 export HADOOP_HOME_WARN_SUPPRESS=1
+2.重新加载配置文件：source ~/.bash_profile
+-----------------------------
+bin目录下启动 start-all.sh
+可能会遇到问题----------
+Ubuntu 安装配置SSH(ssh: connect to host localhost port 22: Connection refused问题的解决) 9] 来源：Linux社区  作者：lizhangyong1 [字体： 大   中   小 ]
+
+
+
+为什么要安装SSH？因为在 Hadoop 启动以后，namenode是通过SSH（Secure Shell）来启动和停止各个节点上的各种守护进程的。作为一个菜鸟，第一次使用Hadoop，安装配置有点复杂，到 Ubuntu 配置SSH这一步时，有点问题，经过琢磨后，发现了奥秘，现在把自己的一些心得分享下。
+
+Ubuntu默认并没有安装ssh服务，如果通过ssh链接Ubuntu，需要自己手动安装openssh-server。判断是否安装ssh服务，可以通过如下命令进行：
+
+ssh localhost
+
+结果我在这里发现了一个问题，如下：
+
+
+
+问题分析如下：出现这个问题是因为Ubuntu默认没有安装openssh-server，我们用一个命令来看下，如果只有agent，说明没有安装openssh-server，命令如下：
+
+ps -e|grep ssh
+
+效果如下：
+
+
+
+既然问题找到了，我们就开始用命令来安装openssh-server,命令如下：
+
+sudo apt-get install openssh-server
+
+安装完成后，我们再用ps -e|grep ssh命令来看下，openssh-server安装上去没有。输入命令后出现如下截图，说明安装完毕，图中sshd就是我们所安装的。
+
+ps -e|grep ssh
+
+
+
+最后，我们通过ssh localhost命令来看下，这个命令主要用来连接本机如果出现要输入密码，说明成功。
+
+ssh localhost 
+
+
+
+-----------------------------------------------------
+hadoop 1.0.3 启动时让输入密码的问题
+
+是因为没有设置SSH无密码登录，在你机器上运行一下两个命令，增加当前用户使用ssh无密码登录权限
+ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+之后，使用ssh localhost不需要输入任何密码就能登录的话，你启动的时候就不需要再输入密码了。
+ssh localhost还需要密码的话，请检查你的跟目录权限是否为700，不会700的话，使用chmod -R 700 ~之后应该就好了。
+ -----------------------------------------------------
+
+
+若没有出现上面的一堆东西的话，多启动几次的话就可以了
+
+
+
+
+hadoop fs -ls /  查看文件系统    或者hdfs  dfs -ls(2点几后的命令) 
+1.对hdfs操作的命令格式是hadoop fs 
+1.1 -ls <path> 表示对hdfs下一级目录的查看
+1.2 -lsr <path> 表示对hdfs目录的递归查看
+1.3 -mkdir <path> 创建目录
+1.4 -put <src> <des> 从linux上传文件到hdfs
+1.5 -get <src> <des> 从hdfs下载文件到linux
+1.6 -text <path> 查看文件内容
+1.7 -rm <path> 表示删除文件
+1.7 -rmr <path> 表示递归删除文件
+2.hdfs在对数据存储进行block划分时，如果文件大小超过block，那么按照block大小进行划分；不如block size的，划分为一个块，是实际数据大小。
+------------------------------------------------
+hdfs
+
+namenode宕掉了还有second namenode来替换
+
+
+
+
+
+
+  -       
+
+
+ 
+
+---------------------
+mapreduce的容错机制
+1.重复执行2.推测执行
+
+
+=========================
+hadoop2.x的版本在
+ other可以是storm，spark等计算框架
+ 
+
+ rack机架
+
+
+
+
+
+
+
+
+namenode是有两份数据，内存一份（metadata），硬盘一份（为备份而用，不是时时的，而是某段时期当中的）
+
+ 文件被分成blk_1  blk_2  有3分，读取的时候是就近的读取的，且block有文件完整校验，若文件的crc校验失败的话会找其他的块的
+
+
+namenode  和 secondnamenode应该分别装在不同的机器上要不不安全，一个宕掉了，就没法工作了
+
+ 
+

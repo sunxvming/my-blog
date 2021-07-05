@@ -1,0 +1,110 @@
+
+< ? php
+/*  分页涉及到三个层面的工作 1.view层 2、分页工具类 3.db的操作
+    1.view层需要 ：显示的页码（总页、首、尾、上、下、及其他页码） 及对应的超链接
+    2.分页工具类：需传入 总记录条数、当前页，其他的页码显示属性可通过其他接口设定
+                    输出 分页信息和分页码
+    3.db层的核心 limit语句
+
+*/
+
+// 分页类
+class fenye {
+    protected $totalnum = 0 ; // 总记录
+    protected $pagenum = 0 ; // 每页记录
+    protected $totalpage = 0 ; // 总页数
+    protected $nowpage = 1 ; // 当前页
+    protected $pageup = 0 ; // 上一页
+    protected $pagedown = 0 ; // 下一页
+    protected $firstpage = 1 ; // 最前页(首页)
+    protected $lastpage = 0 ; // 最后一页(尾页)
+    protected $showpagenum = 7 ; // 显示最大的页码
+    public function __construct($totalnum, $pagenum = 8 ) {
+        $this - > totalnum = $totalnum;
+        $this - > pagenum = $pagenum;
+       
+        // 计算总页数
+        $this - > totalpage = ceil ( $totalnum / $pagenum );
+        // 初始化最后一页
+        $this - > lastpage = $this - > totalpage;
+    }
+   
+    // 返回总计录
+    public function gettotalnum() {
+        return $this - > totalnum;
+    }
+   
+    // 返回每页记录
+    public function getpagenum() {
+        return $this - > pagenum;
+    }
+   
+    // 返回总页数
+    public function gettotalpage() {
+        return $this - > totalpage;
+    }
+   
+    // 返回当前页
+    public function getnowpage() {
+        return $this - > nowpage;
+    }
+   
+    // 修改当前页
+    public function setnowpage($nowpage) {
+        $this - > nowpage = $nowpage;
+    }
+   
+    // 计算上一页
+    public function getpageup() {
+        if ($this - > nowpage < = 1 ) {
+            return $this - > pageup = 1 ;
+        }
+        return $this - > pageup = $this - > nowpage - 1 ;
+    }
+   
+    // 计算下一页
+    public function getpagedown() {
+        if ($this - > nowpage > = $this - > totalpage) {
+           
+            return $this - > pagedown = $this - > totalpage;
+        }
+        return $this - > pagedown = $this - > nowpage + 1 ;
+    }
+   
+    // 修改最大的分页码显示值
+    public function setshowpagenum($showpagenum) {
+        $this - > showpagenum = $showpagenum;
+    }
+   
+    // 返回一组分页标志
+    public function getpages() {
+        $pages = array ();
+       
+        $pages [ 'totalnum' ] = $this - > totalnum;
+        $pages [ 'totalpage' ] = $this - > totalpage;
+        $pages [ 'nowpage' ] = $this - > nowpage;
+        $pages [ 'pagenum' ] = $this - > pagenum;
+        $pages [ 'pageup' ] = $this - > getpageup ();
+        $pages [ 'pagedown' ] = $this - > getpagedown ();
+        $pages [ 'firstpage' ] = $this - > firstpage;
+        $pages [ 'lastpage' ] = $this - > lastpage;
+       
+        return $pages;
+    }
+   
+    // 返回分页码
+    public function getfycod() {
+        if ($this - > totalpage < $this - > showpagenum) {
+           
+            return  range ( 1 , $this - > totalpage );
+        } else {
+            $offset = (($this - > showpagenum) - 1 ) / 2 ;
+            if ($this - > nowpage < = $offset) {
+                return range ( 1 , $this - > showpagenum );
+            } elseif ($this - > nowpage + 3 > $this - > totalpage) {
+                return  range ( $this - > totalpage - $this - > showpagenum, $this - > totalpage);
+            } else                
+                return  range ( $this - > nowpage - $offset, $this - > nowpage + $offset );
+        }
+    }
+}

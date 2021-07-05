@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../../style.css" type="text/css" />
+
+
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#cpp-ethereum">cpp-ethereum</a></li>
+<li><a href="#相关信息">相关信息</a></li>
+<li><a href="#搭建私有链">搭建私有链</a><ul>
+<li><a href="#配置文件设置">1.配置文件设置</a></li>
+<li><a href="#启动程序">2.启动程序</a></li>
+</ul></li>
+<li><a href="#json-rpc接口">json rpc接口</a></li>
+<li><a href="#ethereum-console">ethereum-console</a></li>
+<li><a href="#测试账户">测试账户</a></li>
+<li><a href="#metamask连接私有链">MetaMask连接私有链</a><ul>
+<li><a href="#使用remix部署和执行合约">使用remix部署和执行合约</a></li>
+</ul></li>
+<li><a href="#config.json">config.json</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="cpp-ethereum">cpp-ethereum</h2>
+<h2 id="相关信息">相关信息</h2>
+<p>数据目录： windows下目录 C:3</p>
+<ul>
+<li><p>cpp-ethereum架构： https://ethdocs.org/en/latest/ethereum-clients/cpp-ethereum/architecture.html</p></li>
+<li><p>jsonrpc 接口文档<br />https://ethereumbuilders.gitbooks.io/guide/content/en/index.html</p></li>
+</ul>
+<h2 id="搭建私有链">搭建私有链</h2>
+<h3 id="配置文件设置">1.配置文件设置</h3>
+<p>见文末config.json</p>
+<h3 id="启动程序">2.启动程序</h3>
+<p>./aleth --config config.json -m on -a 00b99ed83a12d5d20aae7db4168c581b6ee01d87 --no-discovery --pin --unsafe-transactions</p>
+<p>其他命令行参数 --network-id 1108 --ipc --listen 30307 --port 30307 -d ipctest --db-path db</p>
+<h2 id="json-rpc接口">json rpc接口</h2>
+<ul>
+<li><p>获取账户列表 curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_accounts&quot;,&quot;params&quot;:[],&quot;id&quot;:1}' http://127.0.0.1:8545</p></li>
+<li><p>得到块高度 curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_blockNumber&quot;,&quot;params&quot;:[],&quot;id&quot;:83}' http://127.0.0.1:8545</p></li>
+</ul>
+<h2 id="ethereum-console">ethereum-console</h2>
+<p>连接到cpp-ethereum的工具，因安装过程多次失败，弃之</p>
+<h2 id="测试账户">测试账户</h2>
+<p>account2 0x00b99ed83A12D5D20AAE7Db4168c581B6Ee01D87</p>
+<p>account3 0x9ee26cD93fB26B6948500892ee75ba9399927D10</p>
+<p>account1 0x57fE2bf5d51Eed594a9c07064aaEd7410d403523</p>
+<h2 id="metamask连接私有链">MetaMask连接私有链</h2>
+<p>在网络设置中选择：自定义RPC</p>
+<h3 id="使用remix部署和执行合约">使用remix部署和执行合约</h3>
+<pre><code>1.编写合约
+2.编译合约
+3.部署合约
+    1.environment选择Injected Web3
+    2.连接MetaMask
+    3.MetaMask显示一笔部署合约交易
+4.合约部署完毕
+    Deployed Contracts下面显示合约的名字和地址
+5.调用合约    
+    在Deployed Contracts下面执行合约
+6.remix中的合约如何保存在本地
+    需要用到remixd</code></pre>
+<p>先看项目代码里面的doc文档</p>
+<pre><code>Dependencies
+    use Hunter package manager
+Database Layout
+    use k-v database include three： 
+        Blocks
+            BlockChain class.
+        Extras
+        State 
+            State class 
+            Merkle Patricia Trie implemenation is in TrieDB.h.</code></pre>
+<p>交易的代码 1.普通的交易 2.创建智能合约的交易 3.执行智能合约的交易</p>
+<p>虚拟机执行的几个相关区</p>
+<p>栈区 内存区 storage区</p>
+<p>nohup python3 -u init.py runserver --host 172.19.3.68 --port 8080</p>
+<h2 id="config.json">config.json</h2>
+<pre><code>{
+  &quot;sealEngine&quot;: &quot;Ethash&quot;,
+  &quot;params&quot;: {
+    &quot;accountStartNonce&quot;: &quot;0x00&quot;,
+    &quot;maximumExtraDataSize&quot;: &quot;0x20&quot;,
+    &quot;homesteadForkBlock&quot;: &quot;0x00&quot;,
+    &quot;daoHardforkBlock&quot;: &quot;0x00&quot;,
+    &quot;EIP150ForkBlock&quot;: &quot;0x00&quot;,
+    &quot;EIP158ForkBlock&quot;: &quot;0x00&quot;,
+    &quot;byzantiumForkBlock&quot;: &quot;0x00&quot;,
+    &quot;constantinopleForkBlock&quot;: &quot;0x00&quot;,
+    &quot;constantinopleFixForkBlock&quot;: &quot;0x00&quot;,
+    &quot;istanbulForkBlock&quot;: &quot;0x00&quot;,
+    &quot;minGasLimit&quot;: &quot;0x5208&quot;,
+    &quot;maxGasLimit&quot;: &quot;0x7fffffffffffffff&quot;,
+    &quot;tieBreakingGas&quot;: false,
+    &quot;gasLimitBoundDivisor&quot;: &quot;0x0400&quot;,
+    &quot;minimumDifficulty&quot;: &quot;0x100000&quot;,
+    &quot;difficultyBoundDivisor&quot;: &quot;0x0800&quot;,
+    &quot;durationLimit&quot;: &quot;0x0d&quot;,
+    &quot;blockReward&quot;: &quot;0x4563918244F40000&quot;,
+    &quot;networkID&quot; : &quot;0x42&quot;,
+    &quot;chainID&quot;: &quot;0x42&quot;,
+    &quot;allowFutureBlocks&quot; : false
+  },
+  &quot;genesis&quot;: {
+    &quot;nonce&quot;: &quot;0x0000000000000042&quot;,
+    &quot;difficulty&quot;: &quot;0x100000&quot;,
+    &quot;mixHash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,
+    &quot;author&quot;: &quot;0x0000000000000000000000000000000000000000&quot;,
+    &quot;timestamp&quot;: &quot;0x5A5B92D7&quot;,
+    &quot;parentHash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,
+    &quot;extraData&quot;: &quot;0x655741534d2074657374206e6574776f726b2030&quot;,
+    &quot;gasLimit&quot;: &quot;0x989680&quot;
+  },
+  &quot;accounts&quot;: {
+    &quot;00b99ed83a12d5d20aae7db4168c581b6ee01d87&quot;: {
+        &quot;balance&quot; : &quot;0x200000000000000000000000000000000000000000000000000000000000000&quot;
+    }
+  }
+}</code></pre>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,637 @@
+1 什么是JSP
+  1)为什么说，Servlet是一个动态Web开发技术呢？
+    Servlet是基于服务端的一种动态交互技术， 
+    HttpServletRequest表示客户端到服务端的对象
+    HttpServletResponse表示服务端到客户端的对象
+  2)JSP是SUN公司开发的一个基于服务端的一种动态WEB开发技术
+  3)JSP的代码结构/内容=HTML+JSP所有元素内容   
+  4)在IDE工具中，开发JSP,pageEncoding有二层含义：
+a)指明当前JSP中的中文采用什么方式编码（如果在IDE工具外）
+b)指明当前JSP页面保存时采用什么方式编码
+  5)项目中，JSP最佳实践模式：
+Servlet：适合控制器
+Jsp：适合显示
+JavaBean：模型
+     *2 JSP工作原理
+  1)Web容器根据客户端访问的 资源类别 （Web容器会根据资源的第一行代码确定），如果你访问的是JSP资源，就交由 JSP引擎 处理
+    如果你访问的是Servlet资源，就交由 Servlet引擎 处理
+  2)如果是JSP资源， JSP引擎会将其翻译成Servlet资源 ，传入相关的对象，如果是静态资源，以 out.write() 形式输出，如果是动态资源，以 out.print() 形式输出
+  3)此时JSP引擎在翻译正确后，将其输出给Servlet引擎，当作Servlet处理。
+  4)如果再次访问同一个date.jsp文件，翻译工作依然进行， Servlet引擎工作可以减化 ，所以这是为会么第N次较第1次快的原因
+   3 JSP语法 
+  1)JSP模版元素 
+模版元素就是HTML中的静态内容，即<body>,<table>,<form>标签。。。
+
+
+  2)JSP 表达式 
+        a)语法：<%="字符串变量或表达式"%>,要用双引号
+        b)结束 无分号  
+        c)默认输出到浏览器
+     当前时间： <%=   new  Date(). toLocaleString() %>
+
+  3)JSP 脚本片断 
+a)语法：<% ...java代码; %>
+ 
+        注意： JSP修改后，无需重新部署，直接刷新，Web容器会自动比较新旧二个版本的JSP
+c)多个JSP脚本片断中定义的变量，本质是 _ jspService() 方法中的局部变量，可以访问
+       <%
+         for ( int  i=1;i<=6;i++){
+     %>     
+             < h <%= i %> > JavaWebGood! </ h <%= i %> >
+     <%             
+        }
+      %>
+      < hr />
+      <%
+         String name =  "喜喜" ;
+      %>      用户名： < font   color = "" > <%= name %>         
+
+  4)JSP 声明
+a)语法：<%! ...java代码 %>
+        b)JSP声明的 变量或方法， 会成为Servlet的 实例 变量或实例方法或普通方法
+        c)JSP脚本片断中不能定义局部方法，方法只能定义在JSP声明中
+     <%!
+        String name =  "呵呵" ; 
+     %>   
+     <%!
+         public  String getName(){
+             return  name;
+        }
+     %>
+     <%
+        String name =  "局部变量" ;
+     %>       
+
+
+  5)JSP 注释
+1)语法：<%-- 注释的内容 --%>             优先使用jsp的
+        2)对于HTML注释来说，JSP引擎会将其翻译成servlet内容，
+ 对于JSP注释来说，JSP引擎不会将其翻译成servlet内容
+        3)注释不能嵌套使用
+   
+  6)JSP 指令
+1)指令是程序员 控制JSP引擎 做什么的依据
+<%@   page   language = "java"   pageEncoding = "UTF-8" %>
+<%@   page   import = "java.util.*"   %>   
+2)有三类：
+a)  page
+b)  include
+c)  tablib
+       *3) page 指令的属性有
+language="指明JSP支持的语言，默认为java语言"
+      *import="当前JSP页面中，需要导入的包，其中import可以写多次"
+                session="true表示需要服务器创建session/false不需要服务器创建session"，默认true
+buffer="none|8kb|sizekb"JSP输出使用的缓存大小，默认8kb
+autoFlush="true表示当缓存满时，web容器是自动刷新到客户端/false需要手工刷新到客户端"，默认true
+                isThreadSafe="true表示web服务器确保线程安全/false不确保线程安全",默认true
+info="text"表示jsp的相关描述信息，可以通过getServletInfo()取得该jsp的信息
+      *errorPage="当前jsp页面出错后，转发到的目标页面"
+      *isErrorPage="true"(当某个jsp页面有该属性时，web容器会自动创建exception对象
+                上述异常处理属于局部异常处理
+在web.xml文件：
+    < error-page >
+  <error-code>500</error-code>
+  <location>/s_500.jsp</location>
+      </error-page>
+           <error-page>
+  <exception-type>java.lang.NumberFormatException</exception-type>
+             <location>/s1_500.jsp</location>
+     </error-page>
+                上述异常处理属于全部异常处理
+                如果全局中有code又有type，此时二者同时显示
+                当全局和局部异常同时出现时， 局部异常优先
+      *pageEncoding="UTF-8"  
+前提在IDE工具中
+a)JSP页面的中文采用UTF-8方式编码
+b)JSP保存时采用UTF-8方式编码
+c)指示浏览器以UTF-8方式查看
+ 
+                contentType="text/html;charset=UTF-8"
+      *isELIgnored="false表法JSP引擎不忽略EL表达式语言/true表法JSP引擎忽略EL表达式语言"    
+
+
+----------------------------
+    < body >
+    出错了：原因如下 < br />
+     <%= exception.getMessage() %>
+   </ body >     
+  
+
+
+6 @include指令[静态包含]
+  1)include指令包含多个JSP页面，最后JSP引擎只翻译总JSP页面,即index.jsp页面
+  2)include指令包含多个JSP页面，那么被包含的JSP页面原封不动的进入总JSP页面,即index.jsp页面，造成HTML结构非常混乱
+  3)include指令包含多个JSP页面，多个JSP最终会翻译成一个Servlet，即index_jsp.java页面
+  ---------------------------
+  <%@   page   language = "java"   pageEncoding = "UTF-8" %>
+<%@   page   errorPage = "error.jsp"   %>
+<! DOCTYPE   HTML   PUBLIC   "-//W3C//DTD HTML 4.01 Transitional//EN">
+< html >
+   < body >
+   <%-- 包含head.jsp和foot.jsp --%>     
+     <%@   include   file = "common/head.jsp" %>
+         < hr />
+        include指令的用法
+         < hr />
+     <%@   include   file = "common/foot.jsp" %>
+       <%--
+          Integer.parseInt(" abc ");
+      --%>     
+   </ body >
+</ html > *7 jsp九大隐式/内置对象
+    1)request
+    2)response
+       <%
+           //进行以请求体为主的中文编码[输入]
+          request.setCharacterEncoding( "UTF-8" );
+           //收集客户端提交的数据
+          String username = request.getParameter( "username" );
+          
+           //使用response对象输出到浏览器
+          response.getWriter().write( "用户名："  + username);        %>   
+
+    3)session
+访问jsp页面时，默认web服务器创建session
+访问servlet时，必须通过request.getSession()才能创建session
+在转发和重定向情况下，session域不会销毁
+    4) application =ServletContext 对象
+    5)config：取得jsp在web.xml文件中的映射信息    即 servletconfig 对象
+    6)exception：该对象只能在<%@ isErroPage="true" %>的情况下，容器才会创建，否则容器不予创建
+    7)out：out的类型是 JspWriter ， 它是具体缓存功能的PrintWriter对象
+       <%
+           //out内置对象的类型是JspWriter,它是一个带有缓冲的PrintWriter对象
+          out.write( "先" );
+         //response内置对象输出          
+          response.getWriter().write( "后" );        %>           输出为 后  先 
+
+    8) pageContext ： 表示 Jsp 行运过程中的环境对象(很叼的对象）
+      a)能够取得其它8个内置对象
+       <%
+           //HttpServletRequest requestCopy = (HttpServletRequest)pageContext.getRequest();
+         //JspWriter outCopy = pageContext.getOut();
+        
+         //String ip = requestCopy.getRemoteAddr();
+         //outCopy.write("你是IP是：" + ip);          %>   
+
+      b)具有转发和包含的功能         pageContext.forward( "/guess.jsp" );
+      c)域对象
+        [pageContext/request/session/application] 四大域对象  顺序是从小到大
+      e)PageContext域对象仅限于当前jsp页面中，出了该jsp页面，原 PageContext域对象销毁 ，如果取不到值，返回null
+      f )PageContext域对象可以将对应的值保存在指定的四个域对象之一
+        pageContext.setAttribute("name","丝丝", PageContext.REQUEST_SCOPE );
+      g)PageContext域对象可以将对应的值从指定的四个域对象之一取出
+        <%=pageContext. getAttribute ("name",PageContext.APPLICATION_SCOPE) %>
+      h)PageContext. findAttribute ("name")
+         它会以name为key，依次去四个域对象中查询对应的值，找到即止，如果找不到，返回null
+---------------------
+       <%
+           //pageContext.setAttribute("name","丝丝1",PageContext.PAGE_SCOPE);
+           //pageContext.setAttribute("name","丝丝2",PageContext.REQUEST_SCOPE);
+           //pageContext.setAttribute("name","丝丝3",PageContext.SESSION_SCOPE);
+           //pageContext.setAttribute("name","丝丝4",PageContext.APPLICATION_SCOPE);
+       %>              用户名： <%= pageContext.findAttribute( "name" ) %>   1 2 3 4从小到大依次查找   
+
+----------------------
+       <%
+          pageContext.removeAttribute( "name" ,PageContext.SESSION_SCOPE);
+       %>       用户名： <%= pageContext.getAttribute( "name" ,PageContext.SESSION_SCOPE)  %>  
+---------------------- 
+
+  9)page：表示当前jsp页面，只能在 jsp 标签中 出现 ，表示当前域对象，在代码中，表示当前域对象只能用 PageContext
+-----------------------------
+[四个域对象的生命周期]
+
+
+1、pageContext       jsp执行时创建pageContext，jsp页面结束时pageContext销毁
+2、request               客户请求服务器时创建，请求结束request销毁, 可转发
+3、session               客户机请求服务器时，第一次getSession时，服务器创建session,session过xx多长时间没用了（或调用了                                         session.invalidate方法），服务器销毁session
+4、application(servletContext)  web应用启动时就创建，web应用停止就销毁
+ 
+[什么情况下用什么域的问题]
+1、什么情况下用request域？如果在开发程序时，数据看完就没用了，那就应该把数据存在request域范围内。比如看新闻，新闻属于用户看完就没用的数据，这时servlet获得新闻数据，就应该存在request里面交给jsp显示。
+
+
+2、什么情况下用session域？如果在开发程序时，数据看完了用户等一会儿还要用，那就应该把数据存在session域范围内.例如购物，购买的商品是用户的数据，这个数据产生之后，用户等一会儿结帐还要用，那么程序就应该把数据存在用户的session中。
+
+
+3、什么情况下用application域？如果在开发程序，数据产生了，这个数据不仅等一会儿自己要用，还要给别人用，那就应该存在application域，例如web聊天室，用户的聊天数据，这个数据 不仅用户等一会儿自己要看，还要给别人看。
+----------------------------
+2 JSP内置标签(美化+业务逻辑)
+  1)为了取代<%%>脚本形式，使用 JSP标签/JSP动作 ，目的：与JSP页面的美化，即JSP面页都是由标签组成，不再有其它的内容
+  2)JSP 内置 标签
+a)<jsp:include page/>(动，执行) 和 <%@ include file/>(静，翻译)
+N张jsp生成N个servlet
+       总的jsp生成的结构良好
+类似于 函数调用
+true先将当前jsp页面的输出输到浏览器后，再加入包含的页面/false(将原 新内容同时输到浏览器)(默认)
+动态包含，在需要包含时，才去调用执行
+     < jsp:include   page = "/common/head.jsp" />
+     < hr />
+    邮箱为： <%= config.getInitParameter( "email" ) %>
+     < hr />
+     < jsp:include   page = "/common/foot.jsp" />   
+        b)<jsp:forward page/>
+转发到page所指向的jsp页面
+     < jsp:forward   page = "/to.jsp" >   //单标签的为不带参数的
+         < jsp: param   name = "name"   value = ' <%= URLEncoder.encode( "杰克jack" , "UTF-8" ) %> ' />
+         < jsp: param  name = "pass"   value = "123" />
+     </ jsp:forward >   
+--------------------------------
+     <%--
+        如果是HTM基本标本，可以使用下面代码进行解码
+        String name = request.getParameter("name");
+        byte[]  buf  = name.getBytes("ISO8859-1");
+        name = new String( buf ,"UTF-8");
+    --%>
+     <%
+        String name = request.getParameter( "name" );
+        name = URLDecoder.decode(name, "UTF-8" );
+     %>     用户名： <%= name %> < br />  
+----------------------------------------- 
+
+ 
+3 JSP出错演示
+  1)语法错误
+  2)语法无错，但翻译成Servlet后出错
+  3)逻辑错误
+ 
+4 JSP中 JavaBean 标签
+  a)<jsp:useBean id/class/scope/>表示创建或查找对应的JavaBean对象
+    如果在域对象中有对应的JavaBean对应，那么该只会负责查询JavaBean对应，而不会创建
+  b)<jsp:setProperty name/property/value/>
+    该标签可以将String到8种基本类型的转换
+  c)<jsp:getProperty name/property/>
+   < body >
+       < jsp:useBean   id = "s"   class = "cn.itcast.web.jsp.Student"   scope = "page" >
+          JavaBean对象    
+       </ jsp:useBean >
+       < hr />
+       < jsp:setProperty   name = "s"   property = "*" />   传的参数和属性名字一样的情况
+       <%-- 
+      <jsp:setProperty name="s" property="name"  param ="name"/>  传过来的参数
+      <jsp:setProperty name="s" property="age"  param ="age"/>
+      <jsp:setProperty name="s" property="salary"  param ="salary"/>
+      --%>
+       <%-- 
+    <jsp:setProperty name="s" property="name" value="jack"/>  
+    <jsp:setProperty name="s" property="age" value="30"/>  
+    <jsp:setProperty name="s" property="salary" value="5000"/>
+    --%>  
+     < hr />
+    用户名： < jsp:getProperty   name = "s"   property = "name" />< br />  
+    年龄： < jsp:getProperty   name = "s"   property = "age" />< br />  
+    薪水： < jsp:getProperty   name = "s"   property = "salary" />< br />      </ body >  
+---------------------------- 
+
+*5 JSP开发模式
+  (1)JSP(V)+JSP(C)+JavaBean(M)    适合非常简单的业务逻辑
+<%@   page   language = "java"   pageEncoding = "UTF-8" %>
+<%@   page   import = "cn.itcast.web.jsp.*"   %>
+<%@   page   errorPage = "error.jsp"   %>
+<! DOCTYPE   HTML   PUBLIC   "-//W3C//DTD HTML 4.01 Transitional//EN">
+< html >
+   < body >
+     <!-- C -->
+     < jsp:useBean   id = "cb"   class = "cn.itcast.web.jsp.CalBean"   scope = "page" />
+     < jsp:setProperty   name = "cb"   property = "*" />
+     <%
+        cb.cal();
+     %>
+     < jsp:getProperty   name = "cb"   property = "firstNum" />
+     < jsp:getProperty   name = "cb"   property = "operator" />
+     < jsp:getProperty   name = "cb"   property = "secondNum" />
+    =
+     < jsp:getProperty   name = "cb"   property = "result" />
+       < hr />
+       <!-- V -->
+     < form   action = "/day10/cal_1.jsp"   method = "post" >
+         < table   border = "1"   align = "center" >
+             < caption > 间单计算器 </ caption >
+             < tr >
+                 < th > 第一个参数： </ th >
+                 < td >< input   type = "text"   name = "firstNum" /></ td >
+             </ tr >
+             < tr >
+                 < th > 运算符 </ th >
+                 < td >
+                     < select   name = "operator" >
+                         < option   value = "-" > - </ option >
+                         < option   value = "+"   selected > + </ option >
+                         < option   value = "*" > * </ option >
+                         < option   value = "/" > / </ option >
+                     </ select >
+                 </ td >
+             </ tr >
+             < tr >
+                 < th > 第二个参数： </ th >
+                 < td >< input   type = "text"   name = "secondNum" /></ td >
+             </ tr >
+             < tr >
+                 < td   colspan = "2"   align = "center" >
+                     < input   type = "submit"   value = "计算" />
+                 </ td >
+             </ tr >
+         </ table >
+     </ form >
+   </ body >
+</ html >
+--------------------
+package  cn.itcast.web.jsp;
+import  java.math.BigDecimal;
+public   class  CalBean {
+     private   double   firstNum ;
+     private   char   operator ;
+     private   double   secondNum ;
+     private   double   result ;
+     public  CalBean(){}
+     public   double  getFirstNum() {
+         return   firstNum ;
+    }
+     public   void  setFirstNum( double  firstNum) {
+         this . firstNum  = firstNum;
+    }
+     public   char  getOperator() {
+         return   operator ;
+    }
+     public   void  setOperator( char  operator) {
+         this . operator  = operator;
+    }
+     public   double  getSecondNum() {
+         return   secondNum ;
+    }
+     public   void  setSecondNum( double  secondNum) {
+         this . secondNum  = secondNum;
+    }
+     //将小数点后保留1位
+     public   double  getResult() {
+        BigDecimal bd =  new  BigDecimal( this . result ).setScale(2,BigDecimal. ROUND_HALF_UP );
+         return  bd.doubleValue();
+    }
+     public   void  setResult( double  result) {
+         this . result  = result;
+    }
+     //计算
+     public   void  cal(){
+         switch ( this . operator ){
+         case   '-' : this . result  =  this . firstNum  -  this . secondNum ; break ;
+         case   '+' : this . result  =  this . firstNum  +  this . secondNum ; break ;
+         case   '*' : this . result  =  this . firstNum  *  this . secondNum ; break ;
+         case   '/' : this . result  =  this . firstNum  /  this . secondNum ; break ;
+        }
+    }
+}
+--------------
+<%@   page   language = "java"   pageEncoding = "UTF-8" %>
+<%@   page   isErrorPage = "true"   %>
+<! DOCTYPE   HTML   PUBLIC   "-//W3C//DTD HTML 4.01 Transitional//EN">
+< html >
+   < body >
+    出错了，错误原因是： < br />     
+     <%= exception.getMessage() %>
+   </ body >
+</ html >
+==============================
+  (2)JSP(V)+Servlet(C)+JavaBean(M)
+   public   class   CalServlet   extends  HttpServlet {
+     public   void  doPost(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        Enumeration<String> enums =  request.getParameterNames() ;
+        CalBean cb =  new  CalBean();
+         while (enums.hasMoreElements()){
+            String key = enums.nextElement();
+            String[] values = request.getParameterValues(key);
+             try  {
+                BeanUtils. setProperty (cb,key,values);
+            }  catch  (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        cb.cal();
+        request.setAttribute( "cb" ,cb);
+        request.getRequestDispatcher( "/cal_2.jsp" ).forward(request,response);
+    } }
+-------------------
+<%@   page   language = "java"   pageEncoding = "UTF-8" %>
+<! DOCTYPE   HTML   PUBLIC   "-//W3C//DTD HTML 4.01 Transitional//EN">
+< html >
+   < body >
+     <!-- V -->
+     < jsp:useBean   id = "cb"   class = "cn.itcast.web.jsp.CalBean"   scope = "request" />
+     < jsp:getProperty   name = "cb"   property = "firstNum" />
+     < jsp:getProperty   name = "cb"   property = "operator" />
+     < jsp:getProperty   name = "cb"   property = "secondNum" />
+    =
+     < jsp:getProperty   name = "cb"   property = "result" />
+       < hr />
+       <!-- V -->
+     < form   action = "/day10/CalServlet"   method = "post" >
+         < table   border = "1"   align = "center" >
+             < caption > 间单计算器 </ caption >
+             < tr >
+                 < th > 第一个参数： </ th >
+                 < td >< input  
+                         type = "text"  
+                         name = "firstNum"
+                         value = ' < jsp:getProperty   name = "cb"   property = "firstNum" /> ' /></ td >
+             </ tr >
+             < tr >
+                 < th > 运算符 </ th >
+                 < td >
+                     < select   name = "operator" >
+                         < option   value = "-" > - </ option >
+                         < option   value = "+"   selected > + </ option >
+                         < option   value = "*" > * </ option >
+                         < option   value = "/" > / </ option >
+                     </ select >
+                 </ td >
+             </ tr >
+             < tr >
+                 < th > 第二个参数： </ th >
+                 < td >< input  
+                         type = "text"  
+                         name = "secondNum"
+                         value = ' < jsp:getProperty   name = "cb"   property = "secondNum" /> ' /></ td >
+             </ tr >
+             < tr >
+                 < td   colspan = "2"   align = "center" >
+                     < input   style =" width : 200px "  type = "submit"   value = "计算" />
+                 </ td >
+             </ tr >
+         </ table >
+     </ form >
+   </ body >
+</ html >
+=========================== *6 EL和JSTL快速入门
+  EL= Expression Language
+<%@   page   language = "java"   import = "cn.itcast.web.jsp.*"   pageEncoding = "UTF-8" %>
+<%@   page   isELIgnored = "false"   %>
+<! DOCTYPE   HTML   PUBLIC   "-//W3C//DTD HTML 4.01 Transitional//EN">
+< html >
+   < body >
+     <%
+        Address address =  new  Address();
+        address.setLocation( "广州" );
+        address.setZipcode( "020123" );
+        Student s =  new  Student();
+        s.setName( "小华" );
+        s.setAge(20);
+        s.setSalary(3500);
+        s.setAddress(address);
+        session. setAttribute ( "S" ,s);
+     %>       
+    用户名：${S.name} < br />
+    年龄：${S.age} < br />
+    薪水：${S.salary} < br />
+    地址：${S.address.location} < br />
+    邮编：${S.address.zipcode} < br />
+     < hr />
+    10>5->${10>5}    true
+    
+    10==5->${10==5}     10 < 5->${10<5}  
+--------------------------- 
+
+  a)快速输出JavaBean的值或普通变量的值
+          <%@ page isELIgnored="false" %>是否让EL表达式忽略,false表示不忽略
+  b)JSTL=JavaStandardTaglibLanguage  
+          快速输出动态内容，以替代JSP页面中的脚本<%%>代码
+  c)注意
+是否已将集合或变量绑定到 域对象中 ，并确保该域对象没有销毁，因为EL只有从 域对象中检索对应的值
+        JSTL都会和EL绑定在一起用
+<%@   page   language = "java"   pageEncoding = "UTF-8" %>
+<%@   page   import = "java.util.*"   %>
+<%@   page   isELIgnored = "false"   %>
+<%@ taglib uri= "http://java.sun.com/jsp/jstl/core"  prefix= "c"  %>
+<! DOCTYPE   HTML   PUBLIC   "-//W3C//DTD HTML 4.01 Transitional//EN">
+< html >
+  < body >
+     <%--
+        List<String> stringList = new ArrayList<String>();
+        stringList.add("java增强");
+        stringList.add(" xml ");
+        stringList.add(" servlet ");
+        stringList.add(" jsp ");
+        request.setAttribute("STRINGLIST",stringList);
+    --%>
+     <%
+        Map<Integer,String> map =  new  LinkedHashMap<Integer,String>();
+        map.put(1, "java" );
+        map.put(2, "xml" );
+        map.put(3, "servlet" );
+        map.put(4, "jsp" );
+        pageContext.setAttribute( "MAP" ,map);
+     %>  
+    
+     < table   border = "1"   align = "center" >
+         < tr >
+             < th > 编号 </ th >
+             < th > 书名 </ th >
+             < th > 操作 </ th >
+         </ tr >     
+         < c:forEach   var = "entry"   items = " ${MAP} " >
+             < tr >     
+                 < td > ${entry.key} </ td >         
+                 < td > ${entry.value} </ td >
+                 < td > 购买 </ td >
+             </ tr >         
+         </ c:forEach >
+     </ table >
+   </ body >
+</ html >
+-------------------------------------------
+ 
+  注意：
+a)在写JSP时，任何地方都可以出现EL语句
+b)参数较多时，记得用BeanUtils框架收集
+c)当jsp位于/WEB-INF/目录下，只能使用转发方式进入
+
+
+2 为什么需要使用自定义标签
+  1)与JSP页面整体统一
+  2)还具有一定的业务逻辑功能，例如：循环，判段。。。 
+
+
+  3)替代原JSP页面中<%%> 
+
+
+3 如何创建自定义标签
+
+
+SUN公司为降低标签技术的学习难度，在JSP 2.X中定义了一个更为简单、便于编写和调用的SimpleTag接口来实现标签的功能。实现SimpleTag接口的标签通常称为简单标签。简单标签共定义了5个方法：
+setJspContext方法
+setParent和getParent方法
+setJspBody方法
+doTag方法
+
+
+  1 写一个标签处理类
+//标签处理类
+public class IpTag implements  SimpleTag  {
+private PageContext pageContext;
+//Web容器调用NO1
+public void setJspContext(JspContext pc) {
+System.out.println("setJspContext()");
+pageContext = (PageContext) pc;
+}
+//Web容器调用NO2
+public void  doTag()  throws JspException, IOException {
+System.out.println("doTag()");
+//取得HttpServletRequest请求对象
+HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
+//取得客户端的IP地址
+String ip = request.getRemoteAddr();
+//取得out(JspWriter)对象
+JspWriter out = pageContext.getOut();
+//向浏览器输出
+out.write("<font size='44' color='red'>"+ip+"</font>");
+}
+        ...
+}
+
+
+2 在/WEB-INF/目录下，写一个*.tld文件，目的是让Web容器知道自定义标签和标签处理类的对应关系
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+  <tlib-version>1.0</tlib-version>
+  <short-name>simple</short-name>
+  <uri>http://java.sun.com/jsp/jstl/simple</uri>
+  <tag>
+    <name>ip</name>
+    <tag-class>cn.itcast.web.jsp.tag.IpTag</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+</taglib>
+
+
+3 在JSP页面中，通过<%@taglib%>指令引用标签库
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/simple" prefix="simple" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <body>
+   客户端IP为：<simple:ip/>
+  </body>
+</html>
+
+
+4 部署web应用，访问simple.jsp即可
+
+
+4 标签处理过程
+  1)SimpleTag接口中有5个方法，这5个方法容器会在适当的时候先用调用，其中 doTag() 方法最为核心，该方法中封装了
+    该标签的处理业务逻辑
+  2)项目中通常都会使用SimpleTagSupport这个类，该类已经对SimpleTag接口实现
+  
+*5 标签的应用
+  1)执行标签体：jspFragment.invoke(null);  
+  2）不执行标签体：不让其执行//jspFragment.invoke(null);
+  3）不执行标签体后的内容：抛SkipPageExcetion()
+  4）重复执行标签体的内容：以属性的方式注入
+  5）改变标签中的内容变化：先将标签体的内容输出到缓存中，例如：StringWriter中
+  6）当某些标签是排它执行，此时可以在这些标签外嵌入 父标签 ，在父标签中做一个标志位，来表示是还执过
+  7)当在JSP页面中，有相同的代码时，可以将其封装成自定义标签
+
+
+标签可打包成jar包       web工程可打包成war包，运行服务器时可自动解压成标准的web目录
+ 

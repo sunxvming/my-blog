@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../style.css" type="text/css" />
+
+
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#基本概念"> 基本概念</a><ul>
+<li><a href="#测试用例boost_auto_test_case"> 测试用例 BOOST_AUTO_TEST_CASE</a></li>
+<li><a href="#测试套件boost_auto_test_suite"> 测试套件 BOOST_AUTO_TEST_SUITE</a></li>
+</ul></li>
+<li><a href="#一个测试的例子"> 一个测试的例子</a></li>
+<li><a href="#断言"> 断言</a></li>
+<li><a href="#测试安装测试清理"> 测试安装、测试清理</a></li>
+<li><a href="#命令行运行参数"> 命令行–运行参数</a></li>
+<li><a href="#如何忽略测试失败"> 如何忽略测试失败？</a></li>
+<li><a href="#参考链接"> 参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>boost test库用于<code>单元测试</code>、<code>命令行</code>测试组件，全称Unit Test Framework(UTF)，优点很多，可以胜任不同强度的测试功能</p>
+<h2 id="基本概念"> 基本概念</h2>
+<p>1.  一个测试模块大致分为四部：<strong>测试安装</strong>、<strong>测试主体</strong>、<strong>测试清理</strong>、<strong>测试运行器</strong> 2.  <strong>测试主体</strong>是实际运行部分，通常包含多个<strong>测试套件</strong>，而测试套件又由多个<strong>测试用例</strong>组成 3.  <strong>测试套件</strong>，<strong>测试用例</strong>组合成<strong>测试树</strong>，根节点称为<strong>主测试套件</strong>。进而可以理解以<strong>主测试套件</strong>为根节点，<strong>测试套件</strong>为非叶子节点，<strong>测试用例</strong>为叶子节点<strong>整个主体</strong>。</p>
+<p>注意事项： - <strong>主测试套件</strong>必须要有，用<code>BOOST_TEST_MAIN</code>或者<code>BOOST_TEST_MODULE</code>，而且必须位于头文件<code>#include &lt;boost/test/unit_test.hpp&gt;</code>之前！！！</p>
+<h3 id="测试用例boost_auto_test_case"> 测试用例 BOOST_AUTO_TEST_CASE</h3>
+<p>测试用例作为<strong>最小单元</strong>，各个测试用例之间是无关的，发生错误对其他测试用例没有影响，其内部可以包含多个测试断言函数</p>
+<pre><code>BOOST_AUTO_TEST_CASE(test_name)</code></pre>
+<p>注意: - 测试用例<strong>以t开头</strong></p>
+<h3 id="测试套件boost_auto_test_suite"> 测试套件 BOOST_AUTO_TEST_SUITE</h3>
+<p><strong>测试套件包含一个或多个测试用例</strong></p>
+<pre><code>BOOST_AUTO_TEST_SUITE( suite_name)    // 开始
+BOOST_AUTO_TEST_SUITE_END()            // 结束</code></pre>
+<p>注意： - 上面两句必须成对出现，加在之间的属于该测试套件 - 测试套件<strong>以s开头</strong></p>
+<h2 id="一个测试的例子"> 一个测试的例子</h2>
+<p>下面用一个Boost的智能指针作为案例，并且预设一个错误， 这个案例，<strong>有一个测试套件，且该测试套件有2个测试用例，当然根节点必须在开头</strong></p>
+<p><strong>如何编译运行？</strong> 1.  显然下面没有main函数，直接编译链接肯定会出错 2.  test库必须依赖两个动态库，分别是<code>boost_unit_test_framework</code>和<code>boost_test_exec_monitor</code> 3.  使用test库需要提前编译安装好boost库！！！</p>
+<p><strong>编译命令</strong></p>
+<pre><code>g++ -o xxx xxx.cpp -std=c++11 -lboost_unit_test_framework -lboost_test_exec_monitor</code></pre>
+<p>- boost_unit_test_framework : 表示测试框架库，包含所有的测试宏 - boost_test_exec_monitor : 测试文件中不需要main，因此要专门链接进执行监视库，这个库是静态库。</p>
+<p><strong>-l链接时，优先考虑动态库，找不到会链接同名的静态库，若还没有，ERROR</strong></p>
+<pre><code>#define BOOST_TEST_MAIN                 // 必须定义主测试套件，必须位于头文件之前
+#include &lt;boost/test/unit_test.hpp&gt;     // test的头文件
+#include &lt;boost/smart_ptr.hpp&gt;
+
+
+// 测试套件的开始
+BOOST_AUTO_TEST_SUITE(s_smart_ptr)
+
+
+// 测试用例1
+BOOST_AUTO_TEST_CASE(t_scoped_ptr)      // 测试用例1 t_scoped_ptr
+{
+    boost::scoped_ptr&lt;int&gt; p(new int(874));
+    BOOST_CHECK(p);
+    BOOST_CHECK_EQUAL(*p, 874);
+}
+
+
+// 测试用例2
+BOOST_AUTO_TEST_CASE(t_shared_ptr)      // 测试用例2 t_shared_ptr
+{
+    boost::shared_ptr&lt;int&gt; p(new int(100));
+
+
+    BOOST_CHECK(p);
+    BOOST_CHECK_EQUAL(*p, 100);
+    BOOST_CHECK_EQUAL(p.use_count(), 1);
+
+
+    boost::shared_ptr&lt;int&gt; p2 = p;
+    BOOST_CHECK_EQUAL(p2, p);
+    BOOST_CHECK_EQUAL(p.use_count(), 3);    // 预设一个错误
+}
+
+
+BOOST_AUTO_TEST_SUITE_END()</code></pre>
+<p>Output</p>
+<pre><code>Running 2 test cases...
+/home/topeet/myBoost/chap6_assert/_6_4.cpp(27): error: in &quot;s_smart_ptr/t_shared_ptr&quot;: check p.use_count() == 3 has failed [2 != 3]
+
+
+*** 1 failure is detected in the test module &quot;Master Test Suite&quot;</code></pre>
+<p>注意：我们从结果可以知道，错误数量，位置，错误原因。</p>
+<h2 id="断言"> 断言</h2>
+<p>BOOST_CHECK(predicate)：断言测试通过，如不通过不影响程序执行 BOOST_REQUIRE(predicate):要求测试必须通过，否则程序停止执行； BOOST_ERROR(message)：给出一个错误信息，程序继续执行； BOOST_FAIL(message)：给出一个错误信息，程序终止。</p>
+<h2 id="测试安装测试清理"> 测试安装、测试清理</h2>
+<p>测试安装、测试清理可以类比类的构造函数、析构函数 1.  测试安装：初始化测试用例或者测试套件所需的数据 2.  测试清理：执行必要的清理工作</p>
+<p>因此，我们很容易想到类，很符合此时的需求 ，但是这里需要主要下面的事项 1. 使用struct即可，不能用final修饰 2. 又称为<strong>测试夹具类</strong>，类比夹子的两边 3. 对于测试套件和测试用例，这里有两个宏</p>
+<pre><code>BOOST_FIXTURE_TEST_SUITE( suite_name, 测试夹具类)    // 测试套件
+BOOST_FIXTURE_TEST_CASE( test_name, 测试夹具类)      // 测试案例</code></pre>
+<p>联想上面的<strong>根节点</strong>，这里也存在一个<strong>全局测试夹具</strong>，测试所有的套件，包括<strong>主测试套件</strong></p>
+<pre><code>BOOST_TEST_GLOBAL_FIXTURE(测试夹具类)    //全局测试夹具</code></pre>
+<pre><code>#define BOOST_TEST_MAIN                 // 必须定义主测试套件，必须位于头文件之前
+#include &lt;boost/test/unit_test.hpp&gt;
+#include &lt;boost/assign.hpp&gt;
+#include &lt;vector&gt;
+
+
+struct global_fixture
+{
+    global_fixture() { std::cout &lt;&lt; &quot;global setup\n&quot;; }
+    ~global_fixture() { std::cout &lt;&lt; &quot;global teardown\n&quot;; }
+};
+BOOST_TEST_GLOBAL_FIXTURE(global_fixture);      // 全局测试夹具
+
+
+struct assign_fixture
+{
+    assign_fixture() { std::cout &lt;&lt; &quot;suit setup\n&quot;; }
+    ~assign_fixture() { std::cout &lt;&lt; &quot;suit teardown\n&quot;; }
+
+
+    std::vector&lt;int&gt; v;
+};
+BOOST_FIXTURE_TEST_SUITE(s_assign, assign_fixture)  // 测试套件的夹具
+
+
+BOOST_AUTO_TEST_CASE(t_assign1)
+{
+    using namespace boost::assign;
+    v += 1, 2, 3, 4;
+    BOOST_CHECK_EQUAL(v.size(), 4);
+    BOOST_CHECK_EQUAL(v[2], 3);
+}
+
+
+BOOST_AUTO_TEST_CASE(t_assign2)
+{
+    boost::assign::push_back(v)(10)(20)(30);
+    BOOST_CHECK_EQUAL(v.size(), 3);
+    BOOST_CHECK_EQUAL(v[2], 300);    // 预设错误
+}
+
+
+BOOST_AUTO_TEST_SUITE_END()</code></pre>
+<p>输出： 两个测试用例，<strong>全局测试夹具</strong>已经生效位于开始和结尾处；<strong>测试套件夹具</strong>应用在每个<strong>测试用例</strong>上；其中第二个<strong>测试用例</strong>失败，并报告具体错误信息</p>
+<pre><code>Running 2 test cases...
+global setup
+suit setup
+suit teardown
+suit setup
+/home/topeet/myBoost/chap6_assert/_6_4_4.cpp(36): error: in &quot;s_assign/t_assign2&quot;: check v[2] == 300 has failed [30 != 300]
+suit teardown
+global teardown
+
+
+*** 1 failure is detected in the test module &quot;Master Test Suite&quot;</code></pre>
+<p>上面，通过案例分析了如何使用boost库的test库，包含<strong>测试安装</strong>、<strong>测试主体–测试套件/测试用例</strong>、<strong>测试清理</strong></p>
+<h2 id="命令行运行参数"> 命令行–运行参数</h2>
+<p>对生成的二进制文件，直接查看帮助，获得帮助</p>
+<pre><code>./xxx --help</code></pre>
+<p>下面是几个参数的解释</p>
+<pre><code>run_test          指定需要运行的套件或者用例
+build_info        输出编译器、系统等信息
+output_format     输出格式，如HRF/XML
+list_content      里出所有的测试套件和测试用例，不执行
+show_progress     取值yes/no，显示完成的测试用例、总测试用例</code></pre>
+<p>对上面的案例，可以取如下运行参数</p>
+<pre class="prism"><code>./xxx --build_info=yes --run_test=s_assign --output_format=HRF</code></pre>
+<p>输出：</p>
+<pre><code>Compiler: GNU C++ version 7.5.0
+STL     : GNU libstdc++ version 20191114
+Boost   : 1.74.0
+global setup
+suit setup
+suit teardown
+suit setup
+suit teardown</code></pre>
+<h2 id="如何忽略测试失败"> 如何忽略测试失败？</h2>
+<p>test库提供 <code>BOOST_AUTO_TEST_CASE_EXPECTED_FAILURES</code>来<strong>忽略错误的最多次数</strong></p>
+<pre><code>// 忽略n个错误
+BOOST_AUTO_TEST_CASE_EXPECTED_FAILURES( test_name, n)</code></pre>
+<p>对于上面的代码，去掉对应的注释，输出结果如下 <strong>没有检测到错误，但是任然有错误信息，因为我们忽略了哈</strong></p>
+<pre><code>Running 3 test cases...
+/home/topeet/myBoost/chap6_assert/_6_4_7.cpp(25): error: in &quot;s_decorator/t_case3&quot;: check *p == 875 has failed [874 != 875]
+
+
+*** No errors detected</code></pre>
+<h2 id="参考链接"> 参考链接</h2>
+<p>- <a href="https://blog.csdn.net/weixin_39956356/article/details/111385774">Boost C++测试组件test库</a></p>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

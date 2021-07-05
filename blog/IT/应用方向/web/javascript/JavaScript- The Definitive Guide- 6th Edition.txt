@@ -1,0 +1,816 @@
+"3" + "2" // => "32"
+
+
+"two" > "three" // => true: "tw" is alphabetically greater than "th"
+
+
+
+Case Sensitivity, the HTML  onclick event handler attribute is sometimes specified as  onClick in HTML, but  it must be specified as  onclick in JavaScript code
+
+
+/javascript/gi        // A "regular expression" literal (for pattern matching)
+
+
+
+that JavaScript allows identifiers to contain letters and digits   from the entire Unicode character set
+
+
+var x = 0 // Semicolon omitted here
+;[x,x+1,x+2].forEach(console.log) // Defensive ; keeps this statement separate
+
+
+类型分原始类型和对象   对象中又包括 数组和函数
+typeof [1.2,3]       "object"
+
+
+JavaScript represents numbers using the 64-bit floating-point format   defined   by the IEEE 754 standard, 
+
+
+however, that  certain operations in JavaScript (such as array indexing and the bitwise operators de-
+scribed in Chapter 4) are performed with 32-bit integers
+
+
+0377   // 3*64 + 7*8 + 7 = 255 (base 10)
+
+ you cannot know in this case whether an   implementation will interpret it as an octal or decimal value. In the strict mode of
+ECMAScript 5 (§5.7.3), octal literals are explicitly forbidden.
+
+
+ Binary floating-point （ like  1/2 ,  1/8 , and  1/1024 .） representations cannot exactly represent numbers as simple as  0.1 .
+
+
+
+
+"two \n lines" // A string representing 2 lines written on one line
+"one\ // A one-line string written on 3 lines. ECMAScript 5 only.     长度字符串可用 "\" 号隔开
+long\
+line"
+
+
+In ECMAScript 5, strings can be treated like read-only arrays, and you can access in dividual characters (16-bit values) from a string using square brackets instead of the   charAt() method:
+s = "hello, world";
+s[0] // => "h"
+s[s.length-1] // => "d"
+
+
+
+
+var text = "testing: 1, 2, 3"; // Sample text
+var pattern = /\d+/g // Matches all instances of one or more digits
+pattern.test(text) // => true: a match exists
+text.search(pattern) // => 9: position of first match
+text.match(pattern) // => ["1", "2", "3"]: array of all matches
+text.replace(pattern, "#"); // => "testing: #, #, #"
+text.split(/\D+/); // => ["","1","2","3"]: split on non-digits
+
+
+
+
+var s = "test"; // Start with a string value.
+s.len = 4; // Set a property on it.
+var t = s.len; // Now query the property.
+The second line of code creates a  temporary String object, sets its  len property to 4, and then discards that object. The
+third line creates a new String object from the original (unmodified) string value and
+then tries to read the  len property ， strings, numbers, and boolean这三个都是这样
+You just need to know
+
+that string, number, and boolean values differ from objects in that their properties are
+read-only and that you can’t define new properties on them.
+
+
+var s = "hello"; // Start with some lowercase text，字符串是不可变的
+s.toUpperCase(); // Returns "HELLO", but doesn't alter s
+s // => "hello": the original string has not changed
+
+
+Primitives are immutable: there is no way to change (or “mutate”) a primitive value
+
+
+
+
+
+Objects are not compared by value: two objects are not equal even if they have the same
+properties and values. And two arrays are not equal even if they have the same elements
+in the same order:
+var o = {x:1}, p = {x:1}; // Two objects with the same properties
+o === p // => false: distinct objects are never equal
+var a = [], b = []; // Two distinct, empty arrays
+a === b // => false: distinct arrays are never equal
+
+
+
+ “0”为真，php则为假
+The  if statement converts  undefined to  false , but the  == operator never   attempts to convert its operands to booleans.
+
+
+explicit conversion
+Number("3") // => 3
+String(false) // => "false" Or use false.toString()
+Boolean([]) // => true
+Object(3) // => new Number(3)
+operators conversion
+
+x + "" // Same as String(x)
++x // Same as Number(x). You may also see x-0
+!!x // Same as Boolean(x). Note double !
+
+
+Object to Primitive Conversions
+
+toString( )  valueOf( )
+
+
+var now = new Date(); // Create a Date object
+typeof (now + 1) // => "string": + converts dates to strings
+typeof (now - 1) // => "number": - uses object-to-number conversion
+
+
+
+
+var truevar = 1; // A properly declared global variable, nondeletable.
+fakevar = 2; // Creates a deletable property of the global object.
+this.fakevar2 = 3; // This does the same thing.
+delete truevar // => false: variable not deleted
+delete fakevar // => true: variable deleted
+delete this.fakevar2 // => true: variable deleted
+
+
+
+
+If no arguments are passed to the constructor function in an object creation expression,
+the empty pair of parentheses can be omitted:
+new Object
+new Date       可省略括号
+
+
+The  multiplication  operator  * expects  numeric  operands,  but  the  expression  "3" *
+"5"is legal because JavaScript can convert the operands to numbers
+
+
+q = a?b:c?d:e?f:g;     ==   a?b:(c?d:(e?f:g));
+
+
+
+In JavaScript, however, all numbers are floating-point, so all division operations have floating-point
+results: 5/2evaluates to 2.5, not 2.
+While the modulo operator is typically used with integer operands, it also works for
+floating-point values. For example, 6.5 % 2.1evaluates to 0.2.
+
+
+2 + null // => 2: addition after null converts to 0
+2 + undefined // => NaN: addition after undefined converts to NaN
+
+
+To check whether a value xis NaN, use x !== x. NaNis
+the only value of xfor which this expression will be true
+
+
+var point = { x:1, y:1 }; // Define an object
+"x" in point // => true: object has property named "x"
+"z" in point // => false: object has no "z" property.
+"toString" in point // => true: object inherits toString method
+
+
+
+
+So when the value on the left is truthy, the  && operator   evaluates and returns the value on the right:
+var o = { x : 1 };
+var p = null;
+o && o.x // => 1: o is truthy, so return value of o.x
+p && p.x // => null: p is falsy, so return it and don't evaluate p.x
+
+
+if (a == b) stop(); // Invoke stop() only if a == b
+(a == b) && stop(); // This does the same thing
+
+
+// If max_width is defined, use that. Otherwise look for a value in
+// the preferences object. If that is not defined use a hard-coded constant.
+var max = max_width || preferences.max_width || 500;
+
+
+// Copy the properties of o to p, and return p
+function copy(o, p) {
+p = p || {}; // If no object passed for p, use a newly created object.
+// function body goes here
+}
+
+
+For example, you  can assign and test a value in the same expression with code like this:
+(a = b) == 0
+
+
+x typeof x
+undefined                "undefined"
+null                           "object"
+trueor false               "boolean"
+any number or NaN  "number"
+any string                   "string"
+any function              "function"
+any nonfunction native object "object"
+
+
+var o = { x: 1, y: 2}; // Start with an object
+delete o.x; // Delete one of its properties
+"x" in o // => false: the property does not exist anymore
+
+
+var a = [1,2,3]; // Start with an array
+delete a[2]; // Delete the last element of the array
+a.length // => 2: array only has two elements now
+
+
+var o = {x:1, y:2}; // Define a variable; initialize it to an object
+delete o.x; // Delete one of the object properties; returns true
+typeof o.x; // Property does not exist; returns "undefined"
+delete o.x; // Delete a nonexistent property; returns true
+delete o; // Can't delete a declared variable; returns false.
+              // Would raise an exception in strict mode.
+
+
+// Initialize an array a
+for(i = 0; i < a.length; a[i++] = 0) ;
+
+
+When you intentionally use the empty statement, it is a good idea to comment your
+code in a way that makes it clear that you are doing it on purpose. For example:
+for(i = 0; i < a.length; a[i++] = 0) /* empty */ ;
+
+
+Note that the varstatement can also appear as part of the forand for/inloops. (These
+variables are hoisted, just like variables declared outside of a loop.) 
+for(var i = 0; i < 10; i++) console.log(i);
+for(var i = 0, j=10; i < 10; i++,j--) console.log(i*j);
+for(var i in o) console.log(i);
+
+
+
+
+------------------------------
+a();
+function a(){
+alert("aaa");
+}
+
+
+a();   //undefined
+var a = function(){   
+alert("aa");
+}
+----------------------------------------
+(function(){for(var i=0;i<5;i++);})()    i是undefined
+
+(function(){for(i=0;i<5;i++);})()         i 是5
+
+
+
+--------------------------
+var o = {x:1, y:2, z:3};
+var a = [], i = 0;
+for(a[i++] in o) /* empty */;
+
+
+ If no exception handler is ever found, the
+exception is treated as an error and is reported to the user.
+-----------------------
+function a(){
+try{
+// i/1;
+throw new Error('ohh,no');
+}catch(e){
+console.log(e);
+return 1;
+alert('aaa');
+}finally{
+alert('ccc');
+}
+alert('bbb');
+}
+a();
+--------------------
+The withstatement is forbidden in strict mode (see §5.7.3) and should be considered
+deprecated in non-strict mode: avoid using it whenever possible. JavaScript code that
+uses withis difficult to optimize and is likely to run more slowly than the equivalent
+code written without the withstatement.
+
+
+The common use of the withstatement is to make it easier to work with deeply nested
+object hierarchies. In client-side JavaScript, for example, you may have to type expressions like this one to access elements of an HTML form:
+document.forms[0].address.value
+If you need to write expressions like this a number of times, you can use the  with
+statement to add the form object to the scope chain:
+with(document.forms[0]) {
+// Access form elements directly here. For example:
+name.value = "";
+address.value = "";
+email.value = "";
+}
+
+
+ of course, to avoid the  withstatement and write
+the code above like this:
+var f = document.forms[0];
+f.name.value = "";
+f.address.value = "";
+f.email.value = "";
+
+
+with(o) x = 1;
+If the object ohas a property x, then this code assigns the value 1to that property. But
+if  xis not defined in  o, this code is the same as  x = 1without the withstatement
+A  withstatement provides a shortcut for reading properties of  o, but not for
+creating new properties of o
+----------------------------
+调试的时候还有点用，打开调试工具会当成一个断点，没打开的时候正常执行
+function f(o) {
+if (o === undefined) debugger ; // Temporary line for debugging purposes
+var a = 1+1;
+alert(a);
+}
+f();
+一般不用加引号
+A property name is a JavaScript identifier or a string literal   (the empty string is allowed). 
+var book = {
+"main title": "JavaScript", // Property names include spaces,
+'sub-title': "The Definitive Guide", // and hyphens, so use string literals
+"for": "all audiences", // for is a reserved word, so quote
+author: { // The value of this property is
+firstname: "David", // itself an object. Note that
+surname: "Flanagan" // these property names are unquoted.
+}
+};
+
+
+All objects created by object literals have the same prototype object, and we can refer
+to this prototype object in JavaScript code as  Object.prototype 
+
+
+
+
+// inherit() returns a newly created object that inherits properties from the
+// prototype object p. It uses the ECMAScript 5 function Object.create() if
+// it is defined, and otherwise falls back to an older technique.
+function inherit(p) {
+if (p == null) throw TypeError(); // p must be a non-null object
+if (Object.create) // If Object.create() is defined...
+return Object.create(p); // then just use it.
+var t = typeof p; // Otherwise do some more type checking
+if (t !== "object" && t !== "function") throw TypeError();
+function f() {}; // Define a dummy constructor function.
+f.prototype = p; // Set its prototype property to p.
+return new f(); // Use f() to create an "heir" of p.
+}
+
+
+var o = { x: "don't change this value" };
+library_function(inherit(o)); // Guard against accidental modifications of o  防止属性被修改，很好的一个方法
+
+
+
+
+function addstock(portfolio, stockname, shares) {
+     portfolio[stockname] = shares;
+}
+ there is no way you can use the  . operator to access the properties
+
+of the  portfolio object. You can use the  [] operator, however, because it uses a string
+value (which is dynamic and can change at runtime) rather than an identifier (which is
+static and must be hardcoded in the program) to name the property.
+
+
+// A verbose and explicit technique
+var len = undefined;
+if (book) {
+if (book.subtitle) len = book.subtitle.length;
+}
+// A concise and idiomatic alternative to get subtitle length or undefined
+var len = book && book.subtitle && book.subtitle.length;
+
+
+// The prototype properties of built-in constructors are read-only.
+Object.prototype = 0; // Assignment fails silently; Object.prototype unchanged
+
+
+The propertyIsEnumerable()refines the  hasOwnProperty()test. It returns  trueonly if
+the named property is an own property and its  enumerableattribute is  true.
+
+
+In addition to the  for/inloop, ECMAScript 5 defines two functions that enumerate
+property names. The first is Object.keys(), which returns an array of the names of the
+enumerable own properties of an object.
+
+
+The second ECMAScript 5 property enumeration function is  Object.getOwnProperty
+Names(). It works like Object.keys()but returns the names of all the own properties of
+the specified object, not just the enumerable properties.
+---------------------------------
+ Note  that  objects  created  by  object  literals  or  by
+Object.create()have a constructorproperty that refers to the Object()constructor.
+
+
+In ECMAScript 5, you can query the prototype of any object by passing that object to
+Object. getPrototypeOf () 
+There is no equivalent function in ECMAScript 3, but it is  often possible to determine the prototype of an object  o using the expression
+o.constructor.prototype .
+
+
+To find out if  p is the prototype
+of  o write  p.isPrototypeOf(o) . For example:
+var p = {x:1}; // Define a prototype object.
+var o = Object.create(p); // Create an object with that prototype.
+p.isPrototypeOf(o) // => true: o inherits from p
+Object.prototype.isPrototypeOf(o) // => true: p inherits from Object.prototype
+
+
+
+
+Mozilla’s implementation of JavaScript has (since the early days of Netscape) exposed
+the prototype attribute through the specially named  __proto__ property, and you can
+use this property to directly query or set the prototype of any object.
+it has not been (and probably never will be) implemented by IE or
+Opera, although it is currently supported by Safari and Chrome.
+
+
+-------------判断对象的属性-------------
+function classof(o) {
+if (o === null) return "Null";
+if (o === undefined) return "Undefined";
+return Object.prototype.toString.call(o).slice(8,-1);
+}
+
+
+ In ECMA- Script 5, all built-in and user-defined objects are extensible unless they have been
+converted to be nonextensible, and the extensibility of host objects is again implemen tation defined.
+
+
+To determine whether an object is extensible, pass it to  Object.isExtensible() . To
+make an object nonextensible, pass it to  Object.preventExtensions() 
+
+
+All arrays are objects, and you can create properties of any name on   them
+
+
+========delete array=========
+a = [1,2,3,4,5]; // Start with a 5-element array.
+a.length = 3; // a is now [1,2,3].
+a.length = 0; // Delete all elements. a is [].
+a.length = 5; // Length is 5, but no elements, like new Array(5)
+
+
+a.push("one", "two") // Add two more values.
+
+
+
+
+
+==============遍历数组================
+As noted in §6.5, a  for/in loop can return the names of inherited properties, such as
+the names of methods that have been added to  Array.prototype . For this reason you
+should not use a  for/in loop on an array unless you include an additional test to filter
+out unwanted properties. You might use either of these tests:
+for(var i in a) {
+if (!a.hasOwnProperty(i)) continue; // Skip inherited properties
+// loop body here
+}
+for(var i in a) {
+// Skip i if it is not a non-negative integer
+if (String(Math.floor(Math.abs(Number(i)))) !== i) continue;
+}
+
+
+//数组的遍历用正常的for循环就行或forEach ，要不顺序可能是错的
+so  if iteration order matters for your algorithm, it is best to use a regular  for loop instead  of  for/in 
+
+
+var data = [1,2,3,4,5]; // This is the array we want to iterate
+var sumOfSquares = 0; // We want to compute the sum of the squares of data
+data.forEach(function(x) { // Pass each element of data to this function
+sumOfSquares += x*x; // add up the squares
+});
+
+
+
+
+======数组搜索值============
+a = [0,1,2,1,0];
+a.indexOf(1) // => 1: a[1] is 1
+a.lastIndexOf(1) // => 3: a[3] is 1
+a.indexOf(3) // => -1: no element has value 3
+
+
+function findall(a, x) {
+var results = [], // The array of indexes we'll return
+len = a.length, // The length of the array to be searched
+pos = 0; // The position to search from
+while(pos < len) { // While more elements to search...
+pos = a.indexOf(x, pos); // Search
+if (pos === -1) break; // If nothing found, we're done.
+     results.push(pos); // Otherwise, store index in array
+     pos = pos + 1; // And start next search at next element
+}
+return results; // Return array of indexes
+}
+
+
+In ECMAScript 5, you can do this with the Array.isArray()function:
+Array.isArray([]) // => true
+Array.isArray({}) // => false
+
+
+判断数组类型
+var isArray = Function.isArray || function(o) {
+return typeof o === "object" &&
+Object.prototype.toString.call(o) === "[object Array]";
+};
+
+
+
+
+// Determine if o is an array-like object.
+// Strings and functions have numeric length properties, but are 
+// excluded by the typeof test. In client-side JavaScript, DOM text
+// nodes have a numeric length property, and may need to be excluded 
+// with an additional o.nodeType != 3 test.
+function isArrayLike(o) {
+if (o && // o is not null, undefined, etc.
+typeof o === "object" && // o is an object
+isFinite(o.length) && // o.length is a finite number
+o.length >= 0 && // o.length is non-negative
+o.length===Math.floor(o.length) && // o.length is an integer
+o.length < 4294967296) // o.length < 2^32
+return true; // Then o is array-like
+else
+     return false; // Otherwise it is not
+}
+
+
+
+
+Since  array-like  objects  do  not  inherit  from  Array.prototype, you cannot invoke array methods on them directly. You can invoke
+them indirectly using the Function.callmethod, however:
+var a = {"0":"a", "1":"b", "2":"c", length:3}; // An array-like object
+Array.prototype.join.call(a, "+") // => "a+b+c"
+Array.prototype.slice.call(a, 0) // => ["a","b","c"]: true array copy
+Array.prototype.map.call(a, function(x) { 
+     return x.toUpperCase();
+}) // => ["A","B","C"]:
+
+
+var a = {"0":"a", "1":"b", "2":"c", length:3}; // An array-like object
+Array.join(a, "+")
+Array.slice(a, 0)
+Array.map(a, function(x) { return x.toUpperCase(); })
+
+
+Array.join = Array.join || function(a,sep) {
+return Array.prototype.join.call(a,sep);
+};
+Array.slice = Array.slice || function(a,from,to) {
+return Array.prototype.slice.call(a,from,to);
+};
+Array.map = Array.map || function(a, f, thisArg) {
+return Array.prototype.map.call(a, f, thisArg);
+}
+
+
+Strings As Arrays
+
+var s = test;
+s.charAt(0) // => "t"
+s[1] // => "e"
+
+
+
+
+s = "JavaScript"
+Array.prototype.join.call(s, " ") // => "J a v a S c r i p t"
+Array.prototype.filter.call(s, // Filter the characters of the string
+function(x) { 
+return x.match(/[^aeiou]/); // Only match nonvowels
+}).join("") // => "JvScrpt"
+
+
+Functions with no return value are  sometimes called procedures
+
+
+Functions written to be invoked as functions do not typically use the thiskeyword at
+all. It can be used, however, to determine whether strict mode is in effect:
+// Define and invoke a function to determine if we're in strict mode.
+var strict = (function() { return !this; }());
+
+
+
+
+==============function==========================
+o["m"](x,y); // Another way to write o.m(x,y).
+a[0](z) // Also a method invocation (assuming a[0] is a function).
+customer.surname.toUpperCase(); // Invoke method on customer.surname
+f().m(); // Invoke method m() on return value of f()
+
+
+Methods and the thiskeyword are central to the object-oriented programming paradigm. Any function that is used as a method is effectively passed an implicit  argument— the object through which it is invoked
+rect.setSize(width, height);
+setRectSize(rect, width, height);
+
+
+Note that thisis a keyword, not a variable or property name. JavaScript syntax does
+not allow you to assign a value to this.
+
+
+ If you want to access  the thisvalue of the outer function, you need to store that value into a variable that is
+in scope for the inner function. It is common to use the variable selffor this purpose
+
+
+var o = { // An object o.
+m: function() { // Method m of the object.
+var self = this; // Save the this value in a variable.
+console.log(this === o); // Prints "true": this is the object o.
+f(); // Now call the helper function f().
+function f() { // A nested function f
+console.log(this === o); // "false": this is global or undefined
+console.log(self === o); // "true": self is the outer this value.
+}
+}
+};
+o.m(); // Invoke the method m on the object o.
+
+
+构造方法的上下文是新对象
+ Note that the new object is used
+as the invocation context even if the constructor invocation looks like a method invocation. That is, in the expression new o.m(), ois not used as the invocation context.
+
+
+
+
+// Append the names of the enumerable properties of object o to the
+// array a, and return a. If a is omitted, create and return a new array.
+function getPropertyNames(o, /* optional */ a) {              //还有这样的注释
+a = a || [ ]; // If undefined, use a new array
+for(var property in o) a.push(property);
+return a;
+}
+// This function can be invoked with 1 or 2 arguments:
+var a = getPropertyNames(o); // Get o's properties into a new array
+getPropertyNames(p,a); // append p's properties to that array
+
+
+function f(x) {
+console.log(x); // Displays the initial value of the argument
+arguments[0] = null; // Changing the array element also changes x!
+console.log(x); // Now displays "null"
+}
+
+
+=======================================
+In addition to its array elements, the Arguments object defines  callee and  caller prop-
+erties. In ECMAScript 5 strict mode, these properties are guaranteed to raise a Type-
+Error if you try to read or write them.
+
+
+var factorial = function(x) {
+if (x <= 1) return 1;
+return x * arguments.callee(x-1);
+};
+
+
+参数别太多了，顺序会搞乱
+When a function has more than three parameters, it becomes difficult for the pro-
+grammer who invokes the function to remember the correct order in which to pass
+arguments.
+
+
+// Copy length elements of the array from to the array to.
+// Begin copying with element from_start in the from array
+// and copy that element to to_start in the to array.
+// It is hard to remember the order of the arguments.
+function arraycopy(/* array */ from, /* index */ from_start,
+/* array */ to, /* index */ to_start,
+/* integer */ length)
+{
+     // code goes here
+}
+// This version is a little less efficient, but you don't have to
+// remember the order of the arguments, and from_start and to_start
+// default to 0.
+function easycopy(args) {
+arraycopy(args.from,
+args.from_start || 0, // Note default value provided
+args.to,
+args.to_start || 0,
+args.length);
+}
+// Here is how you might invoke easycopy():
+var a = [1,2,3,4], b = [];
+easycopy({from: a, to: b, length: 4});   用对象做参数，参数直接是字面量
+
+
+
+
+参数的判断（类型是否正确，数值是否有意义）和容错，
+// Return the sum of the elements of array (or array-like object) a.
+// The elements of a must all be numbers or null and undefined are ignored.
+function sum(a) { if (isArrayLike(a)) { var total = 0; for(var i = 0; i < a.length; i++) { // Loop though all elements var element = a[i]; if (element == null) continue; // Skip null and undefined if (isFinite(element)) total += element; else throw new Error("sum(): elements must be finite numbers"); } return total;
+}
+else throw new Error("sum(): argument must be array-like");
+}
+
+
+function as value   函数作为值，可以作为参数传到函数中，函数指针
+ In JavaScript, however, functions are not only syntax
+but also values, which means they can be assigned to variables, stored in the properties
+of objects or the elements of arrays, passed as arguments to functions, and so on. 3
+
+
+var a = [33, 4, 1111, 222];
+a.sort(); // Alphabetical order: 1111, 222, 33, 4
+a.sort(function(a,b) { // Numerical order: 4, 33, 222, 1111
+return a-b; // Returns &lt; 0, 0, or &gt; 0, depending on order
+});
+a.sort(function(a,b) {return b-a}); // Reverse numerical order
+
+
+Functions don’t even require names at all, as when they’re assigned to array elements:
+var a = [function(x) { return x*x; }, 20]; // An array literal   字面量的function
+a[0](a[1]); // => 400
+
+
+Functions are not primitive values in JavaScript, but a specialized kind of object, which
+means that functions can have properties
+array也有property
+
+
+命名空间
+ it is sometimes useful to define a function simply to act as a temporary
+namespace in which you can define variables without polluting the global namespace.
+
+
+(function() { // mymodule function rewritten as an unnamed expression     匿名的执行空间
+     // Module code goes here.
+}()); // end the function literal and invoke it now.
+
+
+We described it as a list of
+objects, not a stack of bindings. Each time a JavaScript function is invoked, a new object
+is created to hold the local variables for that invocation, and that object is added to the
+scope chain. When the function returns, that variable binding object is removed from
+the scope chain. If there were no nested functions, there are no more references to the
+binding object and it gets garbage collected. 
+
+
+var uniqueInteger = (function() { // Define and invoke
+     var counter = 0; // Private state of function below
+     return function() { return counter++; };
+}());
+
+
+function counter(n) { // Function argument n is the private variable       n也是函数作用域对象上的东西 return { // Property getter method returns and increments private counter var. get count() { return n++; }, // Property setter doesn't allow the value of n to decrease set count(m) { if (m >= n) n = m; else throw Error("count can only be set to a larger value"); } };
+}
+
+
+// This function uses arguments.callee, so it won't work in strict mode.
+function check(args) {
+var actual = args.length; // The actual number of arguments
+var expected = args.callee.length; // The expected number of arguments
+if (actual !== expected) // Throw an exception if they differ.
+throw Error("Expected " + expected + "args; got " + actual);
+}
+function f(x, y, z) {
+check(arguments); // Check that the actual # of args matches expected #.
+return x + y + z; // Now do the rest of the function normally.
+}
+
+
+
+
+函数类型的tostring会返回函数的原始代码，可调式用
+
+
+
+
+ functions can also be
+defined with the  Function() constructor. For example:     更说明函数的对象属性了
+var f = new Function("x", "y", "return x*y;");
+
+
+function isFunction(x) { 
+return Object.prototype.toString.call(x) === "[object Function]";
+}
+
+
+--------------------------------------------
+函数式编程求标准差
+// First, define two simple functions
+var sum = function(x,y) { return x+y; };
+var square = function(x) { return x*x; };
+// Then use those functions with Array methods to compute mean and stddev
+var data = [1,1,3,5,5];
+var mean = data.reduce(sum)/data.length;
+var deviations = data.map(function(x) {return x-mean;});
+var stddev = Math.sqrt(deviations.map(square).reduce(sum)/(data.length-1));
+
+
+
+
+
+
+

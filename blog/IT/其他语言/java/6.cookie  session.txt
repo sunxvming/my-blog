@@ -1,0 +1,144 @@
+ 8 会话
+   1)用户输出URL地址，有效访问某个网站，在该网站上的一系列有效操作，随后关闭浏览器的整个过程，叫一次会话
+   2)会话主要解决服务端如何保存每个客户端对应的私有信息。
+   3)会话主要有二种：
+a)Cookie技术[客户端技术]
+b)Session技术
+   
+*9 Cookie
+   1)Cookie是客户端的技术
+   2)每次发送请求时，客户端都会带上各自已的不同Cookie到服务端，服务端一解析Cookie，就知道是哪个客户端发送过来的信息
+   3)一个Cookie只能存储一种类型的信息
+   4)更新某个名的Cookie，即向浏览器写一个相同名的Cookie
+   5)Cookie一定要设置一个有效时间，如果不设置的话，默认该请求访问结束后，该Cookie自动销毁，用专业名词来讲，
+     Cookie的默认有效期时一个有效会话结束
+     Cookie.setPath(“/day0X”);
+
+     Cookie.setPath(“/day0X”);
+
+    浏览器一般只允许存放300个Cookie，每个站点最多存放20个Cookie，每个Cookie的大小限制为4KB。
+ ---------------------------------------------
+
+public   class   Demo1   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {     
+         //服务端产生Cookie
+        Cookie cookie =  new  Cookie( "username" , "haha" );
+         //设置Cookie存活时间
+        cookie.setMaxAge(1*24*60*60);
+         //服务端将Cookie 写到客户端暂存
+        response.addCookie(cookie);       
+         //取得客户端所有的Cookie
+        Cookie[] cookies = request. getCookies ();
+        Cookie usernameCookie =  null ;
+         if (cookies!= null ){
+             for (Cookie c : cookies){
+                 if (c.getName().equals( "username" )){
+                    usernameCookie = c;
+                     break ;
+                }
+            }
+             //如果找到了Cookie
+             if (usernameCookie!= null ){
+                System. out .println( "Cookie的名字："  + usernameCookie.getName());
+                System. out .println( "Cookie的值："  + usernameCookie.getValue());
+                System. out .println( "Cookie的生命："  + usernameCookie.getMaxAge());
+                System. out .println( "Cookie的路径："  + usernameCookie.getPath());
+            }
+        }
+    } }   
+
+-------------------------------------------------------
+public   class   Demo2   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        String name = request.getParameter( "name" );
+         if (name== null ){
+            name= "default" ;
+        }
+        
+         //取得客户端的所有Cookie的值
+        Cookie[] cookies = request.getCookies();
+         if (cookies== null ){
+            Cookie cookie =  new  Cookie( "name_" +name,System. currentTimeMillis ()+ "" );
+            cookie.setMaxAge(1*24*60*60);
+            response.addCookie(cookie);
+            response.setContentType( "text/html;charset=UTF-8" );
+            response.getWriter().write( "欢迎" +name+ "首次光临,访问时间："  +  new  Date(). toLocaleString() );
+        } else {
+             //查找名为name的Cookie
+            Cookie nameCookie =  null ;
+             for (Cookie c : cookies){
+                 if (c.getName().equals( "name_" +name)){
+                    nameCookie = c;
+                     break ;
+                }
+            }
+             //找到了
+             if (nameCookie!= null ){
+                String strTime = nameCookie.getValue();
+                response.setContentType( "text/html;charset=UTF-8" );
+                 long  lastTime = Long. parseLong (strTime);
+                response.getWriter().write( "欢迎" +name+ "再次光临,你上次访问时间："  +  new  Date(lastTime). toLocaleString() );
+                 //更新时间
+                Cookie cookie =  new  Cookie( "name_" +name,System. currentTimeMillis ()+ "" );
+                cookie.setMaxAge(1*24*60*60);
+                response.addCookie(cookie);
+            }
+        }
+    } }   
+-----------------------------------------
+Session对象由服务器创建，开发人员可以调用request对象的 getSession 方法得到 session 对象。
+
+
+
+public   class   LoginServlet   extends  HttpServlet {
+     public   void  doPost(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+         //收集客户端填入的验证码
+        String checkCodeClient = request.getParameter( "checkCodeClient" );
+         //取得服务端填入的验证码
+        String checkCodeServer = (String) request.getSession().getAttribute( "checkCodeServer" );
+         //判段
+        response.setContentType( "text/html;charset=UTF-8" );
+         if (checkCodeClient!= null  && checkCodeClient.trim().length()>0 && checkCodeServer!= null  && checkCodeServer.equals(checkCodeClient)){
+            response.getWriter().write( "验证码正确" );
+        } else {
+            response.getWriter().write( "验证码出错" );
+        }
+    } }  
+--------------------------------
+public   class   CheckCodeServlet   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        response.setHeader( "expires" , "-1" );
+        response.setHeader( "cache-control" , "no-cache" );
+        response.setHeader( "pragma" , "no-cache" );
+        String token = Token. getNum ();
+         //将验证码绑定到域对象
+         HttpSession session = request.getSession();
+        session. setAttribute ( "checkCodeServer" ,token);
+        BufferedImage image =  new  BufferedImage(50,25,BufferedImage. TYPE_INT_RGB );
+        Graphics g = image.getGraphics();
+        g.drawString(token,15,15);
+         //加干扰线
+         for ( int  i=0;i<10;i++){
+            Random r =  new  Random();
+             int  x1 = r.nextInt(50);
+             int  y1 = r.nextInt(25);
+            g.drawLine(x1, y1, x1+4,y1+4);
+        }
+        ImageIO. write (image, "JPG" ,response.getOutputStream());
+    }
+}
+class  Token{
+     public   static  String getNum(){
+        Random r =  new  Random();
+         int  num = r.nextInt(10000);
+         return  num +  "" ;
+    }
+}  
+
+session. invalidate() ;    清空session 
+
+*0 带用验证码功能的用户登录
+  1)验证码使用一个CheckCodeSerlvet产生，通过<img src=""/>发送请求，将验证码绑定到HttpSession中
+  2)产生的验证码一定要在输出到浏览器之前绑定到HttpSession中
+  3)设置验证码禁止缓存要在输出到浏览器之前  
+  4)所有响应头的设置放置在最先

@@ -1,0 +1,197 @@
+
+< ? php
+// gd库默认不开启,需要打开相关选项
+// 如何检测gd库是否已开启?
+print_r(gd_info());
+//看到如下类似数组,可以判断gd库是否已开启
+Array
+(
+    [GD Version] = > bundled ( 2 . 0 . 34 compatible) // gd库版本
+    [FreeType Support] = > 1
+    [FreeType Linkage] = > with freetype
+    [T1Lib Support] = >  
+    [GIF Read Support] = > 1
+    [GIF Create Support] = > 1
+    [JPEG Support] = > 1
+    [PNG Support] = > 1
+    [WBMP Support] = > 1
+    [XPM Support] = >  
+    [XBM Support] = > 1
+    [JIS - mapped Japanese Font Support] = >  
+)
+== == == == == == == == == == == =
+//用gd库来画图,仍是以上5个步骤.
+
+// 1:造画布,以资源形式返回
+$im = imagecreatetruecolor( 300 , 200 );
+// 2: 创建颜料
+$gray = imagecolorallocate($im, 100 , 100 , 100 );
+// 3: 填充画布
+imagefill($im, 0 , 0 ,$gray);
+// 4: 保存成图片
+imagepng($im, './01.png' );
+// 5: 销毁画布
+imagedestroy($im);
+== == == == == == == == =
+// 2: 打开一幅图片作画布
+/*
+imagecreatefrompng
+imagecreatefromjpeg
+imagecreatefromgif
+*/
+$im = imagecreatefromjpeg( './he.jpg' );
+== == == == == == == == == == ==
+// 可以把画布保存在硬盘上.
+if(imagejpeg($im,'./05.jpg')) {
+    echo 'ok';
+}
+
+// 也可以直接输出,不保存,做验证码的时候,往往如此.
+// 第2个参数如果不写,则为直接输出.<img src="05.jpg" width="600" height="400" border="0" alt="">
+header( 'content-type: image/jpeg' );
+imagejpeg($im);
+== == == == == == == == == == == =
+/*
+imageline : 画线
+imagestring,imagettftext: 写字
+imagefill — 区域填充
+imagefilledarc — 画一椭圆弧且填充
+imagefilledellipse — 画一椭圆并填充
+imagefilledpolygon — 画一多边形并填充
+imagefilledrectangle — 画一矩形并填充
+imagerectangle :画一个矩形
+imagecopy : 复制图片
+imagecopymerge :复制图片并合并(可以设透明度.)
+imagecopyresampled:合并并调整大小
+== == == == == == == == == ==
+// 画线的学习
+bool imageline ( resource $image , int $x1 , int $y1 , int $x2 , int $y2 , int $color )
+== == == == == == == == == == == =
+写字
+bool imagestring ( resource $image , int $font , int $x , int $y , string $s , int $col )
+不能 换行    不能 写中文   不能 指定字体
+
+== == == == == == == == == ==
+function randName($n = 6 ) {
+        if ($n < = 0 ) {
+            return '' ;
+        }
+        $str = 'abcdefghijkmnpqrstuvwxyzABCDEFGHIJKMNPQRSTUVWXYZ0123456789' ;
+        $str = substr(str_shuffle($str), 0 ,$n);
+
+        return $str;
+    }
+
+// 做验证码
+$im = imagecreatetruecolor( 80 , 30 );
+$gray = imagecolorallocate($im, 30 , 30 , 30 );
+$red = imagecolorallocate($im, 255 , 0 , 0 );
+
+imagefill($im, 0 , 0 ,$gray);
+
+imagestring($im, 5 , 5 , 5 ,randName( 4 ),$red);
+
+// 输出
+header( 'content-type: image/jpeg' );
+imagejpeg($im);
+== == == == == == == == == == == == == == == =
+写中文
+imagettftext
+需要先提供一个ttf字体库
+array imagettftext ( resource $image , float $size , float $angle , int $x , int $y , int $color , string $fontfile , string $text )
+
+$im = imagecreatefromjpeg( './home.jpg' );
+$blue = imagecolorallocate($im, 0 , 0 , 255 );
+imagettftext($im, 36 , 0 , 100 , 100 ,$blue, './msyh.ttf' , '昌平水郡,远离城镇喧嚣' );
+header( 'content-type: image/jpeg' );
+imagejpeg($im);
+== == == == == == == == == == == == == == == =
+// 图片的复制
+案例:做一个底版照片的效果
+如下:[x]是一张小图
+[x]
+
+利用小图作一张大图
+{[x]  [x]}
+
+获取图片的宽度   imagesx()
+获取图片的高度       imagesy()
+
+// 读取图片作为画布资源
+$small = imagecreatefrompng( './feng.png' );
+
+// 判断大小
+$sx = imagesx($small); // 小图的宽
+$sy = imagesy($small); // 小图的宽
+
+// 造大图画布
+$big = imagecreatetruecolor( 2 * $sx + 20 ,$sy);
+$gray = imagecolorallocate($big, 100 , 100 , 100 ); // 造灰色
+
+// 铺大图
+imagefill($big, 0 , 0 ,$gray);
+
+// 复制小图到大图上.
+bool imagecopy ( resource $dst_im , resource $src_im , int $dst_x , int $dst_y , int $src_x , int $src_y , int $src_w , int $src_h )
+
+
+imagecopy($big,$small, 0 , 0 , 0 , 0 ,$sx,$sy);
+imagecopy($big,$small,$sx + 20 , 0 , 0 , 0 ,$sx,$sy);
+
+// 输出
+header( 'content-type: image/jpeg' );
+imagejpeg($big);
+== == == == == == == == == == == == == == == ==
+// 来点水印效果.
+/*
+函数的参数和imagecopy一样,
+差在最后一个参数: $pct 代表透明度.
+
+bool imagecopymerge ( resource $dst_im , resource $src_im , int $dst_x , int $dst_y , int $src_x , int $src_y , int $src_w , int $src_h , int $pct )
+
+
+$big = imagecreatefromjpeg( './home.jpg' );
+$bx = imagesx($big);
+$by = imagesy($big);
+
+$small = imagecreatefrompng( './feng.png' );
+$sx = imagesx($small);
+$sy = imagesy($small);
+
+
+// 加文字
+$blue = imagecolorallocate($big, 0 , 0 , 255 );
+imagettftext($big, 16 , 0 , 100 , 100 ,$blue, './msyh.ttf' , '昌平水郡,凤姐叫你来买房' );
+
+imagecopymerge($big,$small,$bx - $sx, 0 , 0 , 0 ,$sx,$sy, 37 );
+
+// 输出
+header( 'content-type: image/jpeg' );
+imagejpeg($big);
+== == == == == == == == == == == == == == == == =
+
+// 生成缩略图
+/*
+bool imagecopyresampled ( resource $dst_image , resource $src_image , int $dst_x , int $dst_y , int $src_x , int $src_y , int $dst_w , int $dst_h , int $src_w , int $src_h )
+*/
+
+$feng = imagecreatefrompng( './feng.png' );
+
+$fx = imagesx($feng); // 获取宽度
+$fy = imagesy($feng); // 获取高度
+
+
+// 造一块小画布
+$sx = $fx / 2 ;
+$sy = $fy / 2 ;
+$small = imagecreatetruecolor($sx,$sy);
+
+
+// 把大画布粘过来,同时缩略粘过来
+imagecopyresampled($small,$feng, 0 , 0 , 0 , 0 ,$sx,$sy,$fx,$fy);
+
+if (imagepng($small, './xiaofeng.png' )) {
+    echo '保存成功' ;
+} else {
+    echo '保存失败' ;
+}

@@ -1,0 +1,310 @@
+*4 response的应用
+
+
+getOutputStream和getWriter方法分别用于得到输出二进制数据、输出文本数据的 ServletOuputStream、Printwriter 对象。
+getOutputStream和getWriter这两个方法 互相排斥 ，调用了其中的任何一个方法后，就不能再调用另一方法。  
+Servlet程序向ServletOutputStream或PrintWriter对象中写入的数据将被Servlet引擎从response里面获取，Servlet引擎将这些数据当作响应消息的正文，然后再与响应状态行和各响应头组合后输出到客户端。 
+Serlvet的service方法结束后，Servlet引擎将检查getWriter或getOutputStream方法返回的输出流对象是否已经调用过close方法，如果没有，Servlet引擎将调用close方法关闭该输出流对象。
+
+
+  1)web容器会传入与web容器相关的HttpServletRequest和HttpServletResponse对象的实现
+  2)每次浏览器请求，web容器会创建新的请求和响应对象，这二个对象的生命周期仅限于web容器内
+  3)对于 字节方式 来说，输出数字，respnse会编查ISO8859-1编码表，将码表的中的数字对应的字符取出来显示，即 遇数字转字符
+     如果要输出数字，提前 将数字转化成字符串
+  5)对于 字符方式 来说，可以直接输出数字
+  6)将中文转成字节数组时，查UTF-8码表，如果不写的话，默认查ISO8859-1码表  
+  7)以字符方式输出中文，提前设置编码方式；以字节方式输出中文，提前设置转化编码方式
+         //以字节方式输出   97
+         //response. getOutputStream() .write((97+"").getBytes());
+         //以字符方式输出   A
+         //response. getWriter() .write(65);
+字符：
+response.getOutputStream().write("中国".getBytes("UTF-8"));
+字节：
+response. setContentType("text/html;charset=UTF-8");
+response.getWriter().write("美国");
+----------------------下载中文文件----------------------------
+public   class   Demo2   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        ServletContext context =  this .getServletContext();
+        String path = context. getRealPath ( "/images/神奇的图片.JPG" );
+        File file =  new  File(path); 
+        response.setHeader( "content-disposition" , "attachment;filename=" + URLEncoder. encode (file.getName(), "UTF-8" ));
+        InputStream is =  new  FileInputStream(file);
+        OutputStream os = response.getOutputStream();
+         byte [] buf =  new   byte [1024];
+         int  len = 0;
+         while ((len=is.read(buf))>0){
+            os.write(buf,0,len);
+        }
+        is.close();
+        os.close();
+    } }   
+
+   8)HTML中的所有<meta/>标签，类似于response.setHeader()，目的是通知浏览器 以特定的方式显示页面的信息
+   9)重定向是客户端和服务端的共同行为，
+     response. sendRedirect ("/day06/message.html")其中/表示webapps目录
+
+
+5 response细节
+  1)以字符或字节方式输出内容的话，只能使用其中一种
+  2)响应头会以叠加的方式设置，在相同的情况下，后者起决定作用
+  3)在没有关闭流的情况下，web容器帮你自动关闭所有从 response中取得IO流 ，其他的流需要自己关闭
+
+
+===============生成验证码==========================
+public   class   Demo3   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        response.setHeader( "expires" , "-1" );
+        response.setHeader( "cache-control" , "no-cache" );
+        response.setHeader( "pragma" , "no-cache" );
+         //以内存中构造一副图片
+        BufferedImage image =  new  BufferedImage(80,25,BufferedImage. TYPE_INT_RGB );
+         //取得画笔
+        Graphics g = image.getGraphics();
+         //设置字体大小和颜色
+        g.setColor(Color. YELLOW );
+        g.setFont( new  Font( "黑体" ,Font. BOLD ,22));
+         //在图片中，画一个字符串"1A2B"
+        g.drawString(getString(),20,20);
+         //将内存中的图片以JPG格式输出到浏览器
+        ImageIO. write (image, "JPG" ,response.getOutputStream());
+    }
+     //产生一个随机字符串
+     private  String getString(){
+        String str =  "" ;
+        String numberAndLetter= "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" ;
+         int  length = numberAndLetter.length();
+         for ( int  i=1;i<=4;i++){
+             if (i==1 || i==3){ //数字
+                 while ( true ){
+                    Random random =  new  Random();
+                     int  index =  random.nextInt (length);
+                    String value = numberAndLetter.substring(index,index+1);
+                     if (value. matches ( "[0-9]" )){
+                        str += value;
+                         break ;
+                    }
+                }
+            } else   if (i==2 || i==4){ //大小字母
+                 while ( true ){
+                    Random random =  new  Random();
+                     int  index = random.nextInt(length);
+                    String value = numberAndLetter.substring(index,index+1);
+                     if (value.matches( "[A-Za-z]" )){
+                        str += value;
+                         break ;
+                    }
+                }
+            }
+        }
+         return  str;
+    }
+}
+========================request========================
+request . getRequestDispatcher ( "/WEB-INF/fail.html" ) .forward(request,response);   
+request .sendRedirect( "/day07/ListServlet" );   
+
+6 request应用
+  2)url表示访问web应用的 完整路径 :http://localhost:8080/day06/Demo1
+    uri表示访问web应用的 资源路径 :/day06/Demo1
+    queryString表示?开头的参数;name=jack
+    pathInfo：路径之外的信息，如果没有，返回null
+
+
+ 1 request对象常用API
+   1）取得请求头相关的信息
+     *a)request.getHeader(String):String
+      b)request.getHeaders(String):Enumeration 
+      c)getHeaderNames():Enumeration
+------------------------------------
+  public   class   Demo1   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+         //一次性取得所有的请求头信息
+        Enumeration<String> enums =  request.getHeaderNames() ;
+         while (enums.hasMoreElements()){
+             //key表示请求头
+            String key = enums.nextElement();
+            Enumeration<String> enums2 =  request.getHeaders(key) ;
+             while (enums2.hasMoreElements()){
+                String value = enums2.nextElement();
+                response.getWriter().write(key+ "<->" +value+ "<br/>" );
+            }
+        }
+                 
+        String acceptLanguage = request.getHeader( "Accept-Language" );
+        response.getWriter().write( "Accept-Language="  + acceptLanguage +  "<br/>" );
+     
+    }
+} ----------------------------------
+
+*2 获取请求参数的值
+   2）取得请求体相关的信息
+      a)request.getParameter(String):String
+      b)request.getParameterValues(String):String[]
+          request.getParameterNames();
+
+
+
+        注意：在GET请求方式下，如果参数不一致，返回null，可能出现空指针异常
+      c)BeanUtils框架能够自动将String参数设置到JavaBean对象中
+        1)无需理会参数的类型，个数，但是参数名一定要和JavaBean中的字段一致
+        2)String->8种基本类型自动转换，非8种基本类型可以注册转换器材
+        3) String或String[] 类型的参数自动感知装配 
+------------------------------------------------------
+public   class   Demo2   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        
+         //分别取得客户端提交的信息
+         //String strUsername = request.getParameter(" username ");
+         //String strAge = request.getParameter("age");
+         //String strSalary = request.getParameter("salary");
+         //String[] strLikes = request.getParameterValues("likes");
+        
+        BeanUtils bu =  new  BeanUtils();
+        User user =  new  User();
+        Enumeration<String> enums =  request.getParameterNames() ;
+         while (enums.hasMoreElements()){
+            String key = enums.nextElement();
+            String[] values = request.getParameterValues(key);
+             try  {
+                 bu. setProperty (user,key,values) ;
+            } catch  (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        response.setContentType( "text/html;charset=UTF-8" );
+        PrintWriter pw = response.getWriter();
+        pw.write( "用户名："  + user.getUsername() +  "<br/>" );
+        pw.write( "年龄："  + user.getAge() +  "<br/>" );
+        pw.write( "期望薪水："  + user.getSalary() +  "<br/>" );
+        pw.write( "爱好个数："  + user.getLikes(). length  +  "<br/>" );
+        pw.flush();
+        pw.close();
+    } }   
+
+------------------------------------------------------
+
+*3 request应用
+   1)防盗链
+     判段某个页面来自于何方，即referer请求头
+------------------------------------------------------
+
+public   class   Demo4   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        
+         //取得浏览器来自于何方
+        String referer = request.getHeader( "referer" );       
+         //判段 
+         if (referer!= null  && referer.equals( "http://localhost:8080/day07/index.html" )){
+             //转发到download.html页面
+             this
+                .getServletContext()
+                .getRequestDispatcher( "/download.html" )
+                .forward(request,response);
+        } else {
+             //转发到ad.html页面
+             this
+            .getServletContext()
+            .getRequestDispatcher( "/ad.html" )
+            .forward(request,response);
+        }
+    } }   
+
+------------------------------------------------------
+
+   2)收集表单数据
+     a)项目中，用户请求的参数，最好做null或空串的二次判段
+   3)中文乱码
+
+     a)POST方式下乱码产生的原因：浏览器发送的编码方式与Request对象的编码方式不一致
+       解决方案：request.setCharacterEncoding("UTF-8)，该方法只能解析 请求体 中的乱码方式，除此之外，无力解决
+===================get方式的乱码=====================
+
+
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        
+        String username = request.getParameter( "username" );
+        
+         //中文解码
+         byte [] buf = username.getBytes( "ISO8859-1" );
+        username =  new  String(buf, "UTF-8" );
+        
+         if (username!= null  || username.trim().length()>0){
+            response.setContentType( "text/html;charset=UTF-8" );
+            response.getWriter().write( "用户名"  + username);
+        }     }   
+
+========================================
+     b)如果用户是post方式提交，在转发情况下，依然是post请求，但重定向情况下，是get请求
+     c)如果用户是get方式提交，在转发和重定向情况下，都是get请求
+     d) 405 ：本身请求是get请求，但未在servlet内提供对应的doGet()方法, post也是类似    
+
+
+       
+*4 再谈MVC设计模式
+   1)如果严格按照MVC思想的话，浏览器首页访问的是控制器，然后再由控制器转发到视图
+   2)位于 WEB-INF /目录下的资源，客户端无法直接访问，只能通过服务端转发进入
+   3)request对象也可用于资源的转发
+request
+.getRequestDispatcher("/WEB-INF/success.html")
+.forward(request,response);
+   4)通过正则表达式验证中文：[\u4E00-\uFA29]+
+   5)对于重定向而言，前后的二个 Request域对象不同 ，如果取值不到，返回"null"，不会报错    
+  
+ 5 request的细节
+   1)转发是通过 RequestDispatcher 对象的forward(request,response)方法完成的
+   2)forward()方法之前的输出，如果是 输出到缓冲区 ，再转发到其他Servlet，那么原缓冲区的数据忽略不计
+         //response.setContentType("text/ html ; charset =UTF-8");
+         //PrintWriter  pw  = response.getWriter();
+         //pw.write("Demo91");
+         //pw.flush();          //pw.close();   
+
+   3)forward()方法之前的输出，如果真正输出到浏览器，再转发到其他Servlet，再转发到其他Servlet代码忽略不计
+   4)forward()方法之前的输出，如果是 对响应头的设置 ，会保留到转发的其他Servlet中
+
+
+*6 重定向和转发区别
+   1)转发只能相对于 当前web 应用而言，不能转发到其它web应用
+             重定向可以在当前web应用之外的其它web应用重写向资源
+   2)转发/表示当前web应用
+            重定向/表示web服务器的根目录，即webapps目录
+   3)转发时， 浏览器地址栏不变
+            重定向时，浏览器地址栏改变
+   4)转发是 服务端的内部行为 ，浏览器不知
+            重定向是浏览器和服务端的共同行为，浏览器必知
+   5)转发时二个Servlet共享request域对象
+          重定向时二个Servlet独享request域对象
+   6)request具有二义性：
+    a)请求对象
+    b)域对象
+   
+ 7 include包含
+   1)需要使用Servlet包含相同的页面输出时，类似于函数调用
+------------------------------------------
+public   class   Demo10   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        
+         //取得客户端请求的类型
+        String method = request.getMethod();
+        System. out .println( "method=" +method);
+         //包含head.html(类似于函数调用)
+
+        request
+            .getRequestDispatcher( "/common/head.html" )
+            .include(request,response);
+        response.getOutputStream().write( "<hr/>" .getBytes());
+        
+         //动态生成
+        response.getOutputStream().write( "login.html" .getBytes());
+        response.getOutputStream().write( "<hr/>" .getBytes());
+        
+         //包含foot.html
+        request
+            .getRequestDispatcher( "/common/foot.html" )
+            .include(request,response);
+        response.getOutputStream().write( "<hr/>" .getBytes());
+    } }   
+
+ 
+

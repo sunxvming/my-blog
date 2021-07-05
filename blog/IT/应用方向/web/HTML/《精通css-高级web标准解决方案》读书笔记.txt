@@ -1,0 +1,390 @@
+
+1、css的规范本身很复杂，常常自相矛盾，其目标读者是浏览器厂商。
+2、class根据他们是什么，而不是他们外观如何来命名元素，命名用中划线链接。
+3、不用id 除非确定其只出现一次
+4、将不想必要的标签减少，应在现有元素不能实现区域划分的情况下使用div  span，html5新的标签也要注意使用
+5、不要过度依赖class，应配合其他标签使用，后代选择器
+6、表单或链接用伪类，  tr:hober { } input:focus{ } a:visited:hover{ }
+7、通用选择器  * {padding:0;margin:0; }   配合后代使用
+#nav > li {      后代选择器
+  background : url ( img /folder.png) no-repeat left top;
+  padding-left: 20px ;
+}
+
+#nav ul {
+  margin-left: 1em ;
+}
+
+
+h2 + p {  /*紧邻的下一个元素，同胞选择器*/
+    font - size : 1em ;
+  font -weight: bold;
+    color : # 777 ;
+}
+< div class = "example" >
+< h2 >Peru Celebrates Guinea Pig festival</ h2 >
+< p >The guinea pig festival in Peru is a one day event to celebrate these cute local animals.</ p >
+< p >Guinea pigs can be fried, roasted or served in a casserole.</ p >
+</ div >
+8、 样式的优先性 ：！important  > style >   id   >  class    优先级相同后定义的会覆盖前边的
+style=''
+ #wrapper #content{ }
+#content .datePosted{ }
+div#content{ }
+#content{ }
+p.comment .datePosted{ }
+p.comment { }
+div p { }
+p{ } 9、通过样式的继承，子类少些很多代码，简化代码，但过多的继承也回造成混乱
+10、从一般的样式到具体的样式要事先规划好，其标准可以依从多种标准方式
+
+11、这样的注释很漂亮
+/*@todo:某些东西需在以后修改修复复查  如记得上线了把这段代码删了*/
+/*@workaround: 变通的方案 表示不完善的权宜之计*/
+/*@bugfix:表要修复的bug*/ 12、普通文档流中块元素的 垂直外边距 会发生叠加，大的叠加小的
+13、css三种基本定位机制：普通流、 相对定位， 浮动、绝对定位。默认为普通流。和外边距操控
+14、对行内框设置宽高无用，垂直的margin padding也无用，只能用lin-height
+          display  inline-block 水平排列，但有块级属性
+15、<div>
+         some  text                 //此处会出现匿名快
+         <p>sldfjsldjsjdf</p>
+         </div>
+16、相对定位，无论是否移动，元素仍占据原来的空间
+17、 绝对定位于文档流无关，不占据空间 ，相对于已相对定位的祖先元素定的位，框扩大不影响周围元素，可覆盖在其他元素上，如果扩大绝对定位的框，周围的框不会重新定位，且会重叠。
+18、 浮动： 使元素脱离文档流，按照指定方向发生移动，遇到父级边界或者相邻的浮动元素停了下来。
+浮动会离文档流，原来的位置也就不在占据，   3被住
+     ，例   浮动框旁边的行框会被缩短，从而为浮动元素流出空间 如：图像周围环绕文本
+
+
+既然浮动使得元素脱离了文档流，可以认为是飘了起来，包含它的父级可以认为是一条松紧绳，在不存在浮动的情况下，父子均处于同一层面上，父级会 因为子级的变大而伸展开来，如果设置了浮动，那么不在同一层级上，父级便失去了约束力。
+
+. clear {
+  clear : both;
+}
+
+.news {
+  background - color :#eaeaea;
+  border : solid 1px # 999 ;
+    width : 500px ;
+}
+
+.news img {
+  float: left;
+    padding: 10px 0 10px 10px ;
+}
+
+.news p {
+  float: right;
+    width : 350px ;
+    margin: 0 ;
+    padding: 10px 10px 10px 0 ;
+}
+< div class = "news" >
+< img src = "img/atol.jpg" width = "120" height = "180" />
+< p >Og downor, if</ p >
+< div class = "clear" ></ div >
+</ div >
+---------------------
+
+.news {
+  background-color: gray;
+  border: solid 1px black;
+  overflow: hidden;
+
+  *zoom: 1;
+  }
+
+.news img {
+  float: left;
+  }
+
+.news p {
+  float: right;
+  }
+
+
+<
+div 
+class
+="news"
+>
+<
+img 
+src
+="news-pic.jpg"
+ 
+/>
+<
+p
+>
+some text
+</
+p
+>
+</
+div
+>
+------------------
+  background-position:left center;    背景图片的位置    可写像素（左上角的位置）也可写百分比（图像上所在的点）
+简写 background: #333 url(/xxx/xx.jpg) no-repeat left  center ;
+.box {
+background-image: url(img/mtop-left.gif),
+url(img/mtop-right.gif),
+url(img/mbottom-left.gif), 
+url(img/mbottom-right.gif);
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+background-position: top left, top right, bottom left, bottom right;
+}
+多 背景那个 实现圆角
+19、阴影效果:img{box-shadow:3px 3px 6px  #666;} 垂直  水平  宽度  颜色    还有text-shadow
+20、透明opacity:0.8  filter:alpha(opacity=80)   rgba(  )
+21、链接的伪类的次序，a:link  a;visited a:hover  a:focus   a:active  因为相同的优先性  后会覆盖前边的
+
+text-indent: 50px; 22、锚链接选中后的样式    .comment:target {  background-color: yellow; }
+23、链接上的颜色，图像的反转 用 a:hover,a:focus{ background-image: 用一张背景图+偏移位置实现图像切换，能用css实现就用css实现            学名叫css精灵
+24、列表：   list-style-type: none;
+li {    //实现列表前的小图标
+  background: url(img/tick.png) no-repeat 0 50%;
+  padding-left: 30px;
+}
+
+25、<a href="search.htm?page=1" rel="prev">Prev</a>   分页列表的前一页
+        ol.pagination a[ rel="prev" ]:before {     //属性选择器+伪类        html中不需要添加东西
+                    content: "\00AB";       //表内容  向左的双箭头    
+                     padding-right: 0.5em;
+       }
+ul {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;        //可让内部的左浮动的li的父元素ul有宽度，即清理浮动
+  width: 72em;
+  list-style: none;
+  text-transform: uppercase;
+}
+用css实现下拉菜单   先把所有的元素显示出来，然后把下拉的绝对定位到屏幕之外，hover的时候再正常显示
+           图像热点可用 绝对定位 的div去实现
+
+26、用表格时候记得用 thead th tbody  tfoot
+27、label标签的使用 <label>email <input name='email' type='text' /><label>
+         <label for=' email ' >email<label>
+          <input name='email' id=' email ' type='text' />   for和id关联
+fieldset标签   legend  对表单的逻辑的划分
+28、textarea标签之外在 包一个div   让textarea的宽度成为 100% ，宽度由父元素决定，
+input[type='text']{width:20px;}
+
+
+29、 input[type='text']:focus{background:#777;border:xxxxxx}
+
+ 
+<div>
+     <label for="email">Email Address is really, really, really really long: 
+     <em class="feedback">Incorrect email address. Please try again.</em></label>       上级相对定位，提示的绝对定位
+     <input name="email" id="email" type="text" />
+</div>           
+左边的图标位置留个padding，用背景图来做
+button里面可以放图像
+
+--------------------
+要创建容易维护的css系统，首先应检查设计，寻找重复的模式，反复出现的元素，此阶段适合在稿纸上做，
+=============
+1. 固定宽度布局------->被称为糟糕的权宜之计，无法适应不同的分辨率，字号变大边栏就会挤满（但人们很少改变字体，都是改变的屏幕百分比），空间也无法合理利用
+
+=============        
+两列布局
+<div class='content'>                                      .content{overflow:hidden}  //清理浮动
+<div class='primary'></div>                             .primary{float:left}  .secondary{float:right}
+<div class='secondary'></div>
+</div>
+<div class='footer'></div>
+
+
+三列布局
+<div class='content'>                                      .content{overflow:hidden}  //清理浮动
+<div class='primary'>
+<div class='primary'> </div>                此div左右浮动             <div class='secondary'></div>                
+</div>                                                               外边的在左右浮动
+<div class='secondary'></div>
+</div>
+<div class='footer'></div>
+==========
+2. 流式布局
+=========
+max-width  最大宽度                                                    .wrapper{width:80%;margin:0 auto;}
+
+<div class='content'>                                      .content{overflow:hidden}  //清理浮动 <div class='primary'>
+<div class='primary'> </div>                此div左右浮动             <div class='secondary'></div>                
+</div>                                                                外边的在左右浮动
+<div class='secondary'></div>
+</div>
+<div class='footer'></div>           跟上面差不多，但是width要换成百分比 ，且设置最大最小宽度
+max-width   min-width
+==================
+3.弹性布局
+==================
+弹性布局 相对于字号设置宽度 ，以em设置宽度，可确保字号变化时，布局跟着变化，但，页面缩放浏览器都支持了，所以意义可能不是很大。
+　　 em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。
+　　任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。那么12px=0.75em,10px=0.625em。为了简化font-size的换算，需要在css中的body选择器中声明 Font-size=62.5%，这就使em值变为 16px*62.5%=10px, 这样12px=1.2em, 10px=1em, 也就是说只需要将你的原来的px数值除以10，然后换上em作为单位就行了。
+　　 em有如下特点：
+　　1. em的值并不是固定的;
+　　2. em会继承父级元素的字体大小。
+
+
+
+=======================================================
+
+
+.wrapper {                     //两边是用了背景图，阴影也是用图像做的，背景图类似这个样子________              _________
+  width: 920px;                                                                                                宽度为容器的宽度
+  margin: 0 auto;
+  text-align: left;
+  background: #fff url(img/bg-fixed.gif) repeat-y left top;     //为固定的布局设计的
+} 
+为流式布局设计的
+.wrapper {       
+  width: 76.8%;
+  margin: 0 auto;
+  text-align: left;
+  max-width: 125em;
+  min-width: 76em;
+  background: #fff url(img/secondary-faux-col.gif) repeat-y 25% 0;       图像宽4000px， 左边灰色的部分占25%，而左边                                                   的列也为25% 
+}
+css的框架具有一定的约束性，样式单一化，修改能力差
+
+框架的缺点
+1.如栅格系统，可能没有正好的宽度和间距，
+2.样式单一化
+3.若在多个项目中使用的话，思维方式，页面的样式会僵化，俗话说，当你有把锤子，那什莫东西看起来都像钉子。
+4.同一个框架适用的范围有限
+============
+常见bug
+1.特殊性的问题
+先设置  .content  p{ background: white ;}
+后设置 .intro{ background: orange;}     //这个不起作用    因为前一个更特殊
+决绝：  .content  .intro {back ground-color:orange; }  更好的办法，删除额外的选择器，只需要细粒度的控制时，添加更特殊的选择器。
+
+2.外边距叠加问题
+  可以使用内边距，或与元素背景色相同的小边框来修复。
+3.遇到bug时，可跟元素添加一个边框，看看其效果。
+CSS hack 是指我们为了兼容各浏览器,而使用的特别的 css 定义技巧。
+
+条件注释
+<!--[id gte IE 6]>
+<link rel='xxxx' type='text/css' href='xxx' />
+<!--[endid]-->
+
+
+css有很强的向前兼容性，浏览器不理解某个选择器，属性，或值，则会 忽略 。 
+---------------------
+.meizu-header a.hover,.meizu-header a:hover{color:#31a5e7}
+.meizu-header ul.meizu-header li{list-style:none; margin:0; padding:0}
+.meizu-header p{margin:0; padding:0; width:100%;*width:100px}
+class前面加上一个标志可以避免类的冲突
+-----------------------------
+用fullpage是css  .section>div{  xxx }    不起作用，原因是fullpage插件往html中多添加了一些东西
+
+
+h5之前的代码
+<object>
+<param  xxxxx/>
+<embed src=' http://xxxxxxx'> </embed>
+</object>
+====================================
+#voices ul li.l1 a em {
+  white-space: nowrap;
+  width: 135px;
+  overflow: hidden;
+  text-overflow: ellipsis;       用再截断内容后加...
+  -o-text-overflow: ellipsis;
+  -khtml-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+}
+==================
+左侧双引号悬挂
+
+#featurette1 p {
+  text-indent: -5px;
+}
+------------------------
+多栏文本的设计
+
+
+html正常写
+#main-video {
+  float: left;
+  margin: 40px 10px 70px;
+  width: 520px;
+  -moz-column-count: 2;    栏数
+  -moz-column-gap: 20px;   间距
+  -webkit-column-count: 2;
+  -webkit-column-gap: 20px;
+}
+
+
+#main-video p {
+  font-size: 11px;
+  text-indent: 17px;
+}
+
+
+----------------------
+绝对定位的元素的背景会把浮动的元素遮住，此时把浮动的元素的position设为relative就行了
+-------------------
+img.avatar {
+  border: 2px solid #fff;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 5px #999;
+  -moz-box-shadow: 1px 1px 5px #999;
+}       照片底片感觉似的图片
+
+
+====================
+.title1-border-out {           多边形
+    position: absolute;
+    top: 27px;
+    left: 0;
+    width: 100px;
+    height: 22px;
+    background-color: #a8a8a8;
+    shape-outside: polygon(90px 0px,97px 11px,90px 22px,0px 22px,0px 0px);
+    -webkit-clip-path: polygon(91px 0px,97px 12px,87px 26px,0px 22px,0px 0px);
+}
+-----------------------
+        input:focus{ border: none; outline:none; }  点击后边去掉
+
+
+
+------------------------
+图片要指定其宽高！！！！！！！
+
+
+======================
+1.prettify前端的代码美化工具。
+2.<meta http-equiv="refresh" content="30">
+3.指定图像的高度和宽度的一个很好的习惯。如果图像指定了高度宽度，
+
+页面加载时就会保留指定的尺寸。如果没有指定图片的大小，加载页面时有可能会破坏HTML页面的整体布局。
+原型设计工具axure也要写上（可以导入一些别人制作的比较好看的样式插件，比如bootstrap的）
+
+
+
+bootstrap 多引入js文件的话会出现秒闪秒退的情况，这是在查看加载的js文件中看到相同的文件都加载了两次，为啥加载两次呢，因为公共的模板被加载了两次
+
+
+-------------------------------扩大或缩小页面比例---------------------------------------------
+$(function() { 
+var r = document.body.offsetWidth / window.screen.availWidth; 
+$(document.body).css("-webkit-transform","scale(" + r + ")"); 
+}); 
+$(window).resize(function() { 
+var r = document.body.offsetWidth / window.screen.availWidth; 
+$(document.body).css("-webkit-transform","scale(" + r + ")"); 
+}); 
+-----------------------
+SVG不能直接嵌入到Opera。
+
+
+
+

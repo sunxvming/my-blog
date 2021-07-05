@@ -1,0 +1,846 @@
+
+1:Smarty 可以协助我们分离 PHP 与 html 代码 ,  就是让 html 制作人员看不到 PHP 标签
+
+ 2:也可以对网站进行缓存(重要)
+
+4:体会模板的思想
+
+ 
+
+1:Cotroller与view的分离是一种功能上的分离,是一种分工的思想.
+
+而php与html代码的分离,仅是代码层面或视觉层面上的分离.
+
+2:smarty与MVC有什么关系?
+
+没关系.
+
+Smarty完成的仅是代码分离.
+
+3:不用smarty,仍然是能够完成MVC模式的开发
+
+ 
+
+Smarty的一些负面思考:
+
+1:混杂在HTML代码中smarty标签和PHP代码. 对于web前端开发人员来说,没有实质区别
+
+2:在实际开发中,html模板-->smarty模板的制作,依然是由PHPer来完成的
+
+3:解析,编译本身消耗性能
+
+4:增多了很多变量,(页面内的变量,都要赋值到smarty对象-->_tpl_vars 属性上,多了一个变量的副本)
+
+ 
+
+Smarty模板类的工作流程
+
+1:引入smarty模板类
+
+2:assign赋值, 把外界变量传到对象内部(存在一个属性上)
+
+3:display (编译模板,把标签模板编译成 html+php混杂的形式)
+
+4:运行编译后的模板
+
+ ========================================
+
+
+< ? php
+ 
+// 写一个mini类,完成模板到php文件的翻译
+class mini {
+    public $template_dir = './view/' ;
+    public $compile_dir = './comp/' ;
+    public $_tpl_vars = array ();
+ 
+    // comp方法
+    // 功能:负责把模板中标签翻译成PHP代码
+    public function comp($temp) {
+        $cont = file_get_contents($this - > template_dir . $temp);
+        $cont = str_replace( '{$' , '<?php echo $this->_tpl_vars[\'' ,$cont);
+        $cont = str_replace( '}' , '\']; ?>' ,$cont);
+ 
+        $fh = fopen($this - > compile_dir . $temp . '.php' , 'w' ); // 第2个参数代表准备写入.
+        fwrite($fh,$cont);
+        fclose($fh);
+ 
+        return $this - > compile_dir . $temp . '.php' ;
+    }
+ 
+    // 把外界的值传递到对象的属性上 ,'title','今天晴天'
+    public function assign( '$key' ,$value = null) {
+ 
+        // 如果第1个参数,是数组,则把该数组的单元都追加到_tpl_vars下面去.
+        if (is_array($key)) {
+            $this - > _tpl_vars = array_merge($this - > _tpl_vars,$key);
+        } else {
+            $this - > _tpl_vars[$key] = $value;
+        }
+    }
+ 
+ 
+    public function display($temp) {
+        $path = $this - > comp($temp);
+        include ($path);
+    }
+}
+
+
+
+========================================
+
+
+< ? php
+session_start();
+ 
+// 1:引入
+include ( '../smarty/smarty.class.php' );
+ 
+// 2:实例化
+$smarty = new smarty();
+ 
+// 3:配置
+$smarty - > template_dir = './view' ;
+$smarty - > compile_dir = './comp' ;
+ 
+ 
+// 配置smarty的缓存
+// 1: 打开缓存
+$smarty - > caching = 1 ;
+// 2: 设置生命周期
+$smarty - > cache_lifetime = 3600 ; // 以秒为单位
+ 
+// 4: 赋值 显示
+ 
+$id = $_GET[ 'id' ] + 0 ;
+if ($id == 0 ) {
+    $id = 1 ;
+}
+ 
+$lev = $_GET[ 'lev' ] + 0 ;
+ 
+$cached_id = $id . '_' . $lev;
+ 
+ 
+function insert_wel() {
+    return $_SESSION[ 'username' ];
+}
+ 
+// 判断模板的缓存是否有效时,参数应和display时一致
+if ( ! $smarty - > is_cached( '02.html' ,$cached_id)) {
+    $conn = mysql_connect( 'localhost' , 'root' , '111111' );
+    $sql = 'use food' ;
+    mysql_query($sql,$conn);
+ 
+    $sql = 'set names utf8' ;
+    mysql_query($sql,$conn);
+ 
+ 
+    $sql = 'select goods_name,shop_price,goods_number,add_time from goods where goods_id=' . $id;
+    $rs = mysql_query($sql,$conn);
+    $goods = mysql_fetch_assoc($rs);
+    echo '走了数据库' ;
+ 
+    // print_r($goods);exit;
+ 
+    $smarty - > assign( 'goods' ,$goods);
+    $smarty - > assign( 'lev' ,$lev);
+}
+ 
+$title = '这是今天的标题' ;
+$smarty - > assign( 'title' ,$title);
+ 
+// 根据模板名+$id 2个参数生成模板文件
+$smarty - > display( '02.html' ,$cached_id);
+ 
+? >
+
+
+
+ ====================================
+
+
+     < body >
+        < h1 >你今天{$age}岁</ h1 >
+        < h1 >你{if $age <= 12 } 是小孩
+            {else}
+            不是小孩
+        {/if}
+ 
+        准确的说,你是
+        {if $age <= 12 }
+            小孩
+            {elseif $age> 12 && $age <= 18 }
+                少年
+            {elseif $age> 18 && $age <= 28 }
+             青年
+             {else}
+             中老年
+        {/if}
+        </ h1 >
+ 
+        < table border = "1" >
+            < tr >
+                < td >销售排名</ td >
+                < td >商品名称</ td >
+                < td >商品价格</ td >
+                < td >库存量</ td >
+                < td >上架时间</ td >
+            </ tr >
+            {foreach from=$list key=k item=v name =glist}
+            < tr >
+                < td >{$smarty.foreach.glist.iteration}</ td >
+                < td >{$v.goods_name|truncate: 4 }</ td >
+                < td >{$v.shop_price|decre: 3 }</ td >
+                < td >{$v.goods_number}</ td >
+                < td >{$v.add_time}</ td >
+            </ tr >
+            {/foreach}
+            < tr >
+                < td colspan = "5" >销售排名top{$smarty.foreach.glist.total}</ td >
+            </ tr >
+        </ table >
+    </ body >
+
+
+
+===========================================
+
+
+Smarty的配置
+
+$template_dir    =  'templates';  // 模板文件的所在目录
+
+$compile_dir     =  'templates_c'; // 编译后的文件所在目录
+
+$config_dir       =  'configs'; // 允许独立的配置文件存在,并且配置文件如果多了,允许单独放在一个目录里,
+
+$cache_dir  = 'cache'  // 代表缓存文件的存放目录
+
+plugins_dir     =  array('plugins','p2','p3');  // 插件目录(如果自行开发插件,可能会用到)
+
+ 
+
+left_delimiter  =  '{';   // 标签的左分界符
+
+Right_delimiter = '}'    // 标签的右分界符
+
+Caching = 0/1/2 // 是否开启缓存
+
+cache_lifetime  = 3600 秒 // 缓存生命周期
+
+  Smarty的赋值
+
+1: $smarty->assign('key',value);   
+
+发生的变化$smarty->_tpl_vars[key] = value;
+
+ 
+
+2: 如果assign($arr)中的第一个参数是数组
+
+则会循环数组,把数组的每一个单元追加到_tpl_vars属性上
+
+ 
+
+3:append追加赋值
+
+如果需要把多个值,赋给同一个标签变量, 不必把多个值形成数组然后赋值,
+
+可以通过append,往一个标签反复追加值.
+
+ 
+
+例:
+
+$smarty->append('goods','自行车');
+
+$smarty->append('goods','火车');
+
+此时: 推论 $smarty->_tpl_vars['goods'] = array(自行车,火车);
+
+ 
+
+如果append进去的值是数组,并且第3个merge参数为true,则会把数组单元逐个添加到goods数组里去.
+
+$smarty->append('goods',array('name'=>'刘备','age'=>28),true);
+
+此时, $smarty->_tpl_vars['goods'] = array(自行车,火车,'name'=>'刘备','age'=>28);
+
+ 
+
+如果是$smarty->append('goods',array('name'=>'刘备','age'=>28),false);
+
+此时, $smarty->_tpl_vars['goods'] = array(自行车,火车,array('name'=>'刘备','age'=>28));
+
+  变量来源
+
+1:assign赋值得到的变量 , 存储在_tpl_vars属性中
+
+2:$smarty系统变量, 对于cookie,session,get,post,$_SERVER等信息,存储在_smarty属性中
+
+ Smarty会自动捕捉,并保存起来,形成系统变量,可以直接用标签来引用.
+
+3:从配置文件读取的变量 , 存储在_config属性中
+
+ 
+
+1.1 对于assign赋值得到的变量
+
+对于字符串型,数值型, 直接通过  $标签名  来引用
+
+ 
+
+1.2 对于数组变量
+
+如果键是字符串,则用 $标签名 . 键
+
+如果键是数字, 则用  $标签名[键]
+
+ 
+
+1.3 对于对象方式
+
+用 $标签名->属性名  来引用对象的属性值
+
+用 $标签名->方法()  来调用对象的方法的返回值
+
+ 
+
+ 
+
+2.1 smarty中的系统变量
+
+以$smarty开头
+
+例: $smarty.now, 被 解析成 time();
+
+$smarty.get.key ---> $_GET[key]
+
+$smarty.const.常量名 ---> echo 常量名
+
+ 
+
+ 
+
+3.1 从配置文件得到的变量
+
+配置文件可以用来存储常用且很少变的数据,比如网站名,备案号
+
+通过配置文件得到这些信息,不必去读数据库,可以省一些数据库的开销.
+
+ 
+
+配置文件的写法;
+
+配置项1=值1
+
+配置项2=值2
+
+ 
+
+配置文件的载入
+
+Config_load  file="xxx.conf" 
+
+ 
+
+配置文件中变量的引用
+
+$smarty.config.配置项
+
+或者 #配置项#
+
+
+模板中的逻辑控制
+
+从MVC的角度看,在模板中加逻辑控制不正确的,
+
+但是, 有时,不同的场景下,模板的差异非常小时, 就比较适合在模板里加逻辑控制,
+
+可以减少模板的数量.
+
+ 
+
+If控制结构
+
+{if 表达式}
+
+....
+
+....
+
+{/if}
+
+ 
+
+If else 控制结构
+
+{if 表达式}
+
+...
+
+....
+
+{else}
+
+....
+
+....
+
+{/if}
+
+ 
+
+If elseif 控制结构
+
+{if  表达式}
+
+...
+
+...
+
+{else if 表达式}
+
+...
+
+...
+
+{/if}
+
+ 
+
+ 
+
+ 
+
+
+Smarty中的foreach控制结构
+
+要循环谁: 某个数组  A
+
+当前循环的单元的键赋给哪个临时变量  B
+
+当前循环的单元的值赋给哪个临时变量  C
+
+ 
+
+{foreach from= $tag  key=k  ietm=c } 
+
+.....
+
+.....
+
+....
+
+{/foreach}
+
+$smarty->_foreach 属性, 是一个数组
+
+如果smarty的foreach有name属性, 设name="abc"
+
+则smarty->_foreach['abc'] = array(total=>循环体个数,iteration=0);  
+
+然后每循环一次,iteration 递增1
+
+ 
+
+可以引用$smarty.foreach.foreahcname.key的属性
+
+Key =
+
+total : 循环个数
+
+Iteration: 当前循环次数
+
+Index : 当前索引, iteration-1
+
+First: 判断是否是第1次循环
+
+Last: 判断是否是最后一次循环
+
+ 
+
+注意:foreach的name不能重复
+
+ 
+
+Foreach中的key=k, item=v
+
+会影响到同名的标签,请注意,标签不要和foreach中的标签同名.
+
+ 
+
+
+Smarty中数学运算 &比较运算 & 逻辑运算
+
+Smarty比较运算符
+
+>,<,>=,<=,!=,==,和PHP中一样.
+
+Smarty对比较运算符做了一个扩充
+
+如 gt(>),lt(<), gte(>=), eq(==), 不一一列举,可以在smarty_comilper.class.php的1330行
+
+左右看到比较运算符的扩充情况.
+
+|| &&, or and
+
+ 
+
+标签中可以进行数学的+1*/%运算,
+
+但是注意,
+
+1:运算符两边不要有空格
+
+2:运算表达式应以标签开头 Smarty中的"变量调节器"
+
+例:{$intro|upper},会把$info的内容转换为大写
+
+原理:把$intro作为参数,传给upper调节器对应的函数,
+
+并显示该函数值,而不是$intro
+
+ 
+
+$标签变量本身 会当成 调节器的第1个参数自动传入,
+
+如果需要传更多参数,在调节器后面,用':'隔开更多参数.
+
+例  {$news|truncate:7:"..."}
+
+ 
+
+常用变量调节器
+
+date_format [格式化日期] 
+
+default [默认值] 
+
+escape [编码] 
+
+indent [缩进] 
+
+lower [小写] 
+
+nl2br [换行符替换成 <br />] 
+
+replace [替换] 
+
+strip [去除(多余空格)] 
+
+strip_tags [去除html标签] 
+
+upper [大写] 
+
+动手写一个变量调节器
+
+Smarty模板编译的特点
+
+Smarty的一个特点: 先编译成.php文件,再执行该 PHP
+
+Smarty在第一次运行的时候,稍慢 ,包含了 编译模板+包含执行
+
+后面的运行中速度会快,因为直接包含PHP文件.
+
+ 
+
+问: smarty什么时间重新编译模板?
+
+答: 根据模板修改的时候.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+如果想强制编译: 比如在开发过程中      可以force_compile=true 强制编译
+
+Display, fetch的区别
+
+Display 是ftech方法第4个参数为true的调用.
+
+Fetch第4个参数为true,则把编译后文件的运行结果, 输出!
+
+.......           为false,则把编译后文件的运行,返回,不输出.
+
+ 
+
+即: display() = echo fetch();
+
+ 
+
+如何实现页面静态化?
+
+就是把.php的输出内容,保存成html
+
+但需要考虑以下细节:
+
+1:生成的静态页面的地址,
+
+例:253新闻, 如果是动态情况下,News.php?nid=253
+
+如果生成了静态页面 253.html
+
+不能直接放一个目录下, 要按规律分目录,例如 年/月日/类别/253.html
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+大批量生成静态页面,以织梦为例
+
+新闻表, 
+
+有个字段标志: 是否已生成静态页面 ,
+
+另个字段记录: 生成后静态页面的地址
+
+
+
+
+ 
+
+注意目录的深度: 目录深不利于SEO,浅的话,每个目录放的页面过多.
+
+ 
+
+ 
+
+Smarty如何获取PHP编译文件要输出的内容
+
+答:利用输出缓冲来实现
+
+Ob_*系列函数
+
+ 
+
+
+缓存
+
+1:首选打开缓存配置项  $smarty->caching = true;
+
+2:缓存生命周期的配置选项: $smarty->cache_lifetime = 整数秒
+
+3:$smarty->is_cached()判断是否缓存,如果缓存,则避免IO操作
+
+ 
+
+单模板多缓存
+
+1个模板还可以根据其他参数,缓存多个结果,比如商品页面根据商品id来为每个商品缓存一个页面.
+
+原则: 凡是能够影响到页面内容的参数,就要根据此参数影响cached_id
+
+这样,不同参数才能对应不同的缓存内容.
+
+ 
+
+用法:
+
+Display(模板名 [,缓存名]);
+
+同一个模板名,如果不加缓存名,只能生成一个缓存文件.
+
+如果有缓存名,则会按 缓存名+模板名 生成缓存文件.
+
+如果同一个模板,提供不同的缓存名, 
+
+则一个模板会产生多个缓存.
+
+ 
+
+同理, 在判断某个模板是否已被缓存的时候,也需要注意,
+
+要传一个缓存名.
+
+即 is_cached(模板名,缓存名)  才能合理判断.
+
+ 
+
+缓存判断原理
+
+当前时间 - 缓存生成时间 > 生命周期 
+
+
+
+
+局部缓存
+
+在模板中,不需要缓存的地方,用{insert name="nocachedid"}来表示, 那么该处最终的值是 insert_nocachedid()的返回值
+
+ 
+
+ 
+
+通过 hash值,把"局部不缓存"的数组包围起来,
+
+用该hash值,把整个缓存文件 explode拆成数组
+
+Arrray(
+
+'html代码'
+
+不缓存内容,
+
+Html代码
+
+不缓存内容
+
+)
+
+ 
+
+循环该数组, 分析"不缓存内容",把数组分析出来,读取数组的$arr['name'],
+
+该name就是不缓存内容,而且是待调用函数的名称.
+
+调用 insert_name(), 把函数的返回值替换掉"不缓存内容"
+
+
+数组循环替换一遍之后,就把页面上所有不缓存的部分都替换成了函数的返回值,
+
+最后,
+
+再把数组implode拼接起来,就是最终的页面内容.
+
+
+
+
+清除缓存
+
+清除缓存就把"模板名+缓存名"对应的缓存文件删除掉
+
+Clear_cache(模板名[,缓存名]);
+
+Clear_all_cache();
+
+Smarty定界符冲突的解决
+
+如果smarty用定界符,比如 {,},
+
+此定界在js,css里都有很可能碰到,如果碰到,会当成smarty标签来解析,进而引发错误发生.
+
+ 
+
+解决方法:
+
+1:换定界符,如 {> <}
+
+2:用literal标签,"原义","字符意义的","无夸张的"
+
+ 
+
+ 
+
+模板的包含
+
+用include标签来包含
+
+具体语法 {include file="xxx.html"}
+
+注意,也可以有多级目录来放置模板, 如果有多级目录,
+
+以哪一个目录来定位?              答:以$smarty->template_dir目录来定位
+
+一:缓存
+
+按缓存位置分:文件缓存或者内存缓存
+
+1:文件缓存就是把数据以文件形式保存,
+
+这个过程,是消耗IO资源.
+
+Smarty指定的文件下文件过多
+
+缓存页面过多时  如1000会引起性能下降
+
+解决  分目录
+
+案例 session存储时可设置 session_save_path= ’ 2;路径 ’
+
+两层深度
+
+ 
+
+2:页面缓存或者静态页面缓存的是整体html代码,有大量的冗余的缓存.
+
+按缓存内容分: 页面缓存和数据缓存
+
+ 
+
+3:真正应该缓存的是数据,而不是文件
+
+缓存在内存中 如memcached(纯内存  redis    mongodb（可保存在硬盘上
+
+ 
+
+例如:1500W条数据中,300W条被频繁访问,
+
+可以把这300W条数据(不是静态页面 ),缓存到内存. 
+
+甚至把300W条数据缓存到数据库'
+
+ 
+
+  14  补充：
+
+三种页面跳转 :
+
+   1 、 header('location:index.php?act=sucess');
+
+   2 、 <meta http-equiv="refresh" content="3;URL='index.php'"> 
+
+   3 、 <script type="text/javascript">window.location.href=’’
+
+< / script >
+
+ 
+
+ 
+
+$smarty->display( ‘模板文件’ ,  缓存 id);  // 创建带 ID 的缓存
+
+$smarty->clear_all_cache(); // 清除所有缓存
+
+$smarty->clear_cache( ‘模板文件‘ ); // 清除指定模板文件的缓存
+
+$smarty->clear_cache( ‘模板文件’ , 缓存 id); // 清除指定 id 的缓存
+
+版本阶段说明
+
+alpha 版 , 以实现功能为主， bug 较多，通常在开发者间内部交流；
+
+beta 版，相对 alpha 版有较大改进，消除了严重错误 ( 界面美化 ) ；
+
+RC 版，版本相当成熟，基本无 bug ，与发行版差不多；
+
+Release 版，正式版，一般以符号 R 代替
+
+
+
+
+
+
+

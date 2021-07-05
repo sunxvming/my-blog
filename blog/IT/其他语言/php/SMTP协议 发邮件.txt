@@ -1,0 +1,673 @@
+
+
+1.利用$_REQUEST获取客户端信息
+2、Cache-Control:no-cache   pragma:no-cache 服务器端不缓存
+3、reference  从哪个页面来的
+5、connection：keep-active 
+6、php脚本实现批量注册
+
+
+$host 
+=
+ 
+'localhost'
+;
+
+$port 
+=
+ 
+80
+;
+
+//var_dump(fsockopen($host,$port,$errnum,$errstr,30)); 返回一个资源
+
+
+for
+(
+$i
+=
+0
+;
+$i
+<
+200
+;
+$i
+++){
+
+    $fh 
+=
+ fsockopen
+(
+$host
+,
+$port
+,
+$errnum
+,
+$errstr
+,
+30
+);
+
+    $rq 
+=
+array
+();
+
+    $rq
+[]
+ 
+=
+ 
+'POST /test/reg.php HTTP/1.1'
+ 
+;
+    
+//POST一定要大写！小写是不行的
+
+    $rq
+[]
+ 
+=
+ 
+'Host:localhost'
+;
+
+    $rq
+[]
+ 
+=
+ 
+'Content-Type: application/x-www-form-urlencoded'
+;
+
+    $data 
+=
+ 
+'username=lisalian&email=a1@hot.com'
+;
+
+    $rq
+[]
+ 
+=
+ 
+'Content-length:'
+ 
+.
+ strlen
+(
+$data
+);
+
+    $rq
+[]
+ 
+=
+ 
+''
+;
+
+    $rq
+[]
+ 
+=
+ $data
+;
+
+
+    $reqstr 
+=
+ implode
+(
+"\n"
+,
+$rq
+);
+  
+//小细节 用换行符 一定要用双引号 引起来  否则单引号只是当作普通字符处理
+
+    fwrite
+(
+$fh
+,
+$reqstr
+);
+
+    fclose
+(
+$fh
+);
+
+}
+
+
+ 
+*
+ 
+达到想要的格式
+
+POST 
+/
+test
+/
+reg
+.
+php HTTP
+/
+1.1
+
+Host
+:
+localhost
+
+Content
+-
+Type
+:
+ application
+/
+x
+-
+www
+-
+form
+-
+urlencoded
+
+Content
+-
+length
+:
+36
+
+
+username
+=
+lisalian
+&
+email
+=
+lisa@hot
+.
+com
+
+
+7、php脚本获取网站信息，用Firefox分析请求头信息 脚本就模拟神魔头信息
+   网站发的内容可能被压缩gzip
+=========================================
+1.用户代理（UA）型
+
+2.基于www的电子邮件
+
+ 
+电子邮件发送协议 ：
+
+ SMTP（简单邮件传输协议）：SMTP协议的客户端和服务器端都是 通过命令和响应的形式进行交互 ，即SMTP客户通过命令向SMTP服务器发送操作请求，而服务器则通过3位的数字对响应的请求作出响应。 邮件传送主要包括3个阶段： 建立连接 、 邮件传送 和 终止连接 
+
+MIME协议( Multipurpose Internet Mail Extensions )， 通用因特网邮件扩充协议 ，作为SMTP的一种辅助协议，其引入是为了克服SMTP的如下不足：发送格式和附件的限制
+
+
+ 邮件接收协议，是一种基于“ 拉 ”的协议
+
+ POP协议， Post office Protocal ，其有两种工作方式 ：删除方式和保存方式。
+
+IMAP协议， Internet Mail Access Protocal （因特网邮件读取协议）， 说白了就是POP3协议不太愿意让用户直接操作服务器，而IMAP正好客户了这些缺点 。
+
+
+
+
+
+
+
+
+邮件地址的域和邮件服务器的域不是一回事 .
+
+Baqi313@163.com,  他的 smtp 服务器就是 163.com [ 错 ]
+
+Baqi313@163.com 是为了给我们一个统一的好记的域 .
+
+ 
+
+要把 邮件地址的域 解析为  " 邮件服务器具体地址 ".
+
+这种解析成为 mx 解析 .
+
+A 记录  --->  域名 ->IP 的记录
+
+Mx 记录 --> 邮件地址的域 ==>     邮件服务器具体地址 .
+
+查 邮件服务器地址   nslookup -qmx qq.com
+试用 telnet 发送邮件
+
+有两种方式：匿名+实名(需要验证)。区别是实名验证的可以发送到外网，匿名的用户在一般服务器是不允许中继的，只能进行内网(本域名邮箱)发送邮件测试。
+
+
+
+telnet imap
+.
+139.com
+ 
+25
+ 
+  
+#SMTP服务器 端口号25
+
+220
+ localhost richmail system v10
+(
+2f0e56fe715fbc0
+-
+910a5
+)
+
+helo 
+139.com
+             
+#确认服务器应答
+
+250
+ localhost richmail system v10
+(
+2f0e56fe715fbc0
+-
+910a5
+)
+
+auth login               
+#登录认证
+
+334
+ dXNlcm5hbWU6       
+
+Y2JhY2JhQDEzOS5jb20
+=
+     
+#输入邮件帐户带域名 base64加密字符
+
+334
+ 
+UGFzc3dvcmQ6
+ 
+
+MTIzNA
+==
+                 
+#输入帐户密码  base64加密字符
+
+235
+ 
+Authentication
+ successful
+
+mail from
+:
+ 
+<</
+STRONG
+>
+cbacba@139
+.
+com
+>
+  
+#注意冒号后加空格 邮箱地址用<>括起
+
+250
+ ok
+
+rcpt to
+:
+ 
+<</
+STRONG
+>
+abcabc@163
+.
+com
+>
+    
+#注意冒号后加空格 邮箱地址用<>括起
+
+250
+ ok
+
+data                         
+#写邮件
+
+354
+ end with 
+.
+
+From
+:
+ cbacba@139
+.
+com     
+#邮件内标注发件人邮箱地址 主要呈现于客户端
+
+To
+:
+ abcabc@163
+.
+com       
+#收件人邮箱地址
+
+Date
+:
+ 
+2013
+/
+12
+/
+1
+ 
+21
+:
+21
+        
+#发送日期 客户端查看不会影响还会以服务时间为主
+
+Subject
+:
+ 
+Hello
+               
+#主题
+
+Hi
+,
+I
+'
+m 
+Jetty
+.
+                
+#邮件内容 注意前后都加1行空白
+
+.
+                            
+#以.+{Enter}回车按键 直接发送邮件
+
+250
+ ok                
+
+quit                         
+#退出
+
+
+我的FOXMAIL中的邮件服务器的信息
+
+ 
+-------------------------------------------------------------------------------------------
+
+用 PHP 来发送邮件 .
+
+PHP 有 mail 函数 , 是一个包装好的 smtp 发送过程 .
+
+我们可以直接调用该函数 , 往服务器上发送邮件 .
+
+需要 在 PHP.ini 里可以配置
+
+ 
+
+
+ 
+
+Mail 函数连接 php.ini 中的 smtp 服务器 , 并根据 smtp 协议 , 和该服务器进行通讯 .
+
+按参数来发送邮件 .
+
+ 
+
+请注意 : mail 函数不可能把邮件地址的 mx 记录解析出来 , 找到服务器地址并发送 .
+
+因此 , 需要我们在 php.ini 里把 smtp 服务器配置好 , 才能往 163 发送 .
+
+注意： 不能传用户名和密码, 即,mail函数只能直投,不能完成验证.  
+
+==========================================
+继续想解决办法
+1: 找网上的免费的允许匿名投递的smtp服务器（不靠谱）
+2: 自己建一个smtp服务器,且不用验证.（也可以）
+3.还有一个办法: 利用PHP的fsockopen ,打开smtp.163.com， 获取句柄, 发送用户名/密码. 来回交互.
+4.密码验证的投送（可以用phpmailer，或pear中的mail组件）
+
+
+【phpmailer发邮件】
+
+发送要经过测试，以免出现乱码
+
+
+
+<?
+php
+
+require
+(
+'./PHPMailer/class.phpmailer.php'
+);
+
+$mailer 
+=
+ 
+new
+ 
+PHPMailer
+();
+
+//配置发送的smtp服务器和账号
+
+$mailer
+->
+Host
+ 
+=
+ 
+'smtp.163.com'
+;
+
+$mailer
+->
+SMTPAuth
+ 
+=
+ 
+true
+;
+
+$mailer
+->
+Username
+ 
+=
+ 
+'sunxvming@163.com'
+;
+
+$mailer
+->
+Password
+ 
+=
+ 
+'ming1.618v'
+;
+
+
+$cont 
+=
+ 
+<<<
+EMAIL
+
+   
+内容内容内容内容内容内容内容内容内容内容内容内容内容内
+
+   
+容内容内容内容内容内容内容内容内容内
+
+   
+容内容内容内容内容
+
+EMAIL
+;
+
+
+$mailer
+->
+CharSet
+ 
+=
+ 
+'utf-8'
+;
+
+$mailer
+->
+ContentType
+ 
+=
+ 
+'text/plain'
+;
+
+$mailer
+->
+Encoding
+ 
+=
+ 
+'base64'
+;
+     
+// 防止服务器中继时,服务器能接收的编码不一致,带来问题.
+
+$mailer
+->
+From
+ 
+=
+ 
+'sunxvming@163.com'
+;
+ 
+//需要和你使用的邮件服务器的账号相同，为了防止冒充别人发吧
+
+$mailer
+->
+FromName
+ 
+=
+ 
+'me'
+;
+
+$mailer
+->
+Subject
+ 
+=
+ 
+'我的主题'
+;
+
+$mailer
+->
+Body
+ 
+=
+ $cont
+;
+
+
+$mailer
+->
+AddAttachment
+(
+"./2016-11-28 2016.csv"
+);
+ 
+// 添加附件
+
+//$mailer->IsHTML(true); //是否使用HTML格式
+
+
+// 设置发送邮件的方式
+
+$mailer
+->
+IsSMTP
+();
+ 
+// 设置phpMailer使用sock接口按照smtp协议与服务器交互. 用IsSMTP发送,有一个很大的好处---能使用账号/密码来发送邮件
+
+
+$mailer
+->
+AddAddress
+(
+'466205048@qq.com'
+,
+'hahaha'
+);
+   
+//发送到的 email+name
+
+
+if
+(
+$mailer
+->
+Send
+())
+ 
+{
+
+    echo 
+'send success'
+;
+
+}
+ 
+else
+{
+
+    echo 
+'send fail'
+;
+
+	echo 
+"错误原因: "
+ 
+.
+ $mailer
+->
+ErrorInfo
+;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

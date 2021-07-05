@@ -1,0 +1,631 @@
+外键： constraint did_FK foreign key(did) references department(id)
+         关键字        名字（以 _FK结束）   
+
+
+create table if not exists middle(
+ sid int,        中间表
+ tid int,
+ constraint sid_FK foreign key(sid) references student(id),
+ constraint tid_FK foreign key(tid) references teacher(id),
+ primary key(sid,tid)
+);
+
+
+使用MySQL特有函数：
+到年底还有几少天？
+select datediff('2011-12-31',now()); 
+
+
+截取字符串
+select substring('mysql',1,2); //从1开始
+
+
+保留小数点后2位(四舍五入)
+select format(3.1415926535657989,3);  
+
+
+向下取整(截取)
+select floor(3.14);
+select floor(-3.14);
+select floor(3.54);
+select floor(-3.54);
+
+
+取随机值
+select format(rand(),2);
+
+
+取1-6之间的随机整数值
+select floor(rand()*6) + 1;
+ 
+随机产生'a'-'z'之间的随机字符
+(1)查询'a'-'z'对应的Unicode值
+   select ascii('a');//97
+   select ascii('z');//122
+
+
+(2)产生97-122之间的随机整数
+   select floor(rand()*26)+97;
+
+
+(3)产生97-122对应的字符
+   select char(floor(rand()*26)+97);
+
+
+查MySQL文档，利用MySQL的函数：对密码'123456'进行MD5加密。
+select md5('123456');
+
+
+ 
+MySQL特有 流程控制函数 ：
+1) if(value,第一值,第二值);
+value为真，取第一值，否则取第二值
+将5000元（含）以上的员工标识为"高薪"，否则标识为"起薪"
+类似于Java中的三目运算符
+
+
+select if(salary>=5000,'高薪','起薪')
+from user;
+
+
+2) ifnull(value1,value2)
+value1为NULL，用value2替代
+将薪水为NULL的员工标识为"无薪"
+
+
+select name as 员工,ifnull(salary,'无薪') as 薪水情况
+from user;
+
+
+3) case when [value] then [result1] else [result2] end;
+当value表达式的值为true时，取result1的值，否则取result2的值(if...else...)
+将5000元（含）以上的员工标识为"高薪"，否则标识为"起薪"
+
+
+select 
+case when salary>=5000 then '高薪'
+        else '起薪' end
+from user; 
+
+
+4) case [express] when [value1] then [result1] when [value2] then [result2] else [result3] end;
+当express满足value1时，取result1的值，满足value2时，取result2的值，否则取result3的值(switch...case..)
+将7000元的员工标识为"高薪"，6000元的员工标识为"中薪",5000元则标识为"起薪"，否则标识为"低薪"
+
+
+select 
+case salary 
+when 7000 then '高薪'
+when 6000 then '中薪'
+when 5000 then '起薪'
+else '低薪' end
+from user;
+
+
+2)将性别为男的员工工资-1000，性别为女的员工工资+1000,在一条SQL上完成
+select if(gender='female',salary+1000,salary-1000) as 工资 from user; 
+  -----------------------------------
+1 表的完整性
+  (1)实体完整性：每条记录有一个唯一标识符，通常用无任何业务含义的字段表示
+  (2)参照完整性：一张表的某个字段必须引用另一张表的某个字段值
+  (3)域完整性：域即单元数据，域中的数值必须符合一定的规则
+ 
+
+
+3 主键的特点
+  (1)主键不能重复
+  (2)主键不能为NULL
+  (3)auto_increment是MySQL特有的，默认从1开始，该ID值与表同生亡
+  (4)多人项目中，通常使用 UUID 来生成唯一的主键值，便于多个 合并数据 时 依然保持实体完整性
+
+
+4 唯一约束的特点
+  (1)非NULL值不能重复
+  (2) 可以插入多个NULL值
+  (3)'NULL'空串和NULL是不同的概念 
+
+
+5 非空约束特点
+  (1)不能插入NULL值
+  (2)主键约束=非NULL约束+唯一约束
+
+
+6 外健特点
+  (1)外键值必须来源于所引用别一个表主键值，或NULL
+ 存在外键的主键还是不能删除的
+----------------------------------------------------------------------------------
+8 什么是JDBC？为什么使用JDBC
+  1)SUN公司为使Java程序灵活的访问各种不同的关系型数据库提供的规则。
+  2)为什么使用JDBC？
+a)降低Java程序操作数据库的成本
+b)使Java程序灵活移植
+
+
+*9 祥解JDBC连接数据库的各个步骤
+  1)注册驱动： DriverManager .registerDriver(new com.mysql.jdbc.Driver());
+    java.sql.Driver (接口)-com.mysql.jdbc.Driver(实现类)
+(首先返回true)boolean acceptsURL(String url) 
+         查询驱动程序是否认为它可以打开到给定 URL 的连接。 
+(然后)Connection connect(String url, Properties info) 
+          试图创建一个到给定 URL 的数据库连接。 
+
+
+    注意：上述代码会向DriverManager注册二次相同的MySQL驱动，其中一次在Driver实现类中
+   
+ 项目中推荐使用以下代码间接 注册数据库驱动 ：
+Class.forName("com.mysql.jdbc.Driver");
+优点：
+a)只注册一次
+b)无需导入与具体数据库 驱动 相关的包  
+  2)获取数据库连接对象：
+Connection conn = DriverManager.getConnection( "jdbc:mysql://127.0.0.1:3306/mydb2","root","root");   
+  3)关闭流
+    a)依次按 resul->statement->connection 顺序关闭
+    b)在能完成业务的情况下，尽早关闭
+  
+*10 JDBC的六个固定步骤
+   1，注册数据库驱动[利用反射]
+   2，取得数据库连接对象Connection
+   3，创建SQL对象
+   4，执行SQL命令，并返回结果集
+   5，处理结果集
+   6，依次关闭结果集  
+*11 使用JDBC完成CURD操作
+   insert/update/delete----Statement.executeUpdate(sql)：返回值表示影响记录的 行数
+   select------------------Statement.exeucteQuery():              返回值表示符合条件的记录
+=====================================================
+1 Statement 和 PreparedStatement 的特点
+  a)对于创建和删除表或数据库，我们可以使用 executeUpdate() ，该方法返回0，表示未影向表中任何记录
+  b)对于创建和删除表或数据库，我们可以使用 execute() ，该方法返回false，表示创建和删除数据库表
+  c) execute()， 除了select操作返回true之外，其它的操作都返回false
+  d)PreparedStatement有发下的特点：      
+    >>解决SQL注入问题，在绑定参数时，动态检测
+    >>在发送相同结构的SQL时，较Statement效率有所提升
+    >>使用？占位符替代真实的绑定值
+    >>项目中，优先使用PreparedStatement
+*2 Jsp+Servlet+Javabean+Jdbc+Mysql（用户登录）   javabean作为一个中间人的角色，或者说把关系型的数据转变成对象的形式
+
+
+*4 存取大对象
+
+
+tinyblob/blob/mediumblob/longblob
+-->255B/64K/16M/4G大小的图片/音乐等二进行数据
+
+
+tinytext/text/mediumtext/longtext
+-->255B/64K/16M/4G大小的文本数据
+
+
+  LOB
+    a)Character   CLOB (Text有四个子类型)[字符]
+      存：
+pstmt.setString(1, UUID.randomUUID(). toString());
+URL url = Demo1.class.getClassLoader().getResource("cn/itcast/web/jdbc/config/62.txt");
+File file = new File(url.getPath());
+Reader reader = new FileReader(file);
+pstmt. setCharacterStream (2,reader,(int)file.length());
+
+
+      取：
+Reader reader = rs. getCharacterStream ("content");
+Writer writer = new FileWriter("d:\\62.txt");
+int len = 0;
+char[] cuf = new char[1024];
+while( (len=reader.read(cuf))>0 ){
+writer.write(cuf,0,len);
+}
+reader.close();
+writer.close();
+      注意：在能完成业务的情况下，尽早关闭连接对象
+            关闭连接对象，不能够发送SQL到数据库方， 但能读写数据
+
+
+
+    b)Binary    BLOB (Blob有四个子类型)[字节]
+     存：
+pstmt.setString(1,UUID.randomUUID().toString());
+URL url = Demo2.class.getClassLoader().getResource("cn/itcast/web/jdbc/config/d1.jpg");
+File file = new File(url.getPath());
+InputStream is = new FileInputStream(file);
+pstmt.setBinaryStream(2,is,(int)file.length());
+
+
+
+
+      取：
+is = rs.getBinaryStream("content");
+os = new FileOutputStream("d:\\d1.jpg");
+int len = 0;
+byte[] buf = new byte[1024];
+while( (len=is.read(buf))>0 ){
+os.write(buf,0,len);
+}
+
+
+*5 批处理
+  1)想发送多条SQL，又要降低与数据库系统的交互，这时使用批处理
+  2) Statement 对象：适合对 不同结构 的SQL做批处理操作
+  3) PreparedStatement 对象：适合对 相同结构 的SQL做批处理操作
+       
+6 获取数据库主键值
+  1)当需要获取刚插入主键信息的时候，需要使用获取主键值方法
+  2)关键代码：
+pstmt = conn.prepareStatement(sqlA,Statement. RETURN_GENERATED_KEYS );
+rs = pstmt. getGeneratedKeys ();
+if(rs.next()){
+Long temp = (Long) rs.getObject(1);
+pid = temp.intValue();
+}
+------------------------------------------
+ 1 存储过程
+   1)用当地数据库语言，写的一段 业务逻辑算法 ，(通常变动很小）
+   2）使用存储过程需要用于 CallableStatement 接口，同时需要使如下SQL命令调用：{call add_pro(?,?,?)}
+   3）对于存储过程的输出参数，需要注册：
+cstmt.registerOutParameter(3,Types.INTEGER);
+   4)取得返回值时，需要按照输出参数的位置来取 
+//演示JDBC操作MySQL存储过程
+public   class  Demo1 {
+     public   static   void  main(String[] args) {
+        Connection conn =  null ;
+         //调用存储过程专用的接口
+        CallableStatement cstmt =  null ;
+        ResultSet rs =  null ;
+         //存储过程特定的语法
+        String sql =  "{call add_pro(?,?,?)}" ;
+         try  {
+            conn = JdbcUtil. getMySqlConnection ();
+            cstmt = conn.prepareCall(sql);
+             //绑三个参数(前二个是输入,后一个是输出)
+            cstmt.setInt(1,100);
+            cstmt.setInt(2,200);
+             //注册一个输出参数，
+             // 其中Types.INTEGER表示SQL与JDBC之前的是映射类型
+            cstmt.registerOutParameter(3,Types. INTEGER );
+             //调用存储过程
+             boolean  flag = cstmt.execute();
+            System. out .println( "flag=" +flag);
+             //取得执行结果
+             int  sum = cstmt.getInt(3);
+            System. out .println( "sum=" +sum);
+        }  catch  (Exception e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtil. close (rs);
+            JdbcUtil. close (cstmt);
+            JdbcUtil. close (conn);
+        }
+    } }  
+------------------------------- 
+
+ 2 事务的概念
+  1)每种数据库都有事务的支持， 但支持强度不同
+  2)以MySQL为例，
+     查看当前事务隔离级别
+     select @@tx_isolation;
+
+
+     修改当前事务隔离级别
+     set transaction isolation level read uncommitted;
+     set transaction isolation level read committed;
+     set transaction isolation level repeatable read;（mysql默认的隔离级别）
+     set transaction isolation level serializable;   最高级别，select操作都要锁表，
+启动事务   start transaction;
+提交事务   commit;
+回滚事务    rollback;
+  3)在事务范围内回滚是允许的，但如果commit后再回滚，无效   
+  4)其实每条SQL都有事务存在，只是显示还隐藏而言，默认都是隐藏事务
+//JDBC显示操作事务的API
+public   class  Demo2 {
+     public   static   void  main(String[] args) {
+        Connection conn =  null ;
+        PreparedStatement pstmt =  null ;
+        ResultSet rs =  null ;
+        String sqlA =  "update account set salary=salary-1000 where name='aaa'" ;
+        String sqlB =  "update account set salary=salary+1000 where name='bbb'" ;
+        String sqlC =  "insert into account(name,salary) values('ccc',3000)" ;
+         Savepoint  sp =  null ;
+        
+         try  {            
+            conn = JdbcUtil. getMySqlConnection ();            
+             //设置事务显示手工提交
+            conn. setAutoCommit ( false );
+            
+             //NO1
+            pstmt = conn.prepareStatement(sqlA);
+            pstmt.executeUpdate();
+            
+             //NO2
+            pstmt = conn.prepareStatement(sqlB);
+            pstmt.executeUpdate();
+             //设置一个回滚点
+            sp = conn. setSavepoint ();
+            
+            Integer. parseInt ( "abc" );
+             //NO3
+            pstmt = conn.prepareStatement(sqlC);
+            pstmt.executeUpdate();
+            
+             //设置事务手工提交
+            conn.commit();
+            
+        }  catch  (Exception e) {
+            e.printStackTrace();
+             try  {
+                 //事务回滚，默认情况下，回滚到事务开始之前的状态
+                conn.rollback(sp);
+                conn.commit(); // 最后要提交  
+            }  catch  (Exception e1) {
+                
+            }
+        } finally {
+            JdbcUtil. close (rs);
+            JdbcUtil. close (pstmt);
+            JdbcUtil. close (conn);
+        }
+    } }   
+
+  5)事务的操作，必须针对同一个 Connection。
+  6)事务的操作，可以设置一个回滚点，便于回滚到最近的回滚点处。
+ 
+ 3 事务的特性
+    1)原子性（A）事务是的各个操作是一个不可分割的子操作。必须将其看成一个整体，即原子操作
+    2)一致性（C）事务前后，由一个一致状态转移到另一个一致状态
+   *3)隔离性（I）事务中，每个线程操作同张表同记录时，相互分割
+    4)持久性（D）事务一旦生效，在没有操作该记录时情况下，永远保持不变
+
+
+*4 三个缺点(违背隔离性)
+   1)脏读：一个线程看到了另一个线程未提交的数据，叫脏读
+                   一个线程update之后没提交，另一个线程select
+
+   2)不可重复读：一个线程多次做查询操作，多次结果都不一致，叫不可重复读
+上述二项，强调的是查询，内容变，但字段数量不变
+
+
+   3)幻读/虚读：
+上述一项，强调的是插入，字段数量变。   一个线程insert之后没提交，另一个线程select查看，前一个又回滚了。
+*5 事务的隔离级别（解药）
+   *static int TRANSACTION_READ_COMMITTED 
+          指示不可以发生脏读的常量；不可重复读和虚读可以发生。 
+   *static int TRANSACTION_REPEATABLE_READ 
+          指示不可以发生脏读和不可重复读的常量；虚读可以发生。 
+    static int TRANSACTION_SERIALIZABLE 
+          指示不可以发生脏读、不可重复读和虚读的常量。 
+-------------------------------------
+//JDBC设置事务的隔离级别
+public   class  Demo3 {
+     //我( serializable )先执行
+     public   static   void  main(String[] args) {
+        Connection conn =  null ;
+        PreparedStatement pstmt =  null ;
+         ResultSet  rs =  null ;
+        String sql =  "select * from account" ;
+         try  {
+            conn = JdbcUtil. getMySqlConnection ();
+             //设置事务的隔离级别
+            conn. setTransactionIsolation (Connection. TRANSACTION_SERIALIZABLE )；//隔离级别
+            conn.setAutoCommit( false );   //后果是表被锁住
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+             //休息
+            Thread. sleep (20*1000);
+            conn.commit();
+        }  catch  (Exception e) {
+            e.printStackTrace();
+             try  {
+                conn.rollback();
+                conn.commit();
+            }  catch  (Exception e1) {
+            }
+        } finally {
+            JdbcUtil. close (rs);
+            JdbcUtil. close (pstmt);
+            JdbcUtil. close (conn);
+        }     }   
+
+   总结：
+项目中，对于select操作不需要事务，对于其它操作(update/delete/insert)操作需要事务。
+
+
+
+
+*6 转帐案例
+   1)参见图<<转帐各类的交互图示>>
+   2)项目中，事务可能在dao层，也可能在service层，不论在哪一层，都必须确保使用的 都是同一个connection
+   3)为了确保在Service和Dao层中用到的Connection一致，你可以使用如下方案解决：
+a)将Service中的Connection传入Dao中
+设计缺点：
+Service和Dao代码过分藕合
+在Service中引用了非业务逻辑操作
+b)将JdbcUtil类中的Connection作成单例/态
+c)使用ThreadLocale<Connection>将每个线程和自已的Connection绑定在一起，每个线程修改自已的Connection，
+          不会影响其它线程的Connection
+
+
+   4)在分层结构中，关闭Connection会推迟到 Service 层，但一定要关闭Connection对象
+  
+ 7 关于异常的处理
+   1)关于分层结构中，处理异常的规则，参见<<关于异常的处理规则.JPG>>
+   2)异常在项目中，往往替代boolean值，作为成功与否的标志
+
+
+*8 连接池
+
+
+   1)传统方式找 DriverManager 要连接，数目是有限的。  
+   2)传统方式的close( )，并没有将Connection重用，只是切断应用程序和数据库的桥梁，即无发送到SQL命令到数据库端执行 
+   3)项目中，对于Connection来说，不会直接使用DriverManager取得，而使用连接池方式。
+   4) DBCP和C3P0 ，都是Java开源的，都必须直接或间接实现javax.sql.DataSource接口
+   5) DBCP 连接池需要dbcp.properties文件，同时需加入3个对应的jar包
+  *6) C3P0 连接池需要在/WEB-INF/classes/目录下存放c3p0-config.xml文件，该类ComboPooledDataSource在创建时
+     会自动在指定的目录下找xml文件，并加载默认设置
+---------------------------------------------------------
+//测试连接池DBCP的用法
+public   class  Demo2 {
+     public   static   void  main(String[] args)  throws  Exception {
+         long  begin = System. currentTimeMillis ();
+         //加载属性文件
+        InputStream is = Demo2. class .getClassLoader().getResourceAsStream( "cn/itcast/web/jdbc/config/dbcp.properties" );
+         Properties  props =  new  Properties();
+        props.load(is);
+         //创建DBCP连接池工厂
+        BasicDataSourceFactory factory =  new  BasicDataSourceFactory(); 
+         //创建数据源,即连接池
+        DataSource ds =  factory. createDataSource (props) ;
+         for ( int  i=1;i<=50000;i++){
+             //从连接池中取得一个空闲的连接对象
+            Connection conn =  ds.getConnection();
+             if (conn!= null ){
+                System. out .println(i+ ":取得连接" );
+            }
+             //将连接对象还回给连接池
+            conn.close();
+        }
+         long  end = System. currentTimeMillis ();
+        System. out .println( "共用"  + (end-begin)/1000+ "秒" );
+    } }   
+
+---------------------------------------------------------
+
+//测试连接池C3P0的用法
+public   class  Demo3 {
+     public   static   void  main(String[] args)  throws  Exception {
+         long  begin = System. currentTimeMillis ();
+         //创建C3P0连接池
+        ComboPooledDataSource dataSource =  new   ComboPooledDataSource();
+         for ( int  i=1;i<=100000;i++){
+            Connection conn = dataSource.getConnection();
+             if (conn!= null ){
+                System. out .println(i+ ":取得连接" );
+                conn.close();
+            }
+        }
+         long  end = System. currentTimeMillis ();
+        System. out .println( "共用"  + (end-begin)/1000+ "秒" );
+    } }   
+
+---------------------------------------------------------
+    
+1  JNDI和在tomcat中配置DBCP 连接池 （默认是不开启的）
+  a)JNDI是Java命名和目录接口， 不同的Web服务器有着不同的实现
+  b)不同进程之间，可不同机器之间访问，叫远程访问
+  c)JNDI和JDBC一样，都属于JavaEE规则之一
+  d)基于tomcat如何配置DBCP连接池
+>>修改tomcat/conf/context.xml文件
+        >>加入DB相关的jar包到tomcat/lib目录下
+>>重新启动tomcat服务器
+-------------------------------------------------------------
+//通过JNDI远程访问 Tomcat 服务器中的DBCP连接池
+public   class   JndiServlet   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+         try  {
+             //创建具体Web服务器的JNDI对象
+            Context context =  new  InitialContext();
+             //远程查找Web服务器
+            Context tomcatContext = (Context) context.lookup( "java:comp/env" );
+             //在Web服务器内远程查找DBCP连接池服务
+            DataSource ds = ( DataSource ) tomcatContext.lookup( "tomcatDS" );
+             //从DBCP连接池中取得一个空闲的连接
+            Connection conn = ds.getConnection();
+             //显示结果
+             if (conn!= null ){
+                response.setContentType( "text/html;charset=UTF-8" );
+                response.getWriter().write( "取得连接" );
+                conn.close();
+            }
+        }  catch  (Exception e) {
+            e.printStackTrace();
+        } 
+    } }   
+
+------------------------------------------------------
+2   元数据的使用
+  1)想取得对数据库相关信息的描述，可以元数据
+  2)DatabaseMetaData/Database MetaData  dbmd = conn.getMetaData()
+  3)ParameterMetaData/ParameterMetaData psmd = pstmt.getParameterMetaData();
+  4)ResultSetMetaData/ResultSetMetaData rsmd = rs.getMetaData(); 
+-------------------------------------------------
+//演示三种元数据库的用法
+public   class  Demo1 {
+     public   static   void  main(String[] args)  throws  Exception {
+        Connection conn = JdbcUtil. getMySqlConnection ();
+        String sql =  "select * from user" ;
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        ResultSet rs = pstmt.executeQuery();
+         //取得结果集的相关元数据
+         ResultSet MetaData rsmd = rs.getMetaData();
+         int  size = rsmd.getColumnCount();
+         for ( int  i=0;i<size;i++){
+             //取得每列的列名
+            String columnName = rsmd. getColumnName (i+1);
+             //取得每列的类型
+             int  typeCode = rsmd. getColumnType (i+1);
+            System. out .println(columnName+ ":" +typeCode);
+        }
+        
+         //取是有关SQL的相关元数据
+        String  sql  =  "insert into user(username,password,birthday,salary) values(?,?,?,?)" ;
+         ParameterMetaData  psmd = pstmt.getParameterMetaData();
+         int   size  = psmd.getParameterCount();
+        System. out .println( "共有"  + size+ "个参数" );
+        
+         //取得DataBaseMetaData
+          DatabaseMetaData   dbmd = conn.getMetaData();
+        String driver = dbmd.getDriverName();
+        String url = dbmd.getURL();
+         int  level = dbmd.getDefaultTransactionIsolation();
+        String productName = dbmd.getDatabaseProductName();
+         boolean  flag = dbmd.isReadOnly();
+        System. out .println( "flag=" +flag);
+        System. out .println( "driver=" +driver);
+        System. out .println( "url=" +url);
+        System. out .println( "level=" +level);
+        System. out .println( "productName=" +productName);
+        
+    } }  
+---------------------------------------------------- 
+
+*3  DBUtils框架的使用
+  1)目的：减化CURD操作
+  2)DBUtils框架最核心的类，就是 QueryRunner 类，构造其有二种方式
+a)空参构造    ------->查询的时候要自己开个连接
+b)通过 DataSource 构造
+  3)DBUtils对象的update()方法，内部已经关闭相关的连接对象
+  4)update(Connection)方法 带有Connection对象的 ，需要手工关闭，其它对象自动关闭
+    update()方法无Connection对象的，DBUtils框架自动关闭
+  5)为什么作者要这样设计？
+          主要考虑了在 分层结构中 ，需要用到同一个Connection的问题
+  6)对于query()操作与update()操作有着一致的含义
+  7)对于query()操作的实现类含义如下;
+BeanHandler/BeanListHandler：针对JavaBean
+ArrayHandler/ArrayListHandler：针对数组
+MapHandler/MapListHandler：针对Map
+ScalarHandler：针对Long
+
+
+*5 客户资料系统
+  1)${d==date?'selected':''}
+    ${  }EL中的值，一定要从 域中取，不会默认某个域，不回去jsp中取<%  %>
+  
+  2)通过JS取得需要删除客户的ID：
+//定位到tableID所对应的元素，即<table>标签
+     var tableElement = document.getElementById("tableID");
+     var size = tableElement.rows.length;//size=5
+     //装ID号的数组
+     var ids = "";
+     for(var i=1;i<=size-2;i++){
+     //取得每行的1列中的checkbox元素
+     var checkboxElement = tableElement.rows(i).cells(0).firstChild;
+     //如果该复选框被选中
+     if(checkboxElement.checked){
+     //收集该复选框的ID值
+     ids += checkboxElement.value + "_";
+     }
+     }
+     //ids="1_2_3_"
+     var url = "/day15/CrmServlet?method=deleteCustomerById&ids="+ids;
+     window.location.href = url;
+
+
+ 

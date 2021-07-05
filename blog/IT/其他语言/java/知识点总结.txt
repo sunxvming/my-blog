@@ -1,0 +1,1170 @@
+ 
+String dateString = "2012-12-06 "; 
+try 
+{ 
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd "); 
+    Date date = sdf.parse(dateString); 
+} 
+catch (ParseException e) 
+{ 
+    System.out.println(e.getMessage()); 
+} 
+
+
+JRE、OpenJDK和Oracle JDK之间的不同之处。
+ 
+JRE（Java Runtime Environment），它是你运行一个基于Java语言应用程序的所正常需要的环境。如果你不是一个程序员的话，这些足够你的需要。
+JDK代表Java开发工具包，如果你想做一些有关Java的开发（阅读程序），这正是你所需要的。
+OpenJDK是Java开发工具包的开源实现，Oracle JDK是Java开发工具包的官方Oracle版本。尽管OpenJDK已经足够满足大多数的案例，但是许多程序比如Android Studio建议使用Oracle JDK，以避免UI/性能问题。
+
+
+jdk包含Java开发工具和运行环境（jre）jdk=Java Development Kit      jre=Java Runtime Environment
+jdk里包括单独的jre, jre里面包括Java虚拟机；
+
+
+一.设置classpath:
+classpath=c:\test就表示执行运行命令时去c:\test文件夹去找需要被执行的class文件
+在java5之前该路径是不能指定当前路径的,除非这样设置:classpath=.;c:\test,就表示先在当前目录找class文件,要是没找到就到c:\test去找;(当一个变量有多个值时,多个值之间是有英文的分号隔开)
+设置从当前所在目录查找(java1.5后默认):set classpath=.
+
+
+二.设置JAVA_HOME: 
+1.为了方便引用，比如，你JDK安装在C:\Java\jdk1.6.0目录里，则设置JAVA_HOME为该目录路径, 那么以后你要使用这个路径的时候, 只需输入%JAVA_HOME%即可, 避免每次引用都输入很长的路径; 
+注意:设置了JAVA_HOME也必须设置PATH;
+比如:原来的path=C:\Java\jdk1.6.0\bin
+现在设置: JAVA_HOME=C:\Java\jdk1.6.0 和 PATH=%JAVA_HOME%\bin
+2.当你JDK路径被迫改变的时候, 你仅需更改JAVA_HOME的变量值即可, 否则,你就要更改任何用绝对路径引用JDK目录的文档, 要是万一你没有改全, 某个程序找不到JDK, 后果是可想而知的----系统崩溃! 
+3.第三方软件会引用约定好的JAVA_HOME变量, 不然, 你将不能正常使用该软件,比如JavaEE 最常用的服务器Tomcat.
+
+
+配置java环境变量：
+JAVA_HOME：配置JDK的根目录
+CLASSPATH：指定到哪里去找运行时需要用到的类代码（字节码）            classpath:去哪里找需要运行的class文件(java5开始可不设置)
+PATH：指定可执行程序的位置
+
+
+1. 环境变量的配置：
+如：
+PATH----- C:\Program Files (x86)\Java\jdk1.8.0_40\bin;
+JAVA_HOME---C:\Program Files (x86)\Java\jdk1.8.0_40                 
+CLASSPATH ---.;C:\Program Files (x86)\Java\jre1.8.0_40\lib       .是当前目录 是要加上的             找到指定文件的类库       
+　　　ｂｉｎ中有Javac.exe（编译器）  Java.exe（解释器） javadoc  等
+2.反编译工具：jad//命令行    Front End//图形界面
+ 
+
+
+/etc/profile中修改环境变量
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export JRE_HOME=$JAVA_HOME/jre
+export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+
+
+
+
+
+开发中都是一个文件一个类且都是使用public修饰;
+
+
+                                                                      常量变量数据类型
+4.所有类型长度固定，不因机器而不同。
+6.常量 1.浮点默认是double，若用 float 则后加上f  或F。
+
+
+    
+boolean 类型数据只允许取值true 或 false( 不可以使用0 或非0的整数来代替true和false,区分于C语言 )。
+char占2字节，的范围是[0,65535],但是前256个表示特殊字符；
+
+java字符采用Unicode编码，可用十六进制编码形式表示。 
+char c1 = '\u0061';//a
+long  l = 123L;//long 类型
+表示long型数值时：因小写的l容易和数字1相混淆，建议使用大写L。
+
+7.强制转换： 赋值时   int  i=3.4 错误   int i=（short）3.6  i=3    左侧<右侧   强制转换
+                00000000 00000000 00011000 10001100           int变short        前16位就没了
+                                                  00011000 10001100
+
+
+
+
+
+自动类型转换（也叫隐式类型转换）  
+强制类型转换（也叫显式类型转换） 
+
+
+表达式的数据类型自动提升
+所有的byte型、short型和char的值将被提升到int型。
+如果一个操作数是long型，计算结果就是long型；
+如果一个操作数是float型，计算结果就是float型；
+如果一个操作数是double型，计算结果就是double型。
+分析 System.out.println('a' + 1)结果？
+
+
+
+
+“&”和“&&”的区别：单与时，左边无论真假，右边都进行运算；双与时，如果左边为真，右边参与运算，如果左边为假，那么右边不参与运算。
+&:逻辑与:   &&:短路与:
+“|”和“||”的区别同理，双或时，左边为真，右边不参与运算。
+
+
+运算符表达式语句
+1./  3.4/2自动转换   3/2  舍小数位
+2.%两边可以是浮点数   结果保留小数位
+3.++  -- 只能用于变量
+4. 逻辑运算 只能是Boolean型   !>&>^>|>&&>||
+
+5. 位运算    操作数是 整型  &    |        ^( 位异或 )        ~( 按位补运算符翻转操作数的每一位 )        <<           >> //左边补最高位       >>>//左边补0
+判断循环数组
+1.if后跟的条件表达式的值必须是Boolean型
+2.使用scanner类  用键盘输入
+    import      Java.util.Scanner    //类从那来
+             Scanner   input  = new Scanner( System.in )   in  键盘输入  out  屏幕输出
+                  int  变量 =input.nextInt（）   input.next 字符串     input.nextDouble   
+
+
+6.foreach   用于未知数组元素   例子： 遍历输出scores数组   
+                                                        for（int score：scores）{System.out.println(score);}   //score是临时变量  
+
+switch语句选择的类型只有四种：byte、short、int 、char。（java5之前）。还支持 enum(jdk5), String(jdk7)；
+  面向对象
+
+
+
+
+
+        方法结束后，引用对象也随之消失，但对象还在堆中。堆中的对象会被jvm定时清理。
+4.方法的名字一般为动词，或动词＋名词
+5.jvm通过 方法签名 （方法名+参数类型、个数）来区别方法。
+6.java中只有按值传递，没有按引用传递 ------->所谓的按地址(引用)传递，也属于按值传递，只不过这个“值”是个地址;
+
+
+数组：
+数组的 声明 ： type varName[]; 或   type[ ] varName;(推荐)  int a[5]; //非法
+ 
+静态初始化 ：初始化时由我们自己指定每个数组元素的初始值，由系统决定需要的数组长度；
+格式：数组名 = new 数组类型[]{元素1,元素2,元素3...元素n};        都用大括号
+简化语法：数组名 = {元素1,元素2,元素3...元素n};
+
+
+动态初始化 ：初始化时由我们指定数组的长度，由系统为数组元素分配初始值；
+格式：数组名 = new 数组类型[数组长度];
+
+
+for(元素数据类型 变量名 ：数组对象或集合对象){          这里的集合对象说的不严格，应该是 Iterable 的实例
+//……
+} 
+String[] itcastNames={"bjitcast","cditcast","gzitcast"};
+for (String name : itcastNames) {
+System.out.print(name + " ,");
+}
+------------------------
+
+
+
+class ArraySort1 
+{
+public static void main(String[] args) 
+{
+int[] arr = {4,3,9,6,2};
+
+
+System.out.println("排序前: " + p(arr));
+sort2(arr);
+System.out.println("排序后: " + p(arr));
+}
+
+
+
+/*
+冒泡排序:
+
+
+相邻两个元素相比较, 符合条件就换位
+第一轮比较完后: 最大值出现在最后一个位置
+*/
+public static void sort(int[] arr)
+{
+int temp;
+
+
+// arr.length-1 最后一个元素后面就没得相邻元素了,所以-1
+for(int i = 0; i < arr.length-1; i ++)
+{
+//j = 0;每次内循环都应该从第一个元素开始比较
+
+
+//第N圈比较的时候,arr.length - N
+for(int j = 0; j < arr.length - i -1; j ++)//-1是避免下面 j+1越界
+{
+//相邻比较,所以只用j
+//当j取到最大值的时候, j+1就越界了
+if(arr[j]> arr[j+1])
+{
+temp  = arr[j];
+arr[j] = arr[j + 1];
+arr[j + 1] = temp;
+}
+}
+}
+}
+
+/*
+选择排序:
+
+
+每次都拿指定的一个元素和后面的元素相比较;
+第一轮比较完之后,最值出现在第一个位置
+
+
+每轮比较只进行一次交换
+*/
+public static void sort2(int[] arr)
+{
+int temp;
+for(int i = 0; i < arr.length-1; i ++)
+{
+
+//  j = i + 1;第N轮比较的时候,从第1+i个数据开始取元素去和第i个先比较
+for(int j = 1 + i; j < arr.length; j ++)
+{
+if(arr[i] > arr[j])
+{
+temp = arr[i];
+arr[i] = arr[j];
+arr[j] = temp;
+}
+}
+}
+}
+public static String p(int[] arr)
+{
+String ret = "[";
+for(int i = 0; i< arr.length; i ++)
+{
+ret += arr[i];
+if(i == arr.length-1)
+{
+ret +="]";
+}
+ret +=" ,";
+}
+return ret;
+}
+}
+----------------------------------------
+import java.util.Arrays;
+
+
+class ArraysSearchDemo 
+{
+public static void main(String[] args) 
+{
+int[] arr = {4,3,9,6,2};
+Arrays.sort(arr);
+System.out.println(Arrays.toString(arr));
+System.out.println("-->" + binarySearch2(arr,4,0,5));
+}
+
+/*
+二分法: 在arr数组中,查找 ele元素的索引位置
+*/
+public static int binarySearch(int[] arr, int ele)
+{
+
+int min = 0;//默认是最小的数
+int max = arr.length - 1;//默认是最大的数
+int mid = (min + max) / 2;//中间的那个数
+
+
+while(ele != arr[mid])
+{
+if(ele > arr[mid])
+{
+min = mid + 1;
+}
+else
+{
+max = mid - 1;
+}
+
+
+mid = (min + max)/2;
+if(max <= min)
+{
+return -1;
+}
+}
+
+
+
+
+return mid;
+}
+
+
+public static int binarySearch2(int[] arr, int key,int fromIndex, int endIndex)
+{
+int low = fromIndex;
+int high = endIndex -1;
+
+
+while(low <= high)
+{
+int mid = (low + high) / 2;
+int midVal = arr[mid];
+
+
+if(key > midVal)
+{
+low = mid + 1;
+}
+else if(key < midVal)
+{
+high = mid -1;
+}
+else
+{
+return mid;//找到
+}
+}
+return -1;//找不到
+
+}
+}
+---------------------------------------
+静态方法只能访问静态成员
+但是非静态成员可以访问静态成员;
+静态方法中不可以使用this，super关键字，因其不跟对象相关联
+主方法（main）是静态的， 故其中的方法是静态的
+public static void main(String[] agrs){}
+------------------
+ 匿名对象
+特点:
+对方法或字段只进行一次调用时；
+new Car( ).show();
+new Car( ).run();
+可作为实际参数进行传递；
+public void show(Car  c){ }    
+new Car().show(new Car());
+只在堆内存中开辟空间，而没有在栈内存的引用。
+  -------------------
+package的引入，提供类的多层命名空间，从而能更好的管理代码结构，也能避免类名冲突。
+
+企业开发的命名规则 域名反过来写
+包名的书写：全用小写字母，避免使用与系统发生冲突的名字，如不能定义java.lang、java.swing等。
+
+import pkg.sunpkg.*;
+* 只能表示类名，不能表示包名
+--------------------------
+java.lang  ： 语言核心类， 系统自动导入   只要搞java,天天都会用这个包。
+java.util  ： java 工具类、集合框架类和接口
+以后要学习时间，日历，集合等就得用到这个包。
+java.net   ： 网络编程接口和类
+以后要写和网络相关的应用就要用这个包。
+java.io    ： 流的接口和类
+以后要写读写文件或者图片等这些就要用这个包。
+java.text  ： java格式化相关类
+以后我们要做软件国际化就要用这个
+java.sql   ： jdbc相关接口和类 
+以后操作java连接数据库就要使用到这个包
+java.awt   ： 抽象窗口工具集相关接口和类
+搞一个类似于QQ一样的软件，界面就得使用这个包下的类；
+java.swing ：图形用户界面相关接口和类(可跨平台)
+-------------------------
+
+
+
+
+default 什么都不写,            包访问权限:本类内部可以访问，同包其他类也可以访问,同包可继承;
+protected 子类访问权限:    本类内部可以访问，不同包的子类也可以访问， 同包其他类也可以访问,能继承到子类;
+
+
+------------------
+
+多个构造方法是以重载的形式存在的。
+---------------------
+Arrays .sort(arr);
+System.out.println(Arrays.toString(arr));
+int index = Arrays .binarySearch(arr,4);
+                    System.arraycopy (int[] src, int srcPos, int[] dest, int destPos, int length);
+
+-----------------------】
+
+java.lang.Object是所有类的父类， Object要么是直接父类要么是间接父类。
+---------------
+子类方法前加上 @Override 能编译通过,表明是方法的覆写。
+调用被覆盖的父类方法：使用 super.方法名(实参);
+方法覆写时应遵循的原则(一同两小一大)：
+(一同):方法签名必须相同;
+(两小):
+
+子类方法的返回值类型比父类方法的返回值类型更小或相等
+
+子类方法声明抛出的异常应比父类方法申明抛出的异常更小或相等;
+
+(一大):子类方法的访问权限应比父类方法更大或相等;
+
+
+-----------------------------
+父类对象子类实例化（多态）--------->传不同的对象，调用相同的方法有不同的表现
+此时该变量不能再访问子类中自己特有的字段和方法；
+若子类覆写了父类的方法，那么此时通过变量访问到的方法，实际上是子类的方法；
+
+
+运行期才能决定引用变量所指向的真正对象的方法是哪个的例子阐述:
+
+
+多态是用来屏蔽子类不同实现细节，例子是：
+class Dog{
+     public eat(){
+         System.out.println("我吃的是通用狗粮");
+     }
+}
+
+
+class Hasiqi extends Dog{
+     public eat(){
+        System.out.println("我吃的是哈士奇的专用狗粮");
+     }
+}
+
+
+class BeijingDog extends Dog{
+     public eat(){
+        System.out.println("我吃的是北京犬的专用狗粮");
+     }
+}
+-----------------------------------
+
+
+public class Zoo{
+     //喂养
+     public static void feed(Dog d){
+        d.eat();
+     }
+
+
+     public static void main(String[] args){
+        Dog d1=new Hasiqi(); //new的时候才确定了对象
+        feed(d1);
+        Dog d2=new BeijingDog();
+        feed(d2);
+     }
+}
+
+
+注意，多态的使用，一般都会出现三方，第一方是父类，第二方是子类，第三方是调用多态的方法。看完这个例子之后
+--------------------------------------
+引用变量类型转换                 猫是动物   动物是猫
+
+
+向上转型（子类→父类）：(自动完成)
+父类名称 父类对象 = 子类实例 ;
+
+ 向下转型（父类→子类）： (强制完成)
+子类名称 子类对象 = （子类名称）父类实例 ;
+
+
+
+
+class Hasiqi extends Dog{
+     public eat(){
+        System.out.println("我吃的是哈士奇的专用狗粮");
+     }
+     public laxueqiao(){//拉雪橇
+        System.out.println("我能拉雪橇");
+     }
+}
+ 
+class BeijingDog extends Dog{
+     public eat(){
+        System.out.println("我吃的是北京犬的专用狗粮");
+     }
+     public tiaoxi(){
+        System.out.println("我能被调戏");
+     }
+}
+ 
+.....main.....
+public static void feed(Dog d){
+    d.eat();
+    if( d instanceof Hasiqi ){
+         Hasiqi temp= (Hasiqi)d;
+         temp.laxueqiao();
+    }else if( d instanceof BeijingDog ){
+         BeijingDog temp=(BeijingDog)d;
+         temp.tiaoxi();
+    }
+}
+-----------------------------
+boolean bool = false;
+Boolean b2 = new Boolean(bool);
+Integer i = new Integer(3);
+int i2 = i.intValue();
+-------------------------------
+
+自动装箱：可把一个基本类型变量直接赋给对应的包装类对象或则Object对象
+自动拆箱：允许把 包装类对象直接赋给对应的基本数据类型
+
+Integer i = 3;//装箱
+int i2 = i;//拆箱
+----------------------------
+
+class OOXX  extends Object{}等价于class ooXX {}
+常见方法
+public boolean equals (Object obj)：对象比较
+public int hashCode ()：取得该对象的Hash码
+public String toString ()：对象描述, 建议所有类都覆写此方法, 直接打印输出对象时，会调用该对象的toString()方法。
+----------------------
+0.普通代码块
+
+普通代码块就是直接定义在方法或语句中定义的代码块：
+
+
+.....main.....{
+
+
+    {
+
+
+         int x = 1;
+
+
+         System.out.println("普通代码块" + x);
+
+
+    }
+
+
+    int x = 99;
+
+
+    System.out.println("代码块之外" + x);
+
+
+}
+
+
+结果：
+
+
+普通代码块1
+
+
+代码块之外99
+
+
+
+
+1.构造代码块
+
+
+直接写在类中的代码块:
+
+优先于构造方法执行， 每次实例化 对象之前都会执行构造代码块。
+
+public class Demo {
+
+    {
+
+System.out.println("我是构造代码块");
+
+    }
+
+    public Demo(){
+
+System.out.println("我是构造方法");
+
+    }
+
+    public static void main(String[] args) {
+
+Demo d1  = new Demo();
+
+Demo d2  = new Demo();
+
+    }
+
+}
+
+2.静态代码块
+
+
+使用static 修饰的构造代码块:
+
+优先于主方法执行，优先于构造代码块执行， 不管有创建多少对象，静态代码块只执行一次，可用于给静态变量赋值；
+
+public class Demo {
+
+    {
+
+System.out.println("我是构造代码块");
+
+    }
+
+    public Demo(){
+
+System.out.println("我是构造方法");
+
+    }
+
+    static {
+
+System.out.println("我是静态代码块");
+
+    }
+
+    public static void main(String[] args) {
+
+System.out.println("Main");
+
+new Demo();
+
+new Demo();
+
+   }
+
+}
+
+-------------------单例模式---------------------------
+
+懒汉模式，它的特点是运行时获得对象的速度比较慢，但加载类的时候比较快。它在整个应用的生命周期只有一部分时间在占用资源。
+饿汉模式，它的特点是加载类的时候比较慢，但运行时获得对象的速度比较快。它从加载到应用结束会一直占用资源。
+
+
+从用户体验的角度来说，我们应该 首选饿汉模式 。我们愿意等待某个程序花较长的时间初始化，却不喜欢在程序运行时等待太久，给人一种反应迟钝的感觉，所以对于 有重量级对象参与的单例模式，我们推荐使用饿汉模式。
+public class SingletonDemo {
+public static void main(String[] args) {
+Singleton1 s1 = Singleton1.getInstance();
+//new Singleton1();
+Singleton1 s2 = Singleton1.getInstance();
+
+
+System.out.println(s1==s2);//true
+                   ---------------------------------------
+
+Singleton2 s3 = Singleton2.getInstance();
+Singleton2 s4 = Singleton2.getInstance();
+
+System.out.println(s3==s4);//true
+}
+}
+-----------------------------
+class Singleton1{    //饿汉模式
+private static final Singleton1 instance = new Singleton1();//// 在内部准备好一个对象
+
+public static Singleton1 getInstance(){//
+return instance;
+}
+
+
+private Singleton1(){}
+public void show(){
+System.out.println("Singleton1");
+}
+}
+------------------------------------------
+class Singleton2 {            //懒汉模式          注：有线程安全问题
+private static Singleton2 instance;
+
+
+public static Singleton2 getInstance(){//// 将instance传递到外部去
+if(instance == null){
+instance = new Singleton2();
+}
+return instance;
+}
+private Singleton2(){}
+}
+-------------------------------------
+常量名称所有字母大写，若有多个单词组成，单词间使用下划线连接。
+
+
+final可以修饰类,方法,变量。
+final修饰 类 不可以被继承，但是可以继承其他类。  
+final修饰的 方法 不可以被覆盖,但可以覆盖父类方法。
+final修饰的 变量 称为常量，这些变量只能赋值一次。
+final修饰的 引用类型变量 ,表示该变量的 引用不能变 ,而不是该变量的值不能变;
+-----------------------
+
+代码规范问题，abstract       一般写在方法修饰符最前面， 醒目， 一看就知道是抽象方法；
+-----------------------------------------------------------------------------------
+---------------------------抽象类的体现------------- 模板模式 -------------------
+
+-----------------------------------------------------------------------------------
+
+
+模板模式应用的简单规则:
+1.抽象父类可以只定义需要使用的某些方法,其余留给子类去实现;
+2.父类提供的方法只是定义了一个通用算法,其 实现 必须依赖子类的辅助;
+
+
+抽象类是从多个类中 抽象出来的模板 ，若要将这种抽象进行得更彻底，就得用到一种特殊的“抽象类”→ 接口
+
+
+
+
+接口只规定了这些类里必须提供的方法;从而分离了 规范 和 实现 .增强了系统的可拓展性和维护性;
+接口里没有普通方法,方法全是抽象的;
+接口里的方法默认修饰符是 public abstract；
+接口里的字段全是全局常量,默认修饰符是 public static final;
+一般的我们习惯在接口名前加上  I  字母,用于区分类和接口;
+------------------------------------------
+interface USB{ // 定义好了一个标准
+      public void use() ;// 使用
+}
+class Computer {
+     public static void plugIn( USB usb ){
+         usb.use() ;
+    }
+}
+class Flash implements USB {
+      public void use(){
+           System.out.println("使用U盘。") ;
+     }
+}
+class Print implements USB {
+     private String name ;
+     public Print(String name){
+           this.name = name ;
+    }
+    public void use(){
+          System.out.println("欢迎使用" + this.name + "牌打印机！") ;
+          System.out.println("开始打印！") ;
+    }
+}
+public class USBDemo {
+      public static void main(String args[]){
+            Computer.plugIn(new Flash()) ;
+            Computer.plugIn(new Print("HP")) ;
+            Computer.plugIn( new USB(){                     public void use(){
+
+
+                        System.out.println("使用移动硬盘盘。") ;
+
+                      }
+            } ) ;
+      }
+}
+------------------- 面向接口编程の---------简单工厂模式------------------------------
+
+//手机标准
+interface ICellPhone {
+void sendMsg();
+}
+
+
+/* HTC手机 */
+class HTC implements ICellPhone {
+public void sendMsg() {
+}
+}
+
+
+/* IPhone手机 */
+class IPhone implements ICellPhone {
+public void sendMsg() {
+}
+}
+
+
+/* 手机工厂 */
+class Factory {
+public static ICellPhone getInstance(String type){
+ICellPhone phone = null;
+if("htc". equalsIgnoreCase (type)){
+phone = new HTC();
+}else if("iphone".equalsIgnoreCase(type)){
+phone = new IPhone();
+}
+return phone;
+}
+}
+
+
+public class FactoryDemo {
+public static void main(String[] args) {
+//ICellPhone p = new HTC();
+ICellPhone p = Factory.getInstance("htc");
+}
+}
+--------------------- 面向接口编程          之     适配器模式------用 抽象类 来实现---------------------------
+
+使用一个现成的类，但是它的接口不完全符合你的需求,咋办;
+比如,窗体有变大,变小,关闭的行为,但是我现在只需要关闭行为;
+interface IWindow{
+void max();
+void min();
+void close();
+}
+abstract class WindowAdapter implements IWindow{
+public void max(){}
+public void min(){}
+public void close(){}
+}
+class MyWindow extends WindowAdapter {
+public void close(){}
+}
+-----------------------------------
+//匿名对象是没有别其它对象所引用，就使用一次就变成垃圾了，被垃圾回收器收回了
+public class TestMain
+{
+public void say()
+{
+System.out.println("今天天气不错噢！哈哈");
+}
+
+
+public static void main(String[] args)
+{
+//这个就是匿名对象，没有被其它对象所引用
+new TestMain().say();
+}
+}
+---------------------------------------
+抽象类为部分方法提供实现,避免子类重复实现这些方法,提供代码重用性;
+接口只能包含抽象方法; 一个类只能继承一个直接父类(可能是抽象类),却可以实现多个接口;(接口弥补了Java的单继承)
+二者的选用:
+优先选用接口,尽量少用抽象类;
+需要定义子类的行为,又要为子类提供 共性功能 时才选用 抽象类;
+
+
+==============================
+内部类
+
+
+把内部类隐藏在外部类之内， 不许同包的其他类访问该类；
+内部类可以访问外部类的私有数据，外部类不能访问内部类的实现细节，比如字段；
+匿名内部类适合于仅使用一次使用的类；
+
+1. 非静态内部类
+
+若     外部类字段，  内部类字段， 内部类方法变量同名，则其访问方式分别是：
+
+访问外部类的字段：外部类类名.this.字段
+
+访问内部类字段：   this.字段
+
+访问内部类方法的局部变量：字段
+
+
+
+
+非静态内部类对象是存放在外部类的 对象 里的，因此在创建非静态内部类对象之前，必须先创建其外部类的对象
+
+
+2. 静态内部类
+
+使用static修饰内部类，该 内部类属于其外部类，而不属于外部类的实例；
+静态内部类可包括静态成员也可包括非静态成员。
+根据静态成员不能访问非静态成员的规定 ，所以静态内部类不能访问外部类实例成员，只能访问外部类的静态成员；
+
+
+3.局部内部类
+
+
+局部内部类:定义在 方法里 的内部类;
+特点:不能在宿主类以外的地方使用,局部内部类也 不能使用访问修饰符和static修饰;
+局部内部类只能访问方法中 final修饰的局部变量 :因为final修饰的变量相当于一个 常量 ,其生命周期超出了方法运行的生命周期;
+4.匿名内部类
+
+
+
+匿名内部类也就是没有名字的内部类
+
+正因为没有名字，所以匿名内部类只能使用一次，它通常用来简化代码编写
+
+但使用匿名内部类还有个前提条件：必须继承一个父类或实现一个接口
+
+  实例1:不使用匿名内部类来实现抽象方法
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ abstract   class   Person {
+      public   abstract   void   eat();
+ }
+  
+ class   Child  extends   Person {
+      public   void   eat() {
+          System.out.println( "eat something" );
+      }
+ }
+  
+ public   class   Demo {
+      public   static   void   main(String[] args) {
+          Person p =  new   Child();
+          p.eat();
+      }
+ }
+
+
+运行结果： eat something
+
+可以看到，我们用Child继承了Person类，然后实现了Child的一个实例，将其向上转型为Person类的引用
+
+但是，如果此处的Child类只使用一次，那么将其编写为独立的一个类岂不是很麻烦？
+
+这个时候就引入了匿名内部类
+
+  实例2：匿名内部类的基本实现
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+ 10
+ 11
+ 12
+ 13
+ 14
+ abstract   class   Person {
+      public   abstract   void   eat();
+ }
+  
+ public   class   Demo {
+      public   static   void   main(String[] args) {
+          Person p =  new   Person() {
+              public   void   eat() {
+                  System.out.println( "eat something" );
+              }
+          };
+          p.eat();
+      }
+ }
+
+
+运行结果： eat something
+
+可以看到，我们直接将抽象类Person中的方法在大括号中实现了
+
+这样便可以省略一个类的书写
+
+并且，匿名内部类还能用于接口上   实例3：在接口上使用匿名内部类
+
+ interface   Person {
+      public   void   eat();
+ }
+  
+ public   class   Demo {
+      public   static   void   main(String[] args) {
+          Person p = new   Person() {
+              public   void   eat() {
+                  System.out.println( "eat something" );
+              }
+          };
+          p.eat();
+      }
+ }
+
+
+运行结果： eat something
+
+ 
+
+由上面的例子可以看出，只要一个类是抽象的或是一个接口，那么其子类中的方法都可以使用匿名内部类来实现
+
+最常用的情况就是在多线程的实现上 ，因为要实现多线程必须继承Thread类或是继承Runnable接口
+
+  实例4：Thread类的匿名内部类实现
+
+ public   class   Demo {
+      public   static   void   main(String[] args) {
+          Thread t = new   Thread() {
+              public   void   run() {
+                  for   ( int   i = 1 ; i <= 5 ; i++) {
+                      System.out.print(i + " " );
+                  }
+              }
+          };
+          t.start();
+      }
+ }
+
+
+运行结果： 1 2 3 4 5
+
+  实例5：Runnable接口的匿名内部类实现
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+ 10
+ 11
+ 12
+ 13
+ public   class   Demo {
+      public   static   void   main(String[] args) {
+          Runnable r =  new   Runnable() {
+              public   void   run() {
+                  for   ( int   i =  1 ; i <=  5 ; i++) {
+                      System.out.print(i +  " " );
+                  }
+              }
+          };
+          Thread t =  new   Thread(r);
+          t.start();
+      }
+ }
+
+
+运行结果： 1 2 3 4 5
+=====================
+
+String表示字符串,所谓字符串,就是一连串的字符;
+String是不可变类，一旦String对象被创建，包含在对象中的字符序列(内容)是不可变的，直到对象被销毁；
+
+
+常量池:JVM中一块独立的区域存放 字符串常量 和 基本类型常量 （public static final）。
+
+
+
+
+javac  javac - -- -d . HelloWorld.java  (不仅能够编译类文件，同时还能创建包结构) 
+
+
+
+
+数字： 整数：byte(1 字节)－short(2 字节) －int( 在内存中占 在内存中占 4 个字节 ) )) )－long（8 个字节） 
+小数：float(4 个字节，单精度浮点型) － double（8 个字节，双精度浮点型） 
+字符：char(一个字符＝2 个字节):只能表示一个字。 如：char c='中'; c 存的是‘中‘这个字的编码。
+
+
+
+String 类提供了数值不可改变的字符串 String s=new String(“abc”);创建了两个对象 
+1，在字符串池 字符串池中创建一个对象（此对 象是不能重复的）
+2，new 出一个对象。 Java 运行环境有一个字符串池，由 String 类维护。执行语句 String s="abc"时，首先查
+看字符串池中是否存在字符串"abc"，如果存在则直接将"abc"赋给 s，如果不存在则先在字符串池中新建一个字符串"abc"，然
+后再将其赋给 s。执行语句 String s=new String("abc")时，不管字符串池中是否存在字符串"abc"，直接新建一个字符串"abc"
+（注意：新建的字符串"abc"不是在字符串池中），然后将其付给 s。
+
+
+
+赋值时，左＝右 
+1）数据性质是否一样。 
+2）所占用的内存空间上考虑（左＞右）不用类型转换。（左＜右）要类型强制转换， 
+如：int age=1; 
+ long l=10;   age=(int)l; 
+
+
+
+
+
+压缩命令： ：：   jar - -- -cvf abc.jar dir  
+解压命令： ：：  jar - -- -xvf abc.jar 
+abc.jar 为生成压缩包的名字
+dir 为被打包的文件目录下的东西
+c：是做压缩。v：为压缩过程的信息。f：指定压缩文件的名字。x：是做解压
+打包一般从顶层包开始打。如：[java@localhost yesq]$ jar  jar  jar - -- -cvf first.jar com cvf first.jar com cvf first.jar com  
+        //当前目录（yesq）下的 com 文件夹开始打
+1，获得别人提供的 jar 文件
+2，将 jar 文件的名字以及他的绝对路径配置到 CLASSPATH 中 
+3，使用 import 语句，将其他包的内容导入到本文件中，
+
+
+局部变量在同一方法里不能重名。局部变量和实例变量可以重名，在方法里采用就近原则。 
+
+
+＝＝＝＝＝关键字this＝ ＝＝ ＝＝＝＝＝＝＝
+1，在普通方法里，指代当前对象引用（哪个对象调用该方法，this 就指向该对象） 
+2，this 不能出现在 静态方法 里。 
+3，在构造方法里，this 用来指代本类的其他构造方法。在本类构造方法之间互相调用。如：this(形参);  使用时放在构造方法里的第一行。 
+＝＝＝＝＝关键字super＝＝＝＝＝＝＝
+1,调用父类的构造方法，在子类调用父类的构造方法必须出现在第一句，构造方法第一句可能出现的三种情况
+①super（）；②super（参数）注意传递的参数一定是实体，有值的。③this（），先在本类的构造方法间调用，再看调用那个构
+造方法的第一句是什么
+2，super 访问父类的变量和方法，及 super 代表父类的对象，super.name;
+
+
+编写程序的顺序： 
+class 类名｛ 
+ private 属性（有什么） 
+ 无参的构造方法（public 类名（）｛｝）
+ 有参的构造方法（作用：给属性赋值） 
+ set 和 get（设置和获得属性） 
+ 业务方法（做什么） 
+｝
+
+
+基本类型时“==“判断变量本身的值是否相等；引用类型时，判断的是地址是否相等。 
+ equals 判断的是对象内容是否相等。对于自己创建的类，应该覆盖 Object 类的 equals()方法; 
+
+
+集合
+用来管理／容纳多个对象的对象（或称为容器）；
+面向对象可重用性的体现， 对数组作了功能封装 。 
+Collection 是一个接口：是以对象为单位来管理元素的。 
+ 基本操作：add remove size
+ 遍历：迭代遍历
+有两个子接口：List 接口和 Set 接口
+１，List 元素是有顺序（下标），可以重复。有点像数组。可以用迭代器（Iterator）和数组遍历集合。 
+
+
+ Collections.sort(list); 引入list 集合然后对 list 集合里的对象（如：Student 类）进行排序时， 
+ 只要在让对象（类）实现 Comparable 接口 ，再覆盖接口里面的方法（compareTo()方法），
+ 在 compareTo()方法里写出进行什么样的方式排序， 
+Public int compareTo(Object o){ 
+Work w=(Work)o; 
+If(this.salary!=w.salary){return (int)w.salary-(int)this.salary;} 
+Else If(this.age!=w.age){return w.age-this.age;}else retuen this.name.compareTo(w.name);sss 
+} 
+ 
+1）ArrayLis ArrayLis ArrayList 集合类实现 List 接口，轻量级，底层是以数组实现的，查询快，增删慢，线程不安全，用 get(int)方法多时， 
+Vector Vector 集合也实现 List 接口，底层也是以数组实现的。但这个类已经放弃了。重量级，查询慢，增删快，线程安全。（Vector 和 HashTable 是
+线程同步的（synchronized），所以线程安全。性能上，ArrayList 和 HashMap 分别比 Vector 和 Hashtable 要好。） 
+2）LinkedList 集合类实现 List 接口，他底层是以链表实现的，查询慢，增删快， 
+  用 remove(int)、add(int,Object)方法多时， 
+  自己实现栈（stack），并对栈里进行增删操作。 
+  class MyStack{ 
+   private LinkedList list=new LinkedList(); 
+   public void push(Object o){ 
+    list.addFirst(o); 
+   } 
+   public void pop(Object o){ 
+    list.removeFirst();}} 
+２，Set  接口：无顺序， 不可以重复（内容不重复，而非地址不重复）。只能用迭代器（ Iterator ）  遍历集合。 。。 。 
+ Set 接口里本身无方法，方法都是从父接口 Collection 里继承的， 
+ 遍历：迭代遍历
+ 实现类：保证元素 内容不重复 。 
+1）HashSet 集合类实现 Set 接口，底层是以数组实现的。HashSet 集合里不允许有重复对象
+ 每向HashSet 集合类里添加一个对象时，先使用 HashSet 集合类里 add(o)方法， 
+ 再调用对象o 的 hashCode()方法算出哈稀码，保证相同对象返回相同的哈希码。 
+ 如果哈稀码一样，再调用对象 o 里的 equals()方法对对象的属性进行比较是否相等， 
+集合也可以构造集合，如：List<Object> list=new ArrayList<Object>(); Set<Object> set=new HashSet<Object>( list );原来在 list 集合里 的对象是可以重复的，但被 set 集合构造之后，重复的对象将被去掉
+按这三种顺序来理解接口：  1）接口特点；2）接口常见操作（方法）；3）接口实现类的特点
+
+
+ 排序（SortedMap 是 Map 的子 接口 ）：TreeMap 类实现 SortedMap 接口；对集合进行排序。 
+ 基本操作：put()  get() 
+ 遍历：键遍历ketSet()返回键的集合(Set)（说明 map 的键是用 set 实现的，不能重复） 
+  值遍历values() 返回值的集合。 
+ HashMap 类实现Map 接口：  查询快，线程不安全，允许键和值对象为 null 
+  Hashtable 类实现Map 接口：查询慢，线程安全
+ TreeMap 类实现Map 接口：SortedMap 的实现类，自动对键进行排序。 
+
+
+            

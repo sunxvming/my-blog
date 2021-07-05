@@ -1,0 +1,703 @@
+【介绍】
+XML:Extensible Markup Language, 可扩展标记语言 
+Html的标签是固定的, 而xml的标签呢,是自定义的. (自描述性)标签的含义内容可以自己定义
+  【用途】
+1  交换数据或传输数据时，  比如公共查询接口,例如 豆瓣的书评查询, google的天气查询（格式稍复杂点的）
+2  或者存储数据时, 可以当做小型数据库用[在线词典]
+3  用来做配置文件 【语法规范】
+1:基本的XML可以分成3部分
+文档声明[可选,但是强烈建议加上,并设置编码为utf-8]
+  例: <?xml version="1.0" encoding="utf-8"?>,  version只能选1.0
+DTD声明[可选]
+根结点:最顶层的元素,包含其他所有元素/结点的根结点.
+根结点必须有, 且只能有一个.
+ 
+1.1 元素的语法规范
+   标签必须闭合
+   标签不允许相互嵌套
+   标签名称区分大小写
+   单标签的闭合
+1.2 属性的语法规范
+   属性必有值
+   属性值必用引号包起来
+1.3 特殊字符与实体
+   在XML里, 与xhtml里,对于实体的概念是一样的,
+对于 &,>,< ',"要用实体来代替,  & > < " '
+ 
+1.4 注释的语法
+   注释写在 <!-- 注释写在这里-->
+   注释内部不要出现 --
+   注释不能嵌套
+   注释可以除了标记以内的任何地方写
+ 
+1.5 CDATA节,  character data的缩写,一大段字符数据
+对于CDATA,原样输出,不用实体代替.
+DTD用法
+document type definition: 文档类型定义
+节点下面可以子节点,子节点又可以有子节点,子节点的名称可能无限种可能.
+能否对XML的节点的名称,个数,类型等做一个限制?
+答:可以,DTD就是用来规范节点的名称,个数,类型.
+可以理解XML文档的"说明书".
+XML文档的结构必须符合此说明书
+ 
+XML是一种通用的规范,只要满足该规范都能够来解析XML文档,
+Javascript, ActionScript,PHP,java,都有解析XML的功能或库.
+Ff, IE也能来解析XML,但是用的不相同的引擎.
+ 
+DTD可以用来规范XML的元素,属性, 实体
+2.0: DTD的基本写法
+<!DOCTYPE 根节点名称 [
+]>
+ 
+2.1 DTD如何规范XML的元素?
+答:
+<!ELEMENT 结点名称 结点规范> ,结点规范的4种形式,见下:
+规范形式1:    (子节点1,子节点2,子节点3....子节点N) ,规范的是子节点的名称
+规范形式2:    (#PCDATA)
+规范形式3:    EMPTY
+规范形式4     ANY, 如果是ANY,则结点可以是空结点,可以文本结点,也可以是多层子节点,但是,如果是多层子节点,依然是要对子节点做说明.
+ 
+2.2 DTD如何规范属性
+属性名="属性值"
+该属性是否必须有? 是否唯一? 是否只能选某几个可能值之一?  是否有默认值?
+<!ATTLIST 元素名称
+属性1名称  属性类型 属性特点
+属性2名称  属性类型 属性特点
+>
+属性特点 ------------------------------>典型写法
+#REQUIRED : 要求属性必须有 -->#REQUIRED
+#IMPLIED  :  属性可有可没有 ---> #IMPLIED
+#FIXED    : 属性值是固定的  ---> #FIXED "固定值"
+Default_value : 默认值         ------> "默认值"
+ 
+ 
+属性类型 ----------------------------->典型写法
+ID  :要求该属性值必须是唯一的--------> ID
+CDATA: 属性值为普通字符串 ----------> CDATA
+IDREF: 属性值必为ID类型属性的一个值----> IDREF
+IDREFS:属性是ID类型属性的一个,或多个值----> IDREFS, 多个值用空格隔开
+Enumerated: 属性的值改为以下几个之一, ----------> (值1|值2|值3|值N)
+ 
+2.3 用DTD规范XML的实体
+1实体声明 
+<!ENTITY 实体名 "实体值">
+2: 引用实体
+&实体名;
+ 
+2.4 在对元素的声明中, 修饰符的作用
+()   包在子元素外面,把子元素合成组
+, 夹在子元素名称之间,限制子元素的顺序
++ ,是修饰元素的"个数"用的, + 代表 1->N个,
+*, 是修改元素个数, 代表 0->N个
+?, 是修饰元素个数, 代表0或1个
+|, A|B|C ,从A,B,C任取一个 【php的xml库】
+主要操作包括 生成，解析，查询 等功能
+通过PHP的DOM操作来生成和解析XML
+
+
+3.1  , 如何实例化DOM操作类
+答: $dom = new DOMDocument(1.0,'utf-8');
+ 
+3.2 如何载入XML文档
+答: $dom->load('xml-path');
+ 
+3.3: 如果查询节点?
+   3.3.1 根据id来查询具体节点, (要求DTD中已声明为ID的属性)
+   例: $dom->getElementById('ID值');
+ 
+   3.3.2 根据已查到的节点,查其子节点, 返回的是"列表对象"
+$node->childNodes 属性就可读到
+ 
+   3.3.3 根据标签名 来查询节点列表, 返回值是一个"列表对象"
+   $dom->getElementsByTagName('标签名');
+ 
+   3.3.4 根据节点列表对象,查询列表中的任意一个子节点.
+$list->length 属性可以读出子节点的数量来
+$list->item(index), 读取列表中第index个节点来
+ 
+   3.3.5 查到节点后,又如何读取节点的值
+      $node->nodeValue就可以
+   3.3.6 查到节点后,又如何读取属性的值
+      $node->getAttribute(属性名) ;// 读到属性的值
+ 
+3.4 PHPDOM创建XML
+3.4.1 创建节点
+$xmldom->createElement('节点名'[,节点的文本内容]),
+ 
+例:->createElement('app','内容'); ---> <app>内容</app>
+->crateELement('app') ---->  <app></app>
+ 
+3.4.2 : 如何创建属性节点?
+$node->setAttribute('属性名','属性值');
+ 
+3.4.3 如何创建CDATA节
+$dom->createCDATASection('内容');
+ 
+3.4.4: 如何添加子节点
+$node->appendChild(子节点);
+ 
+3.5 如何删除子节点,
+父节点->removeChild(子节点)
+ 
+3.6: 如何修改子节点
+父节点->replaceChild(新子节点,旧子节点)
+ 
+XPATH, Xquery
+宇宙霹雳无敌光速查询技术  xpath
+XPATH, 的基本写法
+从根节点, 通过节点的层次来定位.
+1例: 逐层定位
+/cetsix/word/name -->找根节点下->word下->所有name节点, 注意: 节点层次必须紧挨着.
+ 
+2: 任意层次定位
+//name  , 找任意层次的,name节点
+ 
+// 用条件查询, 按属性作条件
+/cetsix/word[@name="value"], 找cetsix下的word,并且word的name属性的值是'value'
+例: <word name="value"></word>
+ 
+// 用条件查询, 按子元素的值做条件
+/cetsix/word[name="value"], 找cetsix下的word,并且word的name子元素的值是'value'
+例: <word ><name>value</name></word>
+ 
+ 
+讨论
+<book id="boo1">
+</book>
+ 
+<book>
+   <id>b001</id>
+</book>
+ 
+什么时间用属性? 什么时间用元素?
+商品表为例:
+商品名, 商品价格, 库存--->这些信息商品固有的信息.
+每一行商品,又加了"id"信息,
+ 
+这个id信息,原本没有, 因为商品信息太多,为管理/区别商品的固有信息,另加的id.
+这个id, 是'关于信息的信息', ---> "元信息"
+一般而言,元信息,适合用属性,实体信息适合用子元素,
+
+
+
+
+
+<?php
+// PHP 不用安装扩展,即可解析XML文档,因为默认有DOM解析对象
+// 1: 要想办法读取XML文档的内容,形成DOM文档
+// 2: 根据标签名或者子元素等特点来查询,形成 节点列表
+// 3: 再根据节点列表,配合索引值,查到具体节点.
+
+
+// 这个$xml是能够解析XML文档的一个对象
+$xml = new DOMDocument('1.0','utf-8');
+
+
+// 1: 载入XML文档,形成DOM树
+$xml->load('05.xml');
+
+
+// 2:读节点,返回过来是"节点列表"对象
+$ps = $xml->getElementsByTagName('price');
+
+
+// 3:从节点列表对象得到具体的节点
+print_r($ps->item(0));
+print_r($ps->item(1));
+
+
+// 再获取对象所有子节点,返回是"所有子节点"形成的节点列表
+
+
+print_r($babu->childNodes->item(0)->wholeText);
+
+
+
+
+$names = $xml->getElementsByTagName('name');
+echo '<br />共查到',$ps->length,'个书名<br />';
+/*
+=======在PHP的DOM解析中, 节点对象的nodeValue属性
+是节点内部所有的文字信息,,但是比较好用.
+和XML标准是不匹配的,因此在其他语言中,比如js,就不要照这个用法,直接nodeValue
+*/
+=========================================================================
+<?php
+// 先对已有的XML文档增加节点
+
+
+// 0: 创建DOM解析器
+$xml = new DOMDocument('1.0','utf-8');
+// 1:读取XML
+$xml->load('05.xml');
+
+
+// 2:增加节点:
+// 1:创建节点,2:找到父节点,appendChild上去.
+
+
+
+
+// 2.1 创建节点
+// 创建文本节点: 
+$textNode = $xml->createTextNode('倚天屠龙记');
+
+
+// 创建普通元素name
+$element = $xml->createElement('name');
+// 创建普通元素book
+$book = $xml->createElement('book');
+// 追加子元素
+$element->appendChild($textNode);
+$book->appendChild($element);
+
+
+
+
+
+
+// createElement的第2个参数,在PHP中可以直接创建节点,并在节点内加一些文字.
+// 但是这个方法并不符合DOM标准,在PHP中用,其他语言未必可以这样用.
+$element = $xml->createElement('price','23.4');
+$book->appendChild($element);
+
+
+// 创建CDATA节点
+$element = $xml->createElement('intro');
+$data = $xml->createCDATASection('张无忌喜欢赵敏,赵敏喜欢杨逍,杨逍喜欢张三丰');
+$element->appendChild($data);
+$book->appendChild($element);
+
+
+// 获取store根节点
+$store = $xml->getElementsByTagName('store')->item(0);
+$store->appendChild($book);
+
+
+// 输出,或保存
+if($xml->save('05_1.xml')) {
+    echo '保存成功';
+}
+===================================================================
+<?php
+// 删除节点: 要先找被删除的节点及该节点的父节点
+$xml = new DOMDocument('1.0','utf-8');
+$xml->load('05_1.xml');
+
+
+/**  ==先找到intro,再找其父节点book 
+
+
+$intros = $xml->getElementsByTagName('intro');
+$intro = $intros->item(1);
+
+
+// 找节点的父节点
+$book = $intro->parentNode;
+$book->removeChild($intro);
+***/
+================================================
+// 替换
+$book->replaceChild($intro,$oldintro);
+========================================
+$(
+function() {
+    $('input:button').click(
+        function() {
+           var word = $('input:text').val();
+           if(word == '') {
+                alert('请填写单词');
+                return;
+           }
+            
+           $.get('cha.php?word=' + word,
+           function(msg) {
+            $('#msg').html(msg);
+           });
+
+
+        }
+    );
+}
+);
+=====================================
+while($row = mysql_fetch_assoc($rs))
+======================================
+<?php
+// xpath快速查询XML节点
+
+
+// 创建一个xpath查询器
+
+
+$xml = new DOMDocument('1.0','utf-8'); // 文档对象
+$xml->load('small.xml');
+$xpath = new DOMXpath($xml);
+
+
+// 查书店名
+$ext = '/store/name'; // 查根路径 紧接着store, 紧接着是name元素,这种情形的节点
+$res = $xpath->query($ext);
+
+
+
+
+echo $res->length;
+echo $res->item(0)->nodeValue;
+
+
+// 查书名
+$ext = '/store/book/name';
+$res = $xpath->query($ext);
+
+
+
+
+// 查任意深度的
+$ext = '/store/book//name'; // book下,深意深度的name元素都符合条件
+$res = $xpath->query($ext);
+echo $res->length;  // 3
+
+
+// 
+$ext = '//name';
+$res = $xpath->query($ext);
+echo $res->length;  // 3
+
+
+// ==== 根据属性来查询==== //
+$ext = "/store/book/name[@age='haha']";
+$res = $xpath->query($ext);
+
+
+echo $res->length;  // 1
+echo $res->item(0)->nodeValue;
+echo '<hr />';
+
+
+
+
+// ==== 根据普通元素的值来查询 ==== //
+$ext = '/store/book[name="天龙九部"]/price';
+$res = $xpath->query($ext);
+
+
+echo $res->length;
+
+
+echo $res->item(0)->nodeValue;
+================================================
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE photo [
+<!ELEMENT photo (people+)> <!-- 可以在括号中声明子元素名称 -->
+<!ELEMENT people (name,(老婆+|老公),img?,tooth*,intro)> <!-- 多个子元素,逗号顺序隔开 -->
+<!ELEMENT name (#PCDATA)> <!-- 可以是(#PCDATA) 代表文本 -->
+<!ELEMENT 老婆 (#PCDATA)>
+<!ELEMENT 老公 (#PCDATA)>
+<!ELEMENT img EMPTY> <!-- 可以是EMPTY 表示空标签 -->
+<!ELEMENT tooth (#PCDATA)>
+<!ELEMENT intro ANY> <!-- 如果是ANY,则可以为空,也可以不空,也可以有子元素 -->
+<!ELEMENT a (#PCDATA)> <!-- 如果ANY的元素下面有子元素,则需要对子元素的名称要做一个说明 -->
+<!ELEMENT b (#PCDATA)> <!-- 如果ANY的元素下面有子元素,则需要对子元素的名称要做一个说明 -->
+<!ELEMENT c (#PCDATA)> <!-- 如果ANY的元素下面有子元素,则需要对子元素的名称要做一个说明 -->
+]>
+<photo>
+<people>
+<name>张三</name>
+<老婆>王xi凤</老婆>
+<老婆>黛玉</老婆>
+<img />
+<tooth>门牙</tooth>
+<tooth>虎牙</tooth>
+<tooth>假牙</tooth>
+<intro><b>fdsa</b><a></a></intro>
+</people>
+<people>
+<name>李四</name>
+<老公>犀利哥</老公>
+<intro><b>fdsa</b><a></a></intro>
+</people>
+</photo>
+===============================================
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE 班级[
+<!ELEMENT 班级 (同学+)>
+<!ELEMENT 同学 (name)>
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST 同学
+num ID #REQUIRED
+height CDATA #IMPLIED
+brother IDREF #IMPLIED
+love IDREFS #IMPLIED
+>
+]>
+<班级>
+<同学 num="M1">
+<name>刘备</name>
+</同学>
+<同学 num="M2" height="180" brother="M1">
+<name>关羽</name>
+</同学>
+<同学 num="M3" height="180" brother="M1" love="F6">
+<name>张飞</name>
+</同学>
+<同学 num="Y4">
+<name>于吉</name>
+</同学>
+<同学 num="F5">
+<name>大乔</name>
+</同学>
+<同学 num="F6">
+<name>小乔</name>
+</同学>
+</班级>
+
+
+<!--
+属性名 属性类型 属性特点
+
+
+属性类型: 修饰的是属性的值,如字符型,如唯一型
+属性特点: 修改的是属性本身: 必须有此属性,可有可无此属性
+
+
+属性类型: CDATA ID IDREF IDREFS .等
+属性特点: #REQUIRED #IMPLIED FIXED  DEFAULT
+-->
+============================================
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE class[
+<!ELEMENT class (stu+)>
+<!ELEMENT stu (name)>
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST stu
+党派 CDATA #FIXED "共产党"
+国籍 CDATA "中国"
+>
+]>
+<class>
+<stu 党派="共产党">
+<name>张三</name>
+</stu>
+<stu 党派="共产党">
+<name>李四</name>
+</stu>
+<stu 国籍="中国">
+<name>王五</name>
+</stu>
+</class>
+
+
+<!-- 
+
+
+#FIXED "固定值"
+则此属性 可以写,可以不写,
+如果写, 则值必须是指定的值
+
+
+"默认值"  直接写个默认值,不用写#FIXED #IMPLIED #REQUIRED
+某个属性,可不写,可以不写
+如果不写,则值默认被填充为指定值
+
+
+-->
+======================================
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE class [
+<!ELEMENT class (stu+)>
+<!ELEMENT stu (name)>
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST stu
+gender (男|女) #IMPLIED
+婚姻状态 (未婚|已婚|离异|再婚|重婚) #IMPLIED
+>
+]>
+<class>
+    <stu 婚姻状态="已婚">
+        <name>张三</name>
+    </stu>
+    <stu gender="男">
+        <name>李四</name>
+    </stu>
+    <stu gender="女">
+        <name>王五</name>
+    </stu>
+</class>
+===============实体=========================
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE class [
+<!ELEMENT class (stu+)>
+<!ELEMENT stu (name)>
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST stu
+入学年份  ENTITY #REQUIRED
+area CDATA #IMPLIED
+>
+<!ENTITY greet "大家好,很高兴认识大家">
+<!ENTITY copyright "zixue.it版本所有">
+<!ENTITY time "2012">
+]>
+<class>
+    <stu area="" 入学年份="&time;">
+        <name>张三</name>
+<intro>&greet; xxxx yyyy</intro>
+    </stu>
+    <stu 入学年份="&time;">
+        <name>李四</name>
+<intro>大家好,很高兴认识大家 abc edf &copyright;</intro>
+    </stu>
+    <stu 入学年份="&time;">
+        <name>王五</name>
+<intro>&greet; 111 2233</intro>
+    </stu>
+</class>
+==========================================
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<stu>
+<num>001</num>
+<name>张三</name>
+<age>22</age>
+</stu>
+<stu num="002" name="李四" age="23"></stu>
+</root>
+<!-- 
+上面的例子中,2个stu节点,都把学号,姓名,年龄信息合理的表达出来了.
+那么什么时候适合用属性表示?
+什么时候适合用子元素表示?
+
+
+
+
+思考:教室里新来10个学生
+10个学生 
+各有各的姓名,一个客观存在的信息
+各有各的年龄, 一个客观的信息
+
+
+
+
+统计之后, 每个人都有自己的一段信息. 
+
+
+100个学生就有100段信息
+为了方便区分和管理这100段信息,
+再给每个"学生的信息",即这100段信息,再加个字段,即num属性, 或数据库的主键.
+
+
+
+
+那么:num属性原本不属性学生,是为了管理学生数据又增加的新数据.
+
+
+
+
+num: 即关于数据的数据,关于信息的信息,
+称为"元数据" ,meta
+
+
+
+
+这种元数据,适宜用属性来表示.
+而客观存在的信息,短宜用子元素来表示.
+
+
+=================================================================
+思路: 鼠标mouseup时,读一下选中的文本, 
+ajax发送查询,
+把查询结果,写到一个div,
+再把div根据鼠标的位置移动到鼠标旁边.
+***/
+
+
+
+
+
+
+$(
+function() {
+    var getSel = function() {
+        var str = '';
+        // 对于firefox chrome 
+        if(window.getSelection) {
+           return window.getSelection();
+        } else if(document.getSelection) { // 对于opera
+           return document.getSelection();
+        } else {  // 对于IE
+           return document.selection.createRange().text
+        }
+    }
+
+
+    $('#cont').mouseup(
+        function(ev) {
+            var word = getSel();
+            if(word == '') {
+                return;
+            }
+
+
+            // alert(ev.pageX); jquery可以方便帮我获取当前鼠标事件的位置
+            // alert(ev.pageY);
+
+
+            $.get('cha.php?word=' + word,function(msg) {
+                $('#res').css('left',ev.pageX-50);
+                $('#res').show();
+                $('#res').css('top',ev.pageY+10);
+                $('#res').html(msg);
+            });
+        }
+    );
+
+
+    $('#res').click(
+        function() {
+            $('#res').hide();
+        }
+    ); 
+}
+);
+
+
+</script>
+
+
+<style type="text/css">
+#res{
+width:400px;
+height:200px;
+background:gray;
+z-index:1000;
+position:absolute;
+display:none;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

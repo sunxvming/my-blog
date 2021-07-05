@@ -1,0 +1,191 @@
+【微信自定义分享】
+
+ 
+1. access_token是公众号的 全局 唯一票据，公众号调用各接口时都需使用access_token
+公众号可以使用AppID和AppSecret调用本接口来获取access_token
+请求： https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET
+返回：{"access_token":"ACCESS_TOKEN","expires_in":7200}
+
+
+2.
+获取jsapi_ticket
+
+生成签名之前必须先了解一下jsapi_ticket，jsapi_ticket是公众号用于调用微信JS接口的临时票据。
+
+用第一步拿到的access_token
+
+请求： https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=jsapi
+返回：
+{
+    "errcode":0,
+    "errmsg":"ok",
+    "ticket":"bxLdikRXVbTPdHSM05e5u5sUoXNKd8-41ZO3MhKoyN5OfkWITDGgnr2fwJ0m9E8NYzWKVZvdVtaUgWvsdshFKA",
+    "expires_in":7200
+}
+
+
+3.
+获得jsapi_ticket之后，就可以生成JS-SDK权限验证的签名了。
+
+
+
+这个数组生成的是用于jsapi中填的认证参数
+    $signPackage = array(
+      "appId"     => $this->appId,
+      "nonceStr"  => $nonceStr,
+      "timestamp" => $timestamp,
+      "url"       => $url,
+      " signature " => $signature,
+      "rawString" => $string
+    );
+
+
+        wx.config({      //作用是
+            appId: '<?php echo $signPackage["appId"];?>',
+            timestamp: '<?php echo $signPackage["timestamp"];?>',
+            nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+            signature: '<?php echo $signPackage["signature"];?>',
+            jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage"]
+        });
+
+【oAuth2获取微信用户信息】
+
+
+ 这种是带弹出框的
+1 第一步：用户同意授权，获取code        user--->wchart
+
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
+如果用户同意授权，页面将跳转至 redirect_uri/?code=CODE&state=STATE 
+
+
+2 第二步：通过code换取 OAuth2.0授权 中产生access_token（此token非全局的token，只是用来获取用户信息的凭证）  server--->wchart
+
+https://api.weixin.qq.com/sns/oauth2/access_token?appid= APPID &secret= SECRET &code= CODE &grant_type=authorization_code
+
+
+{
+   "access_token":"ACCESS_TOKEN",
+   "expires_in":7200,
+   "refresh_token":"REFRESH_TOKEN",
+   "openid":"OPENID",
+   "scope":"SCOPE",
+   "unionid": "o6_bmasdasdsad6_2sgVt7hMZOPfL"
+}
+3 第三步：刷新access_token（如果需要）   server--->wchart
+
+
+4 第四步：拉取用户信息(需scope为 snsapi_userinfo)    server--->wchart
+
+https://api.weixin.qq.com/sns/userinfo?access_token= ACCESS_TOKEN &openid= OPENID &lang=zh_CN
+
+
+{
+   "openid":" OPENID",
+   " nickname": NICKNAME,
+   "sex":"1",
+   "province":"PROVINCE"
+   "city":"CITY",
+   "country":"COUNTRY",
+    "headimgurl":    "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/46",
+    "privilege":[
+    "PRIVILEGE1"
+    "PRIVILEGE2"
+    ],
+    "unionid": "o6_bmasdasdsad6_2sgVt7hMZOPfL"
+}
+
+
+
+不弹出授权页面获得用户基本信息
+
+构造请求url如下
+     https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8888888888888888&redirect_uri=http://mascot.duapp.com/oauth2.php&response_type=code&scope=snsapi_base&state=1#wechat_redirect
+scope=snsapi_base 表示应用授权作用域为 不弹出授权页面，直接跳转，只获取用户openid
+
+
+返回回调页面如下
+
+http://israel.duapp.com?code=02a9bed29b2185a9f0ed3a48fe56e700&state=1
+
+再使用code获取OpenID
+
+https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx8888888888888888&secret=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&code=02a9bed29b2185a9f0ed3a48fe56e700&grant_type=authorization_code
+
+然后获取全局Access Token
+
+https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET
+
+再使用全局ACCESS_TOKEN获取OpenID的详细信息
+
+https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID
+
+
+【自己的应用服务器获取微信用户信息】
+
+用户 关注 以及 回复消息 的时候，均可以获得用户的OpenID
+
+    <xml>
+    <ToUserName><![CDATA[gh_b629c48b653e]]></ToUserName>
+    <FromUserName><![CDATA[ollB4jv7LA3tydjviJp5V9qTU_kA]]></FromUserName>      // openid
+    <CreateTime>1372307736</CreateTime>
+    <MsgType><![CDATA[event]]></MsgType>
+    <Event><![CDATA[subscribe]]></Event>
+    <EventKey><![CDATA[]]></EventKey>
+</xml>
+
+使用access_token接口，请求获得全局Access Token
+
+https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET    
+
+再使用全局ACCESS_TOKEN获取OpenID的详细信息
+
+https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID    
+
+
+
+【电脑扫码登录】
+        $('#login').click(function () {
+                $.getScript("http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js").done(function(){
+                    showShadow();
+                    $('body').scrollTop(0);
+                    $('#login_pop').toggle();
+ 
+ 
+                    var obj = new WxLogin({
+                        id: " wx_login ",
+                        appid: "wx485d39bead7f131c",
+                        scope: "snsapi_login",
+                        redirect_uri : encodeURIComponent("http://www.fengtuhezi.com/Login/wxLogin"),
+                        state: Math.ceil(Math.random()*1000),
+                        style: "black",
+                        href: ""});
+                })
+        });
+
+
+这个的appid和secret 是用的微信开放平台上的，要注意，剩下的步骤就是在redirect_uri中的方法中获得code，access_token&openid 。。。 【微信支付】
+
+
+
+
+【】
+
+
+
+
+
+
+
+
+
+
+长链接转短链接接口
+
+主要使用场景： 开发者用于生成二维码的原链接（商品、支付二维码等）太长导致扫码速度和成功率下降，将原长链接通过此接口转成短链接再生成二维码将大大提升扫码速度和成功率。
+
+
+
+
+
+
+

@@ -1,0 +1,179 @@
+1 事件三要素
+  a)事件源：操作事件的对象，例如：窗体Frame 
+  b)事件监听器：事件监听器监听事件源，例如WindowListner，它是一个接口  
+  c)事件，例如：单击事件，通过事件，可以取得事件源
+//GUI编程
+public   class  Demo1 {
+     public   static   void  main(String[] args) {  
+         //创建一个不可见的窗体
+        Frame frame =  new  Frame( "我的窗体" );
+         //设置窗体的大小
+        frame.setSize(200,250);  
+         //设置显示的位置
+        frame.setLocation(300,200);
+         //将窗体显示出来
+        frame.setVisible( true );    
+         //为窗体添加事件[事件监听器监听事件源]
+        frame.addWindowListener( new  MyWindowListener());       
+    }
+}
+//事件监听器[扩展WindowAdapter适配器]
+class  MyWindowListener  extends  WindowAdapter{   //复写一种方法既可
+     //重写父类相关的方法
+     public   void   windowClosing (WindowEvent e) {
+        Frame frame = (Frame) e.getSource();
+        frame.setVisible( false );
+        System. exit (1);
+    }
+}
+/*
+class MyWindowListener implements WindowListener{
+    public void windowActivated(WindowEvent e) {
+    }
+    public void windowClosed(WindowEvent e) {
+    }
+    //事件处理程序,由监听器自动调用
+    public void windowClosing(WindowEvent e) {
+        //取得事件源
+        Frame frame = (Frame) e.getSource();
+        //将事件源隐藏
+        frame.setVisible(false);
+        //将JVM强行中止
+        System.exit(1);
+    }
+    public void windowDeactivated(WindowEvent e) {
+    }
+    public void windowDeiconified(WindowEvent e) {
+    }
+    public void windowIconified(WindowEvent e) {
+    }
+    public void windowOpened(WindowEvent e) {
+    }
+}
+*/
+2 适配器模式
+  a)当一个接口有较多的方法时，而实现类只需对其中少数几个实现，此时可以使用适配器模式
+  b)适配器模式常用于GUI编程
+  
+*3 八种web监听器详解
+  a)Web中有三个事件源，分别是ServletContext->HttpSession->ServletRequest
+  b)ServletContext对象
+>>创建和销毁：ServletContextListener， Web容器部署时 产生，Web容器重新部署时销毁原ServletContext对象
+web.xml中配置
+    <listener>
+        <listener-class>cn.itcast.web.listener.MyServletContextListener</listener-class>                 </listener>    
+
+//事件监听器[用于监听ServletContext对象产生和销毁]
+public   class  MyServletContextListener  implements  ServletContextListener{
+     public  MyServletContextListener(){
+        System. out .println( "空参构造" );
+        System. out .println( this .hashCode());
+    }
+     //产生
+     public   void  contextInitialized(ServletContextEvent sce) {
+        System. out .println( "ServletContext产生" );
+        System. out .println( this .hashCode());
+    }
+     //销毁
+     public   void  contextDestroyed(ServletContextEvent sce) {
+        System. out .println( "ServletContext销毁" );
+        System. out .println( this .hashCode());
+    }
+}   
+//属性监听器
+public   class  AttributeListener 
+     implements  ServletContextAttributeListener{
+     public   void  attributeAdded(ServletContextAttributeEvent scab) {
+        System. out .println( "属性增加" );
+        String name = scab. getName ();
+        String value = (String) scab. getValue ();
+        System. out .println(name+ ":" +value);
+    }
+     public   void  attributeReplaced(ServletContextAttributeEvent scab) {
+        System. out .println( "属性修改" );
+        String name = scab.getName();
+        String value = (String) scab.getValue();
+        System. out .println(name+ ":" +value);
+    }
+     public   void  attributeRemoved(ServletContextAttributeEvent scab) {
+        System. out .println( "属性删除" );
+        String name = scab.getName();
+        String value = (String) scab.getValue();
+        System. out .println(name+ ":" +value);     }   
+
+
+
+  c)ServletRequest对象
+
+
+  d)HttpSession对象
+>>创建和销毁：HttpSessionListener，当Web容器创建HttpSession对象中产生，当Web容器销毁HttpSession对   
+//监听器[用于监听HttpSesison产生和销毁]
+public   class  MyHttpSessionListener  implements  HttpSessionListener {
+     //产生
+     public   void  sessionCreated(HttpSessionEvent se) {
+        HttpSession session = se.getSession();
+        System. out .println(session.getId());
+        System. out .println( "sessionCreated()"  +  new  Date(). toLocaleString() );
+    }
+     //销毁
+     public   void  sessionDestroyed(HttpSessionEvent se) {
+        HttpSession session = se.getSession();
+        System. out .println(session.getId());
+        System. out .println( "sessionDestroyed()" );
+        System. out .println( "sessionCreated()"  +  new  Date(). toLocaleString() );
+    }
+}   
+
+
+      欢迎${! empty  username?username:'游客'}光临
+       <%  
+          User user =  new  User();
+          user.setUsername( "haha" );
+          session.setAttribute( "user" ,user);
+         Thread.sleep(10*1000);         
+          session.removeAttribute( "user" );
+           session.invalidate();         %>   
+
+
+
+  e)HttpSessionBindListener监听器，专用于监听 JavaBean对象 在HttpSession中的状态情况
+       但凡是监听三个域对象，就需要在web.xml文件中配置，除外，无需要web.xml文件配置
+ 
+  当HttpSession不用时，但又在HttpSession的有效期中，这时将内存中的HttpSessio移到外存，叫 钝化 。  
+  反之，将HttpSession由外存移到内存，叫 激活 。
+ 
+
+
+  f)HttpSessionActivationListener监听器，专用于监听JavaBean对象的 钝化与激活
+   
+
+
+ 
+4 监听器的工作过程和生命周期
+  开发过程：
+  a)写一个普通类实现对应的接口，即事件监听器
+  b)在web.xml文件中注册事件监听器
+<!-- 事件源注册事件监听器，由容器完成 -->
+<listener>
+<listener-class>cn.itcast.web.listener.MyServletContextListener</listener-class>
+  </listener> 
+
+
+   生命周期：
+空参构造(1次)->初始化(1次)->销毁化(1次)，是一个单例的模式
+ 
+
+
+*5 案例
+   a)java.util.Timer定时器是以后 台线程方式控制运行，它是线程安全，无需手工加锁
+   b) timer.schedule (new MyTimerTask(),0,5000);固定频度执行  
+   c)Calendar c = Calendar.getInstance();
+     c.set(2011,10,6,10,30,40);
+     timer.schedule(new MyTimerTask(),c.getTime());指定时间执行
+   d)Serlvet,Filter和Listener一样具有线程安全问题
+   e)当HttpSession过期时，Web容器负付执行对应的销毁方法，但是时间不精确
+   f) Listener 在Jsp或Servlet之前被执行
+   g)在线人数使用:context，第N个访问者使用:session
+ 
+

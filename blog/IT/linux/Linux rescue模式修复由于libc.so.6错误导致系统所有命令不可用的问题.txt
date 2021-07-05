@@ -1,0 +1,32 @@
+最近遇到一个问题，有同事修改了/lib64/libc.so.6文件，结果导致系统所有命令基本都不可用，如下：
+[root@themis lib64]# shutdown -h now 
+
+shutdown: error while loading shared libraries: libc.so.6: cannot open shared object file: No such file or directory 
+
+[root@themis lib64]# ls 
+
+ls: error while loading shared libraries: libc.so.6: cannot open shared object file: No such file or directory 
+
+[root@themis lib64]# ls -l 
+
+ls: error while loading shared libraries: libc.so.6: cannot open shared object file: No such file or directory 
+
+由于修改了文件导致了命令不可用，此时已经无法回退了，只能使用Linux rescue进行补救
+
+
+
+原理是从cd盘里启动系统，且这个系统是救援模式的，会把之前硬盘上的系统挂载到/mnt/sysimage中，在这个目录下操作就是操作原来的系统。
+
+
+
+
+1.进入BOIS（狂按F2）调整系统启动顺序，把系统安装iso文件设成第一启动顺序，iso系统文件要放在
+
+ 
+2、重启系统后进入安装启动菜单，上下键移动到Rescue install system 救援安装系统；
+
+
+3、系统挂载在/mnt/sysimage下 如果要到root环境下，运行 chroot /mnt/sysimage 命令
+
+ 
+ 

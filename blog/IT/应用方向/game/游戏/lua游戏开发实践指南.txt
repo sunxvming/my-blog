@@ -1,0 +1,123 @@
+lua在葡萄牙语中的意思是月亮的意思，1993年由巴西的一个计算机图形技术的团队开发，一开始应用在图形相关的项目中，后来引入到游戏中，它小巧（内核<120k,python大约860k ）快速，可移植性好，其作用是集成在其他语言中发挥作用，可直接调用c++（python和lua游戏中用的最多）开发中变更少，重用性高，性能要求高的就写到引擎中，而lua作为一种数据描述和行为描述的语言用来处理游戏逻辑
+命令行中可以直接dofile（c：\path）来执行脚本
+
+
+命名规范：1.避免下划线接大写子母的方式，lua自身保留，2.常量：大写+下划线 3.变量：小驼峰 4.全局变量：如 gMyBlobal 5.函数：大驼峰
+
+
+type（） 检测变量类型
+
+
+字符串大到可以包含百万字符
+
+
+table比的是指针地址
+
+
+lua特性：用return去调用另一个函数，这样可以避免栈溢出，return语句作为一个函数的物理结束，运行结束后将从栈中被删除，
+
+
+loadstring（） 执行一段代码 ： myString = "math.max(1,2,3,4,5)" loadsting(myString)
+
+
+math.floor(a+0.5) 可以实行四舍五入
+
+
+math.randomseed(os.date("%d%H%M%S")) 这样可以得到更好的随机值  
+
+
+tonumber()  totring()   string.len( myString )   string.sub(myString ,start, end )   
+string. format ()
+string. find (sourceString, findString)  找到返回开始和结束位置，否则返回nil
+
+
+--myString = "The price is $17.50."
+--filter = "$%d%d.%d%d"     格式符号     有点正则表达式的意思
+--print(string. sub (myString, string.find(myString, filter)))
+
+
+--myString = "My name is John Smith. My phone is 555-3257."
+--newString = string. gsub (myString, "%d", "*")
+
+
+--myString = "This is my rather long string."
+--counter = 1
+--for myWord in string. gfind (myString, "%a+") do       %a+表示匹配单词的意思，一查到匹配的就返回改子串
+    --print(string.format("Word #%d: %s", counter, myWord))  
+    --counter = counter + 1
+--end
+
+
+table.getn( myTable )   table.insert( myTable, position, value )   table.remove(myTable, position)  必要时会重新索引，
+
+
+--myFile = io.open("test_data.lua", "w")     错误会返回nil
+--if myFile ~= nil then
+    --myFile:write("-- Test lua file")
+    --myFile:write(string.char (10))   表示换行
+    --myFile:write(string.char (10))
+    --myFile:write(string.format("%s%s", "-- File created on: ", os.date()))
+    --myFile:write(string.char (10))
+    --myFile:write(string.char (10))
+    --myFile:write("print(\"hello world!\")")
+    --io.close(myFile)
+--end
+
+
+
+【解决_CRT_SECURE_NO_WARNINGS 警告 】
+
+右击工程 - 属性 - 配置属性 - C/C++  - 命令行
+命令行增加 /D _CRT_SECURE_NO_WARNINGS
+
+
+【错误描述：fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?】
+
+解决方式：
+一.
+1) 在解决方案资源管理器中，右击相应的.cpp文件，点击“属性”
+2) 在左侧配置属性中，点开“C/C++”，单击“预编译头”
+3) 更改右侧第一行的“创建/使用预编译头”，把选项从“使用预编译头（/Yu）”改成“不使用预编译头”
+4) 注：每一个报错的.cpp都要如此更改哦~辛苦一下呗~
+二.
+（不推荐）
+1）在解决方案右击工程，点击属性
+2)在配置属性 -> c/c++ -> 预编译头 中 将 “使用预编译头（/YU）” 改为 “不适用预编译头”
+这种做法会使每次编译过程非常缓慢
+
+
+【Visual Studio添加lib到链接依赖项的几种方法 】
+一、通过预编译指令，例如：
+#pragma comment(lib, "user32.lib")
+该指令將user32.lib库文件加入到链接依赖项中，链接是实在源代码目录搜索的，所以要在项目属性的vs++目录的库目录中加上lib的路径就行。
+ 
+二、在项目上点击右键->【属性】->【配置属性】->【链接器】->【输入】->【附加依赖项】，点击编辑，添加相应库文件。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

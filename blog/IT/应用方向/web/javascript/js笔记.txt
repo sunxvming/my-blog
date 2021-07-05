@@ -1,0 +1,1953 @@
+
+
+ 
+
+documentElement 和 body 相关说明：
+
+ 
+
+body是DOM对象里的body子节点，即 <body> 标签；
+
+ 
+
+documentElement 是整个节点树的根节点root，即<html> 标签；
+
+ 
+
+DOM把层次中的每一个对象都称之为节点，就是一个层次结构，你可以理解为一个树形结构，就像我们的目录一样，一个根目录，根目录下有子目录，子目录下还有子目录。
+
+ 
+
+以HTML超文本标记语言为例：整个文档的一个根就是,在DOM中可以使用document.documentElement来访问它，它就是整个节点树的根节点。而body是子节点，要访问到body标签，在脚本中应该写：document.body。
+
+========================================================
+
+
+
+在即将离开当前页面(刷新或关闭)时执行 JavaScript :
+
+<body onbeforeunload="return myFunction()">
+
+----------------------
+
+对象是否有某个key    myObj.hasOwnProperty('myKey');     if ('key' in myObj)
+
+
+
+
+ios的app下载安装不能通过普通的下载方式再安装，得通过plist，在sofia浏览器中的链接的形式如下：
+
+URL = "itms-services:///?action=download-manifest&amp;url=
+https://www.fancyengine.com/plist/pxjyiOS.plist";
+
+
+
+ 
+
+
+console.table() 可以打印对象的详细信息
+
+
+
+====================================== 
+
+ 	var s="yyyy3dd5HH";
+	s=s.replace(/(yyyy|dd|MM|HH|mm|ss)/g, function (part) {
+		return  part+"haha"; 
+	});
+	alert(s);  
+yyyyhaha3ddhaha5HHhaha
+
+========================================
+
+ new Date(urlparams.time*1000)  时间戳是毫秒的
+
+
+
+
+   function toYYYYMMDD(date) {
+
+        var d = new Date(date.getTime());
+
+        var dd = d.getDate() < 10 ? "0" + d.getDate() : d.getDate().toString();
+
+        var mmm = d.getMonth()+1;
+
+        var yyyy = d.getFullYear().toString(); //2011
+
+        return yyyy+"-"+mmm+"-"+dd;
+
+      }
+
+ 
+
+    var strDate=date;
+
+    var dDate=new Date(strDate.replace(/-/g,"/"));
+
+ 
+
+    var preDate=dDate.getTime()-(1000*60*60*24);
+
+    var nextDate=dDate.getTime()+(1000*60*60*24);
+
+ 
+
+    var strPreDate=toYYYYMMDD(new Date(preDate));
+
+    var strNextDate=toYYYYMMDD(new Date(nextDate));
+===================================================
+$("div").data("blah");  // undefined
+
+$("div").data("blah", "hello");  // blah设置为hello 
+
+$("div").data("blah");  // hello 
+
+$("div").data("blah", 86);  // 设置为86 
+
+$("div").data("blah");  //  86
+
+$("div").removeData("blah");  //移除blah
+
+$("div").data("blah");  // undefined
+
+$("div").data("test", { first: 16, last: "pizza!" });
+
+$("div").data("test").first  //16;
+
+$("div").data("test").last  //pizza!;
+
+=======================================
+
+
+HTML5向Web API新引入了document.querySelector以及document.querySelectorAll两个方法用来更方便地从DOM选取元素，功能类似于jQuery的选择器。这使得在编写原生JavaScript代码时方便了许多。
+
+$( function () {
+    $( 'img' ).load( function () {$( 'img' ).hide( 2000 )});
+});   加载完毕后逐渐隐藏
+
+
+
+=========================
+ <td class="left">出生日期：</td>
+    <td>
+<select name="year">
+    <script type="text/javascript">
+for(var i=1900;i<=2009;i++){
+document.write("<option value="+i+">"+i+"</option>");
+}
+</script>
+    </select>年
+    <select name="month">
+    <script type="text/javascript">
+for(var i=1;i<=12;i++){
+document.write("<option value="+i+">"+i+"</option>");
+}
+</script>
+    </select>月
+    <select name="day">
+    <script type="text/javascript">
+for(var i=1;i<=31;i++){
+document.write("<option value="+i+">"+i+"</option>");
+}
+</script>
+    </select>日</td>
+  </tr>
+----------------------------------
+第一个字符必须是字母、下划线（_）或美元符号（$） 
+余下的字符可以是下划线、美元符号或任何字母或数字字符 
+
+
+如果您所赋值的变量还未进行过声明，该变量会自动声明。
+如果您再次 声明 了 JavaScript 变量，该变量也不会丢失其原始值。var x=5;    var x;   // x依然是5
+对字符串和数字进行加法运算 ，如果把数字与字符串相加，结果将成为 字符串 。
+x===5 为 true；x==="5" 为 false   //js也有全等
+
+
+greeting=(visitor=="PRES")?"Dear President ":"Dear ";
+
+
+var d=new Date()
+var time=d.getHours()
+if (time<10) 
+{
+document.write("<b>Good morning</b>")
+}
+
+
+var d=new Date()
+theDay=d.getDay()
+switch (theDay)
+   {
+   case 5:
+     document.write("Finally Friday")
+     break
+   case 6:
+     document.write("Super Saturday")
+     break
+   case 0:
+     document.write("Sleepy Sunday")
+     break
+   default:
+     document.write("I'm looking forward to this weekend!")
+}
+
+
+将脚本编写为函数，就可以避免页面载入时执行该脚本。用事件和调用来触发  （面向过程的思维呀）
+<input type="button" value="Click me!" onclick="displaymessage()" >
+
+
+js函数名大小写敏感
+
+
+var x
+var mycars =
+mycars[0] = "Saab"
+mycars[1] = "Volvo"
+mycars[2] = "BMW"
+
+
+for ( x in mycars )
+{
+document.write(mycars[x] + "<br />")
+}
+
+
+
+
+onload 事件常用来检测访问者的浏览器类型和版本，然后根据这些信息载入特定版本的网页。
+onload 和 onUnload 事件也常被用来处理用户进入或离开页面时所建立的 cookies。
+
+
+<form method="post" action="xxx.htm" onsubmit="return checkForm()">
+checkForm() 函数的返回值是 true 或者 false。如果返回值为true，则提交表单，反之取消提交。
+
+
+
+
+var txt=""
+function message()
+{
+try
+  {
+  adddlert("Welcome guest!")
+  }
+catch(err)     ------>提示用户并让用户去选择
+  {
+  txt="There was an error on this page.\n\n"
+  txt+="Click OK to continue viewing this page,\n"
+  txt+="or Cancel to return to the home page.\n\n"
+  if(!confirm(txt))
+    {
+    document.location.href="http://www.w3school.com.cn/"
+    }
+  }
+}
+
+
+
+
+-----------------
+var x=prompt("Enter a number between 0 and 10:","")
+try
+{ 
+if(x>10) 
+throw "Err1"                   //throw(exception)  exception 可以是字符串、整数、逻辑值或者对象。
+else if(x<0)
+throw "Err2"
+} 
+catch(er)
+{
+if(er=="Err1") 
+alert("Error! The value is too high")
+if(er == "Err2") 
+alert("Error! The value is too low") 
+}
+-----------------
+
+
+特殊字符记得要转义   \"  \'  \n  \t   \\  
+
+
+
+
+var str="Hello world!"
+document.write(str. indexOf ("Hello") + "<br />")  //0   -1表没查到
+
+
+var str="Hello world!"
+document.write(str. match ("world") + "<br />")   //world
+如何使用 match() 来查找字符串中特定的字符，并且如果找到的话，则 返回这个字符 。否则 null
+
+
+var str="Visit Microsoft!"
+document.write(str. replace (/Microsoft/,"W3School"))   //Visit W3School! 
+
+
+document.write(Date())   Sun Mar 22 14:18:09 2015  
+ 
+--------------- 使用 getTime() 计算从 1970 年到今天有多少年。------------ 
+var minutes = 1000*60
+var hours = minutes*60
+var days = hours*24
+var years = days*365
+var d = new Date()
+var t = d.getTime()
+var y = t/years
+
+
+document.write("It's been: " + y + " years since 1970/01/01!")
+----------------------
+
+
+
+
+function startTime()
+{
+var today=new Date()
+var h=today.getHours()
+var m=today.getMinutes()
+var s=today.getSeconds()
+m=checkTime(m)
+s=checkTime(s)
+document.getElementById('txt').innerHTML=h+":"+m+":"+s
+t=setTimeinterval('startTime( )',500)             // 半秒调一回
+}
+
+
+function checkTime(i)
+{
+if (i<10) 
+  {i="0" + i}
+  return i               //小于10前缀0
+}
+----------------------
+表示月份的参数介于 0 到 11 之间。也就是说，如果希望把月设置为 8 月，则参数应该是 7。
+var myDate=new Date()
+myDate. setDate (myDate.getDate()+5)  将日期对象设置为 5 天后的日期
+
+
+var myDate=new Date()
+myDate. setFullYear (2008,7,9)     为日期对象设置了一个特定的日期 (2008 年 8 月 9 日)
+
+
+---------------------
+var arr = new Array(3);
+arr[0] = "George"
+arr[1] = "John"
+arr[2] = "Thomas"
+
+
+document.write(arr.join());
+document.write("<br />");                George,John,Thomas
+George.John.Thomas 
+document.write(arr.join("."));
+-----------------------
+
+
+如果逻辑对象无初始值或者其值为 0、-0、null、""、false、undefined 或者 NaN，
+那么对象的值为 false。否则，其值为 true 
+var myBoolean=new Boolean(NaN)
+Boolean（逻辑）对象用于将非逻辑值转换为逻辑值（true 或者 false）。
+-------------------------
+通过 new 关键词来定义 RegExp 对象。以下代码定义了名为 patt1 的 RegExp 对象，其模式是 "e"：
+var patt1=new RegExp ("e");当您使用该 RegExp 对象在一个字符串中检索时，将寻找的是字符 "e"。
+RegExp 对象有 3 个方法： test( )、exec( ) 以及 compile( )。
+
+
+使用变量时，好的编码习惯是始终 存放相同类型 的值。
+
+
+ECMAScript 的解释程序遇到未声明过的标识符时，用该变量名创建一个 全局变量 ，并将其初始化为指定的值。
+这是该 语言的便利之处 ，不过如果不能紧密跟踪变量，这样做也很危险。
+最好的习惯是像使用其他程序设计语言一样，总是 声明所有变量
+-----------------------------------
+ECMAScript 有 5 种原始类型（primitive type），即 Undefined、Null、Boolean、Number 和 String。
+当声明的变量未初始化时，该变量的默认值是 undefined。
+function testFunc() {
+}
+alert(testFunc() == undefined);  //输出 "true"！！！
+
+
+值 undefined 实际上是从值 null 派生来的，因此 ECMAScript 把它们定义为相等的。
+alert(null == undefined);  //输出 "true"
+
+
+undefined 是声明了变量但未对其初始化时赋予该变量的值，
+null 则用于表示尚未存在的对象。
+如果函数或方法要返回的是对象， 那么找不到该对象时，返回的通常是 null。
+
+
+parseInt() 和 parseFloat()。
+只有对 String 类型调用这些方法，它们才能正确运行；对其他类型返回的都是 NaN。
+
+
+如果构造函数 无参数，括号则不是必需的。 因此可以采用下面的形式重写上面的两行代码：
+var oObject = new Object;
+var oStringObject = new String;           //php中也可以
+---------------------
+ECMAScript 拥有无用存储单元收集程序（garbage collection routine），意味着不必专门销毁对象来释放内存。
+当再没有对对象的引用时，称该对象被废除（dereference）了。
+
+
+把对象的所有引用都设置为 null ，可以强制性地废除对象。例如：
+var oObject = new Object;
+// do something with the object here
+oObject = null;
+废除对象的所有引用时要当心。如果一个对象有两个或更多引用，则要正确废除该对象，必须将其所有引用都设置为 null。
+----------------------
+ECMAScript 中的所有对象的所有属性和方法都是 公用 的。
+
+
+由于缺少私有作用域，开发者确定了一个规约，说明哪些属性和方法应该被看做私有的。
+这种规约规定在属性前后加下划线：
+obj._color_ = "blue";
+有些开发者还喜欢用单下划线说明私有成员，例如：obj. _color 。
+ECMAScript 没有静态作用域 （静态属性和方法）
+<a href="javascript:void(window.open('about:blank'))">Click me</a>
+
+
+如果函数无明确的返回值，或调用了没有参数的 return 语句，那么它真正返回的值是 undefined 。
+-----------------------------参数--------------------------
+与其他程序设计语言不同，ECMAScript 不会验证传递给函数的参数个数是否等于函数定义的参数个数。
+开发者定义的函数都可以接受任意个数的参数（根据 Netscape 的文档，最多可接受 25 个），
+而不会引发任何错误。任何遗漏的参数都会以 undefined 传递给函数，多余的参数将忽略。
+
+
+Function 对象也有与所有对象共享的 valueOf() 方法和 toString() 方法。
+这两个方法返回的都是函数的源代码， 在调试时尤其有用。
+
+
+
+
+二．<Script>标签解析
+
+
+<script>xxx</script>这组标签，是用于在html页面中插入js的主要方法。它主要有以下几个属性：
+1.charset：可选。表示通过src属性指定的字符集。由于大多数浏览器忽略它，所以很少有人用它。
+2.defer：可选。表示脚本可以延迟到文档完全被解析和显示之后再执行。由于大多数浏览器不支持，故很少用。
+3.language：已废弃。原来用于代码使用的脚本语言。由于大多数浏览器忽略它，所以不要用了。
+4.src：可选。表示包含要执行代码的外部文件。
+5.type：必需。可以看作是language的替代品。表示代码使用的脚本语言的内容类型。范例：type="text/javascript"。
+
+
+
+
+如果你想弹出一个</script>标签的字符串，那么浏览器会误解成JS代码已经结束了。
+解决的方法，就是把字符串分成两个部分，通过连接符‘+’来连接。
+<script type="text/javascript">
+alert('</scr'+'ipt>');
+</script>
+
+
+这样标签内就没有任何JS代码了。 也不能用单标签：
+<script type="text/javascript" src="demo1.js" />；
+
+
+也不能在里面添加任何代码：
+<script type="text/javascript" src="demo1.js">alert('我很可怜，执行不到！')</script>
+
+
+typeof 操作符可以操作变量，也可以操作字面量。
+虽然也可以这样使用：typeof(box)，但，typeof是 操作符 而非内置函数。
+
+
+undefined主要的目的是为了 用于比较 ，ECMAScript第3版之前并没有引入这个值，
+引入之后为了正式区分 空对象 与 未经初始化的变量 。
+
+
+未初始化的变量 与根本不存在的变量( 未声明的变量 )也是不一样的。
+
+
+如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为 null 。
+这样，当检查null值就知道是否已经变量是否已经分配了对象引用了。
+var box = null;
+if (box != null) {
+alert('box对象已存在！');
+}
+
+
+undefined是派生自null的 ，因此ECMA-262规定对它们的相等性测试返回 true 。
+alert(undefined == null);
+
+
+由于undefined和null两个值的比较是相等的，所以， 未初始化的变量和赋值为null 的变量会相等。 ！！！
+这时，可以采用typeof变量的类型进行比较。但，建议还是养成编码的规范，不要 忘记初始化变量 。
+var box;
+var car = null; //object
+alert(typeof box == typeof car)
+
+
+var hello = 'Hello World!';
+var hello2 = Boolean(hello);
+alert(typeof hello);
+
+
+上面是一种显示转换，属于强制性转换。而实际应用中，还有一种隐式转换。
+比如，在if条件语句里面的条件判断，就存在隐式转换。
+var hello = 'Hello World!';
+if (hello) {
+alert('如果条件为true，就执行我这条！');
+} else {
+alert('如果条件为false，就执行我这条！');
+}
+
+
+Number类型包含两种数值：整型和浮点型。为了支持各种 数值类型 ，ECMA-262定义了不同的 数值字面量格式 。（通过字面量来判断其类型）
+
+
+最基本的数值字面量是十进制整数。
+var box = 100; //十进制整数
+
+
+八进制数值字面量，(以8为基数)，前导必须是0，八进制序列(0~7)。
+var box = 070; //八进制，56
+var box = 079; //无效的八进制，自动解析为79
+var box = 08; //无效的八进制，自动解析为8
+
+
+十六进制字面量前面两位必须是0x，后面是(0~9及A~F)。
+var box = 0xA; //十六进制，10
+var box = 0x1f; //十六进制，31
+
+
+浮点类型，就是该数值中必须包含一个小数点，并且小数点后面必须至少有一位数字。
+var box = 3.8;
+var box = 0.8;
+var box = .8; //有效，但不推荐此写法
+
+
+由于保存浮点数值需要的内存空间比整型数值大两倍，因此ECMAScript会自动将可以转换为 整型的浮点数值转成为整型 。
+var box = 8.; //小数点后面没有值，转换为8
+var box = 12.0; //小数点后面是0，转成为12
+
+
+对于那些过大或过小的数值，可以用科学技术法来表示(e表示法)。用e表示该数值的前面10的指数次幂。
+var box = 4.12e9; //即4120000000
+var box = 0.00000000412; //即4.12e-9
+
+
+虽然浮点数值的最高精度是17位小数，但算术运算中可能会不精确。由于这个因素，
+做判断的时候一定要考虑到这个问题(比如使用整型判断)。
+alert(0.1+0.2); //0.30000000000000004             return total.toFixed(2);
+
+
+浮点数值的范围在：Number.MIN_VALUE ~ Number.MAX_VALUE之间。
+alert(Number.MIN_VALUE); //最小值
+alert(Number.MAX_VALUE); //最大值
+
+
+如果超过了浮点数值范围的最大值或最小值，那么就先出现 Infinity (正无穷)或者- Infinity (负无穷)。      -----没有溢出错误
+var box = 100e1000; //超出范围，Infinity
+var box = -100e1000; //超出范围，-Infinity
+
+
+也可能通过Number.POSITIVE_INFINITY和Number.NEGATIVE_INFINITY得到Infinity(正无穷)及-Infinity(负无穷)的值。
+alert(Number.POSITIVE_INFINITY); //Infinity(正无穷)
+alert(Number.NEGATIVE_INFINITY);//-Infinity(负无穷)
+
+
+要想确定一个数值到底是否超 过了规定范围 ，可以使用isFinite()函数。如果没有超过，返回true，超过了返回false。
+var box = 100e1000;
+alert(isFinite(box)); //返回false或者true
+------------------处理异常的一种情况----------------------
+NaN，即非数值(Not a Number)是一个特殊的值，这个数值用于表示一个 本来要返回数值的操作数
+未返回数值的情况(这样就不会抛出错误了)。 比如，在其他语言中，
+任何数值除以0都会 导致错误 而终止程序执行。但在ECMAScript中，会返回出特殊的值，因此不会影响程序执行。
+var box = 0 / 0; //NaN
+var box = 12 / 0; //Infinity
+var box = 12 / 0 * 0; //NaN
+
+
+可以通过Number.NaN得到NaN值，任何与NaN进行运算的结果均为NaN，NaN与自身不相等(NaN不与任何值相等)。
+alert(Number.NaN); //NaN
+alert(NaN+1); //NaN
+alert(NaN == NaN) //false
+
+
+ECMAScript提供了isNaN()函数，用来判断这个值到底是不是NaN。isNaN()函数在接收到一个值之后，
+会尝试将这个值转换为数值。
+alert(isNaN(NaN)); //true
+alert(isNaN(25)); //false，25是一个数值
+alert(isNaN('25')); //false，'25'是一个字符串数值，可以转成数值
+alert(isNaN('Lee')); //true，'Lee'不能转换为数值
+alert(isNaN(true)); //false true可以转成成1
+
+
+isNaN()函数也适用于对象。在调用isNaN()函数过程中，首先会调用valueOf()方法，
+然后确定返回值是否能够转换成数值。如果不能，则基于这个返回值再调用toString()方法，再测试返回值。
+var box = {
+toString : function () {
+return '123'; //可以改成return 'Lee'查看效果
+}
+};
+alert(isNaN(box)); //false
+-----------------------------转型问题------------------------------------
+有3个函数可以 把非数值转换为数值 ：Number()、parseInt()和parseFloat()。Number()函数是转型函数， 可以用于任何数据类型，
+而另外两个则专门用于 把字符串转成数值 。
+alert(Number(true)); //1，Boolean类型的true和false分别转换成1和0
+alert(Number(25)); //25，数值型直接返回
+alert(Number(null)); //0，空对象返回0
+alert(Number(undefined)); //NaN，undefined返回NaN
+
+
+如果是字符串，应该遵循一下规则：
+
+
+1.只包含数值的字符串，会直接转成成十进制数值，如果包含 前导0，即自动去掉。
+alert(Number('456')); //456
+alert(Number('070')); //70
+
+
+2.只包含浮点数值的字符串，会直接转成浮点数值，如果包含前导和后导0，即自动去掉。
+alert(Number('08.90')); //8.9
+
+
+3.如果字符串是空，那么直接转成成0。
+alert(Number('')); //0
+
+
+4.如果不是以上三种字符串类型，则返回NaN。
+alert( (Number（ 'Lee123')）; //NaN
+
+
+5.如果是对象，首先会调用valueOf()方法，然后确定返回值是否能够转换成数值。如果转换的结果是NaN，
+则基于这个返回值再调用toString()方法，再测试返回值。
+var box = {
+toString : function () {
+return '123'; //可以改成return 'Lee'查看效果
+}
+};
+alert(Number(box)); //123
+
+
+由于Number()函数在转换字符串时 比较复杂且不够合理，因此在处理整数的时候更常用的是parseInt()。
+alert(parsetInt('456Lee')); //456，会返回整数部分
+alert(parsetInt('Lee456Lee')); //NaN，如果第一个不是数值，就返回NaN
+alert(parseInt('12Lee56Lee')); //12，从第一数值开始取，到最后一个连续数值结束
+alert(parseInt('56.12')); //56，小数点不是数值，会被去掉
+alert(parseInt('')); //NaN，空返回NaN
+
+
+parseInt()除了能够识别十进制数值，也可以识别八进制和十六进制。
+alert(parseInt('0xA')); //10，十六进制
+alert(parseInt('070')); //56，八进制
+alert(parseInt('0xALee')); //100，十六进制，Lee被自动过滤掉
+
+
+ECMAScript为parseInt()提供了第二个参数，用于解决各种进制的转换。
+alert(parseInt('0xAF')); //175，十六进制
+alert(parseInt('AF',16)); //175，第二参数指定十六进制，可以去掉0x前导
+alert(parseInt('AF')); //NaN，理所当然
+alert(parseInt('101010101',2)); //314，二进制转换
+alert(parseInt('70',8)) //56，八进制转换
+
+
+parseFloat()是用于浮点数值转换的，和parseInt()一样，从第一位解析到非浮点数值位置。
+alert(parseFloat('123Lee')); //123，去掉不是别的部分
+alert(parseFloat('0xA')); //0，不认十六进制
+alert(parseFloat('123.4.5')); //123.4，只认一个小数点
+alert(parseFloat('0123.400')); //123.4，去掉前后导
+alert(parseFloat('1.234e7')); //12340000，把科学技术法转成普通数值
+
+
+如果在转型之前不知道变量是否是null或者undefined的情况下，我们还可以使用转型函数 String()，
+这个函数能够将任何类型的值转换为字符串。
+var box = null;
+alert(String(box));  //null
+
+
+PS：如果值有toString()方法，则调用该方法并返回相应的结果；如果是null或者undefined，
+则返回"null"或者"undeinfed"。
+--------------------------------
+两种属性输出方式
+alert(box.age); //点表示法输出，后边只能是字符串，不能是变量
+alert(box['age']); //中括号表示法输出，注意 引号 , 变量可去掉引号
+
+
+由于函数是对象，因此 函数名 实际上也是一个指向函数对象的指针。
+
+
+function box(num1, num2) {
+return num1 + num2; //原函数
+}
+
+
+function sayBox(num1, num2) {
+return box .apply( this , [num1, num2]); //this表示作用域，这里是window，   传不同的对象实现不同的效果，多态呀
+} //[ ]表示box所需要的参数
+
+
+而prototype下有两个方法：apply()和call()，每个函数都包含这两个非继承而来的方法。
+\这两个方法的用途都在 特定的作用域 中调用函数，实际上等于设置函数体内this对象的值。
+
+
+
+
+事实上，传递参数并不是apply()和call()方法真正的用武之地；它们经常使用的地方是能够扩展函数赖以运行的作用域。
+var color = '红色的'; //或者window.color = '红色的';也行
+
+
+var box = {
+color : '蓝色的'
+};
+
+
+function sayColor() {
+alert(this.color);
+}
+
+
+sayColor(); //作用域在window
+
+
+sayColor.call(this); //作用域在window
+sayColor.call(window); //作用域在window
+sayColor.call(box); //作用域在box，对象冒充
+
+
+使用call()或者apply()来扩充作用域的最大好处，就是 对象不需要与方法发生任何耦合关系，框架的思想，调用后来人写的代码
+(耦合，就是互相关联的意思，扩展和维护会发生连锁反应)。也就是说，
+box对象和sayColor()方法之间不会有多余的关联操作，比如 box.sayColor = sayColor;
+
+
+
+
+ECMAScript中所有函数的参数都是 按值传递 的，言下之意就是说，参数不会按引用传递，虽然变量有基本类型和引用类型之分。
+o={ name:"haha", age:10 }													     function f(o){ o.age=12; }													   f(o); alert(o.age); //12
+
+ 
+1
+o
+=
+{
+2
+name
+:
+"haha"
+,
+3
+age
+:
+10
+4
+}
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+5
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+6
+function
+ 
+f
+(
+o
+){
+7
+    
+o
+.
+age
+=
+12
+;
+8
+}
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+9
+f
+(
+o
+);
+10
+alert
+(
+o
+.
+age
+); 
+//12
+
+
+
+
+var box = 'blue';
+function setBox() {
+function setColor() {
+var b = 'orange';
+alert(box);
+alert(b);
+}
+setColor(); //setColor( )的执行环境在setBox()内
+}
+setBox();
+当 执行环境 中的所有代码执行完毕后，该环境被销毁，保存在其中的所有变量和函数定义也随之销毁。
+如果是全局环境下，需要程序执行完毕，或者网页被关闭才会销毁。
+
+
+就是一旦数据不再有用，那么将其设置为null来释放引用，这个做法叫做 解除引用。
+这一做法适用于大多数 全局变量和全局对象 。
+var o = {
+name : 'Lee'
+};
+o = null; //解除对象引用，等待垃圾收集器回收
+===============================================
+// 如果构造函数,有return 语句,如果return 普通值,返回值仍是构造函数所造的对象
+    var Dog = function () {
+        this.leg = 4;
+        return 9999;
+    }
+    var xiaohei = new Dog();
+ 
+    // 如果构造函数,有return 语句,且return 值是对象,则返回值是就是return的对象.
+    var Dog = function () {
+        this.leg = 4;
+        return {name:'pig',bark:function(){alert('哼哼')}}
+    }
+    var panghei = new Dog();
+不要以普通函数的方法来调用构造函数, 否则会污染全局对象.
+===================================================
+===================创造对象的方法=======================
+===================================================
+
+字面量   构造函数   原型对象
+1. 对象字面量方式
+var box = new Object(); ={ }
+box.name = 'Lee';
+box.age = 100;
+box.run = function () {
+return this.name + this.age + '运行中...';
+};
+缺点，想创建一个类似的对象，就会产生大量的代码。
+var box={ name:'lee',
+                   age:100
+
+              }
+
+2.
+工厂模式(本质还是字面量)
+function createObject(name, age) { //集中实例化的函数
+var obj = new Object();
+obj.name = name;
+obj.age = age;
+obj.run = function () {
+return this.name + this.age + '运行中...';
+};
+return obj;
+}
+根本无法搞清楚他们到底是哪个对象的实例。
+3. 构造函数模式
+function Box(name, age) {
+this.name = name;
+this.age = age;
+this.run = function () {                     //   每个对象 独有run方法
+return this.name + this.age + '运行中...';
+};
+}    
+var b = new Box('xx',12)
+----------------------
+var yx01 = new function() {return "圆心"};
+alert(yx01);
+我们运行情景一代码，将返回显示“[object object] ”，
+此时该代码等价于：
+function 匿名类(){
+    return "圆心";
+}
+var yx01 = new 匿名类();
+alert(yx01);         
+-----------------------
+var yx01 = new function() {return new String("圆心")};
+alert(yx01);
+我们运行，将会发现返回的是“圆心”，这是为什么呢？
+ 
+只要 new 表达式之后的 constructor 返回（return）一个引用对象（数组，对象，函数等），都将覆盖new创建的匿名对象，如果返回（return）一个原始类型（无 return 时其实为 return 原始类型 undefined），那么就返回 new 创建的匿名对象
+由于 new String 会构造一个对象，而不是一个 string 直接量，且new String(x) 如果带参数，那么alert它的时候就会返回 x。所以 yx01 将返回 new String(”圆心”) 这个对象，而 alert yx01 则显示 “圆心”。 
+
+
+4. 原型模式
+function Box () {} //声明一个构造函数
+
+
+Box.prototype.name = 'Lee'; //在原型里添加属性
+Box.prototype.age = 100;
+Box.prototype.run = function () { //在原型里添加方法
+return this.name + this.age + '运行中...';
+};
+我们创建的每个函数都有一个prototype(原型)属性，这个属性是一个 对象 ，
+它的用途是包含可以由特定类型的所有实例   共享  的属性和方法。
+方法的引用地址保持一致
+
+
+__proto__属性是 实例 指向原型对象的一个 指针 ，它的作用就是指向构造函数的原型属性constructor。
+通过这两个属性，就可以访问到原型里的属性和方法了。
+alert(box1.__proto__); //[object Object]
+判断一个对象是否指向了该构造函数的原型对象，可以使用isPrototypeOf()方法来测试。
+alert(Box.prototype. isPrototypeOf (box)); //只要实例化对象，即都会指向
+
+
+原型模式的执行流程：
+.先查找 构造函数实例 里的属性或方法，如果有，立刻返回；
+.如果构造函数实例里没有，则去它的原型对象里找，如果有，就返回；
+如何判断属性是在构造函数的实例里，还是在原型里？ 可以使用hasOwnProperty()函数来验证：
+alert(box. hasOwnProperty ('name')); //实例里有返回true，否则返回false
+in 操作符会在通过对象能够访问给定属性时返回true，无论该属性存在于实例中还是原型中。
+alert('name' in box); //true，存在实例中或原型中
+
+
+为了让属性和方法更好的体现封装的效果 ，并且减少不必要的输入， 原型的创建可以使用字面量 的方式：
+function Box() {};
+Box.prototype = { //使用字面量的方式
+          constructor : Box , //必须得表示原型对象的构造器     要不然 Box.constructor  的值为   function Function() { [native code]}
+
+name : 'Lee',
+age : 100,
+run : function () {
+return this.name + this.age + '运行中...';
+}
+};
+原型的声明是有先后顺序的，所以，重写的原型会切断之前的原型。
+原型中所有属性是被很多实例共享的， 共享对于函数非常合适，
+对于包含基本值的属性也还可以。但如果 属性包含引用类型，就存在一定的问题：
+    function Person(){}     Person.prototype ={ a:'aaa',b:1,c:{d:'ddd'},d:[1,2,3]}     var p1 = new Person();     var p2 = new Person();        p1.a = 'hahahah';     p1.b=2;     p1.c.d='hehheheheh';     p1.d=[0,0,0];     alert(p2.a);   //aaa     alert(p2.b);   //1     alert(p2.c.d); //hehheheheh     alert(p2.d);   //[1,2,3]
+
+ 
+1
+    
+function
+ 
+Person
+(){}
+2
+    
+Person
+.
+prototype
+ 
+=
+{ 
+a
+:
+'aaa'
+,
+b
+:
+1
+,
+c
+:{
+d
+:
+'ddd'
+},
+d
+:[
+1
+,
+2
+,
+3
+]}
+3
+    
+var
+ 
+p1
+ 
+=
+ 
+new
+ 
+Person
+();
+4
+    
+var
+ 
+p2
+ 
+=
+ 
+new
+ 
+Person
+();   
+5
+    
+p1
+.
+a
+ 
+=
+ 
+'hahahah'
+;
+6
+    
+p1
+.
+b
+=
+2
+;
+7
+    
+p1
+.
+c
+.
+d
+=
+'hehheheheh'
+;
+8
+    
+p1
+.
+d
+=
+[
+0
+,
+0
+,
+0
+];
+9
+    
+alert
+(
+p2
+.
+a
+);   
+//aaa
+10
+    
+alert
+(
+p2
+.
+b
+);   
+//1
+11
+    
+alert
+(
+p2
+.
+c
+.
+d
+); 
+//hehheheheh
+12
+    
+alert
+(
+p2
+.
+d
+);   
+//[1,2,3]
+--------------------------------------------------
+// ECMA5 给原型对象重新设置构造器的方法 Object. defineProperty ();
+// 3个参数  参数1 ：重设构造器的对象   参数2：设置什么属性  参数3：options配置项
+Object. defineProperty (Person.prototype , 'constructor' , {
+enumerable : false , 
+value : Person 
+});
+---------------------------------------------------
+//原型的动态特性　
+function Person(){
+}
+var p1 = new Person();
+//原型对象的构造器默认为Person
+Person. prototype.say = function(){alert('我是方法!')};
+p1.say();   //我是方法!
+---------------------------------------------------
+function Person(){
+}
+var p1 = new Person();  // {}
+
+Person. prototype = {
+constructor : Person ,
+say : function(){
+alert('我是原型的函数!');
+}
+}; //p1.say(); // error 应为 原型对象里面没有任何属性和方法
+       // 注意简单原型使用的顺序( 实例对象必须在原型对象之后创建 )
+
+
+5.
+为了解决构造传参和共享问题，可以组合   构造函数+原型模式 ：
+function Box(name, age) { // 不共享 的使用构造函数
+this.name = name;
+this.age = age;
+this. family = ['父亲', '母亲', '妹妹'];
+};
+Box.prototype = { // 共享 的使用原型模式
+constructor : Box,
+run : function () {
+return this.name + this.age + this.family;
+}
+};
+6.
+动态原型模式。
+function Box(name ,age) { //将所有信息封装到函数体内
+this.name = name;
+this.age = age;
+
+if (typeof this.run != 'function') { //仅在第一次调用的初始化
+Box.prototype.run = function () {
+return this.name + this.age + '运行中...';
+};
+}
+}
+var box = new Box('Lee', 100);
+alert(box.run());
+
+
+============================================
+=================对象的继承====================   
+
+============================================
+
+ECMAScript 实现继承的方式不止一种。这是因为 JavaScript 中的 继承机制并不是明确规定的 ，
+而是通过 模仿 实现的。这意味着所有的继承细节并非完全由 解释程序处理，还的需要代码来处理 。
+作为开发者，你有权决定最适用的继承方式。
+1、对象冒充 (构造函数式）
+function ClassA(sColor) {
+    this.color = sColor;
+    this.sayColor = function () {
+        alert(this.color);
+    };
+}
+-----------------------
+function ClassB(sColor, sName) {
+    //this.newMethod = ClassA;
+    //this.newMethod(sColor);
+    //delete this.newMethod;
+    ClassA.call(this, sColor);    //this指ClassB   ClassA里的this指向了ClassB
+ 
+    this.name = sName;
+    this.sayName = function () {
+        alert(this.name);
+    };
+}
+----------------------------
+function ClassB(sColor, sName) {
+    //this.newMethod = ClassA;
+    //this.newMethod(color);
+    //delete this.newMethod;
+    ClassA.apply(this, arguments);    arguments -->  sColor, sName
+    this.name = sName;
+    this.sayName = function () {
+        alert(this.name);
+    };
+}  只有超类中的参数顺序与子类中的参数 顺序完全一致 时才可以传递参数对象。
+
+
+2.原型链（prototype chaining）
+function ClassA() {
+}
+ClassA.prototype.color = "blue";
+ClassA.prototype.sayColor = function () {
+    alert(this.color);
+};  
+function ClassB() {
+}  
+ClassB.prototype = new ClassA();
+此外，在原型链中， instanceof 运算符的运行方式也很独特。对 ClassB 的所有实例，instanceof 为 ClassA 和 ClassB 都返回 true。例如：
+ 
+var objB = new ClassB();
+alert(objB instanceof ClassA);    //输出 "true"
+alert(objB instanceof ClassB);    //输出 "true"
+
+
+3.混合方式
+function ClassA(sColor) {
+    this.color = sColor;
+}
+ClassA.prototype.sayColor = function () {
+    alert(this.color);
+};
+
+
+function ClassB(sColor, sName) {
+    ClassA.call(this, sColor);            //call 绑定父类的模版函数 实现 借用构造函数继承    只复制了 父类的模版
+    this.name = sName;
+}
+ClassB.prototype = new ClassA();   //原型继承的方式: 即继承了父类的模版 又继承了父类的原型对象
+                                                          //原型中是有color这个属性的，虽然没有传递 sColor的参数，结果color属性的值就是undifined
+ClassB.prototype.sayName = function () {
+    alert(this.name);
+};
+4.更高级的继承
+混合继承的缺点： 3件事 : 继承了父类的 2次模版 , 继承了一次父类的原型对象
+extend方法 2件事:  继承1次父类的模版  继承一次父类的原型对象
+
+
+function extend(sub ,sup){ // 目的： 实现只继承父类的原型对象 var F = new Function();	// 1 创建一个空函数    目的：空函数进行中转 F.prototype = sup.prototype; // 2 实现空函数的原型对象和超类的原型对象转换 sub.prototype = new F(); 	// 3 只进行原型继承  sub.prototype.constructor = sub ; // 4还原子类的构造器 //保存一下父类的原型对象: 一方面方便解耦  另一方面方便获得父类的原型对象 sub.superClass = sup.prototype; //自定义一个子类的静态属性 接受父类的原型对象，  //判断父类的原型对象的构造器 (加保险)，防止其没有设constructor属性， if(sup.prototype.constructor == Object.prototype.constructor){ //如果父类没有设置constructor属性，则再设置一下 sup.prototype.constructor = sup ; //手动欢迎父类原型对象的构造器 } } ------------------------------------------------------------------------------- function Person( name , age){ this.name = name ;  this.age = age ;  } Person.prototype = { //constructor: Person ,   忽略了也没事，上边有防备滴 sayHello: function(){ alert('hello world!'); } };  function Boy(name , age , sex){ //call 绑定父类的模版函数 实现 借用构造函数继承 只复制了父类的模版，，模板也要集成 Boy.superClass.constructor.call(this , name , age);  //解耦   父类的构造方法的调用来继承属性 this.sex = sex ; }   extend(Boy , Person);  // 给子类加了一个 原型对象的方法 Boy.prototype.sayHello = function(){ alert('hi javascript!'); }  var b = new Boy('张三' , 20 , '男'); alert(b.name);  alert(b.sex); //b.sayHello(); Boy.superClass.sayHello.call(b);  //调用父类的方法，即使父类的方法被覆盖掉
+
+ 
+1
+2
+    
+    
+    
+function
+ 
+extend
+(
+sub
+ ,
+sup
+){   
+3
+    
+    
+    
+    
+ 
+// 目的： 实现只继承父类的原型对象
+4
+    
+    
+    
+    
+ 
+var
+ 
+F
+ 
+=
+ 
+new
+ 
+Function
+();
+    
+// 1 创建一个空函数    目的：空函数进行中转
+5
+    
+    
+    
+    
+ 
+F
+.
+prototype
+ 
+=
+ 
+sup
+.
+prototype
+; 
+// 2 实现空函数的原型对象和超类的原型对象转换
+6
+    
+    
+    
+    
+ 
+sub
+.
+prototype
+ 
+=
+ 
+new
+ 
+F
+(); 
+  
+// 3 只进行原型继承 
+7
+    
+    
+    
+    
+ 
+sub
+.
+prototype
+.
+constructor
+ 
+=
+ 
+sub
+ ; 
+// 4还原子类的构造器
+8
+    
+    
+    
+    
+ 
+//保存一下父类的原型对象: 一方面方便解耦  另一方面方便获得父类的原型对象
+9
+    
+    
+    
+    
+ 
+sub
+.
+superClass
+ 
+=
+ 
+sup
+.
+prototype
+; 
+//自定义一个子类的静态属性 接受父类的原型对象， 
+10
+    
+    
+    
+    
+ 
+//判断父类的原型对象的构造器 (加保险)，防止其没有设constructor属性，
+11
+    
+    
+    
+    
+ 
+if
+(
+sup
+.
+prototype
+.
+constructor
+ 
+==
+ 
+Object
+.
+prototype
+.
+constructor
+){ 
+//如果父类没有设置constructor属性，则再设置一下
+12
+    
+    
+    
+    
+ 
+   
+sup
+.
+prototype
+.
+constructor
+ 
+=
+ 
+sup
+ ; 
+//手动欢迎父类原型对象的构造器
+13
+    
+    
+    
+    
+ }
+14
+    
+    
+    
+}
+15
+-------------------------------------------------------------------------------
+16
+    
+    
+    
+function
+ 
+Person
+( 
+name
+ , 
+age
+){
+17
+    
+    
+    
+    
+this
+.
+name
+ 
+=
+ 
+name
+ ; 
+18
+    
+    
+    
+    
+this
+.
+age
+ 
+=
+ 
+age
+ ; 
+19
+    
+    
+    
+}
+   
+    
+    
+20
+    
+    
+    
+Person
+.
+prototype
+ 
+=
+ {
+21
+    
+    
+    
+    
+//constructor: Person ,   忽略了也没事，上边有防备滴
+22
+    
+    
+    
+    
+sayHello
+: 
+function
+(){
+23
+    
+    
+    
+    
+    
+alert
+(
+'hello world!'
+);
+24
+    
+    
+    
+    
+}
+25
+    
+    
+    
+};
+26
+    
+    
+    
+27
+    
+    
+    
+function
+ 
+Boy
+(
+name
+ , 
+age
+ , 
+sex
+){
+28
+    
+    
+    
+    
+//call 绑定父类的模版函数 实现 借用构造函数继承 只复制了父类的模版，，模板也要集成
+29
+    
+    
+    
+    
+Boy
+.
+superClass
+.
+constructor
+.
+call
+(
+this
+ , 
+name
+ , 
+age
+);  
+//解耦   父类的构造方法的调用来继承属性
+30
+    
+    
+    
+    
+this
+.
+sex
+ 
+=
+ 
+sex
+ ;
+31
+    
+    
+    
+}
+   
+    
+    
+32
+ 
+33
+    
+    
+    
+extend
+(
+Boy
+ , 
+Person
+);
+34
+    
+    
+    
+35
+    
+    
+    
+// 给子类加了一个 原型对象的方法
+36
+    
+    
+    
+Boy
+.
+prototype
+.
+sayHello
+ 
+=
+ 
+function
+(){
+37
+    
+    
+    
+    
+alert
+(
+'hi javascript!'
+);
+38
+    
+    
+    
+}
+   
+    
+39
+    
+    
+    
+40
+    
+    
+    
+var
+ 
+b
+ 
+=
+ 
+new
+ 
+Boy
+(
+'张三'
+ , 
+20
+ , 
+'男'
+);
+41
+    
+    
+    
+alert
+(
+b
+.
+name
+); 
+42
+    
+    
+    
+alert
+(
+b
+.
+sex
+);
+43
+    
+    
+    
+//b.sayHello();
+44
+    
+    
+    
+Boy
+.
+superClass
+.
+sayHello
+.
+call
+(
+b
+);  
+//调用父类的方法，即使父类的方法被覆盖掉
+
+
+5.复制继承（适用于字面量的方式）
+    var cat = {pa:function(){alert('爬树')}}     var hu = {color:'Yellow'};       function extend(sub,par) {         for (per in par) {             sub[per] = par[per];         }     }     extend(hu,cat);     console.log(hu);     hu.pa();       Object.prototype.extend = function (par) {  //参数传父类         for( per in par) {             this[per] = par[per];         }     }     hu.extend(cat);
+
+ 
+1
+    
+var
+ 
+cat
+ 
+=
+ {
+pa
+:
+function
+(){
+alert
+(
+'爬树'
+)}}
+2
+    
+var
+ 
+hu
+ 
+=
+ {
+color
+:
+'Yellow'
+};
+3
+ 
+4
+    
+function
+ 
+extend
+(
+sub
+,
+par
+) {
+5
+        
+for
+ (
+per
+ 
+in
+ 
+par
+) {
+6
+            
+sub
+[
+per
+] 
+=
+ 
+par
+[
+per
+];
+7
+        }
+8
+    }
+9
+    
+extend
+(
+hu
+,
+cat
+);
+10
+    
+console
+.
+log
+(
+hu
+);
+11
+    
+hu
+.
+pa
+();
+12
+ 
+13
+    
+Object
+.
+prototype
+.
+extend
+ 
+=
+ 
+function
+ (
+par
+) {  
+//参数传父类
+14
+        
+for
+( 
+per
+ 
+in
+ 
+par
+) {
+15
+            
+this
+[
+per
+] 
+=
+ 
+par
+[
+per
+];
+16
+        }
+17
+    }
+18
+    
+hu
+.
+extend
+(
+cat
+);
+
+
+================================================================
+location对象是window对象的属性，也是document对象的属性；所以window.location和document.location等效。
+
+
+浏览器嗅探器是一段程序，有了它，浏览器检测就变得简单了。我们这里提供了一个browserdetect.js文件，
+用于判断浏览器的名称、版本号及操作系统。
+
+
+navigator对象的 plugins 属性，这个一个数组。存储在 浏览器 已安装插件的完整列表。
+
+
+二．客户端检测
+客户端检测一共分为三种，分别为： 能力检测、怪癖检测和用户代理检测， 通过这三种检测方案，
+我们可以充分的了解当前浏览器所处系统、所支持的语法、所具有的特殊性能。
+
+
+这组属性可以获取元素可视区的大小，可以得到元素内容及内边距所占据的空间大小。
+box.clientWidth;
+box.clientHeight;
+
+
+当网站需求变大，脚本的需求也逐步变大。我们就不得不引入太多的JS脚本而降低了整站的性能，所以就出现了 动态脚本的概念，
+在适时的时候加载相应的脚本。
+比如：我们想在需要检测浏览器的时候，再引入检测文件。
+var flag = true; //设置true再加载
+if (flag) {
+loadScript('browserdetect.js'); //设置加载的js
+}
+
+
+function loadScript(url) {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = url;
+//document.head.appendChild(script); //document.head表示<head>
+          document.getElementsByTagName('head')[0].appendChild(script);
+}
+--------------------------------------------------
+一、jQuery getScript()方法加载JavaScript
+jQuery内置了一个方法可以加载单一的js文件；当加载完成后你可以在回调函数里执行后续操作。最基本的使用jQuery.getScript的方法是这样：
+ 
+jQuery.getScript("/path/to/myscript.js", function(data, status, jqxhr) {
+/*
+  做一些加载完成后需要执行的事情
+*/
+});
+ 
+这个getScript方法返回一个jqxhr，你可以像下面这样用它：
+ 
+jQuery.getScript("/path/to/myscript.js")
+.done(function() {
+  /* 耶，没有问题，这里可以干点什么 */
+})
+.fail(function() {
+  /* 靠，马上执行挽救操作 */
+});
+最常见的使用jQuery.getScript的地方是延迟加载一个js插件，而且在加载完成时执行它：
+ 
+jQuery.getScript("jquery.cookie.js")
+.done(function() {
+  jQuery.cookie("cookie_name", "value", { expires: 7 });
+});
+二、缓存问题
+有一个非常重要的问题，使用jQuery.getScript时，你需要用一个时间戳字符串跟在需要加载的js地址后面，防止它被缓存。但是，如果你希望这个脚本被缓存，你需要设置全局缓存变量，像下面这样：
+复制代码 代码如下:
+ 
+jQuery.ajaxSetup({
+  cache: true
+});
+jQuery.ajax({
+      url: "jquery.cookie.js",
+      dataType: "script",
+      cache: true
+}).done(function() {
+  jQuery.cookie("cookie_name", "value", { expires: 7 });
+});
+============================
+
+
+对于讲JSON字符串解析为JavaScript原生值，早期采用的是eval()函数。但这种方法既不安全，可能会执行一些恶意代码。
+var box = '[{"name" : "a","age" : 1},{"name" : "b","age" : 2}]';
+alert(box); //JSON字符串
+var json = eval(box); //使用eval()函数解析
+alert(json); //得到JavaScript原生值
+
+
+ECMAScript5对解析JSON的行为进行规范，定义了 全局对象JSON 。支持这个对象的浏览器有IE8+、
+Firefox3.5+、Safari4+、Chrome和Opera10.5+。不支持的浏览器也可以通过一个开源库json.js来模拟执行。
+JSON对象提供了两个方法，一个是将原生JavaScript值转换为JSON字符串： stringify() ；
+另一个是将JSON字符串转换为JavaScript原生值： parse() 。
+var box = '[{"name" : "a","age" : 1},{"name" : "b","age" : 2}]'; //特别注意，键要用双引号， 内用双引号，外用单引号
+alert(box);
+var json = JSON.parse(box); //不是双引号，会报错
+alert(json);
+
+
+var box = [{name : 'a', age : 1},{name : 'b', age : 2}]; //JavaScript原生值
+var json = JSON.stringify(box); //转换成JSON字符串
+alert(json); //自动双引号
+====================================================
+在下面的这段代码中, 由原来的16个td加监听函数,
+变为在table上加监听函数,
+利用冒泡原理: td上的事件会冒泡经过table.
+ 
+相当于把下层的事件,统一委托在上层的DOM对象上处理.节省了DOM开销.
+这种前端常用的开发方式----- 委托模式
+ 
+window.onload = function () {
+    var tb = document.getElementsByTagName('table')[0];      只需绑定table就行
+    tb.addEventListener('click',function(ev){
+        ev.target.style.backgroundColor = 'red';
+    },false);
+}
+
+
+============================================
+//模拟多态
+    function Man () {
+        this.calc = function () {
+            if(arguments.length == 2) {
+                return arguments [0] + arguments[1];
+            } else if(arguments.length == 3) {
+                return arguments[0] * arguments[1] * arguments[2];
+            }
+        }
+    }
+    var lisi = new Man();  
+    alert(lisi.calc(3,4,5));

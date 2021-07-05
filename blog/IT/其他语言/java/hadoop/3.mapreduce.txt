@@ -1,0 +1,384 @@
+hadoop没有使用jdk的默认系列化机制，因为他太慢了，
+
+ 所以hadoop自定义了一些类型，这些类型要从hdfs传输到mapreduce中
+
+
+
+
+
+ 等待完成，true代表打印执行的过程
+
+
+
+
+
+ --------------------------------------
+1.执行MR的命令：
+hadoop jar <jar在linux的路径> <main方法所在的类的全类名> <参数>
+例子：
+hadoop jar /root/wc1.jar cn.itcast.d3.hadoop.mr.WordCount hdfs://itcast:9000/words /out2
+
+
+2.MR执行流程
+(1).客户端提交一个mr的jar包给JobClient(提交方式：hadoop jar ...)
+(2).JobClient通过RPC和JobTracker进行通信，返回一个存放jar包的地址（HDFS）和jobId
+(3).client将jar包写入到HDFS当中(path = hdfs上的地址 + jobId)
+(4).开始提交任务(任务的描述信息，不是jar, 包括jobid，jar存放的位置，配置信息等等)
+(5).JobTracker进行初始化任务
+(6).读取HDFS上的要处理的文件，开始计算输入分片，每一个分片对应一个MapperTask
+(7).TaskTracker通过心跳机制领取任务（任务的描述信息）
+(8).下载所需的jar，配置文件等
+(9).TaskTracker启动一个java child子进程，用来执行具体的任务（MapperTask或ReducerTask）
+(10).将结果写入到HDFS当中
+
+
+----------------------------------------
+1363157985066 13726230503 00-FD-07-A4-72-B8:CMCC 120.196.100.82 i02.c.aliimg.com 24 27 2481 24681 200
+1363157995052 13826544101 5C-0E-8B-C7-F1-E0:CMCC 120.197.40.4 4 0 264 0 200
+1363157991076 13926435656 20-10-7A-28-CC-0A:CMCC 120.196.100.99 2 4 132 1512 200
+1363154400022 13926251106 5C-0E-8B-8B-B1-50:CMCC 120.197.40.4 4 0 240 0 200
+1363157993044 18211575961 94-71-AC-CD-E6-18:CMCC-EASY 120.196.100.99 iface.qiyi.com 视频网站 15 12 1527 2106 200
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+======================hadoop远程调试=====================
+php的远程调试需要在php中安装xdebug用于跟本地的ide进行通信，java自带远程调试
+
+
+JPDA 简介
+Sun Microsystem 的 Java Platform Debugger Architecture (JPDA) 技术是一个多层架构，使您能够在各种环境中轻松调试 Java 应用程序。JPDA 由两个接口（分别是 JVM Tool Interface 和 JDI）、一个协议（Java Debug Wire Protocol）和两个用于合并它们的软件组件（后端和前端）组成。它的设计目的是让调试人员在任何环境中都可以进行调试。
+更详细的介绍，您可以参考使用 Eclipse 远程调试 Java 应用程序
+JDWP 设置
+JVM本身就支持远程调试，Eclipse也支持JDWP，只需要在各模块的JVM启动时加载以下参数：
+
+
+dt_socket表示使用套接字传输。
+address=8000
+JVM在8000端口上监听请求，这个设定为一个不冲突的端口即可。
+server=y
+y表示启动的JVM是被调试者。如果为n，则表示启动的JVM是调试器。
+suspend=y
+y表示启动的JVM会暂停等待，直到调试器连接上才继续执行。suspend=n，则JVM不会暂停等待。
+
+
+需要在$HADOOP_HOME/etc/hadoop/hadoop-env.sh文件的最后添加你想debug的进程
+
+
+#远程调试namenode
+export HADOOP_NAMENODE_OPTS="-agentlib:jdwp=transport=dt_socket,address=8888,server=y,suspend=y"
+#远程调试datanode
+export HADOOP_DATANODE_OPTS="-agentlib:jdwp=transport=dt_socket,address=9888,server=y,suspend=y"
+
+
+#远程调试RM
+export YARN_RESOURCEMANAGER_OPTS="-agentlib:jdwp=transport=dt_socket,address=10888,server=y,suspend=y"
+
+
+#远程调试NM
+export YARN_NODEMANAGER_OPTS="-agentlib:jdwp=transport=dt_socket,address=10888,server=y,suspend=y"
+
+
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+
+1.实现分区的步骤：
+1.1先分析一下具体的业务逻辑，确定大概有多少个分区
+1.2首先书写一个类，它要继承org.apache.hadoop.mapreduce.Partitioner这个类
+1.3重写public int getPartition这个方法，根据具体逻辑，读数据库或者配置返回相同的数字
+1.4在main方法中设置Partioner的类，job.setPartitionerClass(DataPartitioner.class);
+1.5设置Reducer的数量，job.setNumReduceTasks(6);
+
+
+2.排序MR默认是按key2进行排序的，如果想自定义排序规则，被排序的对象要实现WritableComparable接口，
+在compareTo方法中实现排序规则，然后将这个对象当做k2，即可完成排序
+
+
+3.combiner的作用就是在map端对输出先做一次合并，以减少传输到reducer的数据量。
+
+
+4.MR启动流程
+start-mapred.sh  --> hadoop-daemon.sh --> hadoop --> org.apache.hadoop.mapred.JobTracker
+ 
+
+Jobtracker调用顺序：main --> startTracker  --> new JobTracker 在其构造方法中首先创建一个调度器，接着创建一个RPC的server（interTrackerServer）tasktracker会通过PRC机制与其通信
+然后调用offerService方法对外提供服务，在offerService方法中启动RPC server，初始化jobtracker，调用taskScheduler的start方法 --> eagerTaskInitializationListener调用start方法，
+--> 调用jobInitManagerThread的start方法，因为其是一个线程，会调用JobInitManager的run方法 --> jobInitQueue任务队列去取第一个任务，然后把它丢入线程池中，然后调用-->InitJob的run方法
+--> jobTracker的initJob方法 --> JobInProgress的initTasks --> maps = new TaskInProgress[numMapTasks]和reduces = new TaskInProgress[numReduceTasks];
+
+
+
+
+TaskTracker调用顺序：main --> new TaskTracker在其构造方法中调用了initialize方法，在initialize方法中调用RPC.waitForProxy得到一个jobtracker的代理对象
+接着TaskTracker调用了本身的run方法，--> offerService方法  --> transmitHeartBeat返回值是（HeartbeatResponse）是jobTracker的指令，在transmitHeartBeat方法中InterTrackerProtocol调用了heartbeat将tasktracker的状态通过RPC机制发送给jobTracker,返回值就是JobTracker的指令
+heartbeatResponse.getActions()得到具体的指令，然后判断指令的具体类型，开始执行任务
+addToTaskQueue启动类型的指令加入到队列当中，TaskLauncher又把任务加入到任务队列当中，-->  TaskLauncher的run方法 --> startNewTask方法 --> localizeJob下载资源 --> launchTaskForJob开始加载任务 --> launchTask  --> runner.start()启动线程;  --> TaskRunner调用run方法 --> launchJvmAndWait启动java child进程
+
+
+---------------------------------------------------------------------------------------------
+
+
+分组分文件
+job.setNumReduceTasks(Integer.parseInt(args[2]));  //设置运行几个reducor
+
+public int getPartition(Text key, DataBean value, int number) { 次方法的返回值决定maper将要分到哪个reducor中
+
+方法的核心就是根据用户自定义的规则来进行分组
+job.setPartitionerClass(ServiceProviderPartitioner.class);     //运行的reducor的数量是和其生成的文件的数量相关的
+
+
+
+排序
+
+    @Override
+    public int compareTo(InfoBean o) {
+        if(this.income == o.getIncome()){
+            return this.expenses > o.getExpenses() ? 1 : -1;
+        }
+        return this.income > o.getIncome() ? 1 : -1;
+    }
+----------------------
+public static class SortReducer extends Reducer<InfoBean, NullWritable, Text, InfoBean>{
+
+
+private Text k = new Text();
+@Override
+protected void reduce(InfoBean key, Iterable<NullWritable> values,
+Reducer<InfoBean, NullWritable, Text, InfoBean>.Context context)
+throws IOException, InterruptedException {
+k.set(key.getAccount());
+
+context.write(k, key);
+}
+}
+
+
+Combiners
+
+
+
+
+
+-----------------------------------
+1.0版本的架构图
+
+ 
+2.0版本的架构图
+
+ 
+
+
+
+
+
+
+=========================倒序排序表====================================
+
+ 
+那个单词在那个文章中分别出现几次
+
+
+Map
+阶段
+
+<
+0
+,
+"hello tom"
+>
+
+....
+
+
+context
+.
+write
+(
+"hello->a.txt"
+,
+1
+);
+
+context
+.
+write
+(
+"hello->a.txt"
+,
+1
+);
+
+context
+.
+write
+(
+"hello->a.txt"
+,
+1
+);
+
+context
+.
+write
+(
+"hello->a.txt"
+,
+1
+);
+
+context
+.
+write
+(
+"hello->a.txt"
+,
+1
+);
+
+
+context
+.
+write
+(
+"hello->b.txt"
+,
+1
+);
+
+context
+.
+write
+(
+"hello->b.txt"
+,
+1
+);
+
+context
+.
+write
+(
+"hello->b.txt"
+,
+1
+);
+
+--------------------------------------------------------
+
+combiner
+阶段,（相当于一个
+reducer
+）
+
+<
+"hello->a.txt"
+,
+1
+>
+
+<
+"hello->a.txt"
+,
+1
+>
+
+<
+"hello->a.txt"
+,
+1
+>
+
+<
+"hello->a.txt"
+,
+1
+>
+
+<
+"hello->a.txt"
+,
+1
+>
+
+
+<
+"hello->b.txt"
+,
+1
+>
+
+<
+"hello->b.txt"
+,
+1
+>
+
+<
+"hello->b.txt"
+,
+1
+>
+
+
+context
+.
+write
+(
+"hello"
+,
+"a.txt->5"
+);
+
+context
+.
+write
+(
+"hello"
+,
+"b.txt->3"
+);
+
+--------------------------------------------------------
+
+Reducer
+阶段
+
+<
+"hello"
+,{
+"a.txt->5"
+,
+"b.txt->3"
+}>
+
+
+
+context
+.
+write
+(
+"hello"
+,
+"a.txt->5 b.txt->3"
+);
+
+-------------------------------------------------------
+
+hello	
+"a.txt->5 b.txt->3"
+
+tom		
+"a.txt->2 b.txt->1"
+
+kitty	
+"a.txt->1"
+
+.......
+
+
+
+
+

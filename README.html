@@ -166,10 +166,11 @@ jQuery(document).ready(function(){
 
  <!--if(title)-->
 
-<p>内容纲要:</p>
+<p>Table of Contents:</p>
 <div id="TOC">
 <ul>
 <li><a href="#忧郁的大能猫的blog">忧郁的大能猫的blog</a></li>
+<li><a href="#目录结构">目录结构</a></li>
 </ul>
 </div>
  <!--if(toc)-->
@@ -179,6 +180,31 @@ jQuery(document).ready(function(){
 <p>好奇的探索者，理性的思考者，踏实的行动者。</p>
 </blockquote>
 <p>分享一点技术积累 分享一点生活感悟</p>
+<h2 id="目录结构">目录结构</h2>
+<pre><code>├── batch_mod_file_suffix.sh    # 批量修改指定目录下的文件名,可以递归的修改
+├── blog
+├── css
+│   └── style.css-github
+├── index.html
+├── index.md
+├── makefile
+├── md_file_tree.py  # 生成当前文件中的所有markdown文件列表的工具
+├── md-to-toc.py     # 生成markdown的toc的工具
+├── README.html
+├── README.md
+├── run_prettify.js
+├── style.css
+├── template
+│   ├── checkinvalidlink.sh
+│   ├── footer.html
+│   ├── getstyle.sh
+│   ├── head_debug.html
+│   ├── header.html
+│   ├── makefile
+│   ├── pandoctpl.html
+│   ├── right_side.html
+│   └── style.css
+└── up_blog.sh</code></pre>
 
 <div id="footer">
     <p class="footer_titleline">忧郁的大能猫的博客</p>

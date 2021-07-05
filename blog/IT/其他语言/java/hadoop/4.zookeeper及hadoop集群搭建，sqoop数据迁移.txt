@@ -1,0 +1,336 @@
+NN namenode
+High Availability即高可用（可靠性，其中一个宕掉其他的会补上）。  HA 的架构
+
+
+ 第一台NN宕掉了话，failover通知zk，zk之间会立即同步，第二台的NN的failover再通知NN使其状态变为Active的状态
+中间绿色的圆柱（JournalNode）是两个NN数据同步的介质
+
+
+
+
+public
+ 
+class
+ HDFS_HA 
+{
+
+	
+public
+ 
+static
+ 
+void
+ main
+(
+String
+[]
+ args
+)
+ 
+throws
+ 
+Exception
+ 
+{
+
+		
+Configuration
+ conf 
+=
+ 
+new
+ 
+Configuration
+();
+
+		conf
+.
+set
+(
+"fs.defaultFS"
+,
+ 
+"hdfs://ns1"
+);  //配置文件中有配置的
+
+		conf
+.
+set
+(
+"dfs.nameservices"
+,
+ 
+"ns1"
+);
+
+		conf
+.
+set
+(
+"dfs.ha.namenodes.ns1"
+,
+ 
+"nn1,nn2"
+);
+
+		conf
+.
+set
+(
+"dfs.namenode.rpc-address.ns1.nn1"
+,
+ 
+"itcast01:9000"
+);
+
+		conf
+.
+set
+(
+"dfs.namenode.rpc-address.ns1.nn2"
+,
+ 
+"itcast02:9000"
+);
+
+		
+//conf.setBoolean(name, value);
+
+		conf
+.
+set
+(
+"dfs.client.failover.proxy.provider.ns1"
+,
+ 
+"org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider"
+);
+
+		
+FileSystem
+ fs 
+=
+ 
+FileSystem
+.
+get
+(
+new
+ URI
+(
+"hdfs://ns1"
+),
+ conf
+,
+ 
+"hadoop"
+);
+
+		
+InputStream
+ in 
+=
+new
+ 
+FileInputStream
+(
+"c://eclipse.rar"
+);
+
+		
+OutputStream
+ out 
+=
+ fs
+.
+create
+(
+new
+ 
+Path
+(
+"/eclipse"
+));
+
+		
+IOUtils
+.
+copyBytes
+(
+in
+,
+ out
+,
+ 
+4096
+,
+ 
+true
+);
+
+	
+}
+
+}
+
+
+========================zookeeper=============================
+
+1.下载zk安装包
+
+
+2.解压
+
+
+3.配置（先在一台节点上配置）
+3.1添加一个zoo.cfg配置文件
+$ZOOKEEPER/conf
+mv zoo_sample.cfg zoo.cfg
+
+3.2修改配置文件（zoo.cfg）
+dataDir=/itcast/zookeeper-3.4.5/data
+
+server.5=itcast05:2888:3888
+server.6=itcast06:2888:3888
+server.7=itcast07:2888:3888
+
+3.3在（dataDir=/itcast/zookeeper-3.4.5/data）创建一个myid文件，里面内容是server.N中的N（server.2里面内容为2）
+echo "5" > myid
+
+3.4将配置好的zk拷贝到其他节点   scp -r /xx  root@192.168.1.22：/xx 跨机器复制，挺方便的
+scp -r /itcast/zookeeper-3.4.5/ itcast06:/itcast/
+scp -r /itcast/zookeeper-3.4.5/ itcast07:/itcast/
+
+3.5注意：在其他节点上一定要修改myid的内容
+在itcast06应该讲myid的内容改为6 （echo "6" > myid）
+在itcast07应该讲myid的内容改为7 （echo "7" > myid）
+
+4.启动集群
+分别启动zk
+./zkServer.sh start
+-----------------------------------------------------------------------------------------------------
+
+
+zookeeper的默认配置文件为zookeeper/conf/zoo_sample.cfg，需要将其修改为zoo.cfg。其中各配置项的含义，解释如下：
+
+
+1.tickTime：CS通信心跳时间----->两者维持一个长连接
+Zookeeper 服务器之间或客户端与服务器之间维持心跳的时间间隔，也就是每个 tickTime 时间就会发送一个心跳。tickTime以毫秒为单位。
+tickTime=2000  
+
+
+2.initLimit：LF初始通信时限
+集群中的follower服务器(F)与leader服务器(L)之间初始连接时能容忍的最多心跳数（tickTime的数量）。
+initLimit=5  
+
+
+3.syncLimit：LF同步通信时限
+集群中的follower服务器与leader服务器之间请求和应答之间能容忍的最多心跳数（tickTime的数量）。
+syncLimit=2  
+ 
+4.dataDir：数据文件目录
+Zookeeper保存数据的目录，默认情况下，Zookeeper将写数据的日志文件也保存在这个目录里。
+dataDir=/home/michael/opt/zookeeper/data  
+
+
+5.clientPort：客户端连接端口
+客户端连接 Zookeeper 服务器的端口，Zookeeper 会监听这个端口，接受客户端的访问请求。
+clientPort=2181 
+
+
+6.服务器名称与地址：集群信息（服务器编号，服务器地址，LF通信端口，选举端口）  L leader  F flower
+这个配置项的书写格式比较特殊，规则如下：
+server.N=YYY:A:B 
+
+
+server.1=itcast05:2888:3888
+server.2=itcast06:2888:3888
+server.3=itcast07:2888:3888
+================================================
+停hdfs,会按照特定的顺序停止不同的进程
+
+
+ 
+
+
+03机器停  yarn   resourcemanager  nodemanager
+
+ 
+
+
+单独启动一台namenode
+
+ 
+======================================================
+
+=======================sqoop===========================
+======================================================
+
+sqoop： 是一个用来将Hadoop和关系型数据库中的数据相互转移的工具
+
+核心是将sqoop的语法转换成mapreduce的语法
+
+
+sqoop安装：安装在一台节点上就可以了。
+
+
+1.上传sqoop
+
+
+2.安装和配置
+在添加sqoop到环境变量
+将数据库连接驱动拷贝到$SQOOP_HOME/lib里
+3.使用
+第一类：数据库中的数据导入到HDFS上
+sqoop import --connect jdbc:mysql://192.168.1.10:3306/itcast --username root --password 123  --table trade_detail --columns 'id, account, income, expenses'
+
+指定输出路径、指定数据分隔符
+sqoop import --connect jdbc:mysql://192.168.1.10:3306/itcast --username root --password 123  --table trade_detail --target-dir '/sqoop/td' --fields-terminated-by '\t'
+
+指定Map数量 -m 
+sqoop import --connect jdbc:mysql://192.168.1.10:3306/itcast --username root --password 123  --table trade_detail --target-dir '/sqoop/td1' --fields-terminated-by '\t' -m 2
+
+
+增加where条件, 注意：条件必须用引号引起来
+sqoop import --connect jdbc:mysql://192.168.1.10:3306/itcast --username root --password 123  --table trade_detail --where 'id>3' --target-dir '/sqoop/td2' 
+
+
+增加query语句(使用 \ 将语句换行)
+sqoop import --connect jdbc:mysql://192.168.1.10:3306/itcast --username root --password 123 \
+-- query 'SELECT * FROM trade_detail where id > 2 AND $CONDITIONS' --split-by trade_detail.id --target-dir '/sqoop/td3'
+
+注意：如果使用--query这个命令的时候，需要注意的是where后面的参数， AND $CONDITIONS 这个参数必须加上,若前边没有条件的话,要写成where $CONDITIONS
+而且存在单引号与双引号的区别，如果--query后面使用的是双引号，那么需要在$CONDITIONS前加上\即\$CONDITIONS
+如果设置map数量为1个时即-m 1，多个maper的时候才需要进行切分的,多条时得用加上--split-by ${tablename.column}  (即  表名.字段名  也就是根据那个字段进行分割,用id分割就行,因为可以迅速知道共有多少条数据)，否则需要加上
+
+第二类：将HDFS上的数据导出到数据库中(不要忘记指定分隔符)
+sqoop export --connect jdbc:mysql://192.168.8.120:3306/itcast --username root --password 123 --export-dir '/td3' --table td_bak -m 1 --fields-terminated-by ','
+
+4.配置mysql远程连接
+GRANT ALL PRIVILEGES ON itcast.* TO 'root'@'192.168.1.201' IDENTIFIED BY '123' WITH GRANT OPTION;
+FLUSH PRIVILEGES; 
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123' WITH GRANT OPTION;
+FLUSH PRIVILEGES
+
+
+==========================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

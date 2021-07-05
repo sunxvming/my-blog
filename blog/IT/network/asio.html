@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../style.css" type="text/css" />
+
+
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#boost.asio入门"> Boost.Asio入门</a><ul>
+<li><a href="#同步vs异步"> 同步VS异步</a></li>
+<li><a href="#异常处理vs错误代码"> 异常处理VS错误代码</a></li>
+<li><a href="#io_service类"> io_service类</a></li>
+</ul></li>
+<li><a href="#boost.asio基本原理"> Boost.Asio基本原理</a><ul>
+<li><a href="#缓冲区"> 缓冲区</a></li>
+</ul></li>
+<li><a href="#参考链接"> 参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>Boost.Asio 对网络编程做了一个极好的抽象，从而保证只需要少量的代码就可以实现一个优雅的客户端/服务端软件。</p>
+<h2 id="boost.asio入门"> Boost.Asio入门</h2>
+<p>简单来说，Boost.Asio是一个跨平台的、主要用于网络和其他一些底层输入/输出编程的C++库。</p>
+<h3 id="同步vs异步"> 同步VS异步</h3>
+<p>在同步编程中，所有的操作都是顺序执行的，比如从socket中读取（请求），然后写入（回应）到socket中。每一个操作都是阻塞的。 异步编程是事件驱动的。虽然启动了一个操作，但是你不知道它何时会结束；它只是提供一个回调给你，当操作结束时，它会调用这个API，并返回操作结果。</p>
+<p><strong>异步的客户端例子</strong></p>
+<pre><code>using boost::asio;
+io_service service;
+ip::tcp::endpoint ep( ip::address::from_string(&quot;127.0.0.1&quot;), 2001);
+ip::tcp::socket sock(service);
+sock.async_connect(ep, connect_handler);
+service.run();
+void connect_handler(const boost::system::error_code &amp; ec) {
+    // 如果ec返回成功我们就可以知道连接成功了
+}</code></pre>
+<p>注意：只要还有待处理的异步操作，servece.run()循环就会一直运行。在上述例子中，只执行了一个这样的操作，就是socket的async_connect。在这之后，service.run()就退出了。</p>
+<p><strong>异步服务端例子</strong></p>
+<pre><code>using boost::asio;
+typedef boost::shared_ptr&lt;ip::tcp::socket&gt; socket_ptr;
+io_service service;
+ip::tcp::endpoint ep( ip::tcp::v4(), 2001)); // 监听端口2001
+ip::tcp::acceptor acc(service, ep);
+socket_ptr sock(new ip::tcp::socket(service));
+start_accept(sock);
+service.run();
+void start_accept(socket_ptr sock) {
+    acc.async_accept(*sock, boost::bind( handle_accept, sock, _1) );
+}
+void handle_accept(socket_ptr sock, const boost::system::error_code &amp;
+err) {
+    if ( err) return;
+    // 从这里开始, 你可以从socket读取或者写入
+    socket_ptr sock(new ip::tcp::socket(service));
+    start_accept(sock);
+}</code></pre>
+<p>在上述代码片段中，首先，你创建一个io_service实例，指定监听的端口。然后，你创建接收器acc——一个接受客户端连接，创建虚拟的socket，异步等待客户端连接的对象。</p>
+<p>最后，运行异步service.run()循环。当接收到客户端连接时，handle_accept被调用（调用async_accept的完成处理程序）。如果没有错误，这个socket就可以用来做读写操作。</p>
+<p>在使用这个socket之后，你创建了一个新的socket，然后再次调用start_accept()，用来创建另外一个“等待客户端连接”的异步操作，从而使service.run()循环一直保持忙碌状态。</p>
+<h3 id="异常处理vs错误代码"> 异常处理VS错误代码</h3>
+<p>Boost.Asio允许同时使用异常处理或者错误代码，所有的异步函数都有抛出错误和返回错误码两种方式的重载。</p>
+<pre><code># 异常版
+try {
+    sock.connect(ep);
+} catch(boost::system::system_error e) {
+    std::cout &lt;&lt; e.code() &lt;&lt; std::endl;
+}
+
+# 错误码版
+boost::system::error_code err;
+sock.connect(ep, err);
+if ( err)
+    std::cout &lt;&lt; err &lt;&lt; std::endl;</code></pre>
+<p>当使用异步函数时，你可以在你的回调函数里面检查其返回的错误码。异步函数从来不抛出异常，因为这样做毫无意义。那谁会捕获到它呢？</p>
+<h3 id="io_service类"> io_service类</h3>
+<p>*   有一个_io_service_实例和一个处理线程的单线程例子：</p>
+<pre><code>io_service service; // 所有socket操作都由service来处理 
+ip::tcp::socket sock1(service); // all the socket operations are handled by service 
+ip::tcp::socket sock2(service); sock1.asyncconnect( ep, connect_handler); 
+sock2.async_connect( ep, connect_handler); 
+deadline_timer t(service, boost::posixtime::seconds(5));
+t.async_wait(timeout_handler); 
+service.run();</code></pre>
+<p>*   有一个io_service实例和多个处理线程的多线程例子：</p>
+<pre><code>io_service service;
+ip::tcp::socket sock1(service);
+ip::tcp::socket sock2(service);
+sock1.asyncconnect( ep, connect_handler);
+sock2.async_connect( ep, connect_handler);
+deadline_timer t(service, boost::posixtime::seconds(5));
+t.async_wait(timeout_handler);
+for ( int i = 0; i &lt; 5; ++i)
+    boost::thread( run_service);
+void run_service()
+{
+    service.run();
+}</code></pre>
+<p>*   有多个_io_service_实例和多个处理线程的多线程例子：</p>
+<pre><code>io_service service[2];
+ip::tcp::socket sock1(service[0]);
+ip::tcp::socket sock2(service[1]);
+sock1.asyncconnect( ep, connect_handler);
+sock2.async_connect( ep, connect_handler);
+deadline_timer t(service[0], boost::posixtime::seconds(5));
+t.async_wait(timeout_handler);
+for ( int i = 0; i &lt; 2; ++i)
+    boost::thread( boost::bind(run_service, i));
+void run_service(int idx)
+{
+    service[idx].run();
+}</code></pre>
+<p>区别： <em>   第一种情况是非常基础的应用程序。因为是串行的方式，所以当几个处理程序需要被同时调用时，你通常会遇到瓶颈。如果一个处理程序需要花费很长的时间来执行，所有随后的处理程序都不得不等待。 </em>   第二种情况是比较适用的应用程序。他是非常强壮的——如果几个处理程序被同时调用了（这是有可能的），它们会在各自的线程里面被调用。唯一的瓶颈就是所有的处理线程都很忙的同时又有新的处理程序被调用。然而，这是有快速的解决方式的，增加处理线程的数目即可。 *   第三种情况是最复杂和最难理解的。你只有在第二种情况不能满足需求时才使用它。这种情况一般就是当你有成千上万实时（socket）连接时。你可以认为每一个处理线程（运行_io_service::run()<em>的线程）有它自己的</em>select/epoll_循环；它等待任意一个socket连接，然后等待一个读写操作，当它发现这种操作时，就执行。大部分情况下，你不需要担心什么，唯一你需要担心的就是当你监控的socket数目以指数级的方式增长时（超过1000个的socket）。在那种情况下，有多个select/epoll循环会增加应用的响应时间。</p>
+<p>最后，需要一直记住的是如果没有其他需要监控的操作，.run()就会结束。如果你想要service.run()接着执行，你需要分配更多的工作给它。这里有两个方式来完成这个目标。一种方式是在connect_handler中启动另外一个异步操作来分配更多的工作。 另一种方式会模拟一些工作给它，用下面的代码片段：</p>
+<pre><code>typedef boost::shared_ptr work_ptr;
+work_ptr dummy_work(new io_service::work(service));</code></pre>
+<h2 id="boost.asio基本原理"> Boost.Asio基本原理</h2>
+<p>主要类 IP地址：ip::address 端点：ip::tcp::endpoint 套接字：ip::tcp::socket 套接字缓冲区:buffer 解析域名的类：ip::tcp::resolver、ip::tcp::resolver::query</p>
+<h3 id="缓冲区"> 缓冲区</h3>
+<p>缓冲区内存的有效时间必须比I/O操作的时间要长；你需要保证它们在I/O操作结束之前不被释放。 对于同步操作来说，这很容易</p>
+<pre><code>char buff[512];
+...
+sock.receive(buffer(buff));
+strcpy(buff, &quot;ok\n&quot;);
+sock.send(buffer(buff));</code></pre>
+<p>但是在异步操作时就没这么简单了</p>
+<pre><code>// 非常差劲的代码 ...
+void on_read(const boost::system::error_code &amp; err, std::size_t read_bytes)
+{ ... }
+void func() {
+    char buff[512];  //出了作用域就没了
+    sock.async_receive(buffer(buff), on_read);
+}</code></pre>
+<p>对于上面的问题有几个解决方案： <em>   使用全局缓冲区 </em>   创建一个缓冲区，然后在操作结束时释放它 *   使用一个集合对象管理这些套接字和其他的数据，比如缓冲区数组</p>
+<p>socket相关函数</p>
+<pre><code>ip::tcp::endpoint ep( ip::address::from_string(&quot;127.0.0.1&quot;), 80);
+ip::tcp::socket sock(service);
+sock.open(ip::tcp::v4());
+sock.connect(ep);
+sock.write_some(buffer(&quot;GET /index.html\r\n&quot;));
+char buff[1024]; sock.read_some(buffer(buff,1024));
+sock.shutdown(ip::tcp::socket::shutdown_receive);
+sock.close();</code></pre>
+<h2 id="参考链接"> 参考链接</h2>
+<p>- <a href="https://mmoaay.gitbooks.io/boost-asio-cpp-network-programming-chinese/content/">Boost.Asio C++ 网络编程</a></p>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

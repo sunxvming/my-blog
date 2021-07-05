@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../style.css" type="text/css" />
+
+
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#参数加引号">参数加引号</a></li>
+<li><a href="#参数加括号">参数加括号</a></li>
+<li><a href="#用宏循环某个参数列表-boost_pp_seq_for_each">用宏循环某个参数列表 BOOST_PP_SEQ_FOR_EACH</a></li>
+<li><a href="#include">include <iostream></a></li>
+<li><a href="#include-1">include <boost/preprocessor/facilities/overload.hpp></a></li>
+<li><a href="#define-macro_1number-macro_2number-10">define MACRO_1(number) MACRO_2(number, 10)</a><ul>
+<li><a href="#自增变量">自增变量</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="参数加引号">参数加引号</h2>
+<pre><code>BOOST_PP_STRINGIZE(BOOST_PP_CAT(a, b)) // expands to &quot;ab&quot;</code></pre>
+<h2 id="参数加括号">参数加括号</h2>
+<p>来源:eos中的wasm_interface_private.hpp</p>
+<pre><code>#include &lt;boost/preprocessor/cat.hpp&gt;
+#include &lt;boost/preprocessor/seq/for_each.hpp&gt;
+
+
+
+
+#define _ADD_PAREN_1(...) ((__VA_ARGS__)) _ADD_PAREN_2
+#define _ADD_PAREN_2(...) ((__VA_ARGS__)) _ADD_PAREN_1
+#define _ADD_PAREN_1_END
+#define _ADD_PAREN_2_END
+#define _WRAPPED_SEQ(SEQ) BOOST_PP_CAT(_ADD_PAREN_1 SEQ, _END)
+
+
+// _ADD_PAREN_1(aa)(bb)(cc)会展开如下：
+// _ADD_PAREN_1(aa)_ADD_PAREN_2(bb)_ADD_PAREN_1(cc)_ADD_PAREN_2
+// 最终结果是给每个参数加上括号   
+
+
+_WRAPPED_SEQ((aa)(bb)(cc))   //((aa)) ((bb)) ((cc))</code></pre>
+<h2 id="用宏循环某个参数列表-boost_pp_seq_for_each">用宏循环某个参数列表 BOOST_PP_SEQ_FOR_EACH</h2>
+<pre><code>BOOST_PP_SEQ_FOR_EACH(macro, data, seq)
+
+
+变量：
+macro
+一个以格式macro(r, data, elem)定义的三元宏。该宏被BOOST_PP_SEQ_FOR_EACH按照seq中每个元素进行展开。展开该宏，需要用到下一个BOOST_PP_FOR的重复项、备用数据data和当前元素。
+
+
+data
+备用数据，用于传给macro
+
+
+seq
+用于供macro按照哪个序列进行展开
+
+
+用法：
+BOOST_PP_SEQ_FOR_EACH是一个重复项的宏。
+如果序列是(a)(b)(c)，则展开为：
+macro(r, data, a) macro(r, data, b) macro(r, data, c)</code></pre>
+<p>示例代码：</p>
+<pre><code>#include &lt;boost/preprocessor/cat.hpp&gt;
+#include &lt;boost/preprocessor/seq/for_each.hpp&gt;
+
+
+#define SEQ (w)(x)(y)(z)
+
+
+#define MACRO(r, data, elem) BOOST_PP_CAT(elem, data)
+
+
+BOOST_PP_SEQ_FOR_EACH(MACRO, _, SEQ) // expands to w_ x_ y_ z_</code></pre>
+<pre><code>#include &lt;boost/preprocessor/cat.hpp&gt;
+#include &lt;boost/preprocessor/seq/for_each.hpp&gt;
+
+
+#define SEQ (w)(x)(y)(z)
+
+
+#define MACRO(r, data, elem) elem::GetInstance()
+
+
+BOOST_PP_SEQ_FOR_EACH(MACRO, _, SEQ) // expands to w::GetInstance() x::GetInstance() y::GetInstance() z::GetInstance() ```
+
+
+## 用宏做函数重载  BOOST_PP_OVERLOAD</code></pre>
+<h1 id="include">include <iostream></h1>
+<h1 id="include-1">include <boost/preprocessor/facilities/overload.hpp></h1>
+<p>int add(int number1, int number2);</p>
+<h1 id="define-macro_1number-macro_2number-10">define MACRO_1(number) MACRO_2(number, 10)</h1>
+<p>// mmp, 它会先检查add的原型, 然后再去做替换, 看来这里还是 #define MACRO_2(number1, number2) add(number1, number2) // 多参数的宏展开实现重载 // 若BOOST_PP_OVERLOAD(MACRO_, <strong>VA_ARGS</strong>)参数为一个则生成MACRO_1 // 若BOOST_PP_OVERLOAD(MACRO_, <strong>VA_ARGS</strong>)参数为两个则生成MACRO_2 #define MACRO_ADD_NUMBERS(...) BOOST_PP_OVERLOAD(MACRO_, <strong>VA_ARGS</strong>)(<strong>VA_ARGS</strong>)</p>
+<p>int main() { std::cout &lt;&lt; &quot;MACRO_ADD_NUMBERS(1) = &quot; &lt;&lt; MACRO_ADD_NUMBERS(1) &lt;&lt; std::endl; std::cout &lt;&lt; &quot;MACRO_ADD_NUMBERS(1, 2) = &quot; &lt;&lt; MACRO_ADD_NUMBERS(1, 2) &lt;&lt; std::endl; return 0; }</p>
+<p>int add(int number1, int number2) { return number1 + number2; } ```</p>
+<h2 id="自增变量">自增变量</h2>
+<p><strong>COUNTER</strong><br />The <strong>COUNTER</strong> symbol is provided by VC++ and GCC, and gives an increasing non-negative integral value each time it is used.</p>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

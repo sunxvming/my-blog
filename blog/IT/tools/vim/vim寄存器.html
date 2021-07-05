@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../style.css" type="text/css" />
+
+
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#vim寄存器"> Vim寄存器</a><ul>
+<li><a href="#一无名寄存器"> 一、无名寄存器</a></li>
+<li><a href="#二复制专用寄存器"> 二、复制专用寄存器</a></li>
+<li><a href="#三有名寄存器"> 三、有名寄存器</a></li>
+<li><a href="#四黑洞寄存器"> 四、黑洞寄存器</a></li>
+<li><a href="#五系统剪贴板"> 五、系统剪贴板</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h1 id="vim寄存器"> Vim寄存器</h1>
+<p>Vim 的删除、复制与粘贴命令均需要使用 Vim 寄存器。通过在命令前加 <code>&quot;寄存器名</code> 前缀的方式可指定寄存器，否则 Vim 将缺省使用<strong>无名寄存器</strong>。若想在 Vim 和操作系统外部程序间共享复制内容，则必须使用 Vim 系统剪贴板。</p>
+<p>如想把当前单词复制到寄存器 <em>a</em> 中，可执行 <code>&quot;ayiw</code>；把当前整行文本剪切至寄存器 <em>b</em> 中，可以用命令 <code>&quot;bdd</code>；在此之后，既可以通过 <code>&quot;ap</code> 粘贴来自寄存器 <em>a</em> 的单词，也可使用 <code>&quot;bp</code> 命令粘贴来自寄存器 <em>b</em> 的整行文本。</p>
+<p>这便是Vim寄存器的概念和用途。</p>
+<h2 id="一无名寄存器"> 一、无名寄存器</h2>
+<p>Vim 缺省使用无名寄存器。无名寄存器用引号表示，例如，Vim 命令 <code>&quot;&quot;p</code> 完全等同于 <code>p</code> 命令。</p>
+<p><code>x</code>、<code>s</code>、<code>d{motion}</code>、<code>c{motion}</code> 与 <code>y{motion}</code> 命令及其对应的大写命令都会覆盖 Vim 无名寄存器中的内容。</p>
+<h2 id="二复制专用寄存器"> 二、复制专用寄存器</h2>
+<p>当使用 Vim 命令 <code>y{motion}</code>时，复制的文本不但被拷贝到<strong>无名寄存器</strong>，而且也被拷贝到了<strong>复制专用寄存器</strong>中。Vim 复制专用寄存器用数字 <strong>0</strong> 标识。Vim 复制专用寄存器仅当使用 <code>y{motion}</code> 命令时才会被赋值。</p>
+<p>以下的Vim教程动态图先通过命令 <code>yiw</code> 将光标当前所在位置的单词复制到寄存器(包括无名寄存器和复制寄存器)。</p>
+<p>然后将光标移动到目标位置后，通过命令 <code>diw</code> 将光标所在位置的单词删除(剪切)到Vim无名寄存器中。</p>
+<p>再通过命令 <code>&quot;0p</code> 指定将复制专用寄存器(0)中内容粘贴到光标当前位置。</p>
+<p>最后，通过命令 <code>:reg &quot;0</code> 可以看到，无名寄存器保存的是通过 <code>diw</code> 删除的内容，复制寄存器保存的是 <code>yiw</code> 复制的内容。</p>
+<h2 id="三有名寄存器"> 三、有名寄存器</h2>
+<p>Vim 提供了一组以 26 个英文字母命名的有名寄存器。用<strong>小写字母</strong>引用有名寄存器会覆盖该寄存器的原有内容，而用<strong>大写字母</strong>引用则会将新内容 <strong>追加</strong> 到该寄存器的原有内容之后。</p>
+<h2 id="四黑洞寄存器"> 四、黑洞寄存器</h2>
+<p>Vim 黑洞寄存器是个有去无回的<strong>黑洞</strong>，可用下划线显式引用。例如， Vim 命令 <code>&quot;_d{motion}</code> 会删除文本内容且不保存任何副本。</p>
+<h2 id="五系统剪贴板"> 五、系统剪贴板</h2>
+<p>若想在 Vim 和操作系统外部程序间共享内容，则必须使用 Vim 系统剪贴板。Vim系统剪贴板通过 <code>+</code> 号显式引用。</p>
+<p>假设在外部程序中用复制或剪切操作获取了目标文本，则在 Vim 命令模式下可以通过 <code>&quot;+p</code>  命令将其粘贴到Vim编辑器中。</p>
+<p>相反地，如果在 Vim 的复制或删除命令之前加入 <code>&quot;+</code> 显式指定使用Vim系统剪贴板，则相应的文本将被捕获至系统剪贴板，退出Vim后，系统中的其他程序可以使用对应文本。</p>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

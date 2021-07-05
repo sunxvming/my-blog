@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../style.css" type="text/css" />
+
+
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#开篇词为什么你需要学习计算机组成原理"> 开篇词 | 为什么你需要学习计算机组成原理？</a></li>
+<li><a href="#冯诺依曼体系结构计算机组成的金字塔"> 01 | 冯·诺依曼体系结构：计算机组成的金字塔</a><ul>
+<li><a href="#计算机的基本硬件组成"> 计算机的基本硬件组成</a></li>
+</ul></li>
+<li><a href="#给你一张知识地图计算机组成原理应该这么学"> 02 | 给你一张知识地图，计算机组成原理应该这么学</a></li>
+<li><a href="#通过你的cpu主频我们来谈谈性能究竟是什么"> 03 | 通过你的CPU主频，我们来谈谈“性能”究竟是什么？</a><ul>
+<li><a href="#什么是性能"> 什么是性能？</a></li>
+<li><a href="#计算机的计时单位cpu时钟"> 计算机的计时单位：CPU 时钟</a></li>
+</ul></li>
+<li><a href="#穿越功耗墙我们该从哪些方面提升性能"> 04 | 穿越功耗墙，我们该从哪些方面提升“性能”？</a></li>
+<li><a href="#计算机指令让我们试试用纸带编程"> 05 | 计算机指令：让我们试试用纸带编程</a><ul>
+<li><a href="#在软硬件接口中cpu帮我们做了什么事"> 在软硬件接口中，CPU 帮我们做了什么事？</a></li>
+</ul></li>
+<li><a href="#指令跳转原来if...else就是goto"> 06 | 指令跳转：原来if...else就是goto</a></li>
+<li><a href="#函数调用为什么会发生stackoverflow"> 07 | 函数调用：为什么会发生stack overflow？</a><ul>
+<li><a href="#如何利用函数内联进行性能优化"> 如何利用函数内联进行性能优化？</a></li>
+</ul></li>
+<li><a href="#elf和静态链接为什么程序无法同时在linux和windows下运行"> 08 | ELF和静态链接：为什么程序无法同时在Linux和Windows下 运行？</a><ul>
+<li><a href="#elf格式和链接理解链接过程"> ELF 格式和链接：理解链接过程</a></li>
+</ul></li>
+<li><a href="#程序装载640k内存真的不够用么"> 09 | 程序装载：“640K内存”真的不够用么？</a><ul>
+<li><a href="#程序装载面临的挑战"> 程序装载面临的挑战</a></li>
+</ul></li>
+<li><a href="#动态链接程序内部的共享单车"> 10 | 动态链接：程序内部的“共享单车”</a><ul>
+<li><a href="#地址无关很重要相对地址解烦恼"> 地址无关很重要，相对地址解烦恼</a></li>
+</ul></li>
+<li><a href="#二进制编码手持两把锟斤拷口中疾呼烫烫烫"> 11 | 二进制编码：“手持两把锟斤拷，口中疾呼烫烫烫”？</a></li>
+<li><a href="#理解电路从电报机到门电路我们如何做到千里传信"> 12 | 理解电路：从电报机到门电路，我们如何做到“千里传信”？</a></li>
+<li><a href="#建立数据通路上指令运算cpu"> 17 | 建立数据通路（上）：指令+运算=CPU</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="开篇词为什么你需要学习计算机组成原理"> 开篇词 | 为什么你需要学习计算机组成原理？</h2>
+<p>在硬件 和软件之间需要一座桥梁，而“计算机组成原理”就扮演了这样一个角色，它既隔离了软件  和硬件，也提供了让软件无需关心硬件，就能直接操作硬件的接口。</p>
+<p>组成原理是计算机其他核心课程的一个“导引”。学习组成原理之后，向下，你 可以学习数字电路相关的课程，向上，你可以学习编译原理、操作系统这些核心课程。</p>
+<p><img src="index_files/0efe734b-2a83-4d17-a436-20d05013be06.jpg" /> </p>
+<h2 id="冯诺依曼体系结构计算机组成的金字塔"> 01 | 冯·诺依曼体系结构：计算机组成的金字塔</h2>
+<h3 id="计算机的基本硬件组成"> 计算机的基本硬件组成</h3>
+<p>CPU、内存和主板。以及I/O 设备</p>
+<p>主板的芯片组（Chipset）和总线（Bus）解决了 CPU 和内存 之间如何通信的问题。芯片组控制了数据传输的流转，也就是数据从哪里到哪里的问题。总 线则是实际数据传输的高速公路。因此，总线速度（Bus Speed）决定了数据能传输得多 快。 ### 冯·诺依曼体系结构 冯·诺依曼体系结构（Von Neumann  architecture），也叫存储程序计算机。 什么是存储程序计算机呢？这里面其实暗含了两个概念，一个是“可编程”计算机，一个 是“存储”计算机。 比如：计算器的本质是一个不可编程的计算机 可“存储”，其实是说，程序本身是存储在计算机的内存里，可以通过加 载不同的程序来解决不同的问题。</p>
+<p>任何一台计算机的任何一个部件都可以归到<strong>运算器、控制器、存储器、输入设备和输出设备 中</strong>，而所有的现代计算机也都是基于这个基础架构来设计开发的。 而所有的计算机程序，也都可以抽象为从输入设备读取输入信息，通过运算器和控制器来执 行存储在存储器里的程序，最终把结果输出到输出设备中。 <img src="index_files/97c511a0-72f1-4fda-8157-46316b85616a.jpg" /> ### 总结延伸 可以说，冯·诺依曼体系结构确立了我们现在每天使用的计算机硬件的基础架构。因此，学 习计算机组成原理，其实就是学习和拆解冯·诺依曼体系结构。 具体来说，学习组成原理，其实就是学习控制器、运算器的工作原理，也就是 CPU 是怎么 工作的，以及为何这样设计；学习内存的工作原理，从最基本的电路，到上层抽象给到 CPU 乃至应用程序的接口是怎样的；学习 CPU 是怎么和输入设备、输出设备打交道的。 学习组成原理，就是在理解从控制器、运算器、存储器、输入设备以及输出设备，从电路这 样的硬件，到最终开放给软件的接口，是怎么运作的，为什么要设计成这样，以及在软件开 发层面怎么尽可能用好它。</p>
+<p>计算机行业的两大祖师爷之一，除了冯·诺依曼机之外，还有一位就是著名的图灵（Alan Mathison Turing）。对应的，我们现在的计算机也叫图灵机（Turing Machine）。那么 图灵机和冯·诺依曼机是两种不同的计算机么？图灵机是一种什么样的计算机抽象呢？</p>
+<p>冯·诺依曼机侧重于硬件抽象，而图灵机侧重于计算抽象。</p>
+<h2 id="给你一张知识地图计算机组成原理应该这么学"> 02 | 给你一张知识地图，计算机组成原理应该这么学</h2>
+<p>从这张图可以看出来，整个计算机组成原理，就是围绕着计算机是如何组织运作展开的</p>
+<h2 id="通过你的cpu主频我们来谈谈性能究竟是什么"> 03 | 通过你的CPU主频，我们来谈谈“性能”究竟是什么？</h2>
+<h3 id="什么是性能"> 什么是性能？</h3>
+<p>两个指标。 第一个是响应时间（Response time）或者叫执行时间（Execution time）。想要提升响 应时间这个性能指标，你可以理解为让计算机“跑得更快”。 第二个是吞吐率（Throughput）或者带宽（Bandwidth），想要提升这个指标，你可以理 解为让计算机“搬得更多”。 提升吞吐率的办法有很多。大部分时候，我们只要多加一些机器，多堆一些硬件就好了。但 是响应时间的提升却没有那么容易，因为 CPU 的性能提升其实在 10 年前就处于“挤牙 膏”的状态了</p>
+<h3 id="计算机的计时单位cpu时钟"> 计算机的计时单位：CPU 时钟</h3>
+<p>虽然时间是一个很自然的用来衡量性能的指标，但是用时间来衡量时，有两个问题。</p>
+<p>第一个就是时间不“准”。</p>
+<p>计算机可能同时运行着好多个程序，CPU 实际上不停地在各个程序之间进行切换。 在这些走掉的时间里面，很可能 CPU 切换去运行别的程序了。而且，有些程序在运行的时 候，可能要从网络、硬盘去读取数据，要等网络和硬盘把数据读出来，给到内存和 CPU。 其次，即使我们已经拿到了 CPU 时间，我们也不一定可以直接“比较”出两个程序的性能 差异。 我们需要对“时间”这个我们可以感知的指标进行拆解，把程序的 CPU 执行时间变成 CPU 时钟周期数（CPU Cycles）和 时钟周期时间（Clock Cycle）的乘积。</p>
+<p>程序的 CPU 执行时间 =CPU 时钟周期数（CPU Cycles）×时钟周期时间（Clock Cycle）</p>
+<p>程序的 CPU 执行时间 = 指令数×CPI×Clock Cycle Time</p>
+<p>每条指令的平均时钟 周期数（Cycles Per Instruction，简称 CPI）</p>
+<p>因此，如果我们想要解决性能问题，其实就是要优化这三者。 1. 时钟周期时间，就是计算机主频，这个取决于计算机硬件。我们所熟知的摩尔定律就一 直在不停地提高我们计算机的主频。比如说，我最早使用的 80386 主频只有 33MHz， 现在手头的笔记本电脑就有 2.8GHz，在主频层面，就提升了将近 100 倍。 2. 每条指令的平均时钟周期数 CPI，就是一条指令到底需要多少 CPU Cycle。在后面讲解 CPU 结构的时候，我们会看到，现代的 CPU 通过流水线技术（Pipeline），让一条指令 需要的 CPU Cycle 尽可能地少。因此，对于 CPI 的优化，也是计算机组成和体系结构中 的重要一环。 3. 指令数，代表执行我们的程序到底需要多少条指令、用哪些指令。这个很多时候就把挑 战交给了编译器。同样的代码，编译成计算机指令时候，就有各种不同的表示方式。</p>
+<h2 id="穿越功耗墙我们该从哪些方面提升性能"> 04 | 穿越功耗墙，我们该从哪些方面提升“性能”？</h2>
+<p>总结延伸 我们可以看到，无论是简单地通过提升主频，还是增加更多的 CPU 核心数量，通过并行来 提升性能，都会遇到相应的瓶颈。仅仅简单地通过“堆硬件”的方式，在今天已经不能很好 地满足我们对于程序性能的期望了。于是，工程师们需要从其他方面开始下功夫了。 1.加速大概率事件。最典型的就是，过去几年流行的深度学习，整个计算过程中，99% 都 是向量和矩阵计算，于是，工程师们通过用 GPU 替代 CPU，大幅度提升了深度学习的模 型训练过程。本来一个 CPU 需要跑几小时甚至几天的程序，GPU 只需要几分钟就好了。 Google 更是不满足于 GPU 的性能，进一步地推出了 TPU。</p>
+<p>2.通过流水线提高性能。现代的工厂里的生产线叫“流水线”。我们可以把装配 iPhone 这 样的任务拆分成一个个细分的任务，让每个人都只需要处理一道工序，最大化整个工厂的生 产效率。类似的，我们的 CPU 其实就是一个“运算工厂”。我们把 CPU 指令执行的过程 进行拆分，细化运行，也是现代 CPU 在主频没有办法提升那么多的情况下，性能仍然可以 得到提升的重要原因之一。 3.通过预测提高性能。通过预先猜测下一步该干什么，而不是等上一步运行的结果，提前进 行运算，也是让程序跑得更快一点的办法。典型的例子就是在一个循环访问数组的时候，凭 经验，你也会猜到下一步我们会访问数组的下一项。</p>
+<h2 id="计算机指令让我们试试用纸带编程"> 05 | 计算机指令：让我们试试用纸带编程</h2>
+<h3 id="在软硬件接口中cpu帮我们做了什么事"> 在软硬件接口中，CPU 帮我们做了什么事？</h3>
+<p>如果我们从软件工程师的角度来讲，CPU 就是一个执行各种计算机指令（Instruction Code）的逻辑机器。这里的计算机指令，就好比一门 CPU 能够听得懂的语言，我们也可 以把它叫作机器语言（Machine Language）。 因为汇编代码其实就是“给程序员看的机器码</p>
+<p>这一讲里，我们看到了一个 C 语言程序，是怎么被编译成为汇编语言，乃至通过汇编器再 翻译成机器码的。 除了 C 这样的编译型的语言之外，不管是 Python 这样的解释型语言，还是 Java 这样使用 虚拟机的语言，其实最终都是由不同形式的程序，把我们写好的代码，转换成 CPU 能够理 解的机器码来执行的。</p>
+<h2 id="指令跳转原来if...else就是goto"> 06 | 指令跳转：原来if...else就是goto</h2>
+<h2 id="函数调用为什么会发生stackoverflow"> 07 | 函数调用：为什么会发生stack overflow？</h2>
+<h3 id="如何利用函数内联进行性能优化"> 如何利用函数内联进行性能优化？</h3>
+<p>上面我们提到一个方法，把一个实际调用的函数产生的指令，直接插入到的位置，来替换对 应的函数调用指令。尽管这个通用的函数调用方案，被我们否决了，但是如果被调用的函数 里，没有调用其他函数，这个方法还是可以行得通的。 事实上，这就是一个常见的编译器进行自动优化的场景，我们通常叫函数内联（Inline）。 我们只要在 GCC 编译的时候，加上对应的一个让编译器自动优化的参数 -O，编译器就会 在可行的情况下，进行这样的指令替换。</p>
+<p>内联带来的优化是，CPU 需要执行的指令数变少了，根据地址跳转的过程不需要了，压栈 和出栈的过程也不用了。 不过内联并不是没有代价，内联意味着，我们把可以复用的程序指令在调用它的地方完全展 开了。如果一个函数在很多地方都被调用了，那么就会展开很多次，整个程序占用的空间就 会变大了。</p>
+<h2 id="elf和静态链接为什么程序无法同时在linux和windows下运行"> 08 | ELF和静态链接：为什么程序无法同时在Linux和Windows下 运行？</h2>
+<h3 id="elf格式和链接理解链接过程"> ELF 格式和链接：理解链接过程</h3>
+<p>程序最终是通过装载器变成指令和数据的，所以其实我们生成的可执行代码也并不仅仅是一 条条的指令。 在 Linux 下，可执行文件和目标文件所使用的都是一种叫ELF（Execuatable and Linkable File Format）的文件格式，中文名字叫可执行与可链接文件格式，这里面不仅存 放了编译成的汇编指令，还保留了很多别的数据。 链接器会扫描所有输入的目标文件，然后把所有符号表里的信息收集起来，构成一个全局的 符号表。然后再根据重定位表，把所有不确定要跳转地址的代码，根据符号表里面存储的地 址，进行一次修正。最后，把所有的目标文件的对应段进行一次合并，变成了最终的可执行 代码。这也是为什么，可执行文件里面的函数调用的地址都是正确的。 在链接器把程序变成可执行文件之后，要装载器去执行程序就容易多了。装载器不再需要考 虑地址跳转的问题，只需要解析 ELF 文件，把对应的指令和数据，加载到内存里面供 CPU 执行就可以了。</p>
+<p>我们今天讲的是 Linux 下的 ELF 文件格式，而 Windows 的可执行文件格式是一种叫作 PE（Portable Executable Format）的文件格式。Linux 下的装载器只能解析 ELF 格式而 不能解析 PE 格式。 如果我们有一个可以能够解析 PE 格式的装载器，我们就有可能在 Linux 下运行 Windows 程序了。这样的程序真的存在吗？没错，Linux 下著名的开源项目 Wine，就是通过兼容 PE 格式的装载器，使得我们能直接在 Linux 下运行 Windows 程序的。而现在微软的 Windows 里面也提供了 WSL，也就是 Windows Subsystem for Linux，可以解析和加载 ELF 格式的文件。</p>
+<h2 id="程序装载640k内存真的不够用么"> 09 | 程序装载：“640K内存”真的不够用么？</h2>
+<h3 id="程序装载面临的挑战"> 程序装载面临的挑战</h3>
+<p>装载器需要满足两个要求。 第一，可执行程序加载后占用的内存空间应该是连续的。我们在第 6 讲讲过，执行指令的 时候，程序计数器是顺序地一条一条指令执行下去。这也就意味着，这一条条指令需要连续 地存储在一起。 第二，我们需要同时加载很多个程序，并且不能让程序自己规定在内存中加载的位置。</p>
+<p>接下来就开始将虚拟内存、分段、分页</p>
+<h2 id="动态链接程序内部的共享单车"> 10 | 动态链接：程序内部的“共享单车”</h2>
+<h3 id="地址无关很重要相对地址解烦恼"> 地址无关很重要，相对地址解烦恼</h3>
+<p>怎么样才能做到，动态共享库编译出来的代码指令，都是地址无关码 呢？  动态代码库内部的变量和函数调用都很容易解决，我们只需要使用相对地址（Relative Address）就好了。各种指令中使用到的内存地址，给出的不是一个绝对的地址空间，而是 一个相对于当前指令偏移量的内存地址。因为整个共享库是放在一段连续的虚拟内存地址中 的，无论装载到哪一段地址，不同指令之间的相对地址都是不变的。</p>
+<p>gcc lib.c -fPIC -shared -o lib.so</p>
+<p>在编译的过程中，我们指定了一个 -fPIC 的参数。这个参数其实就是 Position Independent Code 的意思，也就是我们要把这个编译成一个地址无关代码。</p>
+<h2 id="二进制编码手持两把锟斤拷口中疾呼烫烫烫"> 11 | 二进制编码：“手持两把锟斤拷，口中疾呼烫烫烫”？</h2>
+<h2 id="理解电路从电报机到门电路我们如何做到千里传信"> 12 | 理解电路：从电报机到门电路，我们如何做到“千里传信”？</h2>
+<h2 id="建立数据通路上指令运算cpu"> 17 | 建立数据通路（上）：指令+运算=CPU</h2>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,388 @@
+
+
+一、String与Date（java.util.Date）互转
+
+ 
+
+     1.1 String -> Date
+
+ 
+Java代码  
+String dateStr =  "2010/05/04 12:34:23" ;  
+        Date date =  new  Date();  
+         //注意format的格式要与日期String的格式相匹配   
+        DateFormat sdf =  new  SimpleDateFormat( "yyyy/MM/dd HH:mm:ss" );  
+         try  {  
+            date = sdf.parse(dateStr);  
+            System.out.println(date.toString());  
+        }  catch  (Exception e) {  
+            e.printStackTrace();  
+        }  
+String dateStr = "2010/05/04 12:34:23";
+		Date date = new Date();
+		//注意format的格式要与日期String的格式相匹配
+		DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		try {
+			date = sdf.parse(dateStr);
+			System.out.println(date.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+ 
+
+ 
+
+  1.2 Date -> String
+
+ 
+
+   日期向字符串转换，可以设置任意的转换格式format
+Java代码  
+String dateStr =  "" ;  
+        Date date =  new  Date();  
+         //format的格式可以任意   
+        DateFormat sdf =  new  SimpleDateFormat( "yyyy/MM/dd HH:mm:ss" );  
+        DateFormat sdf2 =  new  SimpleDateFormat( "yyyy-MM-dd HH/mm/ss" );  
+         try  {  
+            dateStr = sdf.format(date);  
+            System.out.println(dateStr);  
+            dateStr = sdf2.format(date);  
+            System.out.println(dateStr);  
+        }  catch  (Exception e) {  
+            e.printStackTrace();  
+        }  
+String dateStr = "";
+		Date date = new Date();
+		//format的格式可以任意
+		DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		DateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH/mm/ss");
+		try {
+			dateStr = sdf.format(date);
+			System.out.println(dateStr);
+			dateStr = sdf2.format(date);
+			System.out.println(dateStr);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+ 二、String与Timestamp互转
+
+ 
+
+ 
+
+   2.1 String ->Timestamp
+
+ 
+
+ 
+
+   使用Timestamp的valueOf()方法
+Java代码  
+Timestamp ts =  new  Timestamp(System.currentTimeMillis());  
+        String tsStr =  "2011-05-09 11:49:45" ;  
+         try  {  
+            ts = Timestamp.valueOf(tsStr);  
+            System.out.println(ts);  
+        }  catch  (Exception e) {  
+            e.printStackTrace();  
+        }  
+Timestamp ts = new Timestamp(System.currentTimeMillis());
+		String tsStr = "2011-05-09 11:49:45";
+		try {
+			ts = Timestamp.valueOf(tsStr);
+			System.out.println(ts);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+   注：String的类型必须形如： yyyy-mm-dd hh:mm:ss[.f...] 这样的格式，中括号表示可选，否则报错！！！
+
+    如果String为其他格式，可考虑重新解析下字符串，再重组~~
+
+ 
+
+    2.2 Timestamp -> String
+
+ 
+
+  使用Timestamp的toString()方法或者借用DateFormat
+
+ 
+Java代码  
+Timestamp ts =  new  Timestamp(System.currentTimeMillis());  
+        String tsStr =  "" ;  
+        DateFormat sdf =  new  SimpleDateFormat( "yyyy/MM/dd HH:mm:ss" );  
+         try  {  
+             //方法一   
+            tsStr = sdf.format(ts);  
+            System.out.println(tsStr);  
+             //方法二   
+            tsStr = ts.toString();  
+            System.out.println(tsStr);  
+        }  catch  (Exception e) {  
+            e.printStackTrace();  
+        }  
+Timestamp ts = new Timestamp(System.currentTimeMillis());
+		String tsStr = "";
+		DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		try {
+			//方法一
+			tsStr = sdf.format(ts);
+			System.out.println(tsStr);
+			//方法二
+			tsStr = ts.toString();
+			System.out.println(tsStr);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+ 很容易能够看出来，方法一的优势在于可以灵活的设置字符串的形式。
+
+三、Date（ java.util.Date ）和Timestamp互转
+
+ 
+
+  声明：查API可知，Date和Timesta是父子类关系
+
+ 
+
+ 
+
+  3.1 Timestamp -> Date
+
+ 
+
+ 
+Java代码  
+Timestamp ts =  new  Timestamp(System.currentTimeMillis());  
+        Date date =  new  Date();  
+         try  {  
+            date = ts;  
+            System.out.println(date);  
+        }  catch  (Exception e) {  
+            e.printStackTrace();  
+        }  
+Timestamp ts = new Timestamp(System.currentTimeMillis());
+		Date date = new Date();
+		try {
+			date = ts;
+			System.out.println(date);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+ 很简单，但是此刻date对象指向的实体却是一个Timestamp，即date拥有Date类的方法，但被覆盖的方法的执行实体在Timestamp中。
+
+ 
+
+ 
+
+   3.2 Date -> Timestamp
+
+ 
+
+   父类不能直接向子类转化，可借助中间的String~~~~
+
+   注：使用以下方式更简洁
+
+   Timestamp ts = new Timestamp(date.getTime());
+
+ 
+
+ 
+
+
+一、String与Date（java.util.Date）互转
+
+ 
+
+     1.1 String -> Date
+
+ 
+Java代码  
+String dateStr =  "2010/05/04 12:34:23" ;  
+        Date date =  new  Date();  
+         //注意format的格式要与日期String的格式相匹配   
+        DateFormat sdf =  new  SimpleDateFormat( "yyyy/MM/dd HH:mm:ss" );  
+         try  {  
+            date = sdf.parse(dateStr);  
+            System.out.println(date.toString());  
+        }  catch  (Exception e) {  
+            e.printStackTrace();  
+        }  
+String dateStr = "2010/05/04 12:34:23";
+		Date date = new Date();
+		//注意format的格式要与日期String的格式相匹配
+		DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		try {
+			date = sdf.parse(dateStr);
+			System.out.println(date.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+ 
+
+ 
+
+  1.2 Date -> String
+
+ 
+
+   日期向字符串转换，可以设置任意的转换格式format
+Java代码  
+String dateStr =  "" ;  
+        Date date =  new  Date();  
+         //format的格式可以任意   
+        DateFormat sdf =  new  SimpleDateFormat( "yyyy/MM/dd HH:mm:ss" );  
+        DateFormat sdf2 =  new  SimpleDateFormat( "yyyy-MM-dd HH/mm/ss" );  
+         try  {  
+            dateStr = sdf.format(date);  
+            System.out.println(dateStr);  
+            dateStr = sdf2.format(date);  
+            System.out.println(dateStr);  
+        }  catch  (Exception e) {  
+            e.printStackTrace();  
+        }  
+String dateStr = "";
+		Date date = new Date();
+		//format的格式可以任意
+		DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		DateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH/mm/ss");
+		try {
+			dateStr = sdf.format(date);
+			System.out.println(dateStr);
+			dateStr = sdf2.format(date);
+			System.out.println(dateStr);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+ 二、String与Timestamp互转
+
+ 
+
+ 
+
+   2.1 String ->Timestamp
+
+ 
+
+ 
+
+   使用Timestamp的valueOf()方法
+Java代码  
+Timestamp ts =  new  Timestamp(System.currentTimeMillis());  
+        String tsStr =  "2011-05-09 11:49:45" ;  
+         try  {  
+            ts = Timestamp.valueOf(tsStr);  
+            System.out.println(ts);  
+        }  catch  (Exception e) {  
+            e.printStackTrace();  
+        }  
+Timestamp ts = new Timestamp(System.currentTimeMillis());
+		String tsStr = "2011-05-09 11:49:45";
+		try {
+			ts = Timestamp.valueOf(tsStr);
+			System.out.println(ts);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+   注：String的类型必须形如： yyyy-mm-dd hh:mm:ss[.f...] 这样的格式，中括号表示可选，否则报错！！！
+
+    如果String为其他格式，可考虑重新解析下字符串，再重组~~
+
+ 
+
+    2.2 Timestamp -> String
+
+ 
+
+  使用Timestamp的toString()方法或者借用DateFormat
+
+ 
+Java代码  
+Timestamp ts =  new  Timestamp(System.currentTimeMillis());  
+        String tsStr =  "" ;  
+        DateFormat sdf =  new  SimpleDateFormat( "yyyy/MM/dd HH:mm:ss" );  
+         try  {  
+             //方法一   
+            tsStr = sdf.format(ts);  
+            System.out.println(tsStr);  
+             //方法二   
+            tsStr = ts.toString();  
+            System.out.println(tsStr);  
+        }  catch  (Exception e) {  
+            e.printStackTrace();  
+        }  
+Timestamp ts = new Timestamp(System.currentTimeMillis());
+		String tsStr = "";
+		DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		try {
+			//方法一
+			tsStr = sdf.format(ts);
+			System.out.println(tsStr);
+			//方法二
+			tsStr = ts.toString();
+			System.out.println(tsStr);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+ 很容易能够看出来，方法一的优势在于可以灵活的设置字符串的形式。
+
+三、Date（ java.util.Date ）和Timestamp互转
+
+ 
+
+  声明：查API可知，Date和Timesta是父子类关系
+
+ 
+
+ 
+
+  3.1 Timestamp -> Date
+
+ 
+
+ 
+Java代码  
+Timestamp ts =  new  Timestamp(System.currentTimeMillis());  
+        Date date =  new  Date();  
+         try  {  
+            date = ts;  
+            System.out.println(date);  
+        }  catch  (Exception e) {  
+            e.printStackTrace();  
+        }  
+Timestamp ts = new Timestamp(System.currentTimeMillis());
+		Date date = new Date();
+		try {
+			date = ts;
+			System.out.println(date);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+ 很简单，但是此刻date对象指向的实体却是一个Timestamp，即date拥有Date类的方法，但被覆盖的方法的执行实体在Timestamp中。
+
+ 
+
+ 
+
+   3.2 Date -> Timestamp
+
+ 
+
+   父类不能直接向子类转化，可借助中间的String~~~~
+
+   注：使用以下方式更简洁
+
+   Timestamp ts = new Timestamp(date.getTime());
+
+ 
+
+ 

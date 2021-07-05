@@ -1,0 +1,1054 @@
+./hbase shell  命令行连接， help会打印出帮助的信息  help 'del'    help 'dll'
+hbase的老大是hmaster，小弟是HRegionServer，实现高可用行和分布式存储，HRegion是分布式存储的最小单元
+hbase数据存储结构
+
+
+行健-->列族-->列
+
+
+
+由{row key,column(=<family>+<labe（列的标识符）l>),version}唯一确定一个数据单元 【集群的搭建】
+1.上传hbase安装包
+
+
+2.解压
+
+
+3.配置hbase集群，要修改3个文件（首先zk集群已经安装好了）
+注意：要把hadoop的hdfs-site.xml和core-site.xml 放到hbase/conf下!!!这样hbase的节点才能知道要连接那个namenode，即映射关系
+
+3.1修改hbase-env.sh
+export JAVA_HOME=/usr/java/jdk1.7.0_55
+//告诉hbase使用外部的zk 
+export HBASE_MANAGES_ZK=false  true代表不使用外部的zookeeper
+
+vim hbase-site.xml
+<configuration>
+<!-- 指定hbase在HDFS上存储的路径 -->
+        <property>
+                <name>hbase.rootdir</name>
+                <value>hdfs://ns1/hbase</value>  nameservice 下的hbase目录
+        </property>
+<!-- 指定hbase是分布式的 -->
+        <property>
+                <name>hbase.cluster.distributed</name>
+                <value>true</value>
+        </property>
+<!-- 指定zk的地址，多个用“,”分割 -->
+        <property>
+                <name>hbase.zookeeper.quorum</name>
+                <value>itcast04:2181,itcast05:2181,itcast06:2181</value>
+        </property>
+</configuration>
+
+vim regionservers  //指定hbase的小弟，相当于hdfs的slave
+itcast03
+itcast04
+itcast05
+itcast06
+
+3.2拷贝hbase到其他节点
+scp -r /itcast/hbase-0.96.2-hadoop2/ itcast02:/itcast/
+scp -r /itcast/hbase-0.96.2-hadoop2/ itcast03:/itcast/
+scp -r /itcast/hbase-0.96.2-hadoop2/ itcast04:/itcast/
+scp -r /itcast/hbase-0.96.2-hadoop2/ itcast05:/itcast/
+scp -r /itcast/hbase-0.96.2-hadoop2/ itcast06:/itcast/
+4.将配置好的HBase拷贝到每一个节点并同步时间。
+
+
+5.启动所有的hbase
+分别启动zk
+./zkServer.sh start
+启动hbase集群
+start-dfs.sh
+启动hbase，在主节点上运行：
+start-hbase.sh
+6.通过浏览器访问hbase管理页面
+192.168.1.201:60010
+7.为保证集群的可靠性，要启动多个HMaster（起码两个，这样其中一个宕掉了会有其他的替换上）
+hbase-daemon.sh start master
+【hbase shell】
+进入hbase命令行
+./hbase shell
+
+
+显示hbase中的表
+list
+
+
+创建user表，包含info、data两个列族
+create 'user', 'info1', 'data1'
+create 'user', {NAME => 'info', VERSIONS => '3'}   //表示这个cell可以存放三个版本的数据，默认是存一份的
+
+
+向user表中插入信息，row key为rk0001，列族info中添加name列标示符，值为zhangsan
+put 'user', 'rk0001', 'info:name', 'zhangsan'
+
+
+向user表中插入信息，row key为rk0001，列族info中添加gender列标示符，值为female
+put 'user', 'rk0001', 'info:gender', 'female'
+
+
+向user表中插入信息，row key为rk0001，列族info中添加age列标示符，值为20
+put 'user', 'rk0001', 'info:age', 20
+
+
+向user表中插入信息，row key为rk0001，列族data中添加pic列标示符，值为picture
+put 'user', 'rk0001', 'data:pic', 'picture'
+
+
+获取user表中row key为rk0001的所有信息
+get 'user', 'rk0001'
+
+
+获取user表中row key为rk0001，info列族的所有信息
+get 'user', 'rk0001', 'info'
+
+
+获取user表中row key为rk0001，info列族的name、age列标示符的信息
+get 'user', 'rk0001', 'info:name', 'info:age'
+
+
+获取user表中row key为rk0001，info、data列族的信息
+get 'user', 'rk0001', 'info', 'data'
+get 'user', 'rk0001', {COLUMN => ['info', 'data']}
+
+
+get 'user', 'rk0001', {COLUMN => ['info:name', 'data:pic']}
+
+
+获取user表中row key为rk0001，列族为info，版本号最新5个的信息
+get 'people', 'rk0002', {COLUMN => 'info', VERSIONS => 2}
+get 'user', 'rk0001', {COLUMN => 'info:name', VERSIONS => 5}
+get 'user', 'rk0001', {COLUMN => 'info:name', VERSIONS => 5, TIMERANGE => [1392368783980, 1392380169184]}   时间戳范围，前闭后开
+
+
+获取user表中row key为rk0001，cell的值为zhangsan的信息
+get 'people', 'rk0001', {FILTER => "ValueFilter(=, 'binary:图片')"}
+
+
+获取user表中row key为rk0001，列标示符中含有a的信息
+get 'people', 'rk0001', {FILTER => "(QualifierFilter(=,'substring:a'))"}
+
+
+put 'user', 'rk0002', 'info:name', 'fanbingbing'
+put 'user', 'rk0002', 'info:gender', 'female'
+put 'user', 'rk0002', 'info:nationality', '中国'
+get 'user', 'rk0002', {FILTER => "ValueFilter(=, 'binary:中国')"}  //二进制值等于中国的取出来
+
+
+
+
+查询user表中的所有信息
+scan 'user'
+
+
+查询user表中列族为info的信息
+scan 'people', {COLUMNS => 'info'}
+scan 'user', {COLUMNS => 'info', RAW => true, VERSIONS => 5}
+scan 'persion', {COLUMNS => 'info', RAW => true, VERSIONS => 3}
+查询user表中列族为info和data的信息
+scan 'user', {COLUMNS => ['info', 'data']}
+scan 'user', {COLUMNS => ['info:name', 'data:pic']}
+
+
+
+
+查询user表中列族为info、列标示符为name的信息
+scan 'user', {COLUMNS => 'info:name'}
+
+
+查询user表中列族为info、列标示符为name的信息,并且版本最新的5个
+scan 'user', {COLUMNS => 'info:name', VERSIONS => 5}
+
+
+查询user表中列族为info和data且列标示符中含有a字符的信息
+scan 'people', {COLUMNS => ['info', 'data'], FILTER => "(QualifierFilter(=,'substring:a'))"}
+
+
+查询user表中列族为info，rk范围是[rk0001, rk0003)的数据
+scan 'people', {COLUMNS => 'info', STARTROW => 'rk0001', ENDROW => 'rk0003'}
+
+
+查询user表中row key以rk字符开头的
+scan 'user',{FILTER=>"PrefixFilter('rk')"}
+
+
+查询user表中指定范围的数据
+scan 'user', {TIMERANGE => [1392368783980, 1392380169184]}
+
+
+删除数据
+删除user表row key为rk0001，列标示符为info:name的数据
+delete 'people', 'rk0001', 'info:name'
+删除user表row key为rk0001，列标示符为info:name，timestamp为1392383705316的数据
+delete 'user', 'rk0001', 'info:name', 1392383705316
+
+
+
+
+清空user表中的数据
+truncate 'people'
+
+
+
+
+修改表结构
+首先停用user表（新版本不用）
+disable 'user'
+
+
+添加两个列族f1和f2
+alter 'people', NAME => 'f1'
+alter 'user', NAME => 'f2'
+启用表
+enable 'user'
+
+
+
+
+###disable 'user'(新版本不用)
+删除一个列族：
+alter 'user', NAME => 'f1', METHOD => 'delete' 或 alter 'user', 'delete' => 'f1'
+
+
+添加列族f1同时删除列族f2
+alter 'user', {NAME => 'f1'}, {NAME => 'f2', METHOD => 'delete'}
+
+
+将user表的f1列族版本号改为5
+alter 'people', NAME => 'info', VERSIONS => 5
+启用表
+enable 'user'
+
+
+
+
+删除表
+disable 'user'
+drop 'user'
+
+
+
+
+get 'person', 'rk0001', {FILTER => "ValueFilter(=, 'binary:中国')"}
+get 'person', 'rk0001', {FILTER => "(QualifierFilter(=,'substring:a'))"}
+scan 'person', {COLUMNS => 'info:name'}
+scan 'person', {COLUMNS => ['info', 'data'], FILTER => "(QualifierFilter(=,'substring:a'))"}
+scan 'person', {COLUMNS => 'info', STARTROW => 'rk0001', ENDROW => 'rk0003'}
+
+
+scan 'person', {COLUMNS => 'info', STARTROW => '20140201', ENDROW => '20140301'}
+scan 'person', {COLUMNS => 'info:name', TIMERANGE => [1395978233636, 1395987769587]}
+delete 'person', 'rk0001', 'info:name'
+
+
+alter 'person', NAME => 'ffff'
+alter 'person', NAME => 'info', VERSIONS => 10
+
+
+
+
+get 'user', 'rk0002', {COLUMN => ['info:name', 'data:pic']}
+
+
+
+
+scan 'people', {COLUMNS => 'info',RAW => true, VERSIONS => 3}
+
+
+
+
+public
+ 
+class
+ 
+HbaseDemo
+ 
+{
+
+
+	
+private
+ 
+Configuration
+ conf 
+=
+ 
+null
+;
+
+	
+
+	
+@Before
+
+	
+public
+ 
+void
+ init
+(){
+
+		conf 
+=
+ 
+HBaseConfiguration
+.
+create
+();
+
+		conf
+.
+set
+(
+"hbase.zookeeper.quorum"
+,
+ 
+"hadoop01,hadoop02,hadoop03"
+);
+
+	
+}
+
+	
+
+	
+@Test
+
+	
+public
+ 
+void
+ testDrop
+()
+ 
+throws
+ 
+Exception
+{
+
+		
+HBaseAdmin
+ admin 
+=
+ 
+new
+ 
+HBaseAdmin
+(
+conf
+);
+
+		admin
+.
+disableTable
+(
+"account"
+);
+
+		admin
+.
+deleteTable
+(
+"account"
+);
+
+		admin
+.
+close
+();
+
+	
+}
+
+	
+
+	
+@Test
+
+	
+public
+ 
+void
+ testPut
+()
+ 
+throws
+ 
+Exception
+{
+
+		
+HTable
+ table 
+=
+ 
+new
+ 
+HTable
+(
+conf
+,
+ 
+"user"
+);
+
+		
+Put
+ put 
+=
+ 
+new
+ 
+Put
+(
+Bytes
+.
+toBytes
+(
+"rk0003"
+));
+
+		put
+.
+add
+(
+Bytes
+.
+toBytes
+(
+"info"
+),
+ 
+Bytes
+.
+toBytes
+(
+"name"
+),
+ 
+Bytes
+.
+toBytes
+(
+"liuyan"
+));
+
+		table
+.
+put
+(
+put
+);
+
+		table
+.
+close
+();
+
+	
+}
+
+	
+
+	
+@Test
+
+	
+public
+ 
+void
+ testGet
+()
+ 
+throws
+ 
+Exception
+{
+
+		
+//HTablePool pool = new HTablePool(conf, 10);
+
+		
+//HTable table = (HTable) pool.getTable("user");
+
+		
+HTable
+ table 
+=
+ 
+new
+ 
+HTable
+(
+conf
+,
+ 
+"user"
+);
+
+		
+Get
+ get 
+=
+ 
+new
+ 
+Get
+(
+Bytes
+.
+toBytes
+(
+"rk0001"
+));
+
+		
+//get.addColumn(Bytes.toBytes("info"), Bytes.toBytes("name"));
+
+		get
+.
+setMaxVersions
+(
+5
+);
+
+		
+Result
+ result 
+=
+ table
+.
+get
+(
+get
+);
+
+		
+//result.getValue(family, qualifier)
+
+		
+for
+(
+KeyValue
+ kv 
+:
+ result
+.
+list
+()){
+
+			
+String
+ family 
+=
+ 
+new
+ 
+String
+(
+kv
+.
+getFamily
+());
+
+			
+System
+.
+out
+.
+println
+(
+family
+);
+
+			
+String
+ qualifier 
+=
+ 
+new
+ 
+String
+(
+kv
+.
+getQualifier
+());
+
+			
+System
+.
+out
+.
+println
+(
+qualifier
+);
+
+			
+System
+.
+out
+.
+println
+(
+new
+ 
+String
+(
+kv
+.
+getValue
+()));
+
+		
+}
+
+		table
+.
+close
+();
+
+	
+}
+
+	
+
+	
+@Test
+
+	
+public
+ 
+void
+ testScan
+()
+ 
+throws
+ 
+Exception
+{
+
+		
+HTablePool
+ pool 
+=
+ 
+new
+ 
+HTablePool
+(
+conf
+,
+ 
+10
+);
+
+		
+HTableInterface
+ table 
+=
+ pool
+.
+getTable
+(
+"user"
+);
+
+		
+Scan
+ scan 
+=
+ 
+new
+ 
+Scan
+(
+Bytes
+.
+toBytes
+(
+"rk0001"
+),
+ 
+Bytes
+.
+toBytes
+(
+"rk0002"
+));
+
+		scan
+.
+addFamily
+(
+Bytes
+.
+toBytes
+(
+"info"
+));
+
+		
+ResultScanner
+ scanner 
+=
+ table
+.
+getScanner
+(
+scan
+);
+
+		
+for
+(
+Result
+ r 
+:
+ scanner
+){
+
+			
+/**
+
+			for(KeyValue kv : r.list()){
+
+				String family = new String(kv.getFamily());
+
+				System.out.println(family);
+
+				String qualifier = new String(kv.getQualifier());
+
+				System.out.println(qualifier);
+
+				System.out.println(new String(kv.getValue()));
+
+			}
+
+			*/
+
+			
+byte
+[]
+ value 
+=
+ r
+.
+getValue
+(
+Bytes
+.
+toBytes
+(
+"info"
+),
+ 
+Bytes
+.
+toBytes
+(
+"name"
+));
+
+			
+System
+.
+out
+.
+println
+(
+new
+ 
+String
+(
+value
+));
+
+		
+}
+
+		pool
+.
+close
+();
+
+	
+}
+
+	
+
+	
+
+	
+@Test
+
+	
+public
+ 
+void
+ testDel
+()
+ 
+throws
+ 
+Exception
+{
+
+		
+HTable
+ table 
+=
+ 
+new
+ 
+HTable
+(
+conf
+,
+ 
+"user"
+);
+
+		
+Delete
+ del 
+=
+ 
+new
+ 
+Delete
+(
+Bytes
+.
+toBytes
+(
+"rk0001"
+));
+
+		del
+.
+deleteColumn
+(
+Bytes
+.
+toBytes
+(
+"data"
+),
+ 
+Bytes
+.
+toBytes
+(
+"pic"
+));
+
+		table
+.
+delete
+(
+del
+);
+
+		table
+.
+close
+();
+
+	
+}
+
+	
+
+	
+
+	
+
+	
+
+	
+public
+ 
+static
+ 
+void
+ main
+(
+String
+[]
+ args
+)
+ 
+throws
+ 
+Exception
+ 
+{
+
+		
+Configuration
+ conf 
+=
+ 
+HBaseConfiguration
+.
+create
+();
+
+		conf
+.
+set
+(
+"hbase.zookeeper.quorum"
+,
+ 
+"hadoop01,hadoop02,hadoop03"
+);
+
+		
+HBaseAdmin
+ admin 
+=
+ 
+new
+ 
+HBaseAdmin
+(
+conf
+);
+
+		
+HTableDescriptor
+ td 
+=
+ 
+new
+ 
+HTableDescriptor
+(
+"account"
+);
+
+		
+HColumnDescriptor
+ cd 
+=
+ 
+new
+ 
+HColumnDescriptor
+(
+"info"
+);
+
+		cd
+.
+setMaxVersions
+(
+10
+);
+
+		td
+.
+addFamily
+(
+cd
+);
+
+		admin
+.
+createTable
+(
+td
+);
+
+		admin
+.
+close
+();
+
+
+	
+}
+
+	
+
+	
+public
+ 
+void
+ createTable
+(
+String
+ tableName
+,
+ 
+int
+ maxVersion
+,
+ 
+String
+...
+ cf
+){
+
+		
+
+	
+}
+
+
+}
+
+
+
+
+
+【pig笔记】
+但Hive还似乎有点数据库的影子，而Pig基本就是一个对MapReduce实现的工具(脚本)
+
+Language 
+在Hive中可以执行  插入/删除 等操作，但是Pig中我没有发现有可以 插入 数据的方法，请允许我暂且认为这是最大的不同点吧。 
+Schemas 
+Hive中至少还有一个“表”的概念，但是Pig中我认为是基本没有表的概念，所谓的表建立在Pig Latin脚本中，对与Pig更不要提metadata了。 
+Partitions 
+Pig中没有表的概念，所以说到分区对于Pig来说基本免谈，如果跟Hive说“分区”(Partition)他还是能明白的。 
+Server 
+Hive可以依托于Thrift启动一个服务器，提供远程调用。 找了半天压根没有发现Pig有这样的功能，如果你有新发现可以告诉我，就好像有人开发了一个Hive的REST 
+Shell 
+在Pig 你可以执行一些个 ls 、cat 这样很经典、很cool的命令，但是在使用Hive的时候我压根就没有想过有这样的需求。 
+Web Interface 
+Hive有，Pig无 
+JDBC/ODBC 
+Pig无，Hive有
+
+
+
+
+1.安装Pig
+    将pig添加到环境变量当中
+ 
+2.pig使用
+    首先将数据库中的数据导入到HDFS上，两者都拥有自己的表达语言，其目的是将MapReduce的实现进行简化，并且读写操作数据最终都是存储在HDFS分布式文件系统上
+    sqoop import --connect jdbc:mysql://192.168.1.10:3306/itcast --username root --password 123  --table trade_detail --target-dir '/sqoop/td'
+    sqoop import --connect jdbc:mysql://192.168.1.10:3306/itcast --username root --password 123  --table user_info --target-dir '/sqoop/ui'
+ 
+ 
+    td = load '/sqoop/td' using PigStorage(',') as (id:long, account:chararray, income:double, expenses:double, time:chararray);
+    ui = load '/sqoop/ui' using PigStorage(',') as (id:long, account:chararray, name:chararray, age:int);
+ 
+    td1 = foreach td generate account, income, expenses, income-expenses as surplus;
+ 
+    td2 = group td1 by account;
+ 
+    td3 = foreach td2 generate group as account, SUM(td1.income) as income, SUM(td1.expenses) as expenses, SUM(td1.surplus) as surplus;
+ 
+    tu = join td3 by account, ui by account;
+ 
+    result = foreach tu generate td3::account as account, ui::name, td3::income, td3::expenses, td3::surplus;
+ 
+    store result into '/result' using PigStorage(',');
+

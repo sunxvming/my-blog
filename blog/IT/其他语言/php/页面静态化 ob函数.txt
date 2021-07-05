@@ -1,0 +1,547 @@
+
+页面静态化
+
+u  大型网站的核心技术有哪些
+
+1.  页面静态化  (  核心 把动态的页面 转成 静态页面 从而减少对数据库操作的次数  )
+
+2.  缓存技术 ( 内存角度存储 ->memcached)
+
+3.  服务器集群 (a.  硬件  b.  软件架构 )
+
+4.  数据库优化 (a.  表结构 ( 符号 3NF) b.  添加适当索引  (1.1 主键索引  1.2  普通索引  1.3  唯一索引  1.4  全文索引  sphinx ) c.  读写分离  d.  分表 ( 垂直分割  /  水平分割  ) 
+
+
+简单介绍  ->  示意图 :
+
+ 
+
+
+
+
+ 负载均衡器入门级的都10来万
+
+ 
+
+u  页面静态化的分类
+
+1.  从形式上分为 真静态和伪静态
+
+2.  从范围看： 整体静态化，和局部静态 
+
+ 
+
+介绍一款工具  apache 自带的  ab.exe  程序，该程序可以用于测试 你的页面的效率怎样 .  同时可以测试你的 apache 的负载能力有多大 ! ,  该程序在控制台下使用
+
+使用的语法 :
+
+ab.exe  – n  请求的次数   -c  并发次数 访问的页面的 url 地址
+
+ab.exe  – n 10000  – c 100  http://localhost/test1.php
+
+ 
+
+注意如何看统计信息 :
+
+ 
+
+ 
+
+后面我们给了一个大致的结论 :
+
+网站能支撑的在线人数大致是支撑 并发人数的 10倍 左右
+
+
+
+
+u  怎样的 Html 文件，会符号  SEO  的喜好
+
+1.  url   不要超过  255
+
+2.  静态页面不要带参数  , 造成重复抓取
+
+3.  meta  数据尽量完善
+
+<meta name= ” keywords ”   content= ” 关键字  ” />
+
+<meta name= ” description ”  content= ” 页面的简单介绍 ” />
+
+4.  <img src= ” 小明 .png ”  alt= ” 小明 ” /> 
+
+
+
+
+真静态有两个方法
+
+1.  使用 PHP  的  ob 缓存机制来实现 页面静态化
+
+2.  使用模板技术来实现页面静态化 ( 最常用的 )
+
+
+
+
+  u  OB 缓存是什么？怎么用 ?
+
+1.  快速入门
+
+注意 :  在 PHP5.3  这个版本， ob 默认是打开的 .
+
+PHP5.2  这会报告 waring
+
+我们可以通过  php.ini  中可以配置是否启用  ob
+
+
+
+
+☞  我们可以认为，在 apache 的服务器端，有两个缓存  ob 缓存 ( 这个程序员可以控制 ) , 程序缓存是必须有的 .
+
+当有一段代码  <?php echo  “ abc ”  ; ?>  如果有  echo , 当你启用  ob 缓存，那么这些 echo  优化放在 ob 缓存中 ,  如果没有 ob 缓存，则直接放入了程序缓存 .
+
+如果你只有程序缓存，需要大家清楚， header  语句前，不能有  echo  语句 , 否则有提示
+
+headers already sent by
+
+
+
+
+<?php
+
+// 开启 ob 缓存
+
+ob_start();
+
+echo "hello,wrold!";
+
+header("content-type: text/html;charset=utf-8");
+
+echo " 你好 !";
+
+ 
+
+// 把 ob 内容缓存清空 , 但是 ob 缓存还在
+
+//ob_clean();
+
+// 把 ob 内容缓存清空 , 同时关闭 ob 缓存
+
+//ob_end_clean();
+
+// 把 ob 缓存的内容，刷新到程序缓存，同时关闭 ob 缓存
+
+//ob_end_flush();
+
+// 把 ob 缓存的内容，刷新到程序缓存，不关闭 ob 缓存
+
+ob_flush();
+
+
+
+echo "啊啊啊啊 ";
+
+ 
+
+// 获取 ob 缓存内容
+
+$con= ob_get_contents();
+
+ 
+
+// 需要把日志，写入文件 .  echo print_r var_dump  ，写文件  , 下断点 .
+
+file_put_contents("d://hsp.log",$con);
+
+
+
+ 
+
+现在我们再说最后一个函数  flush()
+
+该函数是把 程序缓存的内容，强制刷新到 浏览器
+
+浏览器也有缓存，什么时候浏览器显示缓存内容：1、请求结束 2、缓存内容达到一定大小
+
+------------------------------------
+
+
+< ? php----------------》ob缓存然后写文件
+
+// 建立堤坝
+ob_start(); // out_buffer
+echo 'h' , 'e' , 'l' , 'l' , 'o' ;
+
+// 获取缓冲区的内容
+$buffer = ob_get_contents();
+ob_end_clean();
+
+// 下面,进行静态化
+$fh = fopen( './01.html' , 'w' );
+fwrite($fh,$buffer);
+fclose($fh);
+----------------------------
+< ? php
+set_time_limit( 0 ); //永久执行直到程序结束
+echo str_repeat( ' ' , 4000 );
+ob_start();
+$i = 1 ;
+while (true) {
+    echo $i ++ ;
+    ob_flush(); // PHP把水冲刷给apache
+    flush(); // 通知web服务器,把内容给浏览器
+    sleep( 1 );
+}
+
+
+
+-------------------------------------
+
+ 
+
+
+
+
+u  使用 ob 缓存实现页面静态化 -> 实用
+
+传统方法 ( 缺陷 )-  改进 -->ob( 缺陷 ) — ( 模板实现 )- à 最终版  ( 实现功能 )
+
+ 
+
+用 ob 实现的静态化页面有改动怎么办
+
+先搞定这个问题 .,-------------------》总是要生成静态文件的
+
+方法 1:
+
+  通过比较文件的时间来  定时更新 ，即可，对于对应实时性要求不高的网站，是完全没有问题 . 
+
+if(file_exists($html_name) && filemtime($html_name)+30> time() ){  30秒更新一次
+
+     echo " 使用缓存 ";
+
+     echo file_get_contents($html_name);
+
+     exit;
+
+}
+
+
+
+
+方法 2;
+
+  现在我们可以这样考虑，当我们添加新闻，修改新闻时，就实时的更新数据库同时去更新静态页面 -> 使用模板技术 
+
+实现思路 : smarty  模板替换 ->  正则表达式
+
+  < ? php
+//<!--我们在添加新闻时，就同时生成一个对应的新闻页面(比如你设计好的一个新闻内容显示模板)-->
+//改、删的时候同样更新静态页
+    function myreplace($row,$title,$content){
+        $row = str_replace( "%title%" ,$title,$row);
+        $row = str_replace( "%content%" ,$content,$row);
+        return $row;
+    }
+ 
+    //获取
+    $oper = $_POST[ 'oper' ];
+ 
+    if ($oper == "add" ){
+            $title = $_POST[ 'title' ];
+            $content = $_POST[ 'content' ];
+            //入库. Mysql.class.php
+           $con = mysql_connect( "localhost" , "root" , "root" );
+            if ( ! $con){
+                die ( "连接失败" );
+            }
+            mysql_select_db( "newsdb" ,$con);
+            $sql = "insert into news (title,content) values('$title','$content')" ;
+            if (mysql_query($sql)){
+                    //获取新闻id
+                    $id = mysql_insert_id();
+                    $html_filename = "news-id" .$id. ".html" ;  //用id作为唯一的文章url的标识
+                    $fp_html_file = fopen($html_filename, "w" );
+                    //读取模板文件
+                    $tpl_file = fopen( "news.tpl" , "r" );
+                    //一行一行的读
+                    while ( ! feof($tpl_file)){
+                        //读入一行
+                        $row = fgets($tpl_file);
+                        //我就一行一行的替换,我写一个函数来专门替换占位符.
+                        $row = myreplace($row,$title,$content);
+                        //把$row写入到新文件
+                        fwrite($fp_html_file,$row);
+                    }
+                    //关闭文件.
+                    fclose($fp_html_file);
+                    fclose($tpl_file);
+                    echo "添加成功,  <a href='newsList.php'>点击查看新闻</a>" ;
+            } else {
+                echo "添加失败!" ;
+            }
+ 
+ 
+    } else if ($oper == "update" ){
+ 
+    } else if ($oper == "delete" ){
+ 
+    }
+<html>
+<head>
+<!--%titel%是一个占位.-->
+<title>%title%</title>
+</head>
+<body>
+<h1>%title%</h1>
+<hr/>
+<pre>%content%</pre>
+</body>
+</html>
+
+ 
+
+u  html 页面静态化 ( 真静态的 ) 优点和缺点
+
+1.  减少对数据库的查询次数，从而提高速度
+
+2.  利用 SEO  news-id2.html
+
+3.  提高安全性 , 减少 sql 注入
+
+缺点 :
+
+1.  因为生成了 html 页面，所以会占用更多的空间 
+
+2.  如果我们 html 页面很多，同样导致去获取 html 响应速度问题 , 考虑 分文件夹来存放 html 页面 . 20120904/xxx   20120905/
+
+ 
+
+http://localhost/news-id1.html  
+
+思考 :  哪些网站，不适宜使用页面静态化
+
+a.  网站的内容实时变化 ,  而且数据要入库 ( 股票，基金 , 黄金报价 ) 
+
+b.  比如 中国移动用户费用查询系统  (web) ,  内容海量，同时用户查询次数很少 .
+
+u  伪静态技术
+
+ 
+
+考虑一个情况 :  如果我们使用真静态，将生成大量的   html 页面，我们不想使用真静态，但是我们还想  a.  利用 SEO b.  不给人 sql 注入的机会
+
+ 
+
+http://localhost/content.php/1,122,8912.html  
+
+等价于
+
+http://localhost/content.php?a=1&b=122&c=8912
+
+  思路 1. 程序中判断
+
+ 
+
+代码 : 如下 ：
+
+<?php  
+
+$str=$_SERVER['PATH_INFO'];     //路由的功能
+
+$reg='/(\d+),(\d+),(\d+)\.html$/i';
+
+if(preg_match($reg,$str,$res)){
+
+echo "<pre>";
+
+print_r($res);
+
+echo "</pre>";
+
+}else{
+
+echo "error info!";
+
+}
+
+ 
+
+$a=$res[1];
+
+$b=$res[2];
+
+$c=$res[3];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+2.  使用正则表达式  (js 中使用 正则表达式  ,  php 中如何使用正则表达式  preg_match_alll )  
+
+/*preg_match($reg,$str,$res);
+
+//$res  是匹配的结果  $res[0]  是整体结果  $res[1]  是捕获到的第一个子表达式内容 . 依次类推
+
+ 
+
+// 当我们使用  preg_match_all 来匹配时候，就会匹配所有的串 .
+
+//$res[0][0] => 第一个匹配结果  $res[0][1] => 第二个匹配结果，依次类推
+
+//$res[1][0]=> 第一个匹配结果的第一个子表达式内容
+
+//$res[1][1]=> 第二个匹配结果的第一个子表达式内容
+
+// 依次类推
+
+
+
+ 
+
+实现伪静态的第二种方式 :  使用 apache 的 rewrite 机制 .
+
+ 
+
+在比如说
+
+http://www.hsp.com/news-id2.html
+
+希望等价于
+
+http://www.hsp.com/searchnews.php?cata=news&id=2
+
+步骤如下 :
+
+(1)  在 httpd.conf  文件中启用 rewrite 模块
+
+# 启用我们的 rewrite 模块
+
+LoadModule rewrite_module modules/mod_rewrite.so
+
+(2)  配置虚拟主机
+
+2.1.  首先在  httpd.conf  启用
+
+# Virtual hosts
+
+Include conf/extra/httpd-vhosts.conf
+
+2.2.  在 httpd-vhosts.conf  中添加一个虚拟主机 
+
+<VirtualHost *:80>
+
+    
+
+    DocumentRoot "C:/myenv2/apache/htdocs/static2"
+
+    ServerName www.hsp.com
+
+    #Directory 这个 段，主要用处指定，该目录的访问权限
+
+   <Directory "C:/myenv2/apache/htdocs/static2">
+
+ 
+
+   </Directory>
+
+</VirtualHost>
+
+☞  如果我们的虚拟主机，没有指定访问的权限，则以上级目录的权限为标准 , 如果指定了，则以自己的配置为准
+
+ 
+
+我们来看看如何配置我们的 rewrite  这个规则 ,  特别说明该规则实际上就是一个正则表达式 ,  这个表达式可以写  httpd-vhost.conf  也可以写在  .htaccess  文件 .
+
+ 
+
+最后的配置结果如下 :
+
+<VirtualHost *:80>     
+
+    DocumentRoot "C:/myenv2/apache/htdocs/static2"
+
+    ServerName www.hsp.com
+
+    #Directory 这个 段，主要用处指定，该目录的访问权限
+
+   <Directory "C:/myenv2/apache/htdocs/static2">
+
+# 如果你不想让别人访问你的网站 Deny from 211.11.89  或者  Deny from all
+
+Allow from all
+
+# 不列出该网站的文件列表  Options None
+
+# 设置网站默认的首页面  http://www.hsp.com
+
+DirectoryIndex abc.html
+
+# 配置统一的  404 页面
+
+errordocument 404 /errro.html
+
+RewriteEngine On
+
+RewriteRule news-id(\d+)\.html$  showNews.php?id=$1  
+
+   </Directory>
+
+</VirtualHost>
+
+ 
+
+u  实现伪静态的第二种方式
+
+在文件夹下，直接通过写  .htaccess  文件来指定重新规范
+
+ 
+
+<IfModule rewrite_module>
+
+writeE Re ngine On
+
+#rewrite  伪静态规 的 范可以有多个 , 他是依次匹配 . if else if
+
+RewriteRule news-id(\d+)\.html$  showNews.php?id=$1
+
+</IfModule>
+
+ 
+
+实际应用 :  说 ，我的网站有两个文件，放入图片 .  一个文件夹下图片是公开的，而另一文件夹图片是私有的 , 不可以直接访问，怎么处理 ?
+
+说 :  处理的方法是在每个文件夹下 创建一个文件   .htaccess ,  可以这里指定哪些 ip 可以访问我们的资源 .
+
+ 
+
+ 
+
+ 
+
+局部静态化 .  的实现方式 :
+
+ 
+
+ 

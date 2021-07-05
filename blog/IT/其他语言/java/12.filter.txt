@@ -1,0 +1,376 @@
+*1 文件上传下载和数据库结合
+  1）速度：较小文件的文件存入数据库中，取出速度较快，返之较慢。（图片存在数据库中不
+           较大文件的存入硬盘中，取出速度相对于数据库较快。
+  2）同步：
+数据库表和硬盘必须一致，必须要事务的支持
+        在事务的情况下，表操作优先，硬盘其后
+
+2 过滤器简介
+
+
+Filter也称之为过滤器，它是Servlet技术中最激动人心的技术，WEB开发人员通过Filter技术，对web服务器管理的所有web资源：例如Jsp, Servlet, 静态图片文件或静态 html 文件等进行拦截，从而实现一些特殊的功能。例如实现 URL级别 的权限访问控制、过滤敏感词汇、自动登录、压缩响应信息等一些高级功能。
+
+
+  a)Filter是SUN公司提供的一个资源过滤器 接口 ，不同的Web容器有着不同的实现
+  b)Filter位于Web服务器和Web资源（Servlet/Jsp/Html）之间
+  c)过滤请求和响应二者
+  d)Filter可以进行简单判段，是否将请求放行给Web资源
+  e)Filter的开发过程：
+>>类 implements      javax.servlet.Filter接口
+        >>在web.xml文件配置Filter过滤器，告之Web服务器有过滤器的存在
+web.xml中的配置信息如下：
+<filter>
+   < filter-name >FilterDemo1</filter-name>(过滤器，可以随意，但要和filter-mapping中的name一致)
+   < filter-class >cn.itcast.web.filter.FilterDemo1</filter-class>(过滤器全路径)
+        </filter>
+        <filter-mapping>
+   <filter-name>FilterDemo1</filter-name>(过滤器名，同上)
+   < url-pattern >/*</url-pattern>(过滤器能够过滤的资源路径，不是用户在URL中访问的路径)
+        </filter-mapping>
+  
+3 过滤器链
+  a)一个Web应用可以有0个或多个Filter，多个Filter的组合就是过滤器链
+  b)多个Filter的执行先后顺序，与web.xml文件中配置的顺序有关
+  c) chain.doFilter(request,response) 具有二义性：
+>>如果有下一个Filter时，将请求转发给下一个Filter
+        >>如果无下一个Filter时，将请求转发给Web资源(serlvet/jsp/html)
+  d)可以将web资源中的一些公共代码，提取出来，放入Filter中
+
+
+4 过滤器生命周期
+  空参构造() 1次
+  init() 1次
+  doFilter(请求，响应，过滤器链) N次，与请求次数有关
+  destory() 1次
+  Filter是一个单例
+
+
+*5 Filter的案例
+  a)当访问一个web资源时，没有得到对应的结果，有可能是Filter没有 放行资源
+  b)静态资源和动态资源进行不同的缓存处理,代码如下：
+if(uri!=null && uri.endsWith("jsp")){
+//NO3如果是动态资源，设置三个响应头通知浏览器不缓存
+response.setHeader("expires","-1");
+response.setHeader("cache-control","no-cache");
+response.setHeader("pragma","no-cache");
+}else if(uri!=null && uri.endsWith("html")){
+//NO4如果是静态资源，缓存一定的时间
+String strHtml = filterConfig.getInitParameter("html");
+long time = System.currentTimeMillis()+Integer.parseInt(strHtml)*1000;
+//time为毫秒值
+response.setDateHeader("expires",time);
+response.setHeader("cache-control",time/1000+"");
+response.setHeader("pragma",time/1000+"");
+}
+   c)总结：写Filter一定要知道该Filter 过滤哪个或哪些资源 ，不是所有的Filter都过滤/*的资源。
+ ==================================================
+  <filter>
+      <filter-name>FilterDemo3</filter-name>
+      <filter-class>cn.itcast.web.filter.FilterDemo3</filter-class>
+      <init- param >
+          <param- name >encoding</param-name>
+          <param- value >UTF-8</param-value>
+      </init- param >
+      <init- param >
+          <param-name>email</param-name>
+          <param-value>jack@163. com </param-value>
+      </init- param >
+  </filter>
+  <filter-mapping>
+      <filter-name>FilterDemo3</filter-name>
+      <url-pattern>/*</url-pattern>   </filter-mapping>   
+
+//单例
+public   class  FilterDemo3  implements  Filter {
+     private  FilterConfig  filterConfig ;
+     public  FilterDemo3(){
+    }
+     public   void  init(FilterConfig filterConfig)  throws  ServletException {
+         this . filterConfig  = filterConfig;
+    }
+     //Web容器调用
+     public   void  doFilter(ServletRequest request, ServletResponse response,FilterChain chain)  throws  IOException, ServletException {
+        Enumeration<String> enums =  filterConfig .getInitParameterNames() ;
+         while (enums.hasMoreElements()){
+            String key = enums.nextElement();
+            String value =  filterConfig .getInitParameter(key);
+            System. out .println(key+ ":" +value);
+        }
+        String encoding =  filterConfig .getInitParameter( "encoding" );
+        response.setContentType( "text/html;charset=" +encoding);
+        chain.doFilter(request,response);
+    }
+     public   void  destroy() {
+    } }   
+
+
+
+request.setCharacterEncoding()是你设置获得数据的编码方式。
+response.setCharacterEncoding()是你响应时设置的编码。
+response.setContentType()是设置你响应时的MIME及编码，其中也可以不设置编码，由response.setCharacterEncoding()设置，即response.setContentType(text/html; charset=utf-8)可以写成response.setCharacterEncoding("utf-8")和response.setContentType("text/html")
+ 
+ 
+1 映射Filter的细节
+  a)在默认情况下，Filter只过滤Request的请求，即web资源之间的 转发和包含 不过滤
+MappingFilter::doFilter():A
+        FromServlet::doGet()
+        ToServlet::doGet()
+        MappingFilter::doFilter():B 
+
+
+  b)当需要过滤forward请求的资源时，可以设置dispatcher为FORWARD过滤方式
+FromServlet::doGet()
+MappingFilter::doFilter():A
+ToServlet::doGet()
+MappingFilter::doFilter():B
+        在web.xml文件中配置代码如下：
+ <filter-mapping>
+            <filter-name>MappingFilter</filter-name>
+            <url-pattern>/*</url-pattern>
+            <dispatcher>FORWARD</dispatcher>
+          </filter-mapping>
+  c)当需要过滤include请求的资源时，可以设置dispatcher为INCLUDE过滤方式
+  d)当需要过滤error请求的资源时，可以设置dispatcher为ERROR过滤方式
+    注意：一定在要web.xml文件声明错误代码或类型
+
+
+  <error-page>
+  <error-code>500</error-code>
+  <location>/sys_500.jsp</location>
+  </error-page>
+ 
+  <filter-mapping>
+    <filter-name>MappingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+
+
+    <dispatcher>ERROR</dispatcher>
+  </filter-mapping>
+ 
+  e)对于过滤Servlet资源时，即可使用url-pattern，又可以使用servlet-name
+  f)一个Filter可以过滤1个或N个资源
+
+
+*2 装饰设计模式
+  a)当某个类的某个方法不适应当前业务的需要
+1》扩展父类的可供扩展的方法，可以使有，但不优
+2》装饰设计模式(推荐)
+      开发步骤：
+1)写一个普通类或写一个普通类扩展[extends]一个父类
+2)写一个需要 被包装的实例变量
+3)通过构造方式为被包装的实例变量赋值
+4)对于不满足需求的方法，重写父类的相关方法
+             [可选]5)对于满足需求的方法，直接调用被包装的对象
+//将BufferedReader进行必包的包装/装饰
+public   class  MyBufferedReader {
+     private  BufferedReader  br ;
+     private   int   no ;
+     public  MyBufferedReader(BufferedReader br){
+         this . br  = br;
+    }
+     //重写父对象的方法
+     public  String readLine()  throws  Exception{
+        String line =  null ;
+        line =  br .readLine();
+         if (line!= null ){
+             no ++;
+            line =  no  +  ":"  + line;
+        }
+         return  line;
+    }
+     //真接使用父对象的方法
+     public   void  close()  throws  Exception{
+         br .close();
+    } 
+}
+-------------------
+    public   class  Test1 {
+     public   static   void  main(String[] args)  throws  Exception {
+        Reader r =  new  FileReader( new  File( "d:\\abc.txt" ));
+        BufferedReader br =  new  BufferedReader(r);
+        MyBufferedReader mbr =  new  MyBufferedReader(br);   //一行一行的读
+        String line =  null ;
+         while ((line = mbr.readLine())!= null ){
+            System. out .println(line);
+        }
+        mbr.close();
+    }
+}
+=========================================
+//对HttpServletRequest对象包装/装饰
+public   class  MyRequest  extends  HttpServletRequestWrapper{
+     private  HttpServletRequest  request ;
+     public  MyRequest(HttpServletRequest request) {
+         super (request);    //表示调用父类的构造函数。
+         this . request  = request;
+    }
+     //重写父类的方法
+     public  String getParameter(String name) { //表单项的名字
+        String value =  null ;
+         //取得客户端的请求方式[GET/POST]
+        String method =  request .getMethod();
+         if ( "GET" .equals(method)){
+             try  {
+                value =  request .getParameter(name); //乱码
+                 byte [] buf = value.getBytes( "ISO8859-1" );
+                value =  new  String(buf, "UTF-8" ); //正码
+            }  catch  (Exception e) {
+                e.printStackTrace();
+            }
+        } else   if ( "POST" .equals(method)){
+             try  {
+                 request .setCharacterEncoding( "UTF-8" );
+                value =  request .getParameter(name); //正码
+            }  catch  (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        value = filter(value);
+         return  value;
+    }
+     //转义方法
+     public  String filter(String message) {
+         if  (message ==  null )
+             return  ( null );
+         char  content[] =  new   char [message.length()];
+        message.getChars(0, message.length(), content, 0);
+        StringBuffer result =  new  StringBuffer(content. length  + 50);
+         for  ( int  i = 0; i < content. length ; i++) {
+             switch  (content[i]) {
+             case   '<' :
+                result.append( "<" );
+                 break ;
+             case   '>' :
+                result.append( ">" );
+                 break ;
+             case   '&' :
+                result.append( "&" );
+                 break ;
+             case   '"' :
+                result.append( """ );
+                 break ;
+             default :
+                result.append(content[i]);
+            }
+        }
+         return  (result.toString());
+    }
+​}
+
+------------------------------------
+
+public   class  EncodingFilter  implements  Filter {
+     public   void  destroy() {
+    }
+     public   void  doFilter(ServletRequest req, ServletResponse res,FilterChain chain)  throws  IOException, ServletException {      
+        HttpServletRequest request = (HttpServletRequest) req;
+        HttpServletResponse response = (HttpServletResponse) res;       
+        MyRequest myRequest =  new  MyRequest(request);
+        chain.doFilter(myRequest,response);
+    }
+     public   void  init(FilterConfig filterConfig)  throws  ServletException {
+    }
+}
+StringBuffer  buf  =  new  StringBuffer(); 
+这句话表示初始化了一个空的初始容量为16个字符的空间大小 。  
+
+final   int  INIT_SIZE =  10 ;  
+StringBuffer buf =  new  StringBuffer(INIT_SIZE);  
+表示创建了INIT_SIZE大小的空的字符空间。 
+StringBuffer内部是通过创建字符数组保存数据的，假如当前的容量小于实际存储的容量，
+它会以2倍容量的大小，重新构造新的字符数组，然后将以前的内容拷贝到新的字符数组中。 假如我们知道了需要存储数据的大小，直接指定开辟的空间，那样可以减少内部数组创建的次数。    
+
+ 
+*3 Filter案例
+  a)对request进行装饰
+  b)对response进行装饰[有一定难度]
+4 总结Filter和Servlet
+  a)Filter通常完成一些非核心的业务流程控制  
+          Servlet通常完成一些核心的业务流程控制
+  b)Filter通常完成一些对Servlet的请求和响应的预先处理控制。
+          Servlet却不行
+  c)Filter和Servlet是一个互补的技术，而不是替代技术  
+*5 投票系统(上)
+  (4)投票人限制1分钟之内重复投票
+     a)投票
+     b)限制1分钟投票     
+       思路：当前时间-某IP地址最后投票时间 > 60秒 允许投票
+    <=60 不允许投票
+
+
+       select ip,max(votetime) as votetime from info where ip = '127.0.0.1' group by ip;
+     注意：当多个线程并发修改某个变量时，一定要加锁，但锁的对象一定要在多个线程所共享的对象，例如：Servlet实例
+  (5)投票人IP和最后投票时间查询   
+     关于时间的显示，可以使用<fmt:formatDate/>
+=============================
+public   class   FromServlet   extends  HttpServlet {
+     public   void  doGet(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+        System. out .println( "FromServlet::doGet()" );
+        request.getRequestDispatcher( "/ToServlet" ).forward(request,response);
+        request.getRequestDispatcher( "/ToServlet" ).include(request,response);
+    } }  
+  <filter>
+      <filter-name>MappingFilter</filter-name>
+      <filter-class>cn.itcast.web.filter.MappingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>MappingFilter</filter-name>
+    <url-pattern>/ ToServlet    </url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>   </filter-mapping>   
+
+----------------------------
+  都表示要跳转到其他资源，不同的是，如果使用forward跳转则后面的response输出则不会执行，而用include
+来跳转，则include的servlet执行完后，再返回到原来的servlet执行response的输出（如果有）。如：
+servlet A
+RequestDispatcher disp = request.getRequestDispatcher("B");
+disp.forward(request, response);
+System.out.println("servlet A completed");
+PrintWriter pw = response.getWriter();
+pw.println("servlet A");
+ 
+servlet B
+PrintWriter pw = response.getWriter();
+pw.println("servlet B");
+ 
+输出结果：
+控制台：servlet A completed
+页面：servlet B
+如果将forward换成include的话，则结果为：
+控制台：servlet A completed
+页面：servlet B servlet A
+PS：如果在servlet B里吧pw给close掉了的话，那servlet A 这里就无法输出了，则结果就和第一个一样。
+================================
+//对敏感目录进行认证[课堂练习1]
+public   class  FilterDemo7  implements  Filter {
+     public   void  init(FilterConfig filterConfig)  throws  ServletException {
+    }
+     public   void  doFilter(ServletRequest req, ServletResponse res,FilterChain chain)  throws  IOException, ServletException {
+        
+        HttpServletRequest request = (HttpServletRequest) req;
+        HttpServletResponse response = (HttpServletResponse) res;
+        
+         //设置请求体编码方式
+        request.setCharacterEncoding( "UTF-8" );
+        
+         //取得用户请求参数
+        String username = request.getParameter( "username" );
+        String password = request.getParameter( "password" );
+        String role = request.getParameter( "role" );
+        
+         //判段
+         if (username!= null  && password!= null  && role!= null  && username.trim().length()>0 && password.trim().length()>0 && role.trim().length()>0){
+             if ( "普通用户" .equals(role)){
+                request.setAttribute( "message" , "欢迎普通用户<font color='blue'>" +username+ "</font>登录" );
+                request.setAttribute( "flag" , "user" );
+            } else   if ( "管理员" .equals(role)){
+                request.setAttribute( "message" , "欢迎管理员<font color='red'>" +username+ "</font>登录" );    
+                request.setAttribute( "flag" , "admin" );
+            }
+            chain.doFilter(request,response);
+        }
+    }
+     public   void  destroy() {
+    } }   

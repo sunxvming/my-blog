@@ -1,0 +1,91 @@
+3.样式文件命名
+
+主要的 master.css
+布局，版面 layout.css
+专栏 columns.css
+文字 font.css
+打印样式 print.css
+主题 themes.css
+
+
+font-family：“微软雅黑”，“宋体”； 是说明首选微软雅黑，若是该用户电脑没有微软雅黑的话，就用宋体显示， 全局雅黑字体设置* {font-family: "Microsoft YaHei" !important;}
+
+===============================
+【reset css】  为什么要初始化CSS？  
+
+CSS初始化是指重设浏览器的样式。不同的浏览器默认的样式可能不尽相同，所以开发时的第一件事可能就是如何把它们统一。如果没对CSS初始化往往会出现浏览器之间的页面差异。每次新开发网站或新网页时候通过初始化CSS样式的属性，为我们将用到的CSS或html标签更加方便准确，使得我们开发网页内容时更加方便简洁，同时减少CSS代码量，节约网页下载时间。 CSS初始化示例代码
+/*  css reset www.admin10000.com  */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6, pre ,code,form,fieldset, legend ,input,button,textarea,p,blockquote,th,td  {  margin : 0 ;  padding : 0 ;   }
+body  {  background : #fff ;  color : #555 ;  font-size : 14px ;  font-family :   Microsoft Yahei, Verdana, Arial, Helvetica, sans-serif ;   }
+td,th,caption  {  font-size : 14px ;   }
+h1, h2, h3, h4, h5, h6  {  font-weight : normal ;  font-size : 100% ;   }
+address, caption, cite, code, dfn, em, strong, th, var  {  font-style : normal ;  font-weight : normal ; }
+a  {  color : #555 ;  text-decoration : none ;   }
+a:hover  {  text-decoration : underline ;   }
+a:visited { text-decoration:none; }
+a:active { text-decoration:none; }
+a:focus{color:#c00;text-decoration:underline;} img   {  border : none ;   }
+ol,ul,li  {  list-style : none ;   }
+input, textarea, select, button  {  font : 14px  Microsoft Yahei,  Verdana,Helvetica,Arial,sans-serif ;   }
+table  {  border-collapse : collapse ;   }
+html   { overflow-y :  scroll ; }  
+button{border:none;}
+
+
+
+上面是 admin10000.com 使用的CSS重置代码，这段代码是我比较喜欢用的一种方式，虽然还不够完美但是常用的几乎已经都包括了。
+<
+head
+>
+　　<title>网站标题 - Admin10000.com </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="zh-CN" />
+	<meta name="Author" content="网页作者" /> 
+	<meta name="Copyright" content="网站版权" /> 
+	<meta name="keywords" content="网站关键字" />
+	<meta name="description" content="网站描述" />
+	<link rel="Shortcut Icon" href="网站.ico图标路径" />
+	<link type="text/css" rel="stylesheet" href="CSS文件路径" />
+	<script type="text/
+javascript
+" 
+src
+="JS文件路径"></script>
+</head>
+robots.txt  放在网站根目录
+  如果要限制不让搜索引擎访问我们后台admin目录，则规则改为：
+User-agent: *
+Disallow: /admin/
+ 
+于是黑客就可以比较清楚的了解网站的结构，比如admin目录啊、include目录啊等等。
+有没有办法既可以使用robots.txt的屏蔽搜索引擎访问的功能，又不泄露后台地址和隐私目录的办法呢？有，那就是使用星号（*）作为 通配符 。举例如下：
+User-agent:
+Disallow: /a*/
+
+
+经典的reset css  http://meyerweb.com/eric/tools/css/reset/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../../style.css" type="text/css" />
+
+
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+
+ <!--if(title)-->
+
+ <!--if(toc)-->
+
+<p>Ajax Asynchronous JavaScript and XML</p>
+<p>Js会阻塞后面的js代码执行和html代码的渲染.而用异步传输数据,不会阻塞后面js代码执行和html代码的渲染.</p>
+<ul>
+<li>XMLHttpRequest的属性</li>
+</ul>
+<p>responseText: 服务器响应的主体信息,body信息.</p>
+<p>responseXML: 对于大量的格式化文档,可以用XML来传输或交换,由后台程序把数据封装在XML文档时, js接收XML对象并解析该内容.</p>
+<p>status: 是服务器的返回状态码, 例: 200,成功, 403 forbidden 禁止, 404 not found未找到 50X系列,内部服务器错误</p>
+<p>statusText: 服务器返回的状态码,对应的文字描述</p>
+<p>readyState: XMLHttpRequest对象自身的状态码,0,4 [0,1,4], [2,3,4]</p>
+<p>onreadystatechange : 事件属性,绑定当XMLHttpRequest对象的状态发生变化的时候,激发的函数</p>
+<ul>
+<li>XMLHttpRequest的方法</li>
+</ul>
+<p>open('请求方式',url, 同步/异步); false-&gt;同步, true-&gt;异步</p>
+<p>send(null/参数), 参数的写法:k1=v1&amp;k2=v2&amp;kn=vn.....</p>
+<p>setRequestHeader(key,value); 设置请求的头信息</p>
+<p>Abort: 忽略,不要再进行下去了,到此为止</p>
+<p>getResponseHeader: 获取响应的某个头信息</p>
+<p>getAllResponseHeaders: 获取响应的所有头信息</p>
+<p>在javascript里,如果把json格式的字符串转成数组或对象?</p>
+<p>答: 把该字符串表达式执行一下.</p>
+<p>把json格式的字符串,用()包起来,再eval执行一下. 用JSON对象去解析</p>
+<pre><code>
+xhr.onreadystatechange = function () { // json 格式
+
+    if(this.readyState == 4) {
+
+        var tmp = eval(&#39;(&#39; + this.responseText + &#39;)&#39;);
+
+        console.log(tmp);
+
+    }
+
+}   
+</code></pre>
+<p>XMLHttpRequest例子：</p>
+<pre><code>
+function tel() {
+
+    var phone = false;
+
+
+
+
+    if(window.XMLHttpRequest) {
+
+        phone = new XMLHttpRequest();
+
+    } else {
+
+        phone = new window.ActiveXObject(&#39;Microsoft.XMLHttp&#39;);
+
+    }
+
+    return phone;
+
+}
+
+
+
+
+function chkuser() {
+
+    var un = document.getElementsByName(&#39;username&#39;)[0];
+
+    var uri = &#39;finduser.php&#39;; // 号码
+
+    var cu = document.getElementById(&#39;cu&#39;);
+
+    // 造手机
+
+    var nokia = tel();
+
+    if(nokia == false) {
+
+        alert(&#39;浏览器不支持ajax&#39;);
+
+        return;
+
+    }
+
+    // 拨号,POST
+
+    // 第3个参数代表同步,false/异步 true
+
+    nokia.open(&#39;POST&#39;,uri,false);
+
+    
+
+    nokia.onreadystatechange = function () {
+
+        // 当手机的状态 readyState==4的时候,才说明对方正常回应了.
+
+        if(nokia.readyState == 4) {
+
+            // 读取短信内容(响应内容)
+
+            // alert(nokia.responseText);
+
+            if(nokia.responseText == 0) {
+
+                cu.innerHTML = &#39;&lt;font color=&quot;green&quot;&gt;用户名可用&lt;/font&gt;&#39;
+
+            } else {
+
+                alert (nokia.responseText);
+
+                cu.innerHTML = &#39;&lt;font color=&quot;red&quot;&gt;用户名不可用&lt;/font&gt;&#39;
+
+            }
+
+        }
+
+    }
+
+    // 发送,就是按k1=v1&amp;k2=v2&amp;k3=v3这个形式拼接起来就可以了.
+
+    // 注意:当POST请求,要加上下一行,即声明http请求的头信息.
+
+    nokia.setRequestHeader(&#39;content-type&#39;,&#39;application/x-www-form-urlencoded&#39;);
+
+    nokia.send(&#39;username=&#39; + un.value);
+
+}
+
+&lt;/script&gt;
+
+
+
+
+&lt;/head&gt;
+
+    &lt;body&gt;
+
+        &lt;h2&gt;ajax验证用户名&lt;/h2&gt;
+
+        &lt;input type=&quot;text&quot; name=&quot;username&quot; onblur=&quot;chkuser()&quot; /&gt;&lt;span id=&quot;cu&quot;&gt;&lt;/span&gt;
+
+
+
+
+    &lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p>Ajax完成jsonp</p>
+<pre><code>
+$(&quot;#getJsonpByJquery&quot;).click(function () {
+
+    $.ajax({
+
+        url: &#39;http://localhost:2701/home/somejsonp&#39;,
+
+        dataType: &quot;jsonp&quot;,
+
+        jsonp: &quot;callback&quot;,
+
+        success: function (data) {
+
+            console.log(data)
+
+        }
+
+    })
+
+})
+</code></pre>
+<p>　　</p>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

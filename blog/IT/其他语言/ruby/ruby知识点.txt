@@ -1,0 +1,830 @@
+【语法】
+a =nil
+b = a || 3       //b = 3
+ return games,perm      ruturn两个值     @games,@perm = current_user.games
+
+
+# -*- coding: UTF-8 -*-
+print <<EOF
+    这是第一种方式创建here document 。
+    多行字符串。
+EOF
+
+
+BEGIN {
+   code
+}
+指数操作符为 **
+puts 'escape using "\\"  ';        escape using "\"
+
+
+
+puts "Multiplication Value : #{ 24*60*60 } ";
+
+
+
+ary = [ "fred", 10, 3.14, "This is a string", "last element", ]
+ary.each do |i|
+    puts i
+end
+
+
+hsh = { "red" => 0xf00, "green" => 0x0f0, "blue" => 0x00f }
+hsh.each do |key, value|
+    print key, " is ", value, "\n"
+end
+
+
+(10..15).each do |n|     //范围类型
+    print n, ' '
+end
+
+
+方法 new 是一种独特的方法，在 Ruby 库中预定义。new 方法属于 类方法 。
+下面的实例创建了类 Customer 的两个对象 cust1 和 cust2：
+cust1 = Customer. new
+
+
+class Customer
+   @@no_of_customers=0
+   def initialize (id, name, addr)    初始化方法
+      @cust_id=id
+      @cust_name=name
+      @cust_addr=addr
+   end
+end
+cust1=Customer.new("1", "John", "Wisdom Apartments, Ludhiya")
+
+
+
+方法名总是以 小写 字母开头。在 Ruby 中，您可以使用关键字 end 来结束一个方法。
+
+
+
+class Customer
+   @@no_of_customers=0
+   def initialize(id, name, addr)
+      @cust_id=id
+      @cust_name=name
+      @cust_addr=addr
+   end
+   def display_details()
+      puts "Customer id # @cust_id"
+      puts "Customer name # @cust_name"
+      puts "Customer address #@cust_addr"
+   end
+   def total_no_of_customers()
+      @@no_of_customers += 1
+      puts "Total number of customers: #@@no_of_customers"
+   end
+end
+在 Ruby 中，您可以通过在变量或常量前面放置 # 字符，来访问任何变量或常量的值。
+
+
+
+一般小写字母、下划线开头：变量（Variable）。
+$ 开头：全局变量（Global variable）。
+@开头：实例变量（Instance variable）。
+@@开头：类变量（Class variable）类变量被共享在整个继承链中
+大写字母开头：常数（Constant）。
+
+
+类变量以 @@ 开头，且必 须初始化 后才能在方法定义中使用。
+引用一个未初始化的类变量会产生错误。类变量在定义它的类或模块的子类或子模块中可共享使用。
+
+
+常量以大写字母开头。定义在类或模块内的常量可以从类或模块的内部访问，定义在类或模块外的常量可以被全局访问。
+常量不能定义在方法内 。引用一个 未初始化 的常量会产生错误。对已经初始化的常量赋值会产生警告。
+
+
+class Example
+   VAR1 = 100
+   VAR2 = 200
+   def show
+       puts "第一个常量的值为 #{VAR1}"
+       puts "第二个常量的值为 #{VAR2}"
+   end
+end
+
+
+(a <=> b) 返回 -1   是小于呢，等于呢，还是大于呢（-1，0，1）
+
+1 == 1.0 返回 true，但是 1.eql?(1.0) 返回 false  .eql? 全等        
+
+
+
+如果 aObj 是 bObj 的副本，那么 aObj == bObj 返回 true，a.equal?bObj 返回 false，但是 a.equal?aObj 返回 true。 比的是指针
+
+
+class
+ 
+Test
+
+  def initialize
+(
+a
+,
+b
+,
+c
+)
+
+    
+@a
+ 
+=
+ a
+
+    
+@b
+ 
+=
+ b
+
+    
+@c
+ 
+=
+ c
+
+  end
+
+end
+
+ 
+
+ 
+
+a 
+=
+ 
+Test
+.
+new
+(
+1
+,
+2
+,
+3
+)
+
+b 
+=
+ 
+Test
+.
+new
+(
+1
+,
+2
+,
+3
+)
+
+c 
+=
+ a
+
+d 
+=
+ a
+.
+clone
+
+puts 
+"#{a == b}"
+     
+#false
+
+puts 
+"#{a.equal?b}"
+  
+#false
+
+ 
+
+puts 
+"#{a == c}"
+     
+#true
+
+puts 
+"#{a.equal?c}"
+  
+#true
+
+ 
+
+puts 
+"#{a == d}"
+     
+#false
+
+puts 
+"#{a.equal?d}"
+  
+#false
+
+
+
+
+使用 并行赋值 可以更快地声明：
+a, b, c = 10, 20, 30
+并行赋值在交换两个变量的值时也很有用：
+a, b = b, c
+
+
+Ruby 范围运算符
+运算符  
+..    创建一个从开始点到结束点的范围（包含结束点）    1..10 创建从 1 到 10 的范围
+...    创建一个从开始点到结束点的范围（不包含结束点）    1...10 创建从 1 到 9 的范围
+
+
+defined? variable # 如果 variable 已经初始化，则为 True
+
+defined? method_call # 如果方法已经定义，则为 True
+
+defined? super         # 如果存在可被 super 用户调用的方法，则为 True
+&&  比   ||    的优先级高
+
+
+
+MR_COUNT = 0          # 这是全局常量
+module Foo
+  MR_COUNT = 0
+  ::MR_COUNT = 1    # 设置全局计数为 1
+  MR_COUNT = 2      # 设置局部计数为 2
+end
+puts MR_COUNT       # 这是全局常量
+puts Foo :: MR_COUNT  # 这是 "Foo" 的局部常量 
+
+
+$debug=1
+print "debug\n" if $debug      //if 修饰符
+
+
+x=1
+unless x>2       //若非
+   puts "x 小于 2"
+else
+  puts "x 大于 2"
+end
+
+
+case expr0
+when expr1, expr2
+   stmt1
+when expr3, expr4
+   stmt2
+else
+   stmt3
+end
+
+
+$age =  5
+case $age
+when 0 .. 2
+    puts "婴儿"
+when 3 .. 6
+    puts "小孩"
+when 7 .. 12
+    puts "child"
+when 13 .. 18
+    puts "少年"
+else
+    puts "其他年龄段的"
+end
+
+
+while $i < $num  
+   puts("在循环语句中 i = #$i" )
+   $i +=1
+end
+
+
+for i in 0..5
+   puts "局部变量的值为 #{i}"
+end
+
+
+for...in 循环几乎是完全等价于：
+(0..5).each do |i|
+   puts "局部变量的值为 #{i}"
+end
+
+
+for i in 0..5
+   if i < 2 then
+       next
+   end
+   puts "局部变量的值为 #{i}"
+end
+
+
+【ruby方法】
+Ruby 方法 与其他编程语言中的函数类似。Ruby 方法用于捆绑一个或多个重复的语句到一个单元中。 方法名应以小写字母开头 如果您以大写字母作为方法名的开头，Ruby 可能会把它当作常量，从而导致不正确地解析调用。
+def test(a1="Ruby", a2="Perl")
+   puts "编程语言为 #{a1}"
+   puts "编程语言为 #{a2}"
+end
+test "C", "C++"      //调用
+test                           //调用
+
+
+def sample (*test)          //可变参数
+   puts "参数个数为 #{test.length}"
+   for i in 0...test.length
+      puts "参数值为 #{ test[i] }"
+   end
+end
+sample "Zara", "6", "F"
+sample "Mac", "36", "M", "MCA"
+
+【Module】
+模块（Module）定义了一个命名空间，相当于一个沙盒，在里边您的方法和常量不会与其他地方的方法常量冲突。
+
+
+# 定义在 moral.rb 文件中的模块
+
+
+module 
+Moral
+
+  VERY_BAD 
+=
+ 
+0
+
+  BAD 
+=
+ 
+1
+
+  def 
+Moral
+.
+sin
+()
+
+    puts 
+"sin"
+
+  end
+
+end
+
+
+puts 
+"#{Moral::VERY_BAD}"
+
+Moral
+.
+sin
+
+
+$LOAD_PATH 
+<<
+ 
+'.'
+   
+
+require 
+'trig.rb'
+
+require 
+'moral'
+
+ 
+
+y 
+=
+ 
+Trig
+.
+sin
+(
+Trig
+::
+PI
+/
+4
+)
+
+wrongdoing 
+=
+ 
+Moral
+.
+sin
+(
+Moral
+::
+VERY_BAD
+)
+
+
+===================================================
+您可以在类中嵌入模块。为了在类中嵌入模块，您可以在类中使用 include 语句
+
+如果模块是定义在一个单独的文件中，那么在嵌入模块之前就需要使用 require 语句引用该文件。
+
+
+【 Ruby 中的 Mixins 】
+当一个类可以从多个父类继承类的特性时，该类显示为多重继承。 Ruby 不直接支持多重继承，但是 Ruby 的模块（Module）有另一个神奇的功能。它几乎消除了多重继承的需要，提供了一种名为 mixin 的装置。 将模块include到类定义中，模块中的方法就 mix 进了类中。
+module A
+   def a1
+   end
+   def a2
+   end
+end
+module B
+   def b1
+   end
+   def b2
+   end
+end
+ 
+class Sample
+include A
+include B
+   def s1
+   end
+end
+ 
+samp=Sample.new
+samp.a1
+samp.a2
+samp.b1
+samp.b2
+samp.s1
+
+
+【 Ruby 中的 symbol 】
+hash = {"aa"=>"aa","bb"=>"bb"}
+puts "#{hash["aa"]}"
+puts "#{hash['aa']}"        //单引号，双引号都能输出
+
+hash = {:aa=>"aa",:bb=>"bb"}
+puts "#{hash[:aa]}"
+
+
+:foo is a symbol named "foo".
+
+"foo".equal? "foo" -> false
+"foo" == "foo"     -> true
+:foo.equal? :foo   -> true
+:foo == :foo       -> true
+
+
+user.types.include? "+管理员+"       是否包含字符串
+
+"hello".include? "lo"   #=> true
+"hello".include? "ol"   #=> false
+"hello".include? ?h     #=> true
+
+
+array.collect { |item| block } [or]
+array.map { |item| block }
+为 self 中的每个元素调用一次 block。创建一个新的数组，包含 block 返回的值。
+
+
+----------------------------------------------
+sub 和 gsub 及它们的替代变量 sub! 和 gsub! 是使用正则表达式时重要的字符串方法。
+所有这些方法都是使用正则表达式模式执行搜索与替换操作。sub 和 sub! 替换模式的第一次出现，gsub 和 gsub! 替换模式的所有出现。
+sub 和 gsub 返回一个新的字符串，保持原始的字符串不被修改，而 sub! 和 gsub! 则会修改它们调用的字符串。
+---------------------------------
+phone = "138-3453-1111 #这是一个电话号码"
+ 
+# 删除 Ruby 的注释
+phone = phone.sub!(/#.*$/, "")  
+puts "电话号码 : #{phone}"
+ 
+# 移除数字以外的其他字符
+phone = phone.gsub!(/\D/, "")   
+puts "电话号码 : #{phone}"
+---------------------------------------------
+方法中的return
+在ruby中调用一个方法，默认的情况下，会一行一行依次执行方法中的代码，方法的值是 最后一行的值。
+return可以改变这个方法一行一行执行的行为，当遇到return，方法会直接返回（rescue、ensure例外）。
+def test
+  puts 'first puts'
+  return
+  puts 'next puts'
+end
+在上面这个例子中，puts 'next puts'这行代码永远不会执行。同时我们可以显示指定返回值， 默认为nil。 例如上面这个例子没有指定返回值，其返回值则为nil。
+
+
+----------------------------------------
+
+2.2.4 :001 > 98/651       => 0
+2.2.4 :002 > 98.0/651     => 0.15053763440860216        
+to_f  to_s to_i  to_a
+
+
+      CSV.generate(options) do |csv|
+        datas. each_with_index do |data, index |
+          data[0] = "\xEF\xBB\xBF#{data[0]}" if index==0
+          csv << data
+        end
+      end
+
+
+【块的定义、调用与运行】
+在Ruby中，定义一个代码块的方式有2种 ，一是使用do … end, 另外一种是用大括号“{}”把代码内容括起来。代码块定义时也是可以接受参数的。但是，只有在调用一个方法的时候才可以定义一个块。
+ 
+块定义好之后，会直接传递给调用的方法，在该方法中，使用“yield”关键字即可回调这个块。
+Ruby代码  收藏代码
+def block_method(a, b) 
+  a + yield(a, b) 
+end 
+puts block_method(1, 2) { |a, b| a*2+b } # => 5 
+result = block_method(1, 2) do |a, b| 
+  a+b*2 
+end 
+puts result   # => 6  
+
+【 Ruby中的代码块及其参数传递】
+
+
+一，块的声明 
+  块的声明在函数调用之后，用{..}括起来，或do..end封装。{}一般用在单行语句上，do..end用在多行语句上。
+
+(1..4).each{|v| print "#{v} "} #输出1 2 3 4 
+
+
+
+  块可以带参数，与函数参数不同，块参数用||封装，当然，可以带多个参数。这些参数怎么定义，实际上是在函数内部定义好的，后面会讲到。
+
+二，块内变量的访问 
+  块内可以访问块外的变量，也就是块外的变量在块内是可见的，如
+
+sum = 0 
+(1..5).each do |v| 
+  name = 'smile' #name属于块内变量，其可视范围只能在块内。假设块外没有相同名称的变量. 
+  sum += v #sum在块内可见 
+end 
+p sum #输出15，sum已改变。 
+p name #Error! name不可访问。 
+
+
+
+  正因块内可以块外的变量所以可能不小心修改了一些外部变量，这是我们不希望的。幸运的是Ruby1.9版本后，提供了一种安全的方式声明块内变量，在块参数后面加";"，块内变量放在";"之后.
+
+name = 'outside' 
+sum = 0 
+(1..5).each do |v;name| #name在";"之后，可以声明多个变量，用逗号隔开 
+  name = 'inside' #name属于块内变量，其可视范围只能在块内.假设块外没有相同名称的变量。 
+  sum += v #sum在块内可访问 
+end 
+p sum #输出15，sum已改变。 
+p name #输出outside，没有变。 
+
+
+
+三，yield语句 
+  看这里，可能还不是很明白，函数是如何调用块的。现在就来介绍块的调用，关键是yield语句。在函数体中，如果用yield，函数会调用函数的块。
+
+def threeTime 
+  yield 
+  yield 
+  yield 
+end 
+threeTime{p 'Hello world!'} 
+
+
+
+  输出三行Hello world!，是不是很简单呢。现在应该明白了吧，是yield调用的块。 
+块的参数是怎么回事呢?估计你已经想到了，就是yield的参数，跟一般函数一样yield可以带参数的。看例子
+
+def takeBlock(p1) 
+ if block_given? ＃ 判断是否有块，如果在yield时，没有声明块，会出错，所以在这里作判断会好点。 
+  yield(p1) #把p1传给块参数，既下面块声明中的s 
+ else 
+  p1 
+ end 
+endie 
+ 
+takeBlock("no block")  #输出"no block" 
+takeBlock("no block") { |s| s.sub(/no /, '') } #输出"block" 
+
+
+
+  既然yield能传参数给块，反过来，块能不能传值给yield呢?答案是肯定的。块中最后一句语句的值会自动传给yield。请看示例
+
+def nTime 
+ i = yield #第一次调用时，返回块的值 
+ (0..i).each {|v| yield(v)} # 此处yield也可以放在块中 
+end 
+nTime do |v| 
+ print "#{v} " if v 
+ 9 #yield调用时返回的数 
+end 
+#输出1 2 3 4 5 6 7 8 9 
+
+
+
+当然上例只是拿来做例子，实际上没有人会这样定义，更好的定义如下:
+
+def nTime(n) 
+ (0..n).each {|v| yield(v)} 
+end 
+nTime(9) do |v| 
+ print "#{v} " 
+end 
+
+
+
+我们来看下Array中的find实现
+
+class Array 
+ def find 
+  for i in 0...size 
+   value = self[i] 
+   return value if yield(value) 
+  end 
+  return nil 
+ end 
+end 
+[1, 3, 5, 7, 9].find {|v| v > 5 } #实现查找第一个大于5的数，输出7。
+
+ 因为块的出现，Ruby中少了许多for语句，代码看上去更人性化，写代码不再是枯燥的事，而是一种享受。
+
+四，传递块的另一种方式
+
+def fun #不带参数的 
+ yield 
+end 
+proc = ->{p 'haha'} 
+ 
+fun &proc 
+##### 
+def fun2(x) #带参数的 
+ yield x 
+end 
+proc2 = ->(x){p x} 
+fun2 1,&proc2 
+
+
+
+五，instance_eval()和instance_exec() 
+在Ruby中，提供了一个非常酷的特性，可以通过使用Objec#instance_eval()， Objec#instance_exec()方法插入一个代码块，做一个的对象上下文探针（Context Proble），深入到对象中的代码片段，对其进行操作。有了这个特性以后，就可以很轻松的测试对象的行为，查看对象的当前状态。
+
+class MyClass 
+ def initialize 
+  @v = 1; 
+ end 
+end 
+obj = MyClass.new 
+obj.instance_eval do 
+ puts self       # => #<MyClass:0x007fbb2d0299b0> 
+ puts @v        # => 1 
+end 
+obj.instance_exec(5) { |x| puts x * @v } # => 5 
+
+【常用方法】
+params[:role_name].force_encoding("UTF-8")
+
+f=6.3333.round(2)  保留两位小数
+
+exit([status])
+终止Ruby程序的运行.若向status传递了一个整数的话,该整数就将成为Ruby命令的结束状态值.默认的结束状态值是0.
+exit通过引发SystemExit异常来结束程序的运行.若有必要的话,可以使用rescue部分来捕捉到它.
+p(obj, [obj2, ...])   打印对象
+@gm_order.approve_id.split(',')
+
+Time.now.strftime('%Y-%m-%d')
+
+system 'mkdir','-p',dirname if !Dir.exist?(dirname)
+
+
+
+【多线程】
+
+
+#!/usr/bin/ruby
+
+ 
+
+def func1
+
+   i
+=
+0
+
+   
+while
+ i
+<=
+2
+
+      puts 
+"func1 at: #{Time.now}"
+
+      sleep
+(
+2
+)
+
+      i
+=
+i
++
+1
+
+   end
+
+end
+
+ 
+
+def func2
+
+   j
+=
+0
+
+   
+while
+ j
+<=
+2
+
+      puts 
+"func2 at: #{Time.now}"
+
+      sleep
+(
+1
+)
+
+      j
+=
+j
++
+1
+
+   end
+
+end
+
+ 
+
+puts 
+"Started At #{Time.now}"
+
+t1
+=
+Thread
+.
+new
+{
+func1
+()}
+
+t2
+=
+Thread
+.
+new
+{
+func2
+()}
+
+t1
+.
+join
+
+t2
+.
+join
+
+puts 
+"End at #{Time.now}"
+线程生命周期
+1、线程的创建可以使用Thread.new,同样可以以同样的语法使用Thread.start 或者Thread.fork这三个方法来创建线程。
+2、创建线程后无需启动，线程会自动执行。
+3、Thread 类定义了一些方法来操控线程。线程执行Thread.new中的代码块。
+4、线程代码块中最后一个语句是线程的值，可以通过线程的方法来调用，如果线程执行完毕，则返回线程值，否则不返回值直到线程执行完毕。
+5、Thread.current 方法返回表示当前线程的对象。 Thread.main 方法返回主线程。
+6、通过 Thread.Join 方法来执行线程，这个方法会挂起主线程，直到当前线程执行完毕。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

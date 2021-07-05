@@ -1,0 +1,183 @@
+
+
+
+在 PHP 站点日益增多的今天， SQL 注入仍是最有效 , 也是最常见
+
+的一种攻击方式，有效是因为至少 70%  以上的站点存在 SQL   Injection 漏洞，包括国内大部分安全站点。
+
+ 
+
+对应我们的 php 初学者，我们写
+
+①  $sql="select * from users where username='$username' and password='$password'";
+
+
+
+
+使用万能密码 :   bb' or 1='1
+
+使用万能用户名  xx ' union select * from users /*    后边的是注释
+
+ 
+
+②  $sql="select * from users where username=$username and password=$password";
+
+这种写法，没有 ’’  ，我们的 mysql 数据库会把你的输入当做 数字对待
+
+使用万能密码 
+
+33 union select * from users;
+
+使用万能用户名 :
+
+33 union select * from users/*
+
+ 
+
+select * from users where username= 89  union select * from users /*  and password=90;
+
+ 
+
+ 
+
+1.  如何解决 sql 注入问题 ?
+
+ 
+
+①  在服务器中  magic_quotes_gpc  设置 on, 在 php.ini 文件中修改
+
+$sql="select * from users where username='$username' and password='$password'";  的万能密码和用户名就失效 .
+
+ 
+
+②  在服务器中  magic_quotes_gpc  设置 on, 在 php.ini 文件中修改
+
+$sql="select * from users where username=$username and password=$password";  的万能密码和用户名还是可以攻击 .
+
+ 
+
+ 
+
+☞  当我们的 magic_quotes_gpc 设置成 on 后，服务器就会对所有的  ‘  加入  \ 转义
+
+name= ’ lll ’   当数据库执行   name=\ ’ 111\ ’  高手  char( )
+
+  mysql> select CHAR(77,121,83,81,'76');
+        -> 'MySQL'
+mysql> select CHAR(77,77.3,'77.3');
+        -> 'MMM'
+
+
+
+
+
+2.  我们现在使用第一种方案来防止登录用户注入
+
+2.1  密码比对
+
+思想 :  首先通过用户输入的用户名去查询数据库，如果查询到这个用户对应的密码，则和用户提交的密码比对，相同则说明该用户合法 .  反之，则说明该用户非法
+
+ 
+
+3.  使用 pdo 来解决注入
+
+3.1  在 php.ini 文件中启用 pdo
+
+extension=php_pdo_mysql.dll  前面的 ; 去掉即可 .
+
+
+< ? php
+
+    //密码比对防止注入
+    $sql = "select password from users where username='$username'";
+
+    $res=mysql_query($sql,$conn);
+
+    //取出密码
+    if($row=mysql_fetch_array($res)){
+        //说明该用户名存在
+        if($row[0]==$password){
+            //说明该用户合法
+            header("Location: ManageUsers.php");
+        }else{
+            echo "你输入的密码不正确<a href='Login.php'>返回重新登录</a>";
+        }
+    }else{
+        echo "你输入的用户名不存在<a href='Login.php'>返回重新登录</a>";
+    }*/
+
+    //使用pdo的方式来防止sql注入
+
+    $sql = "select * from users where username=? and password=?" ;
+    //1.创建一个pdo对象
+    $myPdo = new PDO( "mysql:host=localhost;port=3306;dbname=spdb" , "root" , "root" );
+    //2.设置编码
+    $myPdo - > exec( "set names utf8" );
+    //3.预处理$sql
+    $pdoStatment = $myPdo - > prepare($sql);
+    //4.把接收到的用户名和密码填入
+    $pdoStatment - > execute(array($username,$password));
+    //5.取出结果 
+    $res = $pdoStatment - > fetch();
+
+    if (empty($res)){
+        echo "你的用户名和密码错误<a href='Login.php'>返回</a>" ;
+    } else {
+        header( "Location: ManageUsers.php" );
+    }
+
+? >
+== == == == == == == == == == == == == == == == == == == == == == == == == =
+
+网上有很多PHP程序搜索引擎是有问题的，也就是提交特殊字
+符可以显示所有记录，包括不符合条件的，其实这个危害也不算
+大，因为允许用户输入关键字进行模糊查询的地方大多数都允许
+检索所有的记录，很多查询的设计就是这样的。查询是只读的操作应该不会对数据产生破坏作用，可以不用太
+担心。但是，如果不加控制可能会给影响查询的效率，同时也存
+在泄露隐私的可能。 < ? php
+    //获取
+    $keyWord = $_REQUEST[ 'username' ];
+    
+    //使用模糊查询
+    $conn = mysql_connect( "localhost" , "root" , "root" );
+    if ( ! $conn){
+        die( "不能连接到数据库" .mysql_error());
+    }
+    mysql_select_db( "spdb" ,$conn) or die( "选择数据库失败" .mysql_error());
+    mysql_query( "set names utf8" ,$conn) or die( "查询失败" .mysql_error());
+
+    //如何防止查询sql攻击
+    //对关键字进行过滤
+    $keyWord = addslashes($keyWord);
+    $keyWord = str_replace( "%" , "\%" ,$keyWord);
+    $keyWord = Str_replace( "_" , "\_" ,$keyWord);
+
+    $sql = "select * from users where username like '%$keyWord%'" ;
+    
+    if ( ! empty($keyWord)){
+
+        $res = mysql_query($sql,$conn) or die( "不能完成查询" .mysql_error());
+        $flag = 0 ;
+        while ($row = mysql_fetch_array($res)){
+            $flag = 1 ;
+            echo "<br/>$row[0]   $row[1]" ;
+        }
+        if ($flag == 0 ){
+            echo "你的关键词有误" ;
+        }
+
+    } else {
+        echo "请输入" ;
+    }
+
+==============================
+
+其中的grade代表用户的等级，1是普通用户，2是普通管理员，3是 超级管理员，我们在注册一个用户的时候，默认是普通用户：sql语句:
+INSERT INTO `users` (username, password, email, job,sal,grade) VALUES ( '$username', '$password', '$email',’$job’,’$sal’ '1');
+
+
+如果我们给定薪水的时候
+填入的值 34‘, ’3’)/*   对应的sql语句就是:
+INSERT INTO `users` (username, password, email, job,sal,grade) VALUES ( ‘xiaoming’, ‘xiaoming’, ‘xiaoming@sohu.com’,’工程师’,’34’,’3’)/*, '1');
+这样就注册成为超级管理员了。但这种利用方法也有一定的局限性，比
+如，我没有需要改写的变量如grade字段是数据库的第一个字段，前面没 有地方给我们注入，我们也没有办法了。

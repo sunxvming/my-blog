@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../style.css" type="text/css" />
+
+
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#常见问题"> 常见问题</a><ul>
+<li><a href="#vscode全局搜索ctrlshiftf无效"> vscode 全局搜索ctrl+shift+f无效</a></li>
+<li><a href="#智能提示快捷键ctrlspace被输入法占用"> 智能提示快捷键<code>ctrl+space</code>被输入法占用</a></li>
+</ul></li>
+<li><a href="#快捷键"> 快捷键</a></li>
+<li><a href="#设置"> 设置</a></li>
+<li><a href="#插件"> 插件</a></li>
+<li><a href="#python"> python</a></li>
+<li><a href="#vim插件"> vim插件</a></li>
+<li><a href="#c工程配置文件"> c++工程配置文件</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="常见问题"> 常见问题</h2>
+<h3 id="vscode全局搜索ctrlshiftf无效"> vscode 全局搜索ctrl+shift+f无效</h3>
+<p>是因为和搜狗输入法的简繁切换快捷键冲突了，关掉就好了，也有人是网易云音乐快捷键问题</p>
+<h3 id="智能提示快捷键ctrlspace被输入法占用"> 智能提示快捷键<code>ctrl+space</code>被输入法占用</h3>
+<p>可以把智能提示弹出框设置为<code>alt+/</code></p>
+<p>设置<code>tab</code>键来上下切换智能提示</p>
+<pre><code>[
+    {
+        &quot;key&quot;: &quot;tab&quot;,
+        &quot;command&quot;: &quot;acceptSelectedSuggestion&quot;,
+        &quot;when&quot;: &quot;suggestWidgetVisible &amp;&amp; textInputFocus&quot;
+    },
+    {
+        &quot;key&quot;: &quot;shift+tab&quot;,
+        &quot;command&quot;: &quot;acceptSelectedSuggestion&quot;,
+        &quot;when&quot;: &quot;suggestWidgetVisible &amp;&amp; textInputFocus&quot;
+    },
+    {
+        &quot;key&quot;: &quot;tab&quot;,
+        &quot;command&quot;: &quot;selectNextSuggestion&quot;,
+        &quot;when&quot;: &quot;editorTextFocus &amp;&amp; suggestWidgetMultipleSuggestions &amp;&amp; suggestWidgetVisible&quot;
+    },
+        {
+        &quot;key&quot;: &quot;shift+tab&quot;,
+        &quot;command&quot;: &quot;selectPrevSuggestion&quot;,
+        &quot;when&quot;: &quot;editorTextFocus &amp;&amp; suggestWidgetMultipleSuggestions &amp;&amp; suggestWidgetVisible&quot;
+    }
+]</code></pre>
+<h2 id="快捷键"> 快捷键</h2>
+<p>快捷键设置 <img src="index_files/a4506184-9100-4a13-93c2-d8607d1bccbd.png" /> 右上角的红圈可以打开json的配置</p>
+<p>行过长的时候自动折行: alt + Z F1 或 Ctrl+Shift+P 打开的命令面板了</p>
+<p>列选择快捷键   Alt+Shift+左键</p>
+<p>按住shift滚动滚轮可实现左右滚动 代码格式化： Shift+Alt+F Ctrl + Tab 切换选项卡 头文件源文件切换 alt+o ctrl + F4    关闭标签 新建 Ctrl + N 查找 ctrl + f Ctrl+Shift +f 替换 ctrl + h Ctrl+Shift +h 注释 Ctrl + /</p>
+<p>删除一行 Ctrl+ Shift +k 删至行首 Ctrl+K Backspace 删至行尾 Ctrl+KK</p>
+<p>移到上一个光标处 alt + 左箭头 移到下一个光标处 alt + 右箭头 光标插入上一行 ctrl + shift + enter 光标插入下一行 ctrl + enter 行上移 alt 上 行下移 alt 下 按括号移动光标</p>
+<p>选单词 双击 选本行 三击 Ctrl + Shift + ←/→ 进行逐词选择 Shift-上下箭头 按行选中 竖向多行选择 鼠标中键</p>
+<p>改为大写 Ctrl+K+U 改为小写 Ctrl+K+L 折叠所有 <sup>k 1 展开所有 </sup>k J</p>
+<p>esc 关闭（隐藏）搜索栏 设置书签 todo</p>
+<p>ctrl +` 显示console</p>
+<h2 id="设置"> 设置</h2>
+<p>保存时去掉尾部空格 tab替换四个空格 VSCode 打开文件始终在新标签页打开</p>
+<pre><code>&quot;workbench.editor.enablePreview&quot;: false,</code></pre>
+<p>【主题】 sublime mariana 浅黑色的主题 Tiny Light   一款还原Hbuilder“绿柔”主题的vs code主题</p>
+<h2 id="插件"> 插件</h2>
+<p><em> Alignment 按等号对齐 alt + = </em> Markdown 似乎是自带的 <em> ExpandRegion 扩展选区的 ctrl + w ctrl + shift + w </em> Clipboard-history Ctrl+Shift+V 复制的历史记录 * Peacock 可以设置窗口为不同的颜色，方便区分不同项目 使用此插件后，会在打开的每个项目内创建 .vscode/setting.json文件， 这样不同项目才会生效</p>
+<h2 id="python"> python</h2>
+<p>安装python插件，在插件中搜索python，安装星最多的。 按照插件中的说明，设置python的开发环境。</p>
+<p>jupyter插件，可以直接在vscode启动jupyter</p>
+<h2 id="vim插件"> vim插件</h2>
+<p>【vim不覆盖vscode快捷键】 文件 --&gt; 首选项 --&gt; 设置 -- &gt;扩展 --&gt; vim --&gt; vim.useCtrlkeys</p>
+<p>【使用windows剪切板】 文件 --&gt; 首选项 --&gt; 设置 -- &gt;扩展 --&gt; vim --&gt; vim.useSystemClipboard</p>
+<p>【插入模式下键位修改】 文件-&gt;首选项-&gt;设置-&gt;文本编辑器，向下拉找到“在setting.json中编辑” 添加到配置的底部</p>
+<pre><code>    &quot;vim.insertModeKeyBindings&quot;: [
+        {
+            &quot;before&quot;: [&quot;j&quot;, &quot;j&quot;],
+            &quot;after&quot;: [&quot;&lt;Esc&gt;&quot;]
+        }
+    ]</code></pre>
+<p>【设置vim的某些快捷键不生效】</p>
+<pre><code>    &quot;vim.handleKeys&quot;: {
+        &quot;&lt;C-h&gt;&quot;: false,
+        &quot;&lt;C-f&gt;&quot;: false,
+        &quot;&lt;C-a&gt;&quot;: false
+    }</code></pre>
+<h2 id="c工程配置文件"> c++工程配置文件</h2>
+<p>配置文件位置：.vscode c++的配置：c_cpp_properties.json 文档：https://code.visualstudio.com/docs/cpp/config-mingw</p>
+<pre><code>{
+    &quot;configurations&quot;: [
+        {
+            &quot;name&quot;: &quot;Linux&quot;,
+            &quot;includePath&quot;: [
+                &quot;${workspaceFolder}/**&quot;,
+                &quot;${workspaceFolder}/../llvm-6.0.0.src/include/**&quot;,
+                &quot;${workspaceFolder}/../eosio.cdt/libraries/**&quot;
+            ],
+            &quot;defines&quot;: [
+                &quot;_DEBUG&quot;,
+                &quot;UNICODE&quot;,
+                &quot;_UNICODE&quot;,
+                &quot;WAVM_API=&quot;
+            ],
+            &quot;compilerPath&quot;: &quot;C:/mingw-w64/mingw32/bin/g++.exe&quot;,
+            &quot;cStandard&quot;: &quot;c11&quot;,
+            &quot;cppStandard&quot;: &quot;c++17&quot;,
+            &quot;intelliSenseMode&quot;: &quot;gcc-x64&quot;
+        }
+    ],
+    &quot;version&quot;: 4
+}</code></pre>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

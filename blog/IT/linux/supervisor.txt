@@ -1,0 +1,67 @@
+【所遇到的问题】
+如果使用过Laravel队列的朋友应该发现，queue:listen是线性执行的，即一个任务做完以后才会读取下一条任务。这样并不能满足我们日常的异步耗时任务处理的需求，于是有人建议启动多个queue:listen。
+ 
+php artisan queue:listen && php artisan queue:listen ...
+这样虽然理论上是可行的，因为在异步队列的帮助下，程序并不会出现冲突。但是由于PHP本身对内存处理的缺陷，很难保证一个长期运行在后台的程序不出现内存泄露，例如queue:listen这样的死循环程序。因此在正式环境中我们更倾向于使用多个queue:work并行执行异步队列中的任务。queue:work只是读取队首的一项任务，执行完成后即结束程序，如果没有任务也会结束程序。这个方式类似于PHP对于WEB请求的处理，不会出现内存泄露。
+
+
+【特点】
+Supervisor是一个进程控制系统，由python编写，它提供了大量的功能来实现对进程的管理。
+  优点：1.可并行启动多个  2.自动重启
+程序的多进程启动，可以配置同时启动的进程数，而不需要一个个启动
+程序的退出码，可以根据程序的退出码来判断是否需要自动重启
+程序所产生日志的处理
+进程初始化的环境，包括目录，用户，umask，关闭进程所需要的信号等等
+手动管理进程(开始，启动，重启，查看进程状态)的web界面，和xmlrpc接口
+
+
+【下载】
+yum install python-setuptools     ---Easily download, build, install, upgrade, and uninstall Python packages
+easy_install supervisor
+echo_supervisord_conf > /etc/supervisord.conf
+
+
+
+
+
+
+【配置】
+[program:laravelworker]
+process_name=%(program_name)s_%(process_num)02d
+command=/opt/lampp/bin/php /opt/lampp/htdocs/project/activity/gamecenter/artisan queue:work --sleep=3 --tries=1 --daemon
+autostart=true
+autorestart=true
+user=root
+numprocs=10           //启动的进程数
+redirect_stderr=true
+stdout_logfile=/tmp/larvaelworker.log
+
+
+
+
+【启动】
+supervisord -c /etc/supervisord.conf
+关闭       supervisorctl shutdown
+重新载入配置       supervisorctl reload
+
+
+
+
+【启动和停止进程】
+supervisorctl start/stop laravelworker:*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

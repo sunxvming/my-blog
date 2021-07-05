@@ -1,0 +1,60 @@
+showTime();
+function showTime()
+{
+    var today = new Date();
+    alert("The time is: " + today.toString());
+    setTimeout("showTime()", 5000);
+}
+　　一旦使用了这个函数,那么就会每个5秒钟显示一次时间。如果使用setInterval，则相应地代码如下所示：
+setInterval("showTime()", 5000);
+function showTime()
+{
+    var today = new Date();
+    alert("The time is: " + today.toString());
+}
+ 
+　　这两种方法可能看起来非常像，而且显示的结果也会很相似，不过两者的最大区别就是，setTimeout方法不会每隔5秒钟就执行一次showTime函数，它是在每次调用setTimeout后过5秒钟再去执行showTime函数。这意味着如果showTime函数的主体部分需要2秒钟执行完，那么整个函数则要每7秒钟才执行一次。而setInterval却没有被自己所调用的函数所束缚，它只是简单地每隔一定时间就重复执行一次那个函数。
+ 
+　　如果要求在每隔一个固定的时间间隔后就精确地执行某动作，那么最好使用setInterval，而如果不想由于连续调用产生互相干扰的问题，尤其是每次函数的调用需要繁重的计算以及很长的处理时间，那么最好使用setTimeout。
+====================
+坐标体系也是游戏的考虑的一大因素
+
+
+--------------------------------
+In a production game, if you don’t want to worry about handling the math yourself, you could consider using a tweening engine such as TweenJS (www.createjs.com/TweenJS), which can handle 
+smoothly moving objects from one position to another in a number of interesting manners.
+
+
+================
+The only 
+time you should check grids of browser capabilities is to get a sense of what features you should 
+spend time adding to your game and what portion of browsers implement those features. For a good 
+overview, visit sites such as http://mobilehtml5.org, but your best bet is always to try the browsers themselves.
+===================
+$.when(
+$.getScript('/media/js/wiki-min.js?build=21eb633'),
+$.getJSON('https://developer.mozilla.org/en-US/demos/feeds/json/featured/')
+).then(function(a, b) {  // 或者也可以使用 ".done"
+// Yay, 加载完成,此处我们可以执行一些依赖操作。。。
+});
+========underscore.js==================
+for(var i=0,len=sprites.length;i<len;i++) {
+sprites[i].update();
+} 
+Alternatively with Underscore.js, this becomes
+_(sprites).invoke('update');
+
+
+Following is an example of the problem. If you want to pull out the maximum yvalue of all the 
+sprites of the enemycategory, you could write
+_(_(_(sprites)
+.filter(function(s) { return s.category == "enemy"; }))
+.pluck('y'))
+.max();
+If you can follow all those nested _(..)calls, good luck; it’s not something that is particularly readable. For just this reason, Underscore provides a mechanism called chaining.
+_.chain(sprites)
+.filter(function(s) { return s.category == "enemy"; })
+.pluck('y')
+.max().value();
+When you want to chain a number of underscore functions in a row, call _.chain(), and then when  you are done, call .value()
+

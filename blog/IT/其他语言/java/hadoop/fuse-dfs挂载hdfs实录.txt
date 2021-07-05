@@ -1,0 +1,174 @@
+我搭建的是hadoop1.2.1版本的
+
+
+
+【1.安装fuse】
+安装依赖包
+yum install autoconf automake libtool make gawk g++ ant 
+
+
+
+yum install   fuse 
+
+yum install   libfuse2 
+
+tar -zxf fuse-2.9.3.tar.gz 
+
+cd fuse-2.9.3 
+
+./configure --prefix=/usr/fuse 
+
+make 
+
+make install 
+
+
+
+ln -s  /usr/fuse/bin/fusermount /usr/bin/ 
+
+
+
+export FUSE_HOME=/usr/fuse 
+
+source /etc/profile 
+
+
+
+【2.编译libhdfs，fuse-dfs与hdfs的接口】
+
+cd $HADOOP_HOME/ 
+
+ant compile-c++-libhdfs -Dlibhdfs=1 -Dcompile.c++=1 
+
+ln -s c++/Linux-$OS_ARCH-$OS_BIT/lib build/libhdfs 
+
+
+
+【3.编译fuse-dfs 】
+
+ln -s /usr/fuse/include/* /usr/include/ 
+
+ln -s /usr/fuse/lib/libfuse.so /usr/lib/ 
+
+ant compile-contrib -Dlibhdfs=1 -Dfusedfs=1 
+
+
+
+【4.修改配置 fuse_dfs_wrapper.sh 】
+
+编辑fuse_dfs_wrapper.sh
+
+
+
+export JAVA_HOME=<你的javahome> export HADOOP_HOME=<你的hadoophome> export FUSE_HOME=/usr/fuse export PATH=$PATH:$HADOOP_HOME/contrib/fuse_dfs for f in ls $HADOOP_HOME/lib/*.jar $HADOOP_HOME/*.jar do export  CLASSPATH=$CLASSPATH:$f done export OS_ARCH=amd64 export OS_BIT=64 export LD_LIBRARY_PATH=$JAVA_HOME/jre/lib/$OS_ARCH/server:${HADOOP_HOME}/build/c++/Linux-$OS_ARCH-$OS_BIT/lib:/usr/local/lib:/usr/lib:$FUSE_HOME/lib
+
+11
+11
+ 
+1
+export
+ 
+JAVA_HOME
+=
+<你的javahome> 
+2
+export
+ 
+HADOOP_HOME
+=
+<你的hadoophome>  
+3
+export
+ 
+FUSE_HOME
+=
+/usr/fuse  
+4
+export
+ 
+PATH
+=
+$PATH
+:
+$HADOOP_HOME
+/contrib/fuse_dfs  
+5
+for
+ f 
+in
+ 
+ls
+ 
+$HADOOP_HOME
+/lib/*.jar 
+$HADOOP_HOME
+/*.jar  
+6
+do
+  
+7
+export
+  
+CLASSPATH
+=
+$CLASSPATH
+:
+$f
+  
+8
+done
+  
+9
+export
+ 
+OS_ARCH
+=
+amd64  
+10
+export
+ 
+OS_BIT
+=
+64
+  
+11
+export
+ 
+LD_LIBRARY_PATH
+=
+$JAVA_HOME
+/jre/lib/
+$OS_ARCH
+/server:
+${HADOOP_HOME}
+/build/c
+++
+/Linux-
+$OS_ARCH
+-
+$OS_BIT
+/lib:/usr/local/lib:/usr/lib:
+$FUSE_HOME
+/lib  
+
+修改fuse_dfs_wrapper.sh权限   chmod 755  ${HADOOP_HOME}/build/contrib/fuse-dfs/fuse_dfs_wrapper.sh 
+建立链接
+ln -s ${HADOOP_HOME}/build/contrib/fuse-dfs/fuse_dfs_wrapper.sh /usr/local/bin 
+
+ln -s ${HADOOP_HOME}/build/contrib/fuse-dfs/fuse_dfs /usr/local/bin/ 
+
+
+
+【5.挂载hdfs到本地 】
+
+fuse_dfs_wrapper.sh dfs://host1:9000 /hdfsdata/     执行完之后df -hl看一下
+
+
+
+
+
+
+
+
+
+

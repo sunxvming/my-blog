@@ -1,0 +1,1673 @@
+
+$.
+fn
+.
+getColor 
+= 
+function
+(classes) {
+
+     
+var 
+rgb = $(
+this
+).
+css
+(classes)
+;
+
+
+     
+if
+(rgb >= 
+0
+) 
+return 
+rgb
+;
+//如果是一个hex值则直接返回
+
+    
+else
+{
+
+         rgb = rgb.
+match
+(
+/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/
+)
+;
+
+         
+function 
+hex
+(x) {
+return 
+(
+"0" 
++ parseInt(x).toString(
+16
+)).
+slice
+(-
+2
+)
+;
+}
+
+         rgb= 
+"#" 
++ 
+hex
+(rgb[
+1
+]) + 
+hex
+(rgb[
+2
+]) + 
+hex
+(rgb[
+3
+])
+;
+
+     
+}
+
+     
+return 
+rgb
+;
+
+}
+$("button")这句代码是获取页面上的<button> 
+.button() 这个方法是Jquery-UI.js 带的 会让<button>加上jquery-UI的按钮样式
+调用这个方法之前必须应用jquery-ui.js
+
+
+    $(document). ajaxStart (function () {
+      $("#loading-iframe").show();
+    }).ajaxStop(function () {
+      $("#loading-iframe").hide();
+    });
+
+
+2013 年 4 月发布了 jQuery2.0，5 月发布了 jQuery2.0.2，一个重大更新版本，不在支
+持 IE6/7/8，体积更小，速度更快。1
+
+
+六．是否兼容 IE 低版本
+这次 jQuery 发布了大版本 2.x.x，完全放弃兼容 IE6/7/8。不单单如此，很多国际上的大
+型站点也开始逐步不再支持 IE6/7/8。但对于国内而言，比较大型的网站最多只是抛弃 IE6，
+或者部分功能不支持 IE6 的警示框，还没可能一下子把 IE6/7/8 全面抛弃。这里我们就谈一
+谈你的项目是否有必要兼容 IE6/7/8。
+完全不支持 IE6 的示例：网易云课堂 -- http://study.163.com
+部分功能不支持 IE6 的示例：Q+ -- http://web.qq.com
+完全不支持的做法，就是检测到是否为 IE6 或者 IE6/7/8，然后直接跳转到一个信息错
+误界面，让你更换或升级浏览器，否则无法访问使用。
+部分功能不支持的做法，就是判断你是 IE6 或 IE6/7/8，然后给一个警示条或弹窗，告
+诉你使用此款浏览器性能降低或部分功能使用不正常或不能使用的提示，但还可以访问使
+用。
+虽然大部分国内网站用 IE6 去运行都能基本兼容，但很多细节上还是有些问题，导致不
+能流畅的去使用。
+疑问：我们新做的项目应不应该再兼容 IE6 或 IE6/7/8？
+这个问题争论很久， 支持兼容的人会拿国情和使用率来证明。 不支持兼容的人会用技术
+落后导致整个落后别国来证明。其实这两种都有商榷的地方。
+首先，传统行业失败率为 97%，而新新的 IT 行业更高达 99%以上（数据可能不精确，
+但可以说明失败率很高） 。那么站在更高的角度去看你的项目，你不管是付出 3 倍成本去完
+成一个用户体验一般，但兼容性很好的项目；还是付出正常成本去完成用户体验很好，但不
+兼容低版本浏览器；这两种情况不管是哪一种，最终可能都会失败。那么你愿意选择哪种？
+是否兼容 IE6 或 IE6/7/8 并不单纯是用户基数和国情的问题，而很多项目发起人只一味
+的用这种理由去判定需求，那么失败也在所难免。除了这个方面，我们还应该考虑更多的方
+面：
+1.成本控制
+很多项目往往在 6、12、18、32...个月就会发生财务问题，比如资金紧缩甚至断裂。所
+以，成本控制尤为重要。项目如果不是老站升级，也不是大门户的新闻站，成本控制和尽快
+上线测试才是最重要的。而如果新站一味要求全面兼容，会导致成本加剧（随着功能多少，
+成本倍率增加） 。为了锁紧时间，就不停的加班再加班，又导致员工抵触，工作效率降低，
+人员流动开始频繁，新员工又要接手开发一半的项目。这样成本不停的再累加。最终不少项
+目，根本没上线就失败了。
+2.用户选择
+用户一般可以分为两种用户：高质量用户和低质量用户。所谓高质量用户，就是为了一
+款最新的 3D 游戏去升级一块发烧级的显卡，或直接换一台整机。所谓低质量用户，发现不
+能玩最新的 3D 游戏，就放弃了，去玩“植物大战僵尸”解解馋算了。在用户选择上有一个
+很好的案例，就是移动互联网。网易和腾讯在他们的新闻应用上，他们兼容了几乎所有的手
+机平台，比如 IOS、安卓、黑莓、塞班等等，因为新闻应用的核心在新闻，而新闻的用户基
+数巨大，需要兼顾高质量和低质量用户。而腾讯在 IOS 上的几十个应用，除了新闻、QQ、
+浏览器，其他的基本都只有 IOS 和安卓，在塞班和黑莓及其他上就没有了。
+所以， 你的应用核心是哪方面？兼容的成本有多大？会不会导致成本控制问题？用户选
+择尤为重要，放弃低质量用户也是一种成本控制。在用户基数庞大的项目上，放弃低质量用
+户就有点愚笨，比如某个新闻站有 1 亿用户，2000 万为使用低版本浏览器的低质量的用户，
+而面对 2000 万用户，你兼容它或单独为 2000 万做个低版本服务，成本虽然可能还是 3 倍，
+但对于庞大的用户基数来看，这种成本又非常低廉。而你的用户基数只有 1000 人，而低质
+量用户有 50 人，那么为了这 50 人去做兼容，那么 3 倍的成本就变得非常的昂贵。
+3.项目侧重点
+你的项目重点在哪里？是为了看新闻？是为了宣传线下产品？那么你其实有必要兼容
+低版本浏览器。 首先这种类型的站不需要太好的用户体验， 不需要太多的交互操作， 只是看，
+而兼容的成本比较低， 并且核心在新闻或产品！ 但如果你的项目有大量的交互、 大量的操作，
+比如全球最大的社交网已经不兼容 IE6/7，最大的微博也不再兼容 IE6/7，就是这个原因。 所
+以，项目并不是一味的全面兼容，或者全面不兼容，主要看你的项目侧重点在哪里！
+4.用户体验
+如果你的项目在兼容低版本浏览器成本巨大， 比如社交网， 有大量的 JS 和 AJAX 操作。
+那么兼容 IE6/7 的成本确实很高，如果兼容，用户体验就会很差。兼容有两种，一种是高版
+本浏览器用性能好，体验好的模式；低版本的自动切换到兼容模式。第二种就是，不管高版
+本或低版本都用统一的兼容模式。 这两种成本都很高。 用户体验好的模式， 能增加用户粘度，
+增加付费潜在用户， 而用户体验差的总是被用户归纳为心目中的备胎 （所谓备胎就是实在没
+有了才去访问，如果有，很容易被抛弃） 。
+5.数据支持
+如果对某一种类型的网站项目有一定的研究， 那么手头必须有支持的数据分析。 有数据
+分析可以更好的进行成本控制，更有魄力的解决高低质量用户的取舍。
+瓢城 Web 俱乐部浏览器比例图
+6.教育用户
+很多项目可能是有固定客户群，或者使用该项目人员质量普遍较高。那么，面对零星一
+点的低质量用户，我们不能再去迎合他。因为迎合他，就无法用高质量的用户体验去粘住忠
+实用户，又不能获取到低质量用户的芳心。所以，我们应有的策略是：牢牢把握住高质量的
+忠诚用户，做到他们心目中的第一；教育那部分低质量用户（比如企业级开发项目，可以直
+接做企业培训，安装高版本浏览器等等。互联网项目，就给出提示安装高版本浏览器即可） 。
+那么一部分低质量用户被拉拢过来， 还有一小撮死性不改的就只有放弃。 切不可捡了芝麻丢
+了西瓜，不要贪大求全。
+PS：我们用了这六点讨论了一下是否需要兼容 IE6 或 IE6/7/8，结论就是必须根据实际
+情况，你项目的成本情况、人员情况、用户情况和项目本身类型情况而制定，没有一刀切的
+兼容或不兼容
+
+
+多个库之间的冲突
+当一个项目中引入多个第三方库的时候， 由于没有命名空间的约束 （命名空间就好比同
+一个目录下的文件夹一样，名字相同就会产生冲突） ，库与库之间发生冲突在所难免。
+那么，既然有冲突的问题，为什么要使用多个库呢？原因是 jQuery 只不过是 DOM 操
+作为主的库，方便我们日常 Web 开发。但有时，我们的项目有更多特殊的功能需要引入其
+他的库，比如用户界面 UI 方面的库，游戏引擎方面的库等等一系列。
+而很多库，比如 prototype、还有我们 JavaScript 课程开发的 Base 库，都使用“$”作为
+基准起始符，如果想和 jQuery 共容有两种方法：
+1.将 jQuery 库在 Base 库之前引入，那么“$”的所有权就归 Base 库所有，而 jQuery 可
+以直接用 jQuery 对象调用，或者创建一个“$$”符给 jQuery 使用。
+var $$ = jQuery; //创建一个$$的 jQuery 对象
+$(function () { //这是 Base 的$
+alert($('#box').ge(0)); //这是 Base 的$
+alert($$('#box').width()); //这是 jQuery 的$$
+});
+2.如果将 jQuery 库在 Base 库之后引入， 那么“$” 的所有权就归 jQuery 库所有， 而 Base
+库将会冲突而失去作用。这里，jQuery 提供了一个方法：
+jQuery.noConflict(); //将$符所有权剔除
+var $$ = jQuery;
+$(function () {
+alert($('#box').ge(0));
+alert($$('#box').width());
+});
+
+
+ jQuery 核心自带的一个属性 length 或 size()方法来查看返回的元素个数。
+
+
+ID 在页面只允许出现一次，我们一般都是要求开发者要
+遵守和保持这个规则。但如果你在页面中出现三次，并且在 CSS 使用样式，那么这三个元
+素还会执行效果。但如果，你想在 jQuery 这么去做，那么就会遇到失明的问题。所以，开
+发者必须养成良好的遵守习惯，在一个页面仅使用一个 ID。 
+$('#box').css('color', 'red'); //只有第一个 ID 变红，后面两个失明
+
+
+jQuery选择器在获取节点对象的时候不但简单， 还内置了容错功能， 这样避免像JavaScript
+那样每次对节点的获取需要进行有效判断。
+$('#pox').css('color', 'red'); //不存在 ID 为 pox 的元素，也不报错
+document.getElementById('pox').style.color = 'red'; //报错了
+因为 jQuery 内部进行了判断，而原生的 DOM 节点获取方法并没有进行判断，所以导
+致了一个错误，原生方法可以这么判断解决这个问题：
+if (document.getElementById('pox')) { //先判断是否存在这个对象
+document.getElementById('pox').style.color = 'red';
+}
+
+
+$('#box p, ul li *').css('color', 'red'); //组合了多种选择器
+
+
+$('.box.pox').css('color', 'red'); //兼容 IE6，解决了异常
+多 class 选择器是必须一个 DOM 节点同时有多个 class，用这多个 class 进行精确限定。
+而群组 class 选择器，只不过是多个 class 进行选择而已。
+
+
+$('#box > p').css('color', 'red');  只有子节点才可以被选择到
+jQuery 为子选择器提供了一个等价 children()方法：
+$('#box').children('p').css('color', 'red'); //和子选择器等价
+
+
+$('#box + p').css('color', 'red'); 
+jQuery 为 next 选择器提供了一个等价的方法 next()：
+$('#box').next('p').css('color', 'red'); //和 next 选择器等价
+
+
+$('#box p').css('color', 'red');  
+jQuery 为后代选择器提供了一个等价 find()方法
+$('#box').find('p').css('color', 'red'); //和后代选择器等价
+
+
+$('#box ~ p').css('color', 'red'); //兼容 IE6
+jQuery 为 nextAll 选择器提供了一个等价的方法 nextAll()：
+$('#box').nextAll('p').css('color', 'red'); //和 nextAll 选择器等价
+
+
+在 find()、next()、nextAll()和 children()这四个方法中，如果不传递参数，就相当于传递
+了“*” ，即任何节点，我们不建议这么做，不但影响性能，而且由于精准度不佳可能在复杂
+的 HTML 结构时产生怪异的结果。
+$('#box').next(); //相当于$('#box').next('*');
+
+
+为了补充高级选择器的这三种模式，jQuery 还提供了更加丰富的方法来选择元素：
+$('#box').prev('p').css('color', 'red'); //同级上一个元素
+$('#box').prevAll('p').css('color', 'red'); //同级所有上面的元素
+nextUntil()和 prevUnitl()方法是选定同级的下面或上面的所有节点，选定非指定的所有
+元素，一旦遇到指定的元素就停止选定。
+$('#box').prevUntil('p').css('color', 'red'); //同级上非指定元素选定，遇到则停止
+$('#box').nextUntil('p').css('color', 'red'); //同级下非指定元素选定，遇到则停止
+siblings()方法正好集成了 prevAll()和 nextAll()两个功能的效果，及上下相邻的所有元素
+进行选定：
+$('#box').siblings('p').css('color', 'red'); //同级上下所有元素选定
+//等价于下面：
+$('#box').prevAll('p').css('color', 'red'); //同级上所有元素选定
+$('#box').nextAll('p').css('color', 'red'); //同级下所有元素选定
+
+
+$('li').not('.red').css('background', '#ccc'); //元素 li 不含 class 为 red 的元素
+
+
+$('#box li:last').css('background', '#ccc'); //#box 元素的最后一个 li
+ 
+jQuery 提供了一个 has()方法来提高:has 过滤器的性能：
+$('ul').has('.red').css('background', '#ccc'); //选择子元素含有 class 是 red 的元素
+
+
+
+
+$('li').parent().css('background', '#ccc'); //选择当前元素的父元素
+$('li').parents().css('background', '#ccc'); //选择当前元素的父元素及祖先元素
+$('li').parentsUntil('div').css('background', '#ccc'); //选择当前元素遇到 div 父元素停止
+
+
+:hidden 过滤器一般是包含的内容为：CSS 样式为 display:none、input 表单类型为
+type="hidden"和 visibility:hidden 的元素。
+
+
+$('li:first-child').css('background', '#ccc'); //每个父元素第一个 li 元素
+
+
+$('li').slice(0,2).css('color', 'red'); //前三个变成红色
+
+
+$('div').contents().size(); //返回子节点(包括文本)数量
+
+
+$('div').attr('title', function () { //通过匿名函数返回属性值
+return '我是域名';
+});
+
+
+$('div').attr('title', function (index, value) { //可以接受两个参数
+return value + (index+1) + '，我是域名';
+});
+
+
+$('div').html(function (index, value) { //还可以实现追加内容
+return '我是' + (index+1) + '号 div：'+value ;
+});
+
+
+$('div').removeAttr('title'); //删除指定的属性
+
+
+var box = $('div').css(['color', 'height', 'width']); //得到多个 CSS 样式的数组对象
+for (var i in box) { //逐个遍历出来
+alert(i + ':' + box[i]);
+}
+
+
+$.each(box, function (attr, value) { //遍历 JavaScript 原生态的对象数组
+alert(attr + ':' + value);
+});
+
+
+jQuery 对象的数组怎么使用.each()方法呢？
+$('div').each(function (index, element) { //index 为索引，element 为元素 DOM
+alert(index + ':' + element);
+});
+
+
+$('div').css({
+'background-color' : '#ccc',
+'color' : 'red',
+'font-size' : '20px'
+});
+
+
+如果想设置某个元素的 CSS 样式的值， 但这个值需要计算我们可以传递一个匿名函数。
+$('div').css('width', function (index, value) {
+return (parseInt(value) - 500) + 'px';
+});
+
+
+我们还可以结合事件来实现 CSS 类的样式切换功能。
+$('div').click(function () { //当点击后触发
+$(this).toggleClass('red size'); //单个样式多个样式均可
+});
+
+
+.toggleClass()方法的第二个参数可以传入一个布尔值， true表示执行切换到class类， false
+表示执行回默认 class 类(默认的是空 class)，运用这个特性，我们可以设置切换的频率。
+var count = 0;
+$('div').click(function () { //每点击两次切换一次 red
+$(this).toggleClass('red', count++ % 3 == 0);
+});
+
+
+$('div').click(function () {
+$(this).toggleClass(function () {
+if ($(this).hasClass('red')) {
+$(this).removeClass('red');
+return 'green';
+} else {
+$(this).removeClass('green');
+return 'red';
+}
+});
+});
+
+
+$('div').height(function (index, value) { //index 是索引，value 是原本值
+return value - 1; //无须调整类型，直接计算
+});
+
+
+offset() 获取某个元素相对于视口的偏移位置
+position() 获取某个元素相对于父元素的偏移位置
+scrollTop() 获取垂直滚动条的值
+scrollTop(value) 设置垂直滚动条的值
+scrollLeft() 获取水平滚动条的值
+scrollLeft(value) 设置水平滚动条的值
+
+
+$('body').append($('div').clone(true)); //复制一个节点添加到 HTML 中
+注意：clone(true)参数可以为空，表示只复制元素和内容，不复制事件行为。而加上 true
+参数的话，这个元素附带的事件处理行为也复制出来。
+
+
+.remove()不带参数时，删除前面对象选择器指定的元素。而.remove()本事也可以
+带选择符参数的，比如：$('div').remove('#box');只删除 id=box 的 div。
+
+
+$('input[name=user]').val(); //选择 name 为 user 的字段
+
+
+$(':text[name=user]).size(); //获取单行文本框 name=user 的元素
+
+
+:checked 选取所有被选中的元素，单选和复选字段 集合元素
+:selected 选取所有被选中的元素，下拉列表 集合元素
+
+
+//可以同时绑定多个事件
+$('input').bind('mouseout mouseover', function () { //移入和移出分别执行一次
+$('div').html(function (index, value) {
+return value + '1';
+});
+});
+
+
+//通过对象键值对绑定多个参数
+$('input').bind({ //传递一个对象
+'mouseout' : function () { //事件名的引号可以省略
+alert('移出');
+},
+'mouseover' : function () {
+alert('移入');
+}
+});
+
+
+.mouseover()和.mouseout()表示鼠标移入和移出的时候触发。那么 jQuery 还封装了另外
+一组：.mouseenter()和.mouseleave()表示鼠标穿过和穿出的时候触发。那么这两组本质上有
+什么区别呢？手册上的说明是：.mouseenter()和.mouseleave()这组穿过子元素不会触发，
+而.mouseover()和.mouseout()则会触发。
+//HTML 页面设置
+<div style="width:200px;height:200px;background:green;">
+<p style="width:100px;height:100px;background:red;"></p>
+</div>
+<strong></strong>
+//mouseover 移入
+$('div').mouseover(function () { //移入 div 会触发，移入 p 再触发
+$('strong').html(function (index, value) {
+return value+'1';
+});
+});
+//mouseenter 穿过
+$('div').mouseenter(function () { //穿过 div 或者 p
+$('strong').html(function (index, value) { //在这个区域只触发一次
+return value+'1';
+});
+});
+
+
+.hover()方法是结合了.mouseenter()方法和.mouseleva()方法，并非.mouseover()
+和.mouseout()方法。
+
+
+.toggle()这个方法比较特殊，这个方法有两层含义，第一层含义就是已经被 1.8 版废用、
+1.9 版删除掉的用法， 也就是点击切换复合事件的用法。 第二层函数将会在动画那章讲解到。
+既然废弃掉了，就不应该使用。
+
+
+//背景点击切换效果(1.9 版删除掉了)
+<script type="text/javascript" src="jquery-migrate-1.2.1.js"></script>
+$('div').toggle(function () { //第一次点击切换
+$(this).css('background', 'black');
+}, function () { //第二次点击切换
+$(this).css('background', 'blue');
+}, function () { //第三次点击切换
+$(this).css('background', 'red');
+});
+
+
+由于官方已经删除掉这个方法，所以也是不推荐使用的，如果在不基于向下兼容
+的插件 JS。我们可以自己实现这个功能。
+var flag = 1; //计数器
+$('div').click(function () {
+if (flag == 1) { //第一次点击
+$(this).css('background', 'black');
+flag = 2;
+} else if (flag == 2) { //第二次点击
+$(this).css('background', 'blue');
+flag = 3
+} else if (flag == 3) { //第三次点击
+$(this).css('background', 'red');
+flag = 1
+}
+});
+
+
+.keydown()、.keyup()返回的是键码，而.keypress()返回的是字符编码。
+$('input').keydown(function (e) {
+alert(e.keyCode); //按下 a 返回 65
+});
+$('input').keypress(function (e) {
+alert(e.charCode); //按下 a 返回 97
+});
+注意：e.keyCode 和 e.charCode 在两种事件互换也会产生不同的效果，除了字符还有一
+些非字符键的区别。更多详情可以了解 JavaScript 事件处理那章
+
+
+JavaScript 在事件处理函数中默认传递了 event 对象，也就是事件对象。但由于浏览器
+的兼容性，开发者总是会做兼容方面的处理。jQuery 在封装的时候，解决了这些问题，并且
+还创建了一些非常好用的属性和方法。
+
+
+//通过处理函数传递事件对象
+$('input').bind('click', function (e) { //接受事件对象参数
+alert(e);
+});
+
+
+event 对象的属性
+属性名 描述
+type                获取这个事件的事件类型，例如：click
+target              获取触发事件的 DOM 元素
+data                获取事件调用时的额外数据
+relatedTarget       获取移入移出目标点离开或进入的那个 DOM 元素
+currentTarget       获取当前 DOM 元素，等同与 this
+pageX/pageY         获取相对于页面原点的水平/垂直坐标
+screenX/screenY     获取显示器屏幕位置的水平/垂直坐标(非 jQuery 封装)
+clientX/clientY     获取相对于页面视口的水平/垂直坐标(非 jQuery 封装)
+result              获取上一个相同事件的返回值
+timeStamp           获取事件触发的时间戳
+which               获取鼠标的左中右键(1,2,3)，或  获取键盘按键
+altKey/shiftKey/
+ctrlKey/metaKey     获取是否按下了 alt、shift、ctrl(这三个非 jQuery 封装)或
+                    meta 键(IE 原生 meta 键，jQuery 做了封装)
+
+
+
+
+//通过 event.data 获取额外数据，可以是数字、字符串、数组、对象
+$('input').bind('click', 123, function (e) { //传递 data 数据
+alert(e.data); //获取数字数据
+});
+注意：如果字符串就传递：'123'、如果是数组就传递：[123,'abc']，如果是对象就传递：
+{user : 'Lee', age : 100}。数组的调用方式是：e.data[1]，对象的调用方式是：e.data.user。
+//event.data 获取额外数据，对于封装的简写事件也可以使用
+$('input').click({user : 'Lee', age : 100},function (e) {
+alert(e.data.user);
+});
+注意：键值对的键可以加上引号，也可以不加；在调用的时候也可以使用数组的方式：
+alert(e.data['user']);
+//获取移入到 div 之前的那个 DOM 元素
+$('div').mouseover(function (e) {
+alert(e.relatedTarget);
+});
+//获取移出 div 之后到达最近的那个 DOM 元素
+$('div').mouseout(function (e) {
+alert(e.relatedTarget);
+});
+
+
+//获取触发元素鼠标当前的位置
+$(document).click(function (e) {
+alert(e.screenY+ ',' + e.pageY + ',' + e.clientY);
+});
+
+
+
+
+preventDefault() 取消某个元素的默认行为
+isDefaultPrevented() 判断是否调用了 preventDefault()方法
+stopPropagation() 取消事件冒泡
+isPropagationStopped() 判断是否调用了 stopPropagation()方法
+stopImmediatePropagation() 取消事件冒泡， 并取消该事件的后续事件处理函数
+isImmediatePropagationStopped() 判断是否调用了 stopImmediatePropagation()方法
+
+
+网页中的元素，在操作的时候会有自己的默认行为。比如：右击文本框输入区域，会弹
+出系统菜单、点击超链接会跳转到指定页面、点击提交按钮会提交数据。
+$('a').click(function (e) {
+e.preventDefault();
+});
+//禁止提交表单跳转
+$('form').submit(function (e) {
+e.preventDefault();
+});
+注意： 如果想让上面的超链接同时阻止默认行为且禁止冒泡行为， 可以把两个方法同时
+写上： event.stopPropagation()和 event.preventDefault()。 这两个方法如果需要同时启用的时候，
+还有一种简写方案代替，就是直接 return false。
+$('a').click(function (e) {
+return false;
+});
+
+
+
+
+
+
+
+
+//点击按钮事件
+$('input').click(function () {
+alert('我的第一次点击来自模拟！');
+});
+//模拟用户点击行为
+$('input').trigger('click');
+//可以合并两个方法
+$('input').click(function () {
+alert('我的第一次点击来自模拟！');
+}).trigger('click');
+有时在模拟用户行为的时候， 我们需要给事件执行传递参数， 这个参数类似与 event.data
+的额外数据，可以可以是数字、字符串、数组、对象。
+$('input').click(function (e, data1, data2) {
+alert(data1 + ',' + data2);
+}).trigger('click', ['abc', '123']);
+注意：当传递一个值的时候，直接传递即可。当两个值以上，需要在前后用中括号包含
+起来。但不能认为是数组形式，下面给出一个复杂的说明。
+$('input').click(function (e, data1, data2) {
+alert(data1.a + ',' + data2[1]);
+}).trigger('click', [{'a' : '1', 'b' : '2'}, ['123','456']]);
+
+
+除了通过 JavaScript 事件名触发，也可以通过自定义的事件触发，所谓自定义事件其实
+就是一个被.bind()绑定的任意函数。
+$('input').bind('myEvent', function () {
+alert('自定义事件！');
+}).trigger('myEvent');
+.trigger()方法提供了简写方案，只要想让某个事件执行模拟用户行为，直接再调用一个
+空的同名事件即可。
+$('input').click(function () {
+alert('我的第一次点击来自模拟！');
+}).click(); //空的 click()执行的是 trigger()
+
+
+
+
+1..triggerHandler()方法并不会触发事件的默认行为，而.trigger()会。
+$('form').trigger('submit'); //模拟用户执行提交，并跳转到执行页面
+$('form').triggerHandler('submit'); //模拟用户执行提交，并阻止的默认行为
+如果我们希望使用.trigger()来模拟用户提交， 并且阻止事件的默认行为， 则需要这么写：
+$('form').submit(function (e) {
+e.preventDefault(); //阻止默认行为
+}).trigger('submit');
+2..triggerHandler()方法只会影响第一个匹配到的元素，而.trigger()会影响所有。
+3..triggerHandler()方法会返回当前事件执行的返回值，如果没有返回值，则返回
+undefined；而.trigger()则返回当前包含事件触发元素的 jQuery 对象(方便链式连缀调用)。
+alert($('input').click(function () {
+return 123;
+}).triggerHandler('click')); //返回 123，没有 return 返回
+4..trigger()在创建事件的时候，会冒泡。但这种冒泡是自定义事件才能体现出来，是
+jQuery 扩展于 DOM 的机制，并非 DOM 特性。而.triggerHandler()不会冒泡。
+var index = 1;
+$('div').bind('myEvent',function(){
+alert('自定义事件' + index);
+index++;
+});
+$('.div3').trigger("myEvent");
+
+
+
+
+有时，我们想对事件进行移除。但对于同名同元素绑定的事件移除往往比较麻烦，这个
+时候，可以使用事件的命名空间解决。
+$('input').bind('click.abc', function () {
+alert('abc');
+});
+$('input').bind('click.xyz', function () {
+alert('xyz');
+});
+$('input').unbind('click.abc'); //移除 click 实践中命名空间为 abc 的
+注意：也可以直接使用('.abc')，这样的话，可以移除相同命名空间的不同事件。对于模
+拟操作.trigger()和.triggerHandler()，用法也是一样的。
+$('input').trigger('click.abc');
+
+
+//使用.live()具备动态绑定功能，jQuery1.3 使用，jQuery1.7 之后废弃，jQuery1.9 删除
+$('.button').live('click', function () {
+$(this).clone().appendTo('#box');
+});
+
+
+.live()原理就是把 click 事件绑定到祖先元素$(document)上，而只需要给$(document)绑
+定一次即可，而非 2000 次。然后就可以处理后续动态加载的按钮的单击事件。在接受任何
+事件时，$(document)对象都会检查事件类型(event.type)和事件目标(event.target)，如果 click
+事件是.button，那么就执行委托给它的处理程序。.live()方法已经被删除，无法使用了。需
+要测试使用的话，需要引入向下兼容插件。
+
+
+
+
+由于.live()和.die()在 jQuery1.4.3 版本中废弃了， 之后推出语义清晰、 减少冒泡传播层次、
+又支持链接连缀调用方式的方法： .delegate()和.undelegate()。 但这个方法在 jQuery1.7 版本中
+被.on()方法整合替代了。
+
+
+
+
+//替代.bind()方式
+$('.button').on('click', function () {
+alert('替代.bind()');
+});
+//替代.bind()方式，并使用额外数据和事件对象
+$('.button').on('click', {user : 'Lee'}, function (e) {
+alert('替代.bind()' + e.data.user);
+});
+//替代.bind()方式，并绑定多个事件
+$('.button').on('mouseover mouseout', function () {
+alert('替代.bind()移入移出！');
+});
+//替代.bind()方式，以对象模式绑定多个事件
+$('.button').on({
+mouseover : function () {
+alert('替代.bind()移入！');
+},
+mouseout : function () {
+alert('替代.bind()移出！');
+}
+});
+//替代.bind()方式，阻止默认行为并取消冒泡
+$('form').on('submit', function () {
+return false;
+});
+或
+$('form').on('submit', false);
+//替代.bind()方式，阻止默认行为
+$('form').on('submit', function (e) {
+e.preventDefault();
+});
+//替代.bind()方式，取消冒泡
+$('form').on('submit', function (e) {
+e.stopPropagation();
+});
+//替代.unbind()方式，移除事件
+$('.button').off('click');
+$('.button').off('click', fn);
+$('.button').off('click.abc');
+//替代.live()和.delegate()，事件委托
+$('#box').on('click', '.button', function () {
+$(this).clone().appendTo('#box');
+});
+//替代.die()和.undelegate()，取消事件委托
+$('#box').off('click', '.button');
+注意：和之前方式一样，事件委托和取消事件委托也有各种搭配方式，比如额外数据、
+命名空间等等，这里不在赘述。
+
+
+//类似于.delegate()只触发一次
+$('#box).one('click', 'click', function () {
+alert('one 仅触发一次！');
+});
+
+
+ 而.show()方法要根据原
+来元素是区块还是内联来决定，如果是区块，则设置 CSS 代码：display:block; 如果是内联，
+则设置 CSS 代码：display:inline;。
+
+
+在.show()和.hide()方法可以传递一个参数，这个参数以毫秒(1000 毫秒等于 1 秒钟)来控
+制速度。并且里面富含了匀速变大变小，以及透明度变换。
+$('.show').click(function () {
+$('#box').show(1000); //显示用了 1 秒
+});
+
+
+
+
+//使用.show()和.hide()的回调函数，可以实现列队动画效果。
+$('.show').click(function () {
+$('#box').show('slow', function () {
+alert('动画持续完毕后，执行我！');
+});
+});
+
+
+//列队动画，使用函数名调用自身
+$('.show').click(function () {
+$('div').first().show('fast', function showSpan() {
+$(this).next().show('fast', showSpan);
+});
+});
+
+
+//列队动画，使用 arguments.callee 匿名函数自调用
+$('.hide').click(function () {
+$('div').last().hide('fast', function() {
+$(this).prev().hide('fast', arguments.callee);
+});
+});
+
+
+
+
+必传的参数只有一个，就是一个键值对 CSS 变化样式的对象。还有两个可选参数分别
+为速度和回调函数。
+$('.animate').click(function () {
+$('#box').animate({
+'width' : '300px',
+'height' : '200px'
+}, 1000, function () {
+alert('动画执行完毕执行我！');
+});
+});
+
+
+
+
+ 如果想要实现运动状态的位移动画，
+那就必须使用自定义动画，并且结合 CSS 的绝对定位功能。
+$('.animate').click(function () {
+$('#box').animate({
+'top' : '300px', //先必须设置 CSS 绝对定位
+'left' : '200px'
+});
+});
+自定义动画中， 每次开始运动都必须是初始位置或初始状态， 而有时我们想通过当前位
+置或状态下再进行动画。jQuery 提供了自定义动画的累加、累减功能。
+$('.animate').click(function () {
+$('#box').animate({
+'left' : '+=100px',
+});
+});
+自定义实现列队动画的方式，有两种：1.在回调函数中再执行一个动画；2.通过连缀或
+顺序来实现列队动画。
+//通过依次顺序实现列队动画
+$('.animate').click(function () {
+$('#box').animate({'left' : '100px'});
+$('#box').animate({'top' : '100px'});
+$('#box').animate({'width' : '300px'});
+});
+注意：如果不是同一个元素，就会实现同步动画
+//通过连缀实现列队动画
+$('.animate').click(function () {
+$('#box').animate({
+'left' : '100px'
+}).animate({
+'top' : '100px'
+}).animate({
+'width' : '300px'
+});
+});
+//通过回调函数实现列队动画
+$('.animate').click(function () {
+$('#box').animate({
+'left' : '100px'
+}, function () {
+$('#box').animate({
+'top' : '100px'
+}, function () {
+$('#box').animate({
+'width' : '300px'
+});
+});
+});
+});
+五．列队动画方法
+之前我们已经可以实现列队动画了，如果是同一个元素，可以依次顺序或连缀调用。 如
+果是不同元素，可以使用回调函数。但有时列队动画太多，回调函数的可读性大大降低。 为
+此，jQuery 提供了一组专门用于列队动画的方法。
+//连缀无法实现按顺序列队
+$('#box').slideUp('slow').slideDown('slow').css('background', 'orange');
+注意：如果动画方法，连缀可以实依次列队，而.css()方法不是动画方法，会在一开始
+传入列队之前。那么，可以采用动画方法的回调函数来解决。
+//使用回调函数，强行将.css()方法排队到.slideDown()之后
+$('#box').slideUp('slow').slideDown('slow', function () {
+$(this).css('background', 'orange');
+});
+但如果这样的话，当列队动画繁多的时候，可读性不但下降，而原本的动画方法不够清
+晰。所以，我们的想法是每个操作都是自己独立的方法。那么 jQuery 提供了一个类似于回
+调函数的方法：.queue()。
+//使用.queue()方法模拟动画方法跟随动画方法之后
+$('#box').slideUp('slow').slideDown('slow').queue(function () {
+$(this).css('background', 'orange');
+});
+现在，我们想继续在.queue()方法后面再增加一个隐藏动画，这时发现居然无法实现。
+这是.queue()特性导致的。有两种方法可以解决这个问题，jQuery 的.queue()的回调函数可以
+传递一个参数，这个参数是 next 函数，在结尾处调用这个 next()方法即可再连缀执行列队动
+画。
+//使用 next 参数来实现继续调用列队动画
+$('#box').slideUp('slow').slideDown('slow').queue(function (next) {
+$(this).css('background', 'orange');
+next();
+}).hide('slow');
+因为next函数是jQuery1.4版本以后才出现的， 而之前我们普遍使用的是.dequeue()方法。
+意思为执行下一个元素列队中的函数。
+//使用.dequeue()方法执行下一个函数动画
+$('#box').slideUp('slow').slideDown('slow').queue(function () {
+$(this).css('background', 'orange');
+$(this).dequeue();
+}).hide('slow');
+如果采用顺序调用，那么使用列队动画方法，就非常清晰了，每一段代表一个列队， 而
+回调函数的嵌套就会杂乱无章。
+//使用顺序调用的列队，逐个执行，非常清晰
+$('#box').slideUp('slow');
+$('#box').slideDown('slow');
+$('#box').queue(function () {
+$(this).css('background', 'orange');
+$(this).dequeue();
+})
+$('#box').hide('slow');
+.queue()方法还有一个功能，就是可以得到当前动画个列队的长度。当然，这个用法在
+普通 Web 开发中用的比较少，我们这里不做详细探讨。
+//获取当前列队的长度，fx 是默认列队的参数
+function count() {
+return $("#box").queue('fx').length;
+}
+//在某个动画处调用
+$('#box').slideDown('slow', function () {alert(count());});
+jQuery 还提供了一个清理列队的功能方法：.clearQueue()。把它放入一个列队的回调函
+数或.queue()方法里，就可以把剩下为执行的列队给移除。
+//清理动画列队
+$('#box').slideDown('slow', function () {$(this).clearQueue()});
+六．动画相关方法
+很多时候需要停止正在运行中的动画，jQuery 为此提供了一个.stop()方法。它有两个可
+选参数：.stop(clearQueue, gotoEnd)；clearQueue 传递一个布尔值，代表是否清空未执行完的
+动画列队，gotoEnd 代表是否直接将正在执行的动画跳转到末状态。
+//强制停止运行中的
+$('.stop').click(function () {
+$('#box').stop();
+});
+//带参数的强制运行
+$('.animate').click(function () {
+$('#box').animate({
+'left' : '300px'
+}, 1000);
+$('#box').animate({
+'bottom' : '300px'
+}, 1000);
+$('#box').animate({
+'width' : '300px'
+}, 1000);
+$('#box').animate({
+'height' : '300px'
+}, 1000);
+});
+$('.stop').click(function () {
+$('#box').stop(true ,true);
+});
+注意：第一个参数表示是否取消列队动画，默认为 false。如果参数为 true，当有列队动
+画的时候，会取消后面的列队动画。第二参数表示是否到达当前动画结尾，默认为 false。
+如果参数为 true，则停止后立即到达末尾处。
+有时在执行动画或列队动画时， 需要在运动之前有延迟执行， jQuery 为此提供了.delay()
+方法。这个方法可以在动画之前设置延迟，也可以在列队动画中间加上。
+//开始延迟 1 秒钟，中间延迟 1 秒
+$('.animate').click(function () {
+$('#box').delay(1000).animate({
+'left' : '300px'
+}, 1000);
+$('#box').animate({
+'bottom' : '300px'
+}, 1000);
+$('#box').delay(1000).animate({
+'width' : '300px'
+}, 1000);
+$('#box').animate({
+'height' : '300px'
+}, 1000);
+});
+在选择器的基础章节中，我们提到过一个过滤器:animated，这个过滤器可以判断出当前
+运动的动画是哪个元素。 通过这个特点， 我们可以避免由于用户快速在某个元素执行动画时，
+由于动画积累而导致的动画和用户的行为不一致。
+//递归执行自我，无线循环播放
+$('#box').slideToggle('slow', function () {
+$(this).slideToggle('slow', arguments.callee);
+});
+//停止正在运动的动画，并且设置红色背景
+$('.button').click(function(){
+$('div:animated').stop().css('background', 'red');
+});
+六．动画全局属性
+jQuery 提供了两种全局设置的属性， 分别为： $.fx.interval， 设置每秒运行的帧数； $.fx.off，
+关闭页面上所有的动画。
+$.fx.interval 属性可以调整动画每秒的运行帧数，默认为 13 毫秒。数字越小越流畅，但
+可能影响浏览器性能。
+//设置运行帧数为 1000 毫秒
+$.fx.interval = 1000; //默认为 13
+$('.button').click(function () {
+$('#box').toggle(3000);
+});
+$.fx.off 属性可以关闭所有动画效果，在非常低端的浏览器，动画可能会出现各种异常
+问题导致错误。而 jQuery 设置这个属性，就是用于关闭动画效果的。
+//设置动画为关闭 true
+$.fx.off = true; //默认为 false
+补充：在.animate()方法中，还有一个参数，easing 运动方式，这个参数，大部分参数值
+需要通过插件来使用，在后面的课程中，会详细讲解。自带的参数有两个：swing(缓动)、
+linear(匀速)，默认为 swing。
+$('.button').click(function () {
+$('#box').animate({
+left : '800px'
+}, 'slow', 'swing');
+$('#pox').animate({
+left : '800px'
+}, 'slow', 'linear');
+});
+
+
+
+
+在 Ajax 数据载入完毕之后，就能执行回调函数 callback，也就是第三个参数。回调函数
+也可以传递三个可选参数： responseText （请求返回） 、 textStatus （请求状态)、 XMLHttpRequest
+（XMLHttpRequest 对象） 。
+$('input').click(function () {
+$('#box').load('test.php', {
+url : 'ycku'
+}, function (response, status, xhr) {
+alert('返回的值为：' + response + '，状态为：' + status + '，
+状态是：' + xhr.statusText);
+});
+});
+
+
+
+
+jQuery 提供了一组用于特定异步加载的方法：$.getScript()，用于加载特定的 JS 文件；
+$.getJSON()，用于专门加载 JSON 文件。
+有时我们希望能够特定的情况再加载 JS 文件，而不是一开始把所有 JS 文件都加载了，
+这时课时使用$.getScript()方法。
+//点击按钮后再加载 JS 文件
+$('input').click(function () {
+          $.getScript('test.js');
+});
+$.getJSON()方法是专门用于加载 JSON 文件的，使用方法和之前的类似。
+$('input').click(function () {
+          $.getJSON('test.json', function (response, status, xhr) {
+               alert(response[0].url);
+          });
+});
+
+
+//使用.serialize()序列化表单内容
+$('form input[type=button]').click(function () {
+$.ajax({
+type : 'POST',
+url : 'test.php',
+data : $('form').serialize(),
+success : function (response, status, xhr) {
+alert(response);
+}
+});
+});
+
+
+
+
+
+
+.serialize()方法不但可以序列化表单内的元素，还可以直接获取单选框、复选框和下拉
+列表框等内容。
+//使用序列化得到选中的元素内容
+$(':radio').click(function () {
+$('#box').html(decodeURIComponent($(this).serialize()));
+});
+除了.serialize()方法，还有一个可以返回 JSON 数据的方法： .serializeArray() 。这个方法
+可以直接把数据整合成键值对的 JSON 对象。
+$(':radio').click(function () {
+console.log($(this).serializeArray());
+var json = $(this).serializeArray();
+$('#box').html(json[0].value);
+});
+有时，我们可能会在同一个程序中多次调用$.ajax()方法。而它们很多参数都相同，这
+个时候我们课时使用 jQuery 提供的$.ajaxSetup()请求默认值来初始化参数。
+$('form input[type=button]').click(function () {
+$.ajaxSetup({
+type : 'POST',
+url : 'test.php',
+data : $('form').serialize()
+});
+$.ajax({
+success : function (response, status, xhr) {
+alert(response);
+}
+});
+});
+在使用 data 属性传递的时候，如果是以对象形式传递键值对，可以使用$.param()方法
+将对象转换为字符串键值对格式。
+var obj = {a : 1, b : 2, c : 3};
+var form = $.param(obj);
+alert(form);
+注意：使用$.param()将对象形式的键值对转为 URL 地址的字符串键值对，可以更加稳
+定准确的传递表单内容。因为有时程序对于复杂的序列化解析能力有限，所以直接传递 obj
+对象要谨慎。
+
+
+$('form input[type=button]').click(function () {
+$.ajax({
+type : 'POST',
+url : 'user.php',
+data : $.param({
+user : $('form input[name=user]').val(),
+email : $('form input[name=email]').val()
+}),
+success : function (response, status, xhr) {
+$('#box').html(response);
+}
+});
+});
+
+
+
+
+ jQuery 提供了两个全局事件，.ajaxStart()和.ajaxStop()。这两个全局事件，只要用户触发
+了 Ajax，请求开始时（未完成其他请求）激活.ajaxStart()，请求结束时（所有请求都结束了）
+激活.ajaxStop()。
+//请求加载提示的显示和隐藏
+$('.loading').ajaxStart(function () {
+$(this).show();
+}).ajaxStop(function () {
+$(this).hide();
+});
+注意：以上代码在 jQuery1.8 及以后的版本不在有效，需要使用 jquery-migrate 向下兼容
+才能运行。新版本中，必须绑定在 document 元素上。
+$(document).ajaxStart(function () {
+$('.loading').show();
+}).ajaxStop(function () {
+$('.loading').hide();
+});
+//如果请求时间太长，可以设置超时
+$.ajax({
+timeout : 500
+});
+//如果某个 ajax 不想触发全局事件，可以设置取消
+$.ajax({
+global : false
+});
+
+
+Ajax 异步提交时，不可能所有情况都是成功完成的，也有因为代码异步文件错误、网
+络错误导致提交失败的。这时，我们应该把错误报告出来，提醒用户重新提交或提示开发者
+进行修补。
+在之前高层封装中是没有回调错误处理的，比如$.get()、$.post()和.load()。所以，早期
+的方法通过全局.ajaxError()事件方法来返回错误信息。而在 jQuery1.5 之后，可以通过连缀
+处理使用局部.error()方法即可。而对于$.ajax()方法，不但可以用这两种方法，还有自己的属
+性方法 error : function () {}。
+//$.ajax()使用属性提示错误
+$.ajax({
+type : 'POST',
+url : 'test1.php',
+data : $('form').serialize(),
+success : function (response, status, xhr) {
+$('#box').html(response);
+},
+error : function (xhr, errorText, errorStatus) {
+alert(xhr.status + ':' + xhr.statusText);
+}
+});
+//$.post()使用连缀.error()方法提示错误，连缀方法将被.fail()取代
+$.post('test1.php').error(function (xhr, status, info) {
+alert(xhr.status + ':' +xhr.statusText);
+alert(status + ':' + info);
+});
+//$.post()使用全局.ajaxError()事件提示错误
+$(document).ajaxError(function (event, xhr, settings, infoError) {
+alert(xhr.status + ':' +xhr.statusText);
+alert(settings+ ':' + info);
+});
+
+
+
+
+请求全局事件
+jQuery 对于 Ajax 操作提供了很多全局事件方法，.ajaxStart()、.ajaxStop()、.ajaxError()
+等事件方法。他们都属于请求时触发的全局事件，除了这些，还有一些其他全局事件：
+.ajaxSuccess()，对应一个局部方法：.success()，请求成功完成时执行。
+.ajaxComplete()，对应一个局部方法：.complete()，请求完成后注册一个回调函数。
+.ajaxSend()，没有对应的局部方法，只有属性 beforeSend，请求发送之前要绑定的函数。
+//$.post()使用局部方法.success()
+$.post('test.php', $('form').serialize(), function (response, status, xhr) {
+$('#box').html(response);
+}).success(function (response, status, xhr) {
+alert(response);
+});
+//$.post()使用全局事件方法.ajaxSuccess()
+$(document).ajaxSuccess(function (event, xhr, settings) {
+alert(xhr.responseText);
+});
+注意：全局事件方法是所有 Ajax 请求都会触发到，并且只能绑定在 document 上。而局
+部方法，则针对某个 Ajax。
+对于一些全局事件方法的参数，大部分为对象，而这些对象有哪些属性或方法能调用，
+可以通过遍历方法得到。
+//遍历 settings 对象的属性
+$(document).ajaxSuccess(function (event, xhr, settings) {
+for (var i in settings) {
+alert(i);
+}
+});
+//$.post()请求完成的局部方法.complete()
+$.post('test.php', $('form').serialize(), function (response, status, xhr) {
+alert('成功');
+}).complete(function (xhr,status) {
+alert('完成');
+});
+//$.post()请求完成的全局方法.ajaxComplete()
+$(document).ajaxComplete(function (event, xhr, settings) {
+alert('完成');
+});
+//$.post()请求发送之前的全局方法.ajaxSend()
+$(document).ajaxSend(function (event, xhr, settings) {
+alert('发送请求之前');
+});
+//$.ajax()方法，可以直接通过属性设置即可。
+$.ajax({
+type : 'POST',
+url : 'test.php',
+data : $('form').serialize(),
+success : function (response, status, xhr) {
+$('#box').html(response);
+},
+complete : function (xhr, status) {
+alert('完成' + ' - ' + xhr.responseText + ' - ' + status);
+},
+beforeSend : function (xhr, settings) {
+alert('请求之前' + ' - ' + xhr.readyState + ' - ' + settings.url);
+}
+});
+
+
+
+
+$(function () {
+/*
+$('form input[type=button]').click(function () {
+
+
+$.ajax({
+type : 'POST',
+url : 'user1.php',
+data : $('form').serialize(),
+success : function (response, status, xhr) {
+$('#box').html(response);
+},
+//timeout : 500
+//global : false
+//error : function (xhr, errorText, errorType) {
+//alert('错误！');
+//alert(errorText + ':' + errorType);
+//alert(xhr.status + ':' + xhr.statusText);
+//}
+});
+
+
+
+$.post('user1.php').error(function (xhr, errorText, errorType) {
+//alert('错误');
+alert(errorText + ':' + errorType);
+alert(xhr.status + ':' + xhr.statusText);
+});
+
+
+
+$.post('user1.php');
+
+});
+
+
+$(document).ajaxError(function (event, xhr, settings, errorType) {
+//alert(event.type);
+//alert(event.target);
+//for (var i in event) {
+// document.write(i + '<br />');
+//}
+//alert(settings);
+//for (var i in settings) {
+// document.write(i + '<br />');
+//}
+//alert(settings.url);
+//alert(settings.type);
+alert(info);
+});
+
+
+
+$(document).ajaxStart(function () {
+$('.loading').show();
+}).ajaxStop(function () {
+$('.loading').hide();
+});
+*/
+
+
+$('form input[type=button]').click(function () {
+/*
+$.post('user1.php', $('form').serialize()).success(function () {
+alert('请求成功后！');
+}).complete(function () {
+alert('请求完成后！');
+}).error(function () {
+alert('请求失败后！');
+});
+*/
+
+$.ajax({
+type : 'POST',
+url : 'user.php',
+data : $('form').serialize(),
+success : function (response, status, xhr) {
+alert('请求成功后');
+},
+complete : function () {
+alert('请求完成后，不管是否失败成功');
+},
+beforeSend : function () {
+alert('发送请求之前执行');
+},
+error : function () {
+alert('请求失败后');
+}
+});
+
+});
+
+
+
+/*
+$(document).ajaxSend(function () {
+alert('发送请求之前执行');
+}).ajaxComplete(function () {
+alert('请求完成后，不管是否失败成功');
+}).ajaxSuccess(function () {
+alert('请求成功后');
+}).ajaxError(function () {
+alert('请求失败后');
+});
+*/
+
+
+});
+
+
+
+
+
+
+如果在同一个域下，$.ajax()方法只要设置 dataType 属性即可加载 JSON 文件。而在非
+同域下，可以使用 JSONP，但也是有条件的。
+//$.ajax()加载 JSON 文件
+$.ajax({
+type : 'POST',
+url : 'test.json',
+dataType : 'json',
+success : function (response, status, xhr) {
+alert(response[0].url);
+}
+});
+如果想跨域操作文件的话，我们就必须使用 JSONP。JSONP(JSON with Padding)是一个
+非官方的协议，它允许在服务器端集成 Script tags 返回至客户端，通过 javascript callback 的
+形式实现跨域访问（这仅仅是 JSONP 简单的实现形式） 。
+//跨域的 PHP 端文件
+<?php
+$arr = array('a'=>1,'b'=>2,'c'=>3,'d'=>4,'e'=>5);
+$result = json_encode($arr);
+$callback = $_GET['callback'];
+echo $callback."($result)";
+?>
+//$.getJSON()方法跨域获取 JSON
+$.getJSON('http://www.li.cc/test.php?callback=?', function (response) {
+console.log(response);
+});
+//$.ajax()方法跨域获取 JSON
+$.ajax({
+url : 'http://www.li.cc/test.php?callback=?',
+dataType : 'jsonp',
+success : function (response, status, xhr) {
+console.log(response);
+alert(response.a);
+}
+});
+五．jqXHR 对象
+在之前，我们使用了局部方法：.success()、.complete()和.error()。这三个局部方法并不
+是 XMLHttpRequest 对象调用的， 而是$.ajax()之类的全局方法返回的对象调用的。 这个对象，
+就是 jqXHR 对象，它是原生对象 XHR 的一个超集。
+//获取 jqXHR 对象，查看属性和方法
+var jqXHR = $.ajax({
+type : 'POST',
+url : 'test.php',
+data : $('form').serialize()
+});
+for (var i in jqXHR) {
+document.write(i + '<br />');
+}
+注意：如果使用 jqXHR 对象的话，那么建议用.done()、.always()和.fail()代
+替.success()、.complete()和.error()。以为在未来版本中，很可能将这三种方法废弃取消。
+//成功后回调函数
+jqXHR.done(function (response) {
+$('#box').html(response);
+});
+使用 jqXHR 的连缀方式比$.ajax()的属性方式有三大好处：
+1.可连缀操作，可读性大大提高；
+2.可以多次执行同一个回调函数；
+3.为多个操作指定回调函数；
+//同时执行多个成功后的回调函数
+jqXHR.done().done();
+//多个操作指定回调函数
+var jqXHR = $.ajax('test.php');
+var jqXHR2 = $.ajax('test2.php');
+$.when(jqXHR, jqXHR2).done(function (r1,r2) {
+alert(r1[0]);
+alert(r2[0]);
+});
+
+
+//jqXHR就是$.ajax()返回的对象
+var jqXHR = $.ajax({
+type : 'POST',
+url : 'user.php',
+data : $('form').serialize()
+});
+
+jqXHR.success(function (response) {
+alert(response);
+});
+
+
+jqXHR.done(function (response) {
+alert(response + '1');
+}).done(function (response) {
+alert(response + '2');
+});
+
+jqXHR.done(function (response) {
+alert(response + '3');
+});
+*/
+
+
+//$.ajax()获取远程数据
+$.ajax({
+type : 'POST',
+url : 'http://www.li.cc/jsonp2.php?callback=?',
+dataType : 'json',
+success : function (response, status, xhr) {
+//alert(response);
+console.log(response);
+alert(response.a);
+}
+});
+
+
+//$.ajax()获取远程数据
+$.ajax({
+type : 'POST',
+url : 'http://www.li.cc/jsonp2.php',
+dataType : 'jsonp',
+success : function (response, status, xhr) {
+//alert(response);
+console.log(response);
+alert(response.a);
+}
+});
+*/
+
+
+======================================= 【jquery插件】
+引入插件是需要一定步骤的，基本如下：
+1.必须先引入 jquery.js 文件，而且在所有插件之前引入；
+2.引入插件；
+3.引入插件的周边，比如皮肤、中文包等
+Validate.js 是 jQuery 比较优秀的表单验证插件之一。这个插件有两个 js 文件，一个是主
+文件，一个是中文包文件。
+
+
+验证插件包含的两个文件分别为：jquery.validate.js 和 jquery.validate.messages_zh.js。
+//HTML 内容
+<script type="text/javascript" src="jquery.validate.js"></script>
+<script type="text/javascript" src="jquery.validate.messages_zh.js"></script>
+<form>
+<p>用 户 名： <input type="text" class="required" name="username" minlength="2" />
+*</p>
+<p>电子邮件：<input type="text" class="required email" name="email" /> *</p>
+<p>网 址：<input type="text" class="url" name="url" /></p>
+<p><input type="submit" value="提交" /></p>
+</form>
+//jQuery 代码
+$(function () {
+          $('form').validate();
+});
+只要通过 form 元素的 jQuery 对象调用 validate()方法，就可以实现“必填” 、 “不能小于
+两位” 、 “电子邮件不正确” 、 “网址不正确”等验证效果。除了 js 端的 validate()方法调用，
+表单处也需要相应设置才能最终得到验证效果。
+1.必填项：在表单设置 class="required"；
+2.不得小于两位：在表单设置 minlength="2"；
+3.电子邮件：在表单中设置 class="email";
+4.网址：在表单中设置 class="url"
+-------------------------------------------------------------
+所谓自动完成，就是当用户输入部分字符的时候，智能的搜索出包含字符的全部内容。
+比如：输入 a，把匹配的内容列表展示出来。
+//HTML 内容
+<script type="text/javascript" src="jquery.autocomplete.js"></script>
+<script type="text/javascript" src="jquery-migrate-1.2.1.js"></script>
+<link rel="stylesheet" href="jquery.autocomplete.css" type="text/css" />
+//jQuery 代码
+var user = ['about', 'family', 'but', 'black'];
+$('form input[name=username]'). autocomplete (user, {
+minChars : 0 //双击显示全部数据
+});
+注意：这个自动完成插件使用的 jQuery 版本较老，用了一些已被新版本的 jQuery 废弃
+删除的方法，这样必须要向下兼容才能有效。所以，去查找插件的时候，要注意一下他坚持
+的版本。
+
+
+--------------------------------------------------------------
+为了方便用户创建插件，jquery提供了jQuery.extend()和jQuery.fn.extend()方法。
+
+【方法一】
+　 jQuery.extend(object) ,一个参数的用于扩展jQuery类本身，也就是用来在jQuery类/命名空间上增加新函数，或者叫静态方法，例如jQuery内置的 ajax方法都是用jQuery.ajax()这样调用的，有点像 “类名.方法名” 静态方法的调用方式。下面我们也来写个jQuery.extend(object)的例子：
+
+//扩展jQuery对象本身
+
+
+        jQuery
+.
+extend
+({
+
+            
+"minValue"
+:
+ 
+function
+ 
+(
+a
+,
+ b
+)
+ 
+{
+
+                
+///<summary>
+
+                
+/// 比较两个值，返回最小值
+
+                
+///</summary>
+
+                
+return
+ a 
+<
+ b 
+?
+ a 
+:
+ b
+;
+
+            
+},
+
+            
+"maxValue"
+:
+ 
+function
+ 
+(
+a
+,
+ b
+)
+ 
+{
+
+                
+///<summary>
+
+                
+/// 比较两个值，返回最大值
+
+                
+///</summary>
+
+                
+return
+ a 
+>
+ b 
+?
+ a 
+:
+ b
+;
+
+            
+}
+
+        
+});
+
+        
+//调用
+
+        
+var
+ i 
+=
+ 
+100
+;
+ j 
+=
+ 
+101
+;
+
+        
+var
+ min_v 
+=
+ $
+.
+minValue
+(
+i
+,
+ j
+);
+ 
+// min_v 等于 100
+
+        
+var
+ max_v 
+=
+ $
+.
+maxValue
+(
+i
+,
+ j
+);
+ 
+// max_v 等于 101
+【方法二】
+
+jQuery.fn.extend(object)扩展 jQuery 元素集来提供新的方法（通常用来制作插件）。
+首先我们来看fn 是什么东西呢。查看jQuery代码，就不难发现。
+ 
+jQuery.fn = jQuery.prototype = {
+ 
+　　　init: function( selector, context ) {.....};
+};
+ 
+原来 jQuery.fn = jQuery.prototype，也就是jQuery对象的原型。那jQuery.fn.extend()方法就是扩展jQuery对象的原型方法。我们知道扩展原型上的方法，就相当于为对象添加”成员方法“，类的”成员方法“要类的对象才能调用，所以使用jQuery.fn.extend(object)扩展的方法， jQuery类的实例可以使用这个“成员函数”。jQuery.fn.extend(object)和jQuery.extend(object)方法一定要区分开来。
+【约定】
+经过日积月累的插件开发， 开发者逐步约定了一些基本要点， 以解决各种因为插件导致 的冲突、错误等问题，包括如下：
+1.插件名推荐使用 jquery.[插件名].js，以免和其他 js 文件或者其他库相冲突；
+2.局部对象附加 jquery.fn 对象上，全局函数附加在 jquery 上；
+3.插件内部，this 指向是当前的局部对象；
+4.可以通过 this.each 来遍历所有元素；
+5.所有的方法或插件，必须用分号结尾，避免出现问题；
+6.插件应该返回的是 jQuery 对象，以保证可链式连缀；
+7.避免插件内部使用$，如果要使用，请传递 jQuery 进去。
+
+
+;(function ($) {
+
+$.fn.extend({
+                "bold": function () {
+                    /// 加粗字体
+                    return this.css({ fontWeight: "bold" });         //this指向的是jquery的对象，而不是dom的对象
+                }
+});
+
+})(jQuery);
+调用的时候  $('p').bold();
+--------------------------------------------------------------------------------------------------
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+浏览器标题栏中的小图标
+
+
+text-indent:xxx  css的文字的缩进
+
+
+//将 button 按钮设置成 UI
+$('#search_button').button();
+//将 div 设置成 dialog 对话框
+$('#reg_a').click(function () {
+$("#reg").dialog();
+});
+
+
+
+
+

@@ -1,0 +1,458 @@
+webalizer 是一个高效的、免费的web服务器日志分析程序。其分析结果是HTML文件格式，从而可以很方便的通过web服务器进行浏览。Internet上的很多站点都使用webalizer进行web服务器日志分析。
+
+
+
+-------------------------------------
+<form mothed='post' action='test.php'>
+aa:<input type='text' >
+<button type='submit' >submit</button>
+
+
+<?php
+$f = fopen('a.txt','ab');
+fputs($f,"aaaaaaaaa\r\n");
+在网络差的环境下，点多次按钮是发多个请求的，要注意防止重复提交
+----------------------------------------------------------------------------------------
+
+布局的时候想想使用div 还是用table table用于规整的布局很好用
+布局时先在纸上设计设计，整个框架，id名和类名都先起好
+此方法为把服务器端的数据存在客户端，等用到的时候在去变成对象<input type="hidden" name="id" value='<?php echo json_encode($snacks[$i-1]); ?>'/> 
+
+ var a= JSON.parse ($(this).children('input').val());
+
+
+
+$('#cart_container').append("<div id='cart_table'><div><img src="+image+"></div><div id='bottom_text'>"+name+"</div><div id='num'>"+price+"</div></div>");          注意不要留空格
+
+
+要避免一个对象在不知不觉中绑定多个事件，尤其是在计算的时候，会出现重复的操作
+
+
+< input   class = 'submit'   type = "image"   src = "__PUBLIC__/img/thenew/pack.gif"   alt = "Submit"    />     参数会含有图像点击位置的x y 的坐标
+比如一幅地图，上面有北京，上海，广州等，你点击上海，服务器端怎么知道你点的是上海？就是靠鼠标在图片上的相对位置来判断。         
+==============================
+$data['created_at']=date('Y-m-d H:i:s');  H大写的24小时制  h12小时制
+从数据库取来的数据记得往js变量中存一份
+                    
+涉及数据交互的元素要跟前端说清楚用什么去实现，比如要向后端穿大段的文字得用texteare，用其他的可能不能输入   按钮、输入框等都需要沟通     循环的地方要跟他说
+
+<button type="button">Click Me!</button>   
+请始终为按钮规定 type 属性。
+Internet Explorer 的默认类型是 "button"，而其他浏览器中（包括 W3C 规范）的默认值是 "submit"。
+
+============================
+ $(".chosen").removeAttr("checked"); 
+ $(".chosen").prop("checked", false); 
+=============
+tp标签中不要用$符号，不然可能会出错
+
+
+====================
+background-size需要两个值，它的类型可以是像素（px）、百分比（%）或是auto，还可以是cover和contain。第一个值为背景图的width，另外一个值用于指定背景图上的height，如果只设定1个值，则第2个默认为auto，
+
+
+
+background-size: 200px;
+background-size: 200px 100px;
+background-size: 200px 100px , 400px 200px;//有多个图像
+background-size: auto 200px;
+
+
+
+====================
+php中数组的键嵌套数组变量时，可先把数组的值付给一个变量       thinkphp  中的 { }  相当于  echo xxx
+value="<?php  $id=$vo[id]; echo !empty($snack[$id])?$snack[$id]:0; ?>"
+
+
+
+=====================
+css   position relative  用的时候要小心，有时可能会把整个界面撑大。
+
+
+==============================
+jquery取出hover事件
+$('.taste_text').unbind('mouseenter').unbind('mouseleave'); 
+
+
+
+div中别弄aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa的测试数据，因为他会别认为是一个单词
+jquery   选择节点对象的时候把其父节点也写上 ，避免冲突。
+===========
+文件上传的错误很可能是文件的权限的问题
+
+
+<ul class="adress-details <if condition='$v[id] eq $info[recieverId]' >on</if>" name="{$v.id}" >
+
+用$xx.xx会出错
+===================
+sapn 元素中 是不能插入图片的，要用上inline-block  不还行 或block
+
+
+行高用百分比也不错
+
+
+=============
+<input type="checkbox" name="pid[]" value="{$vo.pid}-{$vo.bid}">
+
+      
+  foreach ($pid as $key=>$v){
+        $pid[$key]=explode('-', $v);
+----------------------------
+tp框架中有些封装的函数是为了兼容低版本的php版本而存在的
+===============
+<script type='text/javascript'>window.history.forward();//禁止页面后退</script>
+
+==============
+$row[ ] = $this->fetch('Orders/orderListLogisTpl');    模板文件的调用方法和display方法完全一样，区别就在于fetch方法渲染后不是直接输出，而是返回渲染后的内容
+
+=============
+php数组转js数组
+ $this->snacks_id=  json_encode($snack_num);
+
+var snacks_id='{$snacks_id}';
+ snacks_id=JSON.parse(snacks_id); 
+console.log(snacks_id);
+
+==============
+swiper-container   swiper-wrapper   swiper-slide
+  var mySwiper = new Swiper ('.swiper-container', { slidesPerView: 'auto' //            spaceBetween: 10, });  
+
+mySwiper.appendSlide(  )   动态的加载也可滑动
+
+===================
+dateFormat:'yy-mm-dd',  //更改时间显示模式 
+ changeMonth: true,
+ changeYear: true, 
+ yearRange:"2015:2030"
+
+=================
+FF用样式 ：-moz-user-select:none;
+FF以外的浏览器用：onselectstart="return false"（直接加在需要作用的标签）
+eg: <div class="test" onselectstart="return false" style="-moz-user-select:none;">你选不到我。。。（屏蔽双击选中文字的区域）</div> 
+
+===================
+还是验证码，再提交一个漏洞，若浪费了几条短信请息怒，纯粹为了贵网站的安全 
+<?php error_reporting(E_ALL);
+ ini_set('max_execution_time', '0');
+ for ($i=1020;$i<1030;$i++){ 
+$m="1401000"; 
+$n=$m.$i; 
+$url="http://www.fengtuhezi.com/Mobile/sendSMS?to={$n}"; 
+$ip=mt_rand(0,255).".".mt_rand(0,255).".".mt_rand(0,255).".".mt_rand(0,255); 
+$ch = curl_init();
+ $header = array( "CLIENT-IP:$ip", "X-FORWARDED-FOR:$ip"); 
+curl_setopt($ch, CURLOPT_URL, $url);
+ curl_setopt($ch, CURLOPT_HTTPHEADER, $header); 
+curl_setopt($ch, CURLOPT_RETURNTRANSFER,true); 
+$page_content = curl_exec($ch); 
+curl_close($ch); 
+echo $n."&nbsp;&nbsp;".$ip."&nbsp;&nbsp;".$page_content."<br/><br/>"; } ?>
+
+
+
+mt_rand() 函数是非正式用来替换它的。该函数用了 » Mersenne Twister 中已知的特性作为随机数发生器，它可以产生随机数值的平均速度比 libc 提供的 rand() 快四倍。
+
+==================
+        foreach($stock as &$v){
+            $Date_1=$v[overdue_date];
+            $Date_2=date('Y-m-d',time());
+            $Date_List_a1=explode("-",$Date_1);
+            $Date_List_a2=explode("-",$Date_2);
+            $d1=mktime(0,0,0,$Date_List_a1[1],$Date_List_a1[2],$Date_List_a1[0]);
+            $d2=mktime(0,0,0,$Date_List_a2[1],$Date_List_a2[2],$Date_List_a2[0]);
+            $Days=round(($d1-$d2)/3600/24); 
+            $v['days']=$Days;
+        }
+==================
+数组foreach &地址符使用的时候要注意  
+        foreach($result as &$v){
+            $v['remain']=$r->get('snacks:'.$v['id'].':remain');
+        }
+        unset($v);
+
+
+================
+svn设置忽略的时候，要提交才行
+============
+jquery实现多个列队动画，有一个function的参数，这个函数中可再放一个animate，animate中再套函数
+===========
+js调试的时候输出alert（' ' ),然后看浏览器是否报错，有错则说明alert之前的有错误
+==================
+<?php
+//ini_set("session.use_trans_sid",1);
+//ini_set("session.use_only_cookies",0);
+//ini_set("session.use_cookies",0);
+session_start();
+$_SESSION['var1']="abcde";
+$url="<a href='test1.php'>next</a>";
+echo $url;
+?>
+==================
+$res=$MaterielMonitor->where('create_time='."'$date'")->find();     日期的要加引号
+
+==========
+$sql= "insert into guest_book values(null,' $data[title] ',' $data[contant] ',now())" ;  
+ ===============              
+ $js =  <<<EOT
+                <script type="text/javascript">
+                    alert("操作失败！");
+                    window.location.href="bbs_add.php";
+                </script>
+EOT;
+            }
+             echo  $js;  
+
+====================
+中文排序
+        $sql="select * from snacks order by convert(name USING gbk) COLLATE gbk_chinese_ci ";
+        $snacks=M()->query($sql);
+----------------------
+button{border:none;}  可去掉button的阴影       
+
+     居中显示       margin: 20px auto;              display:block; 
+
+
+thinkphp关闭debug模式后，修改不管是前端的代码还是后端的，都要去runtime目录中清空一下缓存，要不会出现诡异的错误
+==================
+一个字符串传多个值，可以用特殊的符号分割开各个值，读值的时候可以用相应的函数拆分开
+==================
+网站的信息也要加张表，方便后台对网站信息的修改
+
+
+box_snacks表所产生的数据量太大了，其内容只是盒子所包含的零食的附属信息，可以用json存储，这张表也就没有存在的意义了
+
+
+两个非常不对等的数据量的信息的type不同就不要弄到一个表中，那样会拖慢数据量小的表，比如box表中的固定的盒子和用户自定制的盒子，而却两种盒子的字段量也是不对等的
+
+
+
+
+若svg不能访问可能是apache服务器没开启mime  服务器设置正确的响应mime-type，即HTTP响应头包含  Content-Type: image/svg+xml   解决办法：在.htaccess中添加
+AddType image/svg+xml svg svgz 
+AddEncoding gzip svgz  
+
+
+======================
+
+
+  overflow-y: auto;   这个css玩意一出来，js的scroll  就不能使用了
+
+表单提交或ajax提交之后用户又点返回然又提交了，要怎么处理呢？
+发一个ajax请求，看是否满足
+
+
+============================
+post提交时php的配置有一个上限的条数：默认是1000条，超过的话会报错
+<b>Warning</b>:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in <b>Unknown</b> on line <b>0</b><br />
+
+
+
+解决：1. 改php配置 ，条数增大  ，用ini_set( ) 设置是不管用的
+            2.    $rawData = file_get_contents('php://input');
+                  $postedJson = json_decode($rawData,true);
+                      前端要这样的类型
+
+            type: "POST",
+            url: "/Service/SimpleData",
+            contentType: "application/json" , //必须有
+            dataType: "json", //表示返回值类型，不必须
+            data: JSON.stringify({ 'foo': 'foovalue', 'bar': 'barvalue' }),  //相当于 //data: "{'str1':'foovalue', 'str2':'barvalue'}",
+
+
+=============================
+if (isset($argv[0])) {    //$argv代表的是命令行的参数，这个做可以兼容命令行的执行
+    define('FROM_SHELL', true);
+    $_GET['ctl'] = $argv[1];
+    $_GET['act'] = $argv[2];
+} else {
+    define('FROM_SHELL', false);
+}
+
+
+=================================================
+1秒=1000毫秒(ms), 
+1秒=1000000 微秒(μs), 
+1秒=1000000000 纳秒(ns),
+
+==================================
+  1.  return 返回函数值，是关键字；  exit 是一个函数。
+  2.  return 是语言级别的，它表示了调用堆栈的返回；而exit是系统调用级别的，它表示了一个进程的结束。
+  3.  return 是函数的退出(返回)；exit是进程的退出。
+  4.  return 是C语言提供的，exit是操作系统提供的（或者函数库中给出的）。
+  5.  return 用于结束一个函数的执行，将函数的执行信息传出给其他调用函数使用；exit函数是退出应用程序，删除进程使用的内存空间，并将应用程序的一个状态返回给OS，这个状态标识了应用程序的一些运行信息，这个信息和机器和操作系统有关，一般是 0 为正常退出，非0 为非正常退出。
+  6. 非主函数中调用 return 和 exit 效果很明显，但是在 main 函数中调用 return 和 exit 的现象就很模糊，多数情况下现象都是一致的
+
+=======================
+然后修改extension="d:/php5.5.6/ext" 
+安装apache php mysql
+apache 
+1.DocumentRoot 路径
+2.<Directory  路径> 及配置
+3.php模块的加载，文件后缀的配置
+4.vhost模块的加载
+5.vhost的配置
+
+
+php
+1.extension="d:/php5.5.6/ext"  扩展模块路径的配置
+2.相应模块的开启
+3.报错级别的配置
+===============
+
+
+If $start and $length are 0, the new substring is inserted at the start of $old_string:    //php
+print substr_replace('My pet is a blue dog.','Title: ',0,0);
+Title: My pet is a blue dog.
+------------
+$r = mysql_query("SELECT id,message FROM messages WHERE id = $id") or die();
+$ob = mysql_fetch_object($r);
+printf('<a href="more-text.php?id= %d "> %s </a>',  $ob->id, substr_replace($ob->message,' ...',25));    //写法太原始了
+--------------
+$reversed_s = implode(' ',array_reverse( explode (' ',$s)));   拆开
+---------------------
+print "You owe $amounts[payment] immediately.";
+print "You owe {$amounts['payment']} immediately.";
+print "My circle's diameter is {$circle->getDiameter()} inches.";
+-----------------
+usr是 Unix Software Resource 的缩写，
+
+----------------
+ 
+<?php
+$sales = array( array('Northeast','2005-01-01','2005-02-01',12.54),
+ 
+                array('Northwest','2005-01-01','2005-02-01',546.33),
+ 
+                array('Southeast','2005-01-01','2005-02-01',93.26),
+ 
+                array('Southwest','2005-01-01','2005-02-01',945.21),
+ 
+                array('All Regions','--','--',1597.34) );  
+ 
+ob_start();
+ 
+$fh = fopen('php://output','w') or die("Can't open php://output");              php://output   屏幕输出流
+ 
+foreach ($sales as $sales_line) {
+    if (fputcsv( $fh,  $sales_line) === false) {
+        die("Can't write CSV line");
+    }
+}
+ 
+fclose($fh) or die("Can't close php://output");
+$output = ob_get_contents();                    $output即为cvs格式的字符串，此程序是将数组转成cvs格式的字符串
+ob_end_clean();
+ 
+?>
+-------------------------
+ PHP also automatically converts from strings to numbers and back. For instance, 1+"1" is 2.                   js中却是‘11’
+
+-----------
+mysql没有+=  -= 的操作符
+--------------------
+
+而是由语言解析器或者应用程序框架输出的。
+这个值的意义用于告知网站是用 何种语言或框架编 写的。例如：
+PHP标准输出是：X-Powered-By: PHP/5.2.1，可在php.ini中增加或修改 expose_php = Off关闭。
+而使用了ThinkPHP，会输出：X-Powered-By: ThinkPHP 2.0，可修改相关类文件关闭
+用.net会输出：X-Powered-By:ASP.NET，可修改web.config 删除
+
+nginx编译的时候可以增加一个模块， HttpHeadersMore ，用来统一删除或修改返回的http header。
+
+另外网页服务器本身也会吐出自己的版本号，http header是Server:xxxxx，这个有时会造成有人专门利用特定版本网页服务器漏洞进行攻击，nginx可以在配置文件中增加或修改server_tokens off 来去除版本号。
+------------
+以前想要把一个元素（input 之类的）设成只读的时候都是用 disabled，后来发现这是不对的。 因为在 HTML 里面，如果一个元素被设置成 disabled， 那么它的值就 不会被发送到  server 端。 正确的做法应该是使用 readonly。 
+-----------------
+
+parseInt 不写第二个参数，结果被"08"、"09"坑哭
+element.innerHTML = text，结果所有大于号小于号&都坑了，然后还被XSS 1.  多 class 症 （病入膏肓的表现就是几乎每个元素上都有不止一个 class）
+2. IMG 的 alt 属性没有意义（比如和title属性一样）
+4. LABEL 元素的 for 属性
+
+----------------------------
+一个应用型的程序员，最重要的不是你对一个东西深入到何种程度，而是利用你学习的东西去解决业务问题的能力，对整个工程的把控能力
+当你每年写的代码行数超过10W行之后。用什么语言基本都是浮云了，他们只是一个解决问题的工具。  ========================
+去除烦人的红色波浪线    我们点一下软件右上角的红色框内的abc，即可去除红色波浪线！
+点击上方的文件不放可打开双窗口
+
+
+============================
+< ? php
+class  Person{
+     function  say(){
+         return   "wo shi xiaoqiang" ;
+    }
+     function  run($speed,$addr){
+         return   "wo shi xiaoqiang,wo zai" .$addr. " 跑步，目前速度是：" .$speed;
+    }
+}
+
+//利用反射实现对象调用方法
+$tom  =   new  Person;
+$med  =   new   ReflectionMethod ($tom,  'say' ); //反射方法对象
+echo  $med  - >   invoke ($tom); //对象调用方法
+
+$xiaoming  =   new  Person;
+$med2  =   new  ReflectionMethod($xiaoming,  'run' );
+echo  $med2  - >   invokeArgs ($xiaoming, array ( '20' , 'xishan' ));
+
+===========================
+
+
+     假设 $var 是任何type。
+     当 empty($var) 为 true 时， (bool)($var) 为 false 。反之亦然。
+     同样，当 is_null($var) 为 true 时， isset($var) 为 false 。反之亦然。
+
+=====================
+$snack_info=  json_decode($snack_info,true);   没有true返回的是对象
+======================
+Unicode是字符集，UTF-32/ UTF-16/ UTF-8是三种字符编码方案。
+
+
+
+
+
+首先要告诉你:如果要成为php高手，一定要学会用linux(Unix).如果不会linux,那你的php一定不精彩.
+看看我这么一段:
+$old_img=”/sites/www.123.com/files/0001.jpg”;
+$new_img=”/sites/www.123.com/thumb/0001.jpg”;
+`/usr/bin/convert $old_img -resize 120×96 $new_img`;
+其实关键的就一句，就完成了生成缩略图这么一个巨大的工程。因为,php中用｀｀运算符就可以直接调用linux中众多的shell脚本命令,完成了许多之前你觉得没辙的工作。所以,认真看看`运算符.如果php中搞不定,那您就考虑,用不管是什么脚本,写好之后用php来调用它. 
+     
+
+
+
+$data = M("XkUser")->find($userId);     $userId 为false    SELECT * FROM `xk_user` LIMIT 1  ，所以要判断$userId的值·
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+

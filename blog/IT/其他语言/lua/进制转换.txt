@@ -1,0 +1,115 @@
+-- region : Convert.lua
+-- Date   : 2017-5-11
+-- Author : david
+ 
+-- Bin 2
+-- Oct 8
+-- Dec 10
+-- Hex 16
+ 
+local _convertTable = {
+    [0] = "0",
+    [1] = "1",
+    [2] = "2",
+    [3] = "3",
+    [4] = "4",
+    [5] = "5",
+    [6] = "6",
+    [7] = "7",
+    [8] = "8",
+    [9] = "9",
+    [10] = "A",
+    [11] = "B",
+    [12] = "C",
+    [13] = "D",
+    [14] = "E",
+    [15] = "F",
+    [16] = "G",
+}
+ 
+local function GetNumFromChar(char)
+    for k, v in pairs(_convertTable) do
+        if v == char then
+            return k
+        end
+    end
+    return 0
+end
+ 
+local function Convert(dec, x)
+ 
+    local function fn(num, t)
+        if(num < x) then
+            table.insert(t, num)
+        else
+            fn( math.floor(num/x), t)
+            table.insert(t, num%x)
+        end
+    end
+ 
+    local x_t = {}
+    fn(dec, x_t, x)
+ 
+    return x_t
+end
+ 
+local function ConvertDec2X(dec, x)
+    local x_t = Convert(dec, x)
+ 
+    local text = ""
+    for k, v in ipairs(x_t) do
+        text = text.._convertTable[v]
+    end
+    return text
+end
+ 
+local function ConvertStr2Dec(text, x)
+    local x_t = {}
+    local len = string.len(text)
+    local index = len
+    while ( index > 0) do
+        local char = string.sub(text, index, index)
+        x_t[#x_t + 1] = GetNumFromChar(char)
+        index = index - 1
+    end
+ 
+    local num = 0
+    for k, v in ipairs(x_t) do
+        num = num + v * math.pow(x, k - 1)
+    end
+    return num
+end
+ 
+local function test()
+    local num = 10086
+ 
+    print("---- dec convert to x ----\n")
+    local text1 = ConvertDec2X(num, 10)
+    local text2 = ConvertDec2X(num, 2)
+    local text3 = ConvertDec2X(num, 8)
+    local text4 = ConvertDec2X(num, 16)
+    local text5 = ConvertDec2X(num, 14)
+    print(string.format("dec %d to dec %s", num, text1))
+    print(string.format("dec %d to bin %s", num, text2))
+    print(string.format("dec %d to Oct %s", num, text3))
+    print(string.format("dec %d to Hex %s", num, text4))
+    print(string.format("dec %d to 14  %s", num, text5))
+ 
+ 
+    print("\n---- string to num ----\n")
+    local num1 = ConvertStr2Dec(text1, 10)
+    local num2 = ConvertStr2Dec(text2, 2)
+    local num3 = ConvertStr2Dec(text3, 8)
+    local num4 = ConvertStr2Dec(text4, 16)
+    local num5 = ConvertStr2Dec(text5, 14)
+    print(string.format("dec:%s to dec %d", text1, num1))
+    print(string.format("bin:%s to dec %d", text2, num2))
+    print(string.format("Oct:%s to dec %d", text3, num3))
+    print(string.format("Hex:%s to dec %d", text4, num4))
+    print(string.format("14:%s to dec %d", text5, num5))
+ 
+end
+ 
+test()
+ 
+-- endregion

@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../style.css" type="text/css" />
+
+
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+
+ <!--if(title)-->
+
+ <!--if(toc)-->
+
+<p>``` 处理器管理     处理器调度         作业调度             把磁盘上用来存放作业信息的专业区域称为<strong>输入井</strong>，把在输入井中等待处理的作业称为<strong>后备作业</strong>             从输入井中选取后备作业装入主存储器的工作称为作业调度             作业调度算法:                 先来先服务（FCFS）方法                 短作业优先算法（SJF）                 最高响应比优化法                     优先级调度算法                 均衡调度算法</p>
+<p>            周转时间=作业完成时刻—作业到达时刻；             平均周转时间=作业周转总时间/作业个数；             带权周转时间=周转时间/服务时间；             平均带权周转时间=带权周转总时间/作业个数；                      进程         进程控制块             标识信息：用于标识一个进程包括进程名。             说明信息：用于说明进程情况，包括进程状态等待原因进程程序和数据存放位置。             现场信息：用于保留进程存放在cup中的信息，包括通用、控制和程序状态字寄存器的内容。             管理信息：用于进程调度包括进程优先数队列指针。         进程调度             准则：                 1.提高处理器的利用率                 2.增大吞吐量                 3.减少等待时间                 4.缩短响应时间。             进程调度算法:                     先来先服务调度算法                 最高优先级调度算法                 时间片轮转调度算法                 多级队列调度算法                 多级反馈队列调度算法                  并发进程             当一个进程独占处理器顺序执行时具有的两个特性：封闭性、可再现性             并发：间断性 失去封闭性、不可再现性             临界区                 并发进程中与共享变量有关的程序段称为临界区；             临界区的三个要求                 1、一次最多一个进程能够进入临界区；                 2、不能让一个进程无限制地在临界区执行；                 3、不能强迫一个进程无限制地等待进入它的临界区</p>
+<p>        进程的互斥与同步             互斥                 有若干个进程都要使用某一共享资源时，任何时刻最多只允许一个进程去使用该资源             同步                 一个进程的执行依赖另一个进程的消息，当一个进程没有得到另一个进程的消息时应等待，直到消息到达才能被唤醒             同步机制应遵循的准则                 空闲让进、忙则等待、有限等待、让权等待             死锁                 条件                     互斥地使用资源、占有且等待资源、非抢夺式分配、循环等待资源；                 解决死锁的方法通常有                     死锁的防止，死锁的避免和死锁的检测                 银行家算法（Banker's Algorithm）                     need = max - allocation                                  同步原语                     PV操作  signal wait                     1、P操作(测试资源是否可用)：将信号量S减去1，若结果小于0，则把调用P（S）的进程置成等待信号量S的状态；                      2、V操作：将信号量S加1，若结果不大于0，则释放一个等待信号量S的进程。                     进程通信             通信原语                 发送原语：send（N,M），功能：把信件M送到指定的信箱N中。                 接收原语：receive（N,Z），功能：从指定的信箱取一封信，存到指定的地址Z中。            线程         进程可以提高CPU的利用率，进程之间的切换是非常耗费资源和时间的，为了能更进一步的提高操作系统的并发性，从而引进了线程</p>
+<p>    中断(才能有异常控制流)         由于某些事件的出现，中止现行进程的运行，而转去处理出现的事件，待适当的时候让被中止的进程继续运行                  中断处理程序             对出现的事件进行处理的程序.是操作系统的组成部分         中断响应                 通常在cup执行完一条指令后，硬件的中断装置立即检查有无中断事件发生，             若有则暂停运行进程的运行而让操作系统中的中断处理程序占用cpu.                 判断是否有中断事件发生；                 判别自愿性中断，只要检查操作码是否为访管指令即可；                 判别强迫性中断，则要检查<strong>中断寄存器</strong>的内容。若为0则无中断，若非0则有中断发生，若有中断发生，保护断点信息。</p>
+<p>     存储管理     分类：         寄存器、主存储器和高速缓冲存储器、辅助存储器（包括磁带、软盘、硬盘、光盘等）三个层次          主要功能         主存空间的分配和回收         主存空间的共享与保护         地址转换以及主存空间的扩充等工作                      存储保护的目的                 保护内存中各区域的信息不被破坏，防止作业执行时相互干扰。为了实现存储保护必须由硬件和软件配合实现          重定位         绝对地址、逻辑地址         静态重定位             在装入一个作业时，把作业中的指令地址和数据地址全部转换成<strong>绝对地址</strong>，在作业执行过程中无需转换         动态重定位             在作业执行时由MMU(Memory Management Unit)来动态转换             动态重定位需要由操作系统和硬件（MMU）相互配合来实现          内存管理方式         单用户连续存储管理             1.设置一个界限寄存器（BR），其内容是主存中用户区的首地址，之前的都是操作系统的             2.绝对地址=逻辑地址+BR的值（界限地址）             3.采用静态重定位。             4.执行指令时要检查：界限地址 &lt;= 绝对地址 &lt;= 最大地址。               若越界，则产生一个“地址越界”中断事件，由操作系统进行处理，以达到存储保护的目的             算法：                 最佳适应算法                  固定分区存储管理             把内存中可分配的用户区域预先划分成若干个连续分区，一旦划分好后，这些分区的大小和个数就固定不变             利用一张“主存分配表”说明各分区情况。表中指出各分区的起始地址和长度，和是否空闲的标志位         可变分区存储管理             主存空间的分配与回收：                 最先适应分配算法：第一个能满足作业长度要求的空闲区；                 最优适应分配算法：能满足作业要求的最小空闲区；                 最坏适应分配算法：能满足作业要求的最大空闲区；                 回收：回收时同时收回相邻的区域；             地址转换和存储保护                 一般均采用动态重定位方式装入作业，需要有硬件地址转换机制作支持：基址寄存器、限长寄存器；                 基址寄存器 &lt;= 绝对地址 &lt;= 限长寄存器             移动技术：                 一是集中分散的空闲区；                 二是便于作业动态扩充主存；                      页式内存管理             解决如何把大块的内存拆成小块             逻辑地址由两部分组成页号和页内地址                 绝对地址＝块号 <em> 块长 + 页内地址                         一单级页表                 逻辑地址：|--页号20位--|--页内偏移量12位|， 处理器会根据前20位来找页表                 存在问题：页表过大需要连续存储    需要2^20</em>4字节             二级页表                 逻辑地址：|--一级页号10位--|--二级页号10位--|--页内偏移量12位--|                                      Linux伙伴系统算法(buddy system)                 把所有的空闲页框分组为11个块链表，每个块链表分别包含大小为1，2，4，8，16，32，64，128，256，512和1024                 个<strong>连续页框</strong>的页框块             局部性原理                 在一段时间内，程序的执行仅限制在某个部分。相应的，它访问的存储空间也局限在某个局域                 局部性表现在两个方面                     时间局部性：访问了某个单元之后可能还会在访问                     空间局部性：访问了某个单元之后，其附近的单元也可能被访问         页式虚拟存储管理             解决内存扩展问题，涉及到页的换入和换出             需要解决的两个问题：                 一是怎样知道主存储器中哪些块已被占用，哪些块是空闲的：主存分配表；采用<strong>位图</strong>实现，每一位代表一块主存                 二是作业信息被分散存放后如何保证作业的正确执行：                 页面调度算法                 先进先出调度算法                 最近最久未使用调度算法（Last Recently Used，LRU）                     选择最近最长时间未访问过的页面予以淘汰         段式内存管理                  段页式内存管理             请求内存地址分三步：                 1.请求段表，获取页表开始地址                 2.请求页表，取出该页对应的物理块号，并根据页内地址算出物理地址                 3.根据物理地址访问具体的内存地址，取出数据</p>
+<p>             文件管理     文件的组织         文件的逻辑结构：逻辑文件：一是流式文件；二是记录式文件；         文件的存储结构：物理文件：存放在存储介质上的文件称为物理文件；             文件存储结构                 顺序文件、链接文件、索引文件                 存取方式：                     顺序存取                         磁带                     随机存取                         硬盘     类型：普通文件、目录文件、字符设备文件、块设备文件</p>
+<p>设备管理     外围设备的分类         独占设备             把在作业执行期间只允许一个作业独占使用的设备称为独占设备         可共享设备             一时刻仍只有一个作业能启动设备，允许他们交替地启动                  功能         异步传输         缓冲管理         设备的分配和释放         实现IO设备的独立性和错误处理         实现IO控制方式                  缓冲技术         操作系统把利用缓冲区来缓解处理器与外围设备之间工作速度不匹配的矛盾而采用的技术称为缓冲技术                          I/O控制方式                 程序查询方式(也称程序轮询方式)             用用户程序直接控制主机与外部设备之间输入/输出操作             CPU必须不停地循环测试I/O设备的状态端口，当发现设备处于准备好(Ready)状态时，CPU就可以与I/O设备进行数据存取操作         中断方式             当I/O设备结束(完成、特殊或异常)时，就会向CPU发出中断请求信号，CPU收到信号就可以采取相应措施。             当某个进程要启动某个设备时，CPU就向相应的设备控制器发出一条设备I/O启动指令，然后CPU又返回做原来的工作。         DMA方式(Direct Memory Access,直接存储器访问)             允许主存储器和I/O设备之间通过“DMA控制器(DMAC)”直接进行批量数据交换，除了在数据传输开始和结束时，             整个过程无须CPU的干预。         I/O通道控制方式             通道(Channel)也称为外围设备处理器、输入输出处理机，是相对于CPU而言的。是一个处理器。             也能执行指令和由指令的程序，只不过通道执行的指令是与外部设备相关的指令。             是一种实现主存与I/O设备进行直接数据交换的控制方式。     用户请求IO，IO中断处理的过程         1.用户请求IO，由于等待I/O操作的完成而被阻塞         2.cpu转去执行其他任务         3.当I/O任务完成，控制器向cpu发中断请求信号         4.cpu转去执行中断处理程序，由中断处理程序唤醒被阻塞的用户进程                  磁盘调度         先来先服务         最短寻找时间优先（ShortestSeekTimeFirst）             这种算法会产生“饥饿”现象。         循环扫描算法（CSCAN）             从里往外扫，扫到最外，然后再返回到最里                           实时系统     进程调度         周期性实时任务可调度的限制条件             sum(Ci/Pi) &lt;= 1 (1 &lt;= i &lt;= m)   Ci为处理时间  Pi为周期时间              ```                                                                                              </p>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

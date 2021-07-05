@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../../style.css" type="text/css" />
+
+
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="../../run_prettify.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+<!-- <div id="header"> -->
+    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
+    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
+<!-- </div> -->
+
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#event">Event</a></li>
+<li><a href="#游戏服务器的tick逻辑">游戏服务器的tick逻辑</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="event">Event</h2>
+<p>事件系统，包括定义事件和动作，触发事件等；</p>
+<h2 id="游戏服务器的tick逻辑">游戏服务器的tick逻辑</h2>
+<p>游戏服务器程序内部都会统一设计所谓的tick机制，这个机制一般来说有两个用途: * 一是许多业务模块都会有定时处理的需求，如：技能Buff计时、时间道具检查、定时给玩家收益（打坐定时回血和蓝，跳舞定时回经验等）等等； * 二是游戏服务器内部会有一些日常主动驱动的事件，如：怪物移动、玩家移动等，这些需求都需要用到这个tick处理，夸张一点说，游戏服务器业务逻辑的处理绝大部分都会有涉及到tick处理的需求。</p>
+<p>那这个相当重要的tick机制是如何实现的呢？目前我们采用的是在主程序大循环中，每一次循环取一次当前系统时间并保留上次进入tick处理时的时间，然后拿这两个时间相比较，若大于tick设定的间隔时间（如：200ms），则进入tick函数处理。这个tick函数中，注册了系统所有业务模块需要定时处理的接口。于是，在大循环中每一次tick调用，就会将系统所有定时处理的接口都处理一遍。于是，问题便也随之而来了... ...</p>
+<pre><code>  显而易见的问题是，所有的定时处理都放在一起调用，这会造成CPU的峰值瞬间拉高，并且也会造成server消息处理的能力下降（因为tick处理的这段时间，本质上是可以作为server对消息的延时处理时间），对于这个问题，我们也有显而易见的处理方法，即将各个业务模块的定时时间进行分类，大致可以分为200ms、500ms、1s、3s、20s、30s、60s等适合各业务需求的定时间隔，这样每一次tick调用时，就不会同时有许多模块一齐处理了，这可以在一定程度上平滑CPU的处理曲线。但也无法避免会在某个时间点，同时有许多（甚至所有）业务模块定时处理的情况，所以，我在想，是否还有其它更好的处理办法呢？
+
+  首先想到的是，是将各个业务模块的定时间隔进行更精确和合理的分类，比较理想的情况是：使各个定时间隔互不包含，即各个间隔之间不要存在整除的关系，如：300ms、500ms、1100ms等，这个可以做一个测试，看一下这样修改后，CPU的处理是否更平滑一些。</code></pre>
+
+<div id="footer">
+    <p class="footer_titleline">忧郁的大能猫的博客</p>
+    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
+    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
+</div>
+</div> <!--wrapper-->
+</body>
+</html>

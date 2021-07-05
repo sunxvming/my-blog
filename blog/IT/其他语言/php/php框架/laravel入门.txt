@@ -1,0 +1,373 @@
+【注意】
+运行laravel的项目报语法错误检查运行的apache，php的版本
+如果有报错且页面空白没有输出，1.看php.ini 里面的display_error  2. ./config/app.php env debug=>true  3.storage/logs里面的权限问题  【中文文档】
+http://laravel-china.org/docs/5.1 【命令行】
+composer install             安装composer包
+
+php artisan key:generate
+
+php artisan db:seed
+php artisan migrate      数据库迁移（建数据库）
+php artisan make:migration create_users_table --create=users
+
+php artisan make:migration add_votes_to_users_table --table=users
+php artisan make:seeder UsersTableSeeder
+php artisan db:seed  (默认 DatabaseSeeder )            php artisan db:seed --class=UserTableSeeder
+
+php artisan make:controller Home/UserController                   命名空间要大些
+
+php artisan make:model Article    也可以指定 命名空间  Models\Auth
+
+php artisan make:middleware OldMiddleware
+
+php artisan config:cache         将所有的配置文件缓存到单个文件。通过此命令将所有的设置选项合并成一个文件，让框架能够更快速的加载。
+
+php artisan down（up ）         开启关闭维护模式
+php artisan queue:work --daemon --sleep=3 --tries=1
+使用队列时，如果队列的代码改了的话，需要重启一下队列的监听器，要不然的话修改是不会生效的 【路 由】
+Route::get('/a/b', function () {
+    return view('welcome');
+});
+Route::get('/', function () {
+    return 'Hello World';
+});
+Route:: match (['get','post'],'/', function () {
+    return view('welcome');
+});
+Route::any('foo', function () {
+    return 'Hello World';
+});
+Route::get('/user/ {id？} ', 'Home\UserController@index')-> where ('id', '[0-9]+');     // { }中的参数只和controller参数中的顺序有关，问号代表可选，where是参数限制
+
+如果你希望路由参数可以总是遵循正则表达式，则可以使用 pattern 方法。你应该在 RouteServiceProvider 的 boot 方法里定义这些模式
+
+
+
+Route::get('user/profile', 'UserController@showProfile')-> name ('profile'); name是为路由的命个名
+
+
+
+echo $url;           //   http://ml.com/aaa/foo
+
+简单模式                            $url = url('/aaa/foo');   等于  URL::to('/aaa/foo')
+路由模式                             route('user');    等于   URL::route('user')   等于   app('url')->route('user');        这个用的是路由的别名生成的
+控制器动作模式                URL::action('ArticlesController@index')        $url = action('FooController@method');
+
+重定向                                $redirect = redirect()->route('profile');  
+
+
+
+Route::group(['prefix' => 'admin','middleware' => 'auth','namespace' => 'Home'], function(){
+    Route::get('/home/user', ['uses'=>'UserController@index']);
+});
+
+
+Route:: controller ('server', 'ServerController');
+
+    /**
+     * 响应对 GET /users/show/1 的请求
+     */
+    public function getShow( $id )
+
+
+防跨网站请求伪造          {{ csrf_field() }}
+【controller】
+$r = $Request->all();                          全部get post
+$ids = $ Request ->get('ids');              特定get post
+$request->input( 'iscopy' ),                 特定get post           $name = $request->input('name', ' Sally ');    默认值        $input = $request->input('products.0.name');  数组用点形式
+
+$uri = $request->path();                     得到uri
+
+$request->is('admin/*')
+
+$url = $request->url();
+
+$request->isMethod('post')
+
+$name = $request->name;                   属性方式访问
+
+$request->has('name')
+
+$input = $request->only(['username', 'password']);
+
+$input = $request->except('credit_card');
+
+$value = $request->cookie('name');
+
+
+
+重定向                    return redirect('act/index');
+
+返回json信息         return response()->json(['name' => 'Abigail', 'state' => 'CA']);
+
+下载文件                return response()->download($pathToFile, $name, $headers);
+
+
+
+文件上传
+$file = $request->file('photo');
+
+if ($request->hasFile('photo')) {
+    //
+}
+if ($request->file('photo')->isValid()) {
+    //
+}
+$request->file('photo')->move($destinationPath, $fileName);
+【model】
+$act = Act::find($id);
+Flight:: all();
+
+$Act = Act::where('id','>',0)->where('status','>=',0);
+$Act->where( 'name', 'like', '%'.$name.'%' );
+$actlist = $Act->orderBy('id','desc')-> get();
+
+
+
+$user = DB::table('users')->where('name', 'John')-> first();
+
+
+
+$actlist =  DB::select("select * from acts where ((start_time >= ? and start_time <= ?) or (end_time >= ? and end_time <= ?)) and status =99 and id !=$id",[$act->start_time,$act->end_time,$act->start_time,$act->end_time]);
+
+
+
+DB:: table ('acts')->where('status','>=',0)->orderBy('id','desc')-> paginate ( 30 )
+
+
+
+添加
+ $flight = new Flight;
+ $flight->name = $request->name;
+
+$flight->save();
+
+
+
+        DB::table('users')->insert([
+            'name' => str_random(10),
+            'email' => str_random(10).'@gmail.com',
+            'password' => bcrypt('secret'),
+        ]);
+
+
+修改
+$act = Act::find($id);
+ $act->status = 9;//等同步
+$act->save( );
+
+
+条件修改
+App\Flight::where('active', 1)
+          ->where('destination', 'San Diego')
+          ->update(['delayed' => 1]);
+
+
+    Act::whereIn('id',$ids)->update([
+         'status' => 9
+   ]);
+
+
+$flight = App\Flight::find(1);
+$flight->delete();
+$deletedRows = App\Flight::where('active', 0)->delete();
+
+
+
+App\Flight::destroy(1);  也是删除
+【view】
+ return view('act.index',[
+        'actlist'=> DB::table('acts')->where('status','>=',0)->orderBy('id','desc')-> paginate ( 30 )
+]);
+if (view()->exists('emails.customer')) {
+
+把数据共享给所有视图
+
+你可以选择直接写在 AppServiceProvider 或是自己生成一个不同的服务提供者来放置这些代码
+
+你可以放置任何你想要的 PHP 代码到 Blade 显示的语法里面： 目前的 UNIX 时间戳为 {{ time() }}。
+
+{{ $name or 'Default' }}
+
+
+
+@forelse ($users as $user)
+    <li>{{ $user->name }}</li>
+@empty
+    <p>没有用户</p>
+@endforelse
+
+
+@include('view.name', ['some' => 'data']) 【其他】
+$this->dispatch(new SyncActJob( $act->id, 'updatefeast' ));  添加任务队列
+
+ 得到配置                $value = config('app.timezone');       
+
+修改配置                config(['app.timezone' => 'America/Chicago']);
+
+抛服务器异常        abort(403, 'Unauthorized action.');
+
+404页面要放在views/error中
+在http/kernel中命名中间件
+<link rel="stylesheet" href="{{ asset ("assets/stylesheets/dashboard.css") }}" />    asset是从public目录下开始的
+
+
+
+路径：
+一、public_path('uploads');
+说明：public文件路径
+二、base_path('xx');
+三、app_path('xx');
+四、resource_path('xx');
+
+
+Generally you would have everything the browser needs to access directly in the public directory. Which usually means: JavaScript, CSS, images, maybe some videos or audio files.
+ 
+resources/assets is meant for things that have to be compiled or minified first. So you would have a few LESS or SASS files in resources/assets and they would get compiled and minified into one CSS file that's put in the public directory.
+
+
+ $a = App\Http\Requests::class;
+ var_dump($a);
+string(44) "Illuminate\Support\Facades\App\Http\Requests"
+
+
+
+
+
+
+
+
+
+
+
+使用dd()函数，将感兴趣的数据输出到浏览器上,快速查看变量的内容
+$items = array( 'items' => ['Pack luggage', 'Go to airport', 'Arrive in San Juan']);
+dd($items);
+使用Log输出感兴趣的信息，Log信息会记录到storage/logs/laravel.log文件中，可以使用Debugbar等查看Log信息
+\Log::debug($items);
+\Log::info('Just an informational message.');
+\Log::warning('Something may be going wrong.');
+\Log::error('Something is definitely going wrong.');
+\Log::critical('Danger, Will Robinson! Danger!');
+可以使用tail -f 命令查看storage/logs/laravel.log文件中加入的log信息
+还可以通过集成FirePHP，使用Firebug控制台输出log信息
+可以直接使用火狐添加FirePHP和Firebug控件
+$monolog = \Log::getMonolog();
+$items = ['Pack luggage', 'Go to airport', 'Arrive in San Juan'];
+$monolog->pushHandler(new \Monolog\Handler\FirePHPHandler());
+$monolog->addInfo('Log Message', array('items' => $items
+这样Log信息就可以在火狐浏览器的控制器中查看到
+使用Laravel Debugbar
+安装Laravel Debugbar
+composer require barryvdh/laravel-debugbar
+在config/app.php中配置providers和aliases
+'providers' => [
+'Debugbar' => 'Barryvdh\Debugbar\Facade'
+]
+'aliases' => [
+'Debugbar' => 'Barryvdh\Debugbar\Facade'
+]
+安装包配置到config文件夹
+php artisan vendor:publish
+在后台输出Debug信息
+\Debugbar::error('Something is definitely going wrong.');
+可以使用debug, info, notice, warning, error, critical, alert和emergency等Debug信息等级
+
+
+
+
+
+
+
+【laravel debugbar】
+1.  composer require barryvdh/laravel-debugbar    --dev          安装包并加在composer的require-dev的节点下
+
+2.  新增Service Provider
+Composer只是將Laravel debugbar安裝到目前專案目錄的/vendor/barryvdh/laravel-debugbar目錄下，此時Laravel還不知道有這個package，必須透過service provider的註冊載入，Laravel debugbar才會啟動。
+/app/Providers/AppServiceProvider.php namespace App\Providers; use Illuminate\Support\ServiceProvider;   class AppServiceProvider extends ServiceProvider {     /**      * Bootstrap any application services.      *      * @return void      */     public function boot()     {         //     }       /**      * Register any application services.      *      * @return void      */     public function register()     {         if ($this->app->environment() == 'local')         {             $this->app->register('Barryvdh\Debugbar\ServiceProvider');         }     } }
+
+x
+ 
+1
+2
+/app/Providers/AppServiceProvider.php
+3
+namespace App\Providers;
+4
+use Illuminate\Support\ServiceProvider;
+5
+ 
+6
+class AppServiceProvider extends ServiceProvider
+7
+{
+8
+    /**
+9
+     * Bootstrap any application services.
+10
+     *
+11
+     * @return void
+12
+     */
+13
+    public function boot()
+14
+    {
+15
+        //
+16
+    }
+17
+ 
+18
+    /**
+19
+     * Register any application services.
+20
+     *
+21
+     * @return void
+22
+     */
+23
+    public function register()
+24
+    {
+25
+        if ($this->app->environment() == 'local')
+26
+        {
+27
+            $this->app->register('Barryvdh\Debugbar\ServiceProvider');
+28
+        }
+29
+    }
+30
+}
+在register()加入以上程式碼，只有在本機開發環境時，Laravel debugbar才會被註冊載入，如此可避免Laravel debugbar在正式上線主機被註冊載入。
+
+在Laravel debugbar官網的說明檔，是教人直接在config/app.php的providers加入Barryvdh\Debugbar\ServiceProvider::class，這樣雖然可行，但會導致正式上線主機也會載入Laravel debugbar，雖然APP_DEBUG=false會使Laravel debugbar不會在正式上線主機執行，但還是會影響Laravel啟動時間，也較浪費記憶體。
+
+
+
+3. 為了方便我們更容易使用Laravel debugar顯示變數，建議將Laravel Debugbar加入facade。
+config/app.php
+'aliases' => [
+    (略)
+    'Validator' => Illuminate\Support\Facades\Validator::class,
+    'View'      => Illuminate\Support\Facades\View::class,
+    // Laravel Debugbar
+    'Debugbar' => Barryvdh\Debugbar\Facade::class,
+    ],
+使用时可以   use  Debugbar;      就可以了
+
+
+4. 將/vendor/barryvdh/laravel-debugbar/config/debugbar.php複製到/config/debugbar.php，將來你可以直接修改專案下的/config/debugbar.php對Laravel Debugbar進行設定。
+
+5. Debugbar::info($object);
+Debugbar::error('Error!');
+Debugbar::warning('Watch out…');
+6. 在composer install時，切記要安裝加上 --no-dev 參數，
