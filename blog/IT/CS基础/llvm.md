@@ -48,7 +48,7 @@ LLVM的命名最早源自于底层虚拟机（Low Level Virtual Machine）的
 ### Clang和LLVM关系
 Clang是一个C++编写、基于LLVM、发布于LLVM BSD许可证下的C/C++/Objective-C/Objective-C++编译器。
 那么为什么已经有了GCC还要开发Clang呢？Clang相比于GCC有什么优势呢？其实，这也是Clang当初在设计开发的时候所主要考虑的原因。Clang是一个高度模块化开发的轻量级编译器，它的编译速度快、占用内存小、非常方便进行二次开发。
-![](imgs/d6dfa16c-4be3-4e42-83a8-4be8193ec765.png)
+![](/imgs/d6dfa16c-4be3-4e42-83a8-4be8193ec765.png)
 
 对应到这个图中，我们就可以非常明确的找出它们的对应关系。LLVM与Clang是C/C++编译器套件。对于整个LLVM的框架来说，包含了Clang，因为Clang是LLVM的框架的一部分，是它的一个C/C++的前端。从源代码角度来讲，clang是基于LLVM的一个工具。而功能的角度来说，LLVM可以认为是一个编译器的后端，而clang是一个编译器的前端，他们的关系更加的明了，一个编译器前端想要程序最终变成可执行文件，是缺少不了对编译器后端的介绍的。
 
