@@ -1,7 +1,5 @@
 <!-- filetree -->
 
- - [README](./README.html)
- - [index](./index.html)
  - **blog/**
    - **IT/**
      - **CS基础/**
@@ -287,7 +285,5 @@
        - **安全/**
          - [DDOS攻击](./blog/IT/应用方向/安全/DDOS攻击.html)
          - [图解密码学](./blog/IT/应用方向/安全/图解密码学.html)
- - **css/**
- - **template/**
 
 <!-- filetreestop -->

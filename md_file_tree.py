@@ -38,6 +38,11 @@ HEADER_LINE_RE = re.compile("^(#+)\s*(.*?)\s*(#+$|$)", re.IGNORECASE)
 HEADER1_UNDERLINE_RE = re.compile("^-+$")
 HEADER2_UNDERLINE_RE = re.compile("^=+$")
 
+# 不处理此目录下的markdown文件
+exclude_dir = ('css', 'template')
+exclude_file = ('index.md', 'README.md')
+
+
 
 def toggles_block_quote(line):
     """Returns true if line toggles block quotes on or off
@@ -101,8 +106,10 @@ def create_index(cwd, headings=False, wikilinks=False):
     md_exts = ['.markdown', '.mdown', '.mkdn', '.mkd', '.md']
     md_lines.append('<!-- filetree -->\n\n')
     for root, dirs, files in os.walk(cwd):
-        files = sorted([f for f in files if not f[0] == '.' and os.path.splitext(f)[-1] in md_exts])
-        dirs[:] = sorted([d for d in dirs if not d[0] == '.'])
+        files = sorted([f for f in files if not f[0] == '.' and os.path.splitext(f)[-1] in md_exts and f not in exclude_file])
+   
+        dirs[:] = sorted([d for d in dirs if (not d[0] == '.' and d not in exclude_dir)])
+  
         if 1:  # len(files) > 0:
             level = root.count(os.sep) - base_level
             indent = '  ' * level
