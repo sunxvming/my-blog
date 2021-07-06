@@ -228,7 +228,7 @@ p -&gt; display();</code></pre>
 <li>仔细观察虚函数表，可以发现基类的虚函数在 vtable 中的索引（下标）是固定的，不会随着继承层次的增加而改变，派生类新增的虚函数放在 vtable 的最后。如果派生类<strong>有同名的虚函数遮蔽（覆盖）了基类的虚函数</strong>，那么将使用派生类的虚函数<strong>替换</strong>基类的虚函数(<strong>这就是多态的原因</strong>)。</li>
 </ul>
 <div class="figure">
-<img src="index_files/27b003e2-81ea-4aaa-afb9-1cceb27047b7.png" />
+<img src="/imgs/27b003e2-81ea-4aaa-afb9-1cceb27047b7.png" />
 </div>
 <h2 id="c-typeid运算符获取类型信息">C++ typeid运算符：获取类型信息</h2>
 <p><code>typeid</code> 运算符用来获取一个表达式的类型信息。类型信息对于编程语言非常重要，它描述了数据的各种属性： * 对于基本类型（int、float 等C++内置类型）的数据，类型信息所包含的内容比较简单，主要是指数据的类型。 * 对于类类型的数据（也就是对象），类型信息是指<strong>对象所属的类、所包含的成员、所在的继承关系</strong>等。</p>
@@ -239,7 +239,7 @@ p -&gt; display();</code></pre>
 <p>C++ 标准规定，type_info 类至少要有如下所示的 4 个 public 属性的成员函数，其他的扩展函数编译器开发者可以自由发挥，不做限制。 1) 原型：const char* name() const; 2) 原型：bool before (const type_info&amp; rhs) const; 3) 原型：bool operator== (const type_info&amp; rhs) const; 4) 原型：bool operator!= (const type_info&amp; rhs) const;</p>
 <h2 id="c-rtti机制精讲c运行时类型识别机制">C++ RTTI机制精讲（C++运行时类型识别机制）</h2>
 <p>RTTI（Run-Time Type Identification，RTTI）</p>
-<p>一般情况下，在编译期间就能确定一个表达式的类型，但是<strong>当存在多态时，有些表达式的类型在编译期间就无法确定了</strong>，必须等到程序运行后根据实际的环境来确定。<strong>实现原理</strong>就是在虚函数表中添加了一个指向type_info的指针。 比如：一个基类对象有两个赋值的分支 在编译期间确定的情况下，有一个对象的方法调用是直接就load相应的代码段了，如果是虚函数的话，需要在运行是<strong>确定其类型</strong>，然后通过虚函数指针找到虚函数表然后再找到对应的方法。 带有虚函数的对象模型： <img src="index_files/e1db42a8-f727-43e5-8bba-ca507aa05efb.png" /> 编译器会在虚函数表 vftable 的开头插入一个指针，指向当前类对应的 <code>type_info</code> 对象。当程序在<strong>运行阶段获取类型信息时（调用typeid）</strong>，可以通过对象指针 p 找到虚函数表指针 vfptr，再通过 vfptr 找到 type_info 对象的指针，进而取得类型信息。下面的代码演示了这种转换过程：<code>**(p-&gt;vfptr - 1)</code> 例子：</p>
+<p>一般情况下，在编译期间就能确定一个表达式的类型，但是<strong>当存在多态时，有些表达式的类型在编译期间就无法确定了</strong>，必须等到程序运行后根据实际的环境来确定。<strong>实现原理</strong>就是在虚函数表中添加了一个指向type_info的指针。 比如：一个基类对象有两个赋值的分支 在编译期间确定的情况下，有一个对象的方法调用是直接就load相应的代码段了，如果是虚函数的话，需要在运行是<strong>确定其类型</strong>，然后通过虚函数指针找到虚函数表然后再找到对应的方法。 带有虚函数的对象模型： <img src="/imgs/e1db42a8-f727-43e5-8bba-ca507aa05efb.png" /> 编译器会在虚函数表 vftable 的开头插入一个指针，指向当前类对应的 <code>type_info</code> 对象。当程序在<strong>运行阶段获取类型信息时（调用typeid）</strong>，可以通过对象指针 p 找到虚函数表指针 vfptr，再通过 vfptr 找到 type_info 对象的指针，进而取得类型信息。下面的代码演示了这种转换过程：<code>**(p-&gt;vfptr - 1)</code> 例子：</p>
 <pre><code>//基类
 class People{
 public:

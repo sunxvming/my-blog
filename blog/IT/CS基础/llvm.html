@@ -202,7 +202,7 @@ jQuery(document).ready(function(){
 <p>对应到这个图中，我们就可以非常明确的找出它们的对应关系。LLVM与Clang是C/C++编译器套件。对于整个LLVM的框架来说，包含了Clang，因为Clang是LLVM的框架的一部分，是它的一个C/C++的前端。从源代码角度来讲，clang是基于LLVM的一个工具。而功能的角度来说，LLVM可以认为是一个编译器的后端，而clang是一个编译器的前端，他们的关系更加的明了，一个编译器前端想要程序最终变成可执行文件，是缺少不了对编译器后端的介绍的。</p>
 <h2 id="llvmir"> LLVM IR</h2>
 <p>传统的静态编译器分为三个阶段：前端（Frontend）-- 优化器（Optimizer）-- 后端（Backend） 而大名鼎鼎的GCC编译器在设计的时候没有做好层次划分，导致很多数据在前端和后端耦合在了一起，所以GCC支持一种新的<strong>编程语言</strong>或<strong>新的目标架构</strong>特别困难。</p>
-<p>有了GCC的前车之鉴，LLVM进行了如下图所示的三阶段设计 <img src="index_files/087b6311-5cb4-4c24-af1b-9ef0e0688db5.jpg" /> <em> 前端可以使用不同的编译工具对代码文件做词法分析以形成抽象语法树AST，然后将分析好的代码转换成LLVM的中间表示IR（intermediate representation）； </em> 中间部分的优化器只对中间表示IR操作，通过一系列的pass对IR做优化； * 后端负责将优化好的IR解释成对应平台的机器码。</p>
+<p>有了GCC的前车之鉴，LLVM进行了如下图所示的三阶段设计 <img src="/imgs/087b6311-5cb4-4c24-af1b-9ef0e0688db5.jpg" /> <em> 前端可以使用不同的编译工具对代码文件做词法分析以形成抽象语法树AST，然后将分析好的代码转换成LLVM的中间表示IR（intermediate representation）； </em> 中间部分的优化器只对中间表示IR操作，通过一系列的pass对IR做优化； * 后端负责将优化好的IR解释成对应平台的机器码。</p>
 <p>LLVM的优点在于，中间表示IR代码编写良好，而且不同的前端语言最终都转换成同一种的IR。 这样支持一种<strong>新的编程语言</strong>只需重新实现一个前端 支持一种<strong>新的目标架构</strong>只需重新实现一个后端 前端和后端连接枢纽就是LLVM IR 为什么使用三段式设计？优势在哪里？首先解决一个很大的问题：假如有N种语言（C、OC、C++、Swift...）的前端，同时也有M个架构（模拟器、arm64、x86...）的target，是否就需要<code>N*M</code>个编译器？三段式架构的价值就提现出来了，通过共享优化器的中转，很好的解决了这个问题。 LLVM IR<strong>本质上一种与源编程语言和目标机器架构无关的通用中间表示</strong>，是LLVM项目的核心设计和最大的优势。 &gt; LLVM IR是一种类似于RISC的低级虚拟指令集</p>
 <h3 id="llvmir编程基本流程"> LLVM IR编程基本流程</h3>
 <p>1.创建一个Module 2.在Module中添加Function 3.在Function中添加BasicBlock 4.在BasicBlock中添加指令 5.创建一个 ExecutionEngine 6.使用 ExecutionEngine 来运行IR</p>
