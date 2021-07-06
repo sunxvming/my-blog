@@ -40,7 +40,7 @@ webbench -c 并发数 -t 运行测试时间 URL
 压测前 `ps -ef| wc -l`  显示85个进程
 压测后 `webbench -c 500 -t 30 http://www.baidu.com/` 显示580个进程
 说明webbench的每个连接都会生成一个进程
-![](index_files/e1ee675b-df9a-4e9f-99de-e2ada735f956.png)
+![](/imgs/e1ee675b-df9a-4e9f-99de-e2ada735f956.png)
 
 查看系统中可创建的进程数实际值  cat /proc/sys/kernel/pid_max     32768  也就是最多能fork三万多进程
 

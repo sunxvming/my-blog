@@ -40,4 +40,4 @@ password:111
 ```
 
 客户端连接界面
-![](index_files/_u5FAE_u4FE1_u622A_u56FE_20210415173011.png)
+![](/imgs/_u5FAE_u4FE1_u622A_u56FE_20210415173011.png)

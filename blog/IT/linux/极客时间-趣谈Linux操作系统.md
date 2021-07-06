@@ -9,7 +9,7 @@
 
 
 ## 02 | 学习路径：爬过这六个陡坡，你就能对Linux了如指掌
-![](index_files/d430ef14-b0be-454e-9f72-63504628d2ad.jpg)
+![](/imgs/d430ef14-b0be-454e-9f72-63504628d2ad.jpg)
 
 
 * 熟练使用 Linux命令行、
@@ -30,8 +30,8 @@
 
 
 ## 03 | 你可以把Linux内核当成一家软件外包公司的老板
-![](index_files/79b899d5-aebf-41ab-9c41-10fc1609a733.jpg)
-![](index_files/b2bd1b74-f467-42cc-a40b-659a977da497.jpg)
+![](/imgs/79b899d5-aebf-41ab-9c41-10fc1609a733.jpg)
+![](/imgs/b2bd1b74-f467-42cc-a40b-659a977da497.jpg)
 
 
 ## 04 | 快速上手几个Linux命令：每家公司都有自己的黑话
@@ -51,7 +51,7 @@ centos /usr/lib/systemd/system
 
 ## 05 | 学会几个系统调用：咱们公司能接哪些类型的项目？
 ## 06 | x86架构：有了开放的架构，才能打造开放的营商环境
-![](index_files/c14d9aae-3e72-40d7-9d79-90c697eb09fd.jpg)
+![](/imgs/c14d9aae-3e72-40d7-9d79-90c697eb09fd.jpg)
 CPU 和内存来来回回传数据，靠的都是总线。其实总线上主要有两类
 数据，一个是地址数据，也就是我想拿内存中哪个位置的数据，这类总线叫地址总线
 （Address Bus）；另一类是真正的数据，这类总线叫数据总线（Data Bus）。
@@ -61,7 +61,7 @@ CPU 和内存来来回回传数据，靠的都是总线。其实总线上主要�
 * 而数据总线的位数，决定了一次能拿多少个数据进来。例如只有两位，那 CPU 一次只能从
 内存拿两位数。要想拿八位，就要拿四次。位数越多，一次拿的数据就越多，访问速度也就
 越快。
-![](index_files/ddb16d0f-d68f-4b0d-9fff-c1f1382bf1ee.jpg)
+![](/imgs/ddb16d0f-d68f-4b0d-9fff-c1f1382bf1ee.jpg)
 
 
 ## 07 | 从BIOS到bootloader：创业伊始，有活儿老板自己上

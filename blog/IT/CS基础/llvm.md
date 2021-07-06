@@ -60,7 +60,7 @@ Clang是一个C++编写、基于LLVM、发布于LLVM BSD许可证下的C/C++/Ob
 
 
 有了GCC的前车之鉴，LLVM进行了如下图所示的三阶段设计
-![](index_files/087b6311-5cb4-4c24-af1b-9ef0e0688db5.jpg)
+![](/imgs/087b6311-5cb4-4c24-af1b-9ef0e0688db5.jpg)
 * 前端可以使用不同的编译工具对代码文件做词法分析以形成抽象语法树AST，然后将分析好的代码转换成LLVM的中间表示IR（intermediate representation）；
 * 中间部分的优化器只对中间表示IR操作，通过一系列的pass对IR做优化；
 * 后端负责将优化好的IR解释成对应平台的机器码。

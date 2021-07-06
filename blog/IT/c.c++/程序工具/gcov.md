@@ -16,7 +16,7 @@
 
 
 ## 二、gcov过程概况
-![](index_files/1f4e51ca-1e99-4ace-a1db-829636d1dd44.png)
+![](/imgs/1f4e51ca-1e99-4ace-a1db-829636d1dd44.png)
 ### 主要工作流
 * 1) 编译前，在编译器中加入编译器参数`-fprofile-arcs -ftest-coverage`；
 * 2) 源码经过编译预处理，然后编译成汇编文件，在生成汇编文件的同时完成插桩。插桩是在生成汇编文件的阶段完成的，因此插桩是汇编时候的插桩，每个桩点插入3~4条汇编语句，直接插入生成的*.s文件中，最后汇编文件汇编生成目标文件，生成可执行文件；并且生成关联BB和ARC的.gcno文件；
@@ -36,7 +36,7 @@
 左图是没有运行可执行文件的gcov文件，右图是运行了可执行文件的gcov文件
 * 其中`#####`表示未运行的行 
 * 每行前面的数字表示行运行的次数
-![](index_files/9da05fe4-8822-4bc5-944a-4d33c649a53b.png)
+![](/imgs/9da05fe4-8822-4bc5-944a-4d33c649a53b.png)
 
 
 
@@ -91,13 +91,13 @@ genhtml -o cover_report --legend --title "lcov"  --prefix=./ final.info
 最终生成的可视化文件在cover_report中，用浏览器打开如下：
 
 覆盖率报告是按目录就行组织的，左侧的路径可以点开，详细看每个文件哪些行被覆盖到了，下面这张图是总的概览
-![](index_files/7cd7909b-d44f-42ff-86f2-56e7dfb1944c.png)
+![](/imgs/7cd7909b-d44f-42ff-86f2-56e7dfb1944c.png)
 
 下图是各个文件的列表
-![](index_files/614fd721-9304-43e1-bff4-04e550787526.png)
+![](/imgs/614fd721-9304-43e1-bff4-04e550787526.png)
 
 下图为具体文件的覆盖率报告
-![](index_files/50653059-6148-43a9-92d5-eee19ececfa2.png)
+![](/imgs/50653059-6148-43a9-92d5-eee19ececfa2.png)
 
 **lcov常用的参数**
 ```

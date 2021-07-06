@@ -558,9 +558,9 @@ Windows上使用CMake也很方便，除了传统的命令行方式使用CMake，
 source code编辑框就是输入代码的所在的路径，这个路径能够找到一个CMakeLists.txt文件。
 build the binaries编辑框就是编译输出的中间文件和最终的二进制文件的目录。
 Add Entry添加预定义的变量
-![](index_files/c8b32e20-2b60-493b-b07b-f0c644b1f3ab.png)
+![](/imgs/c8b32e20-2b60-493b-b07b-f0c644b1f3ab.png)
 
 
 因为CMake最终通过CMakeLists.txt文件生成Windows上对应的vs工程文件，不同的vs版本也会影响到最终生成vs工程文件，所以configure对话框就是选择代码编译工具的，如图所示：
-![](index_files/4b2979e6-edd8-42d0-9c31-25f0f795e993.jpg)
+![](/imgs/4b2979e6-edd8-42d0-9c31-25f0f795e993.jpg)
 

@@ -32,11 +32,11 @@ cat /proc/cpuinfo| grep "processor"| wc -l
 
 #### CPU架构
 **多个物理CPU**，各个CPU通过总线进行通信，效率比较低，如下
-![](index_files/f8114635-8c8a-4616-a33f-a5e8469b5e69.jpg)
+![](/imgs/f8114635-8c8a-4616-a33f-a5e8469b5e69.jpg)
 **多核CPU**，不同的核通过L2 cache进行通信，存储和外设通过总线与CPU通信，如下：
-![](index_files/52ced935-da1d-4170-8b27-09aea0f08958.jpg)
+![](/imgs/52ced935-da1d-4170-8b27-09aea0f08958.jpg)
 **多核超线程**,每个核有两个逻辑的处理单元，两个线程共同分享一个核的资源，如下：
-![](index_files/2637ce7c-ce61-4f29-8c0f-8908e5a2d716.jpg)
+![](/imgs/2637ce7c-ce61-4f29-8c0f-8908e5a2d716.jpg)
 目前大部分CPU在同一时间只能运行一个线程，超线程的处理器可以在同一时间处理多个线程，因此可以利用超线程特性提高系统性能。在linux系统下只有运行SMP（Symmetrical Multi-Processing，对称多处理）内核才能支持超线程。
 另外linux内核会将多核的处理器**当做多个单独的CPU来识别**，例如，两个4核的CPU会被当成8个单个CPU，从性能角度讲，两个4核的CPU整体性能要比8个单核CPU低25%-30%。
 

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+
+# 常用参数:
+# -r 是递归查找，查找所有文件包含子目录
+# -i 忽略大小写
+# -n 是显示行号
+# -l 只列出匹配的文件名
+
+
+# 查找 ![](index_files
+# grep "\!\[\](index_files" -rn blog
+
+# 查找imgs
+# grep grep "imgs" -rn blog
+
+#`![]`这三个符号都需要用`\`进行转义 
+
+sed -i "s/\!\[\](index_files/\!\[\](\/imgs/g" `grep "\!\[\](index_files" -rl blog`
+
+

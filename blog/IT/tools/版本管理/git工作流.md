@@ -16,17 +16,17 @@ Git 作为一个源码管理系统，不可避免涉及到多人协作。
 
 ### 1. 基本的 Git 工作流
 所有提交都直接添加到 master 分支。
-![](index_files/21b10162-d243-4b3b-b344-45ba79878e61.jpg)
+![](/imgs/21b10162-d243-4b3b-b344-45ba79878e61.jpg)
 
 ### 2. Git 功能分支工作流
 开发新功能从master抽取分支，开发完毕合并到主干。
-![](index_files/789436e8-8925-40f2-870d-3d593908c7b3.jpg)
+![](/imgs/789436e8-8925-40f2-870d-3d593908c7b3.jpg)
 
 ### 3. 带有 Develop 分支的 Git 功能分支工作流
 Git 功能分支工作流相似，但它的 develop 分支与 master 分支并行存在。
 master 分支始终代表生产环境的状态。每当团队想要部署代码到生产环境时，他们都会部署 master 分支。
 Develop 分支代表针对下一版本的最新交付的代码。开发人员从 develop 分支创建新分支，并开发新功能。功能开发完毕后，将对其进行测试，与 develop 分支合并，在合并了其他功能分支的情况下使用 develop 分支的代码进行测试，然后与 master 分支合并。
-![](index_files/b5ac1923-7a8b-482e-90ee-d9721f3fe488.jpg)
+![](/imgs/b5ac1923-7a8b-482e-90ee-d9721f3fe488.jpg)
 
 
 
@@ -51,7 +51,7 @@ Release 分支不包含新功能相关的代码。仅将与发布相关的代�
 
 
 
-![](index_files/fd73ca22-35e5-4068-9df6-348cecac9883.jpg)
+![](/imgs/fd73ca22-35e5-4068-9df6-348cecac9883.jpg)
 
 
 
