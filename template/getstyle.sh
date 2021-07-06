@@ -1,7 +1,7 @@
 #/bin/bash
 
 src=$1
-style="style.css"
+style="./css/style.css"
 
 while [ "`dirname ${src}`" != "." ]
 do

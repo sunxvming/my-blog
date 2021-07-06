@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
 
 
 
@@ -134,7 +134,7 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="http://www.sunxvming.com/wp-content/uploads/2019/10/QQ图片20191023170517.jpg">
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
             </span>
 
 
@@ -196,11 +196,11 @@ pandoc &lt;files&gt; &lt;options&gt;
 
 # markdown转html
 # -s：生成有头尾的独立文件（HTML，LaTeX，TEI 或 RTF），比如html会带有&lt;html&gt;&lt;header&gt;&lt;body&gt;标签
-pandoc input.md -c ../../../style.css  -f markdown -t html -s -o input.html
+pandoc input.md -c ../../.././css/style.css  -f markdown -t html -s -o input.html
 
 
 # 指定css样式文件
-pandoc demo.md -c ../../../style.css -o demo.html
+pandoc demo.md -c ../../.././css/style.css -o demo.html
 pandoc input.md -c github-pandoc.css  -f markdown -t html -s -o input.html
 
 
