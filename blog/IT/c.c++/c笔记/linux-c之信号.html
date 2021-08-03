@@ -12,6 +12,9 @@
 
 
 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
 jQuery(document).ready(function(){
@@ -28,19 +31,13 @@ jQuery(document).ready(function(){
 });
 </script>
 
-<script type="text/javascript" src="../../run_prettify.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
 
 </head>
 
 
 <body>
 <div id="wrapper">
-
-<!-- <div id="header"> -->
-    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
-    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
-<!-- </div> -->
-
 
 
 <style type="text/css">
@@ -126,6 +123,17 @@ jQuery(document).ready(function(){
 .io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
     background: rgba(0, 0, 0, 0.01);
 }
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
 </style>
 
 
@@ -317,11 +325,15 @@ int sigsuspend(const sigset_t *sigmask);</code></pre>
 <h2 id="关于sigchld信号"> 关于SIGCHLD信号</h2>
 <p>进程一章讲过用 wait 和 waitpid 函数清理僵尸进程，父进程可以阻塞等待子进程结束，也可以非 阻塞地查询是否有子进程结束等待清理（也就是轮询的方式）。采用第一种方式，父进程阻塞 了就不能处理自己的工作了；采用第二种方式，父进程在处理自己的工作的同时还要记得时不 时地轮询一下，程序实现复杂。 其实，子进程在终止时会给父进程发 SIGCHLD 信号，该信号的默认处理动作是忽略，父进程可以 自定义 SIGCHLD 信号的处理函数，这样父进程只需专心处理自己的工作，不必关心子进程了，子 进程终止时会通知父进程，父进程在信号处理函数中调用 wait 清理子进程即可。</p>
 
-<div id="footer">
-    <p class="footer_titleline">忧郁的大能猫的博客</p>
-    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
-    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
-</div>
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
 </div> <!--wrapper-->
 </body>
 </html>

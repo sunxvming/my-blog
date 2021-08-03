@@ -12,6 +12,9 @@
 
 
 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
 jQuery(document).ready(function(){
@@ -28,19 +31,13 @@ jQuery(document).ready(function(){
 });
 </script>
 
-<script type="text/javascript" src="../../run_prettify.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
 
 </head>
 
 
 <body>
 <div id="wrapper">
-
-<!-- <div id="header"> -->
-    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
-    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
-<!-- </div> -->
-
 
 
 <style type="text/css">
@@ -126,6 +123,17 @@ jQuery(document).ready(function(){
 .io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
     background: rgba(0, 0, 0, 0.01);
 }
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
 </style>
 
 
@@ -176,11 +184,15 @@ jQuery(document).ready(function(){
 <p>             文件管理     文件的组织         文件的逻辑结构：逻辑文件：一是流式文件；二是记录式文件；         文件的存储结构：物理文件：存放在存储介质上的文件称为物理文件；             文件存储结构                 顺序文件、链接文件、索引文件                 存取方式：                     顺序存取                         磁带                     随机存取                         硬盘     类型：普通文件、目录文件、字符设备文件、块设备文件</p>
 <p>设备管理     外围设备的分类         独占设备             把在作业执行期间只允许一个作业独占使用的设备称为独占设备         可共享设备             一时刻仍只有一个作业能启动设备，允许他们交替地启动                  功能         异步传输         缓冲管理         设备的分配和释放         实现IO设备的独立性和错误处理         实现IO控制方式                  缓冲技术         操作系统把利用缓冲区来缓解处理器与外围设备之间工作速度不匹配的矛盾而采用的技术称为缓冲技术                          I/O控制方式                 程序查询方式(也称程序轮询方式)             用用户程序直接控制主机与外部设备之间输入/输出操作             CPU必须不停地循环测试I/O设备的状态端口，当发现设备处于准备好(Ready)状态时，CPU就可以与I/O设备进行数据存取操作         中断方式             当I/O设备结束(完成、特殊或异常)时，就会向CPU发出中断请求信号，CPU收到信号就可以采取相应措施。             当某个进程要启动某个设备时，CPU就向相应的设备控制器发出一条设备I/O启动指令，然后CPU又返回做原来的工作。         DMA方式(Direct Memory Access,直接存储器访问)             允许主存储器和I/O设备之间通过“DMA控制器(DMAC)”直接进行批量数据交换，除了在数据传输开始和结束时，             整个过程无须CPU的干预。         I/O通道控制方式             通道(Channel)也称为外围设备处理器、输入输出处理机，是相对于CPU而言的。是一个处理器。             也能执行指令和由指令的程序，只不过通道执行的指令是与外部设备相关的指令。             是一种实现主存与I/O设备进行直接数据交换的控制方式。     用户请求IO，IO中断处理的过程         1.用户请求IO，由于等待I/O操作的完成而被阻塞         2.cpu转去执行其他任务         3.当I/O任务完成，控制器向cpu发中断请求信号         4.cpu转去执行中断处理程序，由中断处理程序唤醒被阻塞的用户进程                  磁盘调度         先来先服务         最短寻找时间优先（ShortestSeekTimeFirst）             这种算法会产生“饥饿”现象。         循环扫描算法（CSCAN）             从里往外扫，扫到最外，然后再返回到最里                           实时系统     进程调度         周期性实时任务可调度的限制条件             sum(Ci/Pi) &lt;= 1 (1 &lt;= i &lt;= m)   Ci为处理时间  Pi为周期时间              ```                                                                                              </p>
 
-<div id="footer">
-    <p class="footer_titleline">忧郁的大能猫的博客</p>
-    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
-    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
-</div>
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
 </div> <!--wrapper-->
 </body>
 </html>

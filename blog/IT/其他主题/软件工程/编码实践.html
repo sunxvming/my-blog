@@ -12,6 +12,9 @@
 
 
 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
 jQuery(document).ready(function(){
@@ -28,19 +31,13 @@ jQuery(document).ready(function(){
 });
 </script>
 
-<script type="text/javascript" src="../../run_prettify.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
 
 </head>
 
 
 <body>
 <div id="wrapper">
-
-<!-- <div id="header"> -->
-    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
-    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
-<!-- </div> -->
-
 
 
 <style type="text/css">
@@ -126,6 +123,17 @@ jQuery(document).ready(function(){
 .io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
     background: rgba(0, 0, 0, 0.01);
 }
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
 </style>
 
 
@@ -210,11 +218,15 @@ jQuery(document).ready(function(){
 <p>3个人搭档做一个模块，每天要抽出一点时间来跟其他两位阐述自己的代码，这样可以使这三个人更加了解这个模块，也可以顺便再梳理下自己的思路，及相互监督的作用，以及完成之后可以让任何一个人来维护这个模块</p>
 <p>项目是在原来的系统上开发的要问清客户原来的系统的优缺点，因为顾客会在新旧系统之间计较，不爽的地方会即刻发现</p>
 
-<div id="footer">
-    <p class="footer_titleline">忧郁的大能猫的博客</p>
-    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
-    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
-</div>
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
 </div> <!--wrapper-->
 </body>
 </html>

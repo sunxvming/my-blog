@@ -12,6 +12,9 @@
 
 
 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
 jQuery(document).ready(function(){
@@ -28,19 +31,13 @@ jQuery(document).ready(function(){
 });
 </script>
 
-<script type="text/javascript" src="../../run_prettify.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
 
 </head>
 
 
 <body>
 <div id="wrapper">
-
-<!-- <div id="header"> -->
-    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
-    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
-<!-- </div> -->
-
 
 
 <style type="text/css">
@@ -126,6 +123,17 @@ jQuery(document).ready(function(){
 .io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
     background: rgba(0, 0, 0, 0.01);
 }
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
 </style>
 
 
@@ -177,11 +185,15 @@ jQuery(document).ready(function(){
 }</code></pre>
 <p><em> 数组越界 </em> 悬空指针 <em> 内存泄漏 </em> 除0 <em> 拼写错误 </em> 误删文件 <em> 不可重入函数的操作，同时修改了全局的变量，本质原因是异步操作，线程不安全 </em> 双层循环造成cpu消耗过大 <em> 函数参数错误 单位不对：比如秒、毫秒 </em> 段错误 每次崩溃都报段错误，而且每次错误的位置又都不太相同，错误又出在系统函数上。那gdb报错的位置不一定是真正出错的位置，可能是别的地方内存溢出了原因，需要具体的来看。 * gdb启动和普通启动的表现不一样 比如网络连接的时候</p>
 
-<div id="footer">
-    <p class="footer_titleline">忧郁的大能猫的博客</p>
-    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
-    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
-</div>
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
 </div> <!--wrapper-->
 </body>
 </html>

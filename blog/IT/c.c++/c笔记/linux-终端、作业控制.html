@@ -12,6 +12,9 @@
 
 
 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
 jQuery(document).ready(function(){
@@ -28,19 +31,13 @@ jQuery(document).ready(function(){
 });
 </script>
 
-<script type="text/javascript" src="../../run_prettify.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
 
 </head>
 
 
 <body>
 <div id="wrapper">
-
-<!-- <div id="header"> -->
-    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
-    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
-<!-- </div> -->
-
 
 
 <style type="text/css">
@@ -126,6 +123,17 @@ jQuery(document).ready(function(){
 .io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
     background: rgba(0, 0, 0, 0.01);
 }
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
 </style>
 
 
@@ -196,11 +204,15 @@ jQuery(document).ready(function(){
 $ proc3 | proc4 | proc5</code></pre>
 <p>其中 proc1 和 proc2 属于同一个后台进程组， proc3 、 proc4 、 proc5 属于同一个前台进程 组，Shell进程本身属于一个单独的进程组。这些进程组的控制终端相同，它们属于同一个<strong>Session</strong>。 ### 登录和执行命令的过程(Session和进程组角度) 1. getty 或 telnetd 进程在打开终端设备之前调用 <code>setsid</code> 函数创建一个新的Session，该进程 称为Session Leader，该进程的id也可以看作Session的id，然后该进程打开终端设备作为 这个Session中所有进程的控制终端。在创建新Session的同时也创建了一个新的进程组， 该进程是这个进程组的Process Group Leader，该进程的id也是进程组的id。 2. 在登录过程中， getty 或 telnetd 进程变成 login ，然后变成Shell，但仍然是同一个进程， 仍然是Session Leader。 3. 由Shell进程 fork 出的子进程本来具有和Shell相同的Session、进程组和控制终端，但 是Shell调用 <code>setpgid</code> 函数将作业中的某个子进程指定为一个新进程组的Leader，然后调 用 setpgid将该作业中的其它子进程也转移到这个进程组中。如果这个进程组需要在前台 运行，就调用 tcsetpgrp 函数将它设置为前台进程组，由于一个Session只能有一个前台进 程组，所以Shell所在的进程组就自动变成后台进程组。 <code>jobs</code> 命令可以查看当前有哪些作业。<code>fg</code> 命令可以将某个作业提至前台运行，如果该作业的进程 组正在后台运行则提至前台运行，如果该作业处于停止状态，则给进程组的每个进程 发 SIGCONT 信号使它继续运行。</p>
 
-<div id="footer">
-    <p class="footer_titleline">忧郁的大能猫的博客</p>
-    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
-    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
-</div>
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
 </div> <!--wrapper-->
 </body>
 </html>

@@ -12,6 +12,9 @@
 
 
 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
 jQuery(document).ready(function(){
@@ -28,19 +31,13 @@ jQuery(document).ready(function(){
 });
 </script>
 
-<script type="text/javascript" src="../../run_prettify.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
 
 </head>
 
 
 <body>
 <div id="wrapper">
-
-<!-- <div id="header"> -->
-    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
-    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
-<!-- </div> -->
-
 
 
 <style type="text/css">
@@ -126,6 +123,17 @@ jQuery(document).ready(function(){
 .io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
     background: rgba(0, 0, 0, 0.01);
 }
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
 </style>
 
 
@@ -192,11 +200,15 @@ jQuery(document).ready(function(){
 <h3 id="哪几种情况必须用到初始化成员列表">哪几种情况必须用到初始化成员列表？</h3>
 <p>类的成员是常量成员初始化； 类的成员为引用时。 类的成员是对象成员初始化，而该对象没有无参构造函数。 ### 在类外有什么办法可以访问类的非公有成员？ 友元(如果要声明函数为一个类的友元，需要在类定义中该函数原型前使用关键字 friend)， 继承 公有成员函数。 ### 不允许重载的5个运算符是哪些？ 1. .<em>（成员指针访问运算符号） 2. ：：域运算符 3. Sizeof 长度运算符号 4. ？：条件运算符号 5. .（成员访问符） ### 对对象成员进行初始化的次序是什么？ 答：它的次序完全不受它们在初始化表中次序的影响，只有成员对象在类中声明的次序来决定的。 ### 是不是一个父类写了一个virtual 函数，如果子类覆盖它的函数不加virtual ,也能实现多态? 答： virtual修饰符会被隐形继承的。 virtual可加可不加,子类覆盖它的函数不加virtual ,也能实现多态。 ### C++四种类型转换运算符 </em> static_cast 用于良性转换，一般不会导致意外发生，风险很低。 * const_cast 用于 const 与非 const、volatile 与非 volatile 之间的转换。 * reinterpret_cast 高度危险的转换，这种转换仅仅是对二进制位的重新解释，不会借助已有的转换规则对数据进行调整，但是可以实现最灵活的 C++ 类型转换。 * dynamic_cast 借助 RTTI，用于类型安全的向下转型（Downcasting）。</p>
 
-<div id="footer">
-    <p class="footer_titleline">忧郁的大能猫的博客</p>
-    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
-    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
-</div>
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
 </div> <!--wrapper-->
 </body>
 </html>

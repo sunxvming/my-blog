@@ -8,10 +8,12 @@
 
 
 
-<link rel="stylesheet" href="./css/style.css" />
+<link rel="stylesheet" href="./css/style.css" type="text/css" />
 
 
 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
 
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
@@ -29,19 +31,13 @@ jQuery(document).ready(function(){
 });
 </script>
 
-<script type="text/javascript" src="../../run_prettify.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
 
 </head>
 
 
 <body>
 <div id="wrapper">
-
-<!-- <div id="header"> -->
-    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
-    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
-<!-- </div> -->
-
 
 
 <style type="text/css">
@@ -127,6 +123,17 @@ jQuery(document).ready(function(){
 .io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
     background: rgba(0, 0, 0, 0.01);
 }
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
 </style>
 
 
@@ -170,13 +177,12 @@ jQuery(document).ready(function(){
  <!--if(toc)-->
 
 <!-- filetree -->
+
 <ul>
-<li><strong>blog/</strong>
-<ul>
+<li><strong>blog/</strong></li>
 <li><strong>IT/</strong>
 <ul>
-<li><strong>CS基础/</strong>
-<ul>
+<li><strong>CS基础/</strong></li>
 <li><a href="./blog/IT/CS基础/llvm.html">llvm</a></li>
 <li><a href="./blog/IT/CS基础/图灵机.html">图灵机</a></li>
 <li><a href="./blog/IT/CS基础/操作系统.html">操作系统</a></li>
@@ -189,9 +195,7 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/CS基础/计算机科学方法.html">计算机科学方法</a></li>
 <li><a href="./blog/IT/CS基础/黑客.html">黑客</a></li>
 <li><strong>汇编/</strong></li>
-</ul></li>
-<li><strong>algorithm/</strong>
-<ul>
+<li><strong>algorithm/</strong></li>
 <li><a href="./blog/IT/algorithm/数据结构与算法之美.html">数据结构与算法之美</a></li>
 <li><a href="./blog/IT/algorithm/设计模式.html">设计模式</a></li>
 <li><a href="./blog/IT/algorithm/零碎小算法.html">零碎小算法</a></li>
@@ -199,9 +203,7 @@ jQuery(document).ready(function(){
 <ul>
 <li><a href="./blog/IT/algorithm/设计模式/消息队列.html">消息队列</a></li>
 </ul></li>
-</ul></li>
-<li><strong>c.c++/</strong>
-<ul>
+<li><strong>c.c++/</strong></li>
 <li><strong>boost/</strong>
 <ul>
 <li><a href="./blog/IT/c.c++/boost/Getting-Started.html">Getting-Started</a></li>
@@ -234,7 +236,7 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/c.c++/c++笔记/c++11总结.html">c++11总结</a></li>
 <li><a href="./blog/IT/c.c++/c++笔记/c++17、20总结.html">c++17、20总结</a></li>
 <li><a href="./blog/IT/c.c++/c++笔记/c++23.html">c++23</a></li>
-<li><a href="./blog/IT/c.c++/c++笔记/c++标准库-std--function和std--bind.html">c++标准库-std–function和std–bind</a></li>
+<li><a href="./blog/IT/c.c++/c++笔记/c++标准库-std--function和std--bind.html">c++标准库-std--function和std--bind</a></li>
 <li><a href="./blog/IT/c.c++/c++笔记/c++编码规范.html">c++编码规范</a></li>
 <li><a href="./blog/IT/c.c++/c++笔记/c++设计模式.html">c++设计模式</a></li>
 <li><a href="./blog/IT/c.c++/c++笔记/c++语法-enum-class.html">c++语法-enum-class</a></li>
@@ -302,9 +304,7 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/c.c++/程序工具/perf.html">perf</a></li>
 <li><a href="./blog/IT/c.c++/程序工具/valgrind.html">valgrind</a></li>
 </ul></li>
-</ul></li>
-<li><strong>database/</strong>
-<ul>
+<li><strong>database/</strong></li>
 <li><strong>mencache/</strong>
 <ul>
 <li><a href="./blog/IT/database/mencache/memcache.html">memcache</a></li>
@@ -318,9 +318,7 @@ jQuery(document).ready(function(){
 </ul></li>
 <li><strong>postgresql/</strong></li>
 <li><strong>redis/</strong></li>
-</ul></li>
-<li><strong>linux/</strong>
-<ul>
+<li><strong>linux/</strong></li>
 <li><a href="./blog/IT/linux/Netperf网络性能测试.html">Netperf网络性能测试</a></li>
 <li><a href="./blog/IT/linux/VMware设置centos7共享文件夹.html">VMware设置centos7共享文件夹</a></li>
 <li><a href="./blog/IT/linux/alias.html">alias</a></li>
@@ -338,7 +336,7 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/linux/rsync.html">rsync</a></li>
 <li><a href="./blog/IT/linux/samba.html">samba</a></li>
 <li><a href="./blog/IT/linux/sed.html">sed</a></li>
-<li><a href="./blog/IT/linux/shell存在不可见字符(如%5Em)导致无法执行.html">shell存在不可见字符(如^m)导致无法执行</a></li>
+<li><a href="./blog/IT/linux/shell存在不可见字符(如^m)导致无法执行.html">shell存在不可见字符(如^m)导致无法执行</a></li>
 <li><a href="./blog/IT/linux/shell编程.html">shell编程</a></li>
 <li><a href="./blog/IT/linux/tmpfs.html">tmpfs</a></li>
 <li><a href="./blog/IT/linux/ubuntu.html">ubuntu</a></li>
@@ -351,9 +349,7 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/linux/运维.html">运维</a></li>
 <li><a href="./blog/IT/linux/进程的proc目录.html">进程的proc目录</a></li>
 <li><a href="./blog/IT/linux/零碎知识.html">零碎知识</a></li>
-</ul></li>
-<li><strong>network/</strong>
-<ul>
+<li><strong>network/</strong></li>
 <li><a href="./blog/IT/network/RPC实战与核心原理.html">RPC实战与核心原理</a></li>
 <li><a href="./blog/IT/network/asio.html">asio</a></li>
 <li><a href="./blog/IT/network/curl.html">curl</a></li>
@@ -369,9 +365,7 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/network/网络实战.html">网络实战</a></li>
 <li><a href="./blog/IT/network/趣谈网络.html">趣谈网络</a></li>
 <li><a href="./blog/IT/network/非阻塞方式connect编程.html">非阻塞方式connect编程</a></li>
-</ul></li>
-<li><strong>python/</strong>
-<ul>
+<li><strong>python/</strong></li>
 <li><a href="./blog/IT/python/__init__.py作用.html"><strong>init</strong>.py作用</a></li>
 <li><a href="./blog/IT/python/anaconda安装问题.html">anaconda安装问题</a></li>
 <li><a href="./blog/IT/python/python-protobuf.html">python-protobuf</a></li>
@@ -380,9 +374,7 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/python/the-craft-of-selfteaching.html">the-craft-of-selfteaching</a></li>
 <li><a href="./blog/IT/python/使用PyInstaller打包python程序.html">使用PyInstaller打包python程序</a></li>
 <li><a href="./blog/IT/python/极客时间-python核心技术与实战.html">极客时间-python核心技术与实战</a></li>
-</ul></li>
-<li><strong>tools/</strong>
-<ul>
+<li><strong>tools/</strong></li>
 <li><a href="./blog/IT/tools/Sphinx.html">Sphinx</a></li>
 <li><a href="./blog/IT/tools/UML.html">UML</a></li>
 <li><a href="./blog/IT/tools/elisp.html">elisp</a></li>
@@ -407,9 +399,7 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/tools/版本管理/git工作流.html">git工作流</a></li>
 <li><a href="./blog/IT/tools/版本管理/git忽略文件.html">git忽略文件</a></li>
 </ul></li>
-</ul></li>
-<li><strong>其他主题/</strong>
-<ul>
+<li><strong>其他主题/</strong></li>
 <li><strong>windows&amp;mac/</strong>
 <ul>
 <li><a href="./blog/IT/其他主题/windows&amp;mac/windows实用小技巧.html">windows实用小技巧</a></li>
@@ -437,9 +427,7 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/其他主题/面试题/关于简历.html">关于简历</a></li>
 <li><a href="./blog/IT/其他主题/面试题/自我介绍.html">自我介绍</a></li>
 </ul></li>
-</ul></li>
-<li><strong>其他语言/</strong>
-<ul>
+<li><strong>其他语言/</strong></li>
 <li><strong>java/</strong>
 <ul>
 <li><strong>android/</strong></li>
@@ -453,7 +441,7 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/其他语言/lua/lua编码实践.html">lua编码实践</a></li>
 <li><a href="./blog/IT/其他语言/lua/lua闭包.html">lua闭包</a></li>
 <li><a href="./blog/IT/其他语言/lua/tolua使用.html">tolua使用</a></li>
-<li><a href="./blog/IT/其他语言/lua/概率算法--通过权重返回index.html">概率算法–通过权重返回index</a></li>
+<li><a href="./blog/IT/其他语言/lua/概率算法--通过权重返回index.html">概率算法--通过权重返回index</a></li>
 </ul></li>
 <li><strong>php/</strong>
 <ul>
@@ -467,19 +455,14 @@ jQuery(document).ready(function(){
 <li><strong>php框架/</strong></li>
 </ul></li>
 <li><strong>ruby/</strong></li>
-</ul></li>
-<li><strong>应用方向/</strong>
-<ul>
+<li><strong>应用方向/</strong></li>
 <li><strong>game/</strong>
 <ul>
 <li><a href="./blog/IT/应用方向/game/极客时间-从0开始学游戏开发.html">极客时间-从0开始学游戏开发</a></li>
-<li><strong>图形/</strong>
-<ul>
+<li><strong>图形/</strong></li>
 <li><a href="./blog/IT/应用方向/game/图形/glut消息事件处理函数glutMainLoop.html">glut消息事件处理函数glutMainLoop</a></li>
-</ul></li>
 <li><strong>引擎/</strong></li>
-<li><strong>游戏/</strong>
-<ul>
+<li><strong>游戏/</strong></li>
 <li><a href="./blog/IT/应用方向/game/游戏/unity一键打包––ios篇.html">unity一键打包––ios篇</a></li>
 <li><a href="./blog/IT/应用方向/game/游戏/unity一键打包––安卓篇.html">unity一键打包––安卓篇</a></li>
 <li><a href="./blog/IT/应用方向/game/游戏/导航网格寻路C++实现版(入门级).html">导航网格寻路C++实现版(入门级)</a></li>
@@ -487,14 +470,11 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/应用方向/game/游戏/游戏服务器.html">游戏服务器</a></li>
 <li><a href="./blog/IT/应用方向/game/游戏/游戏相关知识点.html">游戏相关知识点</a></li>
 </ul></li>
-</ul></li>
 <li><strong>web/</strong>
 <ul>
 <li><strong>HTML/</strong></li>
-<li><strong>javascript/</strong>
-<ul>
+<li><strong>javascript/</strong></li>
 <li><a href="./blog/IT/应用方向/web/javascript/Ajax和XMLHttpRequest.html">Ajax和XMLHttpRequest</a></li>
-</ul></li>
 </ul></li>
 <li><strong>区块链/</strong>
 <ul>
@@ -503,25 +483,16 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/应用方向/区块链/国内公链.html">国内公链</a></li>
 <li><a href="./blog/IT/应用方向/区块链/学习资源.html">学习资源</a></li>
 <li><a href="./blog/IT/应用方向/区块链/极客时间-深入浅出区块链.html">极客时间-深入浅出区块链</a></li>
-<li><strong>EOS/</strong>
-<ul>
+<li><strong>EOS/</strong></li>
 <li><a href="./blog/IT/应用方向/区块链/EOS/EOS相关资源.html">EOS相关资源</a></li>
-</ul></li>
-<li><strong>IPFS/</strong>
-<ul>
+<li><strong>IPFS/</strong></li>
 <li><a href="./blog/IT/应用方向/区块链/IPFS/IPFS.html">IPFS</a></li>
-</ul></li>
-<li><strong>书籍/</strong>
-<ul>
+<li><strong>书籍/</strong></li>
 <li><a href="./blog/IT/应用方向/区块链/书籍/区块链百科全书-孙健.html">区块链百科全书-孙健</a></li>
-</ul></li>
-<li><strong>以太坊/</strong>
-<ul>
+<li><strong>以太坊/</strong></li>
 <li><a href="./blog/IT/应用方向/区块链/以太坊/eth使用.html">eth使用</a></li>
 <li><a href="./blog/IT/应用方向/区块链/以太坊/精通以太坊.html">精通以太坊</a></li>
-</ul></li>
-<li><strong>智能合约/</strong>
-<ul>
+<li><strong>智能合约/</strong></li>
 <li><a href="./blog/IT/应用方向/区块链/智能合约/EOSVM简析.html">EOSVM简析</a></li>
 <li><a href="./blog/IT/应用方向/区块链/智能合约/eos-vm源码分析.html">eos-vm源码分析</a></li>
 <li><a href="./blog/IT/应用方向/区块链/智能合约/eos入门.html">eos入门</a></li>
@@ -535,7 +506,6 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/应用方向/区块链/智能合约/webassembly/webassembly.html">webassembly</a></li>
 <li><a href="./blog/IT/应用方向/区块链/智能合约/webassembly/内存指令.html">内存指令</a></li>
 </ul></li>
-</ul></li>
 <li><strong>比特币/</strong></li>
 </ul></li>
 <li><strong>安全/</strong>
@@ -544,18 +514,18 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/应用方向/安全/图解密码学.html">图解密码学</a></li>
 </ul></li>
 </ul></li>
-</ul></li>
-</ul></li>
 </ul>
 <!-- filetreestop -->
 
-<div id="footer">
-    <p class="footer_titleline">忧郁的大能猫的博客</p>
-    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
-    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
-</div>
-
-
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
 </div> <!--wrapper-->
 </body>
 </html>

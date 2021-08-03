@@ -12,6 +12,9 @@
 
 
 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
 jQuery(document).ready(function(){
@@ -28,19 +31,13 @@ jQuery(document).ready(function(){
 });
 </script>
 
-<script type="text/javascript" src="../../run_prettify.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
 
 </head>
 
 
 <body>
 <div id="wrapper">
-
-<!-- <div id="header"> -->
-    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
-    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
-<!-- </div> -->
-
 
 
 <style type="text/css">
@@ -126,6 +123,17 @@ jQuery(document).ready(function(){
 .io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
     background: rgba(0, 0, 0, 0.01);
 }
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
 </style>
 
 
@@ -681,11 +689,15 @@ cout &lt;&lt; f.get() &lt;&lt; endl; // 获取任务的执行结果</code>
 <p><em> 设计模式：可复用面向对象软件的基础 </em> C++标准库(第2版)   译者: 侯捷 <em> C++ 语言的设计与演化 </em> C++ Primer</p>
 <p>个人认为，C++ 最大的优点是与 C 兼容，最大的缺点也是与 C 兼容。 一方面，它是 C 之外唯一成熟可靠的系统级编程语言（目前 Rust 还没有达到可以和C++“叫板”的程度），大部分用 C 的地方都能用 C++ 替代，这就让它拥有了广阔的应用天地。而面向对象、泛型等编程范式，又比 C 能够更好地组织代码，提高抽象层次，管理复杂的软件项目。 但另一方面，为了保持与 C 兼容，C++ 的改革和发展也被“束缚了手脚”，做出任何新设计时，都要考虑是否会对 C 代码造成潜在的破坏。这就使得很多 C++ 新特性要么是“一拖再拖”，要么是“半成品”，要么是“古里古怪”，最后导致 C++ 变得有些不伦不类，丢掉了编程语言本应该的简洁、纯粹。</p>
 
-<div id="footer">
-    <p class="footer_titleline">忧郁的大能猫的博客</p>
-    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
-    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
-</div>
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
 </div> <!--wrapper-->
 </body>
 </html>

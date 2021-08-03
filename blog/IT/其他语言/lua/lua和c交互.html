@@ -12,6 +12,9 @@
 
 
 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
 jQuery(document).ready(function(){
@@ -28,19 +31,13 @@ jQuery(document).ready(function(){
 });
 </script>
 
-<script type="text/javascript" src="../../run_prettify.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
 
 </head>
 
 
 <body>
 <div id="wrapper">
-
-<!-- <div id="header"> -->
-    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
-    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
-<!-- </div> -->
-
 
 
 <style type="text/css">
@@ -126,6 +123,17 @@ jQuery(document).ready(function(){
 .io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
     background: rgba(0, 0, 0, 0.01);
 }
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
 </style>
 
 
@@ -171,11 +179,15 @@ jQuery(document).ready(function(){
 <p>通过<strong>C API</strong>和一个<strong>虚拟的栈</strong>来实现，C API是一组能使C和lua交互的函数，主要包括读写lua全局变量（普通变量、table、函数）， 调用lua函数，运行一段lua代码，及向lua注册c的函数等。栈提供了c和lua之间数据交互的一个场所。 解决了静态类型和动态类型之间转换的问题。 栈的操作 增删改查 压入元素 lua_pushxxx 检查元素 lua_isxxx 查询元素 lua_toxxx</p>
 <p>c中函数注册到lua里 在c中按照规定的函数原型编写函数，参数lua_state返回值是压入栈中的返回值数量。然后以全局函数和table的方式 lua_setgloble 供lua 调用。 lua-c函数中保存状态 方法一：注册表 方法二：upvalue sql优化 A: 需要优化,则说明效率不够理想. 因此我们首先要做的,不是优化,而是---诊断. 治病的前提,是诊病,找出瓶颈所在. CPU,内存,IO? 峰值,单条语句? 建库时的优化，如选择什么类型的数据库引擎 建表时的优化，用什么字段类型， 索引优化，在什么字段上加索引，所引用但索引还是联合索引 查询出慢语句，并进行分析 查询那些语句用的最为频繁 语句的优化，知道什么时候会扫描正表，知道什么时候会用到索引 大数据量的表分区，按时间或按其他 主循环 定义了一个事件作为循环起搏器，然后每隔固定间隔执行，100毫秒一次,起搏器中再抛一个update的事件， 然后更新的具体逻辑是得到所以的zone，然后掉他的update方法，zone里面的update中又包括所有的entity： 如玩家、怪、掉落物、矿 AssetBundle资源包打包下载流程?? 打图集 分两种类型图片 1.属于单个ui的图片 遍历所有ui的prefab 2.属于多个ui共用的图片 遍历所有公用图片的文件夹 替换所有ui的prefab 转lua字节码 标记要打包的prefab，然后调用BuildPipeline.BuildAssetBundles引擎的打包方法 复制其他类型的文件如qpf qcf lua txt 生成总的Manifest文件</p>
 
-<div id="footer">
-    <p class="footer_titleline">忧郁的大能猫的博客</p>
-    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
-    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
-</div>
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
 </div> <!--wrapper-->
 </body>
 </html>

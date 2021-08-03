@@ -12,6 +12,9 @@
 
 
 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
 jQuery(document).ready(function(){
@@ -28,19 +31,13 @@ jQuery(document).ready(function(){
 });
 </script>
 
-<script type="text/javascript" src="../../run_prettify.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
 
 </head>
 
 
 <body>
 <div id="wrapper">
-
-<!-- <div id="header"> -->
-    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
-    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
-<!-- </div> -->
-
 
 
 <style type="text/css">
@@ -126,6 +123,17 @@ jQuery(document).ready(function(){
 .io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
     background: rgba(0, 0, 0, 0.01);
 }
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
 </style>
 
 
@@ -268,11 +276,15 @@ int main(int argc, char** argv)
 }</code></pre>
 <p>运行这个程序我们会发现一个茶壶，我们可以通过鼠标和键盘的方向键来控制它的旋转，而按下鼠标右键则可以让这个茶壶自动旋转，这里还有几个函数我们要注意一下 void glutWireTeapot(GLdouble size) 在当前的OCS坐标中心画一个以size为大小的茶壶 void glutSpecialFunc(void (<em>func)( int key, int x, int y)) 这个函数与glutKeyboardFunc的区别在于前者是用来响应键盘上的特殊按键，如方向键和控制键等。而后者则是用来响应键盘上的字符按键 void glutTimerFunc(int delay, (void (</em>func)( int parameter),int parameter) 这个函数相当于win32 api 中的timer 定时器，也是在delay毫秒后 放出一个定时器消息，而这里的func 则为这个消息的处理函数， patameter为附加参数。 这里有一点要注意这个函数是一次性的， 如果要重复使用可以在func中继续调用glutTimerFunc，而且这个功能是可以叠加的，在opengl 内部将他们看成许多个不同的定时器，这也就是为什么我们在上面的例子中连续按下鼠标右键会加快旋转的速度</p>
 
-<div id="footer">
-    <p class="footer_titleline">忧郁的大能猫的博客</p>
-    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
-    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
-</div>
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
 </div> <!--wrapper-->
 </body>
 </html>

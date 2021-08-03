@@ -12,6 +12,9 @@
 
 
 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
 jQuery(document).ready(function(){
@@ -28,19 +31,13 @@ jQuery(document).ready(function(){
 });
 </script>
 
-<script type="text/javascript" src="../../run_prettify.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
 
 </head>
 
 
 <body>
 <div id="wrapper">
-
-<!-- <div id="header"> -->
-    <!-- <p class="header_titleline">忧郁的大能猫的博客</p> -->
-    <!-- <p class="header_subline"><a href="/index.html">首页</a></p> -->
-<!-- </div> -->
-
 
 
 <style type="text/css">
@@ -126,6 +123,17 @@ jQuery(document).ready(function(){
 .io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
     background: rgba(0, 0, 0, 0.01);
 }
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
 </style>
 
 
@@ -292,11 +300,15 @@ p3 = static_cast&lt;float*&gt;(0X2DF9); //不能将整数转换为指针类�
 <p><em> 1) 向上转型（Upcasting） 向上转型始终是安全的，所以 dynamic_cast 不会进行任何运行期间的检查，这个时候的 <code>dynamic_cast</code> 和 <code>static_cast</code> 就没有什么区别了 </em> 2) 向下转型（Downcasting） 借助 RTTI，用于类型安全的向下转型（Downcasting）。 会在程序运行期间借助 RTTI 进行类型转换，这就要求基类必须包含虚函数 <code>dynamic_cast &lt;newType&gt; (expression)</code>  对于指针，如果转换失败将返回 NULL；对于引用，如果转换失败将抛出std::bad_cast异常。</p>
 <p>dynamic_cast 只能转换<strong>指针类型</strong>和<strong>引用类型</strong>，其它类型（int、double、数组、类、结构体等）都不行。 每个类都会在内存中保存一份类型信息，编译器会将存在继承关系的类的类型信息使用指针“连接”起来，从而形成一个<strong>继承链</strong>（Inheritance Chain） 总起来说，dynamic_cast 会<strong>在程序运行过程中遍历继承链</strong>，如果途中遇到了要转换的目标类型，那么就能够转换成功，如果直到继承链的顶点（最顶层的基类）还没有遇到要转换的目标类型，那么就转换失败。 但是从本质上讲，dynamic_cast 还是只允许向上转型，因为它只会向上遍历继承链。 造成这种假象的根本原因在于，派生类对象可以用任何一个基类的指针指向它（基类指针本来就指向派生类对象）</p>
 
-<div id="footer">
-    <p class="footer_titleline">忧郁的大能猫的博客</p>
-    <p class="footer_subline">Contact: sunxvming@gmail.com</p>
-    <p class="footer_subline">声明: 本站如有侵权行为请及时通知至以上邮箱</p>
-</div>
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
 </div> <!--wrapper-->
 </body>
 </html>
