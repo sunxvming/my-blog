@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/c笔记/常见错误</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
  <!--if(toc)-->
@@ -183,7 +185,20 @@ jQuery(document).ready(function(){
     strcpy(buf, str);
     ......
 }</code></pre>
-<p><em> 数组越界 </em> 悬空指针 <em> 内存泄漏 </em> 除0 <em> 拼写错误 </em> 误删文件 <em> 不可重入函数的操作，同时修改了全局的变量，本质原因是异步操作，线程不安全 </em> 双层循环造成cpu消耗过大 <em> 函数参数错误 单位不对：比如秒、毫秒 </em> 段错误 每次崩溃都报段错误，而且每次错误的位置又都不太相同，错误又出在系统函数上。那gdb报错的位置不一定是真正出错的位置，可能是别的地方内存溢出了原因，需要具体的来看。 * gdb启动和普通启动的表现不一样 比如网络连接的时候</p>
+<p><em> 数组越界<br />
+</em> 悬空指针<br />
+<em> 内存泄漏<br />
+</em> 除0<br />
+<em> 拼写错误<br />
+</em> 误删文件<br />
+<em> 不可重入函数的操作，同时修改了全局的变量，本质原因是异步操作，线程不安全<br />
+</em> 双层循环造成cpu消耗过大<br />
+<em> 函数参数错误<br />
+单位不对：比如秒、毫秒<br />
+</em> 段错误<br />
+每次崩溃都报段错误，而且每次错误的位置又都不太相同，错误又出在系统函数上。那gdb报错的位置不一定是真正出错的位置，可能是别的地方内存溢出了原因，需要具体的来看。<br />
+* gdb启动和普通启动的表现不一样<br />
+比如网络连接的时候</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

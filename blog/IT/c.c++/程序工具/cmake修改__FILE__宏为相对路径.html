@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/程序工具/cmake修改__FILE__宏为相对路径</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -258,7 +260,8 @@ add_definitions(-Wno-builtin-macro-redefined)
 
 add_executable(test tests/test.cc)
 redefine_file_macro(test)</code></pre>
-<p>redefine_file_macro(test), 为我们的输出目标添加__FILE__宏重定义功能   当我们冲定义了<code>__FILE__</code>宏，编译器会告警 </p>
+<p>redefine_file_macro(test), 为我们的输出目标添加__FILE__宏重定义功能  <br />
+当我们冲定义了<code>__FILE__</code>宏，编译器会告警 </p>
 <pre><code>“:0:0: warning: “FILE” redefined [-Wbuiltin-macro-redefined]”, 为了解决这个告警，我们需要在CMakeLists.txt里面加上add_definitions(-Wno-builtin-macro-redefined)</code></pre>
 <h2 id="重新编译"> 重新编译</h2>
 <p>最终输出：<code>hello __FILE__=tests/test.cc</code></p>

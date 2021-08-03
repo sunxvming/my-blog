@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../../.././css/style.css" />
 
 
 
@@ -171,13 +171,22 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/应用方向/game/游戏/导航网格寻路C++实现版(进阶版)</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
 <li><a href="#小demo说明"> 小demo说明</a></li>
+<li><a href="#新增了那些功能"> 新增了那些功能</a></li>
+<li><a href="#使用说明"> 使用说明</a></li>
+<li><a href="#map目录中的地图文件怎么来"> map目录中的地图文件怎么来？</a></li>
+<li><a href="#程序截图"> 程序截图</a></li>
+<li><a href="#主要算法"> 主要算法</a></li>
+<li><a href="#delaunay剖分是啥"> Delaunay剖分是啥？</a></li>
+<li><a href="#主要类说明"> 主要类说明</a></li>
 <li><a href="#参考链接"> 参考链接</a></li>
 </ul>
 </div>
@@ -187,8 +196,56 @@ jQuery(document).ready(function(){
 <p> 这个也是俺的<a href="https://github.com/sunxvming">github</a>上的一个<a href="https://github.com/sunxvming/navmesh-advance">导航网格寻路小demo</a>的readme文件，这个工程在原来的基础上有添加了些功能，如果有兴趣可以去俺的github上看看</p>
 </blockquote>
 <h2 id="小demo说明"> 小demo说明</h2>
-<p>这个小demo是<a href="https://github.com/sunxvming/NavMesh">导航网格寻路C++实现版(入门版)</a>的进阶版，如果你没有看那个工程的话，可以先出门左转看看那个入门版的。那个实现了一个最基本的导航网格寻路，功能简单，代码量也不多，适合没有接触或刚接触寻路功能的朋友们。 而这个是在之前的基础上又新增了一些功能，可以支持更多种类的寻路地图。如果您看过之前那个版本的代码实现的话，再看这个应该是很好看懂的。 ## 新增了那些功能 1. 之前的版本一个地图是只支持一个多边形的，而且多边形不支持嵌套多边形。而这个版本的在一个地图中支持多个多边形，并且一个多边形支持嵌套多个多边形，可以映射大部分的游戏中的地图(此为主要的新增功能) 2. 检测两点是否相通，即两点都在地图内且中间没有阻挡 3. 从一个沿指定方向寻路，对应着游戏中用摇杆移动角色 4. 把经过三角剖分的地图多边形信息以二进制形式保存到文件中，方便以后直接读取并还原成Path类 ## 使用说明 1. fork或者down下来 2. 在你的电脑上新建个c++的工程，设置一下glut的包含目录和库目录 3. 把glut.dll放在你的编译好的程序目录下 4. 工程中的map目录是程序读取的地图文件，你需要在navmesh.cpp中的DrawLines方法中指定读取那个地图文件 5. 运行程序，在程序窗口点击第一下为寻路的起点，再点击第二下为寻路的终点，并进行寻路。点击第三下会把之前的路径清空。 6. 在程序窗口右击会出现一个菜单，可以选择要测试的方法 ## map目录中的地图文件怎么来？ 这个文件是根据美术或者地编制做的游戏地图按照一定的格式导出来的供程序用的。其中描述了地图中有几个多边形构成、构成多边形的点的位置信息。文件格式如下： &gt; childsize，parentlength, parentpoints，[0，child1length,child1points, [0，child2length, child2points]] &gt; 内嵌多边形数量，父多边形点的数量，父多边形的点，[0，子多边形1点的数量，子多边形1的点，[0, 子多边形1点的数量，子多边形1的点]]</p>
-<p>其中每一个上述的格式代表一个多边形，且多边形可以嵌套。而文件是有多个上述格式构成的。 ## 程序截图 其中红色的线是平面多边形，你可以把它看成游戏中的地图的边界和障碍区域。 绿色的线表示经三角剖分后构成的线 蓝色的线代表寻路的路径 <em> 包含两个嵌套多边形的地图 <img src="http://www.sunxvming.com/wp-content/uploads/2019/12/微信截图_20191202105843.png" /> </em> 根据场景资源生成的地图 <img src="http://www.sunxvming.com/wp-content/uploads/2019/12/微信截图_20191202104737.png" /> <img src="http://www.sunxvming.com/wp-content/uploads/2019/12/微信截图_20191202105547.png" /> <img src="http://www.sunxvming.com/wp-content/uploads/2019/12/微信截图_20191202105652.png" /> ## 主要算法 这些都可以在网上查的到，在俺的小demo中应该也很容易找的到的 <em> 平面多边形三角剖分(Delaunay剖分)  + 多边形用什么数据结构来表示  + 各种几何图形用什么数据结构来表示  + 如何生成网格以及附带数据  + 如何确定一个DT点  + 如何遍历整个多边形来完成三角剖分 </em> 寻路算法 <em> 寻路拐点算法 </em> 判断两条线段是否相交 <em> 求两条直线的交点 </em> 判断点是否在三角形中 <em> 判断点在向量的那一侧 </em> 已知三点求三点的夹角 ## Delaunay剖分是啥？ Delaunay三角剖分其实并不是一种算法，而是一种三角剖分的标准，实现它有多种算法。它只是给出了一个“好的”三角网格的定义，它的优秀特性是空圆特性和最大化最小角特性，这两个特性避免了狭长三角形的产生，也使得Delaunay三角剖分应用广泛。 空圆特性其实就是对于两个共边的三角形，任意一个三角形的外接圆中都不能包含有另一个三角形的顶点，这种形式的剖分产生的最小角最大(比不满足空圆特性的最小角大) ## 主要类说明</p>
+<p>这个小demo是<a href="https://github.com/sunxvming/NavMesh">导航网格寻路C++实现版(入门版)</a>的进阶版，如果你没有看那个工程的话，可以先出门左转看看那个入门版的。那个实现了一个最基本的导航网格寻路，功能简单，代码量也不多，适合没有接触或刚接触寻路功能的朋友们。<br />
+而这个是在之前的基础上又新增了一些功能，可以支持更多种类的寻路地图。如果您看过之前那个版本的代码实现的话，再看这个应该是很好看懂的。</p>
+<h2 id="新增了那些功能"> 新增了那些功能</h2>
+<p>1. 之前的版本一个地图是只支持一个多边形的，而且多边形不支持嵌套多边形。而这个版本的在一个地图中支持多个多边形，并且一个多边形支持嵌套多个多边形，可以映射大部分的游戏中的地图(此为主要的新增功能)<br />
+2. 检测两点是否相通，即两点都在地图内且中间没有阻挡<br />
+3. 从一个沿指定方向寻路，对应着游戏中用摇杆移动角色<br />
+4. 把经过三角剖分的地图多边形信息以二进制形式保存到文件中，方便以后直接读取并还原成Path类</p>
+<h2 id="使用说明"> 使用说明</h2>
+<p>1. fork或者down下来<br />
+2. 在你的电脑上新建个c++的工程，设置一下glut的包含目录和库目录<br />
+3. 把glut.dll放在你的编译好的程序目录下<br />
+4. 工程中的map目录是程序读取的地图文件，你需要在navmesh.cpp中的DrawLines方法中指定读取那个地图文件<br />
+5. 运行程序，在程序窗口点击第一下为寻路的起点，再点击第二下为寻路的终点，并进行寻路。点击第三下会把之前的路径清空。<br />
+6. 在程序窗口右击会出现一个菜单，可以选择要测试的方法</p>
+<h2 id="map目录中的地图文件怎么来"> map目录中的地图文件怎么来？</h2>
+<p>这个文件是根据美术或者地编制做的游戏地图按照一定的格式导出来的供程序用的。其中描述了地图中有几个多边形构成、构成多边形的点的位置信息。文件格式如下：</p>
+<blockquote>
+<p> childsize，parentlength, parentpoints，[0，child1length,child1points, [0，child2length, child2points]]<br />
+ 内嵌多边形数量，父多边形点的数量，父多边形的点，[0，子多边形1点的数量，子多边形1的点，[0, 子多边形1点的数量，子多边形1的点]]</p>
+</blockquote>
+<p>其中每一个上述的格式代表一个多边形，且多边形可以嵌套。而文件是有多个上述格式构成的。</p>
+<h2 id="程序截图"> 程序截图</h2>
+<p>其中红色的线是平面多边形，你可以把它看成游戏中的地图的边界和障碍区域。<br />
+绿色的线表示经三角剖分后构成的线<br />
+蓝色的线代表寻路的路径<br />
+<em> 包含两个嵌套多边形的地图<br />
+<img src="http://www.sunxvming.com/wp-content/uploads/2019/12/微信截图_20191202105843.png" /><br />
+</em> 根据场景资源生成的地图<br />
+<img src="http://www.sunxvming.com/wp-content/uploads/2019/12/微信截图_20191202104737.png" /><br />
+<img src="http://www.sunxvming.com/wp-content/uploads/2019/12/微信截图_20191202105547.png" /><br />
+<img src="http://www.sunxvming.com/wp-content/uploads/2019/12/微信截图_20191202105652.png" /></p>
+<h2 id="主要算法"> 主要算法</h2>
+<p>这些都可以在网上查的到，在俺的小demo中应该也很容易找的到的<br />
+<em> 平面多边形三角剖分(Delaunay剖分)<br />
+ + 多边形用什么数据结构来表示<br />
+ + 各种几何图形用什么数据结构来表示<br />
+ + 如何生成网格以及附带数据<br />
+ + 如何确定一个DT点<br />
+ + 如何遍历整个多边形来完成三角剖分<br />
+</em> 寻路算法<br />
+<em> 寻路拐点算法<br />
+</em> 判断两条线段是否相交<br />
+<em> 求两条直线的交点<br />
+</em> 判断点是否在三角形中<br />
+<em> 判断点在向量的那一侧<br />
+</em> 已知三点求三点的夹角</p>
+<h2 id="delaunay剖分是啥"> Delaunay剖分是啥？</h2>
+<p>Delaunay三角剖分其实并不是一种算法，而是一种三角剖分的标准，实现它有多种算法。它只是给出了一个“好的”三角网格的定义，它的优秀特性是空圆特性和最大化最小角特性，这两个特性避免了狭长三角形的产生，也使得Delaunay三角剖分应用广泛。<br />
+空圆特性其实就是对于两个共边的三角形，任意一个三角形的外接圆中都不能包含有另一个三角形的顶点，这种形式的剖分产生的最小角最大(比不满足空圆特性的最小角大)</p>
+<h2 id="主要类说明"> 主要类说明</h2>
 <pre><code>// Path类，对外提供寻路的接口
 class Path
  vector&lt;Polygon&gt; polygons;
@@ -245,7 +302,10 @@ Circle
  Point center;
  double r;</code></pre>
 <h2 id="参考链接"> 参考链接</h2>
-<p><em> <a href="https://github.com/sunxvming/navmesh/blob/master/doc/%E5%B9%B3%E9%9D%A2%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%9F%9F%E7%9A%84%E5%BF%AB%E9%80%9F%E7%BA%A6%E6%9D%9FDelaunay%E4%B8%89%E8%A7%92%E5%8C%96.pdf">平面多边形域的快速约束Delaunay三角化</a> </em> <a href="https://blog.csdn.net/ynnmnm/article/details/44833007">Nav导航网格寻路</a> <em> <a href="https://my.oschina.net/u/1859679/blog/1486636">深入理解游戏中寻路算法</a> </em> <a href="https://github.com/sunxvming/navmesh/blob/master/doc/Astar%E5%AF%BB%E8%B7%AF%E7%AE%97%E6%B3%95-%E4%B8%AD%E6%96%87.doc">Astar寻路算法-中文</a></p>
+<p><em> <a href="https://github.com/sunxvming/navmesh/blob/master/doc/%E5%B9%B3%E9%9D%A2%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%9F%9F%E7%9A%84%E5%BF%AB%E9%80%9F%E7%BA%A6%E6%9D%9FDelaunay%E4%B8%89%E8%A7%92%E5%8C%96.pdf">平面多边形域的快速约束Delaunay三角化</a><br />
+</em> <a href="https://blog.csdn.net/ynnmnm/article/details/44833007">Nav导航网格寻路</a><br />
+<em> <a href="https://my.oschina.net/u/1859679/blog/1486636">深入理解游戏中寻路算法</a><br />
+</em> <a href="https://github.com/sunxvming/navmesh/blob/master/doc/Astar%E5%AF%BB%E8%B7%AF%E7%AE%97%E6%B3%95-%E4%B8%AD%E6%96%87.doc">Astar寻路算法-中文</a></p>
 
 <footer id="colophon" >
 		<div class="site-info col">

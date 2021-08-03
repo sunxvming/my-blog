@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/linux/linux-cmd</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -195,7 +197,14 @@ jQuery(document).ready(function(){
 </div>
  <!--if(toc)-->
 
-<p>【windows和linux差异】 windows下的换行是linux下的换行是mac下的换行是windows下的文件上传到linux上文件的/r/n，可能会被上传的软件自动变变成适应linux上的格式 如果不是，记得转换格式 【注意】 拿到一台linux机器的时候要先看看是什么版本的，因为不同版本的命令是有些差别的</p>
+<p>【windows和linux差异】<br />
+windows下的换行是\r\n<br />
+linux下的换行是\n<br />
+mac下的换行是\r<br />
+windows下的文件上传到linux上文件的/r/n，可能会被上传的软件自动变变成适应linux上的格式<br />
+如果不是，记得转换格式<br />
+【注意】<br />
+拿到一台linux机器的时候要先看看是什么版本的，因为不同版本的命令是有些差别的</p>
 <pre><code># 查看内核/操作系统信息
 uname -a
 cat  /etc/*-release

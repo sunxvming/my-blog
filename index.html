@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="./css/style.css" type="text/css" />
+<link rel="stylesheet" href="./css/style.css" />
 
 
 
@@ -171,18 +171,21 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">index</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
  <!--if(toc)-->
 
 <!-- filetree -->
-
 <ul>
-<li><strong>blog/</strong></li>
+<li><strong>blog/</strong>
+<ul>
 <li><strong>IT/</strong>
 <ul>
-<li><strong>CS基础/</strong></li>
+<li><strong>CS基础/</strong>
+<ul>
 <li><a href="./blog/IT/CS基础/llvm.html">llvm</a></li>
 <li><a href="./blog/IT/CS基础/图灵机.html">图灵机</a></li>
 <li><a href="./blog/IT/CS基础/操作系统.html">操作系统</a></li>
@@ -195,7 +198,9 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/CS基础/计算机科学方法.html">计算机科学方法</a></li>
 <li><a href="./blog/IT/CS基础/黑客.html">黑客</a></li>
 <li><strong>汇编/</strong></li>
-<li><strong>algorithm/</strong></li>
+</ul></li>
+<li><strong>algorithm/</strong>
+<ul>
 <li><a href="./blog/IT/algorithm/数据结构与算法之美.html">数据结构与算法之美</a></li>
 <li><a href="./blog/IT/algorithm/设计模式.html">设计模式</a></li>
 <li><a href="./blog/IT/algorithm/零碎小算法.html">零碎小算法</a></li>
@@ -203,7 +208,9 @@ jQuery(document).ready(function(){
 <ul>
 <li><a href="./blog/IT/algorithm/设计模式/消息队列.html">消息队列</a></li>
 </ul></li>
-<li><strong>c.c++/</strong></li>
+</ul></li>
+<li><strong>c.c++/</strong>
+<ul>
 <li><strong>boost/</strong>
 <ul>
 <li><a href="./blog/IT/c.c++/boost/Getting-Started.html">Getting-Started</a></li>
@@ -304,7 +311,9 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/c.c++/程序工具/perf.html">perf</a></li>
 <li><a href="./blog/IT/c.c++/程序工具/valgrind.html">valgrind</a></li>
 </ul></li>
-<li><strong>database/</strong></li>
+</ul></li>
+<li><strong>database/</strong>
+<ul>
 <li><strong>mencache/</strong>
 <ul>
 <li><a href="./blog/IT/database/mencache/memcache.html">memcache</a></li>
@@ -318,7 +327,9 @@ jQuery(document).ready(function(){
 </ul></li>
 <li><strong>postgresql/</strong></li>
 <li><strong>redis/</strong></li>
-<li><strong>linux/</strong></li>
+</ul></li>
+<li><strong>linux/</strong>
+<ul>
 <li><a href="./blog/IT/linux/Netperf网络性能测试.html">Netperf网络性能测试</a></li>
 <li><a href="./blog/IT/linux/VMware设置centos7共享文件夹.html">VMware设置centos7共享文件夹</a></li>
 <li><a href="./blog/IT/linux/alias.html">alias</a></li>
@@ -336,7 +347,7 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/linux/rsync.html">rsync</a></li>
 <li><a href="./blog/IT/linux/samba.html">samba</a></li>
 <li><a href="./blog/IT/linux/sed.html">sed</a></li>
-<li><a href="./blog/IT/linux/shell存在不可见字符(如^m)导致无法执行.html">shell存在不可见字符(如^m)导致无法执行</a></li>
+<li><a href="./blog/IT/linux/shell存在不可见字符(如%5Em)导致无法执行.html">shell存在不可见字符(如^m)导致无法执行</a></li>
 <li><a href="./blog/IT/linux/shell编程.html">shell编程</a></li>
 <li><a href="./blog/IT/linux/tmpfs.html">tmpfs</a></li>
 <li><a href="./blog/IT/linux/ubuntu.html">ubuntu</a></li>
@@ -349,7 +360,9 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/linux/运维.html">运维</a></li>
 <li><a href="./blog/IT/linux/进程的proc目录.html">进程的proc目录</a></li>
 <li><a href="./blog/IT/linux/零碎知识.html">零碎知识</a></li>
-<li><strong>network/</strong></li>
+</ul></li>
+<li><strong>network/</strong>
+<ul>
 <li><a href="./blog/IT/network/RPC实战与核心原理.html">RPC实战与核心原理</a></li>
 <li><a href="./blog/IT/network/asio.html">asio</a></li>
 <li><a href="./blog/IT/network/curl.html">curl</a></li>
@@ -365,7 +378,9 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/network/网络实战.html">网络实战</a></li>
 <li><a href="./blog/IT/network/趣谈网络.html">趣谈网络</a></li>
 <li><a href="./blog/IT/network/非阻塞方式connect编程.html">非阻塞方式connect编程</a></li>
-<li><strong>python/</strong></li>
+</ul></li>
+<li><strong>python/</strong>
+<ul>
 <li><a href="./blog/IT/python/__init__.py作用.html"><strong>init</strong>.py作用</a></li>
 <li><a href="./blog/IT/python/anaconda安装问题.html">anaconda安装问题</a></li>
 <li><a href="./blog/IT/python/python-protobuf.html">python-protobuf</a></li>
@@ -374,7 +389,9 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/python/the-craft-of-selfteaching.html">the-craft-of-selfteaching</a></li>
 <li><a href="./blog/IT/python/使用PyInstaller打包python程序.html">使用PyInstaller打包python程序</a></li>
 <li><a href="./blog/IT/python/极客时间-python核心技术与实战.html">极客时间-python核心技术与实战</a></li>
-<li><strong>tools/</strong></li>
+</ul></li>
+<li><strong>tools/</strong>
+<ul>
 <li><a href="./blog/IT/tools/Sphinx.html">Sphinx</a></li>
 <li><a href="./blog/IT/tools/UML.html">UML</a></li>
 <li><a href="./blog/IT/tools/elisp.html">elisp</a></li>
@@ -399,7 +416,9 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/tools/版本管理/git工作流.html">git工作流</a></li>
 <li><a href="./blog/IT/tools/版本管理/git忽略文件.html">git忽略文件</a></li>
 </ul></li>
-<li><strong>其他主题/</strong></li>
+</ul></li>
+<li><strong>其他主题/</strong>
+<ul>
 <li><strong>windows&amp;mac/</strong>
 <ul>
 <li><a href="./blog/IT/其他主题/windows&amp;mac/windows实用小技巧.html">windows实用小技巧</a></li>
@@ -427,7 +446,9 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/其他主题/面试题/关于简历.html">关于简历</a></li>
 <li><a href="./blog/IT/其他主题/面试题/自我介绍.html">自我介绍</a></li>
 </ul></li>
-<li><strong>其他语言/</strong></li>
+</ul></li>
+<li><strong>其他语言/</strong>
+<ul>
 <li><strong>java/</strong>
 <ul>
 <li><strong>android/</strong></li>
@@ -455,14 +476,19 @@ jQuery(document).ready(function(){
 <li><strong>php框架/</strong></li>
 </ul></li>
 <li><strong>ruby/</strong></li>
-<li><strong>应用方向/</strong></li>
+</ul></li>
+<li><strong>应用方向/</strong>
+<ul>
 <li><strong>game/</strong>
 <ul>
 <li><a href="./blog/IT/应用方向/game/极客时间-从0开始学游戏开发.html">极客时间-从0开始学游戏开发</a></li>
-<li><strong>图形/</strong></li>
+<li><strong>图形/</strong>
+<ul>
 <li><a href="./blog/IT/应用方向/game/图形/glut消息事件处理函数glutMainLoop.html">glut消息事件处理函数glutMainLoop</a></li>
+</ul></li>
 <li><strong>引擎/</strong></li>
-<li><strong>游戏/</strong></li>
+<li><strong>游戏/</strong>
+<ul>
 <li><a href="./blog/IT/应用方向/game/游戏/unity一键打包––ios篇.html">unity一键打包––ios篇</a></li>
 <li><a href="./blog/IT/应用方向/game/游戏/unity一键打包––安卓篇.html">unity一键打包––安卓篇</a></li>
 <li><a href="./blog/IT/应用方向/game/游戏/导航网格寻路C++实现版(入门级).html">导航网格寻路C++实现版(入门级)</a></li>
@@ -470,11 +496,14 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/应用方向/game/游戏/游戏服务器.html">游戏服务器</a></li>
 <li><a href="./blog/IT/应用方向/game/游戏/游戏相关知识点.html">游戏相关知识点</a></li>
 </ul></li>
+</ul></li>
 <li><strong>web/</strong>
 <ul>
 <li><strong>HTML/</strong></li>
-<li><strong>javascript/</strong></li>
+<li><strong>javascript/</strong>
+<ul>
 <li><a href="./blog/IT/应用方向/web/javascript/Ajax和XMLHttpRequest.html">Ajax和XMLHttpRequest</a></li>
+</ul></li>
 </ul></li>
 <li><strong>区块链/</strong>
 <ul>
@@ -483,16 +512,25 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/应用方向/区块链/国内公链.html">国内公链</a></li>
 <li><a href="./blog/IT/应用方向/区块链/学习资源.html">学习资源</a></li>
 <li><a href="./blog/IT/应用方向/区块链/极客时间-深入浅出区块链.html">极客时间-深入浅出区块链</a></li>
-<li><strong>EOS/</strong></li>
+<li><strong>EOS/</strong>
+<ul>
 <li><a href="./blog/IT/应用方向/区块链/EOS/EOS相关资源.html">EOS相关资源</a></li>
-<li><strong>IPFS/</strong></li>
+</ul></li>
+<li><strong>IPFS/</strong>
+<ul>
 <li><a href="./blog/IT/应用方向/区块链/IPFS/IPFS.html">IPFS</a></li>
-<li><strong>书籍/</strong></li>
+</ul></li>
+<li><strong>书籍/</strong>
+<ul>
 <li><a href="./blog/IT/应用方向/区块链/书籍/区块链百科全书-孙健.html">区块链百科全书-孙健</a></li>
-<li><strong>以太坊/</strong></li>
+</ul></li>
+<li><strong>以太坊/</strong>
+<ul>
 <li><a href="./blog/IT/应用方向/区块链/以太坊/eth使用.html">eth使用</a></li>
 <li><a href="./blog/IT/应用方向/区块链/以太坊/精通以太坊.html">精通以太坊</a></li>
-<li><strong>智能合约/</strong></li>
+</ul></li>
+<li><strong>智能合约/</strong>
+<ul>
 <li><a href="./blog/IT/应用方向/区块链/智能合约/EOSVM简析.html">EOSVM简析</a></li>
 <li><a href="./blog/IT/应用方向/区块链/智能合约/eos-vm源码分析.html">eos-vm源码分析</a></li>
 <li><a href="./blog/IT/应用方向/区块链/智能合约/eos入门.html">eos入门</a></li>
@@ -506,12 +544,15 @@ jQuery(document).ready(function(){
 <li><a href="./blog/IT/应用方向/区块链/智能合约/webassembly/webassembly.html">webassembly</a></li>
 <li><a href="./blog/IT/应用方向/区块链/智能合约/webassembly/内存指令.html">内存指令</a></li>
 </ul></li>
+</ul></li>
 <li><strong>比特币/</strong></li>
 </ul></li>
 <li><strong>安全/</strong>
 <ul>
 <li><a href="./blog/IT/应用方向/安全/DDOS攻击.html">DDOS攻击</a></li>
 <li><a href="./blog/IT/应用方向/安全/图解密码学.html">图解密码学</a></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>

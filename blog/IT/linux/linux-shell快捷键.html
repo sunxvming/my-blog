@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/linux/linux-shell快捷键</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -189,15 +191,31 @@ jQuery(document).ready(function(){
 <p>Bash 默认为 emacs 编辑模式。如果你的 Bash 不在 emacs 编辑模式，可通过<code>set -o emacs</code>设置。</p>
 <p><code>tab</code>        命令和路径补齐</p>
 <h2 id="控制命令"> 控制命令</h2>
-<p><code>Ctrl-L</code>        清屏 <code>Ctrl-C</code>        取消本次命令编辑 <code>Ctrl + z</code>      转到后台运行，<code>fg</code>恢复。 <code>Ctrl + c</code>      终止当前正在执行的命令 <code>Ctrl + d</code>      退出当前 Shell</p>
+<p><code>Ctrl-L</code>        清屏<br />
+<code>Ctrl-C</code>        取消本次命令编辑<br />
+<code>Ctrl + z</code>      转到后台运行，<code>fg</code>恢复。<br />
+<code>Ctrl + c</code>      终止当前正在执行的命令<br />
+<code>Ctrl + d</code>      退出当前 Shell</p>
 <h2 id="光标移动"> 光标移动</h2>
-<p><code>Ctrl-p</code>         previous <code>Ctrl-n</code>         next <code>Ctrl-b</code>         backward <code>Ctrl-f</code>         forward</p>
-<p><code>Alt-f</code>            前移一个单词 <code>Alt-b</code>          后退一个单词</p>
-<p><code>Ctrl-a</code>         移动到行首 <code>Ctrl-e</code>         移动到行尾</p>
+<p><code>Ctrl-p</code>         previous<br />
+<code>Ctrl-n</code>         next<br />
+<code>Ctrl-b</code>         backward<br />
+<code>Ctrl-f</code>         forward</p>
+<p><code>Alt-f</code>            前移一个单词<br />
+<code>Alt-b</code>          后退一个单词</p>
+<p><code>Ctrl-a</code>         移动到行首<br />
+<code>Ctrl-e</code>         移动到行尾</p>
 <h2 id="文本修改"> 文本修改</h2>
-<p><code>Ctrl-d</code>         delete光标后面的 <code>ctrl-h</code>         删除光标前边的 <code>Ctrl + w</code>       从光标处删除至字首 <code>Ctrl-U</code>         清空至行首 <code>Ctrl-K</code>         清空至行尾 <code>Ctrl + y</code>       粘贴至光标后</p>
+<p><code>Ctrl-d</code>         delete光标后面的<br />
+<code>ctrl-h</code>         删除光标前边的<br />
+<code>Ctrl + w</code>       从光标处删除至字首<br />
+<code>Ctrl-U</code>         清空至行首<br />
+<code>Ctrl-K</code>         清空至行尾<br />
+<code>Ctrl + y</code>       粘贴至光标后</p>
 <h2 id="其他"> 其他</h2>
-<p><code>Ctrl-r</code>         搜索某个历史记录，  <code>ctrl-f</code> 选中命令 <code>Ctrl + g</code>        从历史搜索模式退出 <code>history</code>        历史记录</p>
+<p><code>Ctrl-r</code>         搜索某个历史记录，  <code>ctrl-f</code> 选中命令<br />
+<code>Ctrl + g</code>        从历史搜索模式退出<br />
+<code>history</code>        历史记录</p>
 <p>反斜杠<code>\</code>     强制换行</p>
 
 <footer id="colophon" >

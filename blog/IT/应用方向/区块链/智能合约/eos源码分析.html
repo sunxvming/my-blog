@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../../.././css/style.css" />
 
 
 
@@ -171,14 +171,17 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/应用方向/区块链/智能合约/eos源码分析</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
 <li><a href="#插件系统">插件系统</a></li>
-<li><a href="#源码">源码</a><ul>
+<li><a href="#源码">源码</a>
+<ul>
 <li><a href="#服务器端如何注册http请求的响应">服务器端如何注册http请求的响应</a></li>
 <li><a href="#cleos和nodeos交互">cleos和nodeos交互</a></li>
 <li><a href="#keosd">keosd</a></li>
@@ -189,13 +192,28 @@ jQuery(document).ready(function(){
  <!--if(toc)-->
 
 <h2 id="插件系统">插件系统</h2>
-<p>eos基本代码架构采用插件系统 包括插件的注册、初始化、开启、停止</p>
-<p>插件模板：template_plugin插件要按照何种格式实现 基类插件：chain_plugin net_plugin http_plugin wallet_plugin 派生类插件： 封装类插件：xx_api_plugin 对外提供接口</p>
+<p>eos基本代码架构采用插件系统<br />
+包括插件的注册、初始化、开启、停止</p>
+<p>插件模板：template_plugin插件要按照何种格式实现<br />
+基类插件：chain_plugin net_plugin http_plugin wallet_plugin<br />
+派生类插件：<br />
+封装类插件：xx_api_plugin 对外提供接口</p>
 <p>1、EOS采用插件化设计，插件是一种高度解耦的设计模式，它把不同的程序功能模块独立开来，需要时再进行自由组合；</p>
-<p>2、插件的原理是： 所有插件继承自同一个基类，这个基类会定义一系列生命周期函数，插件子类需要实现这些函数； 一般会有插件管理器来管理插件，比如注册到主程序中，或从主程序中注销； 主程序也会定义一系列生命周期函数，这些函数内部一般是对注册了的插件进行遍历，调用它们公共接口的函数； 这样主程序和插件就绑定到了一起，主程序一个生命周期函数的调用，会让注册了的插件的对应生命周期函数都得到调用； 不需要使用插件时可以注销，这样就实现了即插即用的灵活设计。</p>
-<p>3.plugin的生命周期 注册（register_plugin） 配置（set_program_options） 设置命令行参数 初始化（plugin_initialize） 启动（plugin_startup） 关闭（plugin_shutdown）</p>
+<p>2、插件的原理是：<br />
+所有插件继承自同一个基类，这个基类会定义一系列生命周期函数，插件子类需要实现这些函数；<br />
+一般会有插件管理器来管理插件，比如注册到主程序中，或从主程序中注销；<br />
+主程序也会定义一系列生命周期函数，这些函数内部一般是对注册了的插件进行遍历，调用它们公共接口的函数；<br />
+这样主程序和插件就绑定到了一起，主程序一个生命周期函数的调用，会让注册了的插件的对应生命周期函数都得到调用；<br />
+不需要使用插件时可以注销，这样就实现了即插即用的灵活设计。</p>
+<p>3.plugin的生命周期<br />
+注册（register_plugin）<br />
+配置（set_program_options） 设置命令行参数<br />
+初始化（plugin_initialize）<br />
+启动（plugin_startup）<br />
+关闭（plugin_shutdown）</p>
 <p>application类就是一个插件管理器，它定义了一组管理插件的函数：register_plugin()、find_plugin()、get_plugin()等；</p>
-<p>application::register_plugin new出plugin并放到plugins的map中，注册依赖的插件register_dependencies</p>
+<p>application::register_plugin<br />
+new出plugin并放到plugins的map中，注册依赖的插件register_dependencies</p>
 <h2 id="源码">源码</h2>
 <h3 id="服务器端如何注册http请求的响应">服务器端如何注册http请求的响应</h3>
 <pre><code>http_plugin::add_api
@@ -238,8 +256,12 @@ http_plugin
                     boost::asio::async_read
                         conn-&gt;process_next_message(message_length)</code></pre>
 <h2 id="基础合约">基础合约</h2>
-<p>eosio.bios 通过这个合约，可以控制其它账户的资源分配和权限。 setprods 用来设置区块生产者（bp）节点。</p>
-<p>检测、设置指定账户的权限； 限制指定账户或全局的资源使用； 设置区块生产者。</p>
+<p>eosio.bios<br />
+通过这个合约，可以控制其它账户的资源分配和权限。<br />
+setprods 用来设置区块生产者（bp）节点。</p>
+<p>检测、设置指定账户的权限；<br />
+限制指定账户或全局的资源使用；<br />
+设置区块生产者。</p>
 <p>msig 多签，系统更新的时候需要2/3+1的BP节点多签</p>
 
 <footer id="colophon" >

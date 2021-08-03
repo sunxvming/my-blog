@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/boost/preprocessor</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -181,8 +183,11 @@ jQuery(document).ready(function(){
 <li><a href="#参数加括号">参数加括号</a></li>
 <li><a href="#用宏循环某个参数列表-boost_pp_seq_for_each">用宏循环某个参数列表 BOOST_PP_SEQ_FOR_EACH</a></li>
 <li><a href="#include">include <iostream></a></li>
-<li><a href="#include-1">include <boost/preprocessor/facilities/overload.hpp></a></li>
-<li><a href="#define-macro_1number-macro_2number-10">define MACRO_1(number) MACRO_2(number, 10)</a><ul>
+<li><a href="#include-boostpreprocessorfacilitiesoverload.hpp">include &lt;boost/preprocessor/facilities/overload.hpp&gt;</a></li>
+<li><a href="#define-macro_1number-macro_2number-10">define MACRO_1(number) MACRO_2(number, 10)</a></li>
+<li><a href="#define-macro_2number1-number2-addnumber1-number2">define MACRO_2(number1, number2) add(number1, number2)</a></li>
+<li><a href="#define-macro_add_numbers...-boost_pp_overloadmacro_-va_argsva_args">define MACRO_ADD_NUMBERS(...) BOOST_PP_OVERLOAD(MACRO_, <strong>VA_ARGS</strong>)(<strong>VA_ARGS</strong>)</a>
+<ul>
 <li><a href="#自增变量">自增变量</a></li>
 </ul></li>
 </ul>
@@ -260,14 +265,27 @@ BOOST_PP_SEQ_FOR_EACH(MACRO, _, SEQ) // expands to w::GetInstance() x::GetInstan
 
 ## 用宏做函数重载  BOOST_PP_OVERLOAD</code></pre>
 <h1 id="include">include <iostream></h1>
-<h1 id="include-1">include <boost/preprocessor/facilities/overload.hpp></h1>
+<h1 id="include-boostpreprocessorfacilitiesoverload.hpp">include &lt;boost/preprocessor/facilities/overload.hpp&gt;</h1>
 <p>int add(int number1, int number2);</p>
 <h1 id="define-macro_1number-macro_2number-10">define MACRO_1(number) MACRO_2(number, 10)</h1>
-<p>// mmp, 它会先检查add的原型, 然后再去做替换, 看来这里还是 #define MACRO_2(number1, number2) add(number1, number2) // 多参数的宏展开实现重载 // 若BOOST_PP_OVERLOAD(MACRO_, <strong>VA_ARGS</strong>)参数为一个则生成MACRO_1 // 若BOOST_PP_OVERLOAD(MACRO_, <strong>VA_ARGS</strong>)参数为两个则生成MACRO_2 #define MACRO_ADD_NUMBERS(...) BOOST_PP_OVERLOAD(MACRO_, <strong>VA_ARGS</strong>)(<strong>VA_ARGS</strong>)</p>
-<p>int main() { std::cout &lt;&lt; &quot;MACRO_ADD_NUMBERS(1) = &quot; &lt;&lt; MACRO_ADD_NUMBERS(1) &lt;&lt; std::endl; std::cout &lt;&lt; &quot;MACRO_ADD_NUMBERS(1, 2) = &quot; &lt;&lt; MACRO_ADD_NUMBERS(1, 2) &lt;&lt; std::endl; return 0; }</p>
-<p>int add(int number1, int number2) { return number1 + number2; } ```</p>
+<p>// mmp, 它会先检查add的原型, 然后再去做替换, 看来这里还是</p>
+<h1 id="define-macro_2number1-number2-addnumber1-number2">define MACRO_2(number1, number2) add(number1, number2)</h1>
+<p>// 多参数的宏展开实现重载<br />
+// 若BOOST_PP_OVERLOAD(MACRO_, <strong>VA_ARGS</strong>)参数为一个则生成MACRO_1<br />
+// 若BOOST_PP_OVERLOAD(MACRO_, <strong>VA_ARGS</strong>)参数为两个则生成MACRO_2</p>
+<h1 id="define-macro_add_numbers...-boost_pp_overloadmacro_-va_argsva_args">define MACRO_ADD_NUMBERS(...) BOOST_PP_OVERLOAD(MACRO_, <strong>VA_ARGS</strong>)(<strong>VA_ARGS</strong>)</h1>
+<p>int main() {<br />
+std::cout &lt;&lt; "MACRO_ADD_NUMBERS(1) = " &lt;&lt; MACRO_ADD_NUMBERS(1) &lt;&lt; std::endl;<br />
+std::cout &lt;&lt; "MACRO_ADD_NUMBERS(1, 2) = " &lt;&lt; MACRO_ADD_NUMBERS(1, 2) &lt;&lt; std::endl;<br />
+return 0;<br />
+}</p>
+<p>int add(int number1, int number2) {<br />
+return number1 + number2;<br />
+}<br />
+```</p>
 <h2 id="自增变量">自增变量</h2>
-<p><strong>COUNTER</strong><br />The <strong>COUNTER</strong> symbol is provided by VC++ and GCC, and gives an increasing non-negative integral value each time it is used.</p>
+<p><strong>COUNTER</strong><br />
+The <strong>COUNTER</strong> symbol is provided by VC++ and GCC, and gives an increasing non-negative integral value each time it is used.</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

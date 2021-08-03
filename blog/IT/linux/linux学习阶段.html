@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/linux/linux学习阶段</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -186,7 +188,7 @@ jQuery(document).ready(function(){
  <!--if(toc)-->
 
 <h2 id="第一阶段初级入门">第一阶段：初级入门</h2>
-<ol style="list-style-type: decimal">
+<ol>
 <li>Linux基础知识、基本命令（起源、组成、常用命令如cp、ls、file、mkdir等常见操作命令）</li>
 <li>Linux用户及权限基础</li>
 <li>Linux系统进程管理进阶</li>
@@ -195,7 +197,7 @@ jQuery(document).ready(function(){
 </ol>
 <h2 id="第二阶段中级进阶">第二阶段:中级进阶</h2>
 <p>中级进阶需要在充分了解linux原理和基础知识之后，对上层的应用和服务进行深入学习，其中说到服务肯定涉及到网络的相关知识，是需要花时间学习的。</p>
-<ol style="list-style-type: decimal">
+<ol>
 <li>TCP/IP网络基础（差不多CCNA、NP的知识就够用）</li>
 <li>Linux企业常用服务（如dns、http、ftp、mail、nfs等）</li>
 <li>Linux企业级安全原理和防范技巧（系统性能/安全、安全威胁模型和保护方法</li>
@@ -206,7 +208,7 @@ jQuery(document).ready(function(){
 </ol>
 <p>学到这里，掌握的基本技能，已经够用了，已经能做一些基础的运维工作和简单维护了。</p>
 <h2 id="第三阶段高级提升">第三阶段：高级提升</h2>
-<ol style="list-style-type: decimal">
+<ol>
 <li>http服务代理缓存加速（其中主要学习varnish、nginx缓存系统，要对CDN的知识有所了解。）</li>
 <li>企业级负载集群（其中主要学习nginx、haproxy、lvs要对主要知识熟练掌握，对负载均衡算法有清晰认识，）</li>
 <li>企业级高可用集群 （其中需要对keepalived，heartbeat等进行深入讲解）</li>
@@ -214,7 +216,7 @@ jQuery(document).ready(function(){
 <li>运维自动化学习（需要学一些开源运维自动化工具的使用如ansible、puppet、cobbler等运维自动化工具）</li>
 </ol>
 <h2 id="第四阶段资深方向进阶">第四阶段：资深方向进阶</h2>
-<ol style="list-style-type: decimal">
+<ol>
 <li>大数据方向（需要对hadoop、storm等常见开源大数据系统需要深入了解）</li>
 <li>云计算方向（主要是openstack这套东西，当然像一些kvm等虚拟化技术，也是需要掌握的，现在docker也比较流行）</li>
 <li>运维开发（主要是python运维开发）</li>

@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/linux/Netperf网络性能测试</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -184,7 +186,8 @@ jQuery(document).ready(function(){
 
 <p>Netperf 是一种网络性能测量工具，主要基于 TCP 或 UDP 的传输。Netperf可以进行不同模式的网络性能测试，如批量数据传输（bulk data transfer）模式和请求/应答（request/reponse）模式。</p>
 <h2 id="工作原理">工作原理</h2>
-<p>Netperf 工具以 client/server 方式工作。server 端是 netserver，用来侦听来自 client 端的连接，client 端是 netperf ，用来向 server 发起网络测试。 在client与server之间,首先建立一个控制连接,传递有关测试配置的信息,以及测试的结果:在控制连接建立并传递了测试配置信息以后，client与server之间会再建立一个测试连接,进行来回传递特殊的流量模式,以测试网络的性能</p>
+<p>Netperf 工具以 client/server 方式工作。server 端是 netserver，用来侦听来自 client 端的连接，client 端是 netperf ，用来向 server 发起网络测试。<br />
+在client与server之间,首先建立一个控制连接,传递有关测试配置的信息,以及测试的结果:在控制连接建立并传递了测试配置信息以后，client与server之间会再建立一个测试连接,进行来回传递特殊的流量模式,以测试网络的性能</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

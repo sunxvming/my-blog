@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../../.././css/style.css" />
 
 
 
@@ -171,23 +171,28 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/应用方向/区块链/智能合约/eos入门</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#相关概念">相关概念</a><ul>
+<li><a href="#相关概念">相关概念</a>
+<ul>
 <li><a href="#账户权限">账户、权限</a></li>
 <li><a href="#交易">交易</a></li>
 </ul></li>
 <li><a href="#安装">安装</a></li>
-<li><a href="#nodeos">Nodeos</a><ul>
+<li><a href="#nodeos">Nodeos</a>
+<ul>
 <li><a href="#启动节点">启动节点</a></li>
 <li><a href="#config.ini配置文件">config.ini配置文件</a></li>
 <li><a href="#启动时的报错">启动时的报错</a></li>
 </ul></li>
-<li><a href="#cleos">cleos</a><ul>
+<li><a href="#cleos">cleos</a>
+<ul>
 <li><a href="#钱包相关命令">钱包相关命令</a></li>
 <li><a href="#合约相关命令">合约相关命令</a></li>
 </ul></li>
@@ -196,16 +201,22 @@ jQuery(document).ready(function(){
 </div>
  <!--if(toc)-->
 
-<p>关于eos的编译安装启动部署合约相关的东西可以参考eos官方教程的以下部分： * <a href="https://developers.eos.io/welcome/latest/getting-started-guide/index">Getting Started Guide</a> * <a href="https://developers.eos.io/welcome/latest/smart-contract-guides/index">Smart Contract Guides</a></p>
+<p>关于eos的编译安装启动部署合约相关的东西可以参考eos官方教程的以下部分：<br />
+* <a href="https://developers.eos.io/welcome/latest/getting-started-guide/index">Getting Started Guide</a><br />
+* <a href="https://developers.eos.io/welcome/latest/smart-contract-guides/index">Smart Contract Guides</a></p>
 <h2 id="相关概念">相关概念</h2>
 <h3 id="账户权限">账户、权限</h3>
 <p>代币是存放在账户里的，转账需要有达到转账权限权重的公钥的才可以</p>
 <p>权限信息也是要写到区块里的，通过eos内置的合约来完成</p>
 <h3 id="交易">交易</h3>
-<p>Action的含义很简单，它表示单个操作； Transaction（事务）就是一个或多个 Action 的集合。</p>
+<p>Action的含义很简单，它表示单个操作；<br />
+Transaction（事务）就是一个或多个 Action 的集合。</p>
 <h2 id="安装">安装</h2>
-<p>参考eos代码中的docs文档 eos/docs/00_install/01_build-from-source/02_manual-build/03_platforms/centos-7.7.md</p>
-<p>注意事项： * 最低配置4核8G * 不能用虚拟机的共享文件，因为其不支持软链接</p>
+<p>参考eos代码中的docs文档<br />
+eos/docs/00_install/01_build-from-source/02_manual-build/03_platforms/centos-7.7.md</p>
+<p>注意事项：<br />
+* 最低配置4核8G<br />
+* 不能用虚拟机的共享文件，因为其不支持软链接</p>
 <h2 id="nodeos">Nodeos</h2>
 <h3 id="启动节点">启动节点</h3>
 <pre><code> 
@@ -220,8 +231,12 @@ jQuery(document).ready(function(){
 Enable block production, even if the chain is stale
 -p [ --producer-name ] arg 
 ID of producer controlled by this node (e.g. inita; may specify multiple times) </code></pre>
-<p>数据和配置文件的位置 <code>/root/.local/share/eosio/nodeos</code></p>
-<p>启动方式 Nodeos generally runs in two modes: * Producing Node * Non-Producing Node</p>
+<p>数据和配置文件的位置<br />
+<code>/root/.local/share/eosio/nodeos</code></p>
+<p>启动方式<br />
+Nodeos generally runs in two modes:<br />
+* Producing Node<br />
+* Non-Producing Node</p>
 <h3 id="config.ini配置文件">config.ini配置文件</h3>
 <p>插件相关配置，设置后就不用在命令行中添加插件的参数了</p>
 <pre><code>plugin = eosio::producer_plugin
@@ -229,27 +244,39 @@ plugin = eosio::chain_api_plugin
 plugin = eosio::http_plugin</code></pre>
 <h3 id="启动时的报错">启动时的报错</h3>
 <p>atabase dirty flag set (likely due to unclean shutdown): replay required</p>
-<p>run ./nodeos --replay-blockchain --hard-replay-blockchain</p>
+<p>run<br />
+./nodeos --replay-blockchain --hard-replay-blockchain</p>
 <h2 id="cleos">cleos</h2>
 <h3 id="钱包相关命令">钱包相关命令</h3>
-<p>cleos wallet list cleos wallet create</p>
-<p>cleos wallet open cleos wallet lock cleos wallet unlock</p>
-<p>cleos wallet import cleos wallet remove_key</p>
+<p>cleos wallet list<br />
+cleos wallet create</p>
+<p>cleos wallet open<br />
+cleos wallet lock<br />
+cleos wallet unlock</p>
+<p>cleos wallet import<br />
+cleos wallet remove_key</p>
 <p>cleos wallet keys</p>
 <h3 id="合约相关命令">合约相关命令</h3>
 <ul>
-<li><p>编译</p>
-<pre><code>eosio-cpp hello.cpp -o hello.wasm
-eosio-wasm2wast add.wasm -o add.wast</code></pre></li>
-<li><p>部署</p>
-<pre><code>cleos create account eosio hellohello1 EOS8jJ5J1wPkzQJTsgpC6dt1RqZBd7GxD2uTcELnJDcdPT2Qfcunz -p eosio@active
-cleos set contract hello /root/contracts/hello -p hello@active</code></pre></li>
-<li><p>执行</p>
-<pre><code>cleos push action hello hi &#39;[&quot;bob&quot;]&#39; -p bob@active</code></pre></li>
+<li>编译</li>
 </ul>
-<p>注意事项： * 智能合约需要创建一个账户来部署，并且一个账号只能部署一个合约 * 账户是唯一不可以重复的</p>
+<pre><code>eosio-cpp hello.cpp -o hello.wasm
+eosio-wasm2wast add.wasm -o add.wast</code></pre>
+<ul>
+<li>部署</li>
+</ul>
+<pre><code>cleos create account eosio hellohello1 EOS8jJ5J1wPkzQJTsgpC6dt1RqZBd7GxD2uTcELnJDcdPT2Qfcunz -p eosio@active
+cleos set contract hello /root/contracts/hello -p hello@active</code></pre>
+<ul>
+<li>执行</li>
+</ul>
+<pre><code>cleos push action hello hi &#39;[&quot;bob&quot;]&#39; -p bob@active</code></pre>
+<p>注意事项：<br />
+* 智能合约需要创建一个账户来部署，并且一个账号只能部署一个合约<br />
+* 账户是唯一不可以重复的</p>
 <h2 id="疑惑处">疑惑处</h2>
-<p>EOS通过并行链的方式，最高可以达到数百万TPS，并且并行本地链甚至可以达到毫秒级的确认速度。 并行链是什么？？</p>
+<p>EOS通过并行链的方式，最高可以达到数百万TPS，并且并行本地链甚至可以达到毫秒级的确认速度。<br />
+并行链是什么？？</p>
 <p>出块而不产生分叉的一个重要原因，是因为同一时刻只有一个块生产者</p>
 
 <footer id="colophon" >

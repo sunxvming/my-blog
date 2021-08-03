@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,14 +171,16 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/c++笔记/c++语法-enum-class</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
 <li><a href="#enum由来"> enum由来：</a></li>
-<li><a href="#c惯用法之enumclass">  C++惯用法之enum class</a></li>
+<li><a href="#c惯用法之enum-class">  C++惯用法之enum class</a></li>
 <li><a href="#enum的基础类型"> enum的基础类型</a></li>
 </ul>
 </div>
@@ -195,7 +197,7 @@ jQuery(document).ready(function(){
 <pre><code>enum Direction {TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT};
 // error!
 enum WindowsCorner {TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT};</code></pre>
-<h2 id="c惯用法之enumclass">  C++惯用法之enum class</h2>
+<h2 id="c惯用法之enum-class">  C++惯用法之enum class</h2>
 <p>在Effective modern C++中Item 10: Prefer scoped enums to unscoped enum，调到要用有范围的enum class代替无范围的enum。</p>
 <p>例如：</p>
 <pre><code>enum Shape {circle,retangle};
@@ -203,7 +205,8 @@ auto circle = 10;  // error</code></pre>
 <p>上述错误是因为两个circle在同一范围。对于enum等价</p>
 <pre><code>#define circle 0
 #define retangle 1</code></pre>
-<p>因此后面再去定义circle就会出错。 所以不管枚举名是否一样,里面的成员只要有一致的,就会出问题。例如：</p>
+<p>因此后面再去定义circle就会出错。<br />
+所以不管枚举名是否一样,里面的成员只要有一致的,就会出问题。例如：</p>
 <pre><code>enum A {a,b};
 enum B {c,a};</code></pre>
 <p>a出现两次,在enum B的a处报错。</p>
@@ -224,7 +227,8 @@ void foo(EntityType::Enum entityType)
         /*code*/
     }
 }</code></pre>
-<p>但是不断的使用命名空间,势必太繁琐,而且如果我不想使用namespace,要达到这样的效果,便会变得不安全,也没有约束。 因此在c++11后,引入enum class。它解决了为enum成员定义类型、类型安全、约束等问题。回到上述例子：</p>
+<p>但是不断的使用命名空间,势必太繁琐,而且如果我不想使用namespace,要达到这样的效果,便会变得不安全,也没有约束。<br />
+因此在c++11后,引入enum class。它解决了为enum成员定义类型、类型安全、约束等问题。回到上述例子：</p>
 <pre><code>// enum class
 enum class EntityType {
     Ground = 0,
@@ -240,7 +244,8 @@ void foo(EntityType entityType)
     }
 }</code></pre>
 <h2 id="enum的基础类型"> enum的基础类型</h2>
-<p>枚举通常用某种整数类型表示，这个类型被称为枚举的<strong>基础类型</strong>。 基础类型默认是int，也可以显式的指定：</p>
+<p>枚举通常用某种整数类型表示，这个类型被称为枚举的<strong>基础类型</strong>。<br />
+基础类型默认是int，也可以显式的指定：</p>
 <pre><code>#include &lt;iostream&gt;
 #include &lt;string&gt;
 enum class Color:int {red,green,blue};

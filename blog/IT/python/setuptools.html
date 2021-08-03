@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,12 +171,18 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/python/setuptools</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
  <!--if(toc)-->
 
-<p>python中安装包的方式： * 源码包：python setup.py install * 在线安装：pip install 包名 / easy_install 包名 在线安装是从PyPI （Python Package Index）来的，官网是： https://pypi.python.org/pypi 执行pip install terminaltranslator命令的时候，它就会去从官方网站搜terminaltranslator，搜到了就下载压缩包并解压安装，如果没有搜索到就会报错。</p>
+<p>python中安装包的方式：<br />
+* 源码包：python setup.py install<br />
+* 在线安装：pip install 包名 / easy_install 包名<br />
+在线安装是从PyPI （Python Package Index）来的，官网是： https://pypi.python.org/pypi<br />
+执行pip install terminaltranslator命令的时候，它就会去从官方网站搜terminaltranslator，搜到了就下载压缩包并解压安装，如果没有搜索到就会报错。</p>
 <p>曾经 Python 的分发工具是 distutils，但它无法定义包之间的依赖关系。setuptools 则是它的增强版，能帮助我们更好的创建和分发 Python 包，尤其是具有复杂依赖关系的包。他还提供了自动包查询程序，用来自动获取包之间的依赖关系，并完成这些包的安装，大大降低了安装各种包的难度，使之更加方便。</p>
 <p>一般 Python 安装会自带 setuptools，如果没有可以使用 pip 安装：</p>
 <pre><code>$ pip install setuptools</code></pre>
@@ -194,7 +200,9 @@ setup(
     author=&#39;sunxvming&#39;,
     install_requires=[&#39;markdown&#39;, &#39;jinja2&#39;]
 )</code></pre>
-<p>安装后的结果 打包之后多出两个文件夹，分别是xx.egg-info和dist。xx.egg-info是必要的安装信息， 而dist中的压缩包就是安装包，此时默认的egg包，egg包就是zip包，如果需要使用egg包，将egg后缀改成zip解压即可</p>
+<p>安装后的结果<br />
+打包之后多出两个文件夹，分别是xx.egg-info和dist。xx.egg-info是必要的安装信息，<br />
+而dist中的压缩包就是安装包，此时默认的egg包，egg包就是zip包，如果需要使用egg包，将egg后缀改成zip解压即可</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

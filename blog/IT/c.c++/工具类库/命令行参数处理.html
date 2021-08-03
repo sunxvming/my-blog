@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,23 +171,28 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/工具类库/命令行参数处理</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#getopt"> getopt</a><ul>
+<li><a href="#getopt"> getopt</a>
+<ul>
 <li><a href="#参考链接"> 参考链接</a></li>
 </ul></li>
-<li><a href="#cli11"> CLI11</a><ul>
+<li><a href="#cli11"> CLI11</a>
+<ul>
 <li><a href="#一个简单的例子"> 一个简单的例子</a></li>
-<li><a href="#主要功能"> 主要功能</a><ul>
+<li><a href="#主要功能"> 主要功能</a>
+<ul>
 <li><a href="#位置参数"> 位置参数</a></li>
 <li><a href="#flags"> flags</a></li>
 <li><a href="#options"> options</a></li>
 </ul></li>
-<li><a href="#subcommand子命令"> subcommand 子命令</a></li>
+<li><a href="#subcommand-子命令"> subcommand 子命令</a></li>
 <li><a href="#实例"> 实例</a></li>
 </ul></li>
 </ul>
@@ -206,8 +211,10 @@ jQuery(document).ready(function(){
 <h3 id="参考链接"> 参考链接</h3>
 <p>- <a href="https://www.cnblogs.com/qingergege/p/5914218.html">Linux下getopt()函数的简单使用</a></p>
 <h2 id="cli11"> CLI11</h2>
-<p>CLI11是一个基于C++开发的命令行解析库 使用很方便,只需要<code>#include &lt;CLI11.hpp&gt;</code>,当然也可以使用cmake编译版本</p>
-<p>- <a href="https://github.com/CLIUtils/CLI11">github</a> - <a href="https://cliutils.github.io/CLI11/book/">文档</a></p>
+<p>CLI11是一个基于C++开发的命令行解析库<br />
+使用很方便,只需要<code>#include &lt;CLI11.hpp&gt;</code>,当然也可以使用cmake编译版本</p>
+<p>- <a href="https://github.com/CLIUtils/CLI11">github</a><br />
+- <a href="https://cliutils.github.io/CLI11/book/">文档</a></p>
 <h3 id="一个简单的例子"> 一个简单的例子</h3>
 <pre><code>#include &quot;CLI11.hpp&quot;
 #include &lt;iostream&gt;
@@ -233,7 +240,8 @@ int main(int argc, char **argv) {
 <p>CLI11_PARSE 宏内部执行app.parse(argc,argv)对命令行参数解析,出错时抛出ParseError,然后捕获异常,打印错误信息并退出程序</p>
 <h3 id="主要功能"> 主要功能</h3>
 <h4 id="位置参数"> 位置参数</h4>
-<p>即必须参数,使用方法是add_xxx方法的第一个参数如”-a” 把”-“ 去掉,换成有意义的名字,如”outputDir” 位置参数就是没有这些参数就无法运行,没有默认值;多个位置参数按定义顺序传递</p>
+<p>即必须参数,使用方法是add_xxx方法的第一个参数如”-a” 把”-“ 去掉,换成有意义的名字,如”outputDir”<br />
+位置参数就是没有这些参数就无法运行,没有默认值;多个位置参数按定义顺序传递</p>
 <h4 id="flags"> flags</h4>
 <p>命令行输入只填flag名字就行,不接受参数;函数为add_flag</p>
 <h4 id="options"> options</h4>
@@ -241,8 +249,9 @@ int main(int argc, char **argv) {
 <pre><code>int int_option = 0;
 app.add_option(&quot;-i&quot;, int_option, &quot;Optional description&quot;);</code></pre>
 <p>其行为:绑定选项-i到int_option,解析其后的数据转换为整型,类型不对会失败;如果没有此选项则使用初始值</p>
-<h3 id="subcommand子命令"> subcommand 子命令</h3>
-<p>子命令就是包含了一系列选项的一个关键字,如git commit/clone 这里面的commit clone后面还可以跟各种选项,他们就是git程序的子命令 子命令的类类型和App相同,因此可以任意嵌套</p>
+<h3 id="subcommand-子命令"> subcommand 子命令</h3>
+<p>子命令就是包含了一系列选项的一个关键字,如git commit/clone 这里面的commit clone后面还可以跟各种选项,他们就是git程序的子命令<br />
+子命令的类类型和App相同,因此可以任意嵌套</p>
 <p>检查子命令是否被使用</p>
 <pre><code>if(*sub) …
 if(sub-&gt;parsed()) …

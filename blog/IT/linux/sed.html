@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/linux/sed</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -179,7 +181,8 @@ jQuery(document).ready(function(){
 <ul>
 <li><a href="#格式">格式</a></li>
 <li><a href="#模式">模式</a></li>
-<li><a href="#sed的命令">sed的命令</a><ul>
+<li><a href="#sed的命令">sed的命令</a>
+<ul>
 <li><a href="#a命令和i命令">a命令和i命令</a></li>
 </ul></li>
 <li><a href="#正则表达式的东西">正则表达式的东西：</a></li>
@@ -188,18 +191,31 @@ jQuery(document).ready(function(){
 </div>
  <!--if(toc)-->
 
-<p>sed 意为流编辑器（Stream Editor），在Shell脚本和Makefile中作为过滤器使用非常普遍，也就 是把前一个程序的输出引入sed的输入，经过一系列编辑命令转换为另一种格式输 出。 sed 和 vi 都源于早期UNIX的 ed 工具，所以很多 sed 命令和 vi 的末行命令是相同的 sed基本上就是玩正则模式匹配，所以，玩sed的人，正则表达式一般都比较强。</p>
+<p>sed 意为流编辑器（Stream Editor），在Shell脚本和Makefile中作为过滤器使用非常普遍，也就<br />
+是把前一个程序的输出引入sed的输入，经过一系列编辑命令转换为另一种格式输<br />
+出。 sed 和 vi 都源于早期UNIX的 ed 工具，所以很多 sed 命令和 vi 的末行命令是相同的<br />
+sed基本上就是玩正则模式匹配，所以，玩sed的人，正则表达式一般都比较强。</p>
 <h2 id="格式">格式</h2>
 <p>sed 命令行的基本格式为</p>
 <pre><code>sed option &#39;script&#39; file1 file2 ...
 sed option -f scriptfile file1 file2 ...</code></pre>
-<p>script的格式为：/pattern/action pattern为正则表达式，默认使用Basic正则表达式规范 sed程序一行一行读出待处理文件，如果某一行 与 pattern 匹配，则执行相应的 action ，如果一条命令没有 pattern 而只有 action ， 这个 action 将 作用于待处理文件的每一行。</p>
+<p>script的格式为：/pattern/action<br />
+pattern为正则表达式，默认使用Basic正则表达式规范<br />
+sed程序一行一行读出待处理文件，如果某一行 与 pattern 匹配，则执行相应的 action ，如果一条命令没有 pattern 而只有 action ，<br />
+这个 action 将 作用于待处理文件的每一行。</p>
 <h2 id="模式">模式</h2>
 <ul>
-<li>/pattern/p 打印匹配 pattern 的行</li>
-<li>/pattern/d 删除匹配 pattern 的行 sed 命令不会修改原文件，删除命令只表示某些行不打印输出，而不是从原文件中删去</li>
-<li>/pattern/s/pattern1/pattern2/ 查找符合 pattern 的行，将该行第一个匹 配 pattern1 的字符串替换为 pattern2</li>
-<li>/pattern/s/pattern1/pattern2/g 查找符合 pattern 的行，将该行所有匹 配 pattern1 的字符串替换为 pattern2 sed &quot;s/my/Hao Chen's/g&quot; pets.txt 默认是打印改变的内容，不改变原文件，可以使用文件重定向，也可以 使用-i直接改变文件内容 sed -i &quot;s/my/Hao Chen's/g&quot; pets.txt</li>
+<li>/pattern/p<br />
+打印匹配 pattern 的行</li>
+<li>/pattern/d<br />
+删除匹配 pattern 的行<br />
+sed 命令不会修改原文件，删除命令只表示某些行不打印输出，而不是从原文件中删去</li>
+<li>/pattern/s/pattern1/pattern2/<br />
+查找符合 pattern 的行，将该行第一个匹 配 pattern1 的字符串替换为 pattern2</li>
+<li>/pattern/s/pattern1/pattern2/g<br />
+查找符合 pattern 的行，将该行所有匹 配 pattern1 的字符串替换为 pattern2<br />
+sed "s/my/Hao Chen's/g" pets.txt<br />
+默认是打印改变的内容，不改变原文件，可以使用文件重定向，也可以 使用-i直接改变文件内容 sed -i "s/my/Hao Chen's/g" pets.txt</li>
 </ul>
 <h2 id="sed的命令">sed的命令</h2>
 <h3 id="a命令和i命令">a命令和i命令</h3>
@@ -221,7 +237,7 @@ sed&quot;/fish/a This is my monkey, my monkey&#39;s name is wukong&quot;my.txt</
 <li><code>[ ]</code> 字符集合。 如：[abc]表示匹配a或b或c，还有[a-zA-Z]表示匹配所有的26个字符。如果其中有^表示反，如[^a]表示非a的字符</li>
 </ul>
 <h2 id="多个匹配">多个匹配</h2>
-<p>如果我们需要一次替换多个模式，如：第一个模式把第一行到第三行的my替换成your，第二个则把第3行以（3，<span class="math">$）后的This替换成了That ``` sed '1,3s/my/your/g; 3,$</span>s/This/That/g'my.txt</p>
+<p>如果我们需要一次替换多个模式，如：第一个模式把第一行到第三行的my替换成your，第二个则把第3行以（3，<span class="math inline">$）后的This替换成了That ``` sed '1,3s/my/your/g; 3,$</span>s/This/That/g'my.txt</p>
 <pre><code>上面的命令等价于：（注：下面使用的是sed的-e命令行参数）</code></pre>
 <p>sed -e '1,3s/my/your/g' -e '3,$s/This/That/g' my.txt</p>
 <pre><code>
@@ -231,7 +247,7 @@ sed&quot;/fish/a This is my monkey, my monkey&#39;s name is wukong&quot;my.txt</
 【在每一行最前面加点东西】</code></pre>
 <p>sed 's/^/#/g' trans.sh</p>
 <pre><code>【在每一行最后面加点东西】</code></pre>
-<p>sed 's/<span class="math">$/#/g' trans.sh ``` 【指定行数的替换：只替换2到3行内容】 ``` sed &quot;2,3s/#/abcde/g&quot; trans.sh ``` 【最后一行添加文字】 ``` sed '$</span>a' test.txt</p>
+<p>sed 's/<span class="math inline">$/#/g' trans.sh ``` 【指定行数的替换：只替换2到3行内容】 ``` sed "2,3s/#/abcde/g" trans.sh ``` 【最后一行添加文字】 ``` sed '$</span>a\wwwwww' test.txt</p>
 <pre><code>$ 匹配文件的最后一行位置
 a 命令在后面append
 
@@ -243,7 +259,9 @@ a 命令在后面append
 【删除指定模式】</code></pre>
 <p>sed -i '/^.host:/d' /etc/fstab</p>
 <pre><code>【只替换每一行的第一个匹配的a】</code></pre>
-<p>sed 's/a/A/1' test.txt ``` 把1替换成2就是第二个，3g就是替换第3个以后匹配的</p>
+<p>sed 's/a/A/1' test.txt<br />
+```<br />
+把1替换成2就是第二个，3g就是替换第3个以后匹配的</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

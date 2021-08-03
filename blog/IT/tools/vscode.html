@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,14 +171,17 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/tools/vscode</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#常见问题"> 常见问题</a><ul>
-<li><a href="#vscode全局搜索ctrlshiftf无效"> vscode 全局搜索ctrl+shift+f无效</a></li>
+<li><a href="#常见问题"> 常见问题</a>
+<ul>
+<li><a href="#vscode-全局搜索ctrlshiftf无效"> vscode 全局搜索ctrl+shift+f无效</a></li>
 <li><a href="#智能提示快捷键ctrlspace被输入法占用"> 智能提示快捷键<code>ctrl+space</code>被输入法占用</a></li>
 </ul></li>
 <li><a href="#快捷键"> 快捷键</a></li>
@@ -192,7 +195,7 @@ jQuery(document).ready(function(){
  <!--if(toc)-->
 
 <h2 id="常见问题"> 常见问题</h2>
-<h3 id="vscode全局搜索ctrlshiftf无效"> vscode 全局搜索ctrl+shift+f无效</h3>
+<h3 id="vscode-全局搜索ctrlshiftf无效"> vscode 全局搜索ctrl+shift+f无效</h3>
 <p>是因为和搜狗输入法的简繁切换快捷键冲突了，关掉就好了，也有人是网易云音乐快捷键问题</p>
 <h3 id="智能提示快捷键ctrlspace被输入法占用"> 智能提示快捷键<code>ctrl+space</code>被输入法占用</h3>
 <p>可以把智能提示弹出框设置为<code>alt+/</code></p>
@@ -220,29 +223,72 @@ jQuery(document).ready(function(){
     }
 ]</code></pre>
 <h2 id="快捷键"> 快捷键</h2>
-<p>快捷键设置 <img src="/imgs/a4506184-9100-4a13-93c2-d8607d1bccbd.png" /> 右上角的红圈可以打开json的配置</p>
-<p>行过长的时候自动折行: alt + Z F1 或 Ctrl+Shift+P 打开的命令面板了</p>
+<p>快捷键设置<br />
+<img src="/imgs/a4506184-9100-4a13-93c2-d8607d1bccbd.png" /><br />
+右上角的红圈可以打开json的配置</p>
+<p>行过长的时候自动折行: alt + Z<br />
+F1 或 Ctrl+Shift+P 打开的命令面板了</p>
 <p>列选择快捷键   Alt+Shift+左键</p>
-<p>按住shift滚动滚轮可实现左右滚动 代码格式化： Shift+Alt+F Ctrl + Tab 切换选项卡 头文件源文件切换 alt+o ctrl + F4    关闭标签 新建 Ctrl + N 查找 ctrl + f Ctrl+Shift +f 替换 ctrl + h Ctrl+Shift +h 注释 Ctrl + /</p>
-<p>删除一行 Ctrl+ Shift +k 删至行首 Ctrl+K Backspace 删至行尾 Ctrl+KK</p>
-<p>移到上一个光标处 alt + 左箭头 移到下一个光标处 alt + 右箭头 光标插入上一行 ctrl + shift + enter 光标插入下一行 ctrl + enter 行上移 alt 上 行下移 alt 下 按括号移动光标</p>
-<p>选单词 双击 选本行 三击 Ctrl + Shift + ←/→ 进行逐词选择 Shift-上下箭头 按行选中 竖向多行选择 鼠标中键</p>
-<p>改为大写 Ctrl+K+U 改为小写 Ctrl+K+L 折叠所有 <sup>k 1 展开所有 </sup>k J</p>
-<p>esc 关闭（隐藏）搜索栏 设置书签 todo</p>
+<p>按住shift滚动滚轮可实现左右滚动<br />
+代码格式化： Shift+Alt+F<br />
+Ctrl + Tab 切换选项卡<br />
+头文件源文件切换 alt+o<br />
+ctrl + F4    关闭标签<br />
+新建 Ctrl + N<br />
+查找 ctrl + f Ctrl+Shift +f<br />
+替换 ctrl + h Ctrl+Shift +h<br />
+注释 Ctrl + /</p>
+<p>删除一行 Ctrl+ Shift +k<br />
+删至行首 Ctrl+K Backspace<br />
+删至行尾 Ctrl+KK</p>
+<p>移到上一个光标处 alt + 左箭头<br />
+移到下一个光标处 alt + 右箭头<br />
+光标插入上一行 ctrl + shift + enter<br />
+光标插入下一行 ctrl + enter<br />
+行上移 alt 上<br />
+行下移 alt 下<br />
+按括号移动光标</p>
+<p>选单词 双击<br />
+选本行 三击<br />
+Ctrl + Shift + ←/→ 进行逐词选择<br />
+Shift-上下箭头 按行选中<br />
+竖向多行选择 鼠标中键</p>
+<p>改为大写 Ctrl+K+U<br />
+改为小写 Ctrl+K+L<br />
+折叠所有 ^k 1<br />
+展开所有 ^k J</p>
+<p>esc 关闭（隐藏）搜索栏<br />
+设置书签 todo</p>
 <p>ctrl +` 显示console</p>
 <h2 id="设置"> 设置</h2>
-<p>保存时去掉尾部空格 tab替换四个空格 VSCode 打开文件始终在新标签页打开</p>
+<p>保存时去掉尾部空格<br />
+tab替换四个空格<br />
+VSCode 打开文件始终在新标签页打开</p>
 <pre><code>&quot;workbench.editor.enablePreview&quot;: false,</code></pre>
-<p>【主题】 sublime mariana 浅黑色的主题 Tiny Light   一款还原Hbuilder“绿柔”主题的vs code主题</p>
+<p>【主题】<br />
+sublime mariana 浅黑色的主题<br />
+Tiny Light   一款还原Hbuilder“绿柔”主题的vs code主题</p>
 <h2 id="插件"> 插件</h2>
-<p><em> Alignment 按等号对齐 alt + = </em> Markdown 似乎是自带的 <em> ExpandRegion 扩展选区的 ctrl + w ctrl + shift + w </em> Clipboard-history Ctrl+Shift+V 复制的历史记录 * Peacock 可以设置窗口为不同的颜色，方便区分不同项目 使用此插件后，会在打开的每个项目内创建 .vscode/setting.json文件， 这样不同项目才会生效</p>
+<p><em> Alignment 按等号对齐 alt + =<br />
+</em> Markdown 似乎是自带的<br />
+<em> ExpandRegion 扩展选区的 ctrl + w ctrl + shift + w<br />
+</em> Clipboard-history Ctrl+Shift+V 复制的历史记录<br />
+* Peacock<br />
+可以设置窗口为不同的颜色，方便区分不同项目<br />
+使用此插件后，会在打开的每个项目内创建 .vscode/setting.json文件，<br />
+这样不同项目才会生效</p>
 <h2 id="python"> python</h2>
-<p>安装python插件，在插件中搜索python，安装星最多的。 按照插件中的说明，设置python的开发环境。</p>
+<p>安装python插件，在插件中搜索python，安装星最多的。<br />
+按照插件中的说明，设置python的开发环境。</p>
 <p>jupyter插件，可以直接在vscode启动jupyter</p>
 <h2 id="vim插件"> vim插件</h2>
-<p>【vim不覆盖vscode快捷键】 文件 --&gt; 首选项 --&gt; 设置 -- &gt;扩展 --&gt; vim --&gt; vim.useCtrlkeys</p>
-<p>【使用windows剪切板】 文件 --&gt; 首选项 --&gt; 设置 -- &gt;扩展 --&gt; vim --&gt; vim.useSystemClipboard</p>
-<p>【插入模式下键位修改】 文件-&gt;首选项-&gt;设置-&gt;文本编辑器，向下拉找到“在setting.json中编辑” 添加到配置的底部</p>
+<p>【vim不覆盖vscode快捷键】<br />
+文件 --&gt; 首选项 --&gt; 设置 -- &gt;扩展 --&gt; vim --&gt; vim.useCtrlkeys</p>
+<p>【使用windows剪切板】<br />
+文件 --&gt; 首选项 --&gt; 设置 -- &gt;扩展 --&gt; vim --&gt; vim.useSystemClipboard</p>
+<p>【插入模式下键位修改】<br />
+文件-&gt;首选项-&gt;设置-&gt;文本编辑器，向下拉找到“在setting.json中编辑”<br />
+添加到配置的底部</p>
 <pre><code>    &quot;vim.insertModeKeyBindings&quot;: [
         {
             &quot;before&quot;: [&quot;j&quot;, &quot;j&quot;],
@@ -256,7 +302,9 @@ jQuery(document).ready(function(){
         &quot;&lt;C-a&gt;&quot;: false
     }</code></pre>
 <h2 id="c工程配置文件"> c++工程配置文件</h2>
-<p>配置文件位置：.vscode c++的配置：c_cpp_properties.json 文档：https://code.visualstudio.com/docs/cpp/config-mingw</p>
+<p>配置文件位置：.vscode<br />
+c++的配置：c_cpp_properties.json<br />
+文档：https://code.visualstudio.com/docs/cpp/config-mingw</p>
 <pre><code>{
     &quot;configurations&quot;: [
         {

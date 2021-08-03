@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,16 +171,19 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/其他语言/lua/tolua使用</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#toluavstolua"> tolua vs tolua++</a></li>
+<li><a href="#tolua-vs-tolua"> tolua vs tolua++</a></li>
 <li><a href="#目录说明"> 目录说明</a></li>
 <li><a href="#linux下编译tolua"> linux下编译tolua</a></li>
-<li><a href="#使用tolua"> 使用tolua</a><ul>
+<li><a href="#使用tolua"> 使用tolua</a>
+<ul>
 <li><a href="#头文件包含"> 1. 头文件包含</a></li>
 <li><a href="#库"> 2. 库</a></li>
 <li><a href="#将.pkg文件导出生成.cpp文件"> 3. 将<code>.pkg</code>文件导出生成<code>.cpp</code>文件</a></li>
@@ -191,19 +194,29 @@ jQuery(document).ready(function(){
 </div>
  <!--if(toc)-->
 
-<h2 id="toluavstolua"> tolua vs tolua++</h2>
+<h2 id="tolua-vs-tolua"> tolua vs tolua++</h2>
 <p>对比了一下tolua.h和tolua++.h后，tolua++.h中比tolua.h中多了几个关于tolua_tocppstring的方法。其他大部分的方法都是一样的。</p>
 <h2 id="目录说明"> 目录说明</h2>
-<p><em> lua-5.2.0 lua源码 </em> tolua-master tolua源码 * toluatest 使用tolua编写的一个小例子</p>
+<p><em> lua-5.2.0<br />
+lua源码<br />
+</em> tolua-master<br />
+tolua源码<br />
+* toluatest<br />
+使用tolua编写的一个小例子</p>
 <h2 id="linux下编译tolua"> linux下编译tolua</h2>
-<p>1. tolua依赖lua，所以先下载lua进行编译，然后把liblua.a和相应的头文件放到指定目录 2. 编译tolua，会编译两个东西，一个是libtolua.a的静态库。一个是tolua的可执行程序程序，负责把pkg转成c/c++，这个 c/c++ 源文件就是导出的可供 lua 调用的代码。</p>
+<p>1. tolua依赖lua，所以先下载lua进行编译，然后把liblua.a和相应的头文件放到指定目录<br />
+2. 编译tolua，会编译两个东西，一个是libtolua.a的静态库。一个是tolua的可执行程序程序，负责把pkg转成c/c++，这个 c/c++ 源文件就是导出的可供 lua 调用的代码。</p>
 <h2 id="使用tolua"> 使用tolua</h2>
 <h3 id="头文件包含"> 1. 头文件包含</h3>
-<p>lua的头文件 tolua的头文件</p>
+<p>lua的头文件<br />
+tolua的头文件</p>
 <h3 id="库"> 2. 库</h3>
-<p>lua的静态库liblua.a tolua的静态库libtolua.a</p>
+<p>lua的静态库liblua.a<br />
+tolua的静态库libtolua.a</p>
 <h3 id="将.pkg文件导出生成.cpp文件"> 3. 将<code>.pkg</code>文件导出生成<code>.cpp</code>文件</h3>
-<p>其中<code>.pkg</code>文件中的内容和要导出的cpp类的头文件中的内容基本一致 要注意的是要在文件头引入头文件，然后把 public 关键字去掉。 所有公有的函数或数据都可以导出，如果不想导出某个函数，则在package文件中不要定义就可以了。</p>
+<p>其中<code>.pkg</code>文件中的内容和要导出的cpp类的头文件中的内容基本一致<br />
+要注意的是要在文件头引入头文件，然后把 public 关键字去掉。<br />
+所有公有的函数或数据都可以导出，如果不想导出某个函数，则在package文件中不要定义就可以了。</p>
 <h3 id="使用"> 4. 使用</h3>
 <p>cpp中将cpp对象注册到lua栈中，lua中调用cpp对象的方法</p>
 <pre><code>//cpp文件

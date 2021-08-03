@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,19 +171,23 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/c++笔记/c++语法-模板相关语法</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#模板类型判断"> 模板类型判断</a><ul>
-<li><a href="#stdis_same判断类型是否一致"> std::is_same 判断类型是否一致</a></li>
-<li><a href="#stddecay退化类型的修饰"> std::decay 退化类型的修饰</a></li>
+<li><a href="#模板类型判断"> 模板类型判断</a>
+<ul>
+<li><a href="#stdis_same-判断类型是否一致"> std::is_same 判断类型是否一致</a></li>
+<li><a href="#stddecay-退化类型的修饰"> std::decay 退化类型的修饰</a></li>
 <li><a href="#is_xxx"> is_xxx</a></li>
 </ul></li>
 <li><a href="#stdconditional"> std::conditional</a></li>
-<li><a href="#enable_if"> enable_if</a><ul>
+<li><a href="#enable_if"> enable_if</a>
+<ul>
 <li><a href="#sfinae"> SFINAE</a></li>
 <li><a href="#stdenable_if的实现机制如下代码所示"> std::enable_if&lt;&gt;的实现机制如下代码所示：</a></li>
 <li><a href="#典型应用"> 典型应用</a></li>
@@ -194,12 +198,13 @@ jQuery(document).ready(function(){
  <!--if(toc)-->
 
 <h2 id="模板类型判断"> 模板类型判断</h2>
-<h3 id="stdis_same判断类型是否一致"> std::is_same 判断类型是否一致</h3>
-<p>位于头文件<code>&lt;type_traits&gt;</code>中 通过std::is_same即可判断两个类型是否一样，特别在模板里面，在不清楚模板的参数时，此功能可以对一些特定的参数类型进行特殊的处理。</p>
+<h3 id="stdis_same-判断类型是否一致"> std::is_same 判断类型是否一致</h3>
+<p>位于头文件<code>&lt;type_traits&gt;</code>中<br />
+通过std::is_same即可判断两个类型是否一样，特别在模板里面，在不清楚模板的参数时，此功能可以对一些特定的参数类型进行特殊的处理。</p>
 <pre><code>std::is_same&lt;int, int32_t&gt;::value   // true
 std::is_same&lt;int, int64_t&gt;::value   // false</code></pre>
-<p><code>std::is_same</code>对int和const int &amp; int&amp;等都是区别对待的，但在写模板函数时，经常会强制指定常引用进行传参，以免进行数据拷贝，这时候is_same就做出了不相等的判断，但是有时候其实我们还是希望TYPE和const TYPE&amp; 是能认为是一样的，这时就需要<code>std::decay</code>进行退化处理</p>
-<h3 id="stddecay退化类型的修饰"> std::decay 退化类型的修饰</h3>
+<p><code>std::is_same</code>对int和const int\int &amp;\const int&amp;等都是区别对待的，但在写模板函数时，经常会强制指定常引用进行传参，以免进行数据拷贝，这时候is_same就做出了不相等的判断，但是有时候其实我们还是希望TYPE和const TYPE&amp; 是能认为是一样的，这时就需要<code>std::decay</code>进行退化处理</p>
+<h3 id="stddecay-退化类型的修饰"> std::decay 退化类型的修饰</h3>
 <p><code>std::decay</code>就是对一个类型进行退化处理，他的实现如下:</p>
 <pre><code>template&lt; class T &gt;
 struct decay {
@@ -253,7 +258,11 @@ d
 7.2</code></pre>
 <h2 id="enable_if"> enable_if</h2>
 <h3 id="sfinae"> SFINAE</h3>
-<p>SFINAE是英文Substitution failure is not an error的缩写，意思是<strong>匹配失败不是错误</strong> SFINAE 应用最为广泛的场景是C++中的 std::enable_if。 在对一个函数调用进行模板推导时，编译器会尝试推导所有的候选函数（重载函数，模板，但是普通函数的优先级要高），以确保得到一个<strong>最完美的匹配</strong>。 也就是说在推导的过程中，如果出现了无效的模板参数，则会将该候选函数从<strong>重载决议集合</strong>中删除，只要最终得到了一个 perfect match ，编译就不会报错。 比如：</p>
+<p>SFINAE是英文Substitution failure is not an error的缩写，意思是<strong>匹配失败不是错误</strong><br />
+SFINAE 应用最为广泛的场景是C++中的 std::enable_if。<br />
+在对一个函数调用进行模板推导时，编译器会尝试推导所有的候选函数（重载函数，模板，但是普通函数的优先级要高），以确保得到一个<strong>最完美的匹配</strong>。<br />
+也就是说在推导的过程中，如果出现了无效的模板参数，则会将该候选函数从<strong>重载决议集合</strong>中删除，只要最终得到了一个 perfect match ，编译就不会报错。<br />
+比如：</p>
 <pre><code>long multiply(int i, int j) { return i * j; }
 
 template &lt;class T&gt;
@@ -290,7 +299,9 @@ int main() {
 <pre><code>template&lt;bool Cond, typename T = void&gt; struct enable_if {};
 
 template&lt;typename T&gt; struct enable_if&lt;true, T&gt; { typedef T type; };</code></pre>
-<p>基本原理是SFINAE。<strong>只有当第一个参数是true的时候才有type</strong>，否则就会发生Substitution Failure，这个时候模版实例化就会失败，也就不会产生任何代码。 在 condition 为真的时候，由于<strong>偏特化机制</strong>，第二个结构体模板明显是一个更好的匹配，所以 std::enable_if&lt;&gt;::type 就是有效的。 当 condition 为假的时候，只有第一个结构体模板能够匹配，所以std::enable_if&lt;&gt;::type 是无效的，会被丢弃，编译器会报错：error: no type named ‘type’ in ‘struct std::enable_if<false, bool>。</p>
+<p>基本原理是SFINAE。<strong>只有当第一个参数是true的时候才有type</strong>，否则就会发生Substitution Failure，这个时候模版实例化就会失败，也就不会产生任何代码。<br />
+在 condition 为真的时候，由于<strong>偏特化机制</strong>，第二个结构体模板明显是一个更好的匹配，所以 std::enable_if&lt;&gt;::type 就是有效的。<br />
+当 condition 为假的时候，只有第一个结构体模板能够匹配，所以std::enable_if&lt;&gt;::type 是无效的，会被丢弃，编译器会报错：error: no type named ‘type’ in ‘struct std::enable_if&lt;false, bool&gt;。</p>
 <h3 id="典型应用"> 典型应用</h3>
 <p>1.限制模板的类型</p>
 <pre><code>#include &lt;iostream&gt;

@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/algorithm/零碎小算法</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -185,7 +187,12 @@ jQuery(document).ready(function(){
 <h2 id="按照整数对齐算法">按照整数对齐算法</h2>
 <pre><code>#define alignment_down(a, size) (a &amp; (~(size-1)) )
 #define alignment_up(a, size) ((a+size-1) &amp; (~ (size-1)))</code></pre>
-<p>如果让a为(size =8)的整数倍表示成二进制应是什么样子呢？那就是让这个数表示成二进制时的最后三位为0. 而要达到这一目标，只要下面这个数与它进行与运算就可以了: 11111111 11111111 11111111 11111000<br />而上面这个数实际下就是 ~ (size - 1)，可以将该数称为size的对齐掩码size_mask.<br />可这样做求出的是比a小的那个最大的8的倍数. 如果要求出比a大的是不是需要加上8就可以了? 可是如果a本身就是8的倍数, 这样加8不就错了吗, 所以在a基础上加上 size - 1, 然后与size的对齐掩码进行与运算.</p>
+<p>如果让a为(size =8)的整数倍表示成二进制应是什么样子呢？那就是让这个数表示成二进制时的最后三位为0.<br />
+而要达到这一目标，只要下面这个数与它进行与运算就可以了:<br />
+11111111 11111111 11111111 11111000<br />
+而上面这个数实际下就是 ~ (size - 1)，可以将该数称为size的对齐掩码size_mask.<br />
+可这样做求出的是比a小的那个最大的8的倍数. 如果要求出比a大的是不是需要加上8就可以了?<br />
+可是如果a本身就是8的倍数, 这样加8不就错了吗, 所以在a基础上加上 size - 1, 然后与size的对齐掩码进行与运算.</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

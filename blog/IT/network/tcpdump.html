@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/network/tcpdump</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -181,6 +183,7 @@ jQuery(document).ready(function(){
 <li><a href="#installation-on-linux">1. Installation on Linux</a></li>
 <li><a href="#capturing-packets-with-tcpdump">2. Capturing packets with tcpdump</a></li>
 <li><a href="#understanding-the-output-format">3. Understanding the output format</a></li>
+<li><a href="#filtering-packets">4. Filtering packets</a></li>
 <li><a href="#checking-packet-content">5. Checking packet content</a></li>
 <li><a href="#saving-captures-to-a-file">6. Saving captures to a file</a></li>
 </ul>
@@ -195,19 +198,27 @@ jQuery(document).ready(function(){
 <pre><code># -c 数量   -nn不进行域名解析
 tcpdump -i any -c5 -nn</code></pre>
 <h2 id="understanding-the-output-format">3. Understanding the output format</h2>
-<p>[S]：SYN，表示开始连接 [.]：没有标记，一般是确认 [P]：PSH，表示数据推送 [F]：FIN，表示结束连接 [R] ：RST，表示重启连接 ## 4. Filtering packets Protocol</p>
+<p>[S]：SYN，表示开始连接<br />
+[.]：没有标记，一般是确认<br />
+[P]：PSH，表示数据推送<br />
+[F]：FIN，表示结束连接<br />
+[R] ：RST，表示重启连接</p>
+<h2 id="filtering-packets">4. Filtering packets</h2>
+<p>Protocol</p>
 <pre><code>tcpdump -i any -c5 icmp</code></pre>
 <p>Host Port</p>
 <pre><code>tcpdump -i any -c5 -nn host 54.204.39.132   port 80
 tcpdump -i any -c5 -nn &quot;port 80 and (src 192.168.122.98 or dst 54.204.39.132)&quot;</code></pre>
 <h2 id="checking-packet-content">5. Checking packet content</h2>
-<p>tcpdump provides two additional flags: <code>-X</code> to print content in hex, and ASCII or -A to print the content in ASCII This is helpful for troubleshooting issues with API calls, assuming the calls are using plain HTTP. For encrypted connections, this output is less useful.</p>
+<p>tcpdump provides two additional flags: <code>-X</code> to print content in hex, and ASCII or -A to print the content in ASCII<br />
+This is helpful for troubleshooting issues with API calls, assuming the calls are using plain HTTP. For encrypted connections, this output is less useful.</p>
 <h2 id="saving-captures-to-a-file">6. Saving captures to a file</h2>
 <pre><code># 写入 -w
 tcpdump -i any -c10 -nn -w webserver.pcap port 80
 # 查看  -r
 tcpdump -nn -r tcpdump.txt</code></pre>
-<p>This command saves the output in a file named webserver.pcap. The .pcap extension stands for &quot;packet capture&quot; and is the convention for this file format. You can also use any of the filters we've discussed to filter the content from the file, just as you would with real-time data</p>
+<p>This command saves the output in a file named webserver.pcap. The .pcap extension stands for "packet capture" and is the convention for this file format.<br />
+You can also use any of the filters we've discussed to filter the content from the file, just as you would with real-time data</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

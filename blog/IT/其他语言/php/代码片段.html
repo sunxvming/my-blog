@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/其他语言/php/代码片段</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -368,7 +370,8 @@ if ($ok == 1) {
     echo &quot;ugly, error checking signature\n&quot;;
 }</code></pre>
 <h3 id="php通过header函数下载文件">php通过header函数下载文件</h3>
-<p>般来说, 我们可以通过直接让URL指向一个位于Document Root下面的文件, 来引导用户下载文件. 但是, 这样做, 就没办法做一些统计, 权限检查, 等等的工作. 于是, 很多时候, 我们采用让PHP来做转发, 为用户提供文件下载.</p>
+<p>般来说, 我们可以通过直接让URL指向一个位于Document Root下面的文件, 来引导用户下载文件.<br />
+但是, 这样做, 就没办法做一些统计, 权限检查, 等等的工作. 于是, 很多时候, 我们采用让PHP来做转发, 为用户提供文件下载.</p>
 <pre><code>&lt;?php
     $file = &quot;/tmp/dummy.tar.gz&quot;;
     header(&quot;Content-type: application/octet-stream&quot;);

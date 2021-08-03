@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,28 +171,34 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/CS基础/程序员的自我修养——链接装载与库-读书笔记</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#第一部分简介"> 第一部分：简介</a><ul>
+<li><a href="#第一部分简介"> 第一部分：简介</a>
+<ul>
 <li><a href="#第1章温故而知新"> 第1章、温故而知新</a></li>
 </ul></li>
-<li><a href="#第二部分静态链接"> 第二部分：静态链接</a><ul>
+<li><a href="#第二部分静态链接"> 第二部分：静态链接</a>
+<ul>
 <li><a href="#第2章编译和链接"> 第2章、编译和链接</a></li>
 <li><a href="#第3章目标文件里有什么"> 第3章、目标文件里有什么</a></li>
 <li><a href="#第4章静态链接"> 第4章、静态链接</a></li>
-<li><a href="#第5章windowspecoff"> 第5章、Windows PE/COFF</a></li>
+<li><a href="#第5章windows-pecoff"> 第5章、Windows PE/COFF</a></li>
 </ul></li>
-<li><a href="#第三部分装载与动态链接"> 第三部分：装载与动态链接</a><ul>
+<li><a href="#第三部分装载与动态链接"> 第三部分：装载与动态链接</a>
+<ul>
 <li><a href="#第6章可执行文件的装载与进程"> 第6章、可执行文件的装载与进程</a></li>
 <li><a href="#第7章动态链接"> 第7章、动态链接</a></li>
 <li><a href="#第8章linux共享库的组织"> 第8章、Linux共享库的组织</a></li>
 <li><a href="#第9章windows下的动态链接"> 第9章、Windows下的动态链接</a></li>
 </ul></li>
-<li><a href="#第四部分库与运行库"> 第四部分：库与运行库</a><ul>
+<li><a href="#第四部分库与运行库"> 第四部分：库与运行库</a>
+<ul>
 <li><a href="#第10章内存"> 第10章、内存</a></li>
 <li><a href="#第11章运行库"> 第11章、运行库</a></li>
 <li><a href="#第12章系统调用与api"> 第12章、系统调用与API</a></li>
@@ -224,7 +230,7 @@ jQuery(document).ready(function(){
 <h4 id="第4章静态链接"> 第4章、静态链接</h4>
 <p>空间与地址分配、符号解析和重定位</p>
 <hr />
-<h4 id="第5章windowspecoff"> 第5章、Windows PE/COFF</h4>
+<h4 id="第5章windows-pecoff"> 第5章、Windows PE/COFF</h4>
 <p>因为基于Linux开发，windows相关的暂时跳过</p>
 <hr />
 <h3 id="第三部分装载与动态链接"> 第三部分：装载与动态链接</h3>

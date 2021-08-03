@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,23 +171,26 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/c笔记/c总结-位运算</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
  <!--if(toc)-->
 
-<p>位运算符的应用 (源操作数s 掩码mask) (1) 按位与 <code>&amp;</code></p>
+<p>位运算符的应用 (源操作数s 掩码mask)<br />
+(1) 按位与 <code>&amp;</code></p>
 <pre><code>清零特定位 (mask中特定位置0，其它位为1，s=s&amp;mask) 
 取某数中指定位 (mask中特定位置1，其它位为0，s=s&amp;mask) </code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li><p>按位或 <code>|</code></p>
-<pre><code>常用来将源操作数某些位设置成1，其它位不变。 (mask中特定位置1，其它位为0 s=s|mask) </code></pre></li>
-<li>位异或 <code>^</code> ```<br /></li>
-</ol>
-<ol style="list-style-type: decimal">
-<li>使特定位的值取反 (mask中特定位置1，其它位为0 s=s^mask)</li>
-<li>不引入第三变量，交换两个变量的值 (设 a=a1,b=b1) 操 作 目 标 操作后状态 a=a^b a=a1^b1 a=a1^b1,b=b1 b=a^b b=a1<sup>b1</sup>b1 a=a1^b1,b=a1 a=a^b a=b1<sup>a1</sup>a1 a=b1,b=a1 ```</li>
-</ol>
+<p>(2) 按位或 <code>|</code></p>
+<pre><code>常用来将源操作数某些位设置成1，其它位不变。 (mask中特定位置1，其它位为0 s=s|mask) </code></pre>
+<p>(3) 位异或 <code>^</code></p>
+<pre><code>1. 使特定位的值取反 (mask中特定位置1，其它位为0 s=s^mask) 
+2. 不引入第三变量，交换两个变量的值 (设 a=a1,b=b1) 
+  操 作 目 标 操作后状态 
+  a=a^b a=a1^b1 a=a1^b1,b=b1 
+  b=a^b b=a1^b1^b1 a=a1^b1,b=a1 
+  a=a^b a=b1^a1^a1 a=b1,b=a1 </code></pre>
 <pre><code>(1) 判断int型变量a是奇数还是偶数            
     a&amp;1 = 0 偶数 
     a&amp;1 = 1 奇数 
@@ -226,7 +229,132 @@ jQuery(document).ready(function(){
 　　等价于 x= a ^ b ^ x; 
 (16) x 的 相反数 表示为 (~x+1) </code></pre>
 <p>实例</p>
-<p>|功能 | 示例 | 位运算 | ---- | ---- | --- |去掉最后一位 | (101101-&gt;10110) | x &gt;&gt; 1 |在最后加一个0 | (101101-&gt;1011010) | x &lt; &lt; 1 |在最后加一个1 | (101101-&gt;1011011) | x &lt; &lt; 1+1 |把最后一位变成1 | (101100-&gt;101101) | x | 1 |把最后一位变成0 | (101101-&gt;101100) | x | 1-1 |最后一位取反 | (101101-&gt;101100) | x ^ 1 |把右数第k位变成1 | (101001-&gt;101101,k=3) | x | (1 &lt; &lt; (k-1)) |把右数第k位变成0 | (101101-&gt;101001,k=3) | x &amp; ~ (1 &lt; &lt; (k-1)) |右数第k位取反 | (101001-&gt;101101,k=3) | x ^ (1 &lt; &lt; (k-1)) |取末三位 | (1101101-&gt;101) | x &amp; 7 |取末k位 | (1101101-&gt;1101,k=5) | x &amp; ((1 &lt; &lt; k)-1) | |取右数第k位 | (1101101-&gt;1,k=4) | x &gt;&gt; (k-1) &amp; 1 | |把末k位变成1 | (101001-&gt;101111,k=4) | x | (1 &lt; &lt; k-1) |末k位取反 | (101001-&gt;100110,k=4) | x ^ (1 &lt; &lt; k-1) |把右边连续的1变成0 | (100101111-&gt;100100000) | x &amp; (x+1) |把右起第一个0变成1 | (100101111-&gt;100111111) | x | (x+1) |把右边连续的0变成1 | (11011000-&gt;11011111) | x | (x-1) |取右边连续的1 | (100101111-&gt;1111) | (x ^ (x+1)) &gt;&gt; 1 |去掉右起第一个1的左边 | (100101000-&gt;1000) | x &amp; (x ^ (x-1)) |判断奇数 (x&amp;1)==1 |判断偶数 (x&amp;1)==0</p>
+<table>
+<thead>
+<tr class="header">
+<th>功能</th>
+<th>示例</th>
+<th>位运算</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>去掉最后一位</td>
+<td>(101101-&gt;10110)</td>
+<td>x &gt;&gt; 1</td>
+</tr>
+<tr class="even">
+<td>在最后加一个0</td>
+<td>(101101-&gt;1011010)</td>
+<td>x &lt; &lt; 1</td>
+</tr>
+<tr class="odd">
+<td>在最后加一个1</td>
+<td>(101101-&gt;1011011)</td>
+<td>x &lt; &lt; 1+1</td>
+</tr>
+<tr class="even">
+<td>把最后一位变成1</td>
+<td>(101100-&gt;101101)</td>
+<td>x</td>
+</tr>
+<tr class="odd">
+<td>把最后一位变成0</td>
+<td>(101101-&gt;101100)</td>
+<td>x</td>
+</tr>
+<tr class="even">
+<td>最后一位取反</td>
+<td>(101101-&gt;101100)</td>
+<td>x ^ 1</td>
+</tr>
+<tr class="odd">
+<td>把右数第k位变成1</td>
+<td>(101001-&gt;101101,k=3)</td>
+<td>x</td>
+</tr>
+<tr class="even">
+<td>把右数第k位变成0</td>
+<td>(101101-&gt;101001,k=3)</td>
+<td>x &amp; ~ (1 &lt; &lt; (k-1))</td>
+</tr>
+<tr class="odd">
+<td>右数第k位取反</td>
+<td>(101001-&gt;101101,k=3)</td>
+<td>x ^ (1 &lt; &lt; (k-1))</td>
+</tr>
+<tr class="even">
+<td>取末三位</td>
+<td>(1101101-&gt;101)</td>
+<td>x &amp; 7</td>
+</tr>
+<tr class="odd">
+<td>取末k位</td>
+<td>(1101101-&gt;1101,k=5)</td>
+<td>x &amp; ((1 &lt; &lt; k)-1)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>取右数第k位</td>
+<td>(1101101-&gt;1,k=4)</td>
+<td>x &gt;&gt; (k-1) &amp; 1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>把末k位变成1</td>
+<td>(101001-&gt;101111,k=4)</td>
+<td>x</td>
+</tr>
+<tr class="even">
+<td>末k位取反</td>
+<td>(101001-&gt;100110,k=4)</td>
+<td>x ^ (1 &lt; &lt; k-1)</td>
+</tr>
+<tr class="odd">
+<td>把右边连续的1变成0</td>
+<td>(100101111-&gt;100100000)</td>
+<td>x &amp; (x+1)</td>
+</tr>
+<tr class="even">
+<td>把右起第一个0变成1</td>
+<td>(100101111-&gt;100111111)</td>
+<td>x</td>
+</tr>
+<tr class="odd">
+<td>把右边连续的0变成1</td>
+<td>(11011000-&gt;11011111)</td>
+<td>x</td>
+</tr>
+<tr class="even">
+<td>取右边连续的1</td>
+<td>(100101111-&gt;1111)</td>
+<td>(x ^ (x+1)) &gt;&gt; 1</td>
+</tr>
+<tr class="odd">
+<td>去掉右起第一个1的左边</td>
+<td>(100101000-&gt;1000)</td>
+<td>x &amp; (x ^ (x-1))</td>
+</tr>
+<tr class="even">
+<td>判断奇数 (x&amp;1)==1</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>判断偶数 (x&amp;1)==0</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>例如求从x位（高）到y位（低）间共有多少个1</p>
 <pre><code>int FindChessNum(int x, int y, ushort k) 
 { 

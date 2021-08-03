@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/其他语言/php/php常见错误</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -192,7 +194,7 @@ foreach ($arr as &amp;$value) {
  $value = $value * 2;
 }
 // $arr is now array(2, 4, 6, 8)</code></pre>
-<p>这里有个问题很多人会迷糊。循环结束后，<span class="math"><em>v</em><em>a</em><em>l</em><em>u</em><em>e</em><em>并</em><em>未</em><em>销</em><em>毁</em>，</span>value其实是数组中最后一个元素的引用，这样在后续对$value的使用中，如果不知道这一点，会引发一些莫名奇妙的错误:)</p>
+<p>这里有个问题很多人会迷糊。循环结束后，<span class="math inline"><em>v</em><em>a</em><em>l</em><em>u</em><em>e</em><em>并</em><em>未</em><em>销</em><em>毁</em>，</span>value其实是数组中最后一个元素的引用，这样在后续对$value的使用中，如果不知道这一点，会引发一些莫名奇妙的错误:)</p>
 <p>避免这种错误最好的办法就是在循环后立即用unset函数销毁变量：</p>
 <pre><code>$arr = array(1, 2, 3, 4);
 foreach ($arr as &amp;$value) {

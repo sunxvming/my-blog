@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/linux/ubuntu</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -179,7 +181,7 @@ jQuery(document).ready(function(){
 <ul>
 <li><a href="#快捷键"> 快捷键</a></li>
 <li><a href="#为root用户设置密码"> 为root用户设置密码</a></li>
-<li><a href="#enablingsshonubuntu"> Enabling SSH on Ubuntu</a></li>
+<li><a href="#enabling-ssh-on-ubuntu"> Enabling SSH on Ubuntu</a></li>
 <li><a href="#安装c开发环境"> 安装c++开发环境</a></li>
 <li><a href="#安装cc的库"> 安装c/c++的库</a></li>
 <li><a href="#其他工具"> 其他工具</a></li>
@@ -188,10 +190,15 @@ jQuery(document).ready(function(){
  <!--if(toc)-->
 
 <h2 id="快捷键"> 快捷键</h2>
-<p>Alt+Tab切换到打开多个同类型程序时，停顿一下，可以显示出对应多个程序 Ctrl+Alt+T  </p>
+<p>Alt+Tab切换到打开多个同类型程序时，停顿一下，可以显示出对应多个程序<br />
+Ctrl+Alt+T  </p>
 <h2 id="为root用户设置密码"> 为root用户设置密码</h2>
-<p>打开终端输入：sudo passwd Password: &lt;--- 输入你当前用户的密码  Enter new UNIX password: &lt;--- 新的Root用户密码  Retype new UNIX password: &lt;--- 重复新的Root用户密码 passwd：已成功更新密码</p>
-<h2 id="enablingsshonubuntu"> Enabling SSH on Ubuntu</h2>
+<p>打开终端输入：sudo passwd<br />
+Password: &lt;--- 输入你当前用户的密码 <br />
+Enter new UNIX password: &lt;--- 新的Root用户密码 <br />
+Retype new UNIX password: &lt;--- 重复新的Root用户密码<br />
+passwd：已成功更新密码</p>
+<h2 id="enabling-ssh-on-ubuntu"> Enabling SSH on Ubuntu</h2>
 <p>By default, when Ubuntu is first installed, remote access via SSH is not allowed. Enabling SSH on Ubuntu is fairly straightforward.</p>
 <pre><code>sudo apt update
 sudo apt install openssh-server
@@ -211,9 +218,15 @@ build-essential
     make-guile
   Depends: dpkg-dev (&gt;= 1.17.11)</code></pre>
 <h2 id="安装cc的库"> 安装c/c++的库</h2>
-<p>一般安装某个库时都有两个东西， 一个是可执行程序 一个是这个类库的开发包，包括头文件，动态库、静态库什么的 比如在程序中你要用到openssl的东西，那你需要下载openssl的程序，还需要openssl的开发包 sudo apt-get install openssl sudo apt-get install libssl-dev</p>
+<p>一般安装某个库时都有两个东西，<br />
+一个是可执行程序<br />
+一个是这个类库的开发包，包括头文件，动态库、静态库什么的<br />
+比如在程序中你要用到openssl的东西，那你需要下载openssl的程序，还需要openssl的开发包<br />
+sudo apt-get install openssl<br />
+sudo apt-get install libssl-dev</p>
 <h2 id="其他工具"> 其他工具</h2>
-<p>* 终端的加强版 GuakeTerminal──linux下完美帅气的终端 </p>
+<p>* 终端的加强版<br />
+GuakeTerminal──linux下完美帅气的终端 </p>
 
 <footer id="colophon" >
 		<div class="site-info col">

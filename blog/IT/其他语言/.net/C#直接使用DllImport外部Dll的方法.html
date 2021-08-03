@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,13 +171,17 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/其他语言/.net/C#直接使用DllImport外部Dll的方法</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
  <!--if(toc)-->
 
-<p>托管与非托管代码 非托管代码主要是基于win32平台开发的DLL，activeX的组件，托管代码是基于.net平台开发的。</p>
-<p>调用DLL中的非托管函数一般方法 首先，应该在C#语言源程序中声明外部方法，其基本形式是：</p>
+<p>托管与非托管代码<br />
+非托管代码主要是基于win32平台开发的DLL，activeX的组件，托管代码是基于.net平台开发的。</p>
+<p>调用DLL中的非托管函数一般方法<br />
+首先，应该在C#语言源程序中声明外部方法，其基本形式是：</p>
 <pre><code>[DLLImport(&quot;DLL文件&quot;)]
 修饰符 extern 返回变量类型 方法名称(参数列表)
 </code></pre>

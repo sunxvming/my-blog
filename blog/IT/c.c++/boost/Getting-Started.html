@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,12 +171,15 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/boost/Getting-Started</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
  <!--if(toc)-->
 
-<p>官网文档有详细的入门指引 boost包解压后的结构</p>
+<p>官网文档有详细的入门指引<br />
+boost包解压后的结构</p>
 <pre><code>boost_1_75_0/ .................The “boost root directory”
    index.htm .........A copy of www.boost.org starts here
    boost/ .........................All Boost Header files
@@ -191,7 +194,11 @@ jQuery(document).ready(function(){
    tools/ ...........Utilities, e.g. Boost.Build, quickbook, bcp
    more/ ..........................Policy documents, etc.
    doc/ ...............A subset of all Boost library docs</code></pre>
-<p>使用有两种方式： 1.Header-Only Libraries，只需include头文件 这个需要把boost包中的boost目录复制到 /usr/include/boost，或者自己用<code>-I</code>指定包含目录 2.独立编译成lib库，并include相应头文件 需要把boost源码编译成静态库</p>
+<p>使用有两种方式：<br />
+1.Header-Only Libraries，只需include头文件<br />
+这个需要把boost包中的boost目录复制到 /usr/include/boost，或者自己用<code>-I</code>指定包含目录<br />
+2.独立编译成lib库，并include相应头文件<br />
+需要把boost源码编译成静态库</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

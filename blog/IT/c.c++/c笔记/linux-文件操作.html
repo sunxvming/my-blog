@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/c笔记/linux-文件操作</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -179,19 +181,40 @@ jQuery(document).ready(function(){
 <ul>
 <li><a href="#linux文件概念"> Linux文件概念</a></li>
 <li><a href="#打开和关闭文件描述符"> 打开和关闭文件描述符</a></li>
+<li><a href="#读写文件描述符"> 读写文件描述符</a></li>
 <li><a href="#获取文件信息"> 获取文件信息</a></li>
+<li><a href="#库函数和系统调用的区别"> 库函数和系统调用的区别</a></li>
 <li><a href="#库函数的文件io操作"> 库函数的文件IO操作：</a></li>
 </ul>
 </div>
  <!--if(toc)-->
 
 <h2 id="linux文件概念"> Linux文件概念</h2>
-<p>Linux系统上的文件部分类型说明 <em> 普通文件。 就是储存到磁盘上大家所操作的各种数据文件； </em> 管道文件。 是一个从一端发送数据，从另一端接收数据的通道； <em> 目录 也叫目录文件，是包含了保存在目录中文件的列表； </em> 设备文件 是一种特殊文件，提供了大多数物理设备的接口； <em> 符号链接 包含了到另一个人文件的连接，类似于windows的快捷方式； </em> 套接口 套接口更像管道文件，但可以让处于不同机器上的进程通讯。</p>
-<p>文件描述符是个很小的正整数，它是一个索引值，指向内核为每个进程所维护的该进程打开文件的记录表。 例如：每个进程启动时都打开3个文件： 标准输入文件（stdin 0） 标准输出(stdout 1) 标准出错(stderr 2) 编程中应该使用<code>&lt;unistd.h&gt;</code>中定义的STDIN_FILENO、 STDOUT_FILENO、 STDERR_FILENO代替数字0、1、2。</p>
+<p>Linux系统上的文件部分类型说明<br />
+<em> 普通文件。<br />
+就是储存到磁盘上大家所操作的各种数据文件；<br />
+</em> 管道文件。<br />
+是一个从一端发送数据，从另一端接收数据的通道；<br />
+<em> 目录<br />
+也叫目录文件，是包含了保存在目录中文件的列表；<br />
+</em> 设备文件<br />
+是一种特殊文件，提供了大多数物理设备的接口；<br />
+<em> 符号链接<br />
+包含了到另一个人文件的连接，类似于windows的快捷方式；<br />
+</em> 套接口<br />
+套接口更像管道文件，但可以让处于不同机器上的进程通讯。</p>
+<p>文件描述符是个很小的正整数，它是一个索引值，指向内核为每个进程所维护的该进程打开文件的记录表。<br />
+例如：每个进程启动时都打开3个文件：<br />
+标准输入文件（stdin 0）<br />
+标准输出(stdout 1)<br />
+标准出错(stderr 2)<br />
+编程中应该使用<code>&lt;unistd.h&gt;</code>中定义的STDIN_FILENO、 STDOUT_FILENO、 STDERR_FILENO代替数字0、1、2。</p>
 <h2 id="打开和关闭文件描述符"> 打开和关闭文件描述符</h2>
 <pre><code>int open(const char *pathname, int flags);
 int close(int fd);</code></pre>
-<p>Open失败后会返回-1，并设置errno变量。 在一个文件描述符用完后一定要用close()函数关闭它，这样才能保证该进程对文件所有加的锁全部被释放 ## 读写文件描述符</p>
+<p>Open失败后会返回-1，并设置errno变量。<br />
+在一个文件描述符用完后一定要用close()函数关闭它，这样才能保证该进程对文件所有加的锁全部被释放</p>
+<h2 id="读写文件描述符"> 读写文件描述符</h2>
 <pre><code>ssize_t read(int fd, void *buf, size_t count);
 ssize_t write(int fd, void *buf, size_t count);</code></pre>
 <p>read例子：</p>
@@ -266,7 +289,11 @@ S_ISSOCK(m) socket? (Not in POSIX.1-1996.)</code></pre>
 <pre><code>char *getpass( const char *prompt);
 char *s = getpass(&quot;please input:&quot;);
 printf(&quot;%s\n&quot;, s);</code></pre>
-<p>getpass用于从键盘读取用户输入，但屏幕不回显。 ## 库函数和系统调用的区别 <em> 系统调用能够让你直接访问linux内核提供的服务 </em> 系统调用函数存在与内核空间，库函数都是用户模式，所以系统调用不当可能会破坏系统，但库函数调用风险就要小很多。 * 库函数对I/O操作进行缓冲，减少了系统调用开销，同时可移植性也更好</p>
+<p>getpass用于从键盘读取用户输入，但屏幕不回显。</p>
+<h2 id="库函数和系统调用的区别"> 库函数和系统调用的区别</h2>
+<p><em> 系统调用能够让你直接访问linux内核提供的服务<br />
+</em> 系统调用函数存在与内核空间，库函数都是用户模式，所以系统调用不当可能会破坏系统，但库函数调用风险就要小很多。<br />
+* 库函数对I/O操作进行缓冲，减少了系统调用开销，同时可移植性也更好</p>
 <h2 id="库函数的文件io操作"> 库函数的文件IO操作：</h2>
 <pre><code>FILE *p fopen(const char *path, const char *mode);
 int fclose(FILE *stream);

@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,18 +171,23 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/c++笔记/11.C++多文件编程是什么</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
  <!--if(toc)-->
 
-<p>防止头文件被重复引入 * 1) 使用宏定义避免重复引入</p>
+<p>防止头文件被重复引入<br />
+* 1) 使用宏定义避免重复引入</p>
 <pre><code>#ifndef _NAME_H
 #define _NAME_H
 //头文件内容
 #endif</code></pre>
-<p>* 2) 使用#pragma once避免重复引入 目前，几乎所有常见的编译器都支持 #pragma once 指令</p>
-<p>* 3) 使用_Pragma操作符 C99 标准中新增加了一个和 #pragma 指令类似的 <em>Pragma 操作符，其可以看做是 #pragma 的增强版，不仅可以实现 #pragma 所有的功能，更重要的是，</em>Pragma 还能和宏搭配使用。</p>
+<p>* 2) 使用#pragma once避免重复引入<br />
+目前，几乎所有常见的编译器都支持 #pragma once 指令</p>
+<p>* 3) 使用_Pragma操作符<br />
+C99 标准中新增加了一个和 #pragma 指令类似的 _Pragma 操作符，其可以看做是 #pragma 的增强版，不仅可以实现 #pragma 所有的功能，更重要的是，_Pragma 还能和宏搭配使用。</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

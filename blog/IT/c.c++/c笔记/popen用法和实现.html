@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,14 +171,17 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/c笔记/popen用法和实现</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
 <li><a href="#popen使用"> popen使用</a></li>
-<li><a href="#linux的system和popen差异"> Linux的system()和popen()差异</a><ul>
+<li><a href="#linux的system和popen差异"> Linux的system()和popen()差异</a>
+<ul>
 <li><a href="#systempopen源码"> system()、popen()源码</a></li>
 <li><a href="#执行流程"> 执行流程</a></li>
 </ul></li>
@@ -365,9 +368,12 @@ popen(const char *cmdstring, const char *type)  
     childpid[fileno(fp)] = pid; /* remember child pid for this fd */  
     return(fp);  
 }  </code></pre>
-<p>popen如何获取命令执行的结果？ 命令执行时会将命令的结果输出到标准输出中，通过在父进程中创建一个管道，然后将标准输出到这个管道中，然后父进程从这个管道中读取结果。</p>
+<p>popen如何获取命令执行的结果？<br />
+命令执行时会将命令的结果输出到标准输出中，通过在父进程中创建一个管道，然后将标准输出到这个管道中，然后父进程从这个管道中读取结果。</p>
 <h3 id="执行流程"> 执行流程</h3>
-<p>从上面的源码可以看到system和popen都是执行了类似的运行流程，大致是<code>fork-&gt;execl-&gt;return</code>。但是我们看到system在执行期间调用进程会一直等待shell命令执行完成(waitpid等待子进程结束)才返回，但是popen无须等待shell命令执行完成就返回了。我们可以理解system为串行执行，在执行期间调用进程放弃了”控制权”，popen为并行执行。 popen中的子进程没人给它”收尸”了啊？是的，如果你没有在调用popen后调用pclose那么这个子进程就可能变成”僵尸”。 上面我们没有给出pclose的源码，其实我们根据system的源码差不多可以猜测出pclose的源码就是system中第4部分的内容。</p>
+<p>从上面的源码可以看到system和popen都是执行了类似的运行流程，大致是<code>fork-&gt;execl-&gt;return</code>。但是我们看到system在执行期间调用进程会一直等待shell命令执行完成(waitpid等待子进程结束)才返回，但是popen无须等待shell命令执行完成就返回了。我们可以理解system为串行执行，在执行期间调用进程放弃了”控制权”，popen为并行执行。<br />
+popen中的子进程没人给它”收尸”了啊？是的，如果你没有在调用popen后调用pclose那么这个子进程就可能变成”僵尸”。<br />
+上面我们没有给出pclose的源码，其实我们根据system的源码差不多可以猜测出pclose的源码就是system中第4部分的内容。</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

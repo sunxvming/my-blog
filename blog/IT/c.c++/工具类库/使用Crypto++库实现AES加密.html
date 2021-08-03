@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,15 +171,20 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/工具类库/使用Crypto++库实现AES加密</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
  <!--if(toc)-->
 
 <p>高级加密标准（英语：Advanced Encryption Standard，缩写：AES），在密码学中又称 Rijndael 加密法，是美国联邦政府采用的一种区块加密标准。</p>
-<p>默认密钥长度 AES 可使用16，24，或32字节密钥（分别对应128，192和256位）。 Crypto++ 库缺省的密钥长度是16字节，也就是 AES:: DEFAULT_KEYLENGTH。</p>
-<p>块大小 块大小被 AES::BLOCKSIZE 宏决定，对于 AES 加密，它始终是16字节。</p>
-<p>ECB和CBC模式 对于 ECB 和 CBC 模式，你处理的数据必须是块大小的倍数。或者，你可以用 StreamTransformationFilter 围绕这个模式对象，并把它作为一个过滤器对象。StreamTransformationFilter 能够缓存数据到块中并根据需要填充。</p>
+<p>默认密钥长度<br />
+AES 可使用16，24，或32字节密钥（分别对应128，192和256位）。 Crypto++ 库缺省的密钥长度是16字节，也就是 AES:: DEFAULT_KEYLENGTH。</p>
+<p>块大小<br />
+块大小被 AES::BLOCKSIZE 宏决定，对于 AES 加密，它始终是16字节。</p>
+<p>ECB和CBC模式<br />
+对于 ECB 和 CBC 模式，你处理的数据必须是块大小的倍数。或者，你可以用 StreamTransformationFilter 围绕这个模式对象，并把它作为一个过滤器对象。StreamTransformationFilter 能够缓存数据到块中并根据需要填充。</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

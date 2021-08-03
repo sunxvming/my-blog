@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../../.././css/style.css" />
 
 
 
@@ -171,13 +171,16 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/应用方向/区块链/智能合约/eos-vm源码分析</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#eos-vm">eos-vm</a><ul>
+<li><a href="#eos-vm">eos-vm</a>
+<ul>
 <li><a href="#浮点数的支持">1. 浮点数的支持</a></li>
 <li><a href="#watchdog">2. watchdog</a></li>
 </ul></li>
@@ -190,7 +193,8 @@ jQuery(document).ready(function(){
 <h2 id="eos-vm">eos-vm</h2>
 <p>EOS-VM 是纯头文件的，这意味着 EOS-VM 可以被嵌入进几乎所有的 C++项目中。</p>
 <h3 id="浮点数的支持">1. 浮点数的支持</h3>
-<p>对于浮点数，很多开发者往往片面的认为其运算是不精确的，无法用于区块链系统。实际上并非如此，只是对于一些不同的硬件中，因为各种各样的历史原因，硬件中固化的浮点数运算有一些差异，解决这一点最好的方式是使用 softfloat 库，不使用机器硬件提供的浮点数，这样不同的硬件机器上，浮点数运算的结果都是相同的了。当然这里 Block.one 也提到，如果不在乎所有平台上保持浮点数运算的确定性，则可以使用基于硬件的浮点数运算，这样效率会比使用 softfloat 快很多，这种情况一般是节点硬件机器会保持统一的状态下使用的。 在 EOSIO 中其实也集成了 softfloat 库，但是之前的实现是在链中嵌入的，原生的虚拟机中本身不支持，现在并入虚拟机实现，可以降低其他区块链使用 EOS-VM 时的开发成本。</p>
+<p>对于浮点数，很多开发者往往片面的认为其运算是不精确的，无法用于区块链系统。实际上并非如此，只是对于一些不同的硬件中，因为各种各样的历史原因，硬件中固化的浮点数运算有一些差异，解决这一点最好的方式是使用 softfloat 库，不使用机器硬件提供的浮点数，这样不同的硬件机器上，浮点数运算的结果都是相同的了。当然这里 Block.one 也提到，如果不在乎所有平台上保持浮点数运算的确定性，则可以使用基于硬件的浮点数运算，这样效率会比使用 softfloat 快很多，这种情况一般是节点硬件机器会保持统一的状态下使用的。<br />
+在 EOSIO 中其实也集成了 softfloat 库，但是之前的实现是在链中嵌入的，原生的虚拟机中本身不支持，现在并入虚拟机实现，可以降低其他区块链使用 EOS-VM 时的开发成本。</p>
 <h3 id="watchdog">2. watchdog</h3>
 <p>EOS-VM 增加了 watchdog 机制以确保运行字节码的运行时间限制，这个类似看门狗的机制，会在细粒度上对合约进行资源使用限制。</p>
 <h2 id="执行流程">执行流程：</h2>
@@ -199,7 +203,8 @@ jQuery(document).ready(function(){
 <li>2.若有HostFunctions，解析HostFunctions::resolve(_mod);</li>
 <li>3.设置allocator，并初始化</li>
 <li>4.用registered_host_functions::resolve解析自定义方法</li>
-<li>5.调用backend的call方法调用指定的方法 调用execution_context的execute</li>
+<li>5.调用backend的call方法调用指定的方法<br />
+调用execution_context的execute</li>
 </ul>
 <h2 id="各个文件">各个文件</h2>
 <pre><code>parser.hpp
@@ -331,7 +336,9 @@ rpcapiconf.h
         读取abi
     submittx()  执行合约
         </code></pre>
-<p>【交易】 universaltx.h 交易的通用结构</p>
+<p>【交易】<br />
+universaltx.h<br />
+交易的通用结构</p>
 <p>【abi】</p>
 <pre><code>abi_def.hpp
     用struct abi_def来表示abi的结构

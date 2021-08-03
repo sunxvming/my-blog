@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/c++笔记/c++编码规范</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -179,7 +181,8 @@ jQuery(document).ready(function(){
 <ul>
 <li><a href="#c编码规范"># c++编码规范</a></li>
 <li><a href="#工具设置"> 工具设置</a></li>
-<li><a href="#头文件"> 头文件</a><ul>
+<li><a href="#头文件"> 头文件</a>
+<ul>
 <li><a href="#使用define保护"> 1.使用#define保护</a></li>
 <li><a href="#内联函数"> 2.内联函数</a></li>
 <li><a href="#cpp文件include顺序建议如下"> 3.cpp文件<code>#include</code>顺序建议如下</a></li>
@@ -191,8 +194,9 @@ jQuery(document).ready(function(){
 <li><a href="#类"> 类</a></li>
 <li><a href="#其他c"> 其他C++</a></li>
 <li><a href="#低效率写法"> 低效率写法</a></li>
-<li><a href="#googlecstyleguide"> Google C++ Style Guide</a><ul>
-<li><a href="#cversion"> C++ Version</a></li>
+<li><a href="#google-c-style-guide"> Google C++ Style Guide</a>
+<ul>
+<li><a href="#c-version"> C++ Version</a></li>
 <li><a href="#命名约定"> 命名约定</a></li>
 <li><a href="#参考链接"> 参考链接</a></li>
 </ul></li>
@@ -202,7 +206,8 @@ jQuery(document).ready(function(){
 
 <h2 id="c编码规范"># c++编码规范</h2>
 <h2 id="工具设置"> 工具设置</h2>
-<p>缩进 制表符大小=4 缩进大小=4 编码 no bom的UTF-8</p>
+<p>缩进 制表符大小=4 缩进大小=4<br />
+编码 no bom的UTF-8</p>
 <h2 id="头文件"> 头文件</h2>
 <h3 id="使用define保护"> 1.使用#define保护</h3>
 <pre><code>#ifndef __FOO_CLASS_H__
@@ -212,7 +217,10 @@ jQuery(document).ready(function(){
 <h3 id="内联函数"> 2.内联函数</h3>
 <p>建议低于10行函数才考虑inline</p>
 <h3 id="cpp文件include顺序建议如下"> 3.cpp文件<code>#include</code>顺序建议如下</h3>
-<p><em> 本.cpp的.h头文件 </em> c+库 <em> 依赖库 </em> 本项目内的.h</p>
+<p><em> 本.cpp的.h头文件<br />
+</em> c\c++库<br />
+<em> 依赖库<br />
+</em> 本项目内的.h</p>
 <h3 id="类的前置声明"> 4.类的前置声明</h3>
 <pre><code>// #include &lt;Hero&gt; 尽量不要包含头文件,
 class Hero; //下方前置声明
@@ -222,12 +230,28 @@ class Tri
     Mon* m;
     Hero* h;
 }</code></pre>
-<p>其他的头文件规范： - 避免多余的包含头文件 - 头文件应该是“自给自足的” - 标准的头文件依赖的结构是树形的，若是存在环形图的结构，那就是自找麻烦了</p>
-<p>头文件的影响 - 编译时间：对编译时间的影响可能是巨大的。 - 复杂性：不必要或笨拙的依赖关系会增加意外的复杂性。 - 重构/重组您的程序更加困难。 - 这使测试“模块”更难隔离。 - 文档：当您知道标头准确反映了文件中使用的内容时，此信息有助于理解代码。</p>
+<p>其他的头文件规范：<br />
+- 避免多余的包含头文件<br />
+- 头文件应该是“自给自足的”<br />
+- 标准的头文件依赖的结构是树形的，若是存在环形图的结构，那就是自找麻烦了</p>
+<p>头文件的影响<br />
+- 编译时间：对编译时间的影响可能是巨大的。<br />
+- 复杂性：不必要或笨拙的依赖关系会增加意外的复杂性。<br />
+- 重构/重组您的程序更加困难。<br />
+- 这使测试“模块”更难隔离。<br />
+- 文档：当您知道标头准确反映了文件中使用的内容时，此信息有助于理解代码。</p>
 <h2 id="命名规定"> 命名规定</h2>
-<p><em> 常量：大写加下划线 </em> 文件名:同类名一致，一般一个类一个文件 <em> 类名：大驼峰 class MyClass; </em> 成员变量：小驼峰，foo_ 下划线结尾 <em> 成员函数：小驼峰 </em> 变量名：小写加下划线 * 普通函数：小写加下划线</p>
+<p><em> 常量：大写加下划线<br />
+</em> 文件名:同类名一致，一般一个类一个文件<br />
+<em> 类名：大驼峰 class MyClass;<br />
+</em> 成员变量：小驼峰，foo_ 下划线结尾<br />
+<em> 成员函数：小驼峰<br />
+</em> 变量名：小写加下划线<br />
+* 普通函数：小写加下划线</p>
 <h2 id="注释"> 注释</h2>
-<p><em> 使用规定的代码片段创建文件、类注释 </em> 每个文件头加入功能说明及作者信息 * 未完成的代码使用TODO注释</p>
+<p><em> 使用规定的代码片段创建文件、类注释<br />
+</em> 每个文件头加入功能说明及作者信息<br />
+* 未完成的代码使用TODO注释</p>
 <pre><code>//========================================================================
 // 名称： xx
 // 作者：xx
@@ -235,7 +259,9 @@ class Tri
 // 修改时间：2015.02.05
 //========================================================================</code></pre>
 <h2 id="命名空间"> 命名空间</h2>
-<p>1.客户端使用 namespace xxx{} 命名空间包裹,xxx为本项目定义的命名空间 2.全局函数也封装于命名空间内 3.禁止使用using namespace xx; 建议使用using namespace LORD::FOO;类型</p>
+<p>1.客户端使用 namespace xxx{} 命名空间包裹,xxx为本项目定义的命名空间<br />
+2.全局函数也封装于命名空间内<br />
+3.禁止使用using namespace xx; 建议使用using namespace LORD::FOO;类型</p>
 <p>4.命名空间不要增加额外的缩进层次, 例如:</p>
 <pre><code>namespace {
 
@@ -248,9 +274,17 @@ void foo() {  // 正确. 命名空间内没有额外的缩进.
 <pre><code>namespace foo {
 namespace bar {</code></pre>
 <h2 id="类"> 类</h2>
-<p>1.仅仅有数据时使用struct,其他一律使用class 2.成员变量初始化顺序,声明顺序对应 3.头文件中一律不写任何方法实现的代码</p>
+<p>1.仅仅有数据时使用struct,其他一律使用class<br />
+2.成员变量初始化顺序,声明顺序对应<br />
+3.头文件中一律不写任何方法实现的代码</p>
 <h2 id="其他c"> 其他C++</h2>
-<p><em> 判断指针为空，逻辑层尽量判断 </em> 输入参数为值或者const引用 <em> 使用c++类型转换，<code>static_cast&lt;&gt;</code>，建议不要使用<code>int* y = (int*)x;</code> 验证 <code>B* b = (B*)c; B* b = static_cast&lt;B*&gt; c;</code> </em> 使用前置自增自减，尤其迭代器和模板类型 <em> 整数用0 实数用0.0 指针用nullptr  </em> 使用sizeof(value)替代sizeof(type) * 消除编译器报的所有警告</p>
+<p><em> 判断指针为空，逻辑层尽量判断<br />
+</em> 输入参数为值或者const引用<br />
+<em> 使用c++类型转换，<code>static_cast&lt;&gt;</code>，建议不要使用<code>int* y = (int*)x;</code> 验证 <code>B* b = (B*)c; B* b = static_cast&lt;B*&gt; c;</code><br />
+</em> 使用前置自增自减，尤其迭代器和模板类型<br />
+<em> 整数用0 实数用0.0 指针用nullptr <br />
+</em> 使用sizeof(value)替代sizeof(type)<br />
+* 消除编译器报的所有警告</p>
 <h2 id="低效率写法"> 低效率写法</h2>
 <pre><code>// 低效率 禁止使用
 for (int i=0; i&lt;1000; ++i)
@@ -264,11 +298,16 @@ for (int i=0; i&lt;1000; ++i)
 {
     f.DoSomething(i);
 }</code></pre>
-<h1 id="googlecstyleguide"> Google C++ Style Guide</h1>
-<h2 id="cversion"> C++ Version</h2>
-<p>Currently, code should target C++17, i.e., should not use C++2x features. &gt; 基于 C++ 11，C++ 17 旨在使 C++ 成为一个不那么臃肿复杂的编程语言，以简化该语言的日常使用，使开发者可以更简单地编写和维护代码。</p>
+<h1 id="google-c-style-guide"> Google C++ Style Guide</h1>
+<h2 id="c-version"> C++ Version</h2>
+<p>Currently, code should target C++17, i.e., should not use C++2x features.</p>
+<blockquote>
+<p> 基于 C++ 11，C++ 17 旨在使 C++ 成为一个不那么臃肿复杂的编程语言，以简化该语言的日常使用，使开发者可以更简单地编写和维护代码。</p>
+</blockquote>
 <h2 id="命名约定"> 命名约定</h2>
-<p>通用命名规则 函数命名, 变量命名, 文件命名要有描述性; 少用缩写. 尽可能使用描述性的命名, 别心疼空间, 毕竟相比之下让代码易于新读者理解更重要. 不要用只有项目开发者能理解的缩写, 也不要通过砍掉几个字母来缩写单词.</p>
+<p>通用命名规则<br />
+函数命名, 变量命名, 文件命名要有描述性; 少用缩写.<br />
+尽可能使用描述性的命名, 别心疼空间, 毕竟相比之下让代码易于新读者理解更重要. 不要用只有项目开发者能理解的缩写, 也不要通过砍掉几个字母来缩写单词.</p>
 <h2 id="参考链接"> 参考链接</h2>
 <p>- <a href="https://zh-google-styleguide.readthedocs.io/en/latest/contents/">Google 开源项目风格指南 (中文版)</a>, by google</p>
 

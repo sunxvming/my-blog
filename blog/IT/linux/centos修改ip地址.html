@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/linux/centos修改ip地址</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
  <!--if(toc)-->
@@ -179,7 +181,9 @@ jQuery(document).ready(function(){
 <p>1. </p>
 <pre><code>vi /etc/sysconfig/network-scripts/ifcfg-ethxx
 </code></pre>
-<p>2.</p>
+<ol>
+<li></li>
+</ol>
 <pre><code>TYPE=Ethernet
 PROXY_METHOD=none
 BROWSER_ONLY=no
@@ -200,7 +204,9 @@ GATEWAY=192.168.1.1    # 需要修改
 NETMASK=255.255.255.0  # 需要修改
 DNS1=8.8.8.8           # 需要修改
 ZONE=</code></pre>
-<p>3.</p>
+<ol>
+<li></li>
+</ol>
 <pre><code>service network restart</code></pre>
 
 <footer id="colophon" >

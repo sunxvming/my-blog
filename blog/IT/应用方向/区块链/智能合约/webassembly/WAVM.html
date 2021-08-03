@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../../../.././css/style.css" />
 
 
 
@@ -171,18 +171,21 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/应用方向/区块链/智能合约/webassembly/WAVM</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#wavm"> WAVM</a><ul>
+<li><a href="#wavm"> WAVM</a>
+<ul>
 <li><a href="#编译wavm"> 编译wavm</a></li>
 <li><a href="#编译llvm"> 编译llvm</a></li>
 <li><a href="#运行wavm中的例子"> 运行WAVM中的例子</a></li>
 <li><a href="#webassembly后缀类型"> WebAssembly后缀类型</a></li>
-<li><a href="#编译cc为webassembly"> 编译 C/C++ 为 WebAssembly</a></li>
+<li><a href="#编译-cc-为-webassembly"> 编译 C/C++ 为 WebAssembly</a></li>
 <li><a href="#把c代码编译成wasm并用wavm运行"> 把c++代码编译成wasm并用wavm运行</a></li>
 </ul></li>
 </ul>
@@ -190,7 +193,8 @@ jQuery(document).ready(function(){
  <!--if(toc)-->
 
 <h2 id="wavm"> WAVM</h2>
-<p><a href="https://github.com/WAVM/WAVM">WAVM</a> is a WebAssembly virtual machine, designed for use in non-web applications.Its implementation depends on LLVM. 此项目是一个个人的项目，大部分代码由一个人开发完成，它作为一个学习WebAssembly、编译原理和llvm的一个项目还是不错的。</p>
+<p><a href="https://github.com/WAVM/WAVM">WAVM</a> is a WebAssembly virtual machine, designed for use in non-web applications.Its implementation depends on LLVM.<br />
+此项目是一个个人的项目，大部分代码由一个人开发完成，它作为一个学习WebAssembly、编译原理和llvm的一个项目还是不错的。</p>
 <h3 id="编译wavm"> 编译wavm</h3>
 <p>编译文档：Doc/Building.md</p>
 <pre><code>cmake3 ..  -G &quot;Unix Makefiles&quot; -DLLVM_DIR=/data/llvm-6.0.0.src/build/lib/cmake/llvm
@@ -209,9 +213,18 @@ wavm run --enable simd blake2b.wast
 wavm assemble test.wast test.wasm
 wavm disassemble hello.wasm hello.wast</code></pre>
 <h3 id="webassembly后缀类型"> WebAssembly后缀类型</h3>
-<p>WebAssembly text file: WAST/WAT WebAssembly binary file: WASM</p>
-<h3 id="编译cc为webassembly"> 编译 C/C++ 为 WebAssembly</h3>
-<p>教程资源 <em> MDN https://developer.mozilla.org/zh-CN/docs/WebAssembly/C_to_wasm </em> Emscripten https://emscripten.org/docs/getting_started/ <em> Outside the web: standalone WebAssembly binaries using Emscripten https://v8.dev/blog/emscripten-standalone-wasm </em> wasi文档 https://github.com/WebAssembly/WASI/</p>
+<p>WebAssembly text file: WAST/WAT<br />
+WebAssembly binary file: WASM</p>
+<h3 id="编译-cc-为-webassembly"> 编译 C/C++ 为 WebAssembly</h3>
+<p>教程资源<br />
+<em> MDN<br />
+https://developer.mozilla.org/zh-CN/docs/WebAssembly/C_to_wasm<br />
+</em> Emscripten<br />
+https://emscripten.org/docs/getting_started/<br />
+<em> Outside the web: standalone WebAssembly binaries using Emscripten<br />
+https://v8.dev/blog/emscripten-standalone-wasm<br />
+</em> wasi文档<br />
+https://github.com/WebAssembly/WASI/</p>
 <h3 id="把c代码编译成wasm并用wavm运行"> 把c++代码编译成wasm并用wavm运行</h3>
 <pre><code>#include &lt;stdio.h&gt;
 

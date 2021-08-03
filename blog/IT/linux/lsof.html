@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/linux/lsof</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -197,7 +199,9 @@ lsof /soft     #这样的话不会递归</code></pre>
 <p>查看某个进程pid打开的文件句柄</p>
 <pre><code>lsof  -n -p 10339 </code></pre>
 <p>ulimit -n 查看最大fd</p>
-<p>CentOS 7中的lsof是按PID/TID/file的组合显示结果的,多个线程中会重复打印同一个fd 同一个进程如果多个线程访问同一个文件通常只需要打开一次、占用一个fd，但在lsof中就显示多行。 下面的命令其实也没有太大意义</p>
+<p>CentOS 7中的lsof是按PID/TID/file的组合显示结果的,多个线程中会重复打印同一个fd<br />
+同一个进程如果多个线程访问同一个文件通常只需要打开一次、占用一个fd，但在lsof中就显示多行。<br />
+下面的命令其实也没有太大意义</p>
 <pre><code>lsof -n|awk &#39;{print $2}&#39;|sort|uniq -c|sort -nr|less</code></pre>
 <p>这个比较准：</p>
 <pre><code>find /proc -print | grep -P &#39;/proc/\d+/fd/&#39;| awk -F &#39;/&#39; &#39;{print $3}&#39; | uniq -c | sort -rn | head</code></pre>
@@ -230,7 +234,8 @@ int main()
     sleep(1000);
     return 0;
 }</code></pre>
-<p>博客：侦测程序句柄泄露的统计方法 https://www.ibm.com/developerworks/cn/linux/l-cn-handle/</p>
+<p>博客：侦测程序句柄泄露的统计方法<br />
+https://www.ibm.com/developerworks/cn/linux/l-cn-handle/</p>
 <p>下面脚本对某进程采样 3000 个数据，每 10 秒采样一次，依此数据绘制句柄统计趋势图。</p>
 <pre><code>#!/bin/sh
 set -x
@@ -244,9 +249,16 @@ do 
  sleep 10 
  count=`expr $count + 1`
 done</code></pre>
-<p>根据我们项目的测试经验，通常统计出来的句柄图形如下列三种： 平稳 <img src="/imgs/dcacc18d-a766-4bb5-b1df-ed0161580624.png" /> 在程序运行当中，句柄被不断地打开关闭，因此统计图形呈现平稳的锯齿形。在程序运行后期，很多临时打开的句柄被逐渐关闭，总的句柄数量没有随着时间的推移而增加，因此该程序不存在句柄泄露。</p>
-<p>峰值稳定 <img src="/imgs/0d46c8d1-aaaa-4725-99e9-e69af459257c.png" /> 在该程序运行初期，程序打开的句柄数量会随着时间的推移而逐步增加。但是当运行一段时间后，句柄数量会达到一个相对平稳的状态，大概 3500 左右。这个时候表明程序打开了很多临时句柄，但是句柄数量相对稳定，也不存在句柄泄露问题。</p>
-<p>递增 <img src="/imgs/14960e2a-db49-4252-a2b4-12470f866e3f.png" /> 程序在运行当中，某一操作引起了程序打开句柄数量逐步增加，而且没有出现相对平稳的迹象，说明该程序可能存在句柄泄露，需要进一步分析是哪一部分的句柄存在泄漏，以及什么操作会引起程序句柄的泄露。</p>
+<p>根据我们项目的测试经验，通常统计出来的句柄图形如下列三种：<br />
+平稳<br />
+<img src="/imgs/dcacc18d-a766-4bb5-b1df-ed0161580624.png" /><br />
+在程序运行当中，句柄被不断地打开关闭，因此统计图形呈现平稳的锯齿形。在程序运行后期，很多临时打开的句柄被逐渐关闭，总的句柄数量没有随着时间的推移而增加，因此该程序不存在句柄泄露。</p>
+<p>峰值稳定<br />
+<img src="/imgs/0d46c8d1-aaaa-4725-99e9-e69af459257c.png" /><br />
+在该程序运行初期，程序打开的句柄数量会随着时间的推移而逐步增加。但是当运行一段时间后，句柄数量会达到一个相对平稳的状态，大概 3500 左右。这个时候表明程序打开了很多临时句柄，但是句柄数量相对稳定，也不存在句柄泄露问题。</p>
+<p>递增<br />
+<img src="/imgs/14960e2a-db49-4252-a2b4-12470f866e3f.png" /><br />
+程序在运行当中，某一操作引起了程序打开句柄数量逐步增加，而且没有出现相对平稳的迹象，说明该程序可能存在句柄泄露，需要进一步分析是哪一部分的句柄存在泄漏，以及什么操作会引起程序句柄的泄露。</p>
 <p>通过对程序句柄数量进行采样统计，并且绘制出相应的统计图形，能够以比较直观的方式判断在程序中是否存在句柄泄露。该方法基于程序要运行大量的测试用例，增加测试用例的覆盖率，尽可能多的用测试用例触发程序打开和关闭句柄的操作，这样才能发现潜在的句柄泄露 bug。对于如何能够快速的发现句柄泄露代码，我们将做进一步研究。</p>
 
 <footer id="colophon" >

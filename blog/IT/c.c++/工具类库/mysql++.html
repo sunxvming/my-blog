@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,15 +171,20 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/工具类库/mysql++</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
+<li><a href="#下载">下载</a></li>
+<li><a href="#编译mysql">编译mysql++</a></li>
 <li><a href="#测试运行">测试运行</a></li>
 <li><a href="#工具">工具</a></li>
-<li><a href="#遇到问题">遇到问题</a><ul>
+<li><a href="#遇到问题">遇到问题</a>
+<ul>
 <li><a href="#跨机器连接不上">1.跨机器连接不上</a></li>
 <li><a href="#动态库找不到">2.动态库找不到</a></li>
 </ul></li>
@@ -188,7 +193,12 @@ jQuery(document).ready(function(){
 </div>
  <!--if(toc)-->
 
-<p>mysql++ API 是一组访问MySQL的C++ API封装。主要目的在于把各种Query的操作和STL容器更好的结合。 ## 下载 google搜索mysql++找到其官网，从官网找到linux的源码，然后下载。 ## 编译mysql++ 阅读源码的readme文件，查看 依赖那些库， 如何编译等。 MySQL++ is built on top of the MySQL C API library, so it needs the C API development files to build against.</p>
+<p>mysql++ API 是一组访问MySQL的C++ API封装。主要目的在于把各种Query的操作和STL容器更好的结合。</p>
+<h2 id="下载">下载</h2>
+<p>google搜索mysql++找到其官网，从官网找到linux的源码，然后下载。</p>
+<h2 id="编译mysql">编译mysql++</h2>
+<p>阅读源码的readme文件，查看 依赖那些库， 如何编译等。<br />
+MySQL++ is built on top of the MySQL C API library, so it needs the C API development files to build against.</p>
 <pre><code>yum install mysql-devel</code></pre>
 <h2 id="测试运行">测试运行</h2>
 <p>写一个简单的文件连接查询的文件</p>
@@ -198,17 +208,18 @@ jQuery(document).ready(function(){
 <h3 id="跨机器连接不上">1.跨机器连接不上</h3>
 <p>其实就是如何远程访问的问题，给个权限就行。</p>
 <h3 id="动态库找不到">2.动态库找不到</h3>
-<p>error while loading shared libraries: libmysqlpp.so.3: cannot open shared object file: No such file or directory 1) 如果共享库文件安装到了/lib或/usr/lib目录下, 那么需执行一下ldconfig命令 ldconfig命令的用途, 主要是在默认搜寻目录(/lib和/usr/lib)以及动态库配置文件/etc/ld.so.conf内所列的目录下, 搜索出可共享的动态链接库(格式如lib<em>.so</em>), 进而创建出动态装入程序(ld.so)所需的连接和缓存文件. 缓存文件默认为/etc/ld.so.cache, 此文件保存已排好序的动态链接库名字列表.</p>
-<ol start="2" style="list-style-type: decimal">
-<li><p>如果共享库文件安装到了/usr/local/lib(很多开源的共享库都会安装到该目录下)或其它&quot;非/lib或/usr/lib&quot;目录下, 那么在执行ldconfig命令前, 还要把新共享库目录加入到共享库配置文件/etc/ld.so.conf中, 如下:</p>
+<p>error while loading shared libraries: libmysqlpp.so.3: cannot open shared object file: No such file or directory<br />
+1) 如果共享库文件安装到了/lib或/usr/lib目录下, 那么需执行一下ldconfig命令<br />
+ldconfig命令的用途, 主要是在默认搜寻目录(/lib和/usr/lib)以及动态库配置文件/etc/ld.so.conf内所列的目录下, 搜索出可共享的动态链接库(格式如lib<em>.so</em>), 进而创建出动态装入程序(ld.so)所需的连接和缓存文件. 缓存文件默认为/etc/ld.so.cache, 此文件保存已排好序的动态链接库名字列表.</p>
+<p>2) 如果共享库文件安装到了/usr/local/lib(很多开源的共享库都会安装到该目录下)或其它"非/lib或/usr/lib"目录下, 那么在执行ldconfig命令前, 还要把新共享库目录加入到共享库配置文件/etc/ld.so.conf中, 如下:</p>
 <pre><code># cat /etc/ld.so.conf
 include ld.so.conf.d/*.conf
 # echo &quot;/usr/local/lib&quot; &gt;&gt; /etc/ld.so.conf  
-# ldconfig</code></pre></li>
-<li><p>如果共享库文件安装到了其它&quot;非/lib或/usr/lib&quot; 目录下, 但是又不想在/etc/ld.so.conf中加路径(或者是没有权限加路径). 那可以export一个全局变量LD_LIBRARY_PATH, 然后运行程序的时候就会去这个目录中找共享库. LD_LIBRARY_PATH的意思是告诉loader在哪些目录中可以找到共享库. 可以设置多个搜索目录, 这些目录之间用冒号分隔开. 比如安装了一个mysql到/usr/local/mysql目录下, 其中有一大堆库文件在/usr/local/mysql/lib下面, 则可以在.bashrc或.bash_profile或shell里加入以下语句即可:</p>
+# ldconfig</code></pre>
+<p>3) 如果共享库文件安装到了其它"非/lib或/usr/lib" 目录下, 但是又不想在/etc/ld.so.conf中加路径(或者是没有权限加路径). 那可以export一个全局变量LD_LIBRARY_PATH, 然后运行程序的时候就会去这个目录中找共享库.<br />
+LD_LIBRARY_PATH的意思是告诉loader在哪些目录中可以找到共享库. 可以设置多个搜索目录, 这些目录之间用冒号分隔开. 比如安装了一个mysql到/usr/local/mysql目录下, 其中有一大堆库文件在/usr/local/mysql/lib下面, 则可以在.bashrc或.bash_profile或shell里加入以下语句即可:</p>
 <pre><code>export LD_LIBRARY_PATH=/usr/local/mysql/lib:$LD_LIBRARY_PATH   </code></pre>
-<p>一般来讲这只是一种临时的解决方案, 在没有权限或临时需要的时候使用.</p></li>
-</ol>
+<p>一般来讲这只是一种临时的解决方案, 在没有权限或临时需要的时候使用.</p>
 <h2 id="代码">代码</h2>
 <pre><code>#include &lt;mysql++.h&gt;
 

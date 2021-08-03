@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,22 +171,27 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/程序工具/cmake</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#简介"> 简介</a><ul>
+<li><a href="#简介"> 简介</a>
+<ul>
 <li><a href="#cmake"> cmake</a></li>
 <li><a href="#参考资料"> 参考资料</a></li>
 </ul></li>
 <li><a href="#注意事项"> 注意事项</a></li>
-<li><a href="#编译流程"> 编译流程</a><ul>
+<li><a href="#编译流程"> 编译流程</a>
+<ul>
 <li><a href="#内置变量"> 内置变量</a></li>
 <li><a href="#设置编译选项"> 设置编译选项</a></li>
 <li><a href="#执行前置工作"> 执行前置工作</a></li>
-<li><a href="#设置target"> 设置target</a><ul>
+<li><a href="#设置target"> 设置target</a>
+<ul>
 <li><a href="#生成同名的.a和.so库文件"> 生成同名的.a和.so库文件</a></li>
 <li><a href="#exclude_from_allmake时默认不编译"> EXCLUDE_FROM_ALL，make时默认不编译</a></li>
 </ul></li>
@@ -200,18 +205,21 @@ jQuery(document).ready(function(){
 <li><a href="#pre-build和post-build操作"> Pre-build和Post-build操作</a></li>
 <li><a href="#cpack生成安装包"> cpack生成安装包</a></li>
 </ul></li>
-<li><a href="#语法"> 语法</a><ul>
+<li><a href="#语法"> 语法</a>
+<ul>
 <li><a href="#执行指定的脚本"> 执行指定的脚本</a></li>
-<li><a href="#变量allvariablesarestrings"> 变量 All Variables Are Strings</a></li>
+<li><a href="#变量-all-variables-are-strings"> 变量 All Variables Are Strings</a></li>
 <li><a href="#结构化变量"> 结构化变量</a></li>
-<li><a href="#语句everystatementisacommand"> 语句 Every Statement is a Command</a></li>
+<li><a href="#语句-every-statement-is-a-command"> 语句 Every Statement is a Command</a></li>
 <li><a href="#比较语句"> 比较语句</a></li>
-<li><a href="#控制语句flowcontrolcommands"> 控制语句 Flow Control Commands</a></li>
+<li><a href="#控制语句-flow-control-commands"> 控制语句 Flow Control Commands</a></li>
 <li><a href="#列表"> 列表</a></li>
 <li><a href="#函数和宏"> 函数和宏</a></li>
-<li><a href="#includingotherscripts"> Including Other Scripts</a><ul>
+<li><a href="#including-other-scripts"> Including Other Scripts</a>
+<ul>
 <li><a href="#include"> include</a></li>
 <li><a href="#find_package"> find_package</a></li>
+<li><a href="#add_subdirectory"> add_subdirectory</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#windows上使用"> windows上使用</a></li>
@@ -222,15 +230,23 @@ jQuery(document).ready(function(){
 <h2 id="简介"> 简介</h2>
 <h3 id="cmake"> cmake</h3>
 <p>cmake允许开发者编写一种平台无关的 CMakeList.txt 文件来<strong>定制整个编译流程</strong>，然后再根据目标用户的平台进一步生成所需的本地化 Makefile 和工程文件，如 Unix 的 Makefile 或 Windows 的 Visual Studio 工程。从而做到“Write once, run everywhere”。</p>
-<p>* 内部构建和外部构建 cmake强烈推荐的是外部构建(out-of-source build)，好处是不影响源码。即新建build目录，构建的工作和生成的中间文件都在这个目录</p>
-<p>* 查看更详细的编译信息 make VERBOSE=1 来构建</p>
+<p>* 内部构建和外部构建<br />
+cmake强烈推荐的是外部构建(out-of-source build)，好处是不影响源码。即新建build目录，构建的工作和生成的中间文件都在这个目录</p>
+<p>* 查看更详细的编译信息<br />
+make VERBOSE=1 来构建</p>
 <h3 id="参考资料"> 参考资料</h3>
-<p>参考资料： 知乎问题 CMake 如何入门？：https://www.zhihu.com/question/58949190</p>
-<p>关于cmake由浅入深的例子 https://github.com/ttroy50/cmake-examples</p>
-<p>awesome-cmake https://github.com/onqtam/awesome-cmake</p>
-<p>Learn CMake's Scripting Language in 15 Minutes https://preshing.com/20170522/learn-cmakes-scripting-language-in-15-minutes/</p>
+<p>参考资料：<br />
+知乎问题 CMake 如何入门？：https://www.zhihu.com/question/58949190</p>
+<p>关于cmake由浅入深的例子<br />
+https://github.com/ttroy50/cmake-examples</p>
+<p>awesome-cmake<br />
+https://github.com/onqtam/awesome-cmake</p>
+<p>Learn CMake's Scripting Language in 15 Minutes<br />
+https://preshing.com/20170522/learn-cmakes-scripting-language-in-15-minutes/</p>
 <h2 id="注意事项"> 注意事项</h2>
-<p>有时候改了cmake中的选项，比如： <code>option(CCACHE &quot;Use ccache if available&quot; OFF)</code> 由ON改成OFF，但是打印CCACHE的值还是不变。这些选项被缓存在CMakeCache.txt中了。 对于这种情况可以直接删掉build目录，或者编译时加上选项,比如</p>
+<p>有时候改了cmake中的选项，比如：<br />
+<code>option(CCACHE "Use ccache if available" OFF)</code> 由ON改成OFF，但是打印CCACHE的值还是不变。这些选项被缓存在CMakeCache.txt中了。<br />
+对于这种情况可以直接删掉build目录，或者编译时加上选项,比如</p>
 <pre><code>cmake .. -DCCACHE=OFF</code></pre>
 <h2 id="编译流程"> 编译流程</h2>
 <h3 id="内置变量"> 内置变量</h3>
@@ -314,14 +330,19 @@ ADD_LIBRARY(hello_static STATIC ${LIBHELLO_SRC})
 SET_TARGET_PROPERTIES(hello_static PROPERTIES OUTPUT_NAME &quot;hello&quot;)
 SET_TARGET_PROPERTIES(hello PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 SET_TARGET_PROPERTIES(hello_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)</code></pre>
-<p>cmake在构建一个新的target 时，会尝试清理掉其他使用这个名字的库， 所以要用CLEAN_DIRECT_OUTPUT来设置一下不要删除相同的目标 CLEAN_DIRECT_OUTPUT：Do not delete other variants of this target</p>
+<p>cmake在构建一个新的target 时，会尝试清理掉其他使用这个名字的库，<br />
+所以要用CLEAN_DIRECT_OUTPUT来设置一下不要删除相同的目标<br />
+CLEAN_DIRECT_OUTPUT：Do not delete other variants of this target</p>
 <h4 id="exclude_from_allmake时默认不编译"> EXCLUDE_FROM_ALL，make时默认不编译</h4>
 <p>在一个项目中不可避免会有一些测试代码，这些测试代码，我们并不一定需要每次都编译，尤其是编译正式版本的时候，这些测试代码是不会加入release版本的。为了加快编译速度，可以将这些测试用的target或不会加入release的target 加上EXCLUDE_FROM_ALL属性就不需要每次编译它了。 </p>
 <pre><code># fctest指定了EXCLUDE_FROM_ALL 属性,不会自动编译，只能手动编译
 add_executable(fctest EXCLUDE_FROM_ALL FeatureCompareSpeedTest.cpp)</code></pre>
 <h3 id="设置targe属性"> 设置targe属性</h3>
-<p>targets A CMake script defines targets using the add_executable, add_library or add_custom_target commands properties Once a target is created, it has properties that you can manipulate using the <code>get_property()</code> and <code>set_property()</code></p>
-<p>Unlike variables, targets are visible <strong>in every scope</strong>, even if they were defined in a subdirectory. All target properties are strings.</p>
+<p>targets<br />
+A CMake script defines targets using the add_executable, add_library or add_custom_target commands properties<br />
+Once a target is created, it has properties that you can manipulate using the <code>get_property()</code> and <code>set_property()</code></p>
+<p>Unlike variables, targets are visible <strong>in every scope</strong>, even if they were defined in a subdirectory.<br />
+All target properties are strings.</p>
 <pre><code># Get the target&#39;s SOURCES property and assign it to MYAPP_SOURCES
 get_property(MYAPP_SOURCES TARGET MyApp PROPERTY SOURCES)
 
@@ -425,7 +446,9 @@ add_library(glut32 STATIC IMPORTED)
 set_property(TARGET glut32 PROPERTY IMPORTED_LOCATION ${ROOT_DIR}/Library/glut32.lib)
 target_link_libraries(${PROJECT_NAME} glut32 )  #添加glut32.lib</code></pre>
 <h3 id="指定安装规则"> 指定安装规则</h3>
-<p>安装的内容可以包括目标二进制、动态库、静态库以及文件、目录、脚本等。 变量CMAKE_INSTALL_PREFIX    用法：cmake -DCMAKE_INSTALL_PREFIX=/usr . 默认是在DESTINATION目录下</p>
+<p>安装的内容可以包括目标二进制、动态库、静态库以及文件、目录、脚本等。<br />
+变量CMAKE_INSTALL_PREFIX    用法：cmake -DCMAKE_INSTALL_PREFIX=/usr .<br />
+默认是在DESTINATION目录下</p>
 <pre><code># DESTINATION 在这里是一个相对路径，取默认值。在unix系统中指向 /usr/local 在windows上c:/Program Files/${PROJECT_NAME}。
 # 指定target安装目录， make install时生效
 install(TARGETS testStudent DESTINATION /usr/lib)
@@ -456,7 +479,7 @@ INSTALL(DIRECTORY dirs... DESTINATION &lt;dir&gt; [FILE_PERMISSIONS permiss
 <h2 id="语法"> 语法</h2>
 <h3 id="执行指定的脚本"> 执行指定的脚本</h3>
 <p>cmake -P hello.txt</p>
-<h3 id="变量allvariablesarestrings"> 变量 All Variables Are Strings</h3>
+<h3 id="变量-all-variables-are-strings"> 变量 All Variables Are Strings</h3>
 <pre><code># 命令行中设置
 cmake -DNAME=Newman
 
@@ -473,18 +496,19 @@ set(THING &quot;funk&quot;)
 # 参数加不加引号都可以
 # SET(SRC_LIST main.c)也可以写成 SET(SRC_LIST &quot;main.c&quot;)</code></pre>
 <h3 id="结构化变量"> 结构化变量</h3>
-<p>You Can Simulate a Data Structure using Prefixes 变量可以嵌套使用</p>
+<p>You Can Simulate a Data Structure using Prefixes<br />
+变量可以嵌套使用</p>
 <pre><code>set(JOHN_NAME &quot;John Smith&quot;)
 set(JOHN_ADDRESS &quot;123 Fake St&quot;)
 set(PERSON &quot;JOHN&quot;)
 message(&quot;${${PERSON}_NAME} lives at ${${PERSON}_ADDRESS}.&quot;)</code></pre>
-<h3 id="语句everystatementisacommand"> 语句 Every Statement is a Command</h3>
+<h3 id="语句-every-statement-is-a-command"> 语句 Every Statement is a Command</h3>
 <p>every statement is a command that takes a list of string arguments and has no return value</p>
 <pre><code>math(EXPR MY_SUM &quot;1 + 1&quot;)   # Evaluate 1 + 1; store result in MY_SUM</code></pre>
 <h3 id="比较语句"> 比较语句</h3>
 <p>数字比较         LESS,GREATER,EQUAL</p>
 <p>字符串比较       STRLESS、STRGREATER、STREQUAL</p>
-<h3 id="控制语句flowcontrolcommands"> 控制语句 Flow Control Commands</h3>
+<h3 id="控制语句-flow-control-commands"> 控制语句 Flow Control Commands</h3>
 <p>cmake所有commands  https://cmake.org/cmake/help/latest/manual/cmake-commands.7.html</p>
 <p>Even flow control statements are commands.</p>
 <pre><code># 缩进不是必须的
@@ -523,7 +547,8 @@ foreach(ARG ${MY_LIST})       # Splits the list; passes items as 
 endforeach()</code></pre>
 <h3 id="函数和宏"> 函数和宏</h3>
 <p>Functions Run In Their Own Scope; Macros Don’t</p>
-<p>函数里的变量不会污染全局的变量，若要在函数中设置变量的值，需要传参并用set设值 函数可以访问函数外部的全局变量</p>
+<p>函数里的变量不会污染全局的变量，若要在函数中设置变量的值，需要传参并用set设值<br />
+函数可以访问函数外部的全局变量</p>
 <pre><code># VALUE为参数
 function(doubleIt VALUE)
     math(EXPR RESULT &quot;${VALUE} * 2&quot;)
@@ -566,15 +591,25 @@ endfunction()
 
 
 doubleEach(5 6 7 8)                     # Prints 10, 12, 14, 16 on separate lines</code></pre>
-<h3 id="includingotherscripts"> Including Other Scripts</h3>
+<h3 id="including-other-scripts"> Including Other Scripts</h3>
 <h4 id="include"> include</h4>
 <p>命令可以包含进来另一个脚本，include的搜索路径的变量在CMAKE_MODULE_PATH中</p>
 <h4 id="find_package"> find_package</h4>
-<p>The find_package command looks for scripts of the form Find*.cmake and also runs them in the same scope. Such scripts are often used to help find external libraries.</p>
-<p>find_package()命令首先会在模块路径中寻找Find.cmake，这是查找库的一个典型方式。具体查找路径依次为CMake：变量${CMAKE_MODULE_PATH}中的所有目录。如果没有，然后再查看它自己的模块目录/share/cmake-x.y/Modules/ 命令查找： find / -name Find*.cmake |less #### add_subdirectory CMake’s add_subdirectory command, on the other hand, creates a new scope, then executes the script named CMakeLists.txt from the specified directory in that new scope</p>
+<p>The find_package command looks for scripts of the form Find*.cmake and also runs them in the same scope.<br />
+Such scripts are often used to help find external libraries.</p>
+<p>find_package()命令首先会在模块路径中寻找Find.cmake，这是查找库的一个典型方式。具体查找路径依次为CMake：变量${CMAKE_MODULE_PATH}中的所有目录。如果没有，然后再查看它自己的模块目录/share/cmake-x.y/Modules/<br />
+命令查找： find / -name Find*.cmake |less</p>
+<h4 id="add_subdirectory"> add_subdirectory</h4>
+<p>CMake’s add_subdirectory command, on the other hand, creates a new scope, then executes the script named CMakeLists.txt from the specified directory in that new scope</p>
 <h2 id="windows上使用"> windows上使用</h2>
-<p>Windows上使用CMake也很方便，除了传统的命令行方式使用CMake，还有一个简单的GUI程序cmake-gui.exe来使用CMake。 运行cmake-gui source code编辑框就是输入代码的所在的路径，这个路径能够找到一个CMakeLists.txt文件。 build the binaries编辑框就是编译输出的中间文件和最终的二进制文件的目录。 Add Entry添加预定义的变量 <img src="/imgs/c8b32e20-2b60-493b-b07b-f0c644b1f3ab.png" /></p>
-<p>因为CMake最终通过CMakeLists.txt文件生成Windows上对应的vs工程文件，不同的vs版本也会影响到最终生成vs工程文件，所以configure对话框就是选择代码编译工具的，如图所示： <img src="/imgs/4b2979e6-edd8-42d0-9c31-25f0f795e993.jpg" /></p>
+<p>Windows上使用CMake也很方便，除了传统的命令行方式使用CMake，还有一个简单的GUI程序cmake-gui.exe来使用CMake。<br />
+运行cmake-gui<br />
+source code编辑框就是输入代码的所在的路径，这个路径能够找到一个CMakeLists.txt文件。<br />
+build the binaries编辑框就是编译输出的中间文件和最终的二进制文件的目录。<br />
+Add Entry添加预定义的变量<br />
+<img src="/imgs/c8b32e20-2b60-493b-b07b-f0c644b1f3ab.png" /></p>
+<p>因为CMake最终通过CMakeLists.txt文件生成Windows上对应的vs工程文件，不同的vs版本也会影响到最终生成vs工程文件，所以configure对话框就是选择代码编译工具的，如图所示：<br />
+<img src="/imgs/4b2979e6-edd8-42d0-9c31-25f0f795e993.jpg" /></p>
 
 <footer id="colophon" >
 		<div class="site-info col">

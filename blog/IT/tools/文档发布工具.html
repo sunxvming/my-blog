@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,15 +171,19 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/tools/文档发布工具</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
 <li><a href="#mkdocs"> MkDocs</a></li>
-<li><a href="#gitbook"> gitbook</a><ul>
-<li><a href="#如何使用"> 如何使用</a><ul>
+<li><a href="#gitbook"> gitbook</a>
+<ul>
+<li><a href="#如何使用"> 如何使用</a>
+<ul>
 <li><a href="#安装环境"> 安装环境</a></li>
 <li><a href="#gitbook命令"> gitbook命令</a></li>
 </ul></li>
@@ -189,18 +193,25 @@ jQuery(document).ready(function(){
  <!--if(toc)-->
 
 <h2 id="mkdocs"> MkDocs</h2>
-<p>MkDocs  配合  Material for MkDocs 使用， 效果如下：https://docs.zjubca.org/</p>
+<p>MkDocs  配合  Material for MkDocs 使用，<br />
+效果如下：https://docs.zjubca.org/</p>
 <h2 id="gitbook"> gitbook</h2>
 <p>GitBook 是一个基于 Node.js 的命令行工具，支持 Markdown 和 AsciiDoc 两种语法格式，可以输出 HTML、PDF、eBook 等格式的电子书。可以把它视为一种文档格式转换工具。</p>
 <h3 id="如何使用"> 如何使用</h3>
 <h4 id="安装环境"> 安装环境</h4>
-<p>因为 GitBook 是基于 Node.js，所以我们首先需要安装 Node.js。 安装完nodejs后，再进行gitbook包的安装</p>
+<p>因为 GitBook 是基于 Node.js，所以我们首先需要安装 Node.js。<br />
+安装完nodejs后，再进行gitbook包的安装</p>
 <pre><code>npm  install -g gitbook-cli</code></pre>
 <h4 id="gitbook命令"> gitbook命令</h4>
-<p>gitbook init    把当前目录初始化成gitbook的工程 gitbook serve   启动浏览器预览文档 gitbook build   生成_books目录。</p>
-<p>生成 PDF 格式的电子书： gitbook pdf ./ ./mybook.pdf</p>
-<p>生成 epub 格式的电子书： gitbook epub ./ ./mybook.epub</p>
-<p>生成 mobi 格式的电子书： gitbook mobi ./ ./mybook.mobi</p>
+<p>gitbook init    把当前目录初始化成gitbook的工程<br />
+gitbook serve   启动浏览器预览文档<br />
+gitbook build   生成_books目录。</p>
+<p>生成 PDF 格式的电子书：<br />
+gitbook pdf ./ ./mybook.pdf</p>
+<p>生成 epub 格式的电子书：<br />
+gitbook epub ./ ./mybook.epub</p>
+<p>生成 mobi 格式的电子书：<br />
+gitbook mobi ./ ./mybook.mobi</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

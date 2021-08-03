@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,12 +171,15 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/network/curl</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
+<li><a href="#默认使用">默认使用</a></li>
 <li><a href="#保存文件">保存文件</a></li>
 <li><a href="#指定-http-请求的方法">指定 HTTP 请求的方法</a></li>
 <li><a href="#发送-post">发送 POST</a></li>
@@ -184,7 +187,8 @@ jQuery(document).ready(function(){
 </div>
  <!--if(toc)-->
 
-<p>curl既是是一个编程用的函数库，又是一个有用的linux命令行工具，发出网络请求，然后得到和提取数据. ### 默认使用</p>
+<p>curl既是是一个编程用的函数库，又是一个有用的linux命令行工具，发出网络请求，然后得到和提取数据.</p>
+<h3 id="默认使用">默认使用</h3>
 <pre><code>$ curl https://www.example.com</code></pre>
 <p>上面命令向www.example.com发出 GET 请求，服务器返回的内容会在命令行输出。</p>
 <h3 id="保存文件">保存文件</h3>
@@ -203,7 +207,8 @@ jQuery(document).ready(function(){
 <pre><code>$ curl -d&#39;login=emma＆password=123&#39;-X POST https://google.com/login
 # 或者
 $ curl -d &#39;login=emma&#39; -d &#39;password=123&#39; -X POST  https://google.com/login</code></pre>
-<p>使用-d参数以后，HTTP 请求会自动加上标头<code>Content-Type : application/x-www-form-urlencoded</code>。并且会自动将请求转为 POST 方法，因此可以省略<code>-X POST</code>。 -d参数可以读取本地文本文件的数据，向服务器发送。</p>
+<p>使用-d参数以后，HTTP 请求会自动加上标头<code>Content-Type : application/x-www-form-urlencoded</code>。并且会自动将请求转为 POST 方法，因此可以省略<code>-X POST</code>。<br />
+-d参数可以读取本地文本文件的数据，向服务器发送。</p>
 <pre><code>$ curl -d &#39;@data.txt&#39; https://google.com/login</code></pre>
 <p>上面命令读取data.txt文件的内容，作为数据体向服务器发送。</p>
 

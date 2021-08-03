@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/工具类库/gtest</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -181,7 +183,8 @@ jQuery(document).ready(function(){
 <li><a href="#gitub-github地址-httpsgithub.comgooglegoogletest">gitub github地址 https://github.com/google/googletest</a></li>
 <li><a href="#安装">安装</a></li>
 <li><a href="#简单例子">简单例子</a></li>
-<li><a href="#gtest的断言">GTest的断言</a><ul>
+<li><a href="#gtest的断言">GTest的断言</a>
+<ul>
 <li><a href="#布尔值检查">1、布尔值检查</a></li>
 <li><a href="#数值型数据检查">2、数值型数据检查</a></li>
 <li><a href="#字符串比较">3、字符串比较</a></li>
@@ -217,8 +220,11 @@ int main(int argc,char **argv){
   testing::InitGoogleTest(&amp;argc,argv);
   return RUN_ALL_TESTS();
 }</code></pre>
-<p><code>TEST</code>宏的作用是创建一个简单测试，它定义了一个测试函数，在这个函数里可以使用任何C++代码并使用提供的断言来进行检查。 <code>RUN_ALL_TESTS()</code>运行所有测试案例</p>
-<p><code>ASSERT_*</code>版本的断言失败时会产生致命失败，并结束当前函数。 <code>EXPECT_*</code>版本的断言产生非致命失败，而不会中止当前函数。 通常更推荐使用<code>EXPECT_*</code>断言，因为它们运行一个测试中可以有不止一个的错误被报告出来。但如果在编写断言如果失败，就没有必要继续往下执行的测试时，你应该使用<code>ASSERT_*</code>断言。</p>
+<p><code>TEST</code>宏的作用是创建一个简单测试，它定义了一个测试函数，在这个函数里可以使用任何C++代码并使用提供的断言来进行检查。<br />
+<code>RUN_ALL_TESTS()</code>运行所有测试案例</p>
+<p><code>ASSERT_*</code>版本的断言失败时会产生致命失败，并结束当前函数。<br />
+<code>EXPECT_*</code>版本的断言产生非致命失败，而不会中止当前函数。<br />
+通常更推荐使用<code>EXPECT_*</code>断言，因为它们运行一个测试中可以有不止一个的错误被报告出来。但如果在编写断言如果失败，就没有必要继续往下执行的测试时，你应该使用<code>ASSERT_*</code>断言。</p>
 <h2 id="gtest的断言">GTest的断言</h2>
 <h3 id="布尔值检查">1、布尔值检查</h3>
 <pre><code>ASSERT_TRUE(condition);
@@ -290,7 +296,10 @@ EXPECT_FLOAT_EQ(expected, actual);
 ASSERT_DOUBLE_EQ(expected, actual);
 EXPECT_DOUBLE_EQ(expected, actual);</code></pre>
 <h2 id="事件机制">事件机制</h2>
-<p>gtest的事件一共有3种： * (1)、全局的，所有案例执行前后； * (2)、TestSuite级别的，在某一批案例中第一个案例前，最后一个案例执行后； * (3)、TestCase级别的，每个TestCase前后。</p>
+<p>gtest的事件一共有3种：<br />
+* (1)、全局的，所有案例执行前后；<br />
+* (2)、TestSuite级别的，在某一批案例中第一个案例前，最后一个案例执行后；<br />
+* (3)、TestCase级别的，每个TestCase前后。</p>
 <h2 id="参数化">参数化</h2>
 <p>测试用例中有专门的方法得到参数</p>
 <pre><code>int main(int argc, char **argv)

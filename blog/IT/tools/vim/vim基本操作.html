@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/tools/vim/vim基本操作</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -187,7 +189,7 @@ jQuery(document).ready(function(){
 <li><a href="#保存退出改变文件buffer"> 保存/退出/改变文件(Buffer)</a></li>
 <li><a href="#查找"> 查找</a></li>
 <li><a href="#替换-1"> 替换</a></li>
-<li><a href="#在vim内执行外部命令的方法"> 在 VIM 内执行外部命令的方法</a></li>
+<li><a href="#在-vim-内执行外部命令的方法"> 在 VIM 内执行外部命令的方法</a></li>
 <li><a href="#分屏操作"> 分屏操作</a></li>
 <li><a href="#多窗口"> 多窗口</a></li>
 <li><a href="#代码编辑"> 代码编辑</a></li>
@@ -197,61 +199,139 @@ jQuery(document).ready(function(){
 </div>
  <!--if(toc)-->
 
-<p>vim编辑器3种模式:命令模式、编辑模式、尾行模式</p>
 <h2 id="插入模式"> 插入模式</h2>
-<p><em> i 在光标处插入  I 在一行前插入 </em> a  在光标后插入  A在一行最后插入 <em> o  在当前行后插入一个新行  O  在当前行前插入一个新行 </em> cw  删除当前光标之后的一个word，并插入 c还可以配合 e b 0 $等 <em> s 清除当前光标对应的字符,并进入编辑模  S 清除当前行，并进入编辑模式 </em> r + 字符   替换光标处的字符， R 可连续替换多个字符</p>
+<p><em> i 在光标处插入  I 在一行前插入<br />
+</em> a  在光标后插入  A在一行最后插入<br />
+<em> o  在当前行后插入一个新行  O  在当前行前插入一个新行<br />
+</em> cw  删除当前光标之后的一个word，并插入 c还可以配合 e b 0 $等<br />
+<em> s 清除当前光标对应的字符,并进入编辑模  S 清除当前行，并进入编辑模式<br />
+</em> r + 字符   替换光标处的字符， R 可连续替换多个字符</p>
 <h2 id="光标移动"> 光标移动</h2>
 <p>上下左右移动 kjhl</p>
-<p>【单词级移动】 <em> w  移到下个单词首 W  移到下个单词首，按空格分。 </em> e  移到本单词尾  E  移到本单词尾，按空格分。 * b  移到本单词首  B 移到本单词首，按空格分。</p>
-<p>【行级移动】 <em> 0  数字零，到行头 </em> $  到本行行尾 <em> ^  到本行第一个不是blank字符的位置（所谓blank字符就是空格，tab，换行，回车等） </em> g_  到本行最后一个不是blank字符的位置。</p>
-<p>【句和段移动】 ( 和 ) 移到上一句和下一句 { 和 } 移到上一段和下一段</p>
-<p>【屏级移动】 H  移到本屏幕第一行 L  移到本屏幕最后一行</p>
-<p>【文章级移动】 G  移到文章末尾 gg  移到文章开头 NG 或 Ngg 或 :N    到第 N 行       :set nu  显示行号 查看当然光标所在的行    Ctrl+g</p>
-<p>【其他光标移动】 <code>%</code> : 匹配括号移动，包括 <code>(, {, [</code>. （使用时需要把光标先移到括号上） <code>*</code> 和 <code>#</code>: 匹配光标当前所在的单词，移动光标到下一个（或上一个）匹配单词</p>
-<p>zz: 将当前行置于屏幕中间 zt: 将当前行置于屏幕顶端 zb：将当前行置于屏幕底端</p>
-<p>ctrl-e  屏幕向下移 ctrl-y  屏幕向上移</p>
+<p>【单词级移动】<br />
+<em> w  移到下个单词首 W  移到下个单词首，按空格分。<br />
+</em> e  移到本单词尾  E  移到本单词尾，按空格分。<br />
+* b  移到本单词首  B 移到本单词首，按空格分。</p>
+<p>【行级移动】<br />
+<em> 0  数字零，到行头<br />
+</em> $  到本行行尾<br />
+<em> ^  到本行第一个不是blank字符的位置（所谓blank字符就是空格，tab，换行，回车等）<br />
+</em> g_  到本行最后一个不是blank字符的位置。</p>
+<p>【句和段移动】<br />
+( 和 ) 移到上一句和下一句<br />
+{ 和 } 移到上一段和下一段</p>
+<p>【屏级移动】<br />
+H  移到本屏幕第一行<br />
+L  移到本屏幕最后一行</p>
+<p>【文章级移动】<br />
+G  移到文章末尾<br />
+gg  移到文章开头<br />
+NG 或 Ngg 或 :N    到第 N 行      <br />
+:set nu  显示行号<br />
+查看当然光标所在的行    Ctrl+g</p>
+<p>【其他光标移动】<br />
+<code>%</code> : 匹配括号移动，包括 <code>(, {, [</code>. （使用时需要把光标先移到括号上）<br />
+<code>*</code> 和 <code>#</code>: 匹配光标当前所在的单词，移动光标到下一个（或上一个）匹配单词</p>
+<p>zz: 将当前行置于屏幕中间<br />
+zt: 将当前行置于屏幕顶端<br />
+zb：将当前行置于屏幕底端</p>
+<p>ctrl-e  屏幕向下移<br />
+ctrl-y  屏幕向上移</p>
 <p>gd - Go to definition, 跳转到定义。</p>
-<p>【光标移动+命令】 你一定要记住光标的移动，因为很多命令都可以和这些移动光标的命令连动。很多命令都可以如下来干：</p>
+<p>【光标移动+命令】<br />
+你一定要记住光标的移动，因为很多命令都可以和这些移动光标的命令连动。很多命令都可以如下来干：</p>
 <pre><code>&lt;start position&gt;&lt;command&gt;&lt;end position&gt;</code></pre>
-<p>例如 <code>0y$</code> 命令意味着： 0  先到行头 y  从这里开始拷贝 $  拷贝到本行最后一个字符 你可可以输入 <code>ye</code>，从当前位置拷贝到本单词的最后一个字符。</p>
+<p>例如 <code>0y$</code> 命令意味着：<br />
+0  先到行头<br />
+y  从这里开始拷贝<br />
+$  拷贝到本行最后一个字符<br />
+你可可以输入 <code>ye</code>，从当前位置拷贝到本单词的最后一个字符。</p>
 <h2 id="删除"> 删除</h2>
-<p>d + 光标快捷移动键,   光标跳到哪儿,就能快速删到哪 x 删除当前字符 daw  删除一个word， delete  a word dd 删除一行 d$  删除到行尾 全部删除：按esc键后，先按gg（到达顶部），然后dG</p>
+<p>d + 光标快捷移动键,   光标跳到哪儿,就能快速删到哪<br />
+x 删除当前字符<br />
+daw  删除一个word， delete  a word<br />
+dd 删除一行<br />
+d$  删除到行尾<br />
+全部删除：按esc键后，先按gg（到达顶部），然后dG</p>
 <h2 id="复制"> 复制</h2>
-<p>yy 复制一行 y3y 3yy 复制3行 y + 快捷移动键快速复制 yiw  复制当前单词，viwp替换其他地方的第一个单词，viw&quot;0p替换其他地方第n个出现的单词     iw表示inner word 全部复制  ggyG  :%y</p>
+<p>yy 复制一行<br />
+y3y 3yy 复制3行<br />
+y + 快捷移动键快速复制<br />
+yiw  复制当前单词，viwp替换其他地方的第一个单词，viw"0p替换其他地方第n个出现的单词     iw表示inner word<br />
+全部复制  ggyG  :%y</p>
 <p>v + 光标快捷移动键 + y</p>
-<p>v代表可视化的选择,选中之后可以复制，删除，变大小写等 ctrl + v 按块选择 V 大写v， 选择当前行</p>
+<p>v代表可视化的选择,选中之后可以复制，删除，变大小写等<br />
+ctrl + v 按块选择<br />
+V 大写v， 选择当前行</p>
 <p>下面的命令也会被复制：d (删除 )， v (可视化的选择)</p>
-<p>【复制替换操作】 <code>yiw</code>  <code>ciw&lt;C-r&gt;0</code>    <code>.</code>  <code>.</code>代表重复替换之前的 参考： <a href="https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text">Replace a word with yanked text</a></p>
-<p>粘贴  p p/P都可以，p是表示在当前位置之后，P表示在当前位置之前</p>
-<p>u  undo  U 撤销当前行的修改 <C-r>  redo</p>
+<p>【复制替换操作】<br />
+<code>yiw</code>  <code>ciw&lt;C-r&gt;0</code>    <code>.</code>  <code>.</code>代表重复替换之前的<br />
+参考： <a href="https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text">Replace a word with yanked text</a></p>
+<p>粘贴  p<br />
+p/P都可以，p是表示在当前位置之后，P表示在当前位置之前</p>
+<p>u  undo  U 撤销当前行的修改<br />
+<C-r>  redo</p>
 <h2 id="重复"> 重复</h2>
-<p>N<command>  重复某个命令N次 2dd 或d2d 删除2行 3p  粘贴文本3次 10 i abc [ESC]  会写下 “abc abc abc abc abc abc abc abc abc abc“ .  重复上一个命令</p>
+<p>N<command>  重复某个命令N次<br />
+2dd 或d2d 删除2行<br />
+3p  粘贴文本3次<br />
+10 i abc [ESC]  会写下 “abc abc abc abc abc abc abc abc abc abc“<br />
+.  重复上一个命令</p>
 <h2 id="替换"> 替换</h2>
-<p>r + 字符   替换光标处的字符 R 可连续替换多个字符</p>
+<p>r + 字符   替换光标处的字符<br />
+R 可连续替换多个字符</p>
 <h2 id="有效的命令组合"> 有效的命令组合</h2>
-<p>xp 交换两个字符 ddp  交换两行</p>
-<p>u  撤消 J  合并两行 gU (变大写) gu (变小写)</p>
+<p>xp 交换两个字符<br />
+ddp  交换两行</p>
+<p>u  撤消<br />
+J  合并两行<br />
+gU (变大写)<br />
+gu (变小写)</p>
 <h2 id="保存退出改变文件buffer"> 保存/退出/改变文件(Buffer)</h2>
-<p><em> :e <path/to/file>  打开一个文件 </em> :w  存盘 <em> :saveas <path/to/file>  另存为 <path/to/file> </em> :x， ZZ 或 :wq  保存并退出 (:x 表示仅在需要时保存，ZZ不需要输入冒号并回车) <em> :q!  退出不保存 :qa! 强行退出所有的正在编辑的文件，就算别的文件有更改。 </em> :bn 和 :bp  你可以同时打开很多文件，使用这两个命令来切换下一个或上一个文件。 :wq  存盘 + 退出 (:w 存盘, :q 退出)</p>
+<p><em> :e <path/to/file>  打开一个文件<br />
+</em> :w  存盘<br />
+<em> :saveas <path/to/file>  另存为 <path/to/file><br />
+</em> :x， ZZ 或 :wq  保存并退出 (:x 表示仅在需要时保存，ZZ不需要输入冒号并回车)<br />
+<em> :q!  退出不保存 :qa! 强行退出所有的正在编辑的文件，就算别的文件有更改。<br />
+</em> :bn 和 :bp  你可以同时打开很多文件，使用这两个命令来切换下一个或上一个文件。<br />
+:wq  存盘 + 退出 (:w 存盘, :q 退出)</p>
 <h2 id="查找"> 查找</h2>
-<p>查找当前单词  <code>*  #</code> 按下g*即可查找光标所在单词的字符序列，每次出现前后字符无要求。 即foo bar和foobar中的foo均可被匹配到。</p>
-<p>/pattern  搜索 pattern 的字符串,n查找下一个  N查找上一个 ？进行反向查找 要回到您之前的位置按 CTRL-O (按住 Ctrl 键不放同时按下字母 o)。重复按可以回退更多步。CTRL-I 会跳转到较新的位置。</p>
-<p>Vim查找支持正则表达式，例如/vim<span class="math">$匹配行尾的&quot;vim&quot;。 需要查找特殊字符需要转义，例如/vim\$匹配&quot;vim$</span>&quot;。</p>
-<p>大小写敏感查找 在查找模式中加入，。例如： /foo 将会查找所有的&quot;foo&quot;,&quot;FOO&quot;,&quot;Foo&quot;等字符串。</p>
+<p>查找当前单词  <code>*  #</code><br />
+按下g*即可查找光标所在单词的字符序列，每次出现前后字符无要求。 即foo bar和foobar中的foo均可被匹配到。</p>
+<p>/pattern  搜索 pattern 的字符串,n查找下一个  N查找上一个<br />
+？进行反向查找<br />
+要回到您之前的位置按 CTRL-O (按住 Ctrl 键不放同时按下字母 o)。重复按可以回退更多步。CTRL-I 会跳转到较新的位置。</p>
+<p>Vim查找支持正则表达式，例如/vim<span class="math inline">$匹配行尾的"vim"。 需要查找特殊字符需要转义，例如/vim\$匹配"vim$</span>"。</p>
+<p>大小写敏感查找<br />
+在查找模式中加入\c表示大小写不敏感查找，\C表示大小写敏感查找。例如：<br />
+/foo\c  将会查找所有的"foo","FOO","Foo"等字符串。</p>
 <h2 id="替换-1"> 替换</h2>
 <p><code>s（substitute）</code>令用来查找和替换字符串。语法如下：</p>
-<p><code>{作用范围}s/{目标}/{替换}/{替换标志}</code> 例如:%s/foo/bar 会在全局范围(%)查找foo并替换为bar</p>
-<p>i表示大小写不敏感查找，I表示大小写敏感： <code>%s/foo/bar/i</code> 等效于模式中的不敏感）或（敏感） <code>%s/foo\c/bar</code></p>
-<p>当光标就在那个单词上的话，可以在敲完%s/之后使用如下组合命令将它粘贴到命令里 <code>&lt;Ctrl+R&gt; &lt;Ctrl+W&gt;</code></p>
-<h2 id="在vim内执行外部命令的方法"> 在 VIM 内执行外部命令的方法</h2>
+<p><code>{作用范围}s/{目标}/{替换}/{替换标志}</code><br />
+例如:%s/foo/bar 会在全局范围(%)查找foo并替换为bar</p>
+<p>i表示大小写不敏感查找，I表示大小写敏感：<br />
+<code>%s/foo/bar/i</code><br />
+等效于模式中的\c（不敏感）或\C（敏感）<br />
+<code>%s/foo\c/bar</code></p>
+<p>当光标就在那个单词上的话，可以在敲完%s/之后使用如下组合命令将它粘贴到命令里<br />
+<code>&lt;Ctrl+R&gt; &lt;Ctrl+W&gt;</code></p>
+<h2 id="在-vim-内执行外部命令的方法"> 在 VIM 内执行外部命令的方法</h2>
 <p>:!ls <回车></p>
 <h2 id="分屏操作"> 分屏操作</h2>
-<p>:sp  上下分屏,后可跟文件名 :vsp 左右分屏,后可跟文件名   或ctrl+w v Ctr+w+w: 在多个窗口切换</p>
-<p>vim -O file1 file2 ...  垂直分屏 vim -o file1 file2 ... 水平分屏</p>
+<p>:sp  上下分屏,后可跟文件名<br />
+:vsp 左右分屏,后可跟文件名   或ctrl+w v<br />
+Ctr+w+w: 在多个窗口切换</p>
+<p>vim -O file1 file2 ...  垂直分屏<br />
+vim -o file1 file2 ... 水平分屏</p>
 <h2 id="多窗口"> 多窗口</h2>
 <p>“:tabnew”，新建一个编辑窗口，也就是支持多标签操作，多个标签可以用“gt”切换。</p>
-<p>“Ctrl+P”是 vi 内置的“代码补全”功能，对我们程序员来说特别有用。只要写上开头 的一两个字符，再按“Ctrl+P”，vi 就可以提示出文件里曾经出现的词，这样，在写长名 字时，就再也不用害怕了。 不过，vi 的“代码补全”功能还是比较弱的，不是基于语法分析，而是简单的文本分词，</p>
-<p>可以随时用“Ctrl+Z”暂停 vi，把它放到后台，然后执行各种 Shell 操作，在需要的时 候，只要敲一个“fg”命令，就可以把 vi 恢复回来。这在调试的时候非常有用，改改代码，运行一下，看看情况再切回来继续改，不用每次重复 vi 打开源文件，而且可以保留编辑的“现场”。</p>
+<p>“Ctrl+P”是 vi 内置的“代码补全”功能，对我们程序员来说特别有用。只要写上开头<br />
+的一两个字符，再按“Ctrl+P”，vi 就可以提示出文件里曾经出现的词，这样，在写长名<br />
+字时，就再也不用害怕了。<br />
+不过，vi 的“代码补全”功能还是比较弱的，不是基于语法分析，而是简单的文本分词，</p>
+<p>可以随时用“Ctrl+Z”暂停 vi，把它放到后台，然后执行各种 Shell 操作，在需要的时<br />
+候，只要敲一个“fg”命令，就可以把 vi 恢复回来。这在调试的时候非常有用，改改代码，运行一下，看看情况再切回来继续改，不用每次重复<br />
+vi 打开源文件，而且可以保留编辑的“现场”。</p>
 <p><code>:r FILENAME</code> 可提取磁盘文件 FILENAME 并将其插入到当前文件的光标位置后面</p>
 <h2 id="代码编辑"> 代码编辑</h2>
 <p>za是打开/关闭折叠， zf%是对匹配的内容创建折叠</p>
@@ -310,7 +390,9 @@ set nobackup
 set nowritebackup
 </code></pre>
 <h2 id="参考链接"> 参考链接</h2>
-<p>- <a href="https://coolshell.cn/articles/5426.html">简明 VIM 练级攻略</a>,by 酷壳 – CoolShell - <a href="https://book.douban.com/subject/25869486/">Vim实用技巧</a>,by Drew Nei - <a href="http://www.ruanyifeng.com/blog/2018/09/vimrc.html">Vim 配置入门</a>,by 阮一峰</p>
+<p>- <a href="https://coolshell.cn/articles/5426.html">简明 VIM 练级攻略</a>,by 酷壳 – CoolShell<br />
+- <a href="https://book.douban.com/subject/25869486/">Vim实用技巧</a>,by Drew Nei<br />
+- <a href="http://www.ruanyifeng.com/blog/2018/09/vimrc.html">Vim 配置入门</a>,by 阮一峰</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,13 +171,23 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/程序工具/valgrind</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
  <!--if(toc)-->
 
-<p>Valgrind 是个开源的工具，功能很多。例如检查内存泄漏工具---memcheck。 用法: <code>valgrind [options] prog-and-args</code> <code>[options]</code>: 常用选项，适用于所有Valgrind工具 <code>-tool=&lt;name&gt;</code> 最常用的选项。运行 valgrind中名为toolname的工具。默认memcheck。</p>
-<p><em> memcheck ------&gt; 这是valgrind应用最广泛的工具，一个重量级的内存检查器，能够发现开发中绝大多数内存错误使用情况。 </em> callgrind ------&gt; 它主要用来检查程序中函数调用过程中出现的问题。 <em> cachegrind ------&gt; 它主要用来检查程序中缓存使用出现的问题。 </em> helgrind ------&gt; 它主要用来检查多线程程序中出现的竞争问题。 <em> massif ------&gt; 它主要用来检查程序中堆栈使用中出现的问题。 </em> extension ------&gt; 可以利用core提供的功能，自己编写特定的内存调试工具</p>
+<p>Valgrind 是个开源的工具，功能很多。例如检查内存泄漏工具---memcheck。<br />
+用法: <code>valgrind [options] prog-and-args</code><br />
+<code>[options]</code>: 常用选项，适用于所有Valgrind工具<br />
+<code>-tool=&lt;name&gt;</code> 最常用的选项。运行 valgrind中名为toolname的工具。默认memcheck。</p>
+<p><em> memcheck ------&gt; 这是valgrind应用最广泛的工具，一个重量级的内存检查器，能够发现开发中绝大多数内存错误使用情况。<br />
+</em> callgrind ------&gt; 它主要用来检查程序中函数调用过程中出现的问题。<br />
+<em> cachegrind ------&gt; 它主要用来检查程序中缓存使用出现的问题。<br />
+</em> helgrind ------&gt; 它主要用来检查多线程程序中出现的竞争问题。<br />
+<em> massif ------&gt; 它主要用来检查程序中堆栈使用中出现的问题。<br />
+</em> extension ------&gt; 可以利用core提供的功能，自己编写特定的内存调试工具</p>
 <p>检查内存泄漏</p>
 <pre><code>valgrind --tool=memcheck --leak-check=full ./test</code></pre>
 <p>例如：</p>

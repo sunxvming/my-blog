@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,12 +171,15 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/linux/shell编程</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
  <!--if(toc)-->
 
-<p>【参数处理】 shift 命令用于对参数的移动(左移)</p>
+<p>【参数处理】<br />
+shift 命令用于对参数的移动(左移)</p>
 <p>向文件追加内容</p>
 <pre><code># 向test.txt 文件末尾追加&quot;zzzzzz&quot;
 cat &gt;&gt;test.txt&lt;&lt;EOF
@@ -191,7 +194,8 @@ then</code></pre>
 第一个严谨一些，第二个：
 比如$1...$9这个没区别，但是$10呢，${var}的这种就是${10}
 而$var却是$10是$1后边带个0。</code></pre>
-<p>【得到了脚本所在目录的绝对路径】 方法一：</p>
+<p>【得到了脚本所在目录的绝对路径】<br />
+方法一：</p>
 <pre><code>DIR=&quot;$( cd &quot;$( dirname &quot;${BASH_SOURCE[0]}&quot; )&quot; &amp;&amp; pwd )&quot;
 # 上述命令的解释
 S0=&quot;${BASH_SOURCE[0]}&quot;                    # 得到脚本相对于当前目录的路径，是相对路径

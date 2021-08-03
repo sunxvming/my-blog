@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,20 +171,22 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/python/__init__.py作用</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#标识该目录是一个python的模块包modulepackage"> 1. 标识该目录是一个python的模块包（module package）</a></li>
+<li><a href="#标识该目录是一个python的模块包module-package"> 1. 标识该目录是一个python的模块包（module package）</a></li>
 <li><a href="#简化模块导入操作"> 2. 简化模块导入操作</a></li>
 <li><a href="#导入模块中的所有内容"> 3. 导入模块中的所有内容</a></li>
 </ul>
 </div>
  <!--if(toc)-->
 
-<h2 id="标识该目录是一个python的模块包modulepackage"> 1. 标识该目录是一个python的模块包（module package）</h2>
+<h2 id="标识该目录是一个python的模块包module-package"> 1. 标识该目录是一个python的模块包（module package）</h2>
 <p>这个文件（这个文件定义了包的属性和方法）其实它可以什么也不定义；可以只是一个空文件，但是必须存在。如果 <code>__init__.py</code> 不存在，这个目录就仅仅是一个目录，而不是一个包，它就不能被导入或者包含其它的模块和嵌套包。</p>
 <h2 id="简化模块导入操作"> 2. 简化模块导入操作</h2>
 <p>如果目录中包含了 <code>__init__.py</code> 时，当用 <code>import</code> 导入该目录时，会执行 <code>__init__.py</code> 里面的代码。这样我们可以在里面添加简化模块导入的代码。比如：</p>
@@ -192,7 +194,9 @@ jQuery(document).ready(function(){
 <p>在我们执行import时，当前目录是不会变的（就算是执行子目录的文件），所有在<code>__init__.py</code>中import的时候是需要完整的包名。</p>
 <h2 id="导入模块中的所有内容"> 3. 导入模块中的所有内容</h2>
 <pre><code>from mypackage import *</code></pre>
-<p><code>__init__.py</code> 中还有一个重要的变量，叫做 <code>__all__</code>。 <code>__all__</code> 关联了一个模块列表，当执行 <code>from xx import *</code> 时，就会导入列表中的模块。 比如：</p>
+<p><code>__init__.py</code> 中还有一个重要的变量，叫做 <code>__all__</code>。<br />
+<code>__all__</code> 关联了一个模块列表，当执行 <code>from xx import *</code> 时，就会导入列表中的模块。<br />
+比如：</p>
 <pre><code>__all__ = [&#39;subpackage_1&#39;, &#39;subpackage_2&#39;]</code></pre>
 
 <footer id="colophon" >

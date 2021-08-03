@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/应用方向/区块链/以太坊/eth使用</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -179,14 +181,16 @@ jQuery(document).ready(function(){
 <ul>
 <li><a href="#cpp-ethereum">cpp-ethereum</a></li>
 <li><a href="#相关信息">相关信息</a></li>
-<li><a href="#搭建私有链">搭建私有链</a><ul>
+<li><a href="#搭建私有链">搭建私有链</a>
+<ul>
 <li><a href="#配置文件设置">1.配置文件设置</a></li>
 <li><a href="#启动程序">2.启动程序</a></li>
 </ul></li>
 <li><a href="#json-rpc接口">json rpc接口</a></li>
 <li><a href="#ethereum-console">ethereum-console</a></li>
 <li><a href="#测试账户">测试账户</a></li>
-<li><a href="#metamask连接私有链">MetaMask连接私有链</a><ul>
+<li><a href="#metamask连接私有链">MetaMask连接私有链</a>
+<ul>
 <li><a href="#使用remix部署和执行合约">使用remix部署和执行合约</a></li>
 </ul></li>
 <li><a href="#config.json">config.json</a></li>
@@ -196,28 +200,38 @@ jQuery(document).ready(function(){
 
 <h2 id="cpp-ethereum">cpp-ethereum</h2>
 <h2 id="相关信息">相关信息</h2>
-<p>数据目录： windows下目录 C:3</p>
+<p>数据目录：<br />
+windows下目录<br />
+C:\Users\sunxv\AppData\Roaming\Web3</p>
 <ul>
-<li><p>cpp-ethereum架构： https://ethdocs.org/en/latest/ethereum-clients/cpp-ethereum/architecture.html</p></li>
-<li><p>jsonrpc 接口文档<br />https://ethereumbuilders.gitbooks.io/guide/content/en/index.html</p></li>
+<li><p>cpp-ethereum架构：<br />
+https://ethdocs.org/en/latest/ethereum-clients/cpp-ethereum/architecture.html</p></li>
+<li><p>jsonrpc 接口文档<br />
+https://ethereumbuilders.gitbooks.io/guide/content/en/index.html</p></li>
 </ul>
 <h2 id="搭建私有链">搭建私有链</h2>
 <h3 id="配置文件设置">1.配置文件设置</h3>
 <p>见文末config.json</p>
 <h3 id="启动程序">2.启动程序</h3>
 <p>./aleth --config config.json -m on -a 00b99ed83a12d5d20aae7db4168c581b6ee01d87 --no-discovery --pin --unsafe-transactions</p>
-<p>其他命令行参数 --network-id 1108 --ipc --listen 30307 --port 30307 -d ipctest --db-path db</p>
+<p>其他命令行参数<br />
+--network-id 1108 --ipc --listen 30307 --port 30307 -d ipctest --db-path db</p>
 <h2 id="json-rpc接口">json rpc接口</h2>
 <ul>
-<li><p>获取账户列表 curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_accounts&quot;,&quot;params&quot;:[],&quot;id&quot;:1}' http://127.0.0.1:8545</p></li>
-<li><p>得到块高度 curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_blockNumber&quot;,&quot;params&quot;:[],&quot;id&quot;:83}' http://127.0.0.1:8545</p></li>
+<li><p>获取账户列表<br />
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}' http://127.0.0.1:8545</p></li>
+<li><p>得到块高度<br />
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":83}' http://127.0.0.1:8545</p></li>
 </ul>
 <h2 id="ethereum-console">ethereum-console</h2>
 <p>连接到cpp-ethereum的工具，因安装过程多次失败，弃之</p>
 <h2 id="测试账户">测试账户</h2>
-<p>account2 0x00b99ed83A12D5D20AAE7Db4168c581B6Ee01D87</p>
-<p>account3 0x9ee26cD93fB26B6948500892ee75ba9399927D10</p>
-<p>account1 0x57fE2bf5d51Eed594a9c07064aaEd7410d403523</p>
+<p>account2<br />
+0x00b99ed83A12D5D20AAE7Db4168c581B6Ee01D87</p>
+<p>account3<br />
+0x9ee26cD93fB26B6948500892ee75ba9399927D10</p>
+<p>account1<br />
+0x57fE2bf5d51Eed594a9c07064aaEd7410d403523</p>
 <h2 id="metamask连接私有链">MetaMask连接私有链</h2>
 <p>在网络设置中选择：自定义RPC</p>
 <h3 id="使用remix部署和执行合约">使用remix部署和执行合约</h3>
@@ -244,9 +258,14 @@ Database Layout
         State 
             State class 
             Merkle Patricia Trie implemenation is in TrieDB.h.</code></pre>
-<p>交易的代码 1.普通的交易 2.创建智能合约的交易 3.执行智能合约的交易</p>
+<p>交易的代码<br />
+1.普通的交易<br />
+2.创建智能合约的交易<br />
+3.执行智能合约的交易</p>
 <p>虚拟机执行的几个相关区</p>
-<p>栈区 内存区 storage区</p>
+<p>栈区<br />
+内存区<br />
+storage区</p>
 <p>nohup python3 -u init.py runserver --host 172.19.3.68 --port 8080</p>
 <h2 id="config.json">config.json</h2>
 <pre><code>{

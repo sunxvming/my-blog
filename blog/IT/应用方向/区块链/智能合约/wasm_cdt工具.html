@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/应用方向/区块链/智能合约/wasm_cdt工具</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -179,20 +181,25 @@ jQuery(document).ready(function(){
 <ul>
 <li><a href="#github源码地址">github源码地址</a></li>
 <li><a href="#一目录结构">一、目录结构</a></li>
-<li><a href="#二编译安装">二、编译安装</a><ul>
-<li><a href="#安装遇到问题">安装遇到问题</a><ul>
+<li><a href="#二编译安装">二、编译安装</a>
+<ul>
+<li><a href="#安装遇到问题">安装遇到问题</a>
+<ul>
 <li><a href="#代码分支">代码分支：</a></li>
 <li><a href="#编译失败位置">编译失败位置：</a></li>
 <li><a href="#失败可能的原因">失败可能的原因：</a></li>
 <li><a href="#解决">解决：</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#三编译合约文件">三、编译合约文件</a><ul>
-<li><a href="#编译方式">编译方式</a><ul>
+<li><a href="#三编译合约文件">三、编译合约文件</a>
+<ul>
+<li><a href="#编译方式">编译方式</a>
+<ul>
 <li><a href="#用wasm-ccwasm-cpp工具链直接编">1.用wasm-cc、wasm-cpp工具链直接编</a></li>
 <li><a href="#用cmake编译">2.用cmake编译</a></li>
 </ul></li>
-<li><a href="#编译合约遇到的问题">编译合约遇到的问题</a><ul>
+<li><a href="#编译合约遇到的问题">编译合约遇到的问题</a>
+<ul>
 <li><a href="#根目录下的cmake文件">根目录下的cmake文件</a></li>
 <li><a href="#src目录下的cmake文件">src目录下的cmake文件</a></li>
 <li><a href="#问题">问题：</a></li>
@@ -216,12 +223,17 @@ jQuery(document).ready(function(){
 <li>wasm_llvm/lib/Target/WebAssembly wasm的编译器前后端</li>
 </ul>
 <h2 id="二编译安装">二、编译安装</h2>
-<p>注意事项： * 1.配置最低4核8G * 2.若是虚拟机的话不要共享目录中安装 * 3.不要用自带的<code>build.sh</code>来安装，因为<code>build.sh</code>会检查机器的硬件和软件环境，不符合的话会报错 可以直接用cmake直接安装</p>
+<p>注意事项：<br />
+* 1.配置最低4核8G<br />
+* 2.若是虚拟机的话不要共享目录中安装<br />
+* 3.不要用自带的<code>build.sh</code>来安装，因为<code>build.sh</code>会检查机器的硬件和软件环境，不符合的话会报错<br />
+可以直接用cmake直接安装</p>
 <pre><code>mkdir build
 cmake ..
 make
 make install</code></pre>
-<p>编译好之后需要进行安装，安装的路径为<code>/usr/local/wasm.cdt</code> 内容包括：</p>
+<p>编译好之后需要进行安装，安装的路径为<code>/usr/local/wasm.cdt</code><br />
+内容包括：</p>
 <pre><code>1.头文件  /usr/local/wasm.cdt/include 
 2.静态库 /usr/local/wasm.cdt/lib 
 3.二进制程序 /usr/local/wasm.cdt/lib  
@@ -230,7 +242,8 @@ make install</code></pre>
 <h4 id="代码分支">代码分支：</h4>
 <p>master的最新代码</p>
 <h4 id="编译失败位置">编译失败位置：</h4>
-<p>CMakeLists.txt中的<code>include(modules/LibrariesExternalProject.txt)</code> 编译的内容为<code>libraries</code>目录下的内容，包括boost、libc、libc++、wasmlib</p>
+<p>CMakeLists.txt中的<code>include(modules/LibrariesExternalProject.txt)</code><br />
+编译的内容为<code>libraries</code>目录下的内容，包括boost、libc、libc++、wasmlib</p>
 <pre><code>Scanning dependencies of target WasmLibraries
 [ 70%] Creating directories for &#39;WasmLibraries&#39;
 [ 74%] No download step for &#39;WasmLibraries&#39;
@@ -238,11 +251,13 @@ make install</code></pre>
 [ 81%] No update step for &#39;WasmLibraries&#39;
 [ 85%] Performing configure step for &#39;WasmLibraries&#39;</code></pre>
 <h4 id="失败可能的原因">失败可能的原因：</h4>
-<p>编译<code>libraries</code>中的文件需要wasm编译工具链:wasm-cc wasm-cpp wasm-ld等， 但是cmake并没有找到工具链的位置，而是用gcc的工具链去编，导致编译无法进行</p>
+<p>编译<code>libraries</code>中的文件需要wasm编译工具链:wasm-cc wasm-cpp wasm-ld等，<br />
+但是cmake并没有找到工具链的位置，而是用gcc的工具链去编，导致编译无法进行</p>
 <h4 id="解决">解决：</h4>
 <p>把wasm.cdt的代码版本切换到v1.0的稳定版本后编译通过</p>
 <h2 id="三编译合约文件">三、编译合约文件</h2>
-<p>可以参考eos官方文档 https://developers.eos.io/manuals/eosio.cdt/latest/how-to-guides/compile/compile-a-contract-via-cli</p>
+<p>可以参考eos官方文档<br />
+https://developers.eos.io/manuals/eosio.cdt/latest/how-to-guides/compile/compile-a-contract-via-cli</p>
 <h3 id="编译方式">编译方式</h3>
 <h4 id="用wasm-ccwasm-cpp工具链直接编">1.用wasm-cc、wasm-cpp工具链直接编</h4>
 <pre><code>wasm-cpp -abigen ../src/hello.cpp -o hello.wasm -I ../include/</code></pre>

@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,14 +171,21 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/工具类库/Centos7升级GCC8版本</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
  <!--if(toc)-->
 
-<p>1.安装scl源： yum install centos-release-scl scl-utils-build</p>
-<p>2.列出scl可用源 yum list all --enablerepo='centos-sclo-rh' | grep &quot;devtoolset-&quot;</p>
-<p>3.安装8版本的gcc、gcc-c++、gdb工具链（toolchian）： yum install -y devtoolset-8-toolchain scl enable devtoolset-8 bash gcc --version</p>
+<p>1.安装scl源：<br />
+yum install centos-release-scl scl-utils-build</p>
+<p>2.列出scl可用源<br />
+yum list all --enablerepo='centos-sclo-rh' | grep "devtoolset-"</p>
+<p>3.安装8版本的gcc、gcc-c++、gdb工具链（toolchian）：<br />
+yum install -y devtoolset-8-toolchain<br />
+scl enable devtoolset-8 bash<br />
+gcc --version</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

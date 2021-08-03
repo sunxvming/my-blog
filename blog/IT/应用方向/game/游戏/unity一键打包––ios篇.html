@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../../.././css/style.css" />
 
 
 
@@ -171,13 +171,33 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/应用方向/game/游戏/unity一键打包––ios篇</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#一申请开发者账号">一:申请开发者账号</a><ul>
+<li><a href="#一申请开发者账号">一:申请开发者账号</a></li>
+<li><a href="#二mac系统版本的选择">二:mac系统版本的选择</a></li>
+<li><a href="#三远程连接软件">三:远程连接软件</a></li>
+<li><a href="#四unity破解">四:unity破解</a></li>
+<li><a href="#五设置文件隐藏">五:设置文件隐藏</a></li>
+<li><a href="#六打包出现的问题">六:打包出现的问题</a>
+<ul>
+<li><a href="#sdk设置">1.SDK设置</a></li>
+<li><a href="#bitcode设置">2.bitcode设置</a></li>
+<li><a href="#导入库文件">3.导入库文件</a></li>
+<li><a href="#其中一个闪退的问题">4.其中一个闪退的问题</a></li>
+<li><a href="#打ipa包签名问题">5.打ipa包签名问题</a></li>
+<li><a href="#设置打的版本是测试版还是发布版">6.设置打的版本是测试版还是发布版</a></li>
+<li><a href="#调试静态库的代码">7.调试静态库的代码</a></li>
+</ul></li>
+<li><a href="#七ios静态库相关">七:ios静态库相关</a></li>
+<li><a href="#八自动打包脚本">八:自动打包脚本</a>
+<ul>
+<li><a href="#shell脚本">shell脚本</a></li>
 <li><a href="#unity中对应的打包方法">unity中对应的打包方法</a></li>
 <li><a href="#使用postprocessbuild设定xcode-project">使用PostProcessBuild设定Xcode Project</a></li>
 </ul></li>
@@ -190,7 +210,78 @@ jQuery(document).ready(function(){
 <p>本文记录了unity打ios包的相关知识点，以及我的之前的一个mmo游戏项目中的打包脚本，项目所用的unity版本为5.6.6f2</p>
 </blockquote>
 <h3 id="一申请开发者账号">一:申请开发者账号</h3>
-<p>打包的时候需要苹果的开发者账号，时间差不多得两周到一个月左右，得提前准备好申请需要的材料以加快申请的速度。、 公司的开发者账号只有一个，但是开发一个项目是需要多人配合的，总不能所以人都用同一个公司的开发者账号吧。这时需要把开发人员的账号添加到公司的开发者账号的team中。 ### 二:mac系统版本的选择 mac系统的版本要和unity版本一直才能不出问题，这个系统不匹配的问题恰好被我给碰到了。 运行unity时黑屏先查看错误日志，网上查了下是缺少某些文件，按照网上的做法创建文件夹并复制文件即可，后来发现unity中的Assets文件下的东西都无法显示，查了下原来是macos10.13的版本的新的文件格式不支持老的unity编辑器，后来系统换成10.12.6的就好了。换苹果系统一开始是自己网上找教程弄的，但当时下载苹果系统特别慢，反正折腾了一个下午也没弄好，第二天直接58同城上花160块钱找了个专门按系统俩小时就弄好了，哈哈哈哈 &gt; Editor的日志存放目录 ~/Library/Logs/Unity/Editor.log ### 三:远程连接软件 Windows远程连mac可以用vnc的软件，百度一下按教程设置一下就可以了 ### 四:unity破解 下载mac的版本时要注意有普通版本fxx的和补丁版本pxx的， Mac破解方法: 去网上搜索 http://www.ceeger.com/forum/read.php?tid=23396&amp;uid=24111 首先 - 替换破解补丁Unity文件: 1.找到- 应用程序 2.双击Unity文件夹 3.右键单击Unity文件, 并选择显示包内容 4.双击contents文件夹 5.双击MacOS文件夹 6.右键Unity文件选择拷贝, 并粘贴到桌面作为你的备份 7.返回刚才的文件夹, 里面的Unity文件可以删掉了. 8.从下载的破解压缩包里拖拽Unity破解补丁文件到刚才的文件夹内即可. 然后- 替换破解补丁*.ulf 文件: 1.打开Finder, 在顶部菜单出选择 前往&gt;电脑, 打开后选择磁盘, 双击资源库(不是隐藏的那个资源库,请看清楚) 2.找到双击 Application Support文件夹 3.找到并双击Unity文件夹, 如果没有该文件夹, 请创建名为Unity的文件夹 4.右键文件夹内的 *.ulf文件, 选择拷贝, 并粘贴到桌面作为你的备份 5.返回刚才的文件夹, 里面的*.ulf文件可以删掉了. 6.从下载的破解压缩包里拖拽 *.ulf到刚才的文件夹内即可. ### 五:设置文件隐藏 打包的时候若不想把某个文件夹打进去的话，可以把文件设成隐藏的，用mv命令可以实现 mv testflod .testflod ### 六:打包出现的问题 #### 1.SDK设置 Showing Recent Issues Error: There is no SDK with the name or path '/Users/mac/Downloads/SimplestPluginExample/XCodePlugin/macosx10.5' <img src="http://www.sunxvming.com/wp-content/uploads/2019/11/d4404ca8-a261-402f-a052-0ee491bda10c.png" /> #### 2.bitcode设置 *** does not contain bitcode. You must rebuild it with bitcode enabled (Xcode setting ENABLE_BITCODE), obtain an updated library from the vendor, or disable bitcode for this target. for architecture armv7 <img src="http://www.sunxvming.com/wp-content/uploads/2019/11/34a101fd-893f-4172-a26d-8ba7a2372cd4.png" /> #### 3.导入库文件 <img src="http://www.sunxvming.com/wp-content/uploads/2019/11/55049109-aeb1-472f-935c-809247a370db.png" /> #### 4.其中一个闪退的问题 <img src="http://www.sunxvming.com/wp-content/uploads/2019/11/DF30C54B-458E-3B90-49AD-08A5C8E481A7.jpg" /> #### 5.打ipa包签名问题 CodeSign 的时候好像会让你输用户的密码，命令行没输就会出错了，下面的命令就是设置下不验证密码 security unlock-keychain -p 123456 ~/Library/Keychains/login.keychain security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k 123456 ~/Library/Keychains/login.keychain security set-keychain-settings ~/Library/Keychains/login.keychain #### 6.设置打的版本是测试版还是发布版 <img src="http://www.sunxvming.com/wp-content/uploads/2019/11/5bf70dc6-6981-47cc-ba83-ff2719c27c96.png" /> #### 7.调试静态库的代码 luajit的源代码放到xcode工程的plugins/iOS/ 中即可 xcode工程添加预定义编译宏 --&gt; Bulid Setting” --&gt; Preprocessor Macros。 需要删除的文件 ljamalg.c luajit.c 需要添加到文件 lj_vm.S ### 七:ios静态库相关 查看静态库 (.a文件）所支持的cup架构: file xx mac下可以使用 otool -hv xx lipo -info xx 1.查看静态库支持的CPU架构 lipo -info libname.a(或者libname.framework/libname) 2.合并静态库 lipo -create 静态库存放路径1 静态库存放路径2 ... -output 整合后存放的路径 lipo -create libname-armv7.a libname-armv7s.a libname-i386.a -output libname.a framework 合并(例util.framework) lipo -create arm7/util.framework/util i386/util.framework/util -output util.framework 3.静态库拆分 lipo 静态库源文件路径 -thin CPU架构名称 -output 拆分后文件存放路径 架构名为armv7/armv7s/arm64等，与lipo -info 输出的架构名一致 lipo libname.a -thin armv7 -output libname-armv7.a 1.依赖的库查询:otool -L xxx 2.查汇编代码:otool -tV ex ### 八:自动打包脚本 #### shell脚本</p>
+<p>打包的时候需要苹果的开发者账号，时间差不多得两周到一个月左右，得提前准备好申请需要的材料以加快申请的速度。、<br />
+公司的开发者账号只有一个，但是开发一个项目是需要多人配合的，总不能所以人都用同一个公司的开发者账号吧。这时需要把开发人员的账号添加到公司的开发者账号的team中。</p>
+<h3 id="二mac系统版本的选择">二:mac系统版本的选择</h3>
+<p>mac系统的版本要和unity版本一直才能不出问题，这个系统不匹配的问题恰好被我给碰到了。<br />
+运行unity时黑屏先查看错误日志，网上查了下是缺少某些文件，按照网上的做法创建文件夹并复制文件即可，后来发现unity中的Assets文件下的东西都无法显示，查了下原来是macos10.13的版本的新的文件格式不支持老的unity编辑器，后来系统换成10.12.6的就好了。换苹果系统一开始是自己网上找教程弄的，但当时下载苹果系统特别慢，反正折腾了一个下午也没弄好，第二天直接58同城上花160块钱找了个专门按系统俩小时就弄好了，哈哈哈哈</p>
+<blockquote>
+<p>Editor的日志存放目录 ~/Library/Logs/Unity/Editor.log</p>
+</blockquote>
+<h3 id="三远程连接软件">三:远程连接软件</h3>
+<p>Windows远程连mac可以用vnc的软件，百度一下按教程设置一下就可以了</p>
+<h3 id="四unity破解">四:unity破解</h3>
+<p>下载mac的版本时要注意有普通版本fxx的和补丁版本pxx的，<br />
+Mac破解方法:<br />
+去网上搜索 http://www.ceeger.com/forum/read.php?tid=23396&amp;uid=24111<br />
+首先 - 替换破解补丁Unity文件:<br />
+1.找到- 应用程序<br />
+2.双击Unity文件夹<br />
+3.右键单击Unity文件, 并选择显示包内容<br />
+4.双击contents文件夹<br />
+5.双击MacOS文件夹<br />
+6.右键Unity文件选择拷贝, 并粘贴到桌面作为你的备份<br />
+7.返回刚才的文件夹, 里面的Unity文件可以删掉了.<br />
+8.从下载的破解压缩包里拖拽Unity破解补丁文件到刚才的文件夹内即可.<br />
+然后- 替换破解补丁*.ulf 文件:<br />
+1.打开Finder, 在顶部菜单出选择 前往&gt;电脑, 打开后选择磁盘, 双击资源库(不是隐藏的那个资源库,请看清楚)<br />
+2.找到双击 Application Support文件夹<br />
+3.找到并双击Unity文件夹, 如果没有该文件夹, 请创建名为Unity的文件夹<br />
+4.右键文件夹内的 *.ulf文件, 选择拷贝, 并粘贴到桌面作为你的备份<br />
+5.返回刚才的文件夹, 里面的*.ulf文件可以删掉了.<br />
+6.从下载的破解压缩包里拖拽 *.ulf到刚才的文件夹内即可.</p>
+<h3 id="五设置文件隐藏">五:设置文件隐藏</h3>
+<p>打包的时候若不想把某个文件夹打进去的话，可以把文件设成隐藏的，用mv命令可以实现<br />
+mv testflod .testflod</p>
+<h3 id="六打包出现的问题">六:打包出现的问题</h3>
+<h4 id="sdk设置">1.SDK设置</h4>
+<p>Showing Recent Issues<br />
+Error: There is no SDK with the name or path '/Users/mac/Downloads/SimplestPluginExample/XCodePlugin/macosx10.5'<br />
+<img src="http://www.sunxvming.com/wp-content/uploads/2019/11/d4404ca8-a261-402f-a052-0ee491bda10c.png" /></p>
+<h4 id="bitcode设置">2.bitcode设置</h4>
+<p>*** does not contain bitcode. You must rebuild it with bitcode enabled (Xcode setting ENABLE_BITCODE), obtain an updated library from the vendor, or disable bitcode for this target. for architecture armv7<br />
+<img src="http://www.sunxvming.com/wp-content/uploads/2019/11/34a101fd-893f-4172-a26d-8ba7a2372cd4.png" /></p>
+<h4 id="导入库文件">3.导入库文件</h4>
+<p><img src="http://www.sunxvming.com/wp-content/uploads/2019/11/55049109-aeb1-472f-935c-809247a370db.png" /></p>
+<h4 id="其中一个闪退的问题">4.其中一个闪退的问题</h4>
+<p><img src="http://www.sunxvming.com/wp-content/uploads/2019/11/DF30C54B-458E-3B90-49AD-08A5C8E481A7.jpg" /></p>
+<h4 id="打ipa包签名问题">5.打ipa包签名问题</h4>
+<p>CodeSign 的时候好像会让你输用户的密码，命令行没输就会出错了，下面的命令就是设置下不验证密码<br />
+security unlock-keychain -p 123456 ~/Library/Keychains/login.keychain<br />
+security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k 123456 ~/Library/Keychains/login.keychain<br />
+security set-keychain-settings ~/Library/Keychains/login.keychain</p>
+<h4 id="设置打的版本是测试版还是发布版">6.设置打的版本是测试版还是发布版</h4>
+<p><img src="http://www.sunxvming.com/wp-content/uploads/2019/11/5bf70dc6-6981-47cc-ba83-ff2719c27c96.png" /></p>
+<h4 id="调试静态库的代码">7.调试静态库的代码</h4>
+<p>luajit的源代码放到xcode工程的plugins/iOS/ 中即可<br />
+xcode工程添加预定义编译宏 --&gt; Bulid Setting” --&gt; Preprocessor Macros。<br />
+需要删除的文件 ljamalg.c luajit.c 需要添加到文件 lj_vm.S</p>
+<h3 id="七ios静态库相关">七:ios静态库相关</h3>
+<p>查看静态库 (.a文件）所支持的cup架构: file xx mac下可以使用 otool -hv xx lipo -info xx<br />
+1.查看静态库支持的CPU架构<br />
+lipo -info libname.a(或者libname.framework/libname)<br />
+2.合并静态库<br />
+lipo -create 静态库存放路径1 静态库存放路径2 ... -output 整合后存放的路径<br />
+lipo -create libname-armv7.a libname-armv7s.a libname-i386.a -output libname.a<br />
+framework 合并(例util.framework)<br />
+lipo -create arm7/util.framework/util i386/util.framework/util -output util.framework<br />
+3.静态库拆分<br />
+lipo 静态库源文件路径 -thin CPU架构名称 -output 拆分后文件存放路径 架构名为armv7/armv7s/arm64等，与lipo -info 输出的架构名一致<br />
+lipo libname.a -thin armv7 -output libname-armv7.a<br />
+1.依赖的库查询:otool -L xxx<br />
+2.查汇编代码:otool -tV ex</p>
+<h3 id="八自动打包脚本">八:自动打包脚本</h3>
+<h4 id="shell脚本">shell脚本</h4>
 <pre><code>#!/bin/sh
 SHDIR=&quot;$( cd &quot;$( dirname &quot;${BASH_SOURCE[0]}&quot; )&quot; &amp;&amp; pwd )&quot;
 UNITY_PATH=/Applications/Unity/Unity.app/Contents/MacOS/Unity
@@ -282,7 +373,10 @@ public static void BuildIOSXcode()
     }
 }</code></pre>
 <h3 id="九ios包的下载过程">九:ios包的下载过程</h3>
-<p>如何实现在网页中点击链接即可下载ios的ipa包呢？步骤如下: 网页中的链接协议如下: itms-services:///?action=download-manifest&amp;url=https://res1-mfwz.top1game.com/sjzs/mfwziOS.plist 就是通过这个链接找到plist文件(plist需要放在https的服务器上)，plist文件中再说明下载的ipa包的具体位置，plist文件格式如下:</p>
+<p>如何实现在网页中点击链接即可下载ios的ipa包呢？步骤如下:<br />
+网页中的链接协议如下:<br />
+itms-services:///?action=download-manifest&amp;url=https://res1-mfwz.top1game.com/sjzs/mfwziOS.plist<br />
+就是通过这个链接找到plist文件(plist需要放在https的服务器上)，plist文件中再说明下载的ipa包的具体位置，plist文件格式如下:</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
 &lt;plist version=&quot;1.0&quot;&gt;

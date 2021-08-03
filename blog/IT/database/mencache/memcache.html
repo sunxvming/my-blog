@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,7 +171,9 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/database/mencache/memcache</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
@@ -185,6 +187,8 @@ jQuery(document).ready(function(){
 <li><a href="#make-make-install">make &amp;&amp; make install</a></li>
 <li><a href="#tar-zxvf-memcached-1.4.5.tag.gz">tar zxvf memcached-1.4.5.tag.gz</a></li>
 <li><a href="#cd-memcached-1.4.5">cd memcached-1.4.5</a></li>
+<li><a href="#configure--prefixusrlocalmemcached">./configure--prefix=/usr/local/memcached 
+</a></li>
 <li><a href="#make-make-install-1">make &amp;&amp; make install</a></li>
 <li><a href="#date--s-yyyy-mm-dd-hhmmss">date -s ‘yyyy-mm-dd hh:mm:ss’</a></li>
 <li><a href="#clock--w-把时间写入-cmos">clock -w # 把时间写入 cmos</a></li>
@@ -201,6 +205,8 @@ jQuery(document).ready(function(){
 <li><a href="#yum-install-libxml2-libxml2-devel">yum install libxml2 libxml2-devel</a></li>
 <li><a href="#tar-zxvf-php-xxx.tar.gz">tar zxvf php-xxx.tar.gz</a></li>
 <li><a href="#cd-php-xxx">cd php-xxx</a></li>
+<li><a href="#configure--prefixusrlocalphp">./configure--prefix=/usr/local/php 
+</a></li>
 <li><a href="#make-make-install-3">make &amp;&amp; make install</a></li>
 <li><a href="#与-apache-整合">2. 与 apache 整合</a></li>
 <li><a href="#vim-编辑-http.conf-添加如下">vim 编辑 http.conf, 添加如下</a></li>
@@ -218,7 +224,7 @@ jQuery(document).ready(function(){
 <p>自由 &amp; 开放源码 , 高性能 , 分布式的内存对象缓存系统 由 livejounal 旗下的 danga 公司开发的老牌 nosql 应用 .</p>
 <p>1.2 什么是 NoSQL?</p>
 <p>nosql ，指的是非关系型的数据库。</p>
-<p>相对于传统关系型数据库的 &quot; 行与列 &quot;,NoSQL 的鲜明特点为 k-v 存储 (memcached,redis), 或基于 文 档存储 (mongodb)</p>
+<p>相对于传统关系型数据库的 " 行与列 ",NoSQL 的鲜明特点为 k-v 存储 (memcached,redis), 或基于 文 档存储 (mongodb)</p>
 <p>nosql -- not only sql , 不仅仅是关系型数据库 , 显著特点 : key-value 键值对存储 , 如 memcached, redis, 或基于文档 如 ,mongodb</p>
 <p>第二章 :memcached 基本使用</p>
 <p>在 linux 编译 , 需要 gcc,make,cmake,autoconf,libtool 等工具 , 这几件工具 , 以后还要编译 redis 等使用 , 所以请先装 .</p>
@@ -238,7 +244,9 @@ jQuery(document).ready(function(){
 <h1 id="make-make-install">make &amp;&amp; make install</h1>
 <h1 id="tar-zxvf-memcached-1.4.5.tag.gz">tar zxvf memcached-1.4.5.tag.gz</h1>
 <h1 id="cd-memcached-1.4.5">cd memcached-1.4.5</h1>
-<p>#./configure--prefix=/usr/local/memcached<br /> --with-libevent=/usr/local/libevent</p>
+<h1 id="configure--prefixusrlocalmemcached">./configure--prefix=/usr/local/memcached 
+</h1>
+<p>--with-libevent=/usr/local/libevent</p>
 <h1 id="make-make-install-1">make &amp;&amp; make install</h1>
 <p>注意 : 在虚拟机下练习编译 , 一个容易碰到的问题 --- 虚拟机的时间不对 , 导致的 gcc 编译过程中 , 检测时间通不过 , 一直处于编译过程 .</p>
 <p>解决 :</p>
@@ -458,7 +466,9 @@ jQuery(document).ready(function(){
 <h1 id="yum-install-libxml2-libxml2-devel">yum install libxml2 libxml2-devel</h1>
 <h1 id="tar-zxvf-php-xxx.tar.gz">tar zxvf php-xxx.tar.gz</h1>
 <h1 id="cd-php-xxx">cd php-xxx</h1>
-<p>#./configure--prefix=/usr/local/php<br /> --with-apxs2=/usr/local/httpd/bin/apxs 作为 apache 的模块编译</p>
+<h1 id="configure--prefixusrlocalphp">./configure--prefix=/usr/local/php 
+</h1>
+<p>--with-apxs2=/usr/local/httpd/bin/apxs 作为 apache 的模块编译</p>
 <h1 id="make-make-install-3">make &amp;&amp; make install</h1>
 <h1 id="与-apache-整合">2. 与 apache 整合</h1>
 <h1 id="vim-编辑-http.conf-添加如下">vim 编辑 http.conf, 添加如下</h1>
@@ -478,20 +488,18 @@ jQuery(document).ready(function(){
 <p>6: 把生成的 .so 扩展 , 在 php.ini 里引入 .</p>
 <p>7: 重启 apache</p>
 <p>4.3 windows 下安装 php-memcached 扩展</p>
-<ol style="list-style-type: decimal">
-<li><p>通过 phpinfo() 观察如下 3 个参数 , 即 php 版本 , ts/nts, vc6/vc9</p></li>
-<li><p>根据上步中的参数 , 到 http://downloads.php.net/pierre/ 下载匹配的 memcache.dll</p></li>
-<li><p>再次观察 phpinfo() 信息 , 找出 extension_dir, 并把下载的 memcache.dll 放入该路径 .</p></li>
-<li><p>并修改 php.ini, 加入 extension=php_memcache.dll, 引入该 dll</p></li>
-<li><p>重启 apache</p></li>
-</ol>
+<p>1) 通过 phpinfo() 观察如下 3 个参数 , 即 php 版本 , ts/nts, vc6/vc9</p>
+<p>2) 根据上步中的参数 , 到 http://downloads.php.net/pierre/ 下载匹配的 memcache.dll</p>
+<p>3) 再次观察 phpinfo() 信息 , 找出 extension_dir, 并把下载的 memcache.dll 放入该路径 .</p>
+<p>4) 并修改 php.ini, 加入 extension=php_memcache.dll, 引入该 dll</p>
+<p>5) 重启 apache</p>
 <p>第五章 memcached 实战</p>
 <p>memcached 的最常用场景是利用其 ” 读取快 ” 来保护数据库 , 防止频率读取数据库 . 也有的项目中 , 利用其 ” 存储快 ” 的特点来实现主从数据库的消息同步 . 本章我们将对这些应用场景进行探讨 .</p>
 <p>5.1 缓存数据库查询结果</p>
 <p>通过缓存数据库查询结果， 减少数据库访问次数 ，以提高动态 Web 应用的速度、提高可扩 展性 ( 图 5.1) 。</p>
 <p>图 5.1: memcached 缓存查询结果</p>
 <p>伪代码及效果如下 :</p>
-<p><?php
+<?php
 
 $sql   =   'select   goods_id,goods_name   from   ecs_goods   where   is_hot=1   limit   5';
 
@@ -505,11 +513,12 @@ $sql   =   'select   goods_id,goods_name   from   ecs_goods   where   is_hot=1  
 
 $hot   =   array();
 
-if(   !($hot=$memcache->get($sql)) ) {</p>
-<p><span class="math"><em>h</em><em>o</em><em>t</em> = </span>mysql-&gt;getAll($sql);</p>
+if(   !($hot=$memcache->
+<p>get($sql)) ) {</p>
+<p>$hot = <span class="math inline"><em>m</em><em>y</em><em>s</em><em>q</em><em>l</em> −  &gt; <em>g</em><em>e</em><em>t</em><em>A</em><em>l</em><em>l</em>(</span>sql);</p>
 <p>echo '<font   color="red"> 查询自数据库 </font>';</p>
 <p>// 从数据库取得数据后 , 把数据写入 memcached</p>
-<p><span class="math"><em>m</em><em>e</em><em>m</em><em>c</em><em>a</em><em>c</em><em>h</em><em>e</em> −  &gt; <em>a</em><em>d</em><em>d</em>(</span>sql,$hot,0,300); // 并设置有效期 300 秒</p>
+<p><span class="math inline"><em>m</em><em>e</em><em>m</em><em>c</em><em>a</em><em>c</em><em>h</em><em>e</em> −  &gt; <em>a</em><em>d</em><em>d</em>(</span>sql,$hot,0,300); // 并设置有效期 300 秒</p>
 <p>} else {</p>
 <p>echo '<font   color="red"> 查询自 memcached</font>';</p>
 <p>}</p>
@@ -563,10 +572,8 @@ if(   !($hot=$memcache->get($sql)) ) {</p>
 <p>图 6.5: 一致性哈希中节点的影响范围</p>
 <p>6.6 一致性哈希 + 虚拟节点 对缓存命中率的影响</p>
 <p>由图 5.5 中可以看到 , 理想状态下 ,</p>
-<ol style="list-style-type: decimal">
-<li><p>节点在圆环上分配分配均匀 , 因此承担的任务也平均 , 但事实上 , 一般的 Hash 函数对于节 点在圆环上的映射 , 并不均匀 .</p></li>
-<li><p>当某个节点 down 后 , 直接冲击下 1 个节点 , 对下 1 个节点冲击过大 , 能否把 down 节点上的 压力平均的分担到所有节点上 ?</p></li>
-</ol>
+<p>1) 节点在圆环上分配分配均匀 , 因此承担的任务也平均 , 但事实上 , 一般的 Hash 函数对于节 点在圆环上的映射 , 并不均匀 .</p>
+<p>2) 当某个节点 down 后 , 直接冲击下 1 个节点 , 对下 1 个节点冲击过大 , 能否把 down 节点上的 压力平均的分担到所有节点上 ?</p>
 <p>完全可以 --- 引入虚拟节点来达到目标 ( 图 5.6)</p>
 <p>虚拟节点即 ----N 个真实节点 , 把每个真实节点映射成 M 个虚拟节点 , 再把 M*N 个虚拟节点 , 散列在圆环上 . 各真实节点对应的虚拟节点相互交错分布</p>
 <p>这样 , 某真实节点 down 后 , 则把其影响平均分担到其他所有节点上 .</p>
@@ -785,23 +792,19 @@ echo &#39;此 key 落在&#39;,$con-&gt;lookup($key),&#39;号节点&#39;;
 <p>Ajax 请求 load.php, 动态生成图表</p>
 <p>7.4 试验步骤</p>
 <p>7.4.1 设置分布式策略为一致性哈希</p>
-<ol style="list-style-type: upper-roman">
-<li><p>打开 5 个 memcached 进程。</p></li>
-<li><p>运行 initdata.php 初始化数据。</p></li>
-<li><pre><code>打开   index.html, 此时命中率理论值为   100% 。</code></pre></li>
-<li><pre><code>  运行   exec.php 。</code></pre></li>
-<li><p>观察命中率的变化。</p></li>
-</ol>
+<p>I. 打开 5 个 memcached 进程。</p>
+<p>II. 运行 initdata.php 初始化数据。</p>
+<p>III. 打开 index.html, 此时命中率理论值为 100% 。</p>
+<p>IV. 运行 exec.php 。</p>
+<p>V. 观察命中率的变化。</p>
 <p>7.4.2 设置分布式策略为取模算法</p>
-<ol start="6" style="list-style-type: upper-roman">
-<li><p>打开 10 个 memcached 进程。</p></li>
-<li><p>运行 initdata.php 初始化数据。</p></li>
-<li><p>运行 index.html, 此时命中率理论值为 100% 。</p></li>
-<li><pre><code>运行   exec.php 。</code></pre></li>
-<li><p>观察命中率的变化。</p></li>
-</ol>
+<p>VI. 打开 10 个 memcached 进程。</p>
+<p>VII. 运行 initdata.php 初始化数据。</p>
+<p>VIII. 运行 index.html, 此时命中率理论值为 100% 。</p>
+<p>IX. 运行 exec.php 。</p>
+<p>X. 观察命中率的变化。</p>
 <p>7.6 实验思考</p>
-<ol style="list-style-type: decimal">
+<ol>
 <li>从数学角度分析，当 memcahed 结点由 N-&gt;N-1 时，取模算法的命中率降为多少 ? 一致性哈 希的命中率降为多少 ?</li>
 </ol>
 <p>2 . 当 m e m cache d 节 点 越 多时 ， 一 致 性 哈 希 算 法 对 缓 存 的命 中 率 比 取 模 算 法 对 缓 存的 命 中 率 要 高很多。</p>
@@ -832,7 +835,7 @@ echo &#39;此 key 落在&#39;,$con-&gt;lookup($key),&#39;号节点&#39;;
 <p>NoSQL 和传统的 RDBMS, 并不是水火不容 , 两者在某些设计上 , 是可以相互参考的 . 对于 memcached, redis 这种 kv 存储 , key 的设计 , 可以参考 MySQL 中表 / 列的设计 . 比如 : user 表下 , 有 age 列 ,name 列 , 身高列 ,</p>
 <p>对应的 key, 可以用 user:133:age = 23, user:133:name = ‘lisi’, user:133:height = 168;</p>
 <p>8.3 永久数据被踢现象</p>
-<p>网上有人反馈为 &quot;memcached 数据丢失 &quot;, 明明设为永久有效 , 却莫名其妙的丢失了 . 其实 , 这要从 2 个方面来找原因 :</p>
+<p>网上有人反馈为 "memcached 数据丢失 ", 明明设为永久有效 , 却莫名其妙的丢失了 . 其实 , 这要从 2 个方面来找原因 :</p>
 <p>即前面介绍的 惰性删除 , 与 LRU 最近最少使用记录删除 . 分析 ( 图 7.3-):</p>
 <p>1: 如果 slab 里的很多 chunk, 已经过期 , 但过期后没有被 get 过 , 系统不知他们已经过期 .</p>
 <p>2: 永久数据很久没 get 了 , 不活跃 , 如果新增 item, 则永久数据被踢了 .</p>

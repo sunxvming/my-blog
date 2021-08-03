@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,39 +171,69 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/linux/装硬盘，分区，格式化，挂载</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
+<li><a href="#在虚拟机设置中添加新的硬盘">1. 在虚拟机设置中添加新的硬盘</a></li>
+<li><a href="#查看系统分区的详细情况">2. 查看系统分区的详细情况</a></li>
+<li><a href="#对新的磁盘进行分区">3. 对新的磁盘进行分区</a></li>
 <li><a href="#对新分区进行格式化">4.对新分区进行格式化</a></li>
 <li><a href="#对分区进行挂载取消挂载">5.对分区进行挂载、取消挂载</a></li>
+<li><a href="#开机时自动挂载">6.开机时自动挂载</a></li>
 <li><a href="#如何装2t的硬盘">如何装2T的硬盘</a></li>
 </ul>
 </div>
  <!--if(toc)-->
 
-<p>Linux虚拟机下如何添加新磁盘 ## 1. 在虚拟机设置中添加新的硬盘 ## 2. 查看系统分区的详细情况 fdisk -l</p>
-<p>如果没有识别到新的磁盘即sdb，解决办法：重启虚拟机 reboot ## 3. 对新的磁盘进行分区 fdisk /dev/sdb</p>
-<p>按如上步骤，提示卷的起始地址和结束地址，都保持默认 用回车代替 查看是否分区成功 fdisk -l</p>
+<p>Linux虚拟机下如何添加新磁盘</p>
+<h2 id="在虚拟机设置中添加新的硬盘">1. 在虚拟机设置中添加新的硬盘</h2>
+<h2 id="查看系统分区的详细情况">2. 查看系统分区的详细情况</h2>
+<p>fdisk -l</p>
+<p>如果没有识别到新的磁盘即sdb，解决办法：重启虚拟机 reboot</p>
+<h2 id="对新的磁盘进行分区">3. 对新的磁盘进行分区</h2>
+<p>fdisk /dev/sdb</p>
+<p>按如上步骤，提示卷的起始地址和结束地址，都保持默认 用回车代替<br />
+查看是否分区成功<br />
+fdisk -l</p>
 <p>成功 如下图所示：</p>
 <h2 id="对新分区进行格式化">4.对新分区进行格式化</h2>
-<p>mkfs.ext3 /dev/sdb1 或者 mkfs -t ext3 /dev/sdb1 出现Proceed anyway？（y，n）时，这时输入“y”回车。</p>
+<p>mkfs.ext3 /dev/sdb1<br />
+或者 mkfs -t ext3 /dev/sdb1<br />
+出现Proceed anyway？（y，n）时，这时输入“y”回车。</p>
 <h2 id="对分区进行挂载取消挂载">5.对分区进行挂载、取消挂载</h2>
-<p>mount /dev/sdb1 /data 查看分区挂载情况 df -h ## 6.开机时自动挂载 编辑开机自启动文件 vi /etc/rc.d/rc.local 添加 mount /dev/sdb1 /data</p>
+<p>mount /dev/sdb1 /data<br />
+查看分区挂载情况<br />
+df -h</p>
+<h2 id="开机时自动挂载">6.开机时自动挂载</h2>
+<p>编辑开机自启动文件<br />
+vi /etc/rc.d/rc.local<br />
+添加 mount /dev/sdb1 /data</p>
 <hr />
 <h2 id="如何装2t的硬盘">如何装2T的硬盘</h2>
-<p>【1.查看所有的硬盘，确定自己新加大硬盘是哪一个】 fdisk -l</p>
-<p>【2.查看新加的磁盘的信息】 parted /dev/sdb 按p查看信息， parted&gt;mklabel gpt # 将MBR磁盘格式化为GPT磁盘</p>
+<p>【1.查看所有的硬盘，确定自己新加大硬盘是哪一个】<br />
+fdisk -l</p>
+<p>【2.查看新加的磁盘的信息】<br />
+parted /dev/sdb<br />
+按p查看信息，<br />
+parted&gt;mklabel gpt # 将MBR磁盘格式化为GPT磁盘</p>
 <p>parted&gt;mklabel msdos # 将GPT磁盘格式化为MBR磁盘</p>
-<p>这里要选gpt的，这个才能分2Tb以上的。 【3.分区】 Partition name? []? gpt2t ---指定分区名称</p>
+<p>这里要选gpt的，这个才能分2Tb以上的。<br />
+【3.分区】<br />
+Partition name? []? gpt2t ---指定分区名称</p>
 <p>File system type? [ext2]ext3 ----指定分区类型</p>
 <p>Start? 1 ---指定开始位置</p>
 <p>End? 2190GB ---指定结束位置</p>
 <p>(parted) P ----显示分区信息</p>
-<p>End? -1s # 表示硬盘最后一个扇区，就是硬盘的最末尾处 【4.格式化磁盘】 mkfs -t ext3 /dev/sdb1</p>
-<p>【5.挂载】 mount /dev/sdb1 /data</p>
+<p>End? -1s # 表示硬盘最后一个扇区，就是硬盘的最末尾处<br />
+【4.格式化磁盘】<br />
+mkfs -t ext3 /dev/sdb1</p>
+<p>【5.挂载】<br />
+mount /dev/sdb1 /data</p>
 <p>一次断电之后，4T的那块硬盘在启动的时候没有被挂载上，于是去 mount /dev/sdb1 /data，结果报 mount: you must specify the filesystem type，后来才发现是我把名字搞错了，我挂载成了 硬盘的名字 了，而不是硬盘 分区的名字 了。</p>
 <p>mount -t ext3 /dev/sdb1 /data</p>
 

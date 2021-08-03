@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,14 +171,17 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/linux/使用webbench进行网站压力测试</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
 <li><a href="#关于压力测试"> 关于压力测试</a></li>
-<li><a href="#webbench"> webbench</a><ul>
+<li><a href="#webbench"> webbench</a>
+<ul>
 <li><a href="#webbench安装"> 1.WebBench安装：</a></li>
 <li><a href="#webbench使用"> 2.WebBench使用：</a></li>
 </ul></li>
@@ -192,7 +195,9 @@ jQuery(document).ready(function(){
 <p>* 测试时并发应当由小逐渐加大，比如并发100时观察一下网站负载是多少、打开页面是否流畅，并发200时又是多少、网站打开缓慢时并发是多少、网站打不开时并发又是多少；</p>
 <p>* 更详细的进行某个页面测试，如电商网站可以着重测试购物车、推广页面等，因为这些页面占整个网站访问量比重较大。</p>
 <h2 id="webbench"> webbench</h2>
-<p>webbench的标准测试可以向我们展示服务器的两项内容：每秒钟相应请求数和每秒钟传输数据量。 webbench不但能对静态页面的测试能力，还能对动态页面（ASP,PHP,JAVA,CGI）进 行测试的能力。还有就是他支持对含有SSL的安全网站例如电子商务网站进行静态或动态的性能测试。 Webbench最多可以模拟3万个并发连接去测试网站的负载能力。</p>
+<p>webbench的标准测试可以向我们展示服务器的两项内容：每秒钟相应请求数和每秒钟传输数据量。<br />
+webbench不但能对静态页面的测试能力，还能对动态页面（ASP,PHP,JAVA,CGI）进 行测试的能力。还有就是他支持对含有SSL的安全网站例如电子商务网站进行静态或动态的性能测试。<br />
+Webbench最多可以模拟3万个并发连接去测试网站的负载能力。</p>
 <h3 id="webbench安装"> 1.WebBench安装：</h3>
 <pre><code>wget http://blog.s135.com/soft/linux/webbench/webbench-1.5.tar.gz
 
@@ -206,7 +211,10 @@ webbench --help  查看帮助</code></pre>
 <pre><code>webbench -c 1000 -t 60 http://192.168.80.157/phpinfo.php
 
 webbench -c 并发数 -t 运行测试时间 URL</code></pre>
-<p>压测前 <code>ps -ef| wc -l</code>  显示85个进程 压测后 <code>webbench -c 500 -t 30 http://www.baidu.com/</code> 显示580个进程 说明webbench的每个连接都会生成一个进程 <img src="/imgs/e1ee675b-df9a-4e9f-99de-e2ada735f956.png" /></p>
+<p>压测前 <code>ps -ef| wc -l</code>  显示85个进程<br />
+压测后 <code>webbench -c 500 -t 30 http://www.baidu.com/</code> 显示580个进程<br />
+说明webbench的每个连接都会生成一个进程<br />
+<img src="/imgs/e1ee675b-df9a-4e9f-99de-e2ada735f956.png" /></p>
 <p>查看系统中可创建的进程数实际值  cat /proc/sys/kernel/pid_max     32768  也就是最多能fork三万多进程</p>
 
 <footer id="colophon" >

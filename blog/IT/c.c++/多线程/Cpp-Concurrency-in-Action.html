@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../../.././css/style.css" />
 
 
 
@@ -171,24 +171,46 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/c.c++/多线程/Cpp-Concurrency-in-Action</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
  <!--if(toc)-->
 
-<p>github第二版翻译资源： https://github.com/xiaoweiChen/CPP-Concurrency-In-Action-2ed-2019</p>
-<p>2.1 线程管理的基础 启动线程 * 函数</p>
+<p>github第二版翻译资源：<br />
+https://github.com/xiaoweiChen/CPP-Concurrency-In-Action-2ed-2019</p>
+<p>2.1 线程管理的基础<br />
+启动线程<br />
+* 函数</p>
 <pre><code>void do_some_work();
 std::thread my_thread(do_some_work);</code></pre>
 <ul>
-<li>函数对象 ``` class background_task { public: void operator()() const { do_something(); do_something_else(); } };</li>
+<li>函数对象</li>
 </ul>
-<p>background_task f; std::thread my_thread(f);</p>
-<pre><code>
+<pre><code>class background_task
+{
+public:
+  void operator()() const
+  {
+    do_something();
+    do_something_else();
+  }
+};
 
-* lambda表达式</code></pre>
-<p>std::thread my_thread([]{ do_something(); do_something_else(); }); ```</p>
-<p>启动了线程，你需要明确是要等待线程结束，还是让其自主运行 如果std::thread对象销毁之前还没有做出决定，程序就会终止 std::thread的析构函数会调用std::terminate()</p>
+
+background_task f;
+std::thread my_thread(f);</code></pre>
+<ul>
+<li>lambda表达式</li>
+</ul>
+<pre><code>std::thread my_thread([]{
+  do_something();
+  do_something_else();
+});</code></pre>
+<p>启动了线程，你需要明确是要等待线程结束，还是让其自主运行<br />
+如果std::thread对象销毁之前还没有做出决定，程序就会终止<br />
+std::thread的析构函数会调用std::terminate()</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

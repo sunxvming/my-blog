@@ -8,7 +8,7 @@
 
 
 
-<link rel="stylesheet" href="../../.././css/style.css" type="text/css" />
+<link rel="stylesheet" href="../../.././css/style.css" />
 
 
 
@@ -171,17 +171,22 @@ jQuery(document).ready(function(){
     </nav><!-- #site-navigation -->
 </header>
 
-
+<div id="header">
+<h1 class="title">blog/IT/network/jsonrpc</h1>
+</div> <!--id="header"-->
  <!--if(title)-->
 
  <!--if(toc)-->
 
 <p>jsonrpc协议描述官网： https://www.jsonrpc.org/</p>
 <ul>
-<li><p>用curl请求jsonrpc</p>
+<li>用curl请求jsonrpc</li>
+</ul>
 <pre><code>curl  -d &#39;{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;id&quot;:&quot;curltest&quot;, &quot;method&quot;: &quot;jsonrpc_test&quot;, &quot;params&quot;: {&quot;param1&quot;:&quot;aaa&quot;} }&#39; -H &#39;content-type: text/plain;&#39; \
-http://192.168.1.11:8080</code></pre></li>
-<li><p>用postman请求 方式选择post，Body中选raw的方式</p></li>
+http://192.168.1.11:8080</code></pre>
+<ul>
+<li>用postman请求<br />
+方式选择post，Body中选raw的方式</li>
 </ul>
 
 <footer id="colophon" >
