@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/其他语言/java/1.基础知识</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#jreopenjdk和oracle-jdk之间的不同之处">JRE、OpenJDK和Oracle JDK之间的不同之处。</a></li>
+<li><a href="#使用junit运行程序">使用Junit运行程序</a></li>
+<li><a href="#集合的遍历">集合的遍历</a>
+<ul>
+<li><a href="#listiterator">ListIterator</a></li>
+</ul></li>
+<li><a href="#可变参数">可变参数</a></li>
+<li><a href="#json转换">json转换</a></li>
+<li><a href="#时间处理工具类">时间处理工具类</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="jreopenjdk和oracle-jdk之间的不同之处">JRE、OpenJDK和Oracle JDK之间的不同之处。</h2>
+<p>JRE（Java Runtime Environment），它是你运行一个基于Java语言应用程序的所正常需要的环境。如果你不是一个程序员的话，这些足够你的需要。<br />
+JDK代表Java开发工具包，如果你想做一些有关Java的开发（阅读程序），这正是你所需要的。<br />
+OpenJDK是Java开发工具包的开源实现，Oracle JDK是Java开发工具包的官方Oracle版本。尽管OpenJDK已经足够满足大多数的案例，但是许多程序比如Android Studio建议使用Oracle JDK，以避免UI/性能问题。</p>
+<p>配置java环境变量<br />
+* JAVA_HOME<br />
+配置JDK的根目录,目的是为了方便引用。<br />
+第三方软件会引用约定好的JAVA_HOME变量, 不然, 你将不能正常使用该软件,比如JavaEE 最常用的服务器Tomcat.<br />
+* CLASSPATH<br />
+指定到哪里去找运行时需要用到的类代码（字节码）<br />
+* PATH<br />
+指定可执行程序的位置</p>
+<p>windows下</p>
+<pre><code>PATH-----C:\Program Files (x86)\Java\jdk1.8.0_40\bin;
+JAVA_HOME---C:\Program Files (x86)\Java\jdk1.8.0_40                 
+CLASSPATH ---.;C:\Program Files (x86)\Java\jre1.8.0_40\lib       .是当前目录 是要加上的            找到指定文件的类库       
+bin中有Javac.exe（编译器）  Java.exe（解释器） javadoc  等</code></pre>
+<p>linux下</p>
+<pre><code>/etc/profile中修改环境变量
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export JRE_HOME=$JAVA_HOME/jre
+export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH</code></pre>
+<h2 id="使用junit运行程序">使用Junit运行程序</h2>
+<pre><code>public class Demo3 {
+    @BeforeClass
+    public static void setUpBeforeClass() throws Exception {
+        System.out.println(&quot;setUpBeforeClass()&quot;);
+    }
+    @Test
+    public void test1(){
+        System.out.println(&quot;test1()&quot;);
+    }
+    @Test
+    public void test2(){
+        System.out.println(&quot;test2()&quot;);
+    }
+    @AfterClass
+    public static void tearDownAfterClass() throws Exception {
+        System.out.println(&quot;tearDownAfterClass()&quot;);
+    }
+}</code></pre>
+<h2 id="集合的遍历">集合的遍历</h2>
+<p>增强for循环只能用在数组、或实现Iterator接口的集合类上<br />
+Java没有类似C#里var或者C++11 auto这样的关键字</p>
+<pre><code>//增强for循环
+public class Demo1 {
+    @Test
+    public void test2(){
+        int[] is = {1,2,3,4,5};
+        for(int value : is){
+            System.out.print(value+&quot;\t&quot;);
+        }
+    }
+    @Test
+    public void testSet(){
+        Set&lt;Integer&gt; set = new HashSet&lt;Integer&gt;();
+        set.add(100);
+        set.add(200);
+        set.add(300);
+        Iterator&lt;Integer&gt; it = set.iterator();
+        while(it.hasNext()){
+            Integer key = it.next();
+            System.out.print(key+&quot;\t&quot;);
+        }
+    }
+    @Test
+    public void testList(){
+        List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+        list.add(&quot;jack&quot;);
+        list.add(&quot;marry&quot;);
+        list.add(&quot;sisi&quot;);
+        for(String name : list){
+            System.out.print(name+&quot;\t&quot;);
+        }
+    }
+    @Test
+    public void testMap1(){
+        Map&lt;Integer,String&gt; map = new HashMap&lt;Integer,String&gt;();
+        map.put(100,&quot;jack&quot;);
+        map.put(200,&quot;marry&quot;);
+        map.put(300,&quot;sisi&quot;);
+        Set&lt;Integer&gt; set = map.keySet();
+        Iterator&lt;Integer&gt; it = set.iterator();
+        while(it.hasNext()){
+            Integer key = it.next();
+            String value = map.get(key);
+            System.out.println(key+&quot;-&quot;+value);
+        }
+    }
+    @Test
+    public void testMap2(){
+        Map&lt;Integer,String&gt; map = new HashMap&lt;Integer,String&gt;();
+        map.put(100,&quot;jack&quot;);
+        map.put(200,&quot;marry&quot;);
+        map.put(300,&quot;sisi&quot;);
+        Set&lt;Entry&lt;Integer,String&gt;&gt; set = map.entrySet();
+        Iterator&lt;Entry&lt;Integer,String&gt;&gt; it = set.iterator();
+        while(it.hasNext()){
+            Entry&lt;Integer,String&gt; entry = it.next();
+            Integer key = entry.getKey();
+            String value = entry.getValue();
+            System.out.println(key+&quot;&lt;-&gt;&quot;+value);
+        }
+    }
+} </code></pre>
+<h3 id="listiterator">ListIterator</h3>
+<p>ListIterator是一个功能更加强大的, 它继承于Iterator接口,只能用于各种List类型的访问。</p>
+<p>ListIterator和Iterator的区别<br />
+1）使用范围不同：Iterator能遍历set、list集合，而ListIterator只能遍历list集合。<br />
+2）遍历顺序有区别：ListIterator和Iterator都有hasNext()和next()方法，可以实现顺序向后遍历，但是ListIterator有hasPrevious()和previous()方法，可以实现逆向（顺序向前）遍历。Iterator就不可以。<br />
+3）是否能定位当前索引位置：ListIterator可以定位当前的索引位置，nextIndex()和previousIndex()可以实现。Iterator没有此功能。<br />
+4）是否能修改对象：都可实现删除对象，但是ListIterator可以实现对象的修改，set()方法可以实现。Iierator仅能遍历，不能修改。<br />
+5) 是否能添加对象：ListIterator有add()方法，可以向List中添加对象，而Iterator不能。</p>
+<pre><code>//迭代集合注意的细节
+public class Demo2 {
+    public static void main(String[] args) {
+        List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+        list.add(&quot;jack&quot;);
+        list.add(&quot;marry&quot;);
+        list.add(&quot;sisi&quot;);
+        System.out.println(&quot;list前长度&quot;+list.size());
+
+
+        //Iterator&lt;String&gt; it = list.iterator();
+        ListIterator&lt;String&gt; it = list.listIterator();
+        while(it.hasNext()){
+            String key = it.next();
+            System.out.print(key+&quot;\t&quot;);
+            //动态通知迭代器，加入了新元素，从而迭代器自动通知List集合
+            it.add(&quot;qq&quot;);
+        }
+        System.out.println(&quot;\nlist后长度&quot;+list.size());
+        it = list.listIterator();
+        while(it.hasNext()){
+            String key = it.next();
+            System.out.print(key+&quot;\t&quot;);
+        }
+    }
+}</code></pre>
+<h2 id="可变参数">可变参数</h2>
+<ul>
+<li>1）参数的个数不确定的</li>
+<li>2）可变参数只能放置在参数的最后，即最右边</li>
+<li>3）可变参数最少0个，最多1个</li>
+<li>4）编译器将可变参数当作一个一维数组来对待</li>
+</ul>
+<pre><code>public class Demo1 {
+    public static void show1(String[] arr) {
+        for(String a :arr){
+            System.out.print(a+&quot;\t&quot;);
+        }
+    }
+    public static void show2(String... arr) {
+        for(String a :arr){
+            System.out.print(a+&quot;\t&quot;);
+        }
+    }
+    public static void show3(String qq,String... arr) {
+        System.out.println(&quot;第一个参数是：&quot; + qq);
+        for(String a :arr){
+            System.out.print(a+&quot;\t&quot;);
+        }
+    }
+} </code></pre>
+<h2 id="json转换">json转换</h2>
+<p>Gson的应用主要为toJson与fromJson两个转换函数，而在使用这种对象转换之前需<br />
+先创建好对象的类以及其成员才能成功的将JSON字符串成功转换成相对应的对象。</p>
+<pre><code>class Examples {
+    private int answer1 = 100;
+    private String answer2 = &quot;Hello world!&quot;;
+    Examples(){
+    }     // default constructor
+}
+
+
+// 序列化JAVA对象成JSON字符串
+Examples example1 = new Examples();
+Gson gson = new Gson();
+String json = gson.toJson(example1);  //==&gt; json is {&quot;answer1&quot;:100,&quot;answer2&quot;:&quot;Hello world!&quot;}
+
+
+// 反序列化JSON字符串成对应的JAVA对象
+Examples example2= gson.fromJson(json,Examples.class);</code></pre>
+<h2 id="时间处理工具类">时间处理工具类</h2>
+<pre><code>String dateString = &quot;2012-12-06 &quot;; 
+try 
+{ 
+    SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd &quot;); 
+    Date date = sdf.parse(dateString); 
+} 
+catch (ParseException e) 
+{ 
+    System.out.println(e.getMessage()); 
+} </code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

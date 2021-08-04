@@ -161,10 +161,10 @@ jQuery(document).ready(function(){
                         <a href="http://www.sunxvming.com">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                            href="http://www.sunxvming.com/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                            href="http://www.sunxvming.com/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -256,7 +256,7 @@ C++ 中的构造函数用于在创建对象时进行初始化工作，在执行�
 <li>在对象的开头位置有一个指针 <code>vfptr</code>，指向虚函数表，并且这个指针始终位于<strong>对象的开头位置</strong>。</li>
 <li>仔细观察虚函数表，可以发现基类的虚函数在 vtable 中的索引（下标）是固定的，不会随着继承层次的增加而改变，派生类新增的虚函数放在 vtable 的最后。如果派生类<strong>有同名的虚函数遮蔽（覆盖）了基类的虚函数</strong>，那么将使用派生类的虚函数<strong>替换</strong>基类的虚函数(<strong>这就是多态的原因</strong>)。</li>
 </ul>
-<p><img src="/imgs/27b003e2-81ea-4aaa-afb9-1cceb27047b7.png" /></p>
+<p><img src="https://sunxvming.com/imgs/27b003e2-81ea-4aaa-afb9-1cceb27047b7.png" /></p>
 <h2 id="c-typeid运算符获取类型信息">C++ typeid运算符：获取类型信息</h2>
 <p><code>typeid</code> 运算符用来获取一个表达式的类型信息。类型信息对于编程语言非常重要，它描述了数据的各种属性：<br />
 * 对于基本类型（int、float 等C++内置类型）的数据，类型信息所包含的内容比较简单，主要是指数据的类型。<br />
@@ -279,7 +279,7 @@ C++ 中的构造函数用于在创建对象时进行初始化工作，在执行�
 比如：一个基类对象有两个赋值的分支<br />
 在编译期间确定的情况下，有一个对象的方法调用是直接就load相应的代码段了，如果是虚函数的话，需要在运行是<strong>确定其类型</strong>，然后通过虚函数指针找到虚函数表然后再找到对应的方法。<br />
 带有虚函数的对象模型：<br />
-<img src="/imgs/e1db42a8-f727-43e5-8bba-ca507aa05efb.png" /><br />
+<img src="https://sunxvming.com/imgs/e1db42a8-f727-43e5-8bba-ca507aa05efb.png" /><br />
 编译器会在虚函数表 vftable 的开头插入一个指针，指向当前类对应的 <code>type_info</code> 对象。当程序在<strong>运行阶段获取类型信息时（调用typeid）</strong>，可以通过对象指针 p 找到虚函数表指针 vfptr，再通过 vfptr 找到 type_info 对象的指针，进而取得类型信息。下面的代码演示了这种转换过程：<code>**(p-&gt;vfptr - 1)</code><br />
 例子：</p>
 <pre><code>//基类

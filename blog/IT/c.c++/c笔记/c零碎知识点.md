@@ -20,9 +20,9 @@ C++ 程序员偏向于使用 for(;;) 结构来表示一个无限循环。
 
 ```
 vs中显示winsock2.h 找不到，于是搜索了下发现在
-![](/imgs/fa0dc94f-7b4b-44b8-ab25-04cef657d891.png)
+![](https://sunxvming.com/imgs/fa0dc94f-7b4b-44b8-ab25-04cef657d891.png)
  于是更改了下Windows sdk就好了
-![](/imgs/2cb8774d-20b1-4a5b-9db3-e24b80b4b498.png)
+![](https://sunxvming.com/imgs/2cb8774d-20b1-4a5b-9db3-e24b80b4b498.png)
  
 
 
@@ -30,7 +30,7 @@ vs中显示winsock2.h 找不到，于是搜索了下发现在
 
 ### VS命令行编译
 在tools下有个bat文件VsDevCmd.bat，运行后就可以把编译的命令设置到环境变量中，然后就可以在命令行中编译了
-![](/imgs/277f4bd4-0fbc-46e5-96df-e3864abaa6f6.png)
+![](https://sunxvming.com/imgs/277f4bd4-0fbc-46e5-96df-e3864abaa6f6.png)
 
 
 

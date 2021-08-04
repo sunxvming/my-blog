@@ -161,10 +161,10 @@ jQuery(document).ready(function(){
                         <a href="http://www.sunxvming.com">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                            href="http://www.sunxvming.com/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                            href="http://www.sunxvming.com/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -179,66 +179,71 @@ jQuery(document).ready(function(){
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#简介">简介</a></li>
-<li><a href="#安装">安装</a></li>
-<li><a href="#使用">使用</a></li>
+<li><a href="#简介"> 简介</a></li>
+<li><a href="#安装"> 安装</a></li>
+<li><a href="#使用"> 使用</a></li>
+<li><a href="#碰到问题"> 碰到问题</a>
+<ul>
+<li><a href="#markdown列表无法解析"> markdown列表无法解析</a></li>
+<li><a href="#pandoc1.x和pandoc2.x对于markdown格式的区别"> pandoc1.x和pandoc2.x对于markdown格式的区别</a></li>
+</ul></li>
 </ul>
 </div>
  <!--if(toc)-->
 
-<h2 id="简介">简介</h2>
-<p>Pandoc 的作者是 <a href="http://johnmacfarlane.net/">John MacFarlane</a>，他是加州大学伯克利分校的哲学系教授。Pandoc 使用 <a href="http://www.haskell.org/">Haskell</a> 语言编写，被作者用来生成讲义、课件和网站等。该程序开源免费，目前以 GPL 协议托管在 <a href="https://github.com/jgm/pandoc">Github 网站</a>上。</p>
-<h2 id="安装">安装</h2>
-<pre><code>sudo yum install pandoc
-# 如果想输出PDF，可以安装TeX Live
-sudo yum install texlive
+<h2 id="简介"> 简介</h2>
+<p>Pandoc 的作者是 <a href="http://johnmacfarlane.net/">John MacFarlane</a>，他是加州大学伯克利分校的哲学系教授。Pandoc 使用 <a href="http://www.haskell.org/">Haskell</a> 语言编写，被作者用来生成讲义、课件和网站等。该程序开源免费，目前以 GPL 协议托管在 <a href="https://github.com/jgm/pandoc">Github 网站</a>上。</p>
+<h2 id="安装"> 安装</h2>
+<pre><code>sudo yum install pandoc
+# 如果想输出PDF，可以安装TeX Live
+sudo yum install texlive
 
 
 
 
-sudo apt install pandoc
-# 如果想输出PDF，可以安装TeX Live
-sudo apt install texlive</code></pre>
-<h2 id="使用">使用</h2>
-<pre><code># 通用格式
-pandoc &lt;files&gt; &lt;options&gt;
+sudo apt install pandoc
+# 如果想输出PDF，可以安装TeX Live
+sudo apt install texlive</code></pre>
+<h2 id="使用"> 使用</h2>
+<pre><code># 通用格式
+pandoc &lt;files&gt; &lt;options&gt;
 
 
-# markdown转html
-# -s：生成有头尾的独立文件（HTML，LaTeX，TEI 或 RTF），比如html会带有&lt;html&gt;&lt;header&gt;&lt;body&gt;标签
-pandoc input.md -c ../../.././css/style.css  -f markdown -t html -s -o input.html
+# markdown转html
+# -s：生成有头尾的独立文件（HTML，LaTeX，TEI 或 RTF），比如html会带有&lt;html&gt;&lt;header&gt;&lt;body&gt;标签
+pandoc input.md -c ../../.././css/style.css  -f markdown -t html -s -o input.html
 
 
-# 指定css样式文件
-pandoc demo.md -c ../../.././css/style.css -o demo.html
-pandoc input.md -c github-pandoc.css  -f markdown -t html -s -o input.html
+# 指定css样式文件
+pandoc demo.md -c ../../.././css/style.css -o demo.html
+pandoc input.md -c github-pandoc.css  -f markdown -t html -s -o input.html
 
 
 
 
-# 其他参数
--f &lt;format&gt;、-r &lt;format&gt;：指定输入文件格式，默认为 Markdown；
+# 其他参数
+-f &lt;format&gt;、-r &lt;format&gt;：指定输入文件格式，默认为 Markdown；
 
 
--t &lt;format&gt;、-w &lt;format&gt;：指定输出文件格式，默认为 HTML；
+-t &lt;format&gt;、-w &lt;format&gt;：指定输出文件格式，默认为 HTML；
 
 
--o &lt;file&gt;：指定输出文件，该项缺省时，将输出到标准输出；
+-o &lt;file&gt;：指定输出文件，该项缺省时，将输出到标准输出；
 
 
---highlight-style &lt;style&gt;：设置代码高亮主题，默认为 pygments；
+--highlight-style &lt;style&gt;：设置代码高亮主题，默认为 pygments；
 
 
--s：生成有头尾的独立文件（HTML，LaTeX，TEI 或 RTF）；
+-s：生成有头尾的独立文件（HTML，LaTeX，TEI 或 RTF）；
 
 
 -S：聪明模式，根据文件判断其格式；
 
 
---self-contained：生成自包含的文件，仅在输出 HTML 文档时有效；
+--self-contained：生成自包含的文件，仅在输出 HTML 文档时有效；
 
 
---verbose：开启 Verbose 模式，用于 Debug；
+--verbose：开启 Verbose 模式，用于 Debug；
 
 
 --list-input-formats：列出支持的输入格式；
@@ -247,7 +252,7 @@ pandoc input.md -c github-pandoc.css  -f markdown -t html -s -o input.html
 --list-output-formats：列出支持的输出格式；
 
 
---list-extensions：列出支持的 Markdown 扩展方案；
+--list-extensions：列出支持的 Markdown 扩展方案；
 
 
 --list-highlight-languages：列出支持代码高亮的编程语言；
@@ -259,11 +264,20 @@ pandoc input.md -c github-pandoc.css  -f markdown -t html -s -o input.html
 -v、--version：显示程序的版本号；
 
 
--h、--help：显示程序的帮助信息。
-
-
-
-</code></pre>
+-h、--help：显示程序的帮助信息。</code></pre>
+<h2 id="碰到问题"> 碰到问题</h2>
+<h3 id="markdown列表无法解析"> markdown列表无法解析</h3>
+<p>用pandoc将markdown导出成html的时候，无法解析列表，最后发现是空格格式的问题，正常的空格在notepad++中显示的为一个小点，而不正常的就啥也不显示，只是单纯的空白。最终原因是不同的空格形式导致markdown的列表无法解析。如下：<br />
+<img src="https://sunxvming.com/imgs/a2596fdb-317f-4c7c-80c5-b4c19f2bb851.png" /></p>
+<h3 id="pandoc1.x和pandoc2.x对于markdown格式的区别"> pandoc1.x和pandoc2.x对于markdown格式的区别</h3>
+<p>用pandoc1.x将markdown导出html的时候格式没问题，用pandoc2.x导出的时候标题无法识别。原因如下：<br />
+Pandoc中支持扩展修订版本的Markdown语法<br />
+<em> 使用pandoc中支持的Markdown语法用 <code>-f markdown</code><br />
+</em> 使用标准Markdown语法用 <code>-f markdown_strict</code></p>
+<p>Pandoc所支持的语法各种对标准Markdown语法的扩展可以通过在格式后以<code>+EXTENSION</code>添加或<code>-EXTENSION</code>去除，如：<br />
+<em> <code>-f markdown-footnotes</code> 表示识别除了footnotes扩展之外的所有pandoc Markdown语法<br />
+</em> <code>-f markdown_strict+footnotes+pipe_tables</code> 表示识别标准Markdown语法加上footnotes和pipe_tables扩展语法</p>
+<p>最终改为<code>--from=markdown_mmd+hard_line_breaks</code>的形式就可以了。</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

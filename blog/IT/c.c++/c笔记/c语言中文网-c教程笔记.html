@@ -161,10 +161,10 @@ jQuery(document).ready(function(){
                         <a href="http://www.sunxvming.com">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                            href="http://www.sunxvming.com/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                            href="http://www.sunxvming.com/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -797,7 +797,7 @@ extern datatype name = value;<br />
 <p>从广义上讲，目标文件与可执行文件的存储格式几乎是一样的，我们可以将它们看成是同一种类型的文件，在 Windows 下，将它们统称为 PE 文件，在 Linux 下，将它们统称为 ELF文件。</p>
 <p>另外，动态链接库（DLL，Dynamic Linking Library）（Windows 下的.dll和 Linux 下的.so）和静态链接库（Static Linking Library）（Windows 下的.lib和 Linux 下的.a）也是按照可执行文件的格式存储的。</p>
 <h4 id="目标文件的组织形式"> 目标文件的组织形式</h4>
-<p><img src="/imgs/0.6569474214992366.png" /></p>
+<p><img src="https://sunxvming.com/imgs/0.6569474214992366.png" /></p>
 <h4 id="可执行文件的组织形式"> 可执行文件的组织形式</h4>
 <p>站在<strong>文件结构</strong>的角度，可执行文件包含了众多的段（Section），每个段都有不同的作用；<br />
 站在<strong>加载和执行</strong>的角度，所有的段都是数据，操作系统只关心数据的权限，只要把相同权限的数据加载到同一个内存区域，程序就能正确执行。</p>
@@ -814,7 +814,7 @@ extern datatype name = value;<br />
 <h4 id="段section的合并"> 段（Section）的合并</h4>
 <p>编译器生成的是目标文件，而我们最终需要的是可执行文件，链接（Linking）的作用就是将多个目标文件合并成一个可执行文件<br />
 在链接过程中，链接器会将多个目标文件中的代码段、数据段、调试信息等合并成可执行文件中的一个段。段的合并仅仅是一个简单的叠加过程<br />
-<img src="/imgs/0.8095789479712292.png" /></p>
+<img src="https://sunxvming.com/imgs/0.8095789479712292.png" /></p>
 <h3 id="到底什么是链接它起到了什么作用"> 到底什么是链接，它起到了什么作用？</h3>
 <p>数据是保存在内存中的，对于计算机硬件来说，必须知道它的地址才能使用。变量名、函数名等仅仅是地址的一种助记符，目的是在编程时更加方便地使用数据，当源文件被编译成可执行文件后，这些标识符都不存在了，它们被替换成了数据的地址。<br />
 编译器和链接器的一项重要任务就是将助记符替换成地址。</p>

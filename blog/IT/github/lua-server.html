@@ -1,0 +1,480 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/github/lua-server</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#脚本模块"> 脚本模块</a></li>
+<li><a href="#网络模块"> 网络模块</a>
+<ul>
+<li><a href="#tcp相关"> tcp相关</a></li>
+<li><a href="#udp相关"> udp相关</a></li>
+<li><a href="#http相关"> http相关</a></li>
+<li><a href="#kcp相关"> kcp相关</a></li>
+<li><a href="#websocket相关"> websocket相关</a></li>
+</ul></li>
+<li><a href="#通用模块"> 通用模块</a></li>
+<li><a href="#第三方插件"> 第三方插件</a>
+<ul>
+<li><a href="#http相关-1"> http相关</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="脚本模块"> 脚本模块</h2>
+<h2 id="网络模块"> 网络模块</h2>
+<h3 id="tcp相关"> tcp相关</h3>
+<pre><code>EventLoop
+    功能就是对libuv做了一下简单的封装
+    init()
+    run()
+    exit()
+    getLoop()
+        返回的是uv_loop_t
+
+
+
+NetEvent
+    NetConnect * createConnect
+    destroyConnect(NetConnect * conn)
+    
+    onAccept(NetConnect * conn)
+    onConnect(NetConnect * conn)
+    onClose(NetConnect * conn)
+    onMsg(NetConnect * conn)
+    
+    
+socket
+-------------
+MessageBuffer
+    结构为rpos,wpos,storage = std::vector&lt;uint8&gt; 
+
+    每个socket都有一个自己提供的buffer供libuv用，这个buffer可以复用，他的生命周期和TcpSocketBase一样长
+    当有读事件的时候，libuv会自动把数据填入的这个buffer中
+
+TcpSocketBase
+    成员
+        uv_tcp_t m_uv_tcp;       //在connect的时候通过uv_tcp_init()初始化
+        uv_write_t m_write_t;
+        MessageBuffer mBuffer;   
+        
+    localIP()
+    localPort()
+    remoteIP()
+    remotePort()
+    getUvTcp()
+        返回的是uv_tcp_t，网络操作还多都得靠他
+    
+    write(const uv_buf_t* buf, uint32 size)
+        uv_write(x,x,x,x,echo_write)
+    echo_write() 写事件完了之后的回调  
+        self-&gt;on_writecomplete()
+        
+    on_read_start()    // 开启监听读事件
+        uv_read_start((uv_stream_t *)getUvTcp(), alloc_buffer, echo_read)
+    echo_read() 读事件完了之后的回调
+        出错
+            uv_close((uv_handle_t*)tcp, on_uv_close);
+                TcpSocketBase::on_uv_close()
+                    回调user的self-&gt;on_clsesocket();
+        buffer有数据时，通知上层的connect对象进行处理
+            self-&gt;on_msgbuffer(&amp;self-&gt;mBuffer);
+
+TcpSocket:TcpSocketBase
+    setUserdata()
+    getUserdata()
+    setUsernum()
+    getUsernum()
+    
+NetConnect:TcpSocket
+    发送相关函数
+        sendMsg()
+        sendPacket()
+        sendDate()
+            构建NetPacket包 header + body
+            把构建的包push到mSendPackets中
+            TcpSocket::write(pack)
+            send_top_msg()
+                从mSendPackets中取出包进行发送
+                TcpSocketBase::write(&amp;mSending[0], mSending.size());
+                    uv_write(x,x,x,x,echo_write)
+                    echo_write()
+                        self-&gt;on_writecomplete()
+                            包得再发送成功后才能删除
+                            清理mSendPackets
+                            清理mSending
+    接收相关函数
+        on_msgbuffer()
+            从MessageBuffer中读数据，先读header再读body,最终创建一个NetPacket，并将NetPacket传入到user的回调函数
+            _netevent-&gt;onMsg(this, mReadPacket-&gt;getMsgType(), mReadPacket);
+    
+    其他
+        on_clsesocket()
+
+server
+--------------    
+TcpServer
+    成员
+        uv_tcp_t m_uv_tcp;  //服务器的socket
+
+    listen()
+        uv_listen((uv_stream_t*)&amp;m_uv_tcp, DEFAULT_BACKLOG, on_new_connection);
+            有新连接的时候回调 on_new_connection(uv_stream_t *server, int status)
+            
+    shutdown()
+    
+    on_new_connection()
+        此处有两个回调
+            TcpSocketBase::on_read_start(), 此时的处理逻辑转移到了socket对象中
+            onSocket()    
+    virtual createSocket() = 0
+    virtual onSocket() = 0
+
+
+NetServer:TcpServer
+    createSocket()
+        创建TcpSocket对象
+        _netevent-&gt;createConnect()
+    onSocket()
+        _netevent-&gt;onAccept((NetConnect *)connect)
+
+
+clinet
+--------------
+TcpClient
+    connect()
+        核心对外函数，连接指定服务器
+        此处有两个回调
+            TcpSocketBase::on_read_start()
+            onSocket()
+    virtual createSocket() = 0
+    virtual onSocket() = 0
+
+NetClient:TcpClient
+    createSocket()
+        创建TcpSocket对象
+    onSocket()
+        _netevent-&gt;onConnect((NetConnect *)conn, argv) 
+        调用user传入的onConnect回调函数,主要是判断连接成没成功，没成功第一个参数为null
+
+
+packet
+-------------
+ByteConverter
+    字节序的转换
+ByteBuffer
+    rpos,wpos,storage
+
+BasePacket:ByteBuffer
+    一系列操作buffer的方法
+    
+    
+NetPacket:BasePacket
+    head = msglen:uint32 + msgtype:uint32 
+    
+    getMarkLen()
+    getMsgType()
+    isHeadFull()
+    
+    sendSize()
+    sendStream()
+    
+    writeHead()
+    readHead()
+
+ProtoPacket
+    readProto()
+        从NetPacket包中读出protobuf对象
+    writeProto()
+        将protobuf对象写入到NetPacket包中
+
+</code></pre>
+<h3 id="udp相关"> udp相关</h3>
+<pre><code>UdpClient
+    connect()
+        uv_udp_recv_start(&amp;_udp, UdpClient::alloc_buffer, UdpClient::on_read);
+        
+    writeToServer()
+        uv_udp_try_send()
+        
+    on_read()
+        self-&gt;onMessage(addr, rcvbuf-&gt;base, nread);
+        
+        
+    virtual onMessage() = 0  user继承后，由user具体实现其逻辑
+
+
+UdpServer
+    start()
+        uv_udp_bind()
+        uv_udp_recv_start(x,x,on_read)
+    on_read()
+        再调用onMessage()
+    virtual onMessage() = 0  user继承后，由user具体实现其逻辑
+
+
+UdpPacket
+    packet = head(4byte,length) + body
+</code></pre>
+<h3 id="http相关"> http相关</h3>
+<pre><code>HttpEvent
+    virtual onClose() = 0
+    virtual onGet()   = 0
+    virtual onPost()  = 0
+    virtual onOther() = 0
+
+HttpConnect : TcpSocket
+    接收
+        on_msgbuffer()
+            主要逻辑就是从buffer中读数据，并进行http包的处理
+            解析完整的http包后调用complete()
+        complete()
+            根据类型进行以下回调
+            HttpServer::onPost()
+            HttpServer::onGet()
+            HttpServer::onOther()
+        
+    发送    
+        sendMsg(const char* msg, int32 len)
+        sendData(std::string_view sv)
+        autoMsg(std::string_view sv, enum http_content_type type = hct_text_html);
+
+
+HttpServer : TcpServer,HttpEvent
+    其中继承了TcpServer的所有功能，其中最主要的就是开启tcp的监听
+   
+    TcpServer::on_new_connection()
+        此处有两个回调
+            TcpSocketBase::on_read_start(), 此时的处理逻辑转移到了socket对象中
+            onSocket() 
+            当buffer中有数据的话，最终会调用Connect对象的 on_msgbuffer
+   
+    createSocket()
+        和tpc不同的地方为创建不同的socket对象，以处理不同的逻辑
+
+    onGet()
+        根据url查找注册的处理方法并回调
+    onPost()
+        根据url查找注册的处理方法并回调
+    onOther()
+        调用m_other function
+    onClose()
+        CommPool::reclaim(conn)  复用connect连接对象
+HttpParser : llhttp_t
+    parser()
+    contentLen()
+    method()
+    isClose()
+    getUrl()
+    getParser()
+    成员：
+        ParseUrl m_url;
+
+ParseUrl
+    parse()
+    haveParam()
+    getPath()
+    getParam()
+</code></pre>
+<h3 id="kcp相关"> kcp相关</h3>
+<h3 id="websocket相关"> websocket相关</h3>
+<h2 id="通用模块"> 通用模块</h2>
+<pre><code>ObjectPool
+    对象池，目的是做到对象的重复利用，以减少内存重复的分配和回收
+
+CommonPool
+
+</code></pre>
+<h2 id="第三方插件"> 第三方插件</h2>
+<h3 id="http相关-1"> http相关</h3>
+<p>http_parser</p>
+<p>llhttp</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -161,10 +161,10 @@ jQuery(document).ready(function(){
                         <a href="http://www.sunxvming.com">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                            href="http://www.sunxvming.com/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                            href="http://www.sunxvming.com/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -850,7 +850,7 @@ Python 将所有对象分为<strong>三代</strong>。刚刚创立的对象是�
 x.append(x)
 x
 [1, [...]]</code></pre>
-<p><img src="/imgs/bfce539e-04cf-42fb-96b7-8f41f16357da.png" /><br />
+<p><img src="https://sunxvming.com/imgs/bfce539e-04cf-42fb-96b7-8f41f16357da.png" /><br />
 这里，x 指向一个列表，列表的第一个元素为 1；执行了 append 操作后，第二个元素又反过来指向 x，即指向了 x 所指向的列表，因此形成了一个无限嵌套的循环：[1, [1, [1, [1, …]]]]。<br />
 不过，虽然 x 是无限嵌套的列表，但 x.append(x) 的操作，并不会递归遍历其中的每一个元素。它只是扩充了原列表的第二个元素，并将其指向 x，因此不会出现 stack overflow 的问题，自然不会报错。<br />
 为什么 len(x) 返回的是 2？我们还是来看 x，虽然它是无限嵌套的列表，但 x 的 top level 只有 2 个元素组成，第一个元素为 1，第二个元素为指向自身的列表，因此 len(x) 返回 2。</p>
@@ -930,7 +930,7 @@ for key in adict:</code></pre>
 在代码评审工具里，添加必须的编程规范环节；<br />
 把团队确定的代码规范写进 <a href="https://www.pylint.org/">Pylint</a> 里，能够在每份代码提交前自动检查，不通过的代码无法提交。<br />
 整合之后，你的团队工作流程就会变成这样：<br />
-<img src="/imgs/91edff14-4004-4dcf-b9b9-c478fd8af5da.jpg" /></p>
+<img src="https://sunxvming.com/imgs/91edff14-4004-4dcf-b9b9-c478fd8af5da.jpg" /></p>
 <h2 id="带你初探量化世界"> 33 | 带你初探量化世界</h2>
 <p>随着数据处理技术的飞速发展，和量化交易模型研究理论的逐渐成熟，现金股票交易、债券市场、期货市场以及投行的相当一部分业务，都在朝着自动化的方向迈进。</p>
 <p>交易员这个行业本身，对自身素质要求是极高的。除了要具备扎实的专业素养（包括金融功底、数理逻辑、分析能力、决策能力），对心理素质的要求也非常高。这种直接和钱打交道、并直面人性深处欲望的行业，也因此吸引了无数高手的参与，很多人因此暴富，也有不少人破产，一无所有。</p>

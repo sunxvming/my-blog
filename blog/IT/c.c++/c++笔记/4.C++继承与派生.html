@@ -161,10 +161,10 @@ jQuery(document).ready(function(){
                         <a href="http://www.sunxvming.com">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                            href="http://www.sunxvming.com/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                            href="http://www.sunxvming.com/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -270,7 +270,7 @@ private:
 <strong>成员变量按照派生的层级依次排列，新增成员变量始终在最后</strong>,当基类的成员变量被遮蔽时，仍然会留在派生类对象的内存中<br />
 在派生类的对象模型中，会包含所有基类的成员变量。这种设计方案的优点是<strong>访问效率高</strong>，能够在派生类对象中直接访问基类变量，无需经过好几层间接计算。<br />
 A类的m_b 和 B类的m_c，被C类给遮蔽了。如果访问A类的m_b成员，得加上<strong>作用域符号  A::m_b</strong><br />
-<img src="/imgs/55933d4c-c91c-4447-988e-12d204e5790f.png" /></p>
+<img src="https://sunxvming.com/imgs/55933d4c-c91c-4447-988e-12d204e5790f.png" /></p>
 <h2 id="c基类和派生类的构造函数"> C++基类和派生类的构造函数</h2>
 <p>类的构造函数不能被继承。构造函数不能被继承是有道理的，因为即使继承了，<strong>它的名字和派生类的名字也不一样</strong>，不能成为派生类的构造函数<br />
 在设计派生类时，<strong>对继承过来的成员变量的初始化工作也要由派生类的构造函数完成</strong>，但是大部分基类都有 private 属性的成员变量，它们在派生类中无法访问，更不能使用派生类的构造函数来初始化。<br />
@@ -330,7 +330,7 @@ Derived derived(1,&#39;a&#39;);  //会调用基类的构造函数</code></pre
 <h2 id="c多继承时的对象内存模型"> C++多继承时的对象内存模型</h2>
 <p>基类对象的排列顺序和继承时声明的顺序相同。<br />
 class C: public A, public B{ } 的示意图：<br />
-<img src="/imgs/4ee0fb3d-c2aa-44b8-a21b-dd52a7222f69.png" /></p>
+<img src="https://sunxvming.com/imgs/4ee0fb3d-c2aa-44b8-a21b-dd52a7222f69.png" /></p>
 <h2 id="借助指针突破访问权限的限制访问privateprotected属性的成员变量"> 借助指针突破访问权限的限制，访问private、protected属性的成员变量</h2>
 <p>一旦知道了<strong>对象的起始地址</strong>，再加上<strong>偏移量</strong>就能够求得<strong>成员变量的地址</strong>，知道了成员变量的地址和类型，也就能够轻而易举地知道它的值。<br />
 当成员变量的访问权限为 private 时，我们也可以手动转换，只要能正确<strong>计算偏移</strong>即可，这样就突破了访问权限的限制。<br />
@@ -369,7 +369,7 @@ private:
     int m_d;
 };</code></pre>
 <p>C++标准库中的 iostream 类就是一个虚继承的实际应用案例。iostream 从 istream 和 ostream 直接继承而来，而 istream 和 ostream 又都继承自一个共同的名为 base_ios(虚基类) 的类，是典型的菱形继承。此时 istream 和 ostream 必须采用虚继承，否则将导致 iostream 类中保留两份 base_ios 类的成员。<br />
-<img src="/imgs/bde45cfd-3bbd-432c-a4c6-a78d58a5e345.png" /></p>
+<img src="https://sunxvming.com/imgs/bde45cfd-3bbd-432c-a4c6-a78d58a5e345.png" /></p>
 <h3 id="虚基类成员的可见性"> 虚基类成员的可见性</h3>
 <p>因为在虚继承的最终派生类中只保留了一份虚基类的成员，所以该成员可以被<strong>直接访问</strong>，不会产生二义性。此外，如果虚基类的成员只被一条派生路径覆盖，那么仍然可以直接访问这个被覆盖的成员。但是如果该成员被两条或多条路径覆盖了，那就不能直接访问了，此时必须指明该成员属于哪个类。</p>
 <p>如果继承的层次再多一些，关系更复杂一些，程序员就很容易陷人迷魂阵，程序的编写、调试和维护工作都会变得更加困难，因此我不提倡在程序中使用多继承，只有在比较简单和不易出现二义性的情况或实在必要时才使用多继承，能用单一继承解决的问题就不要使用多继承。</p>
@@ -394,18 +394,18 @@ C++规定必须由最终的派生类 D 来初始化虚基类 A，直接派生
 <p><strong>共享部分放在最后原因？</strong><br />
 虚基类的成员的处理方式不同，比如菱形继承只有一份会继承，那如何单独处理只保留一份虚继承的数据呢，放在对象之后，编译器就会根据后面的虚继承的成员单从而去重，以达到只保留一份虚基类的数据。</p>
 <p>假设 A 是 B 的虚基类，B 又是 C 的虚基类，那么各个对象的内存模型如下图所示：<br />
-<img src="/imgs/bb3bd01f-9663-4470-8d36-5ad48aa451fa.png" /></p>
+<img src="https://sunxvming.com/imgs/bb3bd01f-9663-4470-8d36-5ad48aa451fa.png" /></p>
 <h3 id="虚基类指针方式cfront解决方案"> 1.虚基类指针方式（cfront解决方案）</h3>
 <p>早期的 cfront 编译器会在派生类对象中安插一些指针，每个指针指向一个虚基类的子对象，要存取继承来的成员变量，可以使用指针间接完成。<br />
 其<strong>实质</strong>是增加一个指向虚基类的指针作为虚派生类的一个成员。<br />
 1. A 是 B 的虚基类<br />
-<img src="/imgs/7f6b4758-1f76-4b2a-9823-4f18c78e5322.jpg" /></p>
+<img src="https://sunxvming.com/imgs/7f6b4758-1f76-4b2a-9823-4f18c78e5322.jpg" /></p>
 <p>2. A 是 B 的虚基类，同时 B 也是 C 的虚基类<br />
-<img src="/imgs/33ed9ae4-b52d-4c5a-9894-07e68dffbb92.jpg" /></p>
+<img src="https://sunxvming.com/imgs/33ed9ae4-b52d-4c5a-9894-07e68dffbb92.jpg" /></p>
 <p>3. 假设 A、B、C、D 类的继承关系为<br />
-<img src="/imgs/43c10959-4225-4a17-a2e7-6e5c04314513.jpg" /><br />
+<img src="https://sunxvming.com/imgs/43c10959-4225-4a17-a2e7-6e5c04314513.jpg" /><br />
 内存模型为：<br />
-<img src="/imgs/af9003a9-853c-4fca-bef0-9b8d428ab4d4.jpg" /></p>
+<img src="https://sunxvming.com/imgs/af9003a9-853c-4fca-bef0-9b8d428ab4d4.jpg" /></p>
 <p>缺点:<br />
 <em> 随着虚继承层次的增加，访问顶层基类需要的间接转换会越来越多，效率越来越低。<br />
 </em> 当有多个虚基类时，派生类要为每个虚基类都安插一个指针，会增加对象的体积。</p>
@@ -413,13 +413,13 @@ C++规定必须由最终的派生类 D 来初始化虚基类 A，直接派生
 <p>VC 引入了<strong>虚基类表</strong>，如果某个派生类有一个或多个虚基类，编译器就会在派生类对象中安插一个指针，指向虚基类表。虚基类表其实就是一个数组，数组中的元素存放的是各个虚基类的偏移。<br />
 其<strong>实质</strong>是增加一个指向虚基类的指针的数组(虚基类表)，然后派生类再指向这个虚基类表。<br />
 1. A 是 B 的虚基类<br />
-<img src="/imgs/10a51de7-d47b-44c5-a658-b46ec4b1c85d.png" /><br />
+<img src="https://sunxvming.com/imgs/10a51de7-d47b-44c5-a658-b46ec4b1c85d.png" /><br />
 2. A 是 B 的虚基类，同时 B 又是 C 的虚基类<br />
-<img src="/imgs/9e50e19f-de91-4eb5-a525-7e85ffc42966.png" /><br />
+<img src="https://sunxvming.com/imgs/9e50e19f-de91-4eb5-a525-7e85ffc42966.png" /><br />
 3.  A、B、C、D 类的继承关系为<br />
-<img src="/imgs/943ea53b-1ca5-4cb0-97e8-8f7eb224d51f.jpg" /><br />
+<img src="https://sunxvming.com/imgs/943ea53b-1ca5-4cb0-97e8-8f7eb224d51f.jpg" /><br />
 内存模型为：<br />
-<img src="/imgs/ce32bf55-47eb-44f1-93e2-e7d109356732.jpg" /></p>
+<img src="https://sunxvming.com/imgs/ce32bf55-47eb-44f1-93e2-e7d109356732.jpg" /></p>
 <h2 id="c将派生类赋值给基类向上转型"> C++将派生类赋值给基类（向上转型）</h2>
 <p>将派生类对象赋值给基类对象、将派生类指针赋值给基类指针、将派生类引用赋值给基类引用，为<strong>向上转型</strong>（Upcasting）。<br />
 相应地，将基类赋值给派生类称为<strong>向下转型</strong>（Downcasting）。<br />
@@ -429,7 +429,7 @@ C++规定必须由最终的派生类 D 来初始化虚基类 A，直接派生
 <p>将派生类对象赋值给基类对象时，会<strong>舍弃派生类新增的成员</strong>，这种转换关系是不可逆的，只能用派生类对象给基类对象赋值，而不能用基类对象给派生类对象赋值。<br />
 理由很简单，<strong>基类不包含派生类的成员变量</strong>，无法对派生类的成员变量赋值。同理，同一基类的不同派生类对象之间也不能赋值。<br />
 派生类对象赋值给基类对象后只能调用基类对象。</p>
-<p><img src="/imgs/0296d3de-c16c-4540-aaaf-b84d67f72cb5.png" /></p>
+<p><img src="https://sunxvming.com/imgs/0296d3de-c16c-4540-aaaf-b84d67f72cb5.png" /></p>
 <h3 id="将派生类指针赋值给基类指针"> 将派生类指针赋值给基类指针</h3>
 <p>与对象变量之间的赋值不同的是，对象指针之间的赋值<strong>并没有拷贝对象的成员</strong>，也没有修改对象本身的数据，<strong>仅仅是改变了指针的指向</strong>。通过基类指针只能使用<strong>派生类的成员变量</strong>，但不能使用派生类的成员函数<br />
 概括起来说就是：<br />
@@ -441,7 +441,7 @@ C++规定必须由最终的派生类 D 来初始化虚基类 A，直接派生
 <p>我们通常认为，赋值就是将一个变量的值交给另外一个变量，这种想法虽然没错，但是有一点要注意，就是赋值以前编译器可能会对现有的值进行处理。例如将 double 类型的值赋给 int 类型的变量，编译器会直接抹掉小数部分，导致赋值运算符两边变量的值不相等。<br />
 将派生类的指针赋值给基类的指针时也是类似的道理，编译器也可能会在赋值前进行处理。<br />
 继承关系：class D: public B, public C{}   class B: public A{}    <br />
-<img src="/imgs/b48a1e9f-0deb-4481-ab80-f9016a795eb7.png" /><br />
+<img src="https://sunxvming.com/imgs/b48a1e9f-0deb-4481-ab80-f9016a795eb7.png" /><br />
 下面的代码演示了将 pd 赋值给 pc 时编译器的调整过程：<br />
 <code>pc = (C*)( (int)pd + sizeof(B) );</code><br />
 首先要明确的一点是，对象的指针必须要指向对象的起始位置.如果父类地址不是从起始位置开始的，则需要加上相应的偏移值。</p>

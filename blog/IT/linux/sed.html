@@ -161,10 +161,10 @@ jQuery(document).ready(function(){
                         <a href="http://www.sunxvming.com">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                            href="http://www.sunxvming.com/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                            href="http://www.sunxvming.com/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -237,31 +237,27 @@ sed&quot;/fish/a This is my monkey, my monkey&#39;s name is wukong&quot;my.txt</
 <li><code>[ ]</code> 字符集合。 如：[abc]表示匹配a或b或c，还有[a-zA-Z]表示匹配所有的26个字符。如果其中有^表示反，如[^a]表示非a的字符</li>
 </ul>
 <h2 id="多个匹配">多个匹配</h2>
-<p>如果我们需要一次替换多个模式，如：第一个模式把第一行到第三行的my替换成your，第二个则把第3行以（3，<span class="math inline">$）后的This替换成了That ``` sed '1,3s/my/your/g; 3,$</span>s/This/That/g'my.txt</p>
-<pre><code>上面的命令等价于：（注：下面使用的是sed的-e命令行参数）</code></pre>
-<p>sed -e '1,3s/my/your/g' -e '3,$s/This/That/g' my.txt</p>
-<pre><code>
-
-
-
-【在每一行最前面加点东西】</code></pre>
-<p>sed 's/^/#/g' trans.sh</p>
-<pre><code>【在每一行最后面加点东西】</code></pre>
-<p>sed 's/<span class="math inline">$/#/g' trans.sh ``` 【指定行数的替换：只替换2到3行内容】 ``` sed "2,3s/#/abcde/g" trans.sh ``` 【最后一行添加文字】 ``` sed '$</span>a\wwwwww' test.txt</p>
-<pre><code>$ 匹配文件的最后一行位置
-a 命令在后面append
-
-
-【删除最后一行】</code></pre>
-<p>sed '$d' test.txt</p>
-<pre><code>
-
-【删除指定模式】</code></pre>
-<p>sed -i '/^.host:/d' /etc/fstab</p>
-<pre><code>【只替换每一行的第一个匹配的a】</code></pre>
-<p>sed 's/a/A/1' test.txt<br />
-```<br />
-把1替换成2就是第二个，3g就是替换第3个以后匹配的</p>
+<p>如果我们需要一次替换多个模式，如：第一个模式把第一行到第三行的my替换成your，第二个则把第3行以后的This替换成了That</p>
+<pre><code>sed &#39;1,3s/my/your/g; 3,$s/This/That/g&#39;my.txt</code></pre>
+<p>上面的命令等价于：（注：下面使用的是sed的-e命令行参数）</p>
+<pre><code>sed -e &#39;1,3s/my/your/g&#39; -e &#39;3,$s/This/That/g&#39; my.txt</code></pre>
+<p>【在每一行最前面加点东西】</p>
+<pre><code>sed &#39;s/^/#/g&#39; trans.sh</code></pre>
+<p>【在每一行最后面加点东西】</p>
+<pre><code>sed &#39;s/$/#/g&#39; trans.sh</code></pre>
+<p>【指定行数的替换：只替换2到3行内容】</p>
+<pre><code>sed &quot;2,3s/#/abcde/g&quot; trans.sh</code></pre>
+<p>【最后一行添加文字】</p>
+<pre><code>sed &#39;$a\wwwwww&#39; test.txt</code></pre>
+<p>$ 匹配文件的最后一行位置<br />
+a 命令在后面append</p>
+<p>【删除最后一行】</p>
+<pre><code>sed  &#39;$d&#39;  test.txt</code></pre>
+<p>【删除指定模式】</p>
+<pre><code>sed -i &#39;/^.host:/d&#39; /etc/fstab </code></pre>
+<p>【只替换每一行的第一个匹配的a】</p>
+<pre><code>sed &#39;s/a/A/1&#39; test.txt</code></pre>
+<p>把1替换成2就是第二个，3g就是替换第3个以后匹配的</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

@@ -35,7 +35,7 @@
 
 ## 快捷键
 快捷键设置
-![](/imgs/a4506184-9100-4a13-93c2-d8607d1bccbd.png)
+![](https://sunxvming.com/imgs/a4506184-9100-4a13-93c2-d8607d1bccbd.png)
 右上角的红圈可以打开json的配置
 
 

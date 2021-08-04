@@ -15,7 +15,11 @@
 # grep grep "imgs" -rn blog
 
 #`![]`这三个符号都需要用`\`进行转义 
+# `/`符号也需要用`\`转移
 
-sed -i "s/\!\[\](index_files/\!\[\](\/imgs/g" `grep "\!\[\](index_files" -rl blog`
+sed -i "s/\!\[\](index_files/\!\[\](https:\/\/sunxvming.com\/imgs/g" `grep "\!\[\](index_files" -rl blog`
+
+
+
 
 

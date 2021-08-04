@@ -161,10 +161,10 @@ jQuery(document).ready(function(){
                         <a href="http://www.sunxvming.com">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                            href="http://www.sunxvming.com/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                            href="http://www.sunxvming.com/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -213,8 +213,10 @@ jQuery(document).ready(function(){
 <h2 id="map目录中的地图文件怎么来"> map目录中的地图文件怎么来？</h2>
 <p>这个文件是根据美术或者地编制做的游戏地图按照一定的格式导出来的供程序用的。其中描述了地图中有几个多边形构成、构成多边形的点的位置信息。文件格式如下：</p>
 <blockquote>
-<p> childsize，parentlength, parentpoints，[0，child1length,child1points, [0，child2length, child2points]]<br />
- 内嵌多边形数量，父多边形点的数量，父多边形的点，[0，子多边形1点的数量，子多边形1的点，[0, 子多边形1点的数量，子多边形1的点]]</p>
+<p> childsize，parentlength, parentpoints，[0，child1length,child1points, [0，child2length, child2points]]</p>
+</blockquote>
+<blockquote>
+<p> 内嵌多边形数量，父多边形点的数量，父多边形的点，[0，子多边形1点的数量，子多边形1的点，[0, 子多边形1点的数量，子多边形1的点]]</p>
 </blockquote>
 <p>其中每一个上述的格式代表一个多边形，且多边形可以嵌套。而文件是有多个上述格式构成的。</p>
 <h2 id="程序截图"> 程序截图</h2>
@@ -222,11 +224,11 @@ jQuery(document).ready(function(){
 绿色的线表示经三角剖分后构成的线<br />
 蓝色的线代表寻路的路径<br />
 <em> 包含两个嵌套多边形的地图<br />
-<img src="http://www.sunxvming.com/wp-content/uploads/2019/12/微信截图_20191202105843.png" /><br />
+<img src="http://www.sunxvming.com/imgs/微信截图_20191202105843.png" /><br />
 </em> 根据场景资源生成的地图<br />
-<img src="http://www.sunxvming.com/wp-content/uploads/2019/12/微信截图_20191202104737.png" /><br />
-<img src="http://www.sunxvming.com/wp-content/uploads/2019/12/微信截图_20191202105547.png" /><br />
-<img src="http://www.sunxvming.com/wp-content/uploads/2019/12/微信截图_20191202105652.png" /></p>
+<img src="http://www.sunxvming.com/imgs/微信截图_20191202104737.png" /><br />
+<img src="http://www.sunxvming.com/imgs/微信截图_20191202105547.png" /><br />
+<img src="http://www.sunxvming.com/imgs/微信截图_20191202105652.png" /></p>
 <h2 id="主要算法"> 主要算法</h2>
 <p>这些都可以在网上查的到，在俺的小demo中应该也很容易找的到的<br />
 <em> 平面多边形三角剖分(Delaunay剖分)<br />
@@ -305,7 +307,7 @@ Circle
 <p><em> <a href="https://github.com/sunxvming/navmesh/blob/master/doc/%E5%B9%B3%E9%9D%A2%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%9F%9F%E7%9A%84%E5%BF%AB%E9%80%9F%E7%BA%A6%E6%9D%9FDelaunay%E4%B8%89%E8%A7%92%E5%8C%96.pdf">平面多边形域的快速约束Delaunay三角化</a><br />
 </em> <a href="https://blog.csdn.net/ynnmnm/article/details/44833007">Nav导航网格寻路</a><br />
 <em> <a href="https://my.oschina.net/u/1859679/blog/1486636">深入理解游戏中寻路算法</a><br />
-</em> <a href="https://github.com/sunxvming/navmesh/blob/master/doc/Astar%E5%AF%BB%E8%B7%AF%E7%AE%97%E6%B3%95-%E4%B8%AD%E6%96%87.doc">Astar寻路算法-中文</a></p>
+</em> <a href="https://github.com/sunxvming/navmesh/blob/master/doc/Astar%E5%AF%BB%E8%B7%AF%E7%AE%97%E6%B3%95-%E4%B8%AD%E6%96%87.doc">Astar寻路算法-中文</a></p>
 
 <footer id="colophon" >
 		<div class="site-info col">

@@ -161,10 +161,10 @@ jQuery(document).ready(function(){
                         <a href="http://www.sunxvming.com">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                            href="http://www.sunxvming.com/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                            href="http://www.sunxvming.com/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -179,155 +179,155 @@ jQuery(document).ready(function(){
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#容易查的死循环">容易查的死循环</a></li>
-<li><a href="#不好查的死循环">不好查的死循环</a></li>
+<li><a href="#容易查的死循环"> 容易查的死循环</a></li>
+<li><a href="#不好查的死循环"> 不好查的死循环</a></li>
 </ul>
 </div>
  <!--if(toc)-->
 
 <blockquote>
-<p>从此向讨人厌的lua死循环说goodbye :)</p>
+<p> 从此向讨人厌的lua死循环说goodbye :)</p>
 </blockquote>
-<h3 id="容易查的死循环">容易查的死循环</h3>
+<h3 id="容易查的死循环"> 容易查的死循环</h3>
 <p>像编译型的语言，如c、c++、c#、java一类的，有不错的IDE工具，再用debug模式编译时会把一些debug的信息也编译到执行文件中，借助强大的工具，很容易就可以找出死循环的位置，比如以VS下开发unity为例，当出现死循环时按以下步骤即可找出。<br />
 attach上unity进程，运行程序，走到死循环后会卡死，这时打开“调试/窗口/线程"菜单，然后点中断</p>
-<p><img src="http://www.sunxvming.com/wp-content/uploads/2019/10/0e41e0c3-7cb8-4e8c-9757-ea21c0716417.png" /><br />
-这时线程窗口会显示执行的线程的调用栈<br />
-<img src="http://www.sunxvming.com/wp-content/uploads/2019/10/84e7e9b5-4893-49f7-9cc9-35e079e421c5.png" /></p>
-<h3 id="不好查的死循环">不好查的死循环</h3>
+<p><img src="http://www.sunxvming.com/imgs/0e41e0c3-7cb8-4e8c-9757-ea21c0716417.png" /><br />
+ 这时线程窗口会显示执行的线程的调用栈<br />
+<img src="http://www.sunxvming.com/imgs/84e7e9b5-4893-49f7-9cc9-35e079e421c5.png" /></p>
+<h3 id="不好查的死循环"> 不好查的死循环</h3>
 <p>用lua写的程序中要是出现了死循环，一般的表现就是程序卡死或者程序未响应，而你能做的只是静静的看着它静止在哪里，或者打开任务管理器把程序给关掉。由于lua是个脚本语言，调试的工具不是太多，所以定位哪里出现死循环还是比较麻烦的。如果你凭直觉去找可能找半天也不一定能找出来。这时你会<br />
 想要是有个工具能再出现死循环的时候直接报错改多好哇！<br />
 美梦有时会成真滴，下面的代码让你从此告别死循环。<br />
 实现思路其实很简单也很朴素：统计每个循环执行的次数，如果超过一个自己设定次数比如99999次，<br />
-就自动抛错。关键是咋实现循环次数的统计呢，难到要向每个循环里都插入计数的代码吗？you are right!<br />
+就自动抛错。关键是咋实现循环次数的统计呢，难到要向每个循环里都插入计数的代码吗？you are right!<br />
 有句话不知阁下听说过没</p>
 <blockquote>
-<p>计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决<br />
-Any problem in computer science can be solved by anther layer of indirection</p>
+<p> 计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决<br />
+ Any problem in computer science can be solved by anther layer of indirection</p>
 </blockquote>
 <p>咱们就在读lua文件的时候加了一层，着一层的作用就是把原始的lua文件处理一下插入循环的计数代码，<br />
 用到的技术无非就是字符串查找替换，各位看官请看吧！</p>
-<pre><code>_G._LM = 99999
-_G.LOOPDIE = function( )
- Log.fatal( &#39;---LOOP is enter die---_LM=&#39;, _LM, debug.traceback( ) )
+<pre><code>_G._LM = 99999
+_G.LOOPDIE = function( )
+ Log.fatal( &#39;---LOOP is enter die---_LM=&#39;, _LM, debug.traceback( ) )
 end
-local split = function( s, delimiter )
- if &#39;&#39;== s then return { } end
- local t, i, j, k = { }, 1, 1, 1
- while i &lt;= #s+1 do
-  j, k = string:find(s, delimiter, i)
-  j, k = j or #s+1, k or #s+1
-  t[#t+1] = string:sub(s, i, j-1)
-  i = k + 1
- end
- return t
+local split = function( s, delimiter )
+ if &#39;&#39;== s then return { } end
+ local t, i, j, k = { }, 1, 1, 1
+ while i &lt;= #s+1 do
+  j, k = string:find(s, delimiter, i)
+  j, k = j or #s+1, k or #s+1
+  t[#t+1] = string:sub(s, i, j-1)
+  i = k + 1
+ end
+ return t
 end
-_G.CheckLoop = function( cont, file )
- -- if not CHECKLOOP then return cont end
- local data = cont
- local replaceFor = &#39; local _N = 0 for &#39;
- local replaceDo = &#39; do _N = _N + 1 if _N == _LM then LOOPDIE() end &#39;
- local replaceWhile = &#39; local _N=1 while &#39;
- local newdata = { }
- local t = split( data, &#39;\n&#39; )
- for line = 1, #t do
-  local linestr = t[line]
-  --for循环
-  local countfor = 0
-  local prefixfor = false
-  local forflag = false
-  local whileflag = false
-  if string.find(linestr, &#39;^for%s+&#39;) then
-   countfor = countfor + 1
-   prefixfor = true
-  end
-  for s in string.gfind( linestr, &#39;%s+for%s+&#39; ) do
-   countfor = countfor + 1
-   prefixfor = false
-   if( countfor &gt; 1 ) then
-    error(&#39;please standard to for cause is one line have one for!!!!&#39;..file.. &#39; line&#39;..line)
-   end
-  end
-  local countdo = 0
-  local suffixdo = false
-  if string.find(linestr, &#39;(%s+do)$&#39;) then
-   countdo = countdo + 1
-   suffixdo = true
-  end
-  for s in string.gfind( linestr, &#39;%s+do%s+&#39; ) do
-   countdo = countdo + 1
-   suffixdo = false
-   if( countdo &gt; 1 ) then
-    error(&#39;please standard to for cause is one line have one do!!!!&#39;..file.. &#39; line&#39;..line)
-   end
-  end
-  if( countfor == 1 and countdo == 1 ) then
-   local newlinestr = &#39;&#39;
-   if prefixfor then
-    newlinestr = string.gsub( linestr, &#39;^for%s+&#39;, replaceFor)
-   else
-    newlinestr = string.gsub( linestr, &#39;%s+for%s+&#39;, replaceFor )
-   end
-   if suffixdo then
-    newlinestr = string.gsub( newlinestr, &#39;%s+do$&#39;, replaceDo )
-   else
-    newlinestr = string.gsub( newlinestr, &#39;%s+do%s+&#39;, replaceDo )
-   end
-   newdata[ #newdata + 1 ] = newlinestr
-   forflag = true
-  end
-  --while循环
-  local countwhile = 0
-  local prefixwhile = false
-  if string.find(linestr, &#39;^while%s+&#39;) or string.find(linestr, &#39;^%s*while%(&#39;) then
-   countwhile = countwhile + 1
-   prefixwhile = true
-  end
-  for s in string.gfind(linestr, &#39;%s+while%s+&#39;) do
-   countwhile = countwhile + 1
-   prefixwhile = false
-   if countwhile &gt; 1 then
-    error(&#39;please standard to while cause is one line have one while!!!&#39;..file..&#39; line&#39;..line)
-   end
-  end
-  if countfor == 1 and countwhile == 1 then
-   error(&#39;please make sure for loop and while loop only one!!!!&#39;..file..&#39; line&#39;..line)
-  end
-  if countwhile == 1 and countdo == 1 then
-   local newlinestr = &#39;&#39;
-   if prefixwhile then
-    newlinestr = string.gsub(linestr, &#39;^%s*while&#39;, replaceWhile)
-   else
-    newlinestr = string.gsub(linestr, &#39;%s+while%s+&#39;, replaceWhile)
-   end
-   if suffixdo then
-    newlinestr = string.gsub(newlinestr, &#39;%s+do$&#39;, replaceDo)
-   else
-    newlinestr = string.gsub(newlinestr, &#39;%s+do%s+&#39;, replaceDo)
-   end
-   newdata[ #newdata + 1 ] = newlinestr
-   whileflag = true
-  end
-  if not forflag and not whileflag then
-   newdata[ #newdata + 1 ] = linestr
-  end
- end
- newdata = table.concat( newdata, &#39;\n&#39; )
- return newdata
+_G.CheckLoop = function( cont, file )
+ -- if not CHECKLOOP then return cont end
+ local data = cont
+ local replaceFor = &#39; local _N = 0 for &#39;
+ local replaceDo = &#39; do _N = _N + 1 if _N == _LM then LOOPDIE() end &#39;
+ local replaceWhile = &#39; local _N=1 while &#39;
+ local newdata = { }
+ local t = split( data, &#39;\n&#39; )
+ for line = 1, #t do
+  local linestr = t[line]
+  --for循环
+  local countfor = 0
+  local prefixfor = false
+  local forflag = false
+  local whileflag = false
+  if string.find(linestr, &#39;^for%s+&#39;) then
+   countfor = countfor + 1
+   prefixfor = true
+  end
+  for s in string.gfind( linestr, &#39;%s+for%s+&#39; ) do
+   countfor = countfor + 1
+   prefixfor = false
+   if( countfor &gt; 1 ) then
+    error(&#39;please standard to for cause is one line have one for!!!!&#39;..file.. &#39; line&#39;..line)
+   end
+  end
+  local countdo = 0
+  local suffixdo = false
+  if string.find(linestr, &#39;(%s+do)$&#39;) then
+   countdo = countdo + 1
+   suffixdo = true
+  end
+  for s in string.gfind( linestr, &#39;%s+do%s+&#39; ) do
+   countdo = countdo + 1
+   suffixdo = false
+   if( countdo &gt; 1 ) then
+    error(&#39;please standard to for cause is one line have one do!!!!&#39;..file.. &#39; line&#39;..line)
+   end
+  end
+  if( countfor == 1 and countdo == 1 ) then
+   local newlinestr = &#39;&#39;
+   if prefixfor then
+    newlinestr = string.gsub( linestr, &#39;^for%s+&#39;, replaceFor)
+   else
+    newlinestr = string.gsub( linestr, &#39;%s+for%s+&#39;, replaceFor )
+   end
+   if suffixdo then
+    newlinestr = string.gsub( newlinestr, &#39;%s+do$&#39;, replaceDo )
+   else
+    newlinestr = string.gsub( newlinestr, &#39;%s+do%s+&#39;, replaceDo )
+   end
+   newdata[ #newdata + 1 ] = newlinestr
+   forflag = true
+  end
+  --while循环
+  local countwhile = 0
+  local prefixwhile = false
+  if string.find(linestr, &#39;^while%s+&#39;) or string.find(linestr, &#39;^%s*while%(&#39;) then
+   countwhile = countwhile + 1
+   prefixwhile = true
+  end
+  for s in string.gfind(linestr, &#39;%s+while%s+&#39;) do
+   countwhile = countwhile + 1
+   prefixwhile = false
+   if countwhile &gt; 1 then
+    error(&#39;please standard to while cause is one line have one while!!!&#39;..file..&#39; line&#39;..line)
+   end
+  end
+  if countfor == 1 and countwhile == 1 then
+   error(&#39;please make sure for loop and while loop only one!!!!&#39;..file..&#39; line&#39;..line)
+  end
+  if countwhile == 1 and countdo == 1 then
+   local newlinestr = &#39;&#39;
+   if prefixwhile then
+    newlinestr = string.gsub(linestr, &#39;^%s*while&#39;, replaceWhile)
+   else
+    newlinestr = string.gsub(linestr, &#39;%s+while%s+&#39;, replaceWhile)
+   end
+   if suffixdo then
+    newlinestr = string.gsub(newlinestr, &#39;%s+do$&#39;, replaceDo)
+   else
+    newlinestr = string.gsub(newlinestr, &#39;%s+do%s+&#39;, replaceDo)
+   end
+   newdata[ #newdata + 1 ] = newlinestr
+   whileflag = true
+  end
+  if not forflag and not whileflag then
+   newdata[ #newdata + 1 ] = linestr
+  end
+ end
+ newdata = table.concat( newdata, &#39;\n&#39; )
+ return newdata
 end
-local s = [[
-for i = 1, 5 do
-    for j = 1, 5 do
-        print(i..j)
-    end
+local s = [[
+for i = 1, 5 do
+    for j = 1, 5 do
+        print(i..j)
+    end
 end
 ]]
-s = CheckLoop(s)
--- dump(s)
-local ret, errmsg = loadstring(s, &#39;error_msg&#39; )
-if not ret then
-    error(errmsg)
-    return
+s = CheckLoop(s)
+-- dump(s)
+local ret, errmsg = loadstring(s, &#39;error_msg&#39; )
+if not ret then
+    error(errmsg)
+    return
 end
 ret()</code></pre>
 

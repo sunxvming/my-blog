@@ -161,10 +161,10 @@ jQuery(document).ready(function(){
                         <a href="http://www.sunxvming.com">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                            href="http://www.sunxvming.com/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                            href="http://www.sunxvming.com/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -241,9 +241,9 @@ jQuery(document).ready(function(){
 <p>[toc]</p>
 <h2 id="内存">## 内存</h2>
 <h3 id="程序编译后的text段data段和bss段"> 程序编译后的text段、data段和bss段 </h3>
-<p><img src="/imgs/b999e8f0-9688-4037-80c7-e7f78147ddd4.jpg" /><br />
+<p><img src="https://sunxvming.com/imgs/b999e8f0-9688-4037-80c7-e7f78147ddd4.jpg" /><br />
 左边的是UNIX/LINUX系统的执行文件，右边是对应进程<strong>逻辑地址空间</strong>的划分情况。</p>
-<p><img src="/imgs/ed58a4c2-2cfb-48cf-b255-3a7c5245afcf.jpg" /><br />
+<p><img src="https://sunxvming.com/imgs/ed58a4c2-2cfb-48cf-b255-3a7c5245afcf.jpg" /><br />
 一般情况，一个程序本质上都是由 bss段、data段、text段三个段组成——这是计算机程序设计中重要的基本概念。</p>
 <p><em> bss<br />
 bss段（Block Started by Symbol segment）通常是指用来存放程序中<strong>未初始化的全局变量</strong>的一块内存区域，一般在初始化时bss 段部分将会清零（bss段属于静态内存分配，即程序一开始就将其清零了）。<br />
@@ -309,7 +309,7 @@ Windows Server 2003 数据中心版专为大型企业或国家机构而设计
 <h3 id="c语言内存对齐提高寻址效率"> C语言内存对齐，提高寻址效率</h3>
 <p>CPU 通过<strong>地址总线</strong>来访问内存，一次能处理几个字节的数据，就命令地址总线读取几个字节的数据。32 位的 CPU 一次可以处理4个字节的数据，那么每次就从内存读取4个字节的数据；少了浪费主频，多了没有用。64位的处理器也是这个道理，每次读取8个字节。<br />
 以32位的CPU为例，实际寻址的步长为4个字节，也就是只对编号为 4 的倍数的内存寻址，例如 0、4、8、12、1000 等，而不会对编号为 1、3、11、1001 的内存寻址。<br />
-<img src="/imgs/08a85ae4-76a1-4e2e-ae39-27c6f8c4e330.png" /><br />
+<img src="https://sunxvming.com/imgs/08a85ae4-76a1-4e2e-ae39-27c6f8c4e330.png" /><br />
 将一个数据尽量放在一个步长之内，避免跨步长存储，这称为<strong>内存对齐</strong>。在32位编译模式下，默认以4字节对齐；在64位编译模式下，默认以8字节对齐。<br />
 为了提高存取效率，<strong>编译器会自动进行内存对齐</strong>。<br />
 经过笔者测试，对于<strong>全局变量</strong>，GCC在 Debug 和 Release 模式下都会进行内存对齐，而VS只有在 Release 模式下才会进行对齐。而对于<strong>局部变量</strong>，GCC和VS都不会进行对齐，不管是Debug模式还是Release模式。</p>
@@ -324,7 +324,7 @@ Windows Server 2003 数据中心版专为大型企业或国家机构而设计
 <h3 id="mmu部件以及对内存权限的控制"> MMU部件以及对内存权限的控制</h3>
 <p>通过<strong>页表</strong>完成虚拟地址和物理地址的映射时，要经过多次转换，还要进行计算，如果由操作系统来完成这项工作，那将会成倍降低程序的性能（比如cpu上下文的频繁切换），得不偿失，所以这种方式是不现实的。<br />
 在CPU内部，有一个部件叫做<strong>MMU</strong>（Memory Management Unit，内存管理单元），由它来负责将虚拟地址映射为物理地址<br />
-<img src="/imgs/f6524dfd-c9ad-4e6b-a8c4-0072c06f558f.png" /><br />
+<img src="https://sunxvming.com/imgs/f6524dfd-c9ad-4e6b-a8c4-0072c06f558f.png" /><br />
 在页映射模式下，CPU 发出的是虚拟地址，也就是我们在程序中看到的地址，这个地址会先交给 MMU，经过 MMU 转换以后才能变成了物理地址。</p>
 <p>即便是这样，MMU也要访问好几次内存，性能依然堪忧，所以在MMU内部又增加了一个<strong>缓存</strong>，专门用来存储<strong>页目录和页表</strong>。MMU内部的缓存有限，当页表过大时，也只能将部分常用页表加载到缓存，但这已经足够了，因为经过算法的巧妙设计，可以将<strong>缓存的命中率</strong>提高到 90%，剩下的10%的情况无法命中，再去物理内存中加载页表。</p>
 <p>MMU 只是通过页表来完成虚拟地址到物理地址的映射，但不会构建页表，<strong>构建页表是操作系统的任务</strong>。在<strong>程序加载到内存</strong>以及<strong>程序运行过程</strong>中，操作系统会不断更新程序对应的页表，并将页目录的物理地址保存到 CR3 寄存器。MMU 向缓存中加载页表时，会根据 CR3 寄存器找到页目录，再找到页表，最终通过软件和硬件的结合来完成内存映射。<br />
@@ -334,7 +334,7 @@ CR3 是CPU内部的一个<strong>寄存器</strong>，专门用来保存<strong
 <p>程序内存<strong>在地址空间中的分布情况</strong>称为内存模型（Memory Model）<br />
 内存模型由操作系统构建，在Linux和Windows下有所差异，并且会受到编译模式的影响<br />
 Windows 在默认情况下会将高地址的 2GB 空间分配给内核（也可以配置为1GB），而 Linux 默认情况下会将高地址的 1GB 空间分配给内核。也就是说，应用程序只能使用剩下的 2GB 或 3GB 的地址空间，称为用户空间（User Space）。<br />
-<img src="/imgs/72f98ca8-61d8-4989-be0c-83de9d6708cf.png" /><br />
+<img src="https://sunxvming.com/imgs/72f98ca8-61d8-4989-be0c-83de9d6708cf.png" /><br />
 程序代码区、常量区、全局数据区在程序加载到内存后就分配好了，并且在程序运行期间一直存在，不能销毁也不能增加（大小已被固定），只能等到程序运行结束后由操作系统收回，所以全局变量、字符串常量等在程序的任何地方都能访问，因为它们的内存一直都在。</p>
 <blockquote>
 <p> 常量区和全局数据区有时也被合称为静态数据区，意思是这段内存专门用来保存数据，在程序运行期间一直存在。</p>
@@ -363,10 +363,10 @@ int main(){
 </em> 2) 函数 func() 中的局部字符串常量"C语言中文网"也被存储到常量区，不会随着 func() 的运行结束而销毁，所以最后依然能够输出。<br />
 * 3) 字符数组 arr[20] 在栈区分配内存，字符串"56789"就保存在这块内存中，而不是在常量区，大家要注意区分。</p>
 <p>Linux下64位环境的用户空间内存分布情况：<br />
-<img src="/imgs/7245061e-e30f-4e07-ba23-adc137072761.png" /></p>
+<img src="https://sunxvming.com/imgs/7245061e-e30f-4e07-ba23-adc137072761.png" /></p>
 <h3 id="windows下c语言程序的内存布局内存模型"> Windows下C语言程序的内存布局（内存模型）</h3>
 <p>不像 Linux，Windows 是闭源的，有版权保护，资料较少，不好深入研究每一个细节，至今仍有一些内部原理不被大家知晓。</p>
-<p><img src="/imgs/0eee47dc-9b67-4ca1-b789-562356b6a88b.png" /></p>
+<p><img src="https://sunxvming.com/imgs/0eee47dc-9b67-4ca1-b789-562356b6a88b.png" /></p>
 <h3 id="用户模式和内核模式"> 用户模式和内核模式</h3>
 <p>前面一直说“程序的地址空间”，这其实是不严谨的，应该说“进程的地址空间”。<br />
 内核空间存放的是操作系统内核代码和数据，是被所有程序共享的<br />
@@ -398,7 +398,7 @@ int main(){
 <em> 3) 编译器自动生成的临时数据。例如，当函数<strong>返回值的长度较大</strong>（比如占用40个字节）时，会先将返回值压入栈中，然后再交给函数调用者。当返回值的长度较小（char、int、long 等）时，不会被压入栈中，而是先将返回值放入寄存器，再传递给函数调用者。<br />
 </em> 4) 一些需要保存的寄存器，例如 ebp、ebx、esi、edi 等。之所以要保存寄存器的值，是为了在函数退出时能够恢复到函数调用之前的场景，继续执行上层函数。<br />
 理论上 ebp 寄存器应该指向栈底，但在实际应用中，它却指向了old ebp。</p>
-<p><img src="/imgs/782251db-a035-4d22-b31e-9a3b7bc806e3.png" /></p>
+<p><img src="https://sunxvming.com/imgs/782251db-a035-4d22-b31e-9a3b7bc806e3.png" /></p>
 <h4 id="关于数据的定位"> 关于数据的定位</h4>
 <p>由于 esp 的值会随着数据的入栈而不断变化，要想根据 esp 找到参数、局部变量等数据是比较困难的，所以在实现上是根据 <code>ebp</code> 来定位栈内数据的。<strong>ebp 的值是固定的，数据相对 ebp 的偏移也是固定的，ebp 的值加上偏移量就是数据的地址</strong>。</p>
 <h3 id="函数调用惯例calling-convention"> 函数调用惯例(Calling Convention)</h3>
@@ -428,7 +428,7 @@ int __cdecl max(int m, int n){
 <p> __cdecl 并不是标准关键字，上面的写法在 VC/VS 下有效，但是在 GCC 下，要使用 <strong>attribute</strong>((cdecl))。</p>
 </blockquote>
 <h3 id="用一个实例来深入剖析函数进栈出栈的过程"> 用一个实例来深入剖析函数进栈出栈的过程</h3>
-<p><img src="/imgs/104P51I1-0_2.jpg" /><br />
+<p><img src="https://sunxvming.com/imgs/104P51I1-0_2.jpg" /><br />
 经过上面的分析可以发现，函数出栈只是在增加 esp 寄存器的值，使它指向上一个数据，并没有销毁之前的数据。栈上的数据只有在后续函数继续入栈时才能被覆盖掉，这就意味着，只要时机合适，在函数外部依然能够取得局部变量的值。</p>
 <h3 id="栈溢出攻击的原理是什么"> 栈溢出攻击的原理是什么？</h3>
 <pre><code>int main(){
@@ -437,7 +437,7 @@ int __cdecl max(int m, int n){
     printf(&quot;str: %s\n&quot;, str);
     return 0;
 }</code></pre>
-<p><img src="/imgs/51905165-064e-4506-a4ad-9571f7bfd4c6.png" /><br />
+<p><img src="https://sunxvming.com/imgs/51905165-064e-4506-a4ad-9571f7bfd4c6.png" /><br />
 局部数组也是在栈上分配内存，当输入"12345678901234567890" 时，会发生数组溢出，占用“4字节空白内存”、“old ebp”和“返回地址”所在的内存，并<strong>将原有的数据覆盖掉</strong>，这样当 main() 函数执行完成后，会取得一个错误的返回地址，该地址上的指令是不确定的，或者根本就没有指令，所以程序在返回时出错。<br />
 C语言不会对数组溢出做检测，这是一个典型的由于数组溢出导致<strong>覆盖了函数返回地址</strong>的例子，我们将这样的错误称为“栈溢出错误”。<br />
 这里的栈指的是当前的函数栈帧。<br />
@@ -461,11 +461,11 @@ C语言不会对数组溢出做检测，这是一个典型的由于数组溢出�
 malloc() 实现是向操作系统申请一块适当大小的堆空间，然后由 <strong>malloc() 自己管理这块空间</strong>。如果用完了就再向系统申请空间。</p>
 <h4 id="链表式内存管理"> 链表式内存管理</h4>
 <p>在程序运行过程中，堆内存从低地址向高地址连续分配，随着内存的释放，会出现不连续的空闲区域，如下图所示：<br />
-<img src="/imgs/18fca017-d44d-4b29-b230-c15de2e7cd2c.png" /><br />
+<img src="https://sunxvming.com/imgs/18fca017-d44d-4b29-b230-c15de2e7cd2c.png" /><br />
 带阴影的方框是已被分配的内存，白色方框是空闲内存或已被释放的内存。程序需要内存时，malloc() 首先遍历空闲区域，看是否有大小合适的内存块，如果有，就分配，如果没有，就向操作系统申请（发生系统调用）。为了保证分配给程序的内存的连续性，malloc() 只会在一个空闲区域中分配，而不能将多个空闲区域联合起来。<br />
 内存块（包括已分配和空闲的）的结构类似于链表，它们之间通过指针连接在一起。<br />
-<img src="/imgs/51aea78a-564d-473c-8990-8e71752f433e.png" /><br />
-<img src="/imgs/fafc237b-1ef4-4a42-a807-1ce302f01570.png" /><br />
+<img src="https://sunxvming.com/imgs/51aea78a-564d-473c-8990-8e71752f433e.png" /><br />
+<img src="https://sunxvming.com/imgs/fafc237b-1ef4-4a42-a807-1ce302f01570.png" /><br />
 malloc() 和 free() 所做的工作主要是对已有内存块的<strong>分拆和合并</strong>，并没有频繁地向操作系统申请内存，这大大提高了内存分配的效率。</p>
 <h4 id="链表式内存管理缺点"> 链表式内存管理缺点：</h4>
 <p><em> 一旦链表中的 pre 或 next 指针被破坏，整个堆就无法工作，而这些数据恰恰很容易被越界读写所接触到。<br />
@@ -736,7 +736,7 @@ int a[6] = {0, 1, 2, 3, 4, 5};   它的类型是`int [6]`，表示�
 }</p>
 <pre><code>### C语言二维数组指针（指向二维数组的指针）详解
 二维数组的三种形式：
-![](/imgs/659b6b52-2b75-4a3a-acf1-fe40a0513e44.bmp)
+![](https://sunxvming.com/imgs/659b6b52-2b75-4a3a-acf1-fe40a0513e44.bmp)
 </code></pre>
 <p>int <em>(p1[5]); //指针数组，可以去掉括号直接写作 int </em>p1[5];    还可以用由近到远的原则判断<br />
 int (*p2)[5]; //二维数组指针，不能去掉括号，  它是一个指针，指向5个int数组的指针。</p>

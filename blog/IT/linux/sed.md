@@ -54,7 +54,7 @@ sed"/fish/a This is my monkey, my monkey's name is wukong"my.txt
 
 
 ## 多个匹配
-如果我们需要一次替换多个模式，如：第一个模式把第一行到第三行的my替换成your，第二个则把第3行以（3，$）后的This替换成了That
+如果我们需要一次替换多个模式，如：第一个模式把第一行到第三行的my替换成your，第二个则把第3行以后的This替换成了That
 ```
 sed '1,3s/my/your/g; 3,$s/This/That/g'my.txt
 ```

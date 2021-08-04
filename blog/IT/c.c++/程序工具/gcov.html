@@ -161,10 +161,10 @@ jQuery(document).ready(function(){
                         <a href="http://www.sunxvming.com">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                            href="http://www.sunxvming.com/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                            href="http://www.sunxvming.com/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -208,7 +208,7 @@ jQuery(document).ready(function(){
 <em> 每段代码使用了多少计算时间，从而找到热点优化代码   <br />
 </em> gcov创建一个<code>sourcefile.gcov</code>的日志文件，此文件标识源文件<code>sourcefile.c</code>每一行执行的次数,您可以与<code>gprof</code>一起使用这些日志文件来帮助优化程序的性能。<code>gprof</code>提供了您可以使用的时间信息以及从gcov获得的信息。</p>
 <h2 id="二gcov过程概况"> 二、gcov过程概况</h2>
-<p><img src="/imgs/1f4e51ca-1e99-4ace-a1db-829636d1dd44.png" /></p>
+<p><img src="https://sunxvming.com/imgs/1f4e51ca-1e99-4ace-a1db-829636d1dd44.png" /></p>
 <h3 id="主要工作流"> 主要工作流</h3>
 <p><em> 1) 编译前，在编译器中加入编译器参数<code>-fprofile-arcs -ftest-coverage</code>；<br />
 </em> 2) 源码经过编译预处理，然后编译成汇编文件，在生成汇编文件的同时完成插桩。插桩是在生成汇编文件的阶段完成的，因此插桩是汇编时候的插桩，每个桩点插入3~4条汇编语句，直接插入生成的<em>.s文件中，最后汇编文件汇编生成目标文件，生成可执行文件；并且生成关联BB和ARC的.gcno文件；<br />
@@ -223,7 +223,7 @@ jQuery(document).ready(function(){
 <p>左图是没有运行可执行文件的gcov文件，右图是运行了可执行文件的gcov文件<br />
 <em> 其中<code>#####</code>表示未运行的行 <br />
 </em> 每行前面的数字表示行运行的次数<br />
-<img src="/imgs/9da05fe4-8822-4bc5-944a-4d33c649a53b.png" /></p>
+<img src="https://sunxvming.com/imgs/9da05fe4-8822-4bc5-944a-4d33c649a53b.png" /></p>
 <h2 id="四gcov文件可视化"> 四、gcov文件可视化</h2>
 <p>上述生成的<code>.gcov</code>文件可视化成都较低，需要借助<code>lcov</code>，<code>genhtml</code>工具直接生成html报告。</p>
 <p>以下命令执行目录在生成的.o目标文件目录中，执行流程如下：</p>
@@ -252,11 +252,11 @@ genhtml -o cover_report --legend --title &quot;lcov&quot;  --prefix=./ f
 <p><strong>8.查看覆盖率报告</strong><br />
 最终生成的可视化文件在cover_report中，用浏览器打开如下：</p>
 <p>覆盖率报告是按目录就行组织的，左侧的路径可以点开，详细看每个文件哪些行被覆盖到了，下面这张图是总的概览<br />
-<img src="/imgs/7cd7909b-d44f-42ff-86f2-56e7dfb1944c.png" /></p>
+<img src="https://sunxvming.com/imgs/7cd7909b-d44f-42ff-86f2-56e7dfb1944c.png" /></p>
 <p>下图是各个文件的列表<br />
-<img src="/imgs/614fd721-9304-43e1-bff4-04e550787526.png" /></p>
+<img src="https://sunxvming.com/imgs/614fd721-9304-43e1-bff4-04e550787526.png" /></p>
 <p>下图为具体文件的覆盖率报告<br />
-<img src="/imgs/50653059-6148-43a9-92d5-eee19ececfa2.png" /></p>
+<img src="https://sunxvming.com/imgs/50653059-6148-43a9-92d5-eee19ececfa2.png" /></p>
 <p><strong>lcov常用的参数</strong></p>
 <pre><code>-d 项目路径，即.gcda .gcno所在的路径
 -a 合并（归并）多个lcov生成的info文件

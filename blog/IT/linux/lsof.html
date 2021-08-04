@@ -161,10 +161,10 @@ jQuery(document).ready(function(){
                         <a href="http://www.sunxvming.com">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                            href="http://www.sunxvming.com/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                            href="http://www.sunxvming.com/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -251,13 +251,13 @@ do 
 done</code></pre>
 <p>根据我们项目的测试经验，通常统计出来的句柄图形如下列三种：<br />
 平稳<br />
-<img src="/imgs/dcacc18d-a766-4bb5-b1df-ed0161580624.png" /><br />
+<img src="https://sunxvming.com/imgs/dcacc18d-a766-4bb5-b1df-ed0161580624.png" /><br />
 在程序运行当中，句柄被不断地打开关闭，因此统计图形呈现平稳的锯齿形。在程序运行后期，很多临时打开的句柄被逐渐关闭，总的句柄数量没有随着时间的推移而增加，因此该程序不存在句柄泄露。</p>
 <p>峰值稳定<br />
-<img src="/imgs/0d46c8d1-aaaa-4725-99e9-e69af459257c.png" /><br />
+<img src="https://sunxvming.com/imgs/0d46c8d1-aaaa-4725-99e9-e69af459257c.png" /><br />
 在该程序运行初期，程序打开的句柄数量会随着时间的推移而逐步增加。但是当运行一段时间后，句柄数量会达到一个相对平稳的状态，大概 3500 左右。这个时候表明程序打开了很多临时句柄，但是句柄数量相对稳定，也不存在句柄泄露问题。</p>
 <p>递增<br />
-<img src="/imgs/14960e2a-db49-4252-a2b4-12470f866e3f.png" /><br />
+<img src="https://sunxvming.com/imgs/14960e2a-db49-4252-a2b4-12470f866e3f.png" /><br />
 程序在运行当中，某一操作引起了程序打开句柄数量逐步增加，而且没有出现相对平稳的迹象，说明该程序可能存在句柄泄露，需要进一步分析是哪一部分的句柄存在泄漏，以及什么操作会引起程序句柄的泄露。</p>
 <p>通过对程序句柄数量进行采样统计，并且绘制出相应的统计图形，能够以比较直观的方式判断在程序中是否存在句柄泄露。该方法基于程序要运行大量的测试用例，增加测试用例的覆盖率，尽可能多的用测试用例触发程序打开和关闭句柄的操作，这样才能发现潜在的句柄泄露 bug。对于如何能够快速的发现句柄泄露代码，我们将做进一步研究。</p>
 

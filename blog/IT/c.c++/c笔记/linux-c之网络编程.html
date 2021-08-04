@@ -161,10 +161,10 @@ jQuery(document).ready(function(){
                         <a href="http://www.sunxvming.com">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/all-articles">所有文章</a></li>
+                            href="http://www.sunxvming.com/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/about">关于俺</a></li>
+                            href="http://www.sunxvming.com/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -544,12 +544,12 @@ UNIX Domain Socket与网络socket编程最明显的不同在于<strong>地址�
 的好处是，该文件名可以包含客户端的pid以便服务器区分不同的客户端。</p>
 <h3 id="af_inet-和-af_unix区别"> AF_INET 和 AF_UNIX区别</h3>
 <h4 id="af_inet域socket通信过程"> 1.AF_INET域socket通信过程</h4>
-<p><img src="/imgs/25741395-5427-4821-a08d-f93c0385791b.png" /></p>
+<p><img src="https://sunxvming.com/imgs/25741395-5427-4821-a08d-f93c0385791b.png" /></p>
 <p>发送方、接收方依赖IP:Port来标识.<br />
 发送方通过系统调用send()将原始数据发送到操作系统内核缓冲区中。内核缓冲区从上到下依次经过TCP层、IP层、链路层的编码，分别添加对应的头部信息，经过网卡将一个数据包发送到网络中。经过网络路由到接收方的网卡。网卡通过系统中断将数据包通知到接收方的操作系统，再沿着发送方编码的反方向进行解码，即依次经过链路层、IP层、TCP层去除头部、检查校验等，最终将原始数据上报到接收方进程。</p>
 <h4 id="af_unix域socket通信过程"> 2.AF_UNIX域socket通信过程</h4>
 <p>典型的本地IPC，<strong>依赖路径名标识</strong>发送方和接收方。即发送数据时，<strong>指定接收方绑定的路径名</strong>，操作系统根据该路径名可以直接找到对应的接收方，并<strong>将原始数据直接拷贝到接收方的内核缓冲区中，并上报给接收方进程进行处理</strong>。同样的接收方可以从收到的数据包中获取到发送方的路径名，并通过此路径名向其发送数据。<br />
-<img src="/imgs/dd236489-47d7-4656-9e54-c21265c58da9.jpg" /></p>
+<img src="https://sunxvming.com/imgs/dd236489-47d7-4656-9e54-c21265c58da9.jpg" /></p>
 <h4 id="相同点"> 3.相同点</h4>
 <p>操作系统提供的接口socket(),bind(),connect(),accept(),send(),recv()，以及用来对其进行多路复用事件检测的select(),poll(),epoll()都是完全相同的。都有tcp和udp的协议。收发数据的过程中，上层应用感知不到底层的差别。</p>
 <h4 id="不同点"> 4.不同点</h4>
