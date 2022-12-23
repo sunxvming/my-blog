@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "3c41f4e1e15f27a2",
+        "id": "3c2bfa4ffda1a5a3",
         "type": "tabs",
         "children": [
           {
-            "id": "0ba9caec6df3d142",
+            "id": "3fc22f72bccebb97",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "c.c++/c++笔记/2.C++类和对象.md",
-                "mode": "source",
+                "file": "CS基础/10组成原理&体系结构/深入浅出计算机组成原理-1入门篇.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#su",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 262.5
   },
   "right": {
     "id": "3b0d99ddac97cac5",
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "c.c++/c++笔记/2.C++类和对象.md",
+                "file": "CS基础/10组成原理&体系结构/深入浅出计算机组成原理-1入门篇.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "c.c++/c++笔记/2.C++类和对象.md",
+                "file": "CS基础/10组成原理&体系结构/深入浅出计算机组成原理-1入门篇.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,11 +125,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "c.c++/c++笔记/2.C++类和对象.md"
+                "file": "CS基础/10组成原理&体系结构/深入浅出计算机组成原理-1入门篇.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -142,20 +143,22 @@
       "canvas:Create new canvas": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "workspaces:管理工作区布局": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "0ba9caec6df3d142",
+  "active": "3fc22f72bccebb97",
   "lastOpenFiles": [
-    "c.c++/程序工具/编译工具/cmake.md",
-    "c.c++/程序工具/编译工具/cmake-find-package.md",
-    "其他主题/标准/语种名称代码规范.md",
-    "c.c++/c++笔记/2.C++类和对象.md",
-    "c.c++/c++笔记/5.C++多态与虚函数.md",
-    "c.c++/c++笔记/3.C++引用.md",
-    "c.c++/c++笔记/1.从C到C++.md",
-    "CS基础/组成原理&体系结构/深入浅出计算机组成原理-2指令和运算.md",
-    "CS基础/组成原理&体系结构/深入浅出计算机组成原理-1入门篇.md",
-    "CS基础/组成原理&体系结构/计算机体系结构基础-胡伟武-第三版.md"
+    "CS基础/10组成原理&体系结构/计算机体系结构基础-胡伟武-第三版.md",
+    "CS基础/10组成原理&体系结构/计算机科学方法.md",
+    "CS基础/00数字电路/数字电路基础.md",
+    "CS基础/10组成原理&体系结构/图灵机.md",
+    "CS基础/50操作系统/操作系统.md",
+    "CS基础/30汇编/ProgrammingGroundUp笔记.md",
+    "CS基础/40编译原理/编译原理之美.md",
+    "CS基础/40编译原理/llvm.md",
+    "CS基础/程序员技术练级攻略.md",
+    "CS基础/程序员的知识和技能树.md"
   ]
 }
