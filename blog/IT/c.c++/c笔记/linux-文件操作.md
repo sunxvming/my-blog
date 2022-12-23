@@ -1,4 +1,4 @@
-## Linux文件概念
+## Linux文件概念
 Linux系统上的文件部分类型说明
 * 普通文件。
 就是储存到磁盘上大家所操作的各种数据文件；
@@ -20,14 +20,14 @@ Linux系统上的文件部分类型说明
 标准出错(stderr 2)
 编程中应该使用`<unistd.h>`中定义的STDIN_FILENO、 STDOUT_FILENO、 STDERR_FILENO代替数字0、1、2。
 
-## 打开和关闭文件描述符
+## 打开和关闭文件描述符
 ```
 int open(const char *pathname, int flags);
 int close(int fd);
 ```
 Open失败后会返回-1，并设置errno变量。
 在一个文件描述符用完后一定要用close()函数关闭它，这样才能保证该进程对文件所有加的锁全部被释放
-## 读写文件描述符
+## 读写文件描述符
 ```
 ssize_t read(int fd, void *buf, size_t count);
 ssize_t write(int fd, void *buf, size_t count);
@@ -78,7 +78,7 @@ int main()
     }
     return 0;
 ```
-## 获取文件信息
+## 获取文件信息
 ```
 int fstat(int fd, struct stat *buf)
 int stat(const char *path, struct stat *buf);
@@ -117,12 +117,12 @@ char *s = getpass("please input:");
 printf("%s\n", s);
 ```
 getpass用于从键盘读取用户输入，但屏幕不回显。
-## 库函数和系统调用的区别
+## 库函数和系统调用的区别
 * 系统调用能够让你直接访问linux内核提供的服务
 * 系统调用函数存在与内核空间，库函数都是用户模式，所以系统调用不当可能会破坏系统，但库函数调用风险就要小很多。
 * 库函数对I/O操作进行缓冲，减少了系统调用开销，同时可移植性也更好
 
-## 库函数的文件IO操作：
+## 库函数的文件IO操作：
 ```
 FILE *p fopen(const char *path, const char *mode);
 int fclose(FILE *stream);

@@ -56,7 +56,7 @@ ls -l /proc/<pid>/fd | wc -l
 
 
 
-## 测试fd泄漏
+## 测试fd泄漏
 ```
 #include <sys/types.h>
 #include <sys/stat.h>

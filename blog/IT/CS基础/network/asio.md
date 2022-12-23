@@ -1,11 +1,11 @@
 Boost.Asio 对网络编程做了一个极好的抽象，从而保证只需要少量的代码就可以实现一个优雅的客户端/服务端软件。
 
-## Boost.Asio入门
+## Boost.Asio入门
 
 简单来说，Boost.Asio是一个跨平台的、主要用于网络和其他一些底层输入/输出编程的C++库。
 
 
-### 同步VS异步
+### 同步VS异步
 在同步编程中，所有的操作都是顺序执行的，比如从socket中读取（请求），然后写入（回应）到socket中。每一个操作都是阻塞的。
 异步编程是事件驱动的。虽然启动了一个操作，但是你不知道它何时会结束；它只是提供一个回调给你，当操作结束时，它会调用这个API，并返回操作结果。
 
@@ -52,18 +52,18 @@ err) {
 
 在使用这个socket之后，你创建了一个新的socket，然后再次调用start_accept()，用来创建另外一个“等待客户端连接”的异步操作，从而使service.run()循环一直保持忙碌状态。
 
-### 异常处理VS错误代码
+### 异常处理VS错误代码
 Boost.Asio允许同时使用异常处理或者错误代码，所有的异步函数都有抛出错误和返回错误码两种方式的重载。
 
 ```
-# 异常版
+# 异常版
 try {
     sock.connect(ep);
 } catch(boost::system::system_error e) {
     std::cout << e.code() << std::endl;
 }
 
-# 错误码版
+# 错误码版
 boost::system::error_code err;
 sock.connect(ep, err);
 if ( err)
@@ -72,7 +72,7 @@ if ( err)
 
 当使用异步函数时，你可以在你的回调函数里面检查其返回的错误码。异步函数从来不抛出异常，因为这样做毫无意义。那谁会捕获到它呢？
 
-### io_service类
+### io_service类
 *   有一个_io_service_实例和一个处理线程的单线程例子：
 ```
 io_service service; // 所有socket操作都由service来处理 
@@ -133,7 +133,7 @@ work_ptr dummy_work(new io_service::work(service));
 ```
 
 
-## Boost.Asio基本原理
+## Boost.Asio基本原理
 
 主要类
 IP地址：ip::address
@@ -142,7 +142,7 @@ IP地址：ip::address
 套接字缓冲区:buffer
 解析域名的类：ip::tcp::resolver、ip::tcp::resolver::query
 
-### 缓冲区
+### 缓冲区
 缓冲区内存的有效时间必须比I/O操作的时间要长；你需要保证它们在I/O操作结束之前不被释放。
 对于同步操作来说，这很容易
 ```
@@ -182,7 +182,7 @@ sock.close();
 ```
 
 
-## 参考链接
+## 参考链接
 - [Boost.Asio C++ 网络编程](https://mmoaay.gitbooks.io/boost-asio-cpp-network-programming-chinese/content/)
 
 

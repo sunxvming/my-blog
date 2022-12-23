@@ -1,5 +1,5 @@
 
-## [Tex/Latex](http://www.ctex.org/OnlineDocuments)
+## [Tex/Latex](http://www.ctex.org/OnlineDocuments)
 
 
 Tex是由美国著名计算机教授高德纳(Donald Ervin Knuth)编写的功能强大的排版软件。它在学术界十分流行，特别是数学、物理学和计算机科学界，很多国际知名杂志发表文章均是用Tex的改进版本Latex。Donald最早开始自行编写TEX的原因是当时十分粗糙的排版水平已经影响到他的巨著《计算机程序设计艺术》的印刷质量。他以典型的黑客思维模式，最终决定自行编写一个排版软件：TEX。

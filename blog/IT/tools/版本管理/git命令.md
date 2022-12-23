@@ -228,9 +228,9 @@ fetch 只能更新远程仓库的代码为最新的，本地仓库的代码还�
 
 
 【不提交某个文件】
-# 执行命令将debug_dofile.lua加入不提交队列
+# 执行命令将debug_dofile.lua加入不提交队列
 git update-index --assume-unchanged debug_dofile.lua
-# 执行命令将debug_dofile.lua取消加入不提交队列
+# 执行命令将debug_dofile.lua取消加入不提交队列
 git update-index --no-assume-unchanged debug_dofile.lua
 
 

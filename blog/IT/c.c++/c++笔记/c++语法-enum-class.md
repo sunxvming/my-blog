@@ -1,4 +1,4 @@
-## enum由来：
+## enum由来：
 在enum没出现之前，enum的功能则需要需要一系列的#define来完成，而enum则完成了这一系列#define的“打包收集”，即：
 ```
 enum Color {black, white, red};
@@ -15,7 +15,7 @@ enum WindowsCorner {TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT};
 ```
 
 
-##  C++惯用法之enum class
+##  C++惯用法之enum class
 
 在Effective modern C++中Item 10: Prefer scoped enums to unscoped enum，调到要用有范围的enum class代替无范围的enum。
 
@@ -80,7 +80,7 @@ void foo(EntityType entityType)
 ```
 
 
-## enum的基础类型
+## enum的基础类型
 枚举通常用某种整数类型表示，这个类型被称为枚举的**基础类型**。
 基础类型默认是int，也可以显式的指定：
 ```

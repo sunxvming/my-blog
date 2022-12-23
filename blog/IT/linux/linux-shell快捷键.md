@@ -4,7 +4,7 @@ Bash 默认为 emacs 编辑模式。如果你的 Bash 不在 emacs 编辑
 
 `tab`        命令和路径补齐
 
-## 控制命令
+## 控制命令
 `Ctrl-L`        清屏
 `Ctrl-C`        取消本次命令编辑
 `Ctrl + z`      转到后台运行，`fg`恢复。
@@ -14,7 +14,7 @@ Bash 默认为 emacs 编辑模式。如果你的 Bash 不在 emacs 编辑
 
 
 
-## 光标移动
+## 光标移动
 `Ctrl-p`         previous
 `Ctrl-n`         next
 `Ctrl-b`         backward
@@ -26,7 +26,7 @@ Bash 默认为 emacs 编辑模式。如果你的 Bash 不在 emacs 编辑
 `Ctrl-a`         移动到行首
 `Ctrl-e`         移动到行尾
 
-## 文本修改
+## 文本修改
 `Ctrl-d`         delete光标后面的
 `ctrl-h`         删除光标前边的
 `Ctrl + w`       从光标处删除至字首
@@ -35,7 +35,7 @@ Bash 默认为 emacs 编辑模式。如果你的 Bash 不在 emacs 编辑
 `Ctrl + y`       粘贴至光标后
 
 
-## 其他
+## 其他
 `Ctrl-r`         搜索某个历史记录，  `ctrl-f` 选中命令
 `Ctrl + g`        从历史搜索模式退出
 `history`        历史记录

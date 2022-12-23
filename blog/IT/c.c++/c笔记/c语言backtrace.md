@@ -1,4 +1,4 @@
-## 向文件中输出栈调用信息
+## 向文件中输出栈调用信息
 ```
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,7 +48,7 @@ addr2line -e main 0x400db9
 ```
 
 
-## muduo网络库中的实现
+## muduo网络库中的实现
 ```
 // 代码位置：muduo/base/CurrentThread.h
 

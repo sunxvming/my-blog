@@ -4,14 +4,14 @@
 Cookie 既然存放在Client 端，那就有被窃取的风险。例如透过 如果Cookie 被偷走了，你的身份就被窃取了。
 
 
-## Session攻击手法
-### 1.猜测Session ID (Session Prediction)
+## Session攻击手法
+### 1.猜测Session ID (Session Prediction)
 Session ID 如同我们前面所说的，就如同是会员卡的编号。只要知道Session ID，就可以成为这个使用者。如果Session ID 的长度、复杂度、杂乱度不够，就能够被攻击者猜测。攻击者只要写程式不断暴力计算Session ID，就有机会得到有效的Session ID 而窃取使用者帐号。
 
 **防护措施**
 使用Session ID 分析程式进行分析，评估是否无法被预测。如果没有100% 的把握自己撰写的Session ID 产生机制是安全的，不妨使用内建的Session ID 产生function，通常都有一定程度的安全。
 
-### 2.窃取Session ID（Session Hijacking）
+### 2.窃取Session ID（Session Hijacking）
 窃取Session ID 是最常见的攻击手法。攻击者可以利用多种方式窃取Cookie 获取Session ID：
 1.跨站脚本攻击
 2.网路窃听：使用ARP Spoofing 等手法窃听网路封包获取Cookie
@@ -28,14 +28,14 @@ Session ID 如同我们前面所说的，就如同是会员卡的编号。只�
 * 设定加强安全性的Cookie 属性：Secure (只在HTTPS 传递，若网站无HTTPS 请勿设定)
 * 在需要权限的页面请使用者重新输入密码
 
-## session攻击例子
+## session攻击例子
 关于cookie的一些属性，里面有一个httponly的属性，也就是是否禁止js读取cookie。不幸的是很多常见的服务器（比如apache和tomcat）在生成这个存储sessionid的cookie的时候，没有设置httponly这个属性，也就是说js是可以将这个sessionid读取出来的。
  js读取到sessionid，这会有问题吗？你网站上的运行的js代码并不一定是你写的，比如说一般网站都有一个发表文章或者说发帖的功能，如果别有用心的人在发表的时候填写了html代码（这些html一般是超链接或者图片），但是你的后台又没有将其过滤掉，发表出来的文章，被其他人点击了其中恶意链接时，就出事了。这也就是我们常说的XSS跨站脚本攻击(Cross Site Scripting)。
 比如链接可以是一段js代码，代码的逻辑是获取点击者的sessionid，并将其发送到指定的地址，而指定的地址则用力此sessionid来伪造http请求进行无需密码权限的登录。
 
 
 
-## Session 防护
+## Session 防护
 每个使用者在登入网站的时候，都带有特殊的标识，比如：来源IP 位址、浏览器User-Agent。
 如果在同一个Session 中，使用者的IP 或者User-Agent 改变了，最安全的作法就是把这个Session 清除，请使用者重新登入。虽然使用者可能因为IP 更换、Proxy 等因素导致被强制登出，但为了安全性，便利性必须要与之取舍。以PHP 为例，我们可以这样撰写：
 
@@ -61,6 +61,6 @@ Session 清除机制时机：
 
 
 
-## 参考链接
+## 参考链接
 - [session的基本原理及安全性](https://blog.csdn.net/yunnysunny/article/details/26935637)
 - [session安全问题](https://www.cnblogs.com/zyy04105113/articles/5743837.html)

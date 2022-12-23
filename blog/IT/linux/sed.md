@@ -4,7 +4,7 @@ sed 意为流编辑器（Stream Editor），在Shell脚本和Makefile中作为
 sed基本上就是玩正则模式匹配，所以，玩sed的人，正则表达式一般都比较强。
 
 
-## 格式
+## 格式
 sed 命令行的基本格式为
 ```
 sed option 'script' file1 file2 ...
@@ -16,7 +16,7 @@ sed程序一行一行读出待处理文件，如果某一行与 pattern 匹配
 这个 action 将作用于待处理文件的每一行。
 
 
-## 模式
+## 模式
 * /pattern/p 
 打印匹配 pattern 的行
 * /pattern/d 
@@ -30,20 +30,20 @@ sed程序一行一行读出待处理文件，如果某一行与 pattern 匹配
 默认是打印改变的内容，不改变原文件，可以使用文件重定向，也可以使用-i直接改变文件内容sed -i "s/my/Hao Chen's/g" pets.txt     
 
 
-## sed的命令
-### a命令和i命令
+## sed的命令
+### a命令和i命令
 a命令就是append， i命令就是insert，它们是用来添加行的。如：
 ```
-# 第二行之前插入aaaaa
+# 第二行之前插入aaaaa
 sed '2i aaaaaa' test.txt
-# 第二行之前插入aaaaa
+# 第二行之前插入aaaaa
 sed '2a aaaaaa' test.txt
-# 注意其中的/fish/a，这意思是匹配到/fish/后就追加一行
+# 注意其中的/fish/a，这意思是匹配到/fish/后就追加一行
 sed"/fish/a This is my monkey, my monkey's name is wukong"my.txt
 ```
 
 
-## 正则表达式的东西：
+## 正则表达式的东西：
 * `^` 表示一行的开头。如：`/^#/` 以#开头的匹配。
 * `$` 表示一行的结尾。如：`/}$/` 以}结尾的匹配。
 * `\<` 表示词首。 如 `\<abc` 表示以 abc 为首的詞。
@@ -53,7 +53,7 @@ sed"/fish/a This is my monkey, my monkey's name is wukong"my.txt
 * `[ ]` 字符集合。 如：[abc]表示匹配a或b或c，还有[a-zA-Z]表示匹配所有的26个字符。如果其中有^表示反，如[^a]表示非a的字符
 
 
-## 多个匹配
+## 多个匹配
 如果我们需要一次替换多个模式，如：第一个模式把第一行到第三行的my替换成your，第二个则把第3行以后的This替换成了That
 ```
 sed '1,3s/my/your/g; 3,$s/This/That/g'my.txt

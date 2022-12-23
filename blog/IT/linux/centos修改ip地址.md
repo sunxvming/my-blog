@@ -10,7 +10,7 @@ vi /etc/sysconfig/network-scripts/ifcfg-ethxx
 TYPE=Ethernet
 PROXY_METHOD=none
 BROWSER_ONLY=no
-BOOTPROTO=static    # ip分配方式
+BOOTPROTO=static    # ip分配方式
 DEFROUTE=yes
 IPV4_FAILURE_FATAL=no
 IPV6INIT=yes
@@ -22,10 +22,10 @@ NAME=ens33
 UUID=30949b72-c749-4599-8cc4-061216b0650c
 DEVICE=ens33
 ONBOOT=yes
-IPADDR=192.168.1.11    # 需要修改
-GATEWAY=192.168.1.1    # 需要修改
-NETMASK=255.255.255.0  # 需要修改
-DNS1=8.8.8.8           # 需要修改
+IPADDR=192.168.1.11    # 需要修改
+GATEWAY=192.168.1.1    # 需要修改
+NETMASK=255.255.255.0  # 需要修改
+DNS1=8.8.8.8           # 需要修改
 ZONE=
 ```
 3.

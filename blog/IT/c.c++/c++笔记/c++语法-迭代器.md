@@ -1,7 +1,7 @@
-## boost中的iterator_facade使用
+## boost中的iterator_facade使用
 
 
-### iterator_traits
+### iterator_traits
 标准库的std::iterator_traits接受一个迭代器（或指针）类型，可以获得迭代器（或指针）所必备的五个类型信息：iterator_category（迭代器的分类）、value_type（迭代器所指的值类型）、reference（迭代器的值引用类型）、pointer（迭代器的指针类型）、difference_type（迭代器的距离类型），但是标准中把这五个类型揉成一团，从模板元编程的角度看不符合元函数的规范定义，是非标准元函数。   
 iterator_traits库把std::iterator_traits中揉成一团的元数据分解开来，形成了五个标准元函数，功能是完全相同的。
 ```
@@ -25,7 +25,7 @@ struct iterator_value
 
 
 
-### iterator_facade
+### iterator_facade
 iterator_facade是一个重要组件，它使用外观模式提供一个辅助类，能够容易地创建符合标准的迭代器。iterator_facade定义了数个迭代器的核心接口，用户只需实现这些核心功能就可以编写正确且完备的迭代器。   
 iterator_facade要求用户的迭代器类必须实现下面五个功能（共六个接口，但依据迭代器的类型某些函数不实现）。
 
@@ -200,6 +200,6 @@ int main()
 ```
 
 
-## 参考链接
+## 参考链接
 - [C++自定义迭代器（STL自定义迭代器)的实现详解
 ](http://c.biancheng.net/view/471.html)

@@ -1,4 +1,4 @@
-## 配置ssh免登陆
+## 配置ssh免登陆
 生成ssh免登陆密钥
 cd ~，进入到我的home目录
 cd .ssh/
@@ -11,7 +11,7 @@ ssh-keygen -t rsa （四个回车）
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 
-# 或者
+# 或者
 ssh-copy-id user@host
 ```
 ![](https://sunxvming.com/imgs/12731350.png)     

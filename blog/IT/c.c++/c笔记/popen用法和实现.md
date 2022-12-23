@@ -1,6 +1,6 @@
 popen可以让你在 C++ 程序中执行 shell 命令，并且得到命令执行的结果
 
-## popen使用
+## popen使用
 以下是对popen的封装，输入是执行的命令，输出是命令执行的结果
 ```
 #include <iostream>
@@ -77,10 +77,10 @@ std::string exec(const char* cmd)  // cmd 是你要执行的命令
 }
 ```
 
-## Linux的system()和popen()差异
+## Linux的system()和popen()差异
 system()、popen()给我们处理了fork、exec、waitpid等一系列的处理流程，让我们只需要关注最后的返回结果(函数的返回值)即可。
 
-### system()、popen()源码
+### system()、popen()源码
 ```
 int system(const char *command)
 {
@@ -193,7 +193,7 @@ popen(const char *cmdstring, const char *type)  
 popen如何获取命令执行的结果？
 命令执行时会将命令的结果输出到标准输出中，通过在父进程中创建一个管道，然后将标准输出到这个管道中，然后父进程从这个管道中读取结果。
 
-### 执行流程
+### 执行流程
 从上面的源码可以看到system和popen都是执行了类似的运行流程，大致是`fork->execl->return`。但是我们看到system在执行期间调用进程会一直等待shell命令执行完成(waitpid等待子进程结束)才返回，但是popen无须等待shell命令执行完成就返回了。我们可以理解system为串行执行，在执行期间调用进程放弃了”控制权”，popen为并行执行。
 popen中的子进程没人给它”收尸”了啊？是的，如果你没有在调用popen后调用pclose那么这个子进程就可能变成”僵尸”。
 上面我们没有给出pclose的源码，其实我们根据system的源码差不多可以猜测出pclose的源码就是system中第4部分的内容。

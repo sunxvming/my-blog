@@ -61,7 +61,7 @@ phpmyadmin 403 修改etc/extra的httpd-xampp.conf就行
 <VirtualHost *:8000>
     DocumentRoot "/opt/lampp/htdocs/project/activity/gamecenter/public"
     ServerName  dc3.fancy3d.cn 
-  #  DirectoryIndex index.php   
+  #  DirectoryIndex index.php   
     <Directory />
     Options FollowSymLinks
     AllowOverride All
@@ -92,7 +92,7 @@ phpmyadmin 403 修改etc/extra的httpd-xampp.conf就行
 <VirtualHost *:8000>
     DocumentRoot "/opt/lampp/htdocs/project/activity/gamecenter/public"
     ServerName  dc3.fancy3d.cn 
-  #  DirectoryIndex index.php   
+  #  DirectoryIndex index.php   
     <Directory />
     Options FollowSymLinks
     AllowOverride All

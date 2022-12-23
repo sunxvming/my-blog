@@ -1,4 +1,4 @@
-## 使用mysql的c api操作mysql
+## 使用mysql的c api操作mysql
 mysql的头文件、lib文件如何获得？
 直接去mysql的下载页面，找到自己需要的版本，和相应的系统，然后下载其压缩包，解压后即可看到include、lib目录等
 以下为下载界面

@@ -1,4 +1,4 @@
-## 为什么选择Postman?
+## 为什么选择Postman?
 * 简单易用 - 要使用Postman，你只需登录自己的账户，只要在电脑上安装了Postman应用程序，就可以方便地随时随地访问文件。
 * 使用集合 - Postman允许用户为他们的API调用创建集合。每个集合可以创建子文件夹和多个请求。这有助于组织测试结构。
 * 多人协作 - 可以导入或导出集合和环境，从而方便共享文件。直接使用链接还可以用于共享集合。
@@ -10,17 +10,17 @@
 
 Postman 有个 workspace 的概念，workspace 分 personal 和 team 类型。Personal workspace 只能自己查看的 API，Team workspace 可添加成员和设置成员权限，成员之间可共同管理 API。
 
-## 如何使用
+## 如何使用
 ![](https://sunxvming.com/imgs/37ddb176-f6ee-4e2e-804c-fa3e9c38c733.jpg)
 
 
-## 如何将请求参数化
+## 如何将请求参数化
 数据参数化是Postman最有用的特征之一。你可以将使用到的变量进行参数化，而不是使用不同的数据创建相同的请求，这样会事半功倍，简洁明了。  
 这些数据可以来自**数据文件**或**环境变量**。参数化有助于避免重复相同的测试，可用于自动化迭代测试。
 
 参数通过使用**双花括号**创建:`{{sample}}`。
 
-## postman变量
+## postman变量
 postman 支持的变量的作用范围
 * Global
 全局变量在整个工作空间中都可用。
@@ -34,7 +34,7 @@ postman 支持的变量的作用范围
 局部变量是临时的，只能在您的请求脚本中访问。
 
 
-### 环境变量
+### 环境变量
 在做测试的过程中，可能遇到频繁更换测试地址的操作，比如今天开发用了这个测试环境，明天又换了另一个测试环境活正式环境。
 在postman中可以设置不同的环境变量以进行不同的环境测试，操作如下：
 ![](https://sunxvming.com/imgs/ca85f161-bc2c-4659-9e02-63de11231c90.png)
@@ -43,7 +43,7 @@ postman 支持的变量的作用范围
 ![](https://sunxvming.com/imgs/0bb93362-7c61-4c6b-8637-16c201608168.png)
 
 
-## 如何创建Postman Tests
+## 如何创建Postman Tests
 Postman Tests在请求中添加JavaScript代码来协助验证结果，如：成功或失败状态、预期结果的比较等等。
 例如如下测试返回值是否为200
 ![](https://sunxvming.com/imgs/16e299b9-06b0-455c-aa20-dd7bfe5ff27c.jpg)
@@ -51,7 +51,7 @@ Postman Tests在请求中添加JavaScript代码来协助验证结果，如：�
 ![](https://sunxvming.com/imgs/ad504a29-841a-4f99-bf0e-ac9697a53dcb.jpg)
 
 
-## postman显示返回的base64图片验证码、二维码
+## postman显示返回的base64图片验证码、二维码
 postman可以创建一个工作流按顺序测试多个接口，并可以将前面的接口的返回值作为变量传递给后面的接口使用。
 
 在开发中，有些接口返回的数据是base64的图片数据，有时需要实时查看，如图片验证码、二维码等。
@@ -75,17 +75,17 @@ pm.visualizer.set(template, data);
 
 
 
-## postman模拟登录过程(验证码、登录、token)
+## postman模拟登录过程(验证码、登录、token)
 1.获取图片验证码，这一步若没有图片识别，就只能人工识别了。
 2.用用户名、密码、验证码进行登录
 3.登录接口获取到的token保存到全局变量中，并设置到之后请求的header中
 
 
-## 如何对collections中的请求做批量测试
-### 使用Collection runner运行集合
+## 如何对collections中的请求做批量测试
+### 使用Collection runner运行集合
 ![](https://sunxvming.com/imgs/50970bae-e718-4f93-a425-95ab0a5de358.png)
 
-### 使用Newman运行集合
+### 使用Newman运行集合
 运行集合的另一种方式是通过Newman。Newman和Collection Runner之间的主要区别如下:
 1. Newman是Postman的替代品，所以需要单独安装Newman；
 2. Newman使用命令行，而Collection Runner使用UI界面；
@@ -132,7 +132,7 @@ newman run <collection name> -d <delay time>
 
 
 
-## postman的导入和导出
+## postman的导入和导出
 **collections**
 postman的collections可以用文件的方式导入和导出，也可以生成 public link让其他人进行导入。这个public link修改后是不进行同步的。
 
@@ -140,7 +140,7 @@ postman的collections可以用文件的方式导入和导出，也可以生成 
 在导出collections的时候是不能顺便导出环境变量的，环境变量得单独的进行导出。
 
 
-## 参考链接
+## 参考链接
 - [API测试之Postman使用完全指南(Postman教程，这篇文章就够了)](https://www.cnblogs.com/softwaretesterpz/p/13205666.html)
 - [使用postman创建collection测试接口](https://blog.csdn.net/weixin_33725722/article/details/88678349)
 

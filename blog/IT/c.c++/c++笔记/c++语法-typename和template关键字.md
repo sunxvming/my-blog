@@ -1,4 +1,4 @@
-## typename
+## typename
 ```
 struct X { typedef int       foo;       }; 
 struct Y { static  int const foo = 123; }; 

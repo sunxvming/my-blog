@@ -1,6 +1,6 @@
-## 模板类型判断
+## 模板类型判断
 
-### std::is_same 判断类型是否一致
+### std::is_same 判断类型是否一致
 位于头文件`<type_traits>`中
 通过std::is_same即可判断两个类型是否一样，特别在模板里面，在不清楚模板的参数时，此功能可以对一些特定的参数类型进行特殊的处理。
 
@@ -11,7 +11,7 @@ std::is_same<int, int64_t>::value   // false
 
 `std::is_same`对int和const int\int &\const int&等都是区别对待的，但在写模板函数时，经常会强制指定常引用进行传参，以免进行数据拷贝，这时候is_same就做出了不相等的判断，但是有时候其实我们还是希望TYPE和const TYPE& 是能认为是一样的，这时就需要`std::decay`进行退化处理
 
-### std::decay 退化类型的修饰
+### std::decay 退化类型的修饰
 `std::decay`就是对一个类型进行退化处理，他的实现如下:
 
 ```
@@ -34,7 +34,7 @@ public:
 看着比较抽象，其实就是把各种引用啊什么的修饰去掉，把cosnt int&退化为int，这样就能通过`std::is_same`正确识别出加了引用的类型了
 
 
-### is_xxx
+### is_xxx
 其中的模板参数即为要判断的类型
 ```
 // 假设T是一个模板参数，即template<typename T>
@@ -46,7 +46,7 @@ static_assert(
     is_default_constructible<T>::value, "constructible");
 ```
 
-## std::conditional
+## std::conditional
 根据情况判断选择的模板类型,相当于一个**模板类型的三元操作符**
 ```
 #include <iostream>
@@ -74,8 +74,8 @@ d
 7.2
 ```
 
-## enable_if
-### SFINAE
+## enable_if
+### SFINAE
 SFINAE是英文Substitution failure is not an error的缩写，意思是**匹配失败不是错误**
 SFINAE 应用最为广泛的场景是C++中的 std::enable_if。
 在对一个函数调用进行模板推导时，编译器会尝试推导所有的候选函数（重载函数，模板，但是普通函数的优先级要高），以确保得到一个**最完美的匹配**。
@@ -122,7 +122,7 @@ int main() {
 
 
 
-### std::enable_if<>的实现机制如下代码所示：
+### std::enable_if<>的实现机制如下代码所示：
 ```
 template<bool Cond, typename T = void> struct enable_if {};
 
@@ -133,7 +133,7 @@ template<typename T> struct enable_if<true, T> { typedef T type; };
 当 condition 为假的时候，只有第一个结构体模板能够匹配，所以std::enable_if<>::type 是无效的，会被丢弃，编译器会报错：error: no type named ‘type’ in ‘struct std::enable_if<false, bool>。
 
 
-### 典型应用
+### 典型应用
 1.限制模板的类型
 ```
 #include <iostream>
@@ -158,7 +158,7 @@ int main() {
 ```
 
 
-## 可变参数模板
+## 可变参数模板
 ```
 // 相当于一个递归基
 template<typename T>

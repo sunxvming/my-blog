@@ -1,4 +1,4 @@
-## 原理图
+## 原理图
 **TCP三次握手、四次挥手时序图**
 ![](https://sunxvming.com/imgs/e463d1f7-4f0a-4e00-9929-442cdc8b1b2c.jpg)
 
@@ -46,17 +46,17 @@ Client发送SYN包给Server后挂了，Server回给Client的SYN-ACK一直没收�
 由上面的”TCP协议状态机 “图可以看出，TCP的Peer端在收到对端的FIN包前发出了FIN包，那么该Peer的状态就变成了FIN_WAIT1，Peer在FIN_WAIT1状态下收到对端Peer对自己FIN包的ACK包的话，那么Peer状态就变成FIN_WAIT2，Peer在FIN_WAIT2下收到对端Peer的FIN包，在确认已经收到了对端Peer全部的Data数据包后，就响应一个ACK给对端Peer，然后自己进入TIME_WAIT状态；但是如果Peer在FIN_WAIT1状态下首先收到对端Peer的FIN包的话，那么该Peer在确认已经收到了对端Peer全部的Data数据包后，就响应一个ACK给对端Peer，然后自己进入CLOSEING状态，Peer在CLOSEING状态下收到自己FIN包的ACK包的话，那么就进入TIME WAIT状态。于是，TCP的Peer两端同时发起FIN包进行断开连接，那么两端Peer可能出现完全一样的状态转移FIN_WAIT1---->CLOSEING----->TIME_WAIT，Client和Server也就会最后同时进入TIME_WAIT状态。同时关闭连接的状态转移如下图所示：
 ![](https://sunxvming.com/imgs/3194002e-40b6-4fd9-a69f-c7d505c5cf50.jpg)
 
-### 四次挥手能否变成三次挥手？
+### 四次挥手能否变成三次挥手？
 答案是可能的。TCP是全双工通信，Cliet在自己已经不会再有新的数据要发送给Server后，可以发送FIN信号告知Server，这边已经终止Client到对端Server的数据传输。但是，这个时候对端Server可以继续往Client这边发送数据包。于是，两端数据传输的终止在时序上独立并且可能会相隔比较长的时间，这个时候就必须最少需要2+2=4次挥手来完全终止这个连接。但是，如果Server在收到Client的FIN包后，再也没数据需要发送给Client了，那么对Client的ACK包和Server自己的FIN包就可以合并成一个包发送过去，这样四次挥手就可以变成三次了(似乎Linux协议栈就是这样实现的)。
 
-### TCP的头号疼症TIME_WAIT状态
+### TCP的头号疼症TIME_WAIT状态
 
-#### 怎么进入TIME_WAIT状态？
+#### 怎么进入TIME_WAIT状态？
 主动关闭连接的一方在收到对端的FIN包后后进入
 
 
 
-#### `TIME_WAIT`状态是用来解决或避免什么问题呢？ 
+#### `TIME_WAIT`状态是用来解决或避免什么问题呢？ 
 1. 主动关闭方需要进入TIME_WAIT以便能够重发丢掉的被动关闭方FIN包的ACK。如果主动关闭方不进入TIME_WAIT，那么在主动关闭方对被动关闭方FIN包的ACK丢失了的时候，被动关闭方由于没收到自己FIN的ACK，会进行重传FIN包，这个FIN包到主动关闭方后，由于这个连接已经不存在于主动关闭方了，这个时候主动关闭方无法识别这个FIN包，协议栈会认为对方疯了，都还没建立连接你给我来个FIN包？于是回复一个RST包给被动关闭方，被动关闭方就会收到一个错误(我们见的比较多的：connect reset by peer。这里顺便说下Broken pipe，在收到RST包的时候，还往这个连接写数据，就会收到Broken pipe错误了)，原本应该正常关闭的连接，给我来个错误，很难让人接受。
 
 2.  防止已经断开的连接1中在链路中残留的FIN包终止掉新的连接2[重用了连接1的所有5元素（源IP，目的IP，TCP，源端口，目的端口）]，这个概率比较低，因为涉及到一个匹配问题，迟到的FIN分段的序列号必须落在连接2一方的期望序列号范围之内，虽然概率低，但是确实可能发生，因为初始序列号都是随机产生的，并且这个序列号是32位的，会回绕。
@@ -64,7 +64,7 @@ Client发送SYN包给Server后挂了，Server回给Client的SYN-ACK一直没收�
 3. 防止链路上已经关闭的连接的残余数据包（a lost duplicate packet or a wandering duplicate packet）干扰正常的数据包，造成数据流不正常。这个问题和(2)类似。
 
 
-#### TIME_WAIT会带来哪些问题？
+#### TIME_WAIT会带来哪些问题？
 一个连接进入TIME_WAIT状态后需要等待2*MSL(一般是1到4分钟)那么长的时间才能断开连接释放连接占用的资源，会造成以下问题：
 1. 作为服务器，短时间内关闭了大量的Client连接，就会造成服务器上出现大量的TIME_WAIT连接，占据大量的tuple，严重消耗着服务器的资源； 
 2. 作为客户端，短时间内大量的短连接，会大量消耗Client机器的端口，毕竟端口只有65535个，端口被耗尽了，后续就无法再发起新的连接了。
@@ -72,7 +72,7 @@ Client发送SYN包给Server后挂了，Server回给Client的SYN-ACK一直没收�
 > MSL(Maximum Segment Lifetime,报文最大生存时间)
 
 
-#### TIME_WAIT的快速回收和重用
+#### TIME_WAIT的快速回收和重用
 (1) TIME_WAIT快速回收
 Linux下开启`TIME_WAIT`快速回收需要同时打开`tcp_tw_recycle`和`tcp_timestamps`(默认打开)两选项。Linux下快速回收的时间为3.5*RTO（Retransmission Timeout），而一个RTO时间为200ms至120s。开启快速回收`TIME_WAIT`，可能会带来问题一中说的三点危险，为了避免这些危险，要求同时满足以下三种情况的新连接被拒绝掉。
 
@@ -85,7 +85,7 @@ Linux下开启`TIME_WAIT`快速回收需要同时打开`tcp_tw_recycle`和`tcp_t
 
 
 
-## 参考链接
+## 参考链接
 - [从TCP三次握手说起——浅析TCP协议中的疑难杂症](https://blog.csdn.net/changyourmind/article/details/53127100)
 
 

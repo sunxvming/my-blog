@@ -1,7 +1,7 @@
 boost test库用于`单元测试`、`命令行`测试组件，全称Unit Test Framework(UTF)，优点很多，可以胜任不同强度的测试功能
 
 
-## 基本概念
+## 基本概念
 1.  一个测试模块大致分为四部：**测试安装**、**测试主体**、**测试清理**、**测试运行器**
 2.  **测试主体**是实际运行部分，通常包含多个**测试套件**，而测试套件又由多个**测试用例**组成
 3.  **测试套件**，**测试用例**组合成**测试树**，根节点称为**主测试套件**。进而可以理解以**主测试套件**为根节点，**测试套件**为非叶子节点，**测试用例**为叶子节点**整个主体**。
@@ -11,7 +11,7 @@ boost test库用于`单元测试`、`命令行`测试组件，全称Unit Test�
 - **主测试套件**必须要有，用`BOOST_TEST_MAIN`或者`BOOST_TEST_MODULE`，而且必须位于头文件`#include <boost/test/unit_test.hpp>`之前！！！
 
 
-### 测试用例 BOOST_AUTO_TEST_CASE
+### 测试用例 BOOST_AUTO_TEST_CASE
 测试用例作为**最小单元**，各个测试用例之间是无关的，发生错误对其他测试用例没有影响，其内部可以包含多个测试断言函数
 ```
 BOOST_AUTO_TEST_CASE(test_name)
@@ -20,7 +20,7 @@ BOOST_AUTO_TEST_CASE(test_name)
 - 测试用例**以t开头**
 
 
-### 测试套件 BOOST_AUTO_TEST_SUITE
+### 测试套件 BOOST_AUTO_TEST_SUITE
 **测试套件包含一个或多个测试用例**
 ```
 BOOST_AUTO_TEST_SUITE( suite_name)    // 开始
@@ -31,7 +31,7 @@ BOOST_AUTO_TEST_SUITE_END()            // 结束
 - 测试套件**以s开头**
 
 
-## 一个测试的例子
+## 一个测试的例子
 下面用一个Boost的智能指针作为案例，并且预设一个错误，
 这个案例，**有一个测试套件，且该测试套件有2个测试用例，当然根节点必须在开头**
 
@@ -103,13 +103,13 @@ Running 2 test cases...
 注意：我们从结果可以知道，错误数量，位置，错误原因。
 
 
-## 断言
+## 断言
 BOOST_CHECK(predicate)：断言测试通过，如不通过不影响程序执行
 BOOST_REQUIRE(predicate):要求测试必须通过，否则程序停止执行；
 BOOST_ERROR(message)：给出一个错误信息，程序继续执行；
 BOOST_FAIL(message)：给出一个错误信息，程序终止。
 
-## 测试安装、测试清理
+## 测试安装、测试清理
 测试安装、测试清理可以类比类的构造函数、析构函数
 1.  测试安装：初始化测试用例或者测试套件所需的数据
 2.  测试清理：执行必要的清理工作
@@ -196,7 +196,7 @@ global teardown
 上面，通过案例分析了如何使用boost库的test库，包含**测试安装**、**测试主体–测试套件/测试用例**、**测试清理**
 
 
-## 命令行–运行参数
+## 命令行–运行参数
 
 对生成的二进制文件，直接查看帮助，获得帮助
 ```
@@ -234,7 +234,7 @@ suit teardown
 
 
 
-## 如何忽略测试失败？
+## 如何忽略测试失败？
 
 test库提供 `BOOST_AUTO_TEST_CASE_EXPECTED_FAILURES`来**忽略错误的最多次数**
 
@@ -256,5 +256,5 @@ Running 3 test cases...
 ```
 
 
-## 参考链接
+## 参考链接
 - [Boost C++测试组件test库](https://blog.csdn.net/weixin_39956356/article/details/111385774)

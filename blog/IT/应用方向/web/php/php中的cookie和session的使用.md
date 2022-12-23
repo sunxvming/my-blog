@@ -1,9 +1,9 @@
-## 一、COOKIE
+## 一、COOKIE
 cookie 是一种在远程浏览器端储存数据并以此来跟踪和识别用户的机制。
 PHP在http协议的头信息里发送cookie,格式类似`Set-Cookie:xxx`, 因此 `setcookie()` 函数必须在其它信息被输出到浏览器前调用，这和对 `header()` 函数的限制类似。
 
 
-### cookie工作机理:
+### cookie工作机理:
 1. 服务器通过随着响应发送一个http的`Set-Cookie`头,在客户机中设置一个cookie
 2. 客户端自动向服务器端发送一个http的cookie头,服务器接收读取.
 
@@ -29,7 +29,7 @@ TestCookie=something from somewhere;
 
 
 
-### 设置cookie:
+### 设置cookie:
 可以用 `setcookie()` 或 `setrawcookie()` 函数来设置 cookie。也可以通过向客户端直接发送http头来设置.
 
 **使用setcookie()函数设置cookie**
@@ -49,13 +49,13 @@ header("Set-Cookie: name=$value[;path=$path[;domain=xxx.com[;]]");
 后面的参数和上面列出setcookie函数的参数一样.
 
 
-### Cookie的读取:
+### Cookie的读取:
 直接用php内置超级全局变量 `$_COOKIE`就可以读取浏览器端的cookie,这个相当于php自动帮你做了从http头中解析cookie的功能。
 ```
 print $_COOKIE['TestCookie'];
 ```
 
-### 删除cookie
+### 删除cookie
 只需把有效时间设为小于当前时间, 和把值设置为空.例如:
 ```
 setcookie("name","",time()-1);
@@ -63,23 +63,23 @@ setcookie("name","",time()-1);
 用header()类似.
 
 
-### 常见问题解决:
+### 常见问题解决:
 1. 用setcookie()时有错误提示,可能是因为调用setcookie()前面有输出或空格.也可能你的文档使从其他字符集转换过来,文档后面可能带有BOM签名(就是在文件内容添加一些隐藏的BOM字符).解决的办法就是使你的文档不出现这种情况.还有通过使用ob_start()函数有也能处理一点.
 2. `$_COOKIE`受magic_quotes_gpc影响,可能自动转义
 3. 使用的时候,有必要测试用户是否支持cookie,有用户是禁用cookie的
 
 
 
-## 二、PHP的Session
+## 二、PHP的Session
 访问网站的来客会被分配一个唯一的标识符，即所谓的会话ID。它要么存放在客户端的cookie，要么经由 URL 传递。
 当来客访问网站时，PHP 会自动（如果 session.auto_start 被设为 1）或在用户请求时（由 session_start() 明确调用或 session_register() 暗中调用）**检查请求中**是否发送了特定的会话 ID。如果是，则之前保存的环境就被重建。
 
-### sessionID的传送
+### sessionID的传送
 通过cookie传送sessin ID
 使用session_start()调用session,服务器端在生成session文件的同时,生成session ID哈希值和默认值为PHPSESSID的session name,并向客户端发送变量为(默认的是)PHPSESSID(session name),值为一个128位的哈希值.服务器端将通过该cookie与客户端进行交互.
 
 
-### session基本用法实例
+### session基本用法实例
 
 ```
 // page1.php
@@ -112,7 +112,7 @@ setcookie(session_name(),'',time()-3600); // 第二步: 删除实际的sessio
 $_SESSION = array(); // 第三步: 删除$_SESSION全局变量数组
 ```
 
-### session在PHP大型web应用中的使用
+### session在PHP大型web应用中的使用
 对于访问量大的站点,用默认的session存贮方式并不适合,目前最优的方法是用数据库存取session.这时,函数
 `bool session_set_save_handler ( callback open, callback close, callback read, callback write, callback destroy, callback gc )`
 就是提供给我们解决这个问题的方案.
@@ -157,7 +157,7 @@ bool session_regenerate_id([bool delete_old_session]) 分配新的session id
 ```
 
 
-### session安全问题
+### session安全问题
 攻击者通过投入很大的精力尝试获得现有用户的有效会话ID,有了会话id,他们就有可能能够在系统中拥有与此用户相同的能力.
 因此,我们主要解决的思路是**效验session ID的有效性**.
 
@@ -205,7 +205,7 @@ session的保存数据的时候，是通过系列化`$_SESSION`数组来存贮�
 当然如果压力大的话，可以存储在redis上，就没有什么压力了。
 
 
-## cookie和session的登录流程
+## cookie和session的登录流程
 1. 用户输入用户名、密码、验证码进行登录
 2. 服务器验证用户登录信息后：
     * 生产sessionid

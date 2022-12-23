@@ -1,8 +1,8 @@
-## 1. 标识该目录是一个python的模块包（module package）
+## 1. 标识该目录是一个python的模块包（module package）
 这个文件（这个文件定义了包的属性和方法）其实它可以什么也不定义；可以只是一个空文件，但是必须存在。如果 `__init__.py` 不存在，这个目录就仅仅是一个目录，而不是一个包，它就不能被导入或者包含其它的模块和嵌套包。
 
 
-## 2. 简化模块导入操作
+## 2. 简化模块导入操作
 如果目录中包含了 `__init__.py` 时，当用 `import` 导入该目录时，会执行 `__init__.py` 里面的代码。这样我们可以在里面添加简化模块导入的代码。比如：
 ```
 from blog_engine.main import Engine
@@ -10,7 +10,7 @@ from blog_engine.main import Engine
 在我们执行import时，当前目录是不会变的（就算是执行子目录的文件），所有在`__init__.py`中import的时候是需要完整的包名。
 
 
-## 3. 导入模块中的所有内容
+## 3. 导入模块中的所有内容
 ```
 from mypackage import *
 ```

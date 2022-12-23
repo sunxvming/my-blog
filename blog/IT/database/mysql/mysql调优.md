@@ -21,7 +21,7 @@ MyISAM 和 InnoDB的选择
 
 
 
-## 索引
+## 索引
 在频繁进行排序或分组（即进行group by或order by操作）的列上建立索引。
 1. 在经常查询的字段上加索引, 不经常查询的就不加索引
 2. 唯一性差的字段不要加索引.
@@ -38,7 +38,7 @@ MyISAM 和 InnoDB的选择
 
 
 
-## sql语句优化
+## sql语句优化
 
 
 避免扫全表的操作
@@ -66,7 +66,7 @@ show variables like 'long_query_time';
 
 
 
-## mysql运行的指标
+## mysql运行的指标
 最大连接数  
 ```
 show variables like '%max_connections%';  

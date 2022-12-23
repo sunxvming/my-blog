@@ -1,17 +1,17 @@
-## 简介
+## 简介
 Python 程序都是脚本的方式，一般是在解析器里运行，如果要发布出去，需要提前安装解析器才可以运行，为了在 Windows 里方便发布，并且打包所需要库文件，这样发布给用户使用就会更方便。
 PyInstaller 是一个十分有用的第三方库，可以用来打包 python 应用程序，打包完的程序就可以在没有安装 Python 解释器的机器上一键运行了。
 
 
-## 安装
+## 安装
 ```
 pip install pyinstaller
-# 或者
+# 或者
 python -m pip install pyinstaller
-# 安装成功：
+# 安装成功：
 pyinstaller -version
 ```
-## 使用
+## 使用
 ```
 pyinstaller -F helloworld.py
 ```
@@ -41,7 +41,7 @@ PyInstaller 会对脚本进行解析，并做出如下动作：
 3. 当你的代码需要调用一些图片和资源文件的，这是不会自动导入的，需要你自己手动复制进去才行。不然 exe 文件运行时命令窗口会报错找不到这个文件。
 
 
-## 在包中导入其他资源：
+## 在包中导入其他资源：
 假设程序中需要引入一个 test.txt 文件，首先我们运行：
 ```
 pyi-makespec -F helloworld.py
@@ -55,13 +55,13 @@ pyi-makespec -F helloworld.py
 a = Analysis(['helloworld.py'],
              pathex=['/home/test'],
              binaries=[],
-             datas=[], ### <------- 改修改为：
+             datas=[], ### <------- 改修改为：
 
 
 a = Analysis(['helloworld.py'],
              pathex=['/home/test'],
              binaries=[],
-             datas=[('test.txt','.')], ## <---- 修改此处添加外部文件
+             datas=[('test.txt','.')], ## <---- 修改此处添加外部文件
 ```
 然后在生成 exe 文件：
 ```
@@ -70,5 +70,5 @@ pyinstaller helloworld.spec
 然后生成的文件就可以正常引入外部文件了。
 
 
-## 参考链接
+## 参考链接
 - [Python程序打包成exe可执行文件](https://blog.csdn.net/zengxiantao1994/article/details/76578421)

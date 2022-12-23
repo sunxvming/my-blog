@@ -1,5 +1,5 @@
 
-## 前言
+## 前言
 
 批处理文件（batch file）包含一系列 DOS 命令，通常用于自动执行重复性任务。用户只需双击批处理文件便可执行任务，而无需重复输入相同指令。编写批处理文件非常简单，但难点在于确保一切按顺序执行。编写严谨的批处理文件可以极大程度地节省时间，在应对重复性工作时尤其有效。
 
@@ -7,7 +7,7 @@
 > 在 Windows 中善用批处理可以简化很多重复工作
 
 
-## [](https://wsgzao.github.io/post/windows-batch/#%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95 "更新记录")更新记录
+## [](https://wsgzao.github.io/post/windows-batch/#%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95 "更新记录")更新记录
 
 
 2016 年 03 月 29 日 - 初稿
@@ -23,7 +23,7 @@
 批处理常用命令总结 - [http://xstarcd.github.io/wiki/windows/windows\_cmd\_summary.html](http://xstarcd.github.io/wiki/windows/windows_cmd_summary.html)
 
 
-## [](https://wsgzao.github.io/post/windows-batch/#%E4%BB%80%E4%B9%88%E6%98%AF%E6%89%B9%E5%A4%84%E7%90%86 "什么是批处理")什么是批处理
+## [](https://wsgzao.github.io/post/windows-batch/#%E4%BB%80%E4%B9%88%E6%98%AF%E6%89%B9%E5%A4%84%E7%90%86 "什么是批处理")什么是批处理
 
 
 批处理(Batch)，也称为批处理脚本。顾名思义，批处理就是对某对象进行批量的处理。批处理文件的扩展名为 bat。
@@ -41,7 +41,7 @@
 系统在解释运行批处理程序时，首先扫描整个批处理程序，然后从第一行代码开始向下逐句执行所有的命令，直至程序结尾或遇见 exit 命令或出错意外退出。
 
 
-## [](https://wsgzao.github.io/post/windows-batch/#%E6%89%B9%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4%E7%AE%80%E4%BB%8B "批处理命令简介")批处理命令简介
+## [](https://wsgzao.github.io/post/windows-batch/#%E6%89%B9%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4%E7%AE%80%E4%BB%8B "批处理命令简介")批处理命令简介
 
 
 - echo
@@ -56,7 +56,7 @@
 [http://xstarcd.github.io/wiki/windows/windows\_cmd\_summary\_commands.html](http://xstarcd.github.io/wiki/windows/windows_cmd_summary_commands.html)
 
 
-## [](https://wsgzao.github.io/post/windows-batch/#%E6%89%B9%E5%A4%84%E7%90%86%E7%AC%A6%E5%8F%B7%E7%AE%80%E4%BB%8B "批处理符号简介")批处理符号简介
+## [](https://wsgzao.github.io/post/windows-batch/#%E6%89%B9%E5%A4%84%E7%90%86%E7%AC%A6%E5%8F%B7%E7%AE%80%E4%BB%8B "批处理符号简介")批处理符号简介
 
 
 - 回显屏蔽 @
@@ -70,7 +70,7 @@
 [http://xstarcd.github.io/wiki/windows/windows\_cmd\_summary\_symbols.html](http://xstarcd.github.io/wiki/windows/windows_cmd_summary_symbols.html)
 
 
-## [](https://wsgzao.github.io/post/windows-batch/#%E5%B8%B8%E7%94%A8-DOS-%E5%91%BD%E4%BB%A4 "常用 DOS 命令")常用 DOS 命令
+## [](https://wsgzao.github.io/post/windows-batch/#%E5%B8%B8%E7%94%A8-DOS-%E5%91%BD%E4%BB%A4 "常用 DOS 命令")常用 DOS 命令
 
 
 **文件夹管理**
@@ -127,7 +127,7 @@
 > 对于以上列出的所有命令，在 cmd 中输入命令 +/? 即可查看该命令的帮助信息。如 find /?
 
 
-## [](https://wsgzao.github.io/post/windows-batch/#Windows-Batch-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4 "Windows Batch 常用命令")Windows Batch 常用命令
+## [](https://wsgzao.github.io/post/windows-batch/#Windows-Batch-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4 "Windows Batch 常用命令")Windows Batch 常用命令
 
 ```
 1 echo 和 @ 
@@ -163,7 +163,7 @@ cd /d d:sdk         #可以同时更改盘符和目录 
 5 md 
  创建目录  
 md d:abc          #如果 d:a 不存在，将会自动创建中级目录 
-\# 如果命令扩展名被停用，则需要键入 mkdir abc。 
+\# 如果命令扩展名被停用，则需要键入 mkdir abc。 
  
 6 rd 
  删除目录  

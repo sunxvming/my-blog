@@ -24,5 +24,5 @@ class TestController extend Controller
 lavarel中实现的源码在`vendor/illuminate/container/Container.php`中的`build`方法中。
 
 
-## 参考链接
+## 参考链接
 - [Laravel实现构造函数自动依赖注入的方法](http://blog.jkloozx.com/?id=105)

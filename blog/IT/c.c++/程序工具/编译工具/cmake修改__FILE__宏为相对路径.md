@@ -1,5 +1,5 @@
 
-## 问题表现
+## 问题表现
 
 
 通过cmake编译的代码，在代码中输出**FILE**就代码文件的绝对路径。在大多数使用**FILE**这宏的，一般都是用于日志输出，首先使用绝对路径会使日志量膨胀，其次我们最终的程序执行的环境，可能与编译的环境不一样，输出绝对路径并没有多大的参考意义
@@ -42,7 +42,7 @@ add_executable(test tests/test.cc)     #添加一个可执行文件的生�
 
 
 
-## 解决思路
+## 解决思路
 
 
 既然**FILE**宏是gcc定义的，默认等于gcc命令中的文件路径，我们可以通过重新定义该宏来达到我们的目的，如下方式：
@@ -63,14 +63,14 @@ g++ tests/test.cc -D__FILE__="\"sylar/test.cc\"" -o test
 为了让输出更有区分度，我在这里强行改成sylar/test.cc， 在程序执行的时候，输出了我们预期的结果，说明这种做法是可行的
 
 
-## 在cmake中优雅的解决
+## 在cmake中优雅的解决
 
 
 如果需要在每个源文件的编译上面都带上对应的定义(-D__FILE__=”\”sylar/test.cc\””),那么CMakeLists.txt里面就比较混乱了。我们可以把这种定义，封装到一个cmake函数里面，当需要使用这个功能的时候，就执行一下这个函数，这样就可以优雅的解决**FILE**绝对路径的问题，将绝对路径变成相对路径
 
 
 ```
-# utils.cmake
+# utils.cmake
 
 
 #重新定义当前目标的源文件的__FILE__宏
@@ -128,13 +128,13 @@ redefine_file_macro(test), 为我们的输出目标添加__FILE__宏重定义�
 “:0:0: warning: “FILE” redefined [-Wbuiltin-macro-redefined]”, 为了解决这个告警，我们需要在CMakeLists.txt里面加上add_definitions(-Wno-builtin-macro-redefined)
 ```
 
-## 重新编译
+## 重新编译
 
 
 最终输出：`hello __FILE__=tests/test.cc`
 
 
 
-## 参考链接
+## 参考链接
 - [CMAKE系列 – 解决__FILE__ 宏绝对路径的问题(相对路径)](http://www.sylar.top/blog/?p=129)
 

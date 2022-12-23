@@ -1,8 +1,8 @@
-## 什么是tmpfs？
+## 什么是tmpfs？
 tmpfs是一种基于内存的文件系统，它和虚拟磁盘ramdisk比较类似，但不完全相同，和ramdisk一样，tmpfs可以使用RAM，但它也可以使用swap分区来存储。而且传统的ramdisk是个块设备，要用mkfs来格式化它，才能真正地使用它；而tmpfs是一个文件系统，并不是块设备，只是安装它，就可以使用了。tmpfs是最好的基于RAM的文件系统。
 
 
-## linux系统自带的tmpfs
+## linux系统自带的tmpfs
 du -h
 ```
 Filesystem      Size  Used Avail Use% Mounted on
@@ -21,15 +21,15 @@ tmpfs           860M     0  860M   0% /run/user/0
 > * tmpfs存在在内存和swap中，因此只能保存临时文件。
 > * devtmpfs是改进的devfs，也是存在内存中，挂载点是/dev/
 
-## 创建和挂载 tmpfs 文件系统
+## 创建和挂载 tmpfs 文件系统
 ```
 mount -F tmpfs [-o size=number]  swap mount-point
 
-# -o size=number
-# 指定 TMPFS 文件系统的大小限制（以 MB 为单位）。
+# -o size=number
+# 指定 TMPFS 文件系统的大小限制（以 MB 为单位）。
 
-# mount-point
-# 指定在其中挂载 TMPFS 文件系统的目录。
+# mount-point
+# 指定在其中挂载 TMPFS 文件系统的目录。
 ```
 验证是否已创建 TMPFS 文件系统
 mount -v
