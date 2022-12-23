@@ -1,0 +1,159 @@
+{
+  "main": {
+    "id": "f328555973625a35",
+    "type": "split",
+    "children": [
+      {
+        "id": "3c41f4e1e15f27a2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0ba9caec6df3d142",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CS基础/组成原理&体系结构/深入浅出计算机组成原理-2指令和运算.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b978607fc82afd6d",
+    "type": "split",
+    "children": [
+      {
+        "id": "1348813691cbe630",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a7a019bd35e37de8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "146a7bc83141d99e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b251f6add977ecc7",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "3b0d99ddac97cac5",
+    "type": "split",
+    "children": [
+      {
+        "id": "dd1d83042b16a878",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fb969f9b4f04b17b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "CS基础/组成原理&体系结构/深入浅出计算机组成原理-2指令和运算.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "d40f67539ce2897a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "CS基础/组成原理&体系结构/深入浅出计算机组成原理-2指令和运算.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "590b2075699b8efc",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "05414af325dc248e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "CS基础/组成原理&体系结构/深入浅出计算机组成原理-2指令和运算.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "0ba9caec6df3d142",
+  "lastOpenFiles": [
+    "CS基础/组成原理&体系结构/深入浅出计算机组成原理-1入门篇.md",
+    "CS基础/编译原理/编译原理之美.md",
+    "CS基础/编译原理/编程语言方方面面.md",
+    "c.c++/c++笔记/加快C++代码的编译速度方法.md",
+    "c.c++/c++笔记/7.C++模板和泛型程序设计.md",
+    "c.c++/c++笔记/3.C++引用.md",
+    "c.c++/c++笔记/2.C++类和对象.md",
+    "c.c++/c++笔记/1.从C到C++.md"
+  ]
+}

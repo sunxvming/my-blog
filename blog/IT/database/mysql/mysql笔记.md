@@ -147,6 +147,21 @@ FROM Customers
 LEFT JOIN Orders
 ON Customers.CustomerID=Orders.CustomerID;
 ```
+
+
+### 删除
+删除表信息的方式有两种 :
+truncate table table_name;
+delete * from table_name;
+注 : truncate操作中的table可以省略，delete操作中的*可以省略
+
+
+truncate、delete 清空表数据的区别 :
+1. truncate 是整体删除 (速度较快)，delete是逐条删除 (速度较慢)
+2. truncate 不写服务器 log，delete 写服务器 log，也就是 truncate 效率比 delete高的原因
+3. truncate 不激活trigger (触发器)，但是会重置Identity (标识列、自增字段)，相当于自增列会被置为初始值，又重新从1开始记录，而不是接着原来的 ID数。而 delete 删除以后，identity 依旧是接着被删除的最近的那一条记录ID加1后进行记录。如果只需删除表中的部分记录，只能使用 DELETE语句配合 where条件
+
+
 ## 查看mysql信息
 查看mysql的最大连接数
 ```
@@ -167,6 +182,22 @@ show variables like 'collation_%';
 show variables like 'character_set_%';
 ```
 可以my.ini中：character-set-server=utf8 修改服务器的编码设置
+
+
+
+查看数据存储位置：
+```
+show global variables like "%datadir%";
+```
+
+
+查看所有表
+```
+select table_name
+from information_schema.TABLES 
+where TABLE_NAME like 'startup_log_%';
+```
+
 
 ### MYSQL中的日志？
 普通日志：

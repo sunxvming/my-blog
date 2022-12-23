@@ -269,6 +269,13 @@ foo : $(objects)
     cc -o foo $(objects)
 ```
 
+#### 其他设置
+set -x会在执行每一行 shell 脚本时，把执行的内容输出来。它可以让你看到当前执行的情况，里面涉及的变量也会被替换成实际的值。
+set -e会在执行出错时结束程序，就像其他语言中的“抛出异常”一样。（准确说，不是所有出错的时候都会结束程序，见下面的注）
+
+
+ 
+
 ### make clean
 * 用途：清除编译生成的中间.o文件和最终目标文件
 * make clean 如果当前目录下有同名clean文件，则不执行clean对应的命令
@@ -298,101 +305,6 @@ makefile的缩进是用的tab，而不是空格
 2. 运行 configure 脚本，检查系统配置；
 3. 运行 make 命令，执行代码的编译操作；
 4. 运行 make install 命令，安装编译生成的文件。
-
-
-## gdb
-GDB 不仅是一个调试工具，它也是一个学习源码的好工具。用它开跟踪代码的分支和数据的流向，这样走上几个来回之后，再结合源码，就能够对程序的整体情况“了然于胸”。
-
-
-gdb 程序名 [corefile]   corefile是可选的，但能增强gdb的调试能力。
-Linux默认是不生成corefile的，所以需要在.bashrc文件中添加(开发期间设置打开就行)
-ulimit -c unlimited
-(修改完.bashrc文件后记得. .bashrc让修改生效)
-
-
-### 常用命令
-```
-help  h     按模块列出命令类 
-help xx     查看某命令的使用
-gdb -p pid  attach指定pid的程序
-run  r      运行程序， 它的后面可以加上程序的参数，程序运行完重新执行的时候也用这个
-
-【查看】
-list  显示附近的10行代码
-print 变量，表达式。
-    print 'file'::变量，表达式,''是必须的，以便让gdb知道指的是一个文件名。
-    print funcname::变量，表达式
-whatis 命令可以告诉你变量的类型
-ptype pt 查看变量的真实类型，不受 typedef 的影响
-info xx   查看xx的信息
-
-display        设置观察变量，之后每执行一步都会打印其值
-undisplay      取消观察变量
-i display      查看display的值
-watch a        观察a的值，当有变化时，停止，其实一个watch就是一个特殊的断点
-i watch        显示观察点
-delete num     删除一个watch
-
-【打印类相关】
-p *this: 打印出当前类里所有的成员的值
-p this->member: 打印出当前类里的某个成员的值
-ptype this: 打印出当前类里所有的成员（原型）
-whatis this: 打印出当前类的类型
-
-【stack】
-bt backtrace|where|info stack   打印出错的函数调用栈
-up/down：在函数调用栈里上下移动。
-frame f x    切换到第几个函数帧
-info frame
-
-【断点】
-break b命令设置断点
-    break linenum
-    break funcname
-    break filename:linenum
-    break filename:funcname
-break...if...  条件断点
-info break(i b) 查看断点
-enable breakpoints  启用断点
-disable breakpoints  禁用断点
-delete 删除一个断点，若没有参数删除所有，若加断点序号删除指定的
-
-【控制命令】
-start     单步执行，运行程序，停在第一行执行语句
-continue  命令从断点以后继续执行，直到运行到下一个断点。
-step      相当于step into
-next      相当于step over
-finish fin   结束当前函数，返回到函数调用点
-return [value] 停止执行当前函数，将value返回给调用者，相当于step return
-quit或者Ctrl+d    退出
-
-【修改命令】
-set variable varname = value 改变一个变量的值
-
-【TUI模式】
-`-tui` 选项进入TUI模式
-layout src|asm|regs
-`Ctrl+X+A`组合键可以在TUI模式和非TUI模式切换
-
-
-【其他】
-enter  重复执行上条命令
-winheight wh     Set or modify the height of a specified window
-set print elements 0   使打印的字符串长度不受限制
-
-
-```
-【程序运行参数】
-set args 可指定运行时参数。（如：set args 10 20 30 40 50）
-show args 命令可以查看设置好的运行参数。
-
-
-
-### 远程调试
-```
-gdbserver 192.168.1.21:6666 a.out
-(gdb) target remote 192.168.1.23:6666
-```
 
 
 

@@ -1,0 +1,29 @@
+```
+    ctrl+k +d k 代码快速对齐 （在代码没有语法错误的的情况下）
+
+    ctrl+Z 撤销  ctrl+Y  重做（取消刚才撤销的步骤）
+    ctrl+J 弹出智能提示
+    shift+↑ ： 向上选中多行
+    shift+↓ ： 向下选中多行  
+    F1 ：打开帮助文档
+    折叠冗余代码： ctrl+K+S－－＞#region
+Ctrl + M + O: 折叠所有方法
+Ctrl + M + M: 折叠或者展开当前方法
+Ctrl + M + L:  展开所有方法
+强迫显示参数信息：Ctrl-Shift-空格
+Ctrl+Shift+L: 删除当前行
+Ctrl+K，Ctrl+C: 注释
+Ctrl+K，Ctrl+U: 取消注释
+Ctrl+Z: 撤销
+Ctrl+Y: 反撤销
+Ctrl -    移动到上一个光标处
+ Ctrl+K+F   代码格式化，用前先选中
+
+
+Visual Assist X快捷键
+Alt + O： 在.h与.cpp之间互跳。（O是字母O，不是数字零）
+Alt + Shift + F：光标放到某个字符串上，按下此键，会找出所有引用了这个字符串的地方。
+Alt + Shift + O：定位文件
+Alt + Shift + S：方便你寻找某个对象或变量等等。
+Alt+G	快速跳转  如由声明跳转到实现，由实现跳转到声明。	光标要在标识符处   或者F12也行  
+```
