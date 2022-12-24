@@ -1,1 +1,0 @@
-图书配套代码的[github地址](https://github.com/PacktPublishing/Go-Programming-Cookbook-Second-Edition)
