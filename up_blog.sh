@@ -5,6 +5,8 @@
 # ./change_img_url.sh
 # python md_file_tree.py
 
+git pull
+
 git add -A
 git commit -m "update blog"
 git push
