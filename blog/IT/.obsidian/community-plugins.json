@@ -5,5 +5,7 @@
   "code-block-copy",
   "cm-editor-syntax-highlight-obsidian",
   "obsidian-vimrc-support",
-  "obsidian-tabs"
+  "obsidian-tabs",
+  "obsidian-image-auto-upload-plugin",
+  "obsidian-outliner"
 ]

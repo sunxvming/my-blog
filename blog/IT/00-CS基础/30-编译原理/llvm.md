@@ -1,6 +1,4 @@
-# llvm
 
----
 
 ## 介绍
 llvm是low level virtual machine的简称，其实是一个**编译器框架**。llvm随着这个项目的不断的发展，已经无法完全的代表这个项目了

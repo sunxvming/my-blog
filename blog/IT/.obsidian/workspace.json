@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "e57068bbf910235d",
+        "id": "bbb92abfe2269a84",
         "type": "tabs",
         "children": [
           {
-            "id": "bd87b8b60674c41f",
+            "id": "edced173ae2124a8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "00-CS基础/10组成原理&体系结构/深入浅出计算机组成原理-3处理器.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00-CS基础/10组成原理&体系结构/深入浅出计算机组成原理-3处理器.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00-CS基础/10组成原理&体系结构/深入浅出计算机组成原理-3处理器.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "00-CS基础/10组成原理&体系结构/深入浅出计算机组成原理-3处理器.md"
-              }
+              "state": {}
             }
           },
           {
@@ -156,17 +148,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "bd87b8b60674c41f",
+  "active": "edced173ae2124a8",
   "lastOpenFiles": [
-    "00-CS基础/10组成原理&体系结构/深入浅出计算机组成原理-2指令和运算.md",
-    "00-CS基础/10组成原理&体系结构/深入浅出计算机组成原理-1入门篇.md",
-    "00-CS基础/10组成原理&体系结构/深入浅出计算机组成原理-3处理器.md",
-    "00-CS基础/10组成原理&体系结构/深入浅出计算机组成原理-5应用篇.md",
-    "00-CS基础/10组成原理&体系结构/深入浅出计算机组成原理-4存储与IO系统.md",
-    "60-其他主题/面试题/关于简历.md",
-    "60-其他主题/面试题/简历.md",
-    "60-其他主题/面试题/面试问的问题.md",
-    "60-其他主题/面试题/如何在面试中发挥出自己的真实水平.md",
-    "60-其他主题/面试题/找工作注意事项.md"
+    "aa.c.md",
+    "00-CS基础/50-algorithm/零碎小算法.md",
+    "00-CS基础/50-algorithm/设计模式.md",
+    "00-CS基础/50-algorithm/qsort.md",
+    "00-CS基础/50-algorithm/数据结构和算法.md",
+    "00-CS基础/50-algorithm/设计模式/消息队列.md",
+    "00-CS基础/40-操作系统/操作系统.md",
+    "00-CS基础/30-编译原理/llvm.md",
+    "00-CS基础/30-编译原理/程序员的自我修养——链接装载与库-读书笔记.md",
+    "00-CS基础/30-编译原理/编译原理之美.md"
   ]
 }
