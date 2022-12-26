@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "专项主题/读书笔记/把时间当作朋友-李笑来.md",
+                "file": "It/00-CS基础/黑客.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "专项主题/读书笔记/把时间当作朋友-李笑来.md",
+                "file": "It/00-CS基础/黑客.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "专项主题/读书笔记/把时间当作朋友-李笑来.md",
+                "file": "It/00-CS基础/黑客.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "专项主题/读书笔记/把时间当作朋友-李笑来.md"
+                "file": "It/00-CS基础/黑客.md"
               }
             }
           },
@@ -156,17 +156,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "05414af325dc248e",
+  "active": "edced173ae2124a8",
   "lastOpenFiles": [
-    "about-me.md",
+    "It/00-CS基础/程序员的知识和技能树.md",
+    "It/00-CS基础/程序员技术练级攻略.md",
+    "It/00-CS基础/黑客.md",
+    "It/00-CS基础/50-algorithm/qsort.md",
+    "It/00-CS基础/50-algorithm/数据结构与算法之美.md",
+    "It/00-CS基础/50-algorithm/数据结构和算法.md",
+    "It/00-CS基础/50-algorithm/设计模式.md",
+    "It/00-CS基础/50-algorithm/零碎小算法.md",
     "aa.c.md",
-    "00-CS基础/50-algorithm/零碎小算法.md",
-    "00-CS基础/50-algorithm/设计模式.md",
-    "00-CS基础/50-algorithm/qsort.md",
-    "00-CS基础/50-algorithm/数据结构和算法.md",
-    "00-CS基础/50-algorithm/设计模式/消息队列.md",
-    "00-CS基础/40-操作系统/操作系统.md",
-    "00-CS基础/30-编译原理/llvm.md",
-    "00-CS基础/30-编译原理/程序员的自我修养——链接装载与库-读书笔记.md"
+    "It/00-CS基础/50-algorithm/代码模式.md"
   ]
 }
