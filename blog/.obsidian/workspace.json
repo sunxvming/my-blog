@@ -1,0 +1,172 @@
+{
+  "main": {
+    "id": "f328555973625a35",
+    "type": "split",
+    "children": [
+      {
+        "id": "bbb92abfe2269a84",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "edced173ae2124a8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "专项主题/读书笔记/把时间当作朋友-李笑来.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b978607fc82afd6d",
+    "type": "split",
+    "children": [
+      {
+        "id": "1348813691cbe630",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a7a019bd35e37de8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "146a7bc83141d99e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#include",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b251f6add977ecc7",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 295.5
+  },
+  "right": {
+    "id": "3b0d99ddac97cac5",
+    "type": "split",
+    "children": [
+      {
+        "id": "dd1d83042b16a878",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fb969f9b4f04b17b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "专项主题/读书笔记/把时间当作朋友-李笑来.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "d40f67539ce2897a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "专项主题/读书笔记/把时间当作朋友-李笑来.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "590b2075699b8efc",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "05414af325dc248e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "专项主题/读书笔记/把时间当作朋友-李笑来.md"
+              }
+            }
+          },
+          {
+            "id": "a4c160784d7631e5",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 360.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "workspaces:管理工作区布局": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
+    }
+  },
+  "active": "05414af325dc248e",
+  "lastOpenFiles": [
+    "about-me.md",
+    "aa.c.md",
+    "00-CS基础/50-algorithm/零碎小算法.md",
+    "00-CS基础/50-algorithm/设计模式.md",
+    "00-CS基础/50-algorithm/qsort.md",
+    "00-CS基础/50-algorithm/数据结构和算法.md",
+    "00-CS基础/50-algorithm/设计模式/消息队列.md",
+    "00-CS基础/40-操作系统/操作系统.md",
+    "00-CS基础/30-编译原理/llvm.md",
+    "00-CS基础/30-编译原理/程序员的自我修养——链接装载与库-读书笔记.md"
+  ]
+}
