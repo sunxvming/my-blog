@@ -84,7 +84,7 @@ git clean -fd
 查看两个分支的diff               git diff branch1  branch2
 删除分支                              git branch -d xx   
 
-   ![](https://sunxvming.com/imgs/5c211a2a-e278-4cb5-8122-19b387d8904c.png)Fast-forward快速的合并方式，就是指针变几下就行
+   ![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/5c211a2a-e278-4cb5-8122-19b387d8904c.png)Fast-forward快速的合并方式，就是指针变几下就行
 
 
 
@@ -92,7 +92,7 @@ git clean -fd
 这和直接在master分支上工作效果是一样的，但过程更安全。
 
 
-  ![](https://sunxvming.com/imgs/7ce6acac-6082-4746-b297-4abc1fe309bb.png)两个文件都被修改了
+  ![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/7ce6acac-6082-4746-b297-4abc1fe309bb.png)两个文件都被修改了
 
 这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突
 

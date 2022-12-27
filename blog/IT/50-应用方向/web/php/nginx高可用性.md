@@ -1,10 +1,10 @@
 如何保证Nginx的高可用呢？
-![](https://sunxvming.com/imgs/efddf909-1abb-4f4a-9cec-848828e9498e.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/efddf909-1abb-4f4a-9cec-848828e9498e.jpg)
 
 
 
 ## 1.DNS保证高可用
-![](https://sunxvming.com/imgs/59c9fa9d-844f-412d-b927-7e9bd186d104.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/59c9fa9d-844f-412d-b927-7e9bd186d104.jpg)
 但这玩意有一个致命的问题，那就是故障的感知时间。
 
 我们的浏览器在访问到真正的Nginx之前，需要把域名转化为真正的IP地址，DNS就是干解析这个动作的，每次需要耗费20-20ms不等。
@@ -15,14 +15,14 @@
 
 
 ## 2.硬件保证高可用
-![](https://sunxvming.com/imgs/0ca53f98-51f8-4d9b-94fd-ba05fdec67c7.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0ca53f98-51f8-4d9b-94fd-ba05fdec67c7.jpg)
 这种架构一般的企业玩不起，只有那些采购有回扣有油水的公司，才会喜欢这个。互联网中用的很少，就不过多介绍了。
 
 当然，F5同样有单点的问题。虽然硬件肯定要比软件稳定上一点，但是总归是一个隐患。就像Oracle无论再厉害，它还是有出问题的时候，到时候备机是必须的。
 
 
 ## 3.主备模式
-![](https://sunxvming.com/imgs/7529beb6-7596-4de9-a8ac-1b677f715f74.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/7529beb6-7596-4de9-a8ac-1b677f715f74.jpg)
 如图，使用`keepalived`组件，通过`VRRP`协议，即可完成最简单的高可用配置。
 
 我们把`DNS`的地址绑定在`VIP`上，当正在服务的`Nginx`发生问题，`VIP`会发生`漂移`，转移到另外一台`Nginx`上。
@@ -37,13 +37,13 @@
 这个时候，我们就可以配合DNS解析，以及主备模式做文章了。如下图，DNS解析到两个VIP上，VIP本身也做了高可用。这样就能够缩短故障时间，同时也能够保证每个组件的高可用。
 这种架构模式思路是非常清晰的，但依然存在影子节点的浪费。
 
-![](https://sunxvming.com/imgs/1d9fc3de-04a0-43b0-91ec-9187d7cf02c0.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/1d9fc3de-04a0-43b0-91ec-9187d7cf02c0.jpg)
 
 ## 5.LVS+KeepAlived+Nginx
 LVS 是 Linux Virtual Server 的简称，也就是 Linux 虚拟服务器。现在 LVS 已经是 Linux 标准内核的一部分，从 Linux2.4 内核以后，已经完全内置了 LVS 的各个功能模块，无需给内核打任何补丁，可以直接使用 LVS 提供的各种功能。
 
 LVS工作在OSI模型的第4层：传输层，比如TCP/UDP，所以像7层网络的HTTP协议，它是识别不出来的。也就是说，我们不能拿HTTP协议的一些内容来控制路由，它的路由切入层次更低一些。
-![](https://sunxvming.com/imgs/d5d7abcc-725a-4b67-ae3e-42ce8321c980.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/d5d7abcc-725a-4b67-ae3e-42ce8321c980.jpg)
 
 
 

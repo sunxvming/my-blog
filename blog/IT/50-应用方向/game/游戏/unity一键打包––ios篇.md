@@ -42,17 +42,17 @@ mv testflod .testflod
 ### 1.SDK设置
 Showing Recent Issues
 Error: There is no SDK with the name or path '/Users/mac/Downloads/SimplestPluginExample/XCodePlugin/macosx10.5'
-![](http://www.sunxvming.com/imgs/d4404ca8-a261-402f-a052-0ee491bda10c.png)
+![](http://www.sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/d4404ca8-a261-402f-a052-0ee491bda10c.png)
 
 ### 2.bitcode设置
 *** does not contain bitcode. You must rebuild it with bitcode enabled (Xcode setting ENABLE_BITCODE), obtain an updated library from the vendor, or disable bitcode for this target. for architecture armv7
-![](http://www.sunxvming.com/imgs/34a101fd-893f-4172-a26d-8ba7a2372cd4.png)
+![](http://www.sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/34a101fd-893f-4172-a26d-8ba7a2372cd4.png)
 
 ### 3.导入库文件
-![](http://www.sunxvming.com/imgs/55049109-aeb1-472f-935c-809247a370db.png)
+![](http://www.sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/55049109-aeb1-472f-935c-809247a370db.png)
 
 ### 4.其中一个闪退的问题
-![](http://www.sunxvming.com/imgs/DF30C54B-458E-3B90-49AD-08A5C8E481A7.jpg)
+![](http://www.sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/DF30C54B-458E-3B90-49AD-08A5C8E481A7.jpg)
 
 ### 5.打ipa包签名问题
 CodeSign 的时候好像会让你输用户的密码，命令行没输就会出错了，下面的命令就是设置下不验证密码
@@ -62,7 +62,7 @@ security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k 123456 ~/L
 security set-keychain-settings ~/Library/Keychains/login.keychain
 ```
 ### 6.设置打的版本是测试版还是发布版
-![](http://www.sunxvming.com/imgs/5bf70dc6-6981-47cc-ba83-ff2719c27c96.png)
+![](http://www.sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/5bf70dc6-6981-47cc-ba83-ff2719c27c96.png)
 
 ### 7.调试静态库的代码
 luajit的源代码放到xcode工程的plugins/iOS/ 中即可

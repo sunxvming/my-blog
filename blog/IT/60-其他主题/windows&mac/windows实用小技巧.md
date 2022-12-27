@@ -77,7 +77,7 @@
 ## windows的睡眠模式
 电脑的系统睡眠状态，共有 S0-S5 六个等级。用通俗易懂的说法来解释，它们就像我们平时睡觉一样，数字越大，睡得就越香。
 S0 对应的是正常的开机状态，如果到 S5 这个级别，就直接关机了。
-![](https://sunxvming.com/imgs/538a679e-f142-4a0e-93e8-ba9a67e594ad.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/538a679e-f142-4a0e-93e8-ba9a67e594ad.jpg)
 现在的windows电脑的睡眠模式一般都是S0(Low Power Mode)
 
 

@@ -8,7 +8,7 @@
 
 ## 正向代理
 假如我们访问不了某网站，但是代理服务器可以访问，我们可以让代理服务器去帮助我们访问目标网站，并把结果返回给我们。对于远程目标网站来说，它只得到了一次请求记录，并不知道是我们通过代理服务器访问的，因此正向代理隐藏了我们自身的信息，但也取决于代理服务器告不告诉目标网站。对于我们客户端来说，我自己是知道我使用了代理去访问某个网站的。
-![](https://sunxvming.com/imgs/24f7bc04-cac3-498c-855c-7bb90c6c6860.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/24f7bc04-cac3-498c-855c-7bb90c6c6860.jpg)
 
 
 总的来说，正向代理是一个位于客户端（client）和原始服务器(origin server)之间的服务器（proxy server）。客户端为了从原始服务器取得内容，向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。客户端必须要进行一些特别的设置才能使用正向代理。
@@ -32,14 +32,14 @@
 2.  **负载均衡**：通过反向代理服务器来优化网站的负载
 
 
-![](https://sunxvming.com/imgs/8da7322f-d6b5-418d-8216-b8003d2afbac.jpg)
-![](https://sunxvming.com/imgs/f5a4d2fe-37c6-41e1-b724-4afeab69f87b.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/8da7322f-d6b5-418d-8216-b8003d2afbac.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/f5a4d2fe-37c6-41e1-b724-4afeab69f87b.jpg)
 
 
 
 
 ### 正向代理和反向代理的区别
-![](https://sunxvming.com/imgs/e4673e09-0df6-4fbc-b05f-b519a3b00bcb.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/e4673e09-0df6-4fbc-b05f-b519a3b00bcb.jpg)
 
 
 

@@ -7,7 +7,7 @@
 
 
 最终下载的go工具会在这个目录下`C:\Users\DELL\go\bin`
-![](https://sunxvming.com/imgs/dce8940b-2a3d-4154-884c-f85f798ad349.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/dce8940b-2a3d-4154-884c-f85f798ad349.png)
 
 
 

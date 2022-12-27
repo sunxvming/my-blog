@@ -380,7 +380,7 @@ location /foo {
 即 '/'能从左前缀匹配 '/foo', '/foo'也能左前缀匹配'/foo',
 此时, 真正访问 /var/www/html/index.html
 原因:'/foo'匹配的更长,因此使用之.;
-![](https://sunxvming.com/imgs/95ad9212-77d6-482c-a04e-7781a2b96137.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/95ad9212-77d6-482c-a04e-7781a2b96137.jpg)
 
 
 
@@ -720,7 +720,7 @@ Js,css等小时级的缓存.
 
 
 ## 10.nginx反向代理服务器+负载均衡
-![](https://sunxvming.com/imgs/25d33256-aa03-4a0d-941c-bdab559d7ca7.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/25d33256-aa03-4a0d-941c-bdab559d7ca7.jpg)
 
 
 用户A始终认为它访问的是原始服务器B而不是代理服务器Z，但实用际上反向代理服务器接 受用户A的应答，

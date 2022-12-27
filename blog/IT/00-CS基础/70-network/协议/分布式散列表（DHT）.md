@@ -44,9 +44,9 @@ Kad 使用 160比特 的散列算法（比如 SHA1），完整的 key 用�
 3. 如果该位是 1，进入左子树，是 0 则进入右子树（这只是人为约定，反过来处理也可以）
 4. 全部数位都处理完后，这个 key 就对应了二叉树上的某个【叶子】
 
-![](https://sunxvming.com/imgs/66f5b541-13f1-4f23-b360-2880b0e6d828.jpg)
-![](https://sunxvming.com/imgs/affa9d60-4fda-42d7-a887-85c045d16947.jpg)
-![](https://sunxvming.com/imgs/1ad2306d-7a04-48cc-b641-9e96d6c64e12.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/66f5b541-13f1-4f23-b360-2880b0e6d828.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/affa9d60-4fda-42d7-a887-85c045d16947.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/1ad2306d-7a04-48cc-b641-9e96d6c64e12.jpg)
 
 
 

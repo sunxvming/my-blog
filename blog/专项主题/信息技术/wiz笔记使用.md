@@ -9,7 +9,7 @@
 wiz笔记没有做专门的图床，引用图片有两种方式，
 1. 直接在md文件中插入图片，图片的保存是由wiz笔记维护的
 2. 用editor.md插件中的图片上传，可以生成如下的链接
-`![](https://sunxvming.com/imgs/_u5FAE_u4FE1_u622A_u56FE_20210322113442.png)`
+`![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/_u5FAE_u4FE1_u622A_u56FE_20210322113442.png)`
 
 
 
@@ -24,7 +24,7 @@ wiz笔记导出的时候要从服务器重新拉取一遍，以防有的文章�
 
 ### editor.md编辑图片丢失问题
 用editor.md编辑后，图片变成
-`![](https://sunxvming.com/imgs/_u5FAE_u4FE1_u622A_u56FE_20210322113442.png)`
+`![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/_u5FAE_u4FE1_u622A_u56FE_20210322113442.png)`
 链接的形式，但是查看文件的原始文件xx.md.wiz中的index_files图片目录不见了，然后图片的链接找不到图片，图片就显示不了了。
 
 

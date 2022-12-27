@@ -11,7 +11,7 @@
 Postman 有个 workspace 的概念，workspace 分 personal 和 team 类型。Personal workspace 只能自己查看的 API，Team workspace 可添加成员和设置成员权限，成员之间可共同管理 API。
 
 ## 如何使用
-![](https://sunxvming.com/imgs/37ddb176-f6ee-4e2e-804c-fa3e9c38c733.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/37ddb176-f6ee-4e2e-804c-fa3e9c38c733.jpg)
 
 
 ## 如何将请求参数化
@@ -37,18 +37,18 @@ postman 支持的变量的作用范围
 ### 环境变量
 在做测试的过程中，可能遇到频繁更换测试地址的操作，比如今天开发用了这个测试环境，明天又换了另一个测试环境活正式环境。
 在postman中可以设置不同的环境变量以进行不同的环境测试，操作如下：
-![](https://sunxvming.com/imgs/ca85f161-bc2c-4659-9e02-63de11231c90.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/ca85f161-bc2c-4659-9e02-63de11231c90.png)
 
 选择环境变量的位置在右上角，并且旁边的小眼睛图片可以查看此环境的所有变量
-![](https://sunxvming.com/imgs/0bb93362-7c61-4c6b-8637-16c201608168.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0bb93362-7c61-4c6b-8637-16c201608168.png)
 
 
 ## 如何创建Postman Tests
 Postman Tests在请求中添加JavaScript代码来协助验证结果，如：成功或失败状态、预期结果的比较等等。
 例如如下测试返回值是否为200
-![](https://sunxvming.com/imgs/16e299b9-06b0-455c-aa20-dd7bfe5ff27c.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16e299b9-06b0-455c-aa20-dd7bfe5ff27c.jpg)
 测试通过了会在下面显示：
-![](https://sunxvming.com/imgs/ad504a29-841a-4f99-bf0e-ac9697a53dcb.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/ad504a29-841a-4f99-bf0e-ac9697a53dcb.jpg)
 
 
 ## postman显示返回的base64图片验证码、二维码
@@ -71,7 +71,7 @@ pm.visualizer.set(template, data);
 ```
 
 效果如下：
-![](https://sunxvming.com/imgs/fba1744a-261c-408d-ac0d-cfa235b9f341.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/fba1744a-261c-408d-ac0d-cfa235b9f341.png)
 
 
 
@@ -83,7 +83,7 @@ pm.visualizer.set(template, data);
 
 ## 如何对collections中的请求做批量测试
 ### 使用Collection runner运行集合
-![](https://sunxvming.com/imgs/50970bae-e718-4f93-a425-95ab0a5de358.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/50970bae-e718-4f93-a425-95ab0a5de358.png)
 
 ### 使用Newman运行集合
 运行集合的另一种方式是通过Newman。Newman和Collection Runner之间的主要区别如下:

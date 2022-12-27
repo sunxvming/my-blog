@@ -106,17 +106,17 @@ done
 ```
 根据我们项目的测试经验，通常统计出来的句柄图形如下列三种：
 平稳
-![](https://sunxvming.com/imgs/dcacc18d-a766-4bb5-b1df-ed0161580624.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/dcacc18d-a766-4bb5-b1df-ed0161580624.png)
 在程序运行当中，句柄被不断地打开关闭，因此统计图形呈现平稳的锯齿形。在程序运行后期，很多临时打开的句柄被逐渐关闭，总的句柄数量没有随着时间的推移而增加，因此该程序不存在句柄泄露。
 
 
 峰值稳定
-![](https://sunxvming.com/imgs/0d46c8d1-aaaa-4725-99e9-e69af459257c.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0d46c8d1-aaaa-4725-99e9-e69af459257c.png)
 在该程序运行初期，程序打开的句柄数量会随着时间的推移而逐步增加。但是当运行一段时间后，句柄数量会达到一个相对平稳的状态，大概 3500 左右。这个时候表明程序打开了很多临时句柄，但是句柄数量相对稳定，也不存在句柄泄露问题。
 
 
 递增
-![](https://sunxvming.com/imgs/14960e2a-db49-4252-a2b4-12470f866e3f.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/14960e2a-db49-4252-a2b4-12470f866e3f.png)
 程序在运行当中，某一操作引起了程序打开句柄数量逐步增加，而且没有出现相对平稳的迹象，说明该程序可能存在句柄泄露，需要进一步分析是哪一部分的句柄存在泄漏，以及什么操作会引起程序句柄的泄露。
 
 

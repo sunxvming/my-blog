@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "about-me.md",
+                "file": "It/00-CS基础/10-组成原理&体系结构/深入浅出计算机组成原理-3处理器.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "about-me.md",
+                "file": "It/00-CS基础/10-组成原理&体系结构/深入浅出计算机组成原理-3处理器.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "about-me.md",
+                "file": "It/00-CS基础/10-组成原理&体系结构/深入浅出计算机组成原理-3处理器.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "about-me.md"
+                "file": "It/00-CS基础/10-组成原理&体系结构/深入浅出计算机组成原理-3处理器.md"
               }
             }
           },
@@ -158,15 +158,15 @@
   },
   "active": "8da002157911c48c",
   "lastOpenFiles": [
+    "It/00-CS基础/10-组成原理&体系结构/深入浅出计算机组成原理-2指令和运算.md",
+    "It/00-CS基础/10-组成原理&体系结构/深入浅出计算机组成原理-1入门篇.md",
+    "about-me.md",
     "It/10-编程语言/c.c++/c笔记/c语言中文网-c语言内存和指针.md",
     "It/10-编程语言/c.c++/c笔记/c语言中文网-c教程笔记.md",
-    "about-me.md",
     "It/40-tools/xshell/xshell.md",
     "It/40-tools/编辑器/emacs/emacs.md",
     "attach/腾讯云出海游戏解决方案-亚创V2.pdf",
     "学科/math/希腊字母.md",
-    "生活/常识/购房知识.md",
-    "学科/math/程序员的数学基础课.md",
-    "学科/math/定律，定理，定则，公理，原理的区别.md"
+    "生活/常识/购房知识.md"
   ]
 }

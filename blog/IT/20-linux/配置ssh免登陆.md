@@ -14,4 +14,4 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 # 或者
 ssh-copy-id user@host
 ```
-![](https://sunxvming.com/imgs/12731350.png)     
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/12731350.png)     

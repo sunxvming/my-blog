@@ -1,9 +1,9 @@
 ## 原理图
 **TCP三次握手、四次挥手时序图**
-![](https://sunxvming.com/imgs/e463d1f7-4f0a-4e00-9929-442cdc8b1b2c.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/e463d1f7-4f0a-4e00-9929-442cdc8b1b2c.jpg)
 
 **TCP协议状态机**
-![](https://sunxvming.com/imgs/cfc19903-682e-492e-983c-c5d7ec4baa78.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/cfc19903-682e-492e-983c-c5d7ec4baa78.jpg)
 
 
 ## 建立连接
@@ -44,7 +44,7 @@ Client发送SYN包给Server后挂了，Server回给Client的SYN-ACK一直没收�
 ### TCP的Peer两端同时断开连接
 
 由上面的”TCP协议状态机 “图可以看出，TCP的Peer端在收到对端的FIN包前发出了FIN包，那么该Peer的状态就变成了FIN_WAIT1，Peer在FIN_WAIT1状态下收到对端Peer对自己FIN包的ACK包的话，那么Peer状态就变成FIN_WAIT2，Peer在FIN_WAIT2下收到对端Peer的FIN包，在确认已经收到了对端Peer全部的Data数据包后，就响应一个ACK给对端Peer，然后自己进入TIME_WAIT状态；但是如果Peer在FIN_WAIT1状态下首先收到对端Peer的FIN包的话，那么该Peer在确认已经收到了对端Peer全部的Data数据包后，就响应一个ACK给对端Peer，然后自己进入CLOSEING状态，Peer在CLOSEING状态下收到自己FIN包的ACK包的话，那么就进入TIME WAIT状态。于是，TCP的Peer两端同时发起FIN包进行断开连接，那么两端Peer可能出现完全一样的状态转移FIN_WAIT1---->CLOSEING----->TIME_WAIT，Client和Server也就会最后同时进入TIME_WAIT状态。同时关闭连接的状态转移如下图所示：
-![](https://sunxvming.com/imgs/3194002e-40b6-4fd9-a69f-c7d505c5cf50.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/3194002e-40b6-4fd9-a69f-c7d505c5cf50.jpg)
 
 ### 四次挥手能否变成三次挥手？
 答案是可能的。TCP是全双工通信，Cliet在自己已经不会再有新的数据要发送给Server后，可以发送FIN信号告知Server，这边已经终止Client到对端Server的数据传输。但是，这个时候对端Server可以继续往Client这边发送数据包。于是，两端数据传输的终止在时序上独立并且可能会相隔比较长的时间，这个时候就必须最少需要2+2=4次挥手来完全终止这个连接。但是，如果Server在收到Client的FIN包后，再也没数据需要发送给Client了，那么对Client的ACK包和Server自己的FIN包就可以合并成一个包发送过去，这样四次挥手就可以变成三次了(似乎Linux协议栈就是这样实现的)。

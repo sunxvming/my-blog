@@ -5,9 +5,9 @@
 像编译型的语言，如c、c++、c#、java一类的，有不错的IDE工具，再用debug模式编译时会把一些debug的信息也编译到执行文件中，借助强大的工具，很容易就可以找出死循环的位置，比如以VS下开发unity为例，当出现死循环时按以下步骤即可找出。
 attach上unity进程，运行程序，走到死循环后会卡死，这时打开“调试/窗口/线程"菜单，然后点中断
 
-![](http://www.sunxvming.com/imgs/0e41e0c3-7cb8-4e8c-9757-ea21c0716417.png)
+![](http://www.sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0e41e0c3-7cb8-4e8c-9757-ea21c0716417.png)
  这时线程窗口会显示执行的线程的调用栈
-![](http://www.sunxvming.com/imgs/84e7e9b5-4893-49f7-9cc9-35e079e421c5.png)
+![](http://www.sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/84e7e9b5-4893-49f7-9cc9-35e079e421c5.png)
 ### 不好查的死循环
 用lua写的程序中要是出现了死循环，一般的表现就是程序卡死或者程序未响应，而你能做的只是静静的看着它静止在哪里，或者打开任务管理器把程序给关掉。由于lua是个脚本语言，调试的工具不是太多，所以定位哪里出现死循环还是比较麻烦的。如果你凭直觉去找可能找半天也不一定能找出来。这时你会
 想要是有个工具能再出现死循环的时候直接报错改多好哇！

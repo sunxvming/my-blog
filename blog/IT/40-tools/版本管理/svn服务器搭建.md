@@ -45,7 +45,7 @@ svnadmin create /home/svn/game
 cd /home/svn/game
 如果成功，game目录下会多出几个文件夹
 
-![](https://sunxvming.com/imgs/8b0e66ef-1d80-4a38-9e3c-a0a28dcae6e5.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/8b0e66ef-1d80-4a38-9e3c-a0a28dcae6e5.jpg)
  
 7.配置权限
 A.配置SVN
@@ -121,6 +121,6 @@ vi /etc/rc.d/rc.local   添加下面一行
 
 
 【问题】
-![](https://sunxvming.com/imgs/1622090a-f7bc-4b77-821a-4d3250c1b07a.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/1622090a-f7bc-4b77-821a-4d3250c1b07a.jpg)
  1.检查防火墙是否关闭   2.检查协议是用的https的还是用svn的
 

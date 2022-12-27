@@ -1,6 +1,6 @@
 域名解析，设置后待会在浏览器中试下看好了没。
 
-![](https://sunxvming.com/imgs/329aca70-0b2e-412a-b826-0565d82de679.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/329aca70-0b2e-412a-b826-0565d82de679.png)
 
 
 
@@ -25,7 +25,7 @@
 XAMPP: Starting Apache...fail. 
 XAMPP:  Another web server is already running.  
 在网查了一下，原来是因为在  xampp 里面有一判断，端口是否已经使用。所要修改一下就可以了。
- ![](https://sunxvming.com/imgs/0.9267453295178711.png)
+ ![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0.9267453295178711.png)
 
 ```
 

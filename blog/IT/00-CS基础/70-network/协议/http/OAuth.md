@@ -34,11 +34,11 @@ OAuth 2.0 的标准是 RFC 6749 文件。该文件先解释了 OAuth 是什么�
 
 
 ### 第一种授权方式：授权码
-![](https://sunxvming.com/imgs/b829050a-6a7d-4b1c-aa75-8d5b9673d098.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/b829050a-6a7d-4b1c-aa75-8d5b9673d098.jpg)
 
 
 ### 第二种方式：隐藏式
-![](https://sunxvming.com/imgs/6cf0a5d4-c303-4852-a129-93674186df71.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/6cf0a5d4-c303-4852-a129-93674186df71.jpg)
 
 
 ### 第三种方式：密码式

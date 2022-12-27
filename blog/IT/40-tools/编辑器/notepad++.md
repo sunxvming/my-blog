@@ -116,7 +116,7 @@ EXIT表示关闭命令行窗口 （如果使用 cmd /c 就可以省掉 EXIT 了�
 
 自动去空格
 管理快捷键
-![](https://sunxvming.com/imgs/8e74f793-b655-4c57-8945-93bbad907543.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/8e74f793-b655-4c57-8945-93bbad907543.png)
  
 
 

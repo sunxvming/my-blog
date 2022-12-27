@@ -1,7 +1,7 @@
 ## 35 | 存储器层次结构全景：数据存储的大金字塔长什么样？
 
 ### 理解存储器的层次结构
-![](https://sunxvming.com/imgs/76fd1ce6-a3be-4f66-b81b-29283cc9ce8c.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/76fd1ce6-a3be-4f66-b81b-29283cc9ce8c.jpg)
 
 CPU 并不是直接和每一种存储器设备打交道，而是每一种存储器设备，只和它相邻的存储设备打交道。比如，CPU Cache 是从内存里加载而来的，或者需要写回内存，并不会直接写回数据到硬盘，也不会直接从硬盘加载数据到 CPU Cache 中，而是先加载到内存，再从内存加载到 Cache 中。
 
@@ -56,7 +56,7 @@ CPU 如何知道要访问的内存数据，存储在 Cache 的哪个位置呢
 CPU 访问内存数据，是一小块一小块数据来读取的。对于读取内存中的数据，我们首先拿到的是数据所在的**内存块**（Block）的地址。而直接映射 Cache 采用的策略，就是确保任何一个内存块的地址，始终映射到一个固定的 CPU Cache 地址（Cache Line）。而这个映射关系，通常用 mod 运算（求余运算）来实现。
 
 比如说，我们的主内存被分成 0～31 号这样 32 个块。我们一共有 8 个缓存块。用户想要访问第 21 号内存块。如果 21 号内存块内容在缓存块中的话，它一定在 5 号缓存块（21 mod 8 = 5）中。
-![](https://sunxvming.com/imgs/62c5e364-78fd-47a6-a943-1032e40052d2.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/62c5e364-78fd-47a6-a943-1032e40052d2.png)
 
 实际计算中，有一个小小的技巧，通常我们会把缓存块的数量设置成 2 的 N 次方。这样在计算取模的时候，可以直接取地址的低 N 位，也就是二进制里面的后几位。比如这里的 8 个缓存块，就是 2 的 3 次方。那么，在对 21 取模的时候，可以对 21 的 2 进制表示 10101 取地址的低三位，也就是 101，对应的 5，就是对应的缓存块地址。
 
@@ -67,7 +67,7 @@ CPU 访问内存数据，是一小块一小块数据来读取的。对于读取
 CPU 在读取数据的时候，并不是要读取一整个 Block，而是读取一个他需要的整数。这样的数据，我们叫作 CPU 里的一个字（Word）。具体是哪个字，就用这个字在整个 Block 里面的位置来决定。这个位置，我们叫作偏移量（Offset）。
 
 **内存地址到 Cache Line 的关系**
-![](https://sunxvming.com/imgs/bb5c72f8-5cad-48d4-83cb-deee60b3a284.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/bb5c72f8-5cad-48d4-83cb-deee60b3a284.jpg)
 
 
 而内存地址对应到 Cache 里的数据结构，则多了一个有效位和对应的数据，由“**索引 + 有效位** **+ 组标记 + 数据**”组成。如果内存中的数据已经在 CPU Cache 里了，那一个内存地址的访问，就会经历这样 4 个步骤：
@@ -91,17 +91,17 @@ volatile 关键字会确保我们对于这个变量的读取和写入，都**�
 ### CPU 高速缓存的写入
 我们现在用的 Intel CPU，通常都是多核的的。每一个 CPU 核里面，都有独立属于自己的 L1、L2 的 Cache，然后再有多个 CPU 核共用的 L3 的 Cache、主内存。
 
-![](https://sunxvming.com/imgs/a2ac67e6-fd20-4450-9efc-3380deb18a8f.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/a2ac67e6-fd20-4450-9efc-3380deb18a8f.jpg)
 这个层级结构，就好像我们在 Java 内存模型里面，每一个线程都有属于自己的线程栈。线程在读取 COUNTER 的数据的时候，其实是从本地的线程栈的 Cache 副本里面读取数据，而不是从主内存里面读取数据。如果我们对于数据仅仅只是读，问题还不大。
 但是，对于数据，我们不光要读，还要去写入修改。这个时候，有两个问题来了。
 **第一个问题是，写入 Cache 的性能也比写入主内存要快，那我们写入的数据，到底应该写到 Cache 里还是主内存呢？如果我们直接写入到主内存里，Cache 里的数据是否会失效呢**？为了解决这些疑问，下面我要给你介绍两种写入策略。
 
 #### 写直达（Write-Through）
-![](https://sunxvming.com/imgs/9db13293-ffc4-4728-ace0-1805d1aee7cd.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/9db13293-ffc4-4728-ace0-1805d1aee7cd.jpg)
 写直达的这个策略很直观，但是问题也很明显，那就是这个策略很慢。无论数据是不是在 Cache 里面，我们都需要把数据写到主内存里面。这个方式就有点儿像我们上面用 volatile 关键字，始终都要把数据同步到主内存里面。
 
 #### 写回（Write-Back）
-![](https://sunxvming.com/imgs/13d70d04-e50f-414a-894a-7d020f1eaf0f.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/13d70d04-e50f-414a-894a-7d020f1eaf0f.jpg)
 
 在 CPU Cache 的写入策略里，还有一种策略就叫作写回（Write-Back）。这个策略里，我们不再是每次都把数据写入到主内存，而是只写到 CPU Cache 里。只有当 CPU Cache 里面的数据要被“替换”的时候，我们才把数据写入到主内存里面去。
 在用了写回这个策略之后，我们在加载内存数据到 Cache 里面的时候，也要多出一步同步脏 Cache 的动作。如果加载内存里面的数据到 Cache 的时候，发现 Cache Block 里面有脏标记，我们也要先把 Cache Block 里的数据写回到主内存，才能加载数据覆盖掉 Cache。
@@ -117,10 +117,10 @@ volatile 关键字会确保我们对于这个变量的读取和写入，都**�
 ## 39 | MESI协议：如何让多核CPU的高速缓存保持一致？
 CPU Cache 解决的是内存访问速度和 CPU 的速度差距太大的问题。而多核 CPU 提供的是，在主频难以提升的时候，通过增加 CPU 核心来提升 CPU 的吞吐率的办法。我们把多核和 CPU Cache 两者一结合，就给我们带来了一个新的挑战。因为 CPU 的每个核各有各的缓存，互相之间的操作又是各自独立的，就会带来[**缓存一致性**](https://en.wikipedia.org/wiki/Cache_coherence)（Cache Coherence）的问题。
 
-![](https://sunxvming.com/imgs/4c501d89-36ef-4450-87e7-67010f5740dc.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/4c501d89-36ef-4450-87e7-67010f5740dc.jpg)
 
 ### 缓存一致性问题
-![](https://sunxvming.com/imgs/b6e74a94-0e13-48f4-9292-f9961ed13fe9.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/b6e74a94-0e13-48f4-9292-f9961ed13fe9.jpg)
 
 比方说，iPhone 降价了，我们要把 iPhone 最新的价格更新到内存里。为了性能问题，它采用了上一讲我们说的写回策略，先把数据写入到 L2 Cache 里面，然后把 Cache Block 标记成脏的。这个时候，数据其实并没有被同步到 L3 Cache 或者主内存里。1 号核心希望在这个 Cache Block 要被交换出去的时候，数据才写入到主内存里。
 
@@ -176,7 +176,7 @@ MESI 协议的由来呢，来自于我们对 Cache Line 的四个不同的�
 2.  从页表里面，查询出虚拟页号，对应的物理页号；
 3.  直接拿物理页号，加上前面的偏移量，就得到了物理内存地址。
 
-![](https://sunxvming.com/imgs/2ae50e9f-69be-4ef1-8926-3c8c3003284f.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/2ae50e9f-69be-4ef1-8926-3c8c3003284f.png)
 
 **存在问题**：
 32 位的内存地址空间，页表一共需要记录 2^20 个到物理页号的映射关系。这个存储关系，就好比一个 2^20 大小的数组。一个页号是完整的 32 位的 4 字节（Byte），这样一个页表就需要 4MB 的空间。
@@ -187,8 +187,8 @@ MESI 协议的由来呢，来自于我们对 Cache Line 的四个不同的�
 一个进程的内存地址空间是怎么分配的。在整个进程的内存地址空间，通常是“**两头实、中间空**”。在程序运行的时候，内存地址从顶部往下，不断分配占用的栈的空间。而堆的空间，内存地址则是从底部往上，是不断分配占用的。
 所以，在一个实际的程序进程里面，虚拟内存占用的地址空间，通常是两段连续的空间。而不是完全散落的随机的内存地址。而多级页表，就特别适合这样的内存地址分布。
 
-![](https://sunxvming.com/imgs/7e85f923-82ad-4e36-9617-f5f844998673.jpg)
-![](https://sunxvming.com/imgs/44454e83-8df2-4ad0-9916-3d2fee04ebc9.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/7e85f923-82ad-4e36-9617-f5f844998673.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/44454e83-8df2-4ad0-9916-3d2fee04ebc9.jpg)
 
 多级页表虽然节约了我们的存储空间，却带来了时间上的开销，所以它其实是一个“**以时间换空间**”的策略。原本我们进行一次地址转换，只需要访问一次内存就能找到物理页号，算出物理内存地址。但是，用了 4 级页表，我们就需要访问 4 次内存，才能找到物理页号了。
 
@@ -205,7 +205,7 @@ MESI 协议的由来呢，来自于我们对 Cache Line 的四个不同的�
 
 为了性能，我们整个内存转换过程也要由硬件来执行。在 CPU 芯片里面，我们封装了内存管理单元（MMU，Memory Management Unit）芯片，用来完成地址转换。和 TLB 的访问和交互，都是由这个 MMU 控制的。
 
-![](https://sunxvming.com/imgs/8adc70d0-3c68-4563-9caf-730e6fdaed70.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/8adc70d0-3c68-4563-9caf-730e6fdaed70.jpg)
 
 
 ### 安全性与内存保护
@@ -222,8 +222,8 @@ MESI 协议的由来呢，来自于我们对 Cache Line 的四个不同的�
 
 ### 降低复杂性：总线的设计思路来源
 
-![](https://sunxvming.com/imgs/5e0e8779-364f-4815-a04e-46e7eb0d0567.jpg)
-![](https://sunxvming.com/imgs/ebfe2867-d236-4e49-90e9-7e2ce0fbaf43.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/5e0e8779-364f-4815-a04e-46e7eb0d0567.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/ebfe2867-d236-4e49-90e9-7e2ce0fbaf43.jpg)
 
 总线，其实就是一组线路。我们的 CPU、内存以及输入和输出设备，都是通过这组线路，进行相互间通信的。总线的英文叫作 Bus，就是一辆公交车。这个名字很好地描述了总线的含义。我们的“公交车”的各个站点，就是各个接入设备。要想向一个设备传输数据，我们只要把数据放上公交车，在对应的车站下车就可以了。
 
@@ -235,7 +235,7 @@ MESI 协议的由来呢，来自于我们对 Cache Line 的四个不同的�
 
 本地总线，就是用来和高速缓存通信的。而前端总线，则是用来和主内存以及输入输出设备通信的。有时候，我们会把本地总线也叫作后端总线（Back-side Bus），和前面的前端总线对应起来。而前端总线也有很多其他名字，比如处理器总线（Processor Bus）、内存总线（Memory Bus）。
 
-![](https://sunxvming.com/imgs/7fe2847c-efaa-469a-939e-f2be7636a2db.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/7fe2847c-efaa-469a-939e-f2be7636a2db.jpg)
 
 CPU 里面的北桥芯片，把我们上面说的前端总线，一分为二，变成了三个总线。
 
@@ -273,7 +273,7 @@ CPU 里面的北桥芯片，把我们上面说的前端总线，一分为二，
 ### CPU 是如何控制 I/O 设备的？
 无论是内置在主板上的接口，还是集成在设备上的接口，除了三类寄存器之外，还有对应的控制电路。正是通过这个控制电路，CPU 才能通过向这个接口电路板传输信号，来控制实际的硬件。
 
-![](https://sunxvming.com/imgs/64d6ab47-9bb2-4761-8510-aab9a77aac5b.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/64d6ab47-9bb2-4761-8510-aab9a77aac5b.jpg)
 
 **以打印机为例**
 1.  首先是数据寄存器（Data Register）。CPU 向 I/O 设备写入需要传输的数据，比如要打印的内容是“GeekTime”，我们就要先发送一个“G”给到对应的 I/O 设备。
@@ -293,7 +293,7 @@ CPU 和 I/O 设备的通信，一样是**通过 CPU 支持的机器指令�
 答案就是，和访问我们的主内存一样，使用“内存地址”。为了让已经足够复杂的 CPU 尽可能简单，计算机会把 I/O 设备的各个寄存器，以及 I/O 设备内部的内存地址，都映射到主内存地址空间里来。主内存的地址空间里，会给不同的 I/O 设备预留一段一段的内存地址。CPU 想要和这些 I/O 设备通信的时候呢，就往这些地址发送数据。这些地址信息，就是通过上一讲的地址线来发送的，而对应的数据信息呢，自然就是通过数据线来发送的了。
 
 而我们的 I/O 设备呢，就会监控地址线，并且在 CPU 往自己地址发送数据的时候，把对应的数据线里面传输过来的数据，接入到对应的设备里面的寄存器和内存里面来。CPU 无论是向 I/O 设备发送命令、查询状态还是传输数据，都可以通过这样的方式。这种方式呢，叫作**内存映射**IO（Memory-Mapped I/O，简称 MMIO）。
-![](https://sunxvming.com/imgs/8c3f2164-f34f-47ee-a3ff-bc5c1768ba80.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/8c3f2164-f34f-47ee-a3ff-bc5c1768ba80.jpg)
 
 那么，MMIO 是不是唯一一种 CPU 和设备通信的方式呢？答案是否定的。精简指令集 MIPS 的 CPU 特别简单，所以这里只有 MMIO。而我们有 2000 多个指令的 Intel X86 架构的计算机，自然可以设计专门的和 I/O 设备通信的指令，也就是 in 和 out 指令。
 
@@ -326,11 +326,11 @@ CPU 并不是发送一个特定的操作指令来操作不同的 I/O 设备�
 定位的原则是从大范围入手，不断的缩小范围，最终定位到具体的位置呢。
 * top
 通过top查看cpu不同时间的占比
-![](https://sunxvming.com/imgs/b3222bca-213e-4f0d-8769-fa2d4341ac86.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/b3222bca-213e-4f0d-8769-fa2d4341ac86.png)
 
 * iostat
 这里的 tps 指标，其实就对应着我们上面所说的硬盘的 IOPS 性能。而 kB_read/s 和 kB_wrtn/s 指标，就对应着我们的数据传输率的指标。
-![](https://sunxvming.com/imgs/fd4d45c0-96cd-4579-95e6-d8bf1e39ae5c.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/fd4d45c0-96cd-4579-95e6-d8bf1e39ae5c.png)
 
 * iotop
 可以看到**具体是哪一个进程**实际占用了大量 I/O，那么你就可以有的放矢，去优化对应的程序了。
@@ -367,7 +367,7 @@ CPU 并不是发送一个特定的操作指令来操作不同的 I/O 设备�
 
 ### SSD 的读写原理
 SSD 没有像机械硬盘那样的寻道过程，所以它的随机读写都更快。我在下面列了一个表格，对比了一下 SSD 和机械硬盘的优缺点。
-![](https://sunxvming.com/imgs/66049f9d-3fda-46dd-8249-d4a76d5697fc.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/66049f9d-3fda-46dd-8249-d4a76d5697fc.png)
 
 
 ### 总结延伸
@@ -393,7 +393,7 @@ SSD 这个需要进行垃圾回收的特性，使得我们在写入数据的时
 ## 48 | DMA：为什么Kafka这么快？
 
 ### 理解 DMA，一个协处理器
-![](https://sunxvming.com/imgs/935081e7-03ef-49d1-a5b6-9ad89a5aa625.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/935081e7-03ef-49d1-a5b6-9ad89a5aa625.jpg)
 1. 首先，CPU 还是作为一个主设备，向 DMAC 设备发起请求。这个请求，其实就是在 DMAC 里面修改配置寄存器。
 
 2.  CPU 修改 DMAC 的配置的时候，会告诉 DMAC 这样几个信息：
@@ -420,8 +420,8 @@ SSD 这个需要进行垃圾回收的特性，使得我们在写入数据的时
 所以，整个数据传输的过程中，我们不是通过 CPU 来搬运数据，而是由 DMAC 这个芯片来搬运数据。但是 CPU 在这个过程中也是必不可少的。因为传输什么数据，从哪里传输到哪里，其实还是由 CPU 来设置的。这也是为什么，DMAC 被叫作“协处理器”。
 
 ### 为什么那么快？一起来看 Kafka 的实现原理
-![](https://sunxvming.com/imgs/4c1780fa-cf42-47ea-8488-89c278676182.jpg)
-![](https://sunxvming.com/imgs/c8691818-79fd-4d6b-a943-d88414cd14e4.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/4c1780fa-cf42-47ea-8488-89c278676182.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/c8691818-79fd-4d6b-a943-d88414cd14e4.jpg)
 
 
 ### 总结延伸
@@ -460,10 +460,10 @@ SSD 这个需要进行垃圾回收的特性，使得我们在写入数据的时
 ## 51 | 分布式计算：如果所有人的大脑都联网会怎样？
 
 ### 从硬件升级到水平扩展
-![](https://sunxvming.com/imgs/e378615b-878f-49ae-a8a6-ad66fc72f468.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/e378615b-878f-49ae-a8a6-ad66fc72f468.jpg)
 
 ### 理解高可用性和单点故障
-![](https://sunxvming.com/imgs/901c9904-ca99-4a66-bdda-5d803ed9229b.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/901c9904-ca99-4a66-bdda-5d803ed9229b.jpg)
 
 去年我自己就遇到过，部署在 Azure 上的服务所在的数据中心，因为散热问题触发了整个数据中心所有服务器被关闭的问题。面对这种情况，我们就需要设计进行**异地多活**的系统设计和部署。所以，在现代的云服务，你在买服务器的时候可以选择服务器的 area（地区）和 zone（区域），而要不要把服务器放在不同的地区或者区域里，也是避免单点故障的一个重要因素。
 

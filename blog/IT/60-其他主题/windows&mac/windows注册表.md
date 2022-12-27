@@ -15,14 +15,14 @@ Windows的可配置项比通常的UNIX发行版多了可能有2个数量级（�
 
 Linux：Linux发行版的提供厂商都会维护一个软件仓库（software repository），软件仓库中软件都是经过厂商测试并且已经解决好依赖关系的。在linux下安装软件，其实就是通过厂商提供的包管理工具（debian系的apt-get，redhat系的yum）去和厂商的软件仓库同步。这样，linux的软件世界实际上是一个集中式的体系结构，有一个统一而且负责的维护者。因此，在软件仓库中，软件的主程序和依赖库是可以完全的分开为不同的包（package）的，因为维护良好的依赖关系可以保证自动化得找到并安装所有的依赖库。
 下图是在Ubuntu安装gcc
-![](https://sunxvming.com/imgs/0.0024645491503179073.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0.0024645491503179073.png)
 第一个红框内是安装命令，第二个是找到的依赖库（依赖包），第三个是为了安装gcc这个软件实际下载并安装了那些包。
 
 
 
 Windows：windows下的软件开发者都是各干各的，没有人去维护什么软件仓库什么依赖关系。如果软件依赖某个 dll 怎么办呢？windows程序员使用了一个很简单的方法，我把主程序和依赖库打包为一个文件整体发布不就行了！！！这样自然也就不会存在什么依赖关系了。
 下图是在Program Files下搜索msvcr80.dll这个常见的库文件，我们可以看到windows程序员为了解决依赖问题带来了多少冗余的msvcr（这个其实就是C语言运行库）
-![](https://sunxvming.com/imgs/11942b0f-3ca2-4b04-8cf1-7fd70958b318.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/11942b0f-3ca2-4b04-8cf1-7fd70958b318.jpg)
 所以说，Windows并不是没有依赖关系，只是Windows程序员在发布程序的时候把依赖的库和主程序一块发布给了用户。
 
 

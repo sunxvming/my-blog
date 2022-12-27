@@ -10,7 +10,7 @@
 我认为，RPC 的作用就是体现在这样两个方面：
 屏蔽远程调用跟本地调用的区别，让我们感觉就是调用项目内的方法；
 隐藏底层网络通信的复杂性，让我们更专注于业务逻辑
-![](https://sunxvming.com/imgs/085c5d2c-25c7-4bae-9d28-f302517d57de.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/085c5d2c-25c7-4bae-9d28-f302517d57de.jpg)
 围绕 RPC 我们讲了这么多，那 RPC 在架构中究竟处于什么位置呢？
 如刚才所讲，RPC 是解决应用间通信的一种方式，而无论是在一个大型的分布式应用系统
 还是中小型系统中，应用架构最终都会从“单体”演进成“微服务化”，整个应用系统会被
@@ -32,14 +32,14 @@ RPC 框架能够帮助我们解决系统拆分后的通信问题，并且能让�
 消息类型这样的参数，而协议体一般只放请求接口方法、请求的业务参数值和一些扩展属
 性。这样一个完整的 RPC 协议大概就出来了，协议头是由一堆固定的长度参数组成，而协
 议体是根据请求接口和参数构造的，长度属于可变的，具体协议如下图所示：
-![](https://sunxvming.com/imgs/2013a5de-840e-4817-ad54-bc44a0ef2850.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/2013a5de-840e-4817-ad54-bc44a0ef2850.png)
 
 
 可扩展的协议：
 刚才讲的协议属于定长协议头，那也就是说往后就不能再往协议头里加新参数了，如果加参
 数就会导致线上兼容问题。
 决绝方法就是消息头也是长度可变。
-![](https://sunxvming.com/imgs/ba82b5aa-bd6a-483f-a9ae-63239077d092.png)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/ba82b5aa-bd6a-483f-a9ae-63239077d092.png)
 设计一个简单的 RPC 协议并不难，难的就是怎么去设计一个可“升级”的
 协议。不仅要让我们在扩展新特性的时候能做到向下兼容，而且要尽可能地减少资源损耗，
 所以我们协议的结构不仅要支持协议体的扩展，还要做到协议头也能扩展。
@@ -81,7 +81,7 @@ Reactor 模式实现的框架，如 Java 语言，首选的框架便是 Netty �
 
 
 ### 什么是零拷贝？
-![](https://sunxvming.com/imgs/320b027a-d539-4445-97f9-4fc4ff1e07b3.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/320b027a-d539-4445-97f9-4fc4ff1e07b3.jpg)
 应用进程的每一次写操作，都会把数据写到用户空间的缓冲区中，再由 CPU 将数据拷贝到
 系统内核的缓冲区中，之后再由 DMA 将这份数据拷贝到网卡中，最后由网卡发送出去。
 这里我们可以看到，一次写操作数据要拷贝两次才能通过网卡发送出去，而用户进程的读操
@@ -92,7 +92,7 @@ Reactor 模式实现的框架，如 Java 语言，首选的框架便是 Netty �
 拷贝了？此时你有没有想到虚拟内存？
 零拷贝有两种解决方式，分别是 mmap+write 方式和 sendfile 方式，其核心原理都是
 通过虚拟内存来解决的。
-![](https://sunxvming.com/imgs/5705f7bf-4deb-4835-8ee3-f09e5f58e161.jpg)
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/5705f7bf-4deb-4835-8ee3-f09e5f58e161.jpg)
 
 
 
