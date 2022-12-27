@@ -18,7 +18,7 @@ NppAStyle  格式化代码的
 2. 在左侧工程面板上右击红色工作区，选择"增加新工程"
 
 3.给新工程命名，并在新工程上右击，选择"从目录添加文件"
-注意： 如果涉及到工程中文件的删除或者增加操作，需手动更新工程， 不能自动更新，这是Notepade++的一个缺陷吧。
+注意：如果涉及到工程中文件的删除或者增加操作，需手动更新工程， 不能自动更新，这是Notepade++的一个缺陷吧。
 
 
 
@@ -47,7 +47,7 @@ tab页右击，复制到另一个视图
 
 
 【快捷键】
-跳到某行：  ^g  
+跳到某行： ^g  
 折叠所有层次： Alt+0
 展开所有层次： Alt+shift+0
 复制当前行： Ctrl+d
@@ -56,17 +56,17 @@ tab页右击，复制到另一个视图
 删除到行尾： Ctrl+Shift+Delete
 向后回滚： Ctrl+z，
 向前回滚： Ctrl+y。
-下一个文档： 　Ctrl+Tab  
+下一个文档：　Ctrl+Tab 
 
 
 【正则匹配替换】
 ```
-_sys:browse( "https://gamevip.duowan.com" )     ==》    _sys:browse( "https://gamevip.duowan.com"  ,true)
+_sys:browse( "https://gamevip.duowan.com" )     ==》   _sys:browse( "https://gamevip.duowan.com"  ,true)
 
 _sys:browse\((.*)\)      _sys:browse\($1 ,true\)       括号要转义
 
 -----------------------------------
-artifactprint = {all = true, id = "artifactprint", level = 210, name = _T"神器玄印", }     ==》    artifactprint =  神器玄印
+artifactprint = {all = true, id = "artifactprint", level = 210, name = _T"神器玄印", }     ==》   artifactprint =  神器玄印
 
 \{.*_T"(.*)",      $1      大括号也要转移
 
@@ -76,7 +76,7 @@ type='.*?',      匹配 type='killmonster',monid=3070103,marker='mon_3070_3',num
 
 
 
-_DSC0007.JPG  --》     ![](images/_DSC0002.JPG)
+_DSC0007.JPG  --》    ![](images/_DSC0002.JPG)
 (_.*JPG)  --》  ![]\(images/$1\)
 ```
 【运行程序】
@@ -116,7 +116,7 @@ EXIT表示关闭命令行窗口 （如果使用 cmd /c 就可以省掉 EXIT 了�
 
 自动去空格
 管理快捷键
-
+![](https://sunxvming.com/imgs/8e74f793-b655-4c57-8945-93bbad907543.png)
  
 
 

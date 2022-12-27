@@ -6,10 +6,6 @@ $ curl https://www.example.com
 上面命令向www.example.com发出 GET 请求，服务器返回的内容会在命令行输出。
 
 
-
-
-
-
 ### 保存文件
 -o参数将服务器的回应保存成文件，等同于`wget`命令。
 ```

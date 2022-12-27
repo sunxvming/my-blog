@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "bbb92abfe2269a84",
+        "id": "290f2d449452226c",
         "type": "tabs",
         "children": [
           {
-            "id": "edced173ae2124a8",
+            "id": "8da002157911c48c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "It/00-CS基础/黑客.md",
+                "file": "about-me.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,10 +48,10 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#include",
+                "query": "连成一个U型曲线",
                 "matchingCase": false,
                 "explainSearch": false,
-                "collapseAll": false,
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "It/00-CS基础/黑客.md",
+                "file": "about-me.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "It/00-CS基础/黑客.md",
+                "file": "about-me.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "It/00-CS基础/黑客.md"
+                "file": "about-me.md"
               }
             }
           },
@@ -138,7 +138,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -156,17 +156,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "edced173ae2124a8",
+  "active": "8da002157911c48c",
   "lastOpenFiles": [
-    "It/00-CS基础/程序员的知识和技能树.md",
-    "It/00-CS基础/程序员技术练级攻略.md",
-    "It/00-CS基础/黑客.md",
-    "It/00-CS基础/50-algorithm/qsort.md",
-    "It/00-CS基础/50-algorithm/数据结构与算法之美.md",
-    "It/00-CS基础/50-algorithm/数据结构和算法.md",
-    "It/00-CS基础/50-algorithm/设计模式.md",
-    "It/00-CS基础/50-algorithm/零碎小算法.md",
-    "aa.c.md",
-    "It/00-CS基础/50-algorithm/代码模式.md"
+    "It/10-编程语言/c.c++/c笔记/c语言中文网-c语言内存和指针.md",
+    "It/10-编程语言/c.c++/c笔记/c语言中文网-c教程笔记.md",
+    "about-me.md",
+    "It/40-tools/xshell/xshell.md",
+    "It/40-tools/编辑器/emacs/emacs.md",
+    "attach/腾讯云出海游戏解决方案-亚创V2.pdf",
+    "学科/math/希腊字母.md",
+    "生活/常识/购房知识.md",
+    "学科/math/程序员的数学基础课.md",
+    "学科/math/定律，定理，定则，公理，原理的区别.md"
   ]
 }

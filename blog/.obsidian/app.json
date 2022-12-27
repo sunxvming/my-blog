@@ -2,5 +2,7 @@
   "showLineNumber": false,
   "readableLineLength": false,
   "alwaysUpdateLinks": true,
-  "vimMode": true
+  "vimMode": false,
+  "attachmentFolderPath": "attach",
+  "showUnsupportedFiles": true
 }

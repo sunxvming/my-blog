@@ -34,11 +34,11 @@ OAuth 2.0 的标准是 RFC 6749 文件。该文件先解释了 OAuth 是什么�
 
 
 ### 第一种授权方式：授权码
-
+![](https://sunxvming.com/imgs/b829050a-6a7d-4b1c-aa75-8d5b9673d098.jpg)
 
 
 ### 第二种方式：隐藏式
-
+![](https://sunxvming.com/imgs/6cf0a5d4-c303-4852-a129-93674186df71.jpg)
 
 
 ### 第三种方式：密码式
@@ -67,6 +67,7 @@ curl -H "Authorization: Bearer ACCESS_TOKEN" \
 
 
 具体方法是，B 网站颁发令牌的时候，一次性颁发两个令牌，一个用于获取数据，另一个用于获取新的令牌（refresh token 字段）。令牌到期前，用户使用 refresh token 发一个请求，去更新令牌。
+
 > ```
 > https://b.com/oauth/token?
 >   grant_type=refresh_token&
@@ -83,6 +84,6 @@ B 网站验证通过以后，就会颁发新的令牌。
 
 
 ## 参考链接
-- [OAuth 2.0 的一个简单解释 ](https://www.ruanyifeng.com/blog/2019/04/oauth_design.html)
+- [OAuth 2.0 的一个简单解释](https://www.ruanyifeng.com/blog/2019/04/oauth_design.html)
 - [OAuth 2.0 的四种方式](https://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)
 - [GitHub OAuth 第三方登录示例教程](http://www.ruanyifeng.com/blog/2019/04/github-oauth.html)

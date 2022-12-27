@@ -6,7 +6,6 @@ Windows上用这个  VisualSVN server，要下载64位的。
 
 
 
-
 1.检查是否已安装
 
 rpm -qa subversion
@@ -46,7 +45,7 @@ svnadmin create /home/svn/game
 cd /home/svn/game
 如果成功，game目录下会多出几个文件夹
 
-
+![](https://sunxvming.com/imgs/8b0e66ef-1d80-4a38-9e3c-a0a28dcae6e5.jpg)
  
 7.配置权限
 A.配置SVN
@@ -55,13 +54,13 @@ vim  svnserve.conf
 
 
 
-anon-access=none     #去除文件前的注释，将read改为none,防止匿名访问
+anon-access=none    #去除文件前的注释，将read改为none,防止匿名访问
 
 auth-access=write    #去除文件前的注释
 
-password-db=passwd   #去除文件前的注释
+password-db=passwd  #去除文件前的注释
 
-authz-db = authz     #去除文件前的注释,访问权限配置，非常重要，不打开，分组权限不生效
+authz-db = authz    #去除文件前的注释,访问权限配置，非常重要，不打开，分组权限不生效
 
 
 
@@ -77,7 +76,7 @@ findyou=123456
 
 
 
-C.设置添加的用户权限， 注意格式：注释不能在语句的后面
+C.设置添加的用户权限，注意格式：注释不能在语句的后面
 
 vim authz
 
@@ -95,7 +94,7 @@ g_read=abc
 
 @g_qa=rw            #<用户组> = <权限>  ，第一种方式
 
-@g_read=r           #<用户名> = <权限>  ，第二种方式
+@g_read=r          #<用户名> = <权限>  ，第二种方式
 
 love=r
 
@@ -120,6 +119,8 @@ vi /etc/rc.d/rc.local   添加下面一行
 
 客户端访问svn://192.168.1.186/art
 
+
 【问题】
-  1.检查防火墙是否关闭   2.检查协议是用的https的还是用svn的
+![](https://sunxvming.com/imgs/1622090a-f7bc-4b77-821a-4d3250c1b07a.jpg)
+ 1.检查防火墙是否关闭   2.检查协议是用的https的还是用svn的
 

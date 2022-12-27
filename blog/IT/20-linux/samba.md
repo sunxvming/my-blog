@@ -22,7 +22,7 @@ guest ok = yes
 ```
 2.Linux中/etc/passwd里的用户和Samba里的用户几乎没啥关系，硬说有的话，那就是：Samba的所有用户都必须是系统里已存在的用户。我们要授权系统用户访问Samba的话，通过命令：
 ```
-smbpasswd  -a   root#添加用户root到Samba用户数据库中
+smbpasswd -a root#添加用户root到Samba用户数据库中
 ```
 这条命令输入完后，会提示为新建的用户root设置访问密码。最后再执行一下`service smb restart`（ubuntu下是smbd）命令就OK了。至此，Samba服务器就架设好了
 
@@ -37,12 +37,12 @@ smbpasswd  -a   root#添加用户root到Samba用户数据库中
 ```
 \\192.168.85.128\root
 ```
+![](https://sunxvming.com/imgs/24271de2-ce92-441a-a148-b14f9daaa2a4.png)
 
 
-
-5. 这些弄好之后在windows上进行  映射网络驱动
+5. 这些弄好之后在windows上进行 映射网络驱动
 右击此电脑，添加网络驱动
-
+![](https://sunxvming.com/imgs/a2845685-d1af-4264-99dd-860ce08b3d9b.png)
 
 
 

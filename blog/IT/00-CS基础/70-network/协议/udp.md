@@ -47,7 +47,7 @@ UDP的无连接状态(没有已有对端的信息)，使得UDP没有一个有效
 要实现多处理，那么就要改变UDP Socket查找的考虑因素，对于调用了connect的UDP Client而言，由于其具有了“连接”性，通信双方都固定下来了，那么内核就可以根据4元组完全匹配的原则来匹配。于是对于不同的通信对端，可以查找到不同的UDP Socket从而实现多处理。而对于server端，在使用SO_REUSEPORT选项(linux 3.9以上内核)，这样在进行UDP socket查找的时候，源IP地址和源端口也参与进来了，内核查找算法可以保证：
 
 
-* [1] 固定的四元组的UDP数据包总是查找到同一个UDP Socket；
+* [x] 固定的四元组的UDP数据包总是查找到同一个UDP Socket；
 * [2] 不同的四元组的UDP数据包可能会查找到不同的UDP Socket。
 这样对于不同client发来的数据包就能查找到不同的UDP socket从而实现多处理。这样看来，似乎采用SO_REUSEADDR、SO_REUSEPORT这两个socket选项并利用内核的socket查找算法，我们在多核CPU服务器上多个进程内创建多个绑定相同端口，相同IP地址的UDP socket就能做到负载均衡充分利用多核CPU资源了。然而事情远没这么顺利、简单。
 
