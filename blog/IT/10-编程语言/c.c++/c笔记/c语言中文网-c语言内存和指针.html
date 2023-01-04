@@ -1,0 +1,857 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/10-编程语言/c.c++/c笔记/c语言中文网-c语言内存和指针</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#内存">## 内存</a>
+<ul>
+<li><a href="#程序编译后的text段data段和bss段">程序编译后的text段、data段和bss段</a>
+<ul>
+<li><a href="#关于data和bss段区别">关于data和bss段区别</a></li>
+</ul></li>
+<li><a href="#一个程序在计算机中到底是如何运行的">一个程序在计算机中到底是如何运行的？</a></li>
+<li><a href="#虚拟内存到底是什么为什么我们在c语言中看到的地址是假的">虚拟内存到底是什么？为什么我们在C语言中看到的地址是假的？</a></li>
+<li><a href="#虚拟地址空间以及编译模式">虚拟地址空间以及编译模式</a>
+<ul>
+<li><a href="#实际支持的物理内存">实际支持的物理内存</a></li>
+<li><a href="#编译模式">编译模式</a></li>
+</ul></li>
+<li><a href="#c语言内存对齐提高寻址效率">C语言内存对齐，提高寻址效率</a>
+<ul>
+<li><a href="#改变对齐方式">改变对齐方式</a></li>
+</ul></li>
+<li><a href="#内存分页机制完成虚拟地址的映射">内存分页机制，完成虚拟地址的映射</a></li>
+<li><a href="#分页机制究竟是如何实现的">分页机制究竟是如何实现的？</a></li>
+<li><a href="#mmu部件以及对内存权限的控制">MMU部件以及对内存权限的控制</a></li>
+<li><a href="#linux下c语言程序的内存布局内存模型">Linux下C语言程序的内存布局（内存模型）</a></li>
+<li><a href="#windows下c语言程序的内存布局内存模型">Windows下C语言程序的内存布局（内存模型）</a></li>
+<li><a href="#用户模式和内核模式">用户模式和内核模式</a></li>
+<li><a href="#栈stack是什么栈溢出又是怎么回事">栈（Stack）是什么？栈溢出又是怎么回事？</a></li>
+<li><a href="#一个函数在栈上到底是怎样的">一个函数在栈上到底是怎样的？</a>
+<ul>
+<li><a href="#关于数据的定位">关于数据的定位</a></li>
+</ul></li>
+<li><a href="#函数调用惯例calling-convention">函数调用惯例(Calling Convention)</a></li>
+<li><a href="#用一个实例来深入剖析函数进栈出栈的过程">用一个实例来深入剖析函数进栈出栈的过程</a></li>
+<li><a href="#栈溢出攻击的原理是什么">栈溢出攻击的原理是什么？</a></li>
+<li><a href="#c语言动态内存分配">C语言动态内存分配</a>
+<ul>
+<li><a href="#动态内存分配函数">动态内存分配函数</a></li>
+</ul></li>
+<li><a href="#malloc函数背后的实现原理内存池">malloc函数背后的实现原理——内存池</a>
+<ul>
+<li><a href="#链表式内存管理">链表式内存管理</a></li>
+<li><a href="#链表式内存管理缺点">链表式内存管理缺点：</a></li>
+<li><a href="#内存池">内存池</a></li>
+</ul></li>
+<li><a href="#空指针和野指针悬挂指针">空指针和野指针（悬挂指针）</a>
+<ul>
+<li><a href="#使用未初始化的指针">1.使用未初始化的指针</a></li>
+<li><a href="#操作null指针">2.操作NULL指针</a></li>
+<li><a href="#使用指向释放掉的内存">3.使用指向释放掉的内存</a></li>
+<li><a href="#指针所指的对象已经消亡">4.指针所指的对象已经消亡</a></li>
+<li><a href="#指针指向常量区且对其写访问">5.指针指向常量区且对其写访问</a></li>
+<li><a href="#realloc函数使用不当">6.realloc函数使用不当</a></li>
+</ul></li>
+<li><a href="#内存泄露">内存泄露</a>
+<ul>
+<li><a href="#函数中调用malloc返回分配的地址但是调用函数没用free">0.函数中调用malloc()返回分配的地址，但是调用函数没用free()</a></li>
+<li><a href="#malloc两次都指向同一个指针变量">1.malloc两次都指向同一个指针变量</a></li>
+<li><a href="#一个指针变量赋给了另一个">2.一个指针变量赋给了另一个</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#指针">## 指针</a>
+<ul>
+<li><a href="#c语言指针是什么1分钟彻底理解c语言指针的概念">C语言指针是什么？1分钟彻底理解C语言指针的概念</a></li>
+<li><a href="#c语言指针变量的定义和使用精华">C语言指针变量的定义和使用（精华）</a></li>
+<li><a href="#指针变量的运算加法减法和比较运算">指针变量的运算（加法、减法和比较运算）</a></li>
+<li><a href="#数组指针指向数组的指针详解">数组指针（指向数组的指针）详解</a></li>
+<li><a href="#c语言字符串指针指向字符串的指针详解">C语言字符串指针（指向字符串的指针）详解</a></li>
+<li><a href="#指针变量作为函数参数">指针变量作为函数参数</a></li>
+<li><a href="#指针和函数">指针和函数</a></li>
+<li><a href="#c语言二级指针指向指针的指针详解">C语言二级指针（指向指针的指针）详解</a></li>
+<li><a href="#c语言空指针null以及void指针">C语言空指针NULL以及void指针</a></li>
+<li><a href="#数组和指针绝不等价数组是另外一种类型">数组和指针绝不等价，数组是另外一种类型</a></li>
+<li><a href="#数组到底在什么时候会转换为指针">数组到底在什么时候会转换为指针</a></li>
+<li><a href="#c语言指针数组数组每个元素都是指针详解">C语言指针数组（数组每个元素都是指针）详解</a></li>
+<li><a href="#c语言二维数组指针指向二维数组的指针详解">C语言二维数组指针（指向二维数组的指针）详解</a></li>
+<li><a href="#c语言函数指针指向函数的指针详解">C语言函数指针（指向函数的指针）详解</a></li>
+<li><a href="#只需一招彻底攻克c语言指针再复杂的指针都不怕">只需一招，彻底攻克C语言指针，再复杂的指针都不怕</a></li>
+<li><a href="#main函数的高级用法接收用户输入的数据">main()函数的高级用法：接收用户输入的数据</a></li>
+<li><a href="#对c语言指针的总结">对C语言指针的总结</a></li>
+<li><a href="#深copy和浅copy">深copy和浅copy</a></li>
+</ul></li>
+<li><a href="#段错误">段错误</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="内存">## 内存</h2>
+<h3 id="程序编译后的text段data段和bss段">程序编译后的text段、data段和bss段</h3>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/b999e8f0-9688-4037-80c7-e7f78147ddd4.jpg" /><br />
+左边的是UNIX/LINUX系统的执行文件，右边是对应进程<strong>逻辑地址空间</strong>的划分情况。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/ed58a4c2-2cfb-48cf-b255-3a7c5245afcf.jpg" /><br />
+一般情况，一个程序本质上都是由 bss段、data段、text段三个段组成——这是计算机程序设计中重要的基本概念。</p>
+<ul>
+<li>bss<br />
+bss段（Block Started by Symbol segment）通常是指用来存放程序中<strong>未初始化的全局变量</strong>的一块内存区域，一般在初始化时bss 段部分将会清零（bss段属于静态内存分配，即程序一开始就将其清零了）。<br />
+比如，在C语言程序编译完成之后，<strong>已初始化的全局变量保存在.data 段中，未初始化的全局变量保存在.bss 段中</strong>。<br />
+而bss段不在可执行文件中，由<strong>系统初始化</strong>。</li>
+<li>text<br />
+text段: 用于存放程序代码的区域， 编译时确定， 只读。更进一步讲是存放处理器的机器指令，当各个源文件单独编译之后生成目标文件，经连接器链接各个目标文件并解决各个源文件之间函数的引用，与此同时，还得<strong>将所有目标文件中的.text段合在一起</strong>，但不是简单的将它们“堆”在一起就完事，还需要处理各个段之间的函数引用问题。</li>
+<li>data<br />
+data段 :用于存放在<strong>编译阶段(而非运行时)</strong>就能确定的数据，可读可写。也是通常所说的静态存储区，赋了初值的全局变量、常量和静态变量都存放在这个域。</li>
+</ul>
+<h4 id="关于data和bss段区别">关于data和bss段区别</h4>
+<p>程序1:</p>
+<pre><code>int ar[30000];
+void main()
+{
+......
+}</code></pre>
+<p>程序2:</p>
+<pre><code>int ar[300000] = {1, 2, 3, 4, 5, 6 };
+void main()
+{
+......
+}</code></pre>
+<p>发现程序2编译之后所得的可执行文件比程序1大得多，为什么？<br />
+区别很明显，程序1位于bss段，程序2位于data段，两者的区别在于：<br />
+<strong>全局的未初始化变量</strong>存在于bss段中，具体体现为一个<strong>占位符</strong>，全局的已初始化变量存于data段中，而函数内的自动变量都在栈上分配空间。<br />
+bss不占用<strong>可执行文件空间</strong>，其内容由<strong>操作系统初始化</strong>（清零），裸机程序需要自行手动清零。<br />
+而data段则需要占用可执行文件空间，其内容由程序初始化，因此造成了上述情况。</p>
+<h3 id="一个程序在计算机中到底是如何运行的">一个程序在计算机中到底是如何运行的？</h3>
+<p>程序是保存在硬盘中的，要载入内存才能运行，CPU也被设计为只能从内存中读取数据和指令<br />
+我们经常听说多少位的CPU，指的就是<strong>寄存器的的位数</strong>。<br />
+缓存的容量是有限的，CPU只能从缓存中读取到部分数据，对于使用不是很频繁的数据，会绕过缓存，直接到内存中读取。所以不是每次都能从缓存中得到数据，这就是<strong>缓存的命中率</strong>，能够从缓存中读取就命中，否则就没命中。关于缓存的命中率又是一门学问，哪些数据保留在缓存，哪些数据不保留，都有复杂的算法。</p>
+<h3 id="虚拟内存到底是什么为什么我们在c语言中看到的地址是假的">虚拟内存到底是什么？为什么我们在C语言中看到的地址是假的？</h3>
+<p>虚拟地址：虚拟地址的整个想法是这样的：把程序给出的地址看做是一种虚拟地址（Virtual Address），然后通过某些映射的方法，将这个虚拟地址转换成实际的物理地址。<br />
+让我们回到程序的运行本质上来。用户程序在运行时<strong>不希望介入到这些复杂的内存管理过程中</strong>，作为普通的程序，<strong>它需要的是一个简单的执行环境，有自己的内存，有自己的CPU</strong>，好像整个程序<strong>独占</strong>整个计算机而不用关心其他的程序。<br />
+<strong>使不同程序的地址空间相互隔离</strong><br />
+如果所有程序都直接使用物理内存，那么程序所使用的地址空间不是相互隔离的。恶意程序可以很容易改写其他程序的内存数据，以达到破坏的目的；有些非恶意、但是有 Bug 的程序也可能会不小心修改其他程序的数据，导致其他程序崩溃。</p>
+<h3 id="虚拟地址空间以及编译模式">虚拟地址空间以及编译模式</h3>
+<pre><code>int a = 1, b = 255;
+int main(){
+    int c = 1;
+    printf(&quot;&amp;a = %p, &amp;b = %p &amp;c = %p\n&quot;,&amp;a, &amp;b, &amp;c);   // a, b的地址始终是相同的，c的地址会随机的变。
+    pause();
+    return 0;
+}</code></pre>
+<p>全局去的变量<strong>在编译的时候就确定了</strong>，栈区的变量为<strong>保护程序安全</strong>会进行随机的栈地址。<br />
+<strong>所谓虚拟地址空间，就是程序可以使用的虚拟地址的有效范围</strong>。虚拟地址和物理地址的映射关系由操作系统决定，相应地，虚拟地址空间的大小也由操作系统决定，但还会受到编译模式的影响。<br />
+CPU是计算机的核心，决定了计算机的<strong>数据处理能力</strong>和<strong>寻址能力</strong>，也即决定了计算机的性能。CPU一次（一个时钟内）能处理的数据的大小由<strong>寄存器的位数</strong>和能支持的<strong>数据总线的宽度</strong>（也即有多少根数据总线）决定，我们通常所说的多少位的CPU，除了可以理解为寄存器的位数，也可以理解数据总线的宽度，通常情况下它们是相等的。</p>
+<p><strong>数据总线</strong>和<strong>主频</strong>都是CPU的重要指标：数据总线决定了CPU单次的数据处理能力，主频决定了CPU单位时间内的数据处理次数，它们的乘积就是CPU单位时间内的数据处理量。<br />
+需要注意的是，<strong>数据总线</strong>和<strong>地址总线</strong>不是一回事，数据总线用于在CPU和内存之间传输数据，地址总线用于在内存上定位数据，它们之间没有必然的联系，宽度并不一定相等。实际情况是，地址总线的宽度往往随着数据总线的宽度而增长，以访问更大的内存。</p>
+<h4 id="实际支持的物理内存">实际支持的物理内存</h4>
+<p>CPU支持的物理内存只是理论上的数据，实际应用中还会受到操作系统的限制，例如，Win7 64位家庭版最大仅支持8GB或16GB的物理内存，Win7 64位专业版或企业版能够支持到192GB的物理内存。<br />
+Windows Server 2003 数据中心版专为大型企业或国家机构而设计，可以处理海量数据，分为32位版和64位版，32位版最高支持512GB的物理内存，这显然超出了32位CPU的寻址能力，可以通过<strong>两次寻址来实现</strong>。</p>
+<h4 id="编译模式">编译模式</h4>
+<ul>
+<li>32位编译模式<br />
+在32位模式下，一个指针或地址占用4个字节的内存，共有32位，理论上能够访问的虚拟内存空间大小为 2^32 = 0X100000000 Bytes，即4GB，有效虚拟地址范围是 0 ~ 0XFFFFFFFF。<br />
+对于32位的编译模式，不管实际物理内存有多大，程序能够访问的有效虚拟地址空间的范围就是0 ~ 0XFFFFFFFF，也即虚拟地址空间的大小是 4GB。换句话说，程序能够使用的最大内存为 4GB，跟物理内存没有关系。<br />
+如果物理内存大于 4GB，例如目前很多PC机都配备了8GB的内存，那么程序也无能为力，它只能够使用其中的 4GB。</li>
+<li>64位编译模式<br />
+在64位编译模式下，一个指针或地址占用8个字节的内存，共有64位，理论上能够访问的虚拟内存空间大小为 2^64。这是一个很大的值，几乎是无限的，就目前的技术来讲，不但物理内存不可能达到这么大，CPU的寻址能力也没有这么大，实现64位长的虚拟地址只会增加系统的复杂度和地址转换的成本，带不来任何好处，所以 Windows 和 Linux <strong>都对虚拟地址进行了限制</strong>，仅使用虚拟地址的<strong>低48位</strong>（6个字节），总的虚拟地址空间大小为 2^48 = 256TB。</li>
+</ul>
+<p>需要注意的是：<br />
+32位的操作系统只能运行32位的程序（也即以32位模式编译的程序），64位操作系统可以同时运行32位的程序（为了向前兼容，保留已有的大量的32位应用程序）和64位的程序（也即以64位模式编译的程序）。<br />
+64位的CPU运行64位的程序才能发挥它的最大性能，运行32位的程序会白白浪费一部分资源。</p>
+<h3 id="c语言内存对齐提高寻址效率">C语言内存对齐，提高寻址效率</h3>
+<p>CPU 通过<strong>地址总线</strong>来访问内存，一次能处理几个字节的数据，就命令地址总线读取几个字节的数据。32 位的 CPU 一次可以处理4个字节的数据，那么每次就从内存读取4个字节的数据；少了浪费主频，多了没有用。64位的处理器也是这个道理，每次读取8个字节。<br />
+以32位的CPU为例，实际寻址的步长为4个字节，也就是只对编号为 4 的倍数的内存寻址，例如 0、4、8、12、1000 等，而不会对编号为 1、3、11、1001 的内存寻址。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/08a85ae4-76a1-4e2e-ae39-27c6f8c4e330.png" /><br />
+将一个数据尽量放在一个步长之内，避免跨步长存储，这称为<strong>内存对齐</strong>。在32位编译模式下，默认以4字节对齐；在64位编译模式下，默认以8字节对齐。<br />
+为了提高存取效率，<strong>编译器会自动进行内存对齐</strong>。<br />
+经过笔者测试，对于<strong>全局变量</strong>，GCC在 Debug 和 Release 模式下都会进行内存对齐，而VS只有在 Release 模式下才会进行对齐。而对于<strong>局部变量</strong>，GCC和VS都不会进行对齐，不管是Debug模式还是Release模式。</p>
+<h4 id="改变对齐方式">改变对齐方式</h4>
+<p>内存对齐虽然和硬件有关，但是<strong>决定对齐方式的是编译器</strong>，如果你的硬件是64位的，却以32位的方式编译，那么还是会按照4个字节对齐。<br />
+对齐方式可以通过编译器参数修改，以VS2010为例，更改对齐方式的步骤为：项目 --&gt; 属性 --&gt; C/C++ --&gt; 代码生成 --&gt; 结构成员对齐<br />
+最后需要说明的是：内存对齐不是C语言的特性，它<strong>属于计算机的运行原理</strong>，C++、Java、Python等其他编程语言同样也会有内存对齐的问题。</p>
+<h3 id="内存分页机制完成虚拟地址的映射">内存分页机制，完成虚拟地址的映射</h3>
+<p>现代计算机都使用分页（Paging）的方式对虚拟地址空间和物理地址空间进行分割和映射，以减小换入换出的粒度，提高程序运行效率。</p>
+<p>页的大小是固定的，由硬件决定，或硬件支持多种大小的页，由操作系统选择决定页的大小。目前几乎所有PC上的操作系统都是用 <code>4KB</code> 大小的页。</p>
+<h3 id="分页机制究竟是如何实现的">分页机制究竟是如何实现的？</h3>
+<h3 id="mmu部件以及对内存权限的控制">MMU部件以及对内存权限的控制</h3>
+<p>通过<strong>页表</strong>完成虚拟地址和物理地址的映射时，要经过多次转换，还要进行计算，如果由操作系统来完成这项工作，那将会成倍降低程序的性能（比如cpu上下文的频繁切换），得不偿失，所以这种方式是不现实的。<br />
+在CPU内部，有一个部件叫做<strong>MMU</strong>（Memory Management Unit，内存管理单元），由它来负责将虚拟地址映射为物理地址<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/f6524dfd-c9ad-4e6b-a8c4-0072c06f558f.png" /><br />
+在页映射模式下，CPU 发出的是虚拟地址，也就是我们在程序中看到的地址，这个地址会先交给 MMU，经过 MMU 转换以后才能变成了物理地址。</p>
+<p>即便是这样，MMU也要访问好几次内存，性能依然堪忧，所以在MMU内部又增加了一个<strong>缓存</strong>，专门用来存储<strong>页目录和页表</strong>。MMU内部的缓存有限，当页表过大时，也只能将部分常用页表加载到缓存，但这已经足够了，因为经过算法的巧妙设计，可以将<strong>缓存的命中率</strong>提高到 90%，剩下的10%的情况无法命中，再去物理内存中加载页表。</p>
+<p>MMU 只是通过页表来完成虚拟地址到物理地址的映射，但不会构建页表，<strong>构建页表是操作系统的任务</strong>。在<strong>程序加载到内存</strong>以及<strong>程序运行过程</strong>中，操作系统会不断更新程序对应的页表，并将页目录的物理地址保存到 CR3 寄存器。MMU 向缓存中加载页表时，会根据 CR3 寄存器找到页目录，再找到页表，最终通过软件和硬件的结合来完成内存映射。<br />
+CR3 是CPU内部的一个<strong>寄存器</strong>，专门用来保存<strong>页目录</strong>的物理地址。<br />
+每个程序在运行时都有自己的一套页表，切换程序时，只要<strong>改变 CR3 寄存器</strong>的值就能够切换到对应的页表。</p>
+<h3 id="linux下c语言程序的内存布局内存模型">Linux下C语言程序的内存布局（内存模型）</h3>
+<p>程序内存<strong>在地址空间中的分布情况</strong>称为内存模型（Memory Model）<br />
+内存模型由操作系统构建，在Linux和Windows下有所差异，并且会受到编译模式的影响<br />
+Windows 在默认情况下会将高地址的 2GB 空间分配给内核（也可以配置为1GB），而 Linux 默认情况下会将高地址的 1GB 空间分配给内核。也就是说，应用程序只能使用剩下的 2GB 或 3GB 的地址空间，称为用户空间（User Space）。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/72f98ca8-61d8-4989-be0c-83de9d6708cf.png" /><br />
+程序代码区、常量区、全局数据区在程序加载到内存后就分配好了，并且在程序运行期间一直存在，不能销毁也不能增加（大小已被固定），只能等到程序运行结束后由操作系统收回，所以全局变量、字符串常量等在程序的任何地方都能访问，因为它们的内存一直都在。</p>
+<blockquote>
+<p>常量区和全局数据区有时也被合称为静态数据区，意思是这段内存专门用来保存数据，在程序运行期间一直存在。</p>
+</blockquote>
+<pre><code>#include &lt;stdio.h&gt;
+
+char *str1 = &quot;c.biancheng.net&quot;;  //字符串在常量区，str1在全局数据区
+int n;  //全局数据区
+
+char* func(){
+    char *str = &quot;C语言中文网&quot;;  //字符串在常量区，str在栈区
+    return str;
+}
+
+int main(){
+    int a;  //栈区
+    char *str2 = &quot;01234&quot;;  //字符串在常量区，str2在栈区
+    char  arr[20] = &quot;56789&quot;;  //字符串和arr都在栈区
+    char *pstr = func();  //栈区
+    int b;  //栈区
+
+    return 0;
+}</code></pre>
+<p>注意：<br />
+* 1) 全局变量的内存在编译时就已经分配好了，它的默认初始值是 0（它所占用的每一个字节都是0值），局部变量的内存在函数调用时分配，它默认初始值是不确定的，由编译器决定，一般是垃圾值，。<br />
+* 2) 函数 func() 中的局部字符串常量"C语言中文网"也被存储到常量区，不会随着 func() 的运行结束而销毁，所以最后依然能够输出。<br />
+* 3) 字符数组 arr[20] 在栈区分配内存，字符串"56789"就保存在这块内存中，而不是在常量区，大家要注意区分。</p>
+<p>Linux下64位环境的用户空间内存分布情况：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/7245061e-e30f-4e07-ba23-adc137072761.png" /></p>
+<h3 id="windows下c语言程序的内存布局内存模型">Windows下C语言程序的内存布局（内存模型）</h3>
+<p>不像 Linux，Windows 是闭源的，有版权保护，资料较少，不好深入研究每一个细节，至今仍有一些内部原理不被大家知晓。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0eee47dc-9b67-4ca1-b789-562356b6a88b.png" /></p>
+<h3 id="用户模式和内核模式">用户模式和内核模式</h3>
+<p>前面一直说“程序的地址空间”，这其实是不严谨的，应该说“进程的地址空间”。<br />
+内核空间存放的是操作系统内核代码和数据，是被所有程序共享的<br />
+<strong>要想访问内核空间</strong>，必须借助操作系统提供的 API 函数，执行内核提供的代码，让内核自己来访问，这样才能保证内核空间的数据不会被随意修改，才能保证操作系统本身和其他程序的稳定性。<br />
+用户程序调用系统 API 函数称为<strong>系统调用</strong>（System Call）；发生系统调用时会暂停用户程序，转而执行内核代码（内核也是程序），访问内核空间，这称为<strong>内核模式</strong>（Kernel Mode）。<br />
+用户空间保存的是应用程序的代码和数据，是程序私有的，其他程序一般无法访问。当执行应用程序自己的代码时，称为<strong>用户模式</strong>（User Mode）。</p>
+<p>计算机会经常在内核模式和用户模式之间切换：<br />
+* 当运行在用户模式的应用程序需要输入输出、申请内存等比较底层的操作时，就必须调用操作系统提供的 API 函数，从而进入内核模式；<br />
+* 操作完成后，继续执行应用程序的代码，就又回到了用户模式。</p>
+<p>既然<strong>内核也是一个应用程序</strong>，为何不让它拥有独立的4GB地址空间，而是要和用户程序共享、占用有限的内存呢？<br />
+让内核拥有完全独立的地址空间，就是让内核处于一个独立的进程中，这样每次进行系统调用<strong>都需要切换进程</strong>。<br />
+而让内核和用户程序共享地址空间，发生系统调用时进行的是<strong>模式切换</strong>，模式切换仅仅需要寄存器进栈出栈，不会导致缓存失效；现代CPU也都提供了快速进出内核模式的指令，<strong>与进程切换比起来，效率大大提高了</strong>。</p>
+<h3 id="栈stack是什么栈溢出又是怎么回事">栈（Stack）是什么？栈溢出又是怎么回事？</h3>
+<p>从本质上来讲，栈是一段连续的内存，需要同时记录栈底和栈顶，才能对当前的栈进行定位。<br />
+通常使用<code>ebp</code>(Extend Base Pointer )寄存器指向栈底，而使用<code>esp</code>(Extend Stack Pointer)寄存器指向栈顶。<br />
+对每个程序来说，栈能使用的内存是有限的，一般是 1M~8M，这在编译时就已经决定了，程序运行期间不能再改变。如果程序使用的栈内存超出最大值，就会发生栈溢出（Stack Overflow）错误。<br />
+在 Linux GCC 下，默认是 8M。<br />
+一个程序可以包含多个线程，每个线程都有自己的栈，严格来说，栈的最大值是<strong>针对线程来说的</strong>，而不是针对程序。</p>
+<pre><code>//这个就会造成Stack Overflow
+int main(){
+    char str[1024*1024*10] = {0};
+    return 0;
+}</code></pre>
+<h3 id="一个函数在栈上到底是怎样的">一个函数在栈上到底是怎样的？</h3>
+<p>函数的调用和栈是分不开的，没有栈就没有函数调用<br />
+当发生函数调用时，会将函数运行需要的信息全部压入栈中，这常常被称为<strong>栈帧</strong>（Stack Frame）或<strong>活动记录</strong>（Activate Record）。<br />
+* 1) 函数的返回地址<br />
+* 2) 参数和局部变量。<br />
+* 3) 编译器自动生成的临时数据。例如，当函数<strong>返回值的长度较大</strong>（比如占用40个字节）时，会先将返回值压入栈中，然后再交给函数调用者。当返回值的长度较小（char、int、long 等）时，不会被压入栈中，而是先将返回值放入寄存器，再传递给函数调用者。<br />
+* 4) 一些需要保存的寄存器，例如 ebp、ebx、esi、edi 等。之所以要保存寄存器的值，是为了在函数退出时能够恢复到函数调用之前的场景，继续执行上层函数。<br />
+理论上 ebp 寄存器应该指向栈底，但在实际应用中，它却指向了old ebp。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/782251db-a035-4d22-b31e-9a3b7bc806e3.png" /></p>
+<h4 id="关于数据的定位">关于数据的定位</h4>
+<p>由于 esp 的值会随着数据的入栈而不断变化，要想根据 esp 找到参数、局部变量等数据是比较困难的，所以在实现上是根据 <code>ebp</code> 来定位栈内数据的。<strong>ebp 的值是固定的，数据相对 ebp 的偏移也是固定的，ebp 的值加上偏移量就是数据的地址</strong>。</p>
+<h3 id="函数调用惯例calling-convention">函数调用惯例(Calling Convention)</h3>
+<p>我们知道，一个C程序由若干个函数组成，C程序的执行实际上就是函数之间的相互调用。<br />
+函数的参数（实参）由<strong>调用方</strong>压入栈中供<strong>被调用方</strong>使用，它们之间要有一致的约定。例如，参数是从左到右入栈还是从右到左入栈，如果双方理解不一致，被调用方使用参数时就会出错。所以，函数调用方和被调用方必须遵守同样的约定，理解要一致，这称为<strong>调用惯例（Calling Convention）</strong>。<br />
+一个调用惯例一般规定以下两方面的内容：<br />
+* 1) 函数参数的传递方式，是通过栈传递还是通过寄存器传递（64位用寄存器）。<br />
+* 2) 函数参数的传递顺序，是从左到右入栈还是从右到左入栈。<br />
+* 3) 参数弹出方式。函数调用结束后需要将压入栈中的参数全部弹出，以使得栈在函数调用前后保持一致。这个弹出的工作可以由调用方来完成，也可以由被调用方来完成。<br />
+* 4) 函数名修饰方式。函数名在编译时会被修改，调用惯例可以决定如何修改函数名。</p>
+<p>在C语言中，存在多种调用惯例，可以在函数声明或函数定义时指定。<br />
+在函数声明处是为调用方指定调用惯例，而在函数定义处是为被调用方（也就是函数本身）指定调用惯例。<br />
+例如：</p>
+<pre><code>#include &lt;stdio.h&gt;
+int __cdecl max(int m, int n);
+int main(){
+    int a = max(10, 20);
+    printf(&quot;a = %d\n&quot;, a);
+    return 0;
+}
+int __cdecl max(int m, int n){
+    int max = m&gt;n ? m : n;
+    return max;
+}</code></pre>
+<p><code>__cdecl</code>是C语言默认的调用惯例，在平时编程中，我们其实很少去指定调用惯例，这个时候就使用默认的<code>__cdecl</code>。除了 cdecl，还有其他调用惯例：cdecl、stdcall、fastcall等</p>
+<blockquote>
+<p>__cdecl 并不是标准关键字，上面的写法在 VC/VS 下有效，但是在 GCC 下，要使用 <strong>attribute</strong>((cdecl))。</p>
+</blockquote>
+<h3 id="用一个实例来深入剖析函数进栈出栈的过程">用一个实例来深入剖析函数进栈出栈的过程</h3>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/104P51I1-0_2.jpg" /><br />
+经过上面的分析可以发现，函数出栈只是在增加 esp 寄存器的值，使它指向上一个数据，并没有销毁之前的数据。栈上的数据只有在后续函数继续入栈时才能被覆盖掉，这就意味着，只要时机合适，在函数外部依然能够取得局部变量的值。</p>
+<h3 id="栈溢出攻击的原理是什么">栈溢出攻击的原理是什么？</h3>
+<pre><code>int main(){
+    char str[10] = {0};
+    gets(str);
+    printf(&quot;str: %s\n&quot;, str);
+    return 0;
+}</code></pre>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/51905165-064e-4506-a4ad-9571f7bfd4c6.png" /><br />
+局部数组也是在栈上分配内存，当输入"12345678901234567890" 时，会发生数组溢出，占用“4字节空白内存”、“old ebp”和“返回地址”所在的内存，并<strong>将原有的数据覆盖掉</strong>，这样当 main() 函数执行完成后，会取得一个错误的返回地址，该地址上的指令是不确定的，或者根本就没有指令，所以程序在返回时出错。<br />
+C语言不会对数组溢出做检测，这是一个典型的由于数组溢出导致<strong>覆盖了函数返回地址</strong>的例子，我们将这样的错误称为“栈溢出错误”。<br />
+这里的栈指的是当前的函数栈帧。<br />
+除了上面讲到的 gets() 函数，strcpy()、scanf() 等能够向数组写入数据的函数都有导致栈溢出的风险。<br />
+栈溢出一般不会产生严重的后果，但是如果有用户精心构造栈溢出，让<strong>返回地址指向恶意代码</strong>，那就比较危险了，这就是常说的栈溢出攻击。</p>
+<h3 id="c语言动态内存分配">C语言动态内存分配</h3>
+<p><strong>静态内存分配</strong>，在进程的地址空间中，代码区、常量区、全局数据区的内存在程序启动时就已经分配好了，它们大小固定，不能由程序员分配和释放，只能等到程序运行结束由操作系统回收。<br />
+<strong>动态内存分配</strong>，<strong>栈区</strong>和<strong>堆区</strong>的内存在程序运行期间可以根据实际需求来分配和释放，不用在程序刚启动时就备足所有内存。<br />
+使用静态内存的优点是速度快，省去了向操作系统申请内存的时间，缺点就是不灵活，缺乏表现力，例如不能控制数据的作用范围，不能使用较大的内存。而使用动态内存可以让程序对内存的管理更加灵活和高效，需要内存就立即分配，而且需要多少就分配多少，从几个字节到几个GB不等；不需要时就立即回收，再分配给其他程序使用。</p>
+<h4 id="动态内存分配函数">动态内存分配函数</h4>
+<p>1) malloc()</p>
+<pre><code>void* malloc (size_t size);</code></pre>
+<p>2) calloc()</p>
+<pre><code>void* calloc(size_t n, size_t size);</code></pre>
+<p>3) realloc()</p>
+<pre><code>void* realloc(void *ptr, size_t size);</code></pre>
+<p>4) free()</p>
+<pre><code>void free(void* ptr);//同一个地址不可以释放两次 ,Null可释放多次没有问题</code></pre>
+<h3 id="malloc函数背后的实现原理内存池">malloc函数背后的实现原理——内存池</h3>
+<p>一种做法是把 malloc() 的内存管理交给系统内核去做，既然内核管理着进程的地址空间，那么如果它提供一个系统调用，可以让 malloc() 使用这个系统调用去申请内存，不就可以了吗？当然这是一种理论上的做法，但实际上这样做的性能比较差，因为每次程序申请或者释放堆空间<strong>都要进行系统调用</strong>。<br />
+malloc() 实现是向操作系统申请一块适当大小的堆空间，然后由 <strong>malloc() 自己管理这块空间</strong>。如果用完了就再向系统申请空间。</p>
+<h4 id="链表式内存管理">链表式内存管理</h4>
+<p>在程序运行过程中，堆内存从低地址向高地址连续分配，随着内存的释放，会出现不连续的空闲区域，如下图所示：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/18fca017-d44d-4b29-b230-c15de2e7cd2c.png" /><br />
+带阴影的方框是已被分配的内存，白色方框是空闲内存或已被释放的内存。程序需要内存时，malloc() 首先遍历空闲区域，看是否有大小合适的内存块，如果有，就分配，如果没有，就向操作系统申请（发生系统调用）。为了保证分配给程序的内存的连续性，malloc() 只会在一个空闲区域中分配，而不能将多个空闲区域联合起来。<br />
+内存块（包括已分配和空闲的）的结构类似于链表，它们之间通过指针连接在一起。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/51aea78a-564d-473c-8990-8e71752f433e.png" /><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/fafc237b-1ef4-4a42-a807-1ce302f01570.png" /><br />
+malloc() 和 free() 所做的工作主要是对已有内存块的<strong>分拆和合并</strong>，并没有频繁地向操作系统申请内存，这大大提高了内存分配的效率。</p>
+<h4 id="链表式内存管理缺点">链表式内存管理缺点：</h4>
+<ul>
+<li>一旦链表中的 pre 或 next 指针被破坏，整个堆就无法工作，而这些数据恰恰很容易被越界读写所接触到。</li>
+<li>小的空闲区域往往不容易再次分配，形成很多内存碎片。</li>
+<li>经常分配和释放内存会造成链表过长，增加遍历的时间。</li>
+</ul>
+<h4 id="内存池">内存池</h4>
+<p>不管具体的分配算法是怎样的，为了减少系统调用，减少物理内存碎片，malloc() 的整体思想是先向操作系统申请一块大小适当的内存，然后自己管理，这就是内存池（Memory Pool）。<br />
+内存池的研究重点不是向操作系统申请内存，而是<strong>对已申请到的内存的管理</strong>。<br />
+* 池化技术<br />
+在计算机中，有很多使用“池”这种技术的地方，除了内存池，还有连接池、线程池、对象池等。以服务器上的线程池为例，它的主要思想是：先启动若干数量的线程，让它们处于睡眠状态，当接收到客户端的请求时，唤醒池中某个睡眠的线程，让它来处理客户端的请求，当处理完这个请求，线程又进入睡眠状态。<br />
+所谓“池化技术”，就是程序先向系统申请过量的资源，然后自己管理，以备不时之需。之所以要申请过量的资源，是因为<strong>每次申请该资源都有较大的开销，不如提前申请好了</strong>，这样使用时就会变得非常快捷，大大提高程序运行效率。</p>
+<h3 id="空指针和野指针悬挂指针">空指针和野指针（悬挂指针）</h3>
+<p>指针指向非法的内存地址，那么这个指针就是<strong>悬挂指针</strong>，也叫野指针。意为无法正常使用的指针。</p>
+<pre><code>#define NULL 0 # 实际上就是让指针＝0，就是让指针受控制</code></pre>
+<p>解决野指针的方案:<br />
+1. 定义指针时 把指针变量赋值成null<br />
+2. 释放内存时，先判断指针变量是否为null<br />
+3. 释放内存完毕后，把指针变量重新赋值成null</p>
+<pre><code> if (p != NULL)
+ {
+  free(p);
+  p = NULL;
+ }</code></pre>
+<h4 id="使用未初始化的指针">1.使用未初始化的指针</h4>
+<pre><code>void main()  
+{  
+    char *p,*p1=&quot;hello first!&quot;;  
+    while((*(p++) = *(p1++)) != 0);  
+}  </code></pre>
+<p>错处：<br />
+p定义时没有初始化，p是指向不定，是一个野指针。<br />
+p++可能引用得空间为非法的。编译时不会出错，但运行时会造成程序崩溃。</p>
+<h4 id="操作null指针">2.操作NULL指针</h4>
+<pre><code>#include   
+void main()  
+{  
+    char *p=NULL,*p1=&quot;hello first!&quot;;  
+    while((*(p++) = *(p1++)) != 0);  
+}</code></pre>
+<p>NULL表示没有任何指向。p++没有任何意义，运行时会造成程序崩溃。这里就应该想到不能对NULL的指针进行直接操作。</p>
+<h4 id="使用指向释放掉的内存">3.使用指向释放掉的内存</h4>
+<pre><code>void function( void )  
+{  
+    char* str = new char[100];  
+    delete[] str;  
+    // Do something  
+    strcpy( str, &quot;Dangerous!!&quot; );  
+}      </code></pre>
+<p>之所以说其危险，是因为这是一段完全合乎语法的代码，编译的时候完美得一点错误也不会有，<br />
+然而当运行到strcpy一句的时候，问题就会出现，因为在这之 前，<br />
+str的空间已经被delete掉了，所以strcpy当然不会成功。</p>
+<h4 id="指针所指的对象已经消亡">4.指针所指的对象已经消亡</h4>
+<p>比如函数中的局部变量在函数调用结束消失</p>
+<pre><code>char * getstring3()
+{
+    char buf[30];
+    strcpy(buf, &quot;abcde&quot;);
+    return buf; //因为其在栈空间内，掉用此函数返回的是错的
+}     
+int main()
+{
+    char * ch = getstring3()
+} </code></pre>
+<h4 id="指针指向常量区且对其写访问">5.指针指向常量区且对其写访问</h4>
+<pre><code> {
+    char *p = &quot;abcdefg&quot;;
+    p = 100;
+    printf(&quot;%x \n&quot;, p);
+    *p = &#39;z&#39;; //也会报错，字符串是在全局区--&gt;常量区
+ }</code></pre>
+<h4 id="realloc函数使用不当">6.realloc函数使用不当</h4>
+<pre><code>#include&lt;malloc.h&gt;
+void main()
+{
+    char*p,*q;
+    p=(char*)malloc(10);
+    q=p;
+    p=(char*)realloc(q,20);
+    //…………………………
+}</code></pre>
+<p>realloc时会把原来内存空间中的内容复制到新开辟的内存中，返回新的内存首地址。此时<strong>q就成了悬空指针</strong>。</p>
+<h3 id="内存泄露">内存泄露</h3>
+<h4 id="函数中调用malloc返回分配的地址但是调用函数没用free">0.函数中调用malloc()返回分配的地址，但是调用函数没用free()</h4>
+<h4 id="malloc两次都指向同一个指针变量">1.malloc两次都指向同一个指针变量</h4>
+<pre><code>int main(){
+    char *p = (char*)malloc(100 * sizeof(char));
+    p = (char*)malloc(50 * sizeof(char));
+    free(p);
+    p = NULL;
+    return 0;
+}</code></pre>
+<h4 id="一个指针变量赋给了另一个">2.一个指针变量赋给了另一个</h4>
+<pre><code>int *pOld = (int*) malloc( sizeof(int) );
+int *pNew = (int*) malloc( sizeof(int) );
+pOld=pNew;</code></pre>
+<h2 id="指针">## 指针</h2>
+<h3 id="c语言指针是什么1分钟彻底理解c语言指针的概念">C语言指针是什么？1分钟彻底理解C语言指针的概念</h3>
+<p><strong>一切都是地址</strong><br />
+数据和代码都以二进制的形式存储在内存中，计算机无法从格式上区分某块内存到底存储的是数据还是代码。当程序被加载到内存后，操作系统会<strong>给不同的内存块指定不同的权限</strong>，拥有读取和执行权限的内存块就是代码，而拥有读取和写入权限（也可能只有读取权限）的内存块就是数据。<br />
+CPU 访问内存时需要的是地址，而不是变量名和函数名！变量名和函数名只是地址的一种助记符，当源文件被编译和链接成可执行程序后，它们都会被替换成地址。<strong>编译和链接</strong>过程的一项重要任务就是找到这些名称所对应的地址。</p>
+<h3 id="c语言指针变量的定义和使用精华">C语言指针变量的定义和使用（精华）</h3>
+<pre><code>int *a, *b, *c; //a、b、c 的类型都是 int*
+int *a, b, c;   //只有a是指针</code></pre>
+<p>使用指针是间接获取数据，使用变量名是直接获取数据，前者比后者的代价要高。</p>
+<p>对星号<code>*</code>的总结</p>
+<pre><code>表示定义一个指针变量，以和普通变量区分开，例如int a = 100; int *p = &amp;a;。
+表示获取指针指向的数据，是一种间接操作，例如int a, b, *p = &amp;a; *p = 100; b = *p;。</code></pre>
+<h3 id="指针变量的运算加法减法和比较运算">指针变量的运算（加法、减法和比较运算）</h3>
+<h3 id="数组指针指向数组的指针详解">数组指针（指向数组的指针）详解</h3>
+<p>在C语言中，我们将第 0 个元素的地址称为<strong>数组的首地址</strong><br />
+arr、p、&amp;arr[0] 这三种写法都是等价的</p>
+<pre><code>int arr[] = { 99, 15, 100, 888, 252 };
+int *p = arr;
+int *p = &amp;arr[0];</code></pre>
+<p><strong>arr本身就是一个指针”这种表述并不准确，严格来说应该是“arr 被转换成了一个指针”</strong><br />
+访问数组方式：<br />
+* 1) 使用下标<br />
+也就是采用 <code>arr[i]</code> 的形式访问数组元素。本质是编译器帮我们翻译成<code>*(p+i)</code><br />
+* 2) 使用指针<br />
+也就是使用 <code>*(p+i)</code> 的形式访问数组元素。</p>
+<p>不同的是，数组名是<strong>常量，它的值不能改变</strong>。数组名只能指向数组的开头，而数组指针可以先指向数组开头，再指向其他元素。</p>
+<h3 id="c语言字符串指针指向字符串的指针详解">C语言字符串指针（指向字符串的指针）详解</h3>
+<p>两种方式：</p>
+<pre><code>char str[] = &quot;http://c.biancheng.net&quot;;
+char *str = &quot;http://c.biancheng.net&quot;;    //我们将第二种形式的字符串称为**字符串常量**</code></pre>
+<p>它们最根本的区别是在内存中的存储区域不一样，字符数组存储在全局数据区或栈区，第二种形式的字符串存储在常量区。<br />
+全局数据区和栈区的字符串（也包括其他数据）有读取和写入的权限，<br />
+而常量区的字符串（也包括其他数据）只有读取权限，没有写入权限。</p>
+<pre><code>#include &lt;stdio.h&gt;
+int main(){
+    char *str = &quot;Hello World!&quot;;
+    str = &quot;I love C!&quot;; //正确，可以把指针指向其他地方
+    str[3] = &#39;P&#39;; //错误
+    return 0;
+}</code></pre>
+<p>到底使用字符数组还是字符串常量？<br />
+获取用户输入的字符串就是一个典型的写入操作，只<strong>能使用字符数组</strong>，不能使用字符串常量。</p>
+<h3 id="指针变量作为函数参数">指针变量作为函数参数</h3>
+<pre><code>int max(int intArr[6], int len){ ... }</code></pre>
+<p>不管是int intArr[6]还是int intArr[]都不会创建一个数组出来，编译器也不会为它们分配内存，它们最终还是会转换为<code>int *intArr</code>这样的指针。<br />
+int intArr[6]这种形式只能说明<strong>函数期望</strong>用户传递的数组有 6 个元素，并不意味着数组只能有 6 个元素，真正传递的数组可以有少于或多于 6 个的元素。</p>
+<pre><code>// 二维数组的情况
+void f(int a[5])-----&gt; void f(int a[]); -----&gt;  void f(int* a);
+void g(int a[3][5])-----&gt; void g(int a[][5]); -----&gt;  void g(int (*a)[5]);  
+Int printArray(char *p[3])-----&gt;Int printArray(char *p[])-----&gt;Int printArray(char **p)
+一维数组 char a[30]             指针 char*
+指针的数组 char *a[30]            指针的指针 char **a
+二维数组 char a[10][30]        指向数组的指针 char(*a)[30]</code></pre>
+<p>关于形参：<br />
+写在函数上形参变量，还是写在函数里面的变量，从CC++编译的角度来讲，是没有任何区别的（分配4字节内存）；只不过是 写在函数上形参变量 ，具有<strong>对外的属性</strong>而已</p>
+<h3 id="指针和函数">指针和函数</h3>
+<ol>
+<li>一级指针做输入</li>
+</ol>
+<pre><code>Int showbuf(char *p);   
+int showArray(int *array, int iNum)</code></pre>
+<ol>
+<li>一级指针做输出</li>
+</ol>
+<pre><code>char * changeNum(int *num)
+{
+    *num = 10;
+}
+int a = 1;
+changeNum(&amp;a);</code></pre>
+<ol>
+<li>返回一级指针<br />
+注意：返回的指针不能指向局部变量。</li>
+</ol>
+<pre><code>char * getBuffer()
+{
+ char *p = (char *)malloc(100*sizeof(char));
+ return p;
+}</code></pre>
+<ol>
+<li>二级指针做输入(通常是字符串数组)</li>
+</ol>
+<pre><code>int main(int arc ,char *arg[]);          //指针数组
+int shouMatrix(int [3][4], int iLine);  //二维字符串数组</code></pre>
+<ol>
+<li>二级指针做输出（改变指针的值）</li>
+</ol>
+<pre><code>void getBuffer(char ** buff)
+{
+ char *p = (char *)malloc(100*sizeof(char));
+ *buff = p；
+ return;
+}</code></pre>
+<p>一般都有对应的释放函数</p>
+<pre><code>int freeBuffer(char *p)
+{
+    if (p ==NULL)
+    {
+        return -1;
+    }
+    if (p != NULL)
+    {
+        free(p);
+    }
+    return 0;
+}</code></pre>
+<h3 id="c语言二级指针指向指针的指针详解">C语言二级指针（指向指针的指针）详解</h3>
+<p>如果一个指针指向的是另外一个指针，我们就称它为二级指针<br />
+其实还是指针，只是用来表明含义用</p>
+<pre><code>int a =100;
+int *p1 = &amp;a;
+int **p2 = &amp;p1;</code></pre>
+<p>C语言不限制指针的级数，每增加一级指针，在定义指针变量时就得增加一个星号<code>*</code>,实际开发中会经常使用一级指针和二级指针，几乎用不到高级指针</p>
+<h3 id="c语言空指针null以及void指针">C语言空指针NULL以及void指针</h3>
+<p>在进程的虚拟地址空间中，最低地址处有一段内存区域被称为<strong>保留区</strong>，这个区域不存储有效数据，也不能被用户程序访问，将 NULL 指向这块区域很容易检测到违规指针。<br />
+强烈建议对没有初始化的指针赋值为 NULL。<br />
+很多库函数都对传入的指针做了判断，如果是空指针就不做任何操作<br />
+NULL 是在stdio.h中定义的一个宏，它的具体内容为：<br />
+<code>#define NULL ((void *)0)</code><br />
+C语言没有规定 NULL 的指向，只是大部分标准库约定成俗地将 NULL 指向 0，所以不要将 NULL 和 0 等同起来，例如下面的写法是不专业的：<br />
+<code>int *p = 0;</code><br />
+而应该坚持写为：<br />
+<code>int *p = NULL;</code></p>
+<p><code>void *</code>表示一个有效指针，它确实指向实实在在的数据，只是数据的类型尚未确定，在后续使用过程中一般要进行强制类型转换。<br />
+<code>void *p = &amp;a;</code> //空类型的指针可以接受任何地址，但是不可以直接使用，需要转换成特定类型<br />
+C语言动态内存分配函数 malloc() 的返回值就是<code>void *</code>类型</p>
+<h3 id="数组和指针绝不等价数组是另外一种类型">数组和指针绝不等价，数组是另外一种类型</h3>
+<p>数组名表示数组的首地址,不幸的是，这是一种非常危险的想法<br />
+数组和指针不等价的一个典型案例就是求数组的长度，这个时候只能使用数组名，不能使用数组指针<br />
+<strong>站在编译器的角度讲</strong>，变量名、数组名都是一种符号，它们最终都要和数据绑定起来。<br />
+变量名用来指代一份数据，<strong>数组名</strong>用来指代一组数据（数据集合），<strong>它们都是有类型的</strong>，以便推断出所指代的数据的长度。<br />
+对，数组也有类型，这是很多读者没有意识到的，大部分C语言书籍对这一点也含糊其辞！我们可以将 int、float、char 等理解为基本类型，将数组理解为由基本类型派生得到的稍微复杂一些的类型。sizeof 就是根据符号的类型来计算长度的。<br />
+int a[6] = {0, 1, 2, 3, 4, 5}; 它的类型是<code>int [6]</code>，表示这是一个<strong>拥有 6 个 int 数据的集合</strong>。<code>int [3]</code>表示3个 int 数据的集合<br />
+整数、小数、数组、指针等不同类型的数据都是对内存的抽象，它们的名字用来指代不同的内存块，程序员在编码过程中不需要直接面对内存，使用这些名字将更加方便。<br />
+编译器在编译过程中会创建一张专门的<strong>表格(符号表)</strong> 用来保存名字以及名字对应的数据类型、长度、地址、作用域等信息，sizeof 是一个操作符，不是函数，使用 sizeof 时可以从这张表格中查询到符号的长度。<br />
+与普通变量名相比，数组名既有一般性也有特殊性：<br />
+一般性表现在数组名也用来指代特定的内存块，也有类型和长度；<br />
+特殊性表现在数组名有时候会转换为一个指针，而不是它所指代的数据本身的值。</p>
+<h3 id="数组到底在什么时候会转换为指针">数组到底在什么时候会转换为指针</h3>
+<p>数组作函数参数<br />
+* 1) 用 a[i] 这样的形式对数组进行访问总是会被编译器改写成（或者说解释为）像 <code>*(a+i)</code> 这样的指针形式。<br />
+* 2) 指针始终是指针，它绝不可以改写成数组。你可以用下标形式访问指针，一般都是指针作为函数参数时，而且你知道实际传递给函数的是一个数组。<br />
+* 3) 在特定的环境中，也就是<strong>数组作为函数形参</strong>，也只有这种情况，一个数组可以看做是一个指针。作为函数形参的数组始终会被编译器修改成指向数组第一个元素的指针。</p>
+<h3 id="c语言指针数组数组每个元素都是指针详解">C语言指针数组（数组每个元素都是指针）详解</h3>
+<p>指针数组(数组的每个元素都是指针)的定义形式一般为：<br />
+<code>dataType *arrayName[length];</code><br />
+<code>[ ]</code>的优先级高于<code>*</code> 解读的话可以按由近到远的原则判断<br />
+指针数组还可以和字符串数组结合使用</p>
+<pre><code>#include &lt;stdio.h&gt;
+int main(){
+    char *str[3] = {
+        &quot;c.biancheng.net&quot;,
+        &quot;C语言中文网&quot;,
+        &quot;C Language&quot;
+    };
+    printf(&quot;%s\n%s\n%s\n&quot;, str[0], str[1], str[2]);
+    return 0;
+}</code></pre>
+<h3 id="c语言二维数组指针指向二维数组的指针详解">C语言二维数组指针（指向二维数组的指针）详解</h3>
+<p>二维数组的三种形式：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/659b6b52-2b75-4a3a-acf1-fe40a0513e44.bmp" /></p>
+<pre><code>int *(p1[5]); //指针数组，可以去掉括号直接写作 int *p1[5];    还可以用由近到远的原则判断
+int (*p2)[5]; //二维数组指针，不能去掉括号，  它是一个指针，指向5个int数组的指针。</code></pre>
+<p><code>[ ]</code>的优先级高于<code>*</code>，<code>( )</code>是必须要加的，如果赤裸裸地写作<code>int *p[4]</code>，那么应该理解为<code>int *(p[4])</code>，p 就成了一个指针数组，而不是二维数组指针</p>
+<p>二维数组指针的含义：<br />
+* 1) p指向数组 a 的开头，也即第 0 行；p+1前进一行，指向第 1 行。<br />
+* 2) <code>*(p+1)</code>表示取地址上的数据，也就是整个第 1 行数据。注意是一行数据，是多个数据，不是第 1 行中的第 0 个元素<br />
+* 3) <code>*(p+1)+1</code>表示第 1 行第 1 个元素的地址<br />
+<code>*(p+1)</code>单独使用时表示的是第 1 行数据，放在表达式中会被转换为第 1 行数据的首地址，也就是第 1 行第 0 个元素的地址，因为<strong>使用整行数据没有实际的含义</strong>，编译器遇到这种情况都会转换为指向该行第 0 个元素的指针；就像一维数组的名字，在定义时或者和 sizeof、&amp; 一起使用时才表示整个数组，出现在表达式中就会被转换为指向数组第 0 个元素的指针<br />
+* 4) <code>*(*(p+1)+1)</code>表示第 1 行第 1 个元素的值</p>
+<p>int num[5] = {1,2,3,4,5}<br />
+num代表数组首元素地址 &amp;num代表数组的地址 他们的步长不一样</p>
+<pre><code>sizeof(*num) //4
+sizeof(*&amp;num) 20</code></pre>
+<p>int num[3][4] = {1,2,3,4,5,6,7,8,9,10,11,12}<br />
+这是一个包含3个元素，每个元素又包含4个int的数组</p>
+<pre><code>指针的步长，根据所指内存空间类型来定
+num代表第一个4个int的东西 步长为16
+*num 步长为4
+&amp;num步长为48</code></pre>
+<h3 id="c语言函数指针指向函数的指针详解">C语言函数指针（指向函数的指针）详解</h3>
+<p>函数指针的定义形式为：<br />
+<code>returnType (*pointerName)(param list);</code><br />
+注意<code>( )</code>的优先级高于<code>*</code>，第一个括号不能省略，如果写作<code>returnType *pointerName(param list);</code>就成了函数原型，它表明函数的返回值类型为<code>returnType *</code>。<br />
+例子：</p>
+<pre><code>#include &lt;stdio.h&gt;
+//返回两个数中较大的一个
+int max(int a, int b){
+    return a&gt;b ? a : b;
+}
+int main(){
+    int x, y, maxval;
+    //定义函数指针
+    int (*pmax)(int, int) = max; //也可以写作int (*pmax)(int a, int b)
+    printf(&quot;Input two numbers:&quot;);
+    scanf(&quot;%d %d&quot;, &amp;x, &amp;y);
+    maxval = (*pmax)(x, y);
+    printf(&quot;Max value: %d\n&quot;, maxval);
+    return 0;
+}</code></pre>
+<h3 id="只需一招彻底攻克c语言指针再复杂的指针都不怕">只需一招，彻底攻克C语言指针，再复杂的指针都不怕</h3>
+<p>C语言标准规定，<strong>对于一个符号的定义，编译器总是从它的名字开始读取，然后按照优先级顺序依次解析</strong>。对，从名字开始，不是从开头也不是从末尾，这是理解复杂指针的关键！就近原则。</p>
+<h3 id="main函数的高级用法接收用户输入的数据">main()函数的高级用法：接收用户输入的数据</h3>
+<p>main() 是C语言程序的入口函数，有且只能有一个，它实际上有两种标准的原型：</p>
+<pre><code>int main();
+int main(int argc, char *argv[]);</code></pre>
+<h3 id="对c语言指针的总结">对C语言指针的总结</h3>
+<pre><code>定 义        含 义
+int *p;       p可以指向 int 类型的数据，也可以指向类似 int arr[n] 的数组。
+int **p;      p为二级指针，指向 int * 类型的数据。
+int *p[n];    p为指针数组。[ ] 的优先级高于 *，所以应该理解为 int *(p[n]);
+int (*p)[n];  p为二维数组指针。
+int *p();     p是一个函数声明，它的返回值类型为 int *。
+int (*p)();   p是一个函数指针，指向原型为 int func() 的函数。</code></pre>
+<h3 id="深copy和浅copy">深copy和浅copy</h3>
+<p>结构体复制的时候，如果有指针的话，只会复制其指针</p>
+<pre><code>typedef struct _AdvTeacher
+{
+ char *name;
+ char buf[100];
+ int age;
+}Teacher ;
+
+
+Teacher * creatT()
+{
+ Teacher *tmp = NULL;
+ tmp = (Teacher *)malloc(sizeof(Teacher));
+ tmp-&gt;name = (char *)malloc(100);
+ return tmp;
+}
+void FreeT(Teacher *t)
+{
+ if (t == NULL)
+ {
+  return ;
+ }
+ if (t-&gt;name != NULL)
+ {
+  free(t-&gt;name);
+ }
+}
+//copy函数
+int copyObj(Teacher *to, Teacher *from)
+{
+ //*to = *from;//copy；
+ memcpy(to, from, sizeof(Teacher));
+ to-&gt;name = (char *)malloc(100);
+ strcpy(to-&gt;name, from-&gt;name);
+}</code></pre>
+<h2 id="段错误">段错误</h2>
+<p>段错误是指访问的内存超出了系统给这个程序所设定的内存空间，例如访问了不存在的内存地址、访问了系统保护的内存地址、访问了只读的内存地址等等情况</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

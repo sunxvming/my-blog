@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/10-编程语言/c.c++/c++笔记/8.C++异常处理</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#c异常处理入门c-try-catch入门">C++异常处理入门，C++ try catch入门</a></li>
+<li><a href="#c异常类型以及多级catch匹配">C++异常类型以及多级catch匹配</a>
+<ul>
+<li><a href="#多级-catch">多级 catch</a></li>
+<li><a href="#catch-在匹配过程中的类型转换">catch 在匹配过程中的类型转换</a></li>
+</ul></li>
+<li><a href="#c-throw抛出异常">C++ throw（抛出异常）</a>
+<ul>
+<li><a href="#一个动态数组的例子">一个动态数组的例子</a></li>
+<li><a href="#throw-用作异常规范">throw 用作异常规范</a></li>
+<li><a href="#请抛弃异常规范不要再使用它">请抛弃异常规范，不要再使用它</a></li>
+</ul></li>
+<li><a href="#c-exception类c标准异常的基类">C++ exception类：C++标准异常的基类</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h3 id="c异常处理入门c-try-catch入门">C++异常处理入门，C++ try catch入门</h3>
+<p>程序的错误大致可以分为三种，分别是语法错误、逻辑错误和运行时错误：<br />
+1) 语法错误在编译和链接阶段就能发现<br />
+2) 逻辑错误是说我们编写的代码思路有问题，不能够达到最终的目标，这种错误可以通过调试来解决。<br />
+3) 运行时错误是指程序在运行期间发生的错误，例如除数为 0、内存分配失败、数组越界、文件不存在等。C++ 异常（Exception）机制就是为解决<strong>运行时错误</strong>而引入的。<br />
+异常可以发生在当前的 try 块中，也可以发生在 try 块所调用的某个函数中，或者是所调用的函数又调用了另外的一个函数，这个另外的函数中发生了异常。这些异常，都可以被 try 检测到。</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;exception&gt;
+using namespace std;
+void func(){
+    throw &quot;Unknown Exception&quot;; //抛出异常
+    cout&lt;&lt;&quot;[1]This statement will not be executed.&quot;&lt;&lt;endl;
+}
+int main(){
+    try{
+        func();
+        cout&lt;&lt;&quot;[2]This statement will not be executed.&quot;&lt;&lt;endl;
+    }catch(const char* &amp;e){
+        cout&lt;&lt;e&lt;&lt;endl;
+    }
+    return 0;
+}</code></pre>
+<h3 id="c异常类型以及多级catch匹配">C++异常类型以及多级catch匹配</h3>
+<pre><code>try{
+    // 可能抛出异常的语句
+}catch(exceptionType variable){
+    // 处理异常的语句
+}</code></pre>
+<p>exceptionType是异常类型，它指明了当前的 catch 可以处理什么类型的异常；variable是一个变量，用来接收异常信息。当程序抛出异常时，会创建一份数据，这份数据包含了错误信息，程序员可以根据<strong>这些信息来判断到底出了什么问题，接下来怎么处理</strong>。<br />
+exceptionType variable和函数的形参非常类似，当异常发生后，会将异常数据传递给 variable 这个变量，这和<strong>函数传参的过程类似</strong>。<br />
+总起来说，catch 和真正的函数调用相比，多了一个<strong>在运行阶段将实参和形参匹配</strong>的过程,如果不匹配就会忽略掉的。<br />
+C++ 语言本身以及标准库中的函数抛出的异常，都是 <strong>exception</strong> 类或其子类的异常。也就是说，抛出异常时，会创建一个 exception 类或其子类的对象。<br />
+另外需要注意的是，如果不希望 catch 处理异常数据，也可以将 variable 省略掉，也即写作：</p>
+<pre><code>try{
+    // 可能抛出异常的语句
+}catch(exceptionType){
+    // 处理异常的语句
+}</code></pre>
+<h4 id="多级-catch">多级 catch</h4>
+<pre><code>try{
+    //可能抛出异常的语句
+}catch (exception_type_1 e){
+    //处理异常的语句
+}catch (exception_type_2 e){
+    //处理异常的语句
+}
+//其他的catch
+catch (exception_type_n e){
+    //处理异常的语句
+}</code></pre>
+<p>当异常发生时，程序会按照从上到下的顺序，将异常类型和 catch 所能接收的类型逐个匹配。一旦找到类型匹配的 catch 就停止检索，并将异常交给当前的 catch 处理。如果最终也没有找到匹配的 catch，就只能交给系统处理，<strong>终止程序的运行</strong>。</p>
+<h4 id="catch-在匹配过程中的类型转换">catch 在匹配过程中的类型转换</h4>
+<p>catch在匹配异常类型的过程中，也会进行<strong>类型转换</strong>，但是这种转换受到了更多的限制，仅能进行<br />
+<em> 向上转型<br />
+</em> const 转换<br />
+* 数组或函数指针转换</p>
+<h3 id="c-throw抛出异常">C++ throw（抛出异常）</h3>
+<p>异常必须显式地抛出，才能被检测和捕获到；如果<strong>没有显式的抛出</strong>，即使有异常也检测不到。<br />
+语法：</p>
+<pre><code>throw exceptionData;</code></pre>
+<p>exceptionData 可以是 int、float、bool 等基本类型，也可以是指针、数组、字符串、结构体、类等聚合类型</p>
+<h4 id="一个动态数组的例子">一个动态数组的例子</h4>
+<h4 id="throw-用作异常规范">throw 用作异常规范</h4>
+<p>throw 关键字除了可以用在函数体中抛出异常，还可以用在函数头和函数体之间，指明当前函数能够抛出的异常类型，这称为<strong>异常规范（Exception specification）</strong>，有些教程也称为异常指示符或异常列表。请看下面的例子：<br />
+<code>double func (char param) throw (int, char, exception);</code><br />
+只能抛出异常规范中的异常，如果抛出其他类型的异常，try 将无法捕获，只能终止程序<br />
+1. 虚函数中的异常规范<br />
+C++ 规定，派生类虚函数的异常规范必须与基类虚函数的异常规范一样严格，或者<strong>更严格</strong>。只有这样，当通过基类指针（或者引用）调用派生类虚函数时，才能保证<strong>不违背</strong>基类成员函数的异常规范。 不能说我父类只能抛int的，而子类int char float的什么都能抛，就没有起到规范的作用了。<br />
+2. 异常规范与函数定义和函数声明<br />
+C++ 规定，异常规范在函数声明和函数定义中必须<strong>同时指明，并且要严格保持一致</strong></p>
+<h4 id="请抛弃异常规范不要再使用它">请抛弃异常规范，不要再使用它</h4>
+<p>异常规范的初衷是好的，它希望让程序员看到函数的定义或声明后，立马就知道该函数会抛出什么类型的异常，这样程序员就可以使用 try-catch 来捕获了。如果没有异常规范，程序员必须阅读函数源码才能知道函数会抛出什么异常。<br />
+不过这有时候也不容易做到。例如，func_outer() 函数可能不会引发异常，但它调用了另外一个函数 func_inner()，这个函数可能会引发异常。再如，您编写的函数调用了老式的库函数，此时不会引发异常，但是库更新以后这个函数却引发了异常。总之，异常规范的初衷实现起来有点困难，所以大家达成的一致意见是，最好不要使用异常规范。<br />
+异常规范是 C++98 新增的一项功能，但是后来的 C++11 已经将它<strong>抛弃</strong>了，不再建议使用。</p>
+<h3 id="c-exception类c标准异常的基类">C++ exception类：C++标准异常的基类</h3>
+<p>C++语言本身或者标准库抛出的异常都是 exception 的子类，称为<strong>标准异常</strong>（Standard Exception）。<br />
+通过下面的语句来捕获所有的标准异常（有个兜底儿的异常）：</p>
+<pre><code>try{
+    //可能抛出异常的语句
+}catch(exception &amp;e){
+    //处理异常的语句
+}</code></pre>
+<p>之所以使用引用，是<strong>为了提高效率</strong>。如果不使用引用，就要经历一次对象拷贝（要调用拷贝构造函数）的过程。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

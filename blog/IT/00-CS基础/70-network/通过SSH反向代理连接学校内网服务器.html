@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/00-CS基础/70-network/通过SSH反向代理连接学校内网服务器</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#什么是代理">什么是代理？</a></li>
+<li><a href="#正向代理">正向代理</a></li>
+<li><a href="#反向代理">反向代理</a>
+<ul>
+<li><a href="#正向代理和反向代理的区别">正向代理和反向代理的区别</a></li>
+</ul></li>
+<li><a href="#使用-ssh-反向代理">使用 SSH 反向代理</a>
+<ul>
+<li><a href="#内网服务器操作">内网服务器操作</a></li>
+<li><a href="#公网服务器操作">公网服务器操作</a></li>
+<li><a href="#登录">登录</a></li>
+<li><a href="#用autossh建立稳定隧道">用autossh建立稳定隧道</a></li>
+<li><a href="#不止ssh">不止SSH</a></li>
+</ul></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="什么是代理">什么是代理？</h2>
+<p>要搞清楚什么是反向代理，就得知道什么是 <strong>代理（Proxy）</strong>。代理其实就是一个跳板。比如我要去图书馆借一本书，我把要借的书的信息写在纸上，交给图书馆管理员，由图书馆管理员去仓库帮我把书取出来交给我。那我们就说，图书馆管理员是我的代理。</p>
+<p>在计算机网络中，代理分为 <strong>正向代理</strong> 和 <strong>反向代理</strong> 。</p>
+<h2 id="正向代理">正向代理</h2>
+<p>假如我们访问不了某网站，但是代理服务器可以访问，我们可以让代理服务器去帮助我们访问目标网站，并把结果返回给我们。对于远程目标网站来说，它只得到了一次请求记录，并不知道是我们通过代理服务器访问的，因此正向代理隐藏了我们自身的信息，但也取决于代理服务器告不告诉目标网站。对于我们客户端来说，我自己是知道我使用了代理去访问某个网站的。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/24f7bc04-cac3-498c-855c-7bb90c6c6860.jpg" /></p>
+<p>总的来说，正向代理是一个位于客户端（client）和原始服务器(origin server)之间的服务器（proxy server）。客户端为了从原始服务器取得内容，向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。客户端必须要进行一些特别的设置才能使用正向代理。</p>
+<p>正向代理的用途<br />
+1. 访问原来无法访问的资源，如Google<br />
+2. 可以做缓存，加速访问资源，如nginx<br />
+3. 对客户端访问授权，上网进行认证<br />
+4. 代理可以记录用户访问记录（上网行为管理），对外隐藏用户信息</p>
+<h2 id="反向代理">反向代理</h2>
+<p>反向代理（Reverse Proxy）就是用来解决文章开头提出的问题的。在一些服务器群中，只有一台服务器（即反向代理服务器）向外接收来自互联网的连接请求。然后将请求转发给其他真正提供服务的服务器。对于远程服务器来说，服务器之间是知道代理的存在的，相反，对于我们客户端来说，我们并不知道我们连接的是一个反向代理服务器，我们只知道我们向对方发起了某请求，并获得了回应。</p>
+<p>反向代理的用途<br />
+1. <strong>保证内网的安全</strong>：可以使用反向代理提供WAF功能，阻止web攻击。通常，大型网站都会将反向代理作为公网访问地址，Web服务器是内网。<br />
+2. <strong>负载均衡</strong>：通过反向代理服务器来优化网站的负载</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/8da7322f-d6b5-418d-8216-b8003d2afbac.jpg" /><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/f5a4d2fe-37c6-41e1-b724-4afeab69f87b.jpg" /></p>
+<h3 id="正向代理和反向代理的区别">正向代理和反向代理的区别</h3>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/e4673e09-0df6-4fbc-b05f-b519a3b00bcb.jpg" /></p>
+<h2 id="使用-ssh-反向代理">使用 SSH 反向代理</h2>
+<p>回到文章开头的问题，如何使用反向代理，让我无论在哪里都可以访问学校内网的服务器呢？这就需要用到 SSH 的反向代理功能了。在学校内网服务器中，我们可以通过 SSH 设置反向代理，指向一个有公网ip的服务器（作为我们的反向代理服务器），之后用客户端连接公网服务器时，公网服务器会把请求转交给内网服务器，从而间接登录学校的内网服务器，<strong>整个过程，我们作为客户端是感知不到代理服务器的存在的。客户端是否能感知代理服务器的存在，是区别正向代理和反向代理的关键。</strong></p>
+<p>SSH 参数介绍</p>
+<pre><code># 反向代理命令
+ssh -fCNR
+
+
+# 正向代理命令
+ssh -fCNL
+
+
+参数说明：
+
+
+Header One    Header Two
+-f    后台执行ssh指令
+-C    允许压缩数据
+-N    不执行远程指令
+-R    将远程主机(服务器)的某个端口转发到本地端指定机器的指定端口
+-L    将本地机(客户机)的某个端口转发到远端指定机器的指定端口
+-p    指定远程主机的端口</code></pre>
+<h3 id="内网服务器操作">内网服务器操作</h3>
+<pre><code># ssh -fCNR 远程端口:localhost:本地端口 远程用户@远程ip
+ssh -fCNR 2999:localhost:22 remote_user@123.123.123.123</code></pre>
+<p>这句命令的意思是，将远程公网服务器 2999 端口转发至本地 22 端口， <code>remote_user@123.123.123.123</code>是远程服务器用户名和ip<br />
+使用 <code>ps aux | grep ssh</code> 来查看是否运行。</p>
+<h3 id="公网服务器操作">公网服务器操作</h3>
+<p>有一台腾讯云服务器学生机，配有公网ip，可以拿这台服务器作为跳板机（远程代理服务器）。</p>
+<pre><code># ssh -fCNL *:客户端登录端口:localhost:本地端口 localhost
+ssh -fCNL *:11111:localhost:2999 localhost</code></pre>
+<p>这句命令的意思是，将 11111 端口作为本地转发端口，用于与互联网进行通信，并将数据转发至 2999 端口，而 2999 端口的数据会被刚刚配置的学校内网服务器接收。</p>
+<h3 id="登录">登录</h3>
+<p>现在，用一台位于任意地方的电脑</p>
+<pre><code>ssh -p11111 学校内网用户名@公网ip地址</code></pre>
+<p>免密登录</p>
+<pre><code>ssh-copy-id 公网用户名@公网ip</code></pre>
+<h3 id="用autossh建立稳定隧道">用autossh建立稳定隧道</h3>
+<p>autossh 跟 shh 不同的地方在于，当隧道断开的时候，autossh 会自动重新连接，而ssh不会。<br />
+反向代理（内网服务器操作）</p>
+<pre><code>autossh -M 6666 -fCNR 2999:localhost:22 公网用户名@公网ip</code></pre>
+<p>-M参数指定一个端口，这个端口是公网机器用来接收内网机器的信息，如果隧道不正常而返回给内网机器让他实现重新连接。</p>
+<p><strong>配置开机启动（内网服务器操作）</strong></p>
+<pre><code>vi /etc/rc.d/rc.local
+autossh -M 6666 -fCNR 2999:localhost:22 公网用户名@公网ip
+chmod +x /etc/rc.d/rc.local</code></pre>
+<h3 id="不止ssh">不止SSH</h3>
+<p>到这里就已经解决了文章一开始的问题了。但是突发奇想，除了ssh之外，有没有办法，能够远程访问没有公网ip的电脑上面架设的Web服务或者Ftp服务呢？例如，在家里的电脑（没有公网ip）上架了一个网站，那出门的时候有没有办法远程访问家里的整个网站？事实上，这是完全可行的，借助的也是反向代理，但有了一个新的名词——<strong>内网穿透</strong>。现在市面上内网穿透的软件很多，比如花生壳、ngrok，使用这些工具，不仅仅可以反向代理ssh的22端口，还可以代理任意 tcp 或 udp 端口，非常有用。</p>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://jerrysheh.com/post/44ca081e.html">通过SSH反向代理连接学校内网服务器</a></li>
+<li><a href="https://www.cnblogs.com/kwongtai/p/6903420.html">利用ssh反向代理以及autossh实现从外网连接内网服务器</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/10-编程语言/rust/Rust程序设计语言</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#入门指南">1. 入门指南</a></li>
+<li><a href="#写个猜数字游戏">2. 写个猜数字游戏</a></li>
+<li><a href="#常见编程概念">3. 常见编程概念</a>
+<ul>
+<li><a href="#变量与可变性">3.1. 变量与可变性</a></li>
+<li><a href="#数据类型">3.2. 数据类型</a></li>
+<li><a href="#函数">3.3. 函数</a></li>
+<li><a href="#注释">3.4. 注释</a></li>
+<li><a href="#控制流">3.5. 控制流</a></li>
+</ul></li>
+<li><a href="#认识所有权">4. 认识所有权</a>
+<ul>
+<li><a href="#slice-类型">4.3. Slice 类型</a></li>
+</ul></li>
+<li><a href="#使用结构体组织相关联的数据">5. 使用结构体组织相关联的数据</a>
+<ul>
+<li><a href="#结构体示例程序">5.2. 结构体示例程序</a></li>
+<li><a href="#方法语法">5.3. 方法语法</a></li>
+</ul></li>
+<li><a href="#枚举和模式匹配">6. 枚举和模式匹配</a>
+<ul>
+<li><a href="#枚举的定义">6.1. 枚举的定义</a></li>
+<li><a href="#match-控制流结构">6.2. match 控制流结构</a></li>
+<li><a href="#if-let-简洁控制流">6.3. if let 简洁控制流</a></li>
+</ul></li>
+<li><a href="#使用包crate-和模块管理不断增长的项目">7. 使用包、Crate 和模块管理不断增长的项目</a>
+<ul>
+<li><a href="#包和-crate">7.1. 包和 Crate</a></li>
+<li><a href="#定义模块来控制作用域与私有性">7.2. 定义模块来控制作用域与私有性</a></li>
+<li><a href="#引用模块项目的路径">7.3. 引用模块项目的路径</a></li>
+<li><a href="#使用-use-关键字将路径引入作用域">7.4. 使用 use 关键字将路径引入作用域</a></li>
+<li><a href="#将模块拆分成多个文件">7.5. 将模块拆分成多个文件</a></li>
+</ul></li>
+<li><a href="#常见集合">8. 常见集合</a>
+<ul>
+<li><a href="#使用-vector-储存列表">8.1. 使用 Vector 储存列表</a></li>
+<li><a href="#使用字符串储存-utf-8-编码的文本">8.2. 使用字符串储存 UTF-8 编码的文本</a></li>
+<li><a href="#使用-hash-map-储存键值对">8.3. 使用 Hash Map 储存键值对</a></li>
+</ul></li>
+<li><a href="#错误处理">9. 错误处理</a>
+<ul>
+<li><a href="#用-panic-处理不可恢复的错误">9.1. 用 panic! 处理不可恢复的错误</a></li>
+<li><a href="#用-result-处理可恢复的错误">9.2. 用 Result 处理可恢复的错误</a></li>
+<li><a href="#要不要-panic">9.3. 要不要 panic!</a></li>
+</ul></li>
+<li><a href="#泛型trait-和生命周期">10. 泛型、Trait 和生命周期</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>随书的代码<br />
+https://github.com/rust-lang/book/tree/main/src</p>
+<p>mut 与隐藏的另一个区别是，当再次使用 let 时，实际上创建了一个新变量，我们可以改变值的类型，并且复用这个名字</p>
+<h2 id="入门指南">1. 入门指南</h2>
+<p>1.1. 安装<br />
+1.2. Hello, World!<br />
+1.3. Hello, Cargo!</p>
+<h2 id="写个猜数字游戏">2. 写个猜数字游戏</h2>
+<h2 id="常见编程概念">3. 常见编程概念</h2>
+<h3 id="变量与可变性">3.1. 变量与可变性</h3>
+<p>我们可以定义一个与之前变量同名的新变量。Rustacean 们称之为第一个变量被第二个 隐藏（Shadowing） 了<br />
+mut 与隐藏的另一个区别是，当再次使用 let 时，实际上创建了一个新变量，我们可以改变值的类型，并且复用这个名字<br />
+转换类型的时候可以用变量隐藏</p>
+<h3 id="数据类型">3.2. 数据类型</h3>
+<ul>
+<li><p>整型<br />
+<code>isize</code> 和 <code>usize</code> 类型依赖运行程序的计算机架构：64 位架构上它们是 64 位的， 32 位架构上它们是 32 位的。<br />
+允许使用 <code>_</code> 做为分隔符以方便读数，例如<code>1_000</code>，它的值与你指定的 <code>1000</code> 相同。</p></li>
+<li><p>浮点型<br />
+浮点型默认类型是 f64</p></li>
+<li><p>布尔型</p></li>
+<li><p>字符类型<br />
+Rust 的 <code>char</code> 类型的大小为四个字节(four bytes)，并代表了一个 Unicode 标量值（Unicode Scalar Value）</p></li>
+<li><p>元组类型<br />
+<code>let tup = (500, 6.4, 1);</code></p></li>
+<li><p>数组<br />
+数组会分配到栈上，数组越界会引发panic而退出，将错误第一时间暴露出来</p></li>
+</ul>
+<pre><code>let a = [1, 2, 3, 4, 5];
+let a: [i32; 5] = [1, 2, 3, 4, 5];
+let a = [3; 5];</code></pre>
+<h3 id="函数">3.3. 函数</h3>
+<p>函数体由一系列的语句和一个可选的结尾表达式构成<br />
+Rust 是一门基于表达式（expression-based）的语言<br />
+语句（Statements）是执行一些操作但不返回值的指令。表达式（Expressions）计算并产生一个值。</p>
+<p>表达式会计算出一个值，并且你将编写的大部分 Rust 代码是由表达式组成的。考虑一个数学运算，比如 <code>5 + 6</code>，这是一个表达式并计算出值 <code>11</code>。表达式可以是语句的一部分：在示例 3-1 中，语句 <code>let y = 6;</code> 中的 <code>6</code> 是一个表达式，它计算出的值是 <code>6</code>。函数调用是一个表达式。宏调用是一个表达式。用大括号创建的一个新的块作用域也是一个表达式。</p>
+<p>表达式的结尾没有分号。如果在表达式的结尾加上分号，它就变成了语句，而语句不会返回值</p>
+<p>函数的返回值等同于函数体最后一个表达式的值</p>
+<h3 id="注释">3.4. 注释</h3>
+<h3 id="控制流">3.5. 控制流</h3>
+<p>代码中的条件 <strong>必须</strong> 是 <code>bool</code> 值<br />
+多个else if，只会执行第一个条件为真的代码块</p>
+<p>在 let 语句中使用 if</p>
+<pre><code>let condition = true;
+let number = if condition { 5 } else { 6 };</code></pre>
+<p>let中使用循环</p>
+<pre><code>fn main() {
+    let mut counter = 0;
+
+    let result = loop {  //result = 20
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!(&quot;The result is {result}&quot;);
+}</code></pre>
+<p>for循环</p>
+<pre><code>fn main() {
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a {
+        println!(&quot;the value is: {element}&quot;);
+    }
+}
+
+fn main() {
+    for number in (1..4).rev() {
+        println!(&quot;{number}!&quot;);
+    }
+    println!(&quot;LIFTOFF!!!&quot;);
+}</code></pre>
+<h2 id="认识所有权">4. 认识所有权</h2>
+<p>所有权（系统）是 Rust 最为与众不同的特性，对语言的其他部分有着深刻含义。它让 Rust 无需垃圾回收（garbage collector）即可保障内存安全</p>
+<p>4.1. 什么是所有权？<br />
+所有程序都必须管理其运行时使用计算机内存的方式。一些语言中具有垃圾回收机制，在程序运行时有规律地寻找不再使用的内存；在另一些语言中，程序员必须亲自分配和释放内存。Rust 则选择了第三种方式：通过所有权系统管理内存，编译器在编译时会根据一系列的规则进行检查。</p>
+<p>跟踪哪部分代码正在使用堆上的哪些数据，最大限度的减少堆上的重复数据的数量，以及清理堆上不再使用的数据确保不会耗尽空间，这些问题正是所有权系统要处理的。一旦理解了所有权，你就不需要经常考虑栈和堆了，不过明白了所有权的主要目的就是为了管理堆数据，能够帮助解释为什么所有权要以这种方式工作。</p>
+<p><strong>所有权规则</strong><br />
+1. Rust 中的每一个值都有一个 <strong>所有者</strong>（<em>owner</em>）。<br />
+2. 值在任一时刻有且只有一个所有者。<br />
+3. 当所有者（变量）离开作用域，这个值将被丢弃。</p>
+<pre><code>    {
+        let s = String::from(&quot;hello&quot;); // 从此处起，s 是有效的
+
+        // 使用 s
+    }                                  // 此作用域已结束，
+                                       // s 不再有效</code></pre>
+<p>这是一个将 String 需要的内存返回给分配器的很自然的位置：当 s 离开作用域的时候。当变量离开作用域，Rust 为我们调用一个特殊的函数。这个函数叫做 drop，在这里 String 的作者可以放置释放内存的代码。Rust 在结尾的 } 处自动调用 <strong>drop</strong>。</p>
+<p>移动语义</p>
+<pre><code>let s1 = String::from(&quot;hello&quot;);
+let s2 = s1;
+
+println!(&quot;{}, world!&quot;, s1);    //s1已经被移动到s2了，不能再使用，其目的是防止double free</code></pre>
+<p>Rust 不允许自身或其任何部分实现了 Drop trait 的类型使用 Copy trait</p>
+<p>所有权转移的情况<br />
+所有权其实是堆中内存的所有权<br />
+带有指针的数据会产生所有权转移，在以下情况会进行转移：<br />
+1. 将一个变量的值赋给另一个变量<br />
+2. 将一个变量传递给一个函数<br />
+3. 将一个变量作为函数的返回值</p>
+<p>4.2. 引用与借用<br />
+引用的行为称为 借用（borrowing）</p>
+<p>默认的引用是不可变的，如果需要可变引用，需要使用 &amp;mut</p>
+<p>可变引用有一个很大的限制：如果你有一个对该变量的可变引用，你就不能再创建对该变量的引用。这些尝试创建两个 <code>s</code> 的可变引用的代码会失败：</p>
+<p>这一限制以一种非常小心谨慎的方式允许可变性，防止同一时间对同一数据存在多个可变引用。新 Rustacean 们经常难以适应这一点，因为大部分语言中变量任何时候都是可变的。这个限制的好处是 Rust 可以在编译时就避免数据竞争。<strong>数据竞争</strong>（<em>data race</em>）类似于竞态条件，它可由这三个行为造成：<br />
+- 两个或更多指针同时访问同一数据。<br />
+- 至少有一个指针被用来写入数据。<br />
+- 没有同步数据访问的机制。</p>
+<p>一如既往，可以使用大括号来创建一个新的作用域，以允许拥有多个可变引用，只是不能 同时 拥有：</p>
+<pre><code>    let mut s = String::from(&quot;hello&quot;);
+
+    {
+        let r1 = &amp;mut s;
+    } // r1 在这里离开了作用域，所以我们完全可以创建一个新的引用
+
+    let r2 = &amp;mut s;</code></pre>
+<p><strong>引用的规则</strong><br />
+- 在任意给定时间，<strong>要么</strong> 只能有一个可变引用，<strong>要么</strong> 只能有多个不可变引用。<br />
+- 引用必须总是有效的。</p>
+<h3 id="slice-类型">4.3. Slice 类型</h3>
+<p>slice 允许你引用集合中一段连续的元素序列，而不用引用整个集合。slice 是一类引用，所以它没有所有权。<br />
+“字符串 slice” 的类型声明写作 <code>&amp;str</code>：<br />
+字符串字面值就是 slice<br />
+定义一个获取字符串 slice 而不是 String 引用的函数使得我们的 API 更加通用并且不会丢失任何功能</p>
+<p>其他的slice还有数组的、其他集合的</p>
+<h2 id="使用结构体组织相关联的数据">5. 使用结构体组织相关联的数据</h2>
+<p>5.1. 结构体的定义和实例化<br />
+结构体需要命名各部分数据以便能清楚的表明其值的意义。由于有了这些名字，结构体比元组更灵活：不需要依赖顺序来指定或访问实例中的值。</p>
+<pre><code>struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+let user1 = User {
+    email: String::from(&quot;someone@example.com&quot;),
+    username: String::from(&quot;someusername123&quot;),
+    active: true,
+    sign_in_count: 1,
+};
+//使用字段初始化简写语法
+fn build_user(email: String, username: String) -&gt; User {
+    User {
+        email,
+        username,
+        active: true,
+        sign_in_count: 1,
+    }
+}
+//使用结构体更新语法从其他实例创建实例
+let user2 = User {
+    email: String::from(&quot;another@example.com&quot;),
+    ..user1        // ..user1 必须放在最后,其中user1中的String字段被移动到了user2
+};</code></pre>
+<p>元组结构体</p>
+<pre><code>struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+fn main() {
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
+}</code></pre>
+<p><strong>没有任何字段的类单元结构体</strong><br />
+我们也可以定义一个没有任何字段的结构体！它们被称为 <strong>类单元结构体</strong>（<em>unit-like structs</em>）因为它们类似于 <code>()</code>，即[“元组类型”]一节中提到的 unit 类型。类单元结构体常常在你想要在某个类型上实现 trait 但不需要在类型中存储数据的时候发挥作用。</p>
+<pre><code>struct AlwaysEqual;
+
+fn main() {
+    let subject = AlwaysEqual;
+}</code></pre>
+<h3 id="结构体示例程序">5.2. 结构体示例程序</h3>
+<h3 id="方法语法">5.3. 方法语法</h3>
+<p>在结构体的上下文中被定义（或者是枚举或 trait 对象的上下文），并且它们第一个参数总是 self，它代表调用该方法的结构体实例。</p>
+<pre><code>#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn area(&amp;self) -&gt; u32 {
+        self.width * self.height
+    }
+}
+
+fn main() {
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    println!(
+        &quot;The area of the rectangle is {} square pixels.&quot;,
+        rect1.area()
+    );
+}</code></pre>
+<p><strong>关联函数</strong><br />
+所有在 <code>impl</code> 块中定义的函数被称为 <strong>关联函数</strong>（<em>associated functions</em>），因为它们与 <code>impl</code> 后面命名的类型相关。</p>
+<h2 id="枚举和模式匹配">6. 枚举和模式匹配</h2>
+<h3 id="枚举的定义">6.1. 枚举的定义</h3>
+<p>枚举给予你将一个值成为一个集合<strong>之一</strong>的方法，只能是其中之一</p>
+<pre><code>enum IpAddrKind {
+    V4,
+    V6,
+}
+
+struct IpAddr {
+    kind: IpAddrKind,
+    address: String,
+}
+
+let home = IpAddr {
+    kind: IpAddrKind::V4,
+    address: String::from(&quot;127.0.0.1&quot;),
+};
+
+let loopback = IpAddr {
+    kind: IpAddrKind::V6,
+    address: String::from(&quot;::1&quot;),
+};
+
+// 另一种简单写法，我们直接将数据附加到枚举的每个成员上，这样就不需要一个额外的结构体了。
+// 用枚举替代结构体还有另一个优势：每个成员可以处理不同类型和数量的数据。结构体的成员则都只能是一样的数据类型
+enum IpAddr {
+    V4(String),
+    V6(String),
+}
+
+let home = IpAddr::V4(String::from(&quot;127.0.0.1&quot;));
+let loopback = IpAddr::V6(String::from(&quot;::1&quot;));
+</code></pre>
+<p><strong>Option 枚举和其相对于空值的优势</strong><br />
+<code>Option</code> 类型应用广泛因为它编码了一个非常普遍的场景，即一个值要么有值要么没值。<br />
+编程语言的设计经常要考虑包含哪些功能，但考虑排除哪些功能也很重要。Rust 并没有很多其他语言中有的空值功能。<strong>空值</strong>（<em>Null</em> ）是一个值，它代表没有值。在有空值的语言中，变量总是这两种状态之一：空值和非空值</p>
+<p>空值的问题在于当你尝试像一个非空值那样使用一个空值，会出现某种形式的错误。因为空和非空的属性无处不在，非常容易出现这类错误。</p>
+<p>只要一个值不是 <code>Option&lt;T&gt;</code> 类型，你就 <strong>可以</strong> 安全的认定它的值不为空。这是 Rust 的一个经过深思熟虑的设计决策，来限制空值的泛滥以增加 Rust 代码的安全性。</p>
+<h3 id="match-控制流结构">6.2. match 控制流结构</h3>
+<p>每个分支相关联的代码是一个表达式，而表达式的结果值将作为整个 match 表达式的返回值。<br />
+如果分支代码较短的话通常不使用大括号<br />
+分支后的逗号是可选的<br />
+匹配分支的另一个有用的功能是可以绑定匹配的模式的部分值。这也就是如何从枚举成员中提取值的。</p>
+<p>匹配是穷尽的，分支必须覆盖了所有的可能性<br />
+我们必须将通配分支放在最后，因为模式是按顺序匹配的。如果我们在通配分支后添加其他分支，Rust 将会警告我们，因为此后的分支永远不会被匹配到。</p>
+<h3 id="if-let-简洁控制流">6.3. if let 简洁控制流</h3>
+<pre><code>let config_max = Some(3u8);
+if let Some(max) = config_max {
+    println!(&quot;The maximum is configured to be {}&quot;, max);
+}</code></pre>
+<p>可以认为 <code>if let</code> 是 <code>match</code> 的一个语法糖，它当值匹配某一模式时执行代码而忽略所有其他值。</p>
+<pre><code>let mut count = 0;
+match coin {
+    Coin::Quarter(state) =&gt; println!(&quot;State quarter from {:?}!&quot;, state),
+    _ =&gt; count += 1,
+}
+// 等同于下面
+let mut count = 0;
+if let Coin::Quarter(state) = coin {
+    println!(&quot;State quarter from {:?}!&quot;, state);
+} else {
+    count += 1;
+}</code></pre>
+<h2 id="使用包crate-和模块管理不断增长的项目">7. 使用包、Crate 和模块管理不断增长的项目</h2>
+<p>Rust 有许多功能可以让你管理代码的组织，包括哪些内容可以被公开，哪些内容作为私有部分，以及程序每个作用域中的名字。这些功能。这有时被称为 “模块系统（the module system）”，包括：</p>
+<ul>
+<li><strong>包</strong>（<em>Packages</em>）： Cargo 的一个功能，它允许你构建、测试和分享 crate。</li>
+<li><strong>Crates</strong> ：一个模块的树形结构，它形成了库或二进制项目。</li>
+<li><strong>模块</strong>（<em>Modules</em>）和 <strong>use</strong>： 允许你控制作用域和路径的私有性。</li>
+<li><strong>路径</strong>（<em>path</em>）：一个命名例如结构体、函数或模块等项的方式</li>
+</ul>
+<h3 id="包和-crate">7.1. 包和 Crate</h3>
+<p>crate 有两种形式：二进制项和库。<br />
+大多数时间 Rustaceans 说的 crate 指的都是库，这与其他编程语言中 library 概念一致。<br />
+crate root 是一个源文件，Rust 编译器以它为起始点，并构成你的 crate 的根模块<br />
+包（package） 是提供一系列功能的一个或者多个 crate。<br />
+包中可以包含至多一个库 crate(library crate)。包中可以包含任意多个二进制 crate(binary crate)，但是必须至少包含一个 crate（无论是库的还是二进制的）。</p>
+<p>Cargo 遵循的一个约定：src/main.rs 就是一个与包同名的二进制 crate 的 crate 根。同样的，Cargo 知道如果包目录中包含 src/lib.rs，则包带有与其同名的库 crate，且 src/lib.rs 是 crate 根。</p>
+<h3 id="定义模块来控制作用域与私有性">7.2. 定义模块来控制作用域与私有性</h3>
+<h3 id="引用模块项目的路径">7.3. 引用模块项目的路径</h3>
+<p>Rust 中默认所有项（函数、方法、结构体、枚举、模块和常量）都是私有的。父模块中的项不能使用子模块中的私有项，但是子模块中的项可以使用他们父模块中的项。这是因为子模块封装并隐藏了他们的实现详情，但是子模块可以看到他们定义的上下文。</p>
+<p>Rust 选择以这种方式来实现模块系统功能，因此默认隐藏内部实现细节。这样一来，你就知道可以更改内部代码的哪些部分而不会破坏外部代码。你还可以通过使用 pub 关键字来创建公共项，使子模块的内部部分暴露给上级模块。</p>
+<h3 id="使用-use-关键字将路径引入作用域">7.4. 使用 use 关键字将路径引入作用域</h3>
+<p>使用 <code>use</code> 引入结构体、枚举和其他项时，习惯是指定它们的完整路径。</p>
+<h3 id="将模块拆分成多个文件">7.5. 将模块拆分成多个文件</h3>
+<h2 id="常见集合">8. 常见集合</h2>
+<h3 id="使用-vector-储存列表">8.1. 使用 Vector 储存列表</h3>
+<p>丢弃 vector 时也会丢弃其所有元素</p>
+<h3 id="使用字符串储存-utf-8-编码的文本">8.2. 使用字符串储存 UTF-8 编码的文本</h3>
+<h3 id="使用-hash-map-储存键值对">8.3. 使用 Hash Map 储存键值对</h3>
+<h2 id="错误处理">9. 错误处理</h2>
+<p>Rust 将错误分为两大类：<strong>可恢复的</strong>（<em>recoverable</em>）和 <strong>不可恢复的</strong>（<em>unrecoverable</em>）错误。对于一个可恢复的错误，比如文件未找到的错误，我们很可能只想向用户报告问题并重试操作。不可恢复的错误总是 bug 出现的征兆，比如试图访问一个超过数组末端的位置，因此我们要立即停止程序。</p>
+<p>大多数语言并不区分这两种错误，并采用类似异常这样方式统一处理他们。Rust 没有异常。相反，它有 <code>Result&lt;T, E&gt;</code> 类型，用于处理可恢复的错误，还有 <code>panic!</code> 宏，在程序遇到不可恢复的错误时停止执行。</p>
+<h3 id="用-panic-处理不可恢复的错误">9.1. 用 panic! 处理不可恢复的错误</h3>
+<h3 id="用-result-处理可恢复的错误">9.2. 用 Result 处理可恢复的错误</h3>
+<p>传播错误<br />
+当编写一个其实先会调用一些可能会失败的操作的函数时，除了在这个函数中处理错误外，还可以选择让调用者知道这个错误并决定该如何处理。这被称为 <strong>传播</strong>（<em>propagating</em>）错误，这样能更好的控制代码调用，因为比起你代码所拥有的上下文，调用者可能拥有更多信息或逻辑来决定应该如何处理错误。</p>
+<p>传播错误的简写：? 运算符</p>
+<h3 id="要不要-panic">9.3. 要不要 panic!</h3>
+<h2 id="泛型trait-和生命周期">10. 泛型、Trait 和生命周期</h2>
+<p>10.1. 泛型数据类型<br />
+10.2. Trait：定义共同行为<br />
+10.3. 生命周期确保引用有效<br />
+11. 编写自动化测试<br />
+11.1. 如何编写测试<br />
+11.2. 控制测试如何运行<br />
+11.3. 测试的组织结构<br />
+12. 一个 I/O 项目：构建命令行程序<br />
+12.1. 接受命令行参数<br />
+12.2. 读取文件<br />
+12.3. 重构以改进模块化与错误处理<br />
+12.4. 采用测试驱动开发完善库的功能<br />
+12.5. 处理环境变量<br />
+12.6. 将错误信息输出到标准错误而不是标准输出<br />
+13. Rust 中的函数式语言功能：迭代器与闭包<br />
+13.1. 闭包：可以捕获其环境的匿名函数<br />
+13.2. 使用迭代器处理元素序列<br />
+13.3. 改进之前的 I/O 项目<br />
+13.4. 性能比较：循环对迭代器<br />
+14. 更多关于 Cargo 和 Crates.io 的内容<br />
+14.1. 采用发布配置自定义构建<br />
+14.2. 将 crate 发布到 Crates.io<br />
+14.3. Cargo 工作空间<br />
+14.4. 使用 cargo install 从 Crates.io 安装二进制文件<br />
+14.5. Cargo 自定义扩展命令<br />
+15. 智能指针<br />
+15.1. 使用Box<T> 指向堆上数据<br />
+15.2. 使用Deref Trait 将智能指针当作常规引用处理<br />
+15.3. 使用Drop Trait 运行清理代码<br />
+15.4. Rc<T> 引用计数智能指针<br />
+15.5. RefCell<T> 与内部可变性模式<br />
+15.6. 引用循环会导致内存泄漏<br />
+16. 无畏并发<br />
+16.1. 使用线程同时地运行代码<br />
+16.2. 使用消息传递在线程间通信<br />
+16.3. 共享状态并发<br />
+16.4. 使用Sync 与 Send Traits 的可扩展并发<br />
+17. Rust 的面向对象编程特性<br />
+17.1. 面向对象语言的特点<br />
+17.2. 为使用不同类型的值而设计的 trait 对象<br />
+17.3. 面向对象设计模式的实现<br />
+18. 模式与模式匹配<br />
+18.1. 所有可能会用到模式的位置<br />
+18.2. Refutability（可反驳性）: 模式是否会匹配失效<br />
+18.3. 模式语法<br />
+19. 高级特征<br />
+19.1. 不安全的 Rust<br />
+19.2. 高级 trait<br />
+19.3. 高级类型<br />
+19.4. 高级函数与闭包<br />
+19.5. 宏<br />
+20. 最后的项目: 构建多线程 web server<br />
+20.1. 建立单线程 web server<br />
+20.2. 将单线程 server 变为多线程 server<br />
+20.3. 优雅停机与清理</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/30-database/mysql/mysql笔记</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#建表">建表</a>
+<ul>
+<li><a href="#字段">字段</a></li>
+<li><a href="#引擎">引擎</a></li>
+<li><a href="#外键特点">外键特点</a>
+<ul>
+<li><a href="#子查询">子查询</a></li>
+<li><a href="#联合查询">联合查询</a></li>
+</ul></li>
+<li><a href="#插入">插入</a></li>
+<li><a href="#删除">删除</a></li>
+</ul></li>
+<li><a href="#查看mysql信息">查看mysql信息</a>
+<ul>
+<li><a href="#mysql中的日志">MYSQL中的日志？</a></li>
+</ul></li>
+<li><a href="#优化">优化</a></li>
+<li><a href="#高级特性">高级特性</a>
+<ul>
+<li><a href="#视图-view">视图: view</a>
+<ul>
+<li><a href="#为什么要视图">为什么要视图?</a></li>
+<li><a href="#视图与表的关系">视图与表的关系</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#有用特性">有用特性</a>
+<ul>
+<li><a href="#load-data-infile">load data infile</a></li>
+</ul></li>
+<li><a href="#其他操作">其他操作</a>
+<ul>
+<li><a href="#数据库导出和恢复">数据库导出和恢复</a></li>
+<li><a href="#如何远程访问">如何远程访问</a></li>
+<li><a href="#忘记mysql密码怎么">忘记MYSQL密码怎么？</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="建表">建表</h2>
+<h3 id="字段">字段</h3>
+<p>时间的字段要注意若设成 timestamp 每次update的时候都会改时间的<br />
+Float和Decimal<br />
+Float(M,D), M&lt;=23, 4个字节, 24 &lt;=M &lt;=53, 8个字节<br />
+Decimal () ,8个字节.<br />
+区别: decimal比float精度更高, 适合存储货币等要求精确的数字</p>
+<h3 id="引擎">引擎</h3>
+<p>MyISAM :<br />
+1. 速度快<br />
+2. 表级锁定<br />
+3. 支持全文索引（fulltext），只支持英文<br />
+4. 外键：没有具体的作用只是声明一下。<br />
+5. xxx.frm:表结构 xxx.MYD:数据 xxx.MYI:索引</p>
+<p>InnoDB (默认引擎):<br />
+1. 配置好了一样快<br />
+2. 行级锁定（支持高并发）<br />
+3. 支持事务<br />
+4. 外键，级联完整性<br />
+5. 一张一个文件：比较大</p>
+<p>heap/memory : 内存表<br />
+优点：速度快<br />
+缺点：重启表及数据就没有了</p>
+<h3 id="外键特点">外键特点</h3>
+<ol>
+<li><p>只能在InnoDB表上建立外键</p></li>
+<li><p>外键的类型和大小必须和他指向的表的字段要完全一致</p></li>
+<li><p>外键指向的表的字段必须是主键或者unique</p>
+<h3 id="索引">索引</h3>
+<h4 id="索引的类型">索引的类型</h4>
+<p>普通索引: index<br />
+唯一索引: unique index<br />
+主键索引: primary key<br />
+一张表上,只能有一个主键, 但是可以用一个或多个唯一索引.<br />
+全文索引 : fulltext index</p>
+<h4 id="联合索引的使用情况">联合索引的使用情况：</h4>
+<p>index a_b(a,b,c) a,b,c合在一起的索引 ，跟顺序有关<br />
+SELECT * FROM user WHERE a = 1 　会<br />
+SELECT * FROM user WHERE a =1 OR c=2 不会 因为检查c需要扫描全表<br />
+SELECT * FROM user WHERE a = 1 AND b=1　　　　 会<br />
+SELECT * FROM user WHERE b = 1 不会<br />
+SELECT * FROM user WHERE b = 1 AND c=1 不会</p>
+<h3 id="索引的创建原则">索引的创建原则:</h3>
+<p>1:不要过度索引<br />
+2:在where条件最频繁的列上加.<br />
+3:尽量索引散列值,过于集中的值加索引意义不大.</p>
+<h3 id="修改表语句">修改表语句</h3>
+<p>查看表的创建过程:<br />
+show create table tableName<br />
+增加列<br />
+alter table tbName add 列名称 (add之后的旧列名之后的语法和创建表时的列声明一样)<br />
+修改列<br />
+alter table tbName change 旧列名 新列名 (注:旧列名之后的语法和创建表时的列声明一样)<br />
+减少列<br />
+alter table tbName drop 列名称;<br />
+增加主键<br />
+alter table tbName add primary key(主键所在列名);<br />
+例:alter table goods add primary key(id)<br />
+删除主键<br />
+alter table tbName　drop primary key;<br />
+增加索引<br />
+alter table tbName add [unique|fulltext] index 索引名(列名);<br />
+删除索引<br />
+alter table tbName drop index 索引名;<br />
+清空表的数据<br />
+truncate tableName;</p>
+<h2 id="语句">语句</h2>
+<h3 id="select">select</h3>
+<p>聚合函数<br />
+sum max min count avg<br />
+查询出每年龄段的年龄及人数</p></li>
+</ol>
+<pre><code>SELECT age,COUNT(id) FROM user GROUP BY age</code></pre>
+<p>取出男生，女生的平均年龄</p>
+<pre><code>SELECT gender,AVG(age) FROM user GROUP BY gender</code></pre>
+<p>列出发表日志最多的１０个用户的姓名及发表的数量</p>
+<pre><code>SELECT a.user,COUNT(b.id) c
+ FROM user a
+  LEFT JOIN blog b
+ON a.id = b.user_id
+  GROUP BY a.id   (只能是a)
+ORDER BY c DESC
+LIMIT 10</code></pre>
+<p>列出发表日志数量大于１０个的用户姓名<br />
+WHERE:是在聚合函数之前执行<br />
+HAVING:是在聚合函数之后执行</p>
+<pre><code>SELECT a.user,COUNT(b.id) c
+ FROM user a
+  LEFT JOIN blog b
+ON a.id = b.user_id
+  GROUP BY a.id
+HAVING c &gt; 10</code></pre>
+<p>显示每个地区的总人口数和总面积．</p>
+<pre><code>SELECT region, SUM(population), SUM(area) FROM bbc GROUP BY region</code></pre>
+<p>显示每个地区的总人口数和总面积．仅显示那些面积超过1000000的地区。<br />
+在这里，我们不能用where来筛选超过1000000的地区，因为表中不存在这样一条记录。<br />
+相反，having子句可以让我们<strong>筛选过滤</strong>成组后的各组数据</p>
+<pre><code>SELECT region, SUM(population), SUM(area)  FROM bbc GROUP BY region HAVING SUM(area)&gt;1000000
+SELECT region, SUM(population), SUM(area) as s FROM bbc GROUP BY region HAVING s &gt;1000000</code></pre>
+<p>mysql判断某个字段的长度</p>
+<pre><code>select home_page from aaa表 where char_length(trim(home_page))&lt;10 and char_length(trim(home_page))&gt;1;</code></pre>
+<p>查询比市场价省钱200元以上的商品及该商品所省的钱(where和having分别实现),因为不存在k这个字段，所以用where不行</p>
+<pre><code>select goods_id,goods_name,market_price-shop_price  as k from ecs_goods having k &gt;200;</code></pre>
+<p>查询出2门及2门以上不及格者的平均成绩</p>
+<pre><code>select name,count(score &lt; 60) as gk ,avg(score) as pj from stu group by name having gk &gt;=2;</code></pre>
+<h4 id="子查询">子查询</h4>
+<p>where 型子查询: 内层sql的返回值在where后作为条件表达式的一部分<br />
+例句: select * from tableA where colA = (select colB from tableB where ...);<br />
+from 型子查询:内层sql查询结果,作为一张表,供外层的sql语句再次查询<br />
+例句:select * from (select * from ...) as tableName where ....</p>
+<h4 id="联合查询">联合查询</h4>
+<p>select id,username from member<br />
+union<br />
+select student_id,sdudent_name from student2;</p>
+<h3 id="插入">插入</h3>
+<p>Copy data from more than one table into the new table:</p>
+<pre><code>SELECT Customers.CustomerName, Orders.OrderID
+INTO CustomersOrderBackup2013
+FROM Customers
+LEFT JOIN Orders
+ON Customers.CustomerID=Orders.CustomerID;</code></pre>
+<h3 id="删除">删除</h3>
+<p>删除表信息的方式有两种 :<br />
+truncate table table_name;<br />
+delete * from table_name;<br />
+注 : truncate操作中的table可以省略，delete操作中的*可以省略</p>
+<p>truncate、delete 清空表数据的区别 :<br />
+1. truncate 是整体删除 (速度较快)，delete是逐条删除 (速度较慢)<br />
+2. truncate 不写服务器 log，delete 写服务器 log，也就是 truncate 效率比 delete高的原因<br />
+3. truncate 不激活trigger (触发器)，但是会重置Identity (标识列、自增字段)，相当于自增列会被置为初始值，又重新从1开始记录，而不是接着原来的 ID数。而 delete 删除以后，identity 依旧是接着被删除的最近的那一条记录ID加1后进行记录。如果只需删除表中的部分记录，只能使用 DELETE语句配合 where条件</p>
+<h2 id="查看mysql信息">查看mysql信息</h2>
+<p>查看mysql的最大连接数</p>
+<pre><code>show variables like &#39;%max_connections%&#39;;</code></pre>
+<p>Mysql5.5 mysql5.6 mysql5.7：默认的最大连接数都是151<br />
+查看服务器响应的最大连接数:</p>
+<pre><code>show global status like &#39;Max_used_connections&#39;;</code></pre>
+<p>查看上次的mysql的warming信息</p>
+<pre><code>show warnings</code></pre>
+<p>查看编码：出现乱码是记得看一下</p>
+<pre><code>show variables like &#39;collation_%&#39;;
+show variables like &#39;character_set_%&#39;;</code></pre>
+<p>可以my.ini中：character-set-server=utf8 修改服务器的编码设置</p>
+<p>查看数据存储位置：</p>
+<pre><code>show global variables like &quot;%datadir%&quot;;</code></pre>
+<p>查看所有表</p>
+<pre><code>select table_name
+from information_schema.TABLES 
+where TABLE_NAME like &#39;startup_log_%&#39;;</code></pre>
+<h3 id="mysql中的日志">MYSQL中的日志？</h3>
+<p>普通日志：<br />
+错误日志：<br />
+bin（二进制）日志 : 记录下：insert,update,grant,delete等会修改数据库的ＳＱＬ语句<br />
+慢日志:可以设置一个时间，然后MYSQL服务器会记录下慢于这外时间的SQL语句</p>
+<h2 id="优化">优化</h2>
+<p>有些表会会定时产生垃圾数据，要定时清楚垃圾数据，如box_snack表的数据就很大，且很多无用<br />
+储存优化：使用最合适的字段类型</p>
+<h2 id="高级特性">高级特性</h2>
+<h3 id="视图-view">视图: view</h3>
+<p>视图是由查询结果形成的一张虚拟表.<br />
+创建语法: Create view 视图名 as select 语句;<br />
+删除语法: Drop view<br />
+修改语法：Alter view as select xxxxxx</p>
+<h4 id="为什么要视图">为什么要视图?</h4>
+<p>1:可以简化查询<br />
+2:可以进行权限控制把表的权限封闭,但是开放相应的视图权限,视图里只开放部分数据<br />
+3:大数据分表时可以用到<br />
+比如,表的行数超过200万行时,就会变慢,<br />
+可以把一张的表的数据拆成4张表来存放.<br />
+还可以用视图把4张表形成一张视图<br />
+Create view news as select from n1 union select from n2 union.........</p>
+<h4 id="视图与表的关系">视图与表的关系</h4>
+<p>视图是表的查询结果,自然表的数据改变了,影响视图的结果.<br />
+视图改变了呢?<br />
+0: 视图增删改也会影响表<br />
+1: 但是,视图并不是总是能增删改的.<br />
+答: 视图的数据与表的数据 一一对应时,可以修改.</p>
+<h2 id="有用特性">有用特性</h2>
+<h3 id="load-data-infile">load data infile</h3>
+<p>导出和导入</p>
+<pre><code>SELECT * INTO OUTFILE &#39;d:/data.txt&#39;   FIELDS TERMINATED BY &#39;,&#39; FROM hm_category;
+LOAD DATA INFILE &#39;d:/data.txt&#39; INTO TABLE hm_category
+LOAD DATA INFILE &#39;/data/kbzy/roleinfo.log&#39; INTO TABLE roleinfo character set utf8 fields terminated by &#39;,&#39; lines terminated by &#39;\n&#39;
+//1.7G 500万条数据 仅用了33秒</code></pre>
+<p>既然load data infile这么快，可以先读取文件然后拼成csv再写入文件，然后再load，应该是很快的<br />
+但是load data的时候会把相应的表锁住，当前表读写都被锁</p>
+<h2 id="其他操作">其他操作</h2>
+<h3 id="数据库导出和恢复">数据库导出和恢复</h3>
+<p>例1: 导出mugua库下面的表<br />
+Mysqldump -u用户名 -p密码 库名 表1 表2 表3 &gt; 地址/备份文件名称<br />
+导出的是建表语句及insert语句<br />
+例2:如何导出一个库下面的所有表?<br />
+Mysqldump -u用户名 -p密码 库名 &gt; 地址/备份文件名称<br />
+例3: 如何导出以库为单位导出?<br />
+Mysqldump -u用户名 -p密码 -B 库1 库2 库3 &gt; 地址/备份文件名称<br />
+例4: 如何导出所有库?<br />
+Mysqldump -u用户名 -p密码 -A &gt; 地址/备份文件名称<br />
+恢复<br />
+1:登陆到mysql命令行<br />
+对于库级的备份文件<br />
+Mysql&gt; source 备份文件地址<br />
+对于表级的备份文件<br />
+Mysql &gt; use 库名<br />
+Mysql&gt; source 备份文件地址<br />
+2:不登陆到mysql命令行<br />
+针对库级的备份文件<br />
+Mysql -u用户名 -p密码 &lt; 库级备份文件地址<br />
+针对表级的备份文件<br />
+Mysql -u用户名 -p密码 库名 &lt; 表级备份文件地址</p>
+<pre><code>mysql -uroot -ps6kj09df@GKGJJjhdfasoqas db_ebpc1 &lt; db_ebpc.sql
+
+
+mysqldump -t db_ebpc -uroot -ps6kj09df@GKGJJjhdfasoqas --tables t_avg_gas t_count_block t_count_transaction  t_count_transaction_amount t_usdt &gt; db_ebpc.sql</code></pre>
+<h3 id="如何远程访问">如何远程访问</h3>
+<p>删除匿名用户</p>
+<pre><code>delete from user where user=&#39;&#39;;
+grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;123456&#39;;
+flush privileges;</code></pre>
+<p>如果需要指定访问主机，可以把%替换为主机的IP或者主机名。另外，<br />
+这种方法会在数据库mysql的表user中，增加一条记录。如果不想增加记录，只是想把某个已存在的用户（例如root）<br />
+修改成允许远程主机访问，则可以使用如下SQL来完成：</p>
+<pre><code>update user set host=&#39;%&#39; where user=&#39;root&#39; and host=&#39;localhost&#39;;
+flush privileges;</code></pre>
+<p>重启mysql<br />
+若不能远程连接，看端口是否开放了</p>
+<pre><code># Don&#39;t listen on a TCP/IP port at all. This can be a security enhancement,
+#skip-networking     配置文件中可能有这种的保护安全的配置，记得留意</code></pre>
+<h3 id="忘记mysql密码怎么">忘记MYSQL密码怎么？</h3>
+<ol>
+<li><p>修改my.ini 文件，在文件中添加 skip-grand-tables 。　登录时无需密码</p></li>
+<li><p>update mysql.user set password = password(“1234”);<br />
+flush privileges; // 或　重启服务器</p></li>
+<li><p>修改my.ini去掉 skip-grand-tables</p>
+<h2 id="注意事项">注意事项</h2>
+<h3 id="字段长度的设置要考虑最大长度以避免存不下">字段长度的设置要考虑最大长度，以避免存不下</h3>
+<p>字段长度的设置，活动后台的一个记录错误日志的字段设置的是text类型 65535的长度，记录的是json，但是有个长度超了，就导致报错了</p>
+<h3 id="null值和空值">NULL值和空值</h3>
+<p>平时我们在使用MySQL的时候，对于MySQL中的NULL值和空值区别不能很好的理解。注意到NULL值是未知的，且占用空间，不走索引，DBA建议建表的时候最好设置字段是NOT NULL 来避免这种低效率的事情的发生。<br />
+问题 1： 首先，我们需要搞清楚 "空值" 和"NULL"的概念：<br />
+1：空值('')是不占用空间的<br />
+2: MySQL中的NULL其实是占用空间的。官方文档说明:<br />
+“NULL columns require additional space in the row to record whether their values are NULL. For MyISAM tables, each NULL column takes one bit extra, rounded up to the nearest byte.”<br />
+而在MYSQL上，是不建议用NULL，NULL是占用四个字符，记录多了，这个是不必要的损耗，查询的时候，where field is null 或者 field is not null，这样的查询，效率也不是很高的，把字段设为default ''，这样可以where field = '' or field != ''，或者直接不允许为空NOT NULL。</p>
+<h2 id="其他经验">其他经验</h2></li>
+</ol>
+<ul>
+<li>查看别人的数据库的时候，应该从主表开始看，然后再看他关联的表，这样会快一点</li>
+<li>复杂的程序，简单的sql是web编程的基本原则，各种存储过程、触发器到处飞，苦果只有自己能尝的</li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

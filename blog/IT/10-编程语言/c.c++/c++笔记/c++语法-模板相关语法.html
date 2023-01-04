@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/10-编程语言/c.c++/c++笔记/c++语法-模板相关语法</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#模板类型判断">模板类型判断</a>
+<ul>
+<li><a href="#stdis_same-判断类型是否一致">std::is_same 判断类型是否一致</a></li>
+<li><a href="#stddecay-退化类型的修饰">std::decay 退化类型的修饰</a></li>
+<li><a href="#is_xxx">is_xxx</a></li>
+</ul></li>
+<li><a href="#stdconditional">std::conditional</a></li>
+<li><a href="#enable_if">enable_if</a>
+<ul>
+<li><a href="#sfinae">SFINAE</a></li>
+<li><a href="#stdenable_if的实现机制如下代码所示">std::enable_if&lt;&gt;的实现机制如下代码所示：</a></li>
+<li><a href="#典型应用">典型应用</a></li>
+</ul></li>
+<li><a href="#可变参数模板">可变参数模板</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="模板类型判断">模板类型判断</h2>
+<h3 id="stdis_same-判断类型是否一致">std::is_same 判断类型是否一致</h3>
+<p>位于头文件<code>&lt;type_traits&gt;</code>中<br />
+通过std::is_same即可判断两个类型是否一样，特别在模板里面，在不清楚模板的参数时，此功能可以对一些特定的参数类型进行特殊的处理。</p>
+<pre><code>std::is_same&lt;int, int32_t&gt;::value   // true
+std::is_same&lt;int, int64_t&gt;::value   // false</code></pre>
+<p><code>std::is_same</code>对int和const int\int &amp;\const int&amp;等都是区别对待的，但在写模板函数时，经常会强制指定常引用进行传参，以免进行数据拷贝，这时候is_same就做出了不相等的判断，但是有时候其实我们还是希望TYPE和const TYPE&amp; 是能认为是一样的，这时就需要<code>std::decay</code>进行退化处理</p>
+<h3 id="stddecay-退化类型的修饰">std::decay 退化类型的修饰</h3>
+<p><code>std::decay</code>就是对一个类型进行退化处理，他的实现如下:</p>
+<pre><code>template&lt; class T &gt;
+struct decay {
+private:
+    typedef typename std::remove_reference&lt;T&gt;::type U;
+public:
+    typedef typename std::conditional&lt; 
+        std::is_array&lt;U&gt;::value,
+        typename std::remove_extent&lt;U&gt;::type*,
+        typename std::conditional&lt; 
+            std::is_function&lt;U&gt;::value,
+            typename std::add_pointer&lt;U&gt;::type,
+            typename std::remove_cv&lt;U&gt;::type
+        &gt;::type
+    &gt;::type type;
+};</code></pre>
+<p>看着比较抽象，其实就是把各种引用啊什么的修饰去掉，把cosnt int&amp;退化为int，这样就能通过<code>std::is_same</code>正确识别出加了引用的类型了</p>
+<h3 id="is_xxx">is_xxx</h3>
+<p>其中的模板参数即为要判断的类型</p>
+<pre><code>// 假设T是一个模板参数，即template&lt;typename T&gt;
+static_assert(
+    is_integral&lt;T&gt;::value, &quot;int&quot;);
+static_assert(
+    is_pointer&lt;T&gt;::value, &quot;ptr&quot;);
+static_assert(
+    is_default_constructible&lt;T&gt;::value, &quot;constructible&quot;);</code></pre>
+<h2 id="stdconditional">std::conditional</h2>
+<p>根据情况判断选择的模板类型,相当于一个<strong>模板类型的三元操作符</strong></p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;type_traits&gt;
+#include &lt;typeinfo&gt;
+
+int main()
+{
+    typedef typename std::conditional&lt;true, int, double&gt;::type Type1;
+    typedef typename std::conditional&lt;false, int, double&gt;::type Type2;
+    typedef typename std::conditional&lt;sizeof(int) == sizeof(double), int, double&gt;::type Type3;
+
+    std::cout &lt;&lt; typeid(Type1).name() &lt;&lt; std::endl;
+    std::cout &lt;&lt; typeid(Type2).name() &lt;&lt; std::endl;
+    std::cout &lt;&lt; typeid(Type3).name() &lt;&lt; std::endl;
+
+    Type1 a = 3.1;
+    Type2 b = 4.2;
+    std::cout &lt;&lt; a +  b &lt;&lt; std::endl;
+}
+// execute out
+i
+d
+d
+7.2</code></pre>
+<h2 id="enable_if">enable_if</h2>
+<h3 id="sfinae">SFINAE</h3>
+<p>SFINAE是英文Substitution failure is not an error的缩写，意思是<strong>匹配失败不是错误</strong><br />
+SFINAE 应用最为广泛的场景是C++中的 std::enable_if。<br />
+在对一个函数调用进行模板推导时，编译器会尝试推导所有的候选函数（重载函数，模板，但是普通函数的优先级要高），以确保得到一个<strong>最完美的匹配</strong>。<br />
+也就是说在推导的过程中，如果出现了无效的模板参数，则会将该候选函数从<strong>重载决议集合</strong>中删除，只要最终得到了一个 perfect match ，编译就不会报错。<br />
+比如：</p>
+<pre><code>long multiply(int i, int j) { return i * j; }
+
+template &lt;class T&gt;
+typename T::multiplication_result multiply(T t1, T t2)
+{
+    return t1 * t2;
+}
+
+int main(void)
+{
+    multiply(4, 5);
+}</code></pre>
+<p>main 函数调用 multiply 会使编译器会尽可能去匹配所有候选函数，虽然第一个 multiply 函数明显是较优的匹配，但是为了得到一个最精确的匹配，编译器依然会尝试去匹配剩下的候选函数，此时就会去推导 第二个multiply函数，中间在参数推导的过程中出现了一个<strong>无效的类型</strong> <code>int::multiplication_result</code> ，但是因为 SFINAE 原则并不会报错。</p>
+<p>比如：</p>
+<pre><code>struct Test {
+    typedef int foo;
+};
+
+
+template &lt;typename T&gt;
+void f(typename T::foo) {} // Definition #1
+
+
+template &lt;typename T&gt;
+void f(T) {}               // Definition #2
+
+
+int main() {
+    f&lt;Test&gt;(10); // Call #1.
+    f&lt;int&gt;(10);  // Call #2. Without error (even though there is no int::foo) thanks to SFINAE.
+}</code></pre>
+<p>当调用<code>f&lt;int&gt;(10)</code>时，由于推导模板函数过程中可以找到一个正确的版本（Definition #2），所以即使int::foo（ Definition #1）是一个语法错误，也没有关系。</p>
+<h3 id="stdenable_if的实现机制如下代码所示">std::enable_if&lt;&gt;的实现机制如下代码所示：</h3>
+<pre><code>template&lt;bool Cond, typename T = void&gt; struct enable_if {};
+
+template&lt;typename T&gt; struct enable_if&lt;true, T&gt; { typedef T type; };</code></pre>
+<p>基本原理是SFINAE。<strong>只有当第一个参数是true的时候才有type</strong>，否则就会发生Substitution Failure，这个时候模版实例化就会失败，也就不会产生任何代码。<br />
+在 condition 为真的时候，由于<strong>偏特化机制</strong>，第二个结构体模板明显是一个更好的匹配，所以 std::enable_if&lt;&gt;::type 就是有效的。<br />
+当 condition 为假的时候，只有第一个结构体模板能够匹配，所以std::enable_if&lt;&gt;::type 是无效的，会被丢弃，编译器会报错：error: no type named ‘type’ in ‘struct std::enable_if&lt;false, bool&gt;。</p>
+<h3 id="典型应用">典型应用</h3>
+<p>1.限制模板的类型</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;type_traits&gt;
+
+template &lt; class T,
+           class = typename std::enable_if&lt;std::is_integral&lt;T&gt;::value&gt;::type&gt;
+bool is_even (T i) {return !bool(i%2);}
+/*
+上面的class = typename std::enable_if&lt;std::is_integral&lt;T&gt;::value&gt;::type&gt;可以替换成如下两种写法：
+std::enable_if_t&lt;std::is_integral&lt;T&gt;::value, int&gt;&gt;
+std::enable_if_t&lt;std::is_integral&lt;T&gt;::value&gt;&gt;
+*/
+
+int main() {
+  double i = 1;    // code does not compile if type of i is not integral
+  std::cout &lt;&lt; std::boolalpha;
+  // 实例化的时候，enable_if发现不是int类型，就会报error: no type named ‘type’ in ‘struct std::enable_if&lt;false, bool&gt;,从而达到限制类型的效果。
+  std::cout &lt;&lt; &quot;i is even: &quot; &lt;&lt; is_even(i) &lt;&lt; std::endl;
+  return 0;
+}</code></pre>
+<h2 id="可变参数模板">可变参数模板</h2>
+<pre><code>// 相当于一个递归基
+template&lt;typename T&gt;
+ostream &amp;print(ostream &amp;os, const T &amp;t)
+{
+    return os &lt;&lt; t; // no separator after the last element in the pack
+}
+
+
+template &lt;typename T, typename... Args&gt;
+ostream &amp;print(ostream &amp;os, const T &amp;t, const Args&amp;... rest)
+{
+    os &lt;&lt; t &lt;&lt; &quot;, &quot;;           // print the first argument
+    return print(os, rest...); // recursive call; print the other arguments
+}
+
+int main() {
+    print(std::cout,&quot;abc&quot;,123,456);
+
+    return 0;
+}
+
+
+//C++17的更方便的写法
+template &lt;typename ...Args&gt;
+    constexpr void print(Args&amp;&amp; ...args) {
+        // 包扩展，效果是对每个参数都调用前边的语句
+        ((std::cout &lt;&lt; args &lt;&lt; &#39;\n&#39;), ...);
+        //或者  (..., (std::cout &lt;&lt; args &lt;&lt; &#39;\n&#39;));
+
+    }
+
+// 其他包扩展的例子
+template &lt;typename... Args&gt;
+ostream &amp;errorMsg(ostream &amp;os, const Args&amp;... rest)
+{
+    // print(os, debug_rep(a1), debug_rep(a2), ..., debug_rep(an)
+    return print(os, debug_rep(rest)...);
+}</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

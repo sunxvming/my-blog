@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/60-其他主题/软件工程/事故报告</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#正式1.2.3服小跨服链接失败">【正式1.2.3服小跨服链接失败】</a></li>
+<li><a href="#cdn节点故障导致全服瘫痪">【CDN节点故障，导致全服瘫痪】</a></li>
+<li><a href="#登陆页语法错误导致游戏登陆不上登陆页服没做容灾">【登陆页语法错误导致游戏登陆不上，登陆页服没做容灾】</a></li>
+<li><a href="#误删了foa包导致不能登录">【误删了foa包，导致不能登录】</a></li>
+<li><a href="#更新台版线上版本只更新了客户端没更服务端">【更新台版线上版本，只更新了客户端没更服务端】</a></li>
+<li><a href="#活动时间错误导致活动提前结束">【活动时间错误导致活动提前结束】</a></li>
+<li><a href="#国内玩家召回功能">【国内玩家召回功能】</a></li>
+<li><a href="#合服">【合服】</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h3 id="正式1.2.3服小跨服链接失败">【正式1.2.3服小跨服链接失败】</h3>
+<p>【事故】</p>
+<ul>
+<li>时间：台湾魔法王座上线第一天</li>
+<li>说明：删档小跨服进入不了，且退出后进入不了游戏</li>
+<li>原因：（1）正式1 2 3 服的小跨服的域名的ip指向了删档1 2 3 服的小跨服的ip，即ip域名的绑定改变后游戏项目中的hosts文件没有改变，（2） 上线后的几天因为之前没有跟运维对接好各种服务器的部署步骤，加上由对方运维部署的新服没有进行完整的测试</li>
+<li>解决：游戏玩家反应进不了游戏，后凯华跟我打电话反应，我先来到公司查看小跨服部署的问题发现小跨服的数据库错误，cfg_launch中的serverType不正确，改掉后依然链接不上。后联系俊哥，他远程操作电脑排查问题并进行热更</li>
+</ul>
+<p>【反省】</p>
+<ul>
+<li><p>文档工作没有准备充足</p></li>
+<li><p>没有提供详尽的文档而导致对方在操作的时候忽略了小跨服的服务类型，</p></li>
+<li><p>对方可能忽略的地方要重点标注，</p></li>
+<li><p>文档书写格式：1. 所选格式 text，word，excel，pdf （根据需求选择） 2. 文档说明 3. 文档版本号 4. 文档修改说明（文档更新改动要指明修改之处，原因）</p></li>
+<li><p>沟通不足</p></li>
+<li><p>沟通的结果是 1.建立信任 2.得到自己想要了解的情况 3. 确认对方已经了解自己的想法（对方是否真正明白怎么部署服务器了，当然也要通过对方的实际行动来判断对方的情况，并在对方出错的时候给予指正）</p></li>
+<li><p>稍微大点的变动一定要通知相关人员，正式1 2 3 服的域名绑定到另一个ip上是个很重要的变动，如果当时能通过到朋飞的话，他改掉hosts文件也就没事了</p></li>
+</ul>
+<h3 id="cdn节点故障导致全服瘫痪">【CDN节点故障，导致全服瘫痪】</h3>
+<p>【事故】</p>
+<ul>
+<li><p>时间：正式开服第二天晚上12点左右</p></li>
+<li><p>说明：cdn在正式开服第二天晚上因节点出故障而导致游戏资源无法下载，全部游戏无法进入</p></li>
+<li><p>解决：cdn提供商连夜抢救cdn，5点左右修复好，凯华又打电话让我把之前cdn上的资源上传到新的cdn上，但之前的cdn又登陆不上，且cdn上的东西没有上传到svn上，导致一些文件找不到，</p></li>
+</ul>
+<p>【反省】</p>
+<ul>
+<li><p>建立规避风险的思维方式</p></li>
+<li><p>这犯了个错误，相信别人提供的服务是完全ok的，而老司机的思维方式应该是规避一切能够避免的危险，1. 比如事前询问服务提供商的防灾措施是什么，2. 自己所做的容灾措施又是什么，3. 再比如服务提供商的故障导致的损失应该如何赔偿</p></li>
+<li><p>相关的文件一定要备份，上传svn</p></li>
+</ul>
+<h3 id="登陆页语法错误导致游戏登陆不上登陆页服没做容灾">【登陆页语法错误导致游戏登陆不上，登陆页服没做容灾】</h3>
+<p>【事故】</p>
+<ul>
+<li><p>时间：正式开服第二天晚上12点左右</p></li>
+<li><p>说明：因要修改游戏内微端下在的地址和md5值，修改了下载页，但json对象最后多了个逗号，自己测试的时候也没有测试错来，导致游戏不能进入</p></li>
+</ul>
+<p>【反省】</p>
+<ul>
+<li><p>这种影响全服的东西的修改一定要进行充分测试再放到正式的服上，向西游网那的一样，先在1服修改测试一下，没问题了再推全服的cdn</p></li>
+<li><p>最开始的时候中心服是用php动态处理登陆请求的，而正确的方法是用这个php生成各服的登陆页，让后把这些页面推送到cdn上，但前期没明白登陆页是放在cdn上的，便采用的这种方式，这样再改到cdn的方式的话成本就更大了（有些东西越往后拖修改的成本就越大），还需要修改服务器上的相关链接啥的</p></li>
+</ul>
+<h3 id="误删了foa包导致不能登录">【误删了foa包，导致不能登录】</h3>
+<p>【事故】</p>
+<ul>
+<li><p>时间：第六次版本更新的时候的前一天晚上上传新的foa包的时候</p></li>
+<li><p>说明：看着包名比较多，然后就顺手删除了一些（从上往下的删，误以为上边的日期比较久远，结果就把正在用的foa的包给删除掉了）</p></li>
+</ul>
+<p>【反省】</p>
+<ul>
+<li>删除操作要谨慎，谨慎，尤其是比较重要的危险操作</li>
+</ul>
+<h3 id="更新台版线上版本只更新了客户端没更服务端">【更新台版线上版本，只更新了客户端没更服务端】</h3>
+<p>【事故】</p>
+<ul>
+<li><p>时间：五一的时候没啥活动了，要加开一个新年活动</p></li>
+<li><p>说明：新年活动的配置文件的时间需要改，包括服务器端的和客户端的，但之前更新的时候服务器端的时候只是更新一个开关文件（因为服务器端的文件没有改动过），且好几次更新都是这样的，故就造成了惯性思维，导致这次的活动没有按时更新上。另一个原因是线上测试做的也做的不够充分，没有测试到指定时间活动是否能正常开放</p></li>
+</ul>
+<p>【反省】</p>
+<ul>
+<li>做一个更新的checklist，每次更新的时候去检查一遍，虽然可能多费一点点时间，但能保证没有遗漏的步骤</li>
+</ul>
+<h3 id="活动时间错误导致活动提前结束">【活动时间错误导致活动提前结束】</h3>
+<p>【事故】</p>
+<ul>
+<li><p>时间：五一的时候没啥活动了，要加开一个新年活动</p></li>
+<li><p>说明：活动结束后活动的图标就会消失，活动的结束时间是配的年月日时分秒，确定的是5月4号结束（包括4号），但程序却写成了到4号的0点就结束了，台湾那边的人还提醒我们上次活动的时候就提前结束了然后发了全服的补偿邮件，但我却没当一回事，导致的这次事故的发生</p></li>
+</ul>
+<h3 id="国内玩家召回功能">【国内玩家召回功能】</h3>
+<p>【事故】</p>
+<ul>
+<li><p>时间：此功能更新之后</p></li>
+<li><p>说明：此功能上线后存在几个问题，</p></li>
+<li><p>1. 合过服的玩家不能领取召回他人的奖励，因为是做了错误的判断，</p></li>
+<li><p>2. 玩家回归奖励可以被无限的刷，因为在服务端少了是否已经领取的判断</p></li>
+<li><p>3. 16进制转10进制的时候出现类型溢出 pid = string.format("%d","0xe39cbce1")，因为之前没碰到这样的情况，也是编码经验不足，后来从网上搜了个安全的进制转换的方法</p></li>
+</ul>
+<p>【反省】</p>
+<ul>
+<li>当时做这个功能的时候比较仓促，导致很多要检查的都没有检查</li>
+</ul>
+<h3 id="合服">【合服】</h3>
+<p>【事故】</p>
+<ul>
+<li><p>时间：二次合服时，就是合过服的再次合服</p></li>
+<li><p>说明：在一次韩国合服的时候对方反应邮件全部丢失了，我第一反应就是因为之前合服时有主键重复导致不能合服的而做的预先删除的操作，之前是因为两个服都没有合过服的所以没出问题但是二次合服的时候问题就暴露了 <code>$PG -h $host -p $port -Atc "delete from mail where sid%10 != $server" $db</code> 而且这个本来就存在着隐患的，后来没处理，导致台湾的也出现了邮件被删除的事故</p></li>
+</ul>
+<p>【反省】</p>
+<ul>
+<li>在出现问题的时候，要以积极的态度去应对，及时处理，防止问题的进一步扩散</li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

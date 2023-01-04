@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/50-应用方向/后端/说透中台</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#国内中台概念的由来">国内中台概念的由来</a></li>
+<li><a href="#那到底什么是中台">那到底什么是中台？</a></li>
+<li><a href="#中台的本质和优势">中台的本质和优势</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>我理解的中台，是把一个业务拆分成多个模块，然后把模块设计成通用的，其他业务可以<br />
+直接集成使用。这些模块一般有数据收集、AB测试、推荐系统、广告系统等等。</p>
+<p>基本上小白阶段的摸索者，都倾向把中台理解成一个业务组件池，供前台有快速创新需要<br />
+时，快速拼装，完成试错；但这种理解显然太理想化且狭义了！</p>
+<p>我第一次听说中台时，感觉它是对业务逻辑的抽象，这个抽象层可按需对外提供服务。有<br />
+点类似于微服务，但也有所区别，即：微服务重在逻辑的完整性，中台侧重于功能组织的<br />
+灵活性。</p>
+<p>这么说可能会比较空，我有一个技巧，当我思考业务中台时，我会不断地问自己一个问题：<br />
+企业的业务能够顺利开展，需要解决哪些核心问题？</p>
+<h2 id="国内中台概念的由来">国内中台概念的由来</h2>
+<p>国内中台的这个概念最早是由阿里巴巴提出来的。据说故事是这样的：</p>
+<blockquote>
+<p>芬兰有个著名的游戏公司 SuperCell，开发了部落冲突、皇室战争等现象级的手游。整个公司才 200 多号人，就被腾讯以 86 亿美金收购。在 SuperCell 里，一个游戏开发团队平均是 3-7 个人，但有一个强大的游戏中台在做支撑，可以并行开发 50 款游戏，然后通过 “内部赛马” 产生出一到两款经典。</p>
+</blockquote>
+<p>据说在 2015 年年中的时候，马云在带领阿里众多高官参观了 SuperCell 后，回来就在阿里整个集团层面启动了 “大中台，小前台” 的战略。</p>
+<p>随着「阿里中台服务」那本书在 17 年的出版，中台开始走进更多人的视野，并且在 18 年逐渐热门起来，而到今年是彻底火爆起来了，无论走到哪里好像都能听到「中台」这个概念和这个词语。</p>
+<h2 id="那到底什么是中台">那到底什么是中台？</h2>
+<p>中台没有一个特别固定的模式或者概念，而是每个人都有自己的理解，每个公司的情况也不一样，所以搭建的中台业务好像也都不是特别相似，略有差异。</p>
+<p>中台有很多种，组织中台，数据中台，业务中台，技术中台，内容中台。反正中台这个概念火了之后，大家也是拼命的蹭热度啊，什么都往中台上面靠。<strong>国内从众，跟从的毛病一直就是改不了啊！</strong></p>
+<p><strong>中台，是一个能同时支撑多个业务并让业务之间的信息形成交互和增强的机制，是一个支撑公司多个业务产品的共享服务。</strong></p>
+<p>什么意思呢？咱们举个简单的例子，我们都知道阿里巴巴有非常多的业务线，有淘宝，聚划算，天猫，闲鱼，飞猪等等，这多个业务线是不是会有很多通用业务和数据等地方呢？比如数据这块或者业务这块，那这些数据和相同的业务都用中台来做，你的每个业务线不需要再独立去完成了，都统一来调用我中台的服务，数据和业务的获取都从中台来拿，而通用的数据和业务也都由中台来处理和管理。</p>
+<p>说白了就是，一群各个小分队去干活，你们有什么需要支持的，需要什么资源，你们告诉我中台，我来提供给你们。</p>
+<p>这样说，你是不是就明白了？可能你说跟我们编程的时候，封装一个工具库，多个地方调用有什么区别？其实大概就他么这个意思。不就是不重复造轮子么？还中台，造的这个概念还挺高大上。</p>
+<h2 id="中台的本质和优势">中台的本质和优势</h2>
+<p>这些互联网公司这么辛苦的在搭建中台，搞中台服务，它的本质是什么呢？到底有什么优势呢？</p>
+<p>作为程序员来讲，你们封装，避免重复造轮子的目的是什么呢？你知道这点，就理解中台的本质了。</p>
+<p>所以中台的本质就是：</p>
+<p><strong>提高效率，降低成本</strong></p>
+<p>中台的优势也就是他的本质。</p>
+<p><strong>提高效率</strong><br />
+中台服务是将多个业务线和产品线共用的地方抽离出来，做成一个共享和交互的平台，所有的产品和业务都不需要独立开发了，你们只要有需要，都来我这里调用，我给你们提供你们想要的服务。不管是在开发效率上，还是使用效率上，都大大提高了。</p>
+<p><strong>降低成本</strong><br />
+这个就不难理解了， 时间就是效率，效率就是成本，效率提高了，就是变相的节约成本，而是会从某种程度上，节约了人力成本，本来各个业务线都需要的技术，都归拢到中台了，那势必就会节省很多人力。</p>
+<p><strong>质量的保证</strong><br />
+这个问题是应该变相来看的，就是服务质量的问题，中台的搭建和改造，就像是研究基础科学一样，一定是非常严谨和漫长的。所以它提高的服务质量必须是有保证的，因为多个产品线都来使用它提供的服务，它一旦有问题，直接就会影响多个业务线，产品线。</p>
+<p>当然了，中台的服务和质量一旦得到了保证，那么其他各个产品线的质量相同得到了保证，可以减少很多 bug 。从程序员的角度来讲，很容易理解，各写各的，产生的 bug ，就会很多，各种各样。</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/166321933">游戏行业应该如何建设数据中台？</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

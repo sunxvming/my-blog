@@ -1,0 +1,635 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/10-编程语言/c.c++/程序工具/编译工具/cmake</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#aa">aa</a>
+<ul>
+<li><a href="#cmake">cmake</a></li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul></li>
+<li><a href="#注意事项">注意事项</a>
+<ul>
+<li><a href="#cmake缓存">cmake缓存</a></li>
+<li><a href="#编译时编译器">编译时编译器</a></li>
+</ul></li>
+<li><a href="#编译流程">编译流程</a>
+<ul>
+<li><a href="#内置变量">内置变量</a></li>
+<li><a href="#设置编译选项">设置编译选项</a></li>
+<li><a href="#执行前置工作">执行前置工作</a></li>
+<li><a href="#设置target">设置target</a>
+<ul>
+<li><a href="#生成同名的.a和.so库文件">生成同名的.a和.so库文件</a></li>
+<li><a href="#exclude_from_allmake时默认不编译">EXCLUDE_FROM_ALL，make时默认不编译</a></li>
+</ul></li>
+<li><a href="#设置targe属性">设置targe属性</a></li>
+<li><a href="#设置源文件">设置源文件</a></li>
+<li><a href="#构建可选选项开关">构建可选选项(开关)</a></li>
+<li><a href="#自定义生成文件">自定义生成文件</a></li>
+<li><a href="#设置包含目录">设置包含目录</a></li>
+<li><a href="#设置依赖库依赖库目录">设置依赖库、依赖库目录</a></li>
+<li><a href="#指定安装规则">指定安装规则</a></li>
+<li><a href="#pre-build和post-build操作">Pre-build和Post-build操作</a></li>
+<li><a href="#cpack生成安装包">cpack生成安装包</a></li>
+</ul></li>
+<li><a href="#语法">语法</a>
+<ul>
+<li><a href="#执行指定的脚本">执行指定的脚本</a></li>
+<li><a href="#变量-all-variables-are-strings">变量 All Variables Are Strings</a></li>
+<li><a href="#结构化变量">结构化变量</a></li>
+<li><a href="#语句-every-statement-is-a-command">语句 Every Statement is a Command</a></li>
+<li><a href="#比较语句">比较语句</a></li>
+<li><a href="#控制语句-flow-control-commands">控制语句 Flow Control Commands</a></li>
+<li><a href="#列表">列表</a></li>
+<li><a href="#函数和宏">函数和宏</a></li>
+<li><a href="#including-other-scripts">Including Other Scripts</a>
+<ul>
+<li><a href="#include">include</a></li>
+<li><a href="#find_package">find_package</a></li>
+<li><a href="#add_subdirectory">add_subdirectory</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#windows上使用">windows上使用</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="简介">简介</h2>
+<h2 id="aa">aa</h2>
+<h3 id="cmake">cmake</h3>
+<p>cmake允许开发者编写一种平台无关的 CMakeList.txt 文件来<strong>定制整个编译流程</strong>，然后再根据目标用户的平台进一步生成所需的本地化 Makefile 和工程文件，如 Unix 的 Makefile 或 Windows 的 Visual Studio 工程。从而做到“Write once, run everywhere”。</p>
+<p>* 内部构建和外部构建<br />
+cmake强烈推荐的是外部构建(out-of-source build)，好处是不影响源码。即新建build目录，构建的工作和生成的中间文件都在这个目录</p>
+<p>* 查看更详细的编译信息<br />
+make VERBOSE=1 来构建</p>
+<h3 id="参考资料">参考资料</h3>
+<p>参考资料：<br />
+知乎问题 CMake 如何入门？：https://www.zhihu.com/question/58949190</p>
+<p>关于cmake由浅入深的例子<br />
+https://github.com/ttroy50/cmake-examples</p>
+<p>awesome-cmake<br />
+https://github.com/onqtam/awesome-cmake</p>
+<p>Learn CMake's Scripting Language in 15 Minutes<br />
+https://preshing.com/20170522/learn-cmakes-scripting-language-in-15-minutes/</p>
+<h2 id="注意事项">注意事项</h2>
+<h3 id="cmake缓存">cmake缓存</h3>
+<p>有时候改了cmake中的选项，比如：<br />
+<code>option(CCACHE "Use ccache if available" OFF)</code> 由ON改成OFF，但是打印CCACHE的值还是不变。这些选项被缓存在CMakeCache.txt中了。<br />
+对于这种情况可以直接删掉build目录，或者编译时加上选项,比如</p>
+<pre><code>cmake .. -DCCACHE=OFF</code></pre>
+<h3 id="编译时编译器">编译时编译器</h3>
+<p>默认情况下.cpp文件的编译方式为g++，以c结尾的文件编译方式为gcc。<br />
+当存在c文件和c++文件混编的情况下要注意，若c文件用gcc编译，cpp文件用g++编译，可能会有问题。</p>
+<h2 id="编译流程">编译流程</h2>
+<h3 id="内置变量">内置变量</h3>
+<p>编译发生的目录，即build目录</p>
+<pre><code>CMAKE_BINARY_DIR
+PROJECT_BINARY_DIR
+&lt;projectname&gt;_BINARY_DIR</code></pre>
+<p>工程顶层目录</p>
+<pre><code>CMAKE_SOURCE_DIR
+PROJECT_SOURCE_DIR
+&lt;projectname&gt;_SOURCE_DIR</code></pre>
+<p>当前处理的CMakeLists.txt 所在的路径，即用sub-projects and directories.</p>
+<pre><code>CMAKE_CURRENT_SOURCE_DIR
+CMAKE_CURRENT_BINARY_DIR      The build directory you are currently in.</code></pre>
+<h3 id="设置编译选项">设置编译选项</h3>
+<p>CMake 中有一个变量 CMAKE_BUILD_TYPE ,可以的取值是 Debug Release RelWithDebInfo 和 MinSizeRel。当这个变量值为 Debug 的时候,CMake 会使用变量 CMAKE_CXX_FLAGS_DEBUG 和 CMAKE_C_FLAGS_DEBUG 中的字符串作为编译选项生成 Makefile ,当这个变量值为 Release 的时候,工程会使用变量 CMAKE_CXX_FLAGS_RELEASE 和 CMAKE_C_FLAGS_RELEASE 选项生成 Makefile。</p>
+<pre><code>cmake_minimum_required(VERSION 2.8.9)
+project(hello)
+
+
+set(CMAKE_CXX_STANDARD 17)
+# 编译工具设置
+
+# 设置链接器为ld.gold, 路径一般在/usr/bin/ld.gold下面
+set(CMAKE_EXE_LINKER_FLAGS &quot;${CMAKE_EXE_LINKER_FLAGS} -fuse-ld=gold&quot;)
+
+# 编译类型相关 Debug or Release
+set(CMAKE_CXX_FLAGS_DEBUG &quot;${CMAKE_CXX_FLAGS_DEBUG} -rdynamic&quot;)
+set(CMAKE_C_FLAGS_DEBUG &quot;${CMAKE_C_FLAGS_DEBUG} -rdynamic&quot;)
+
+set(CMAKE_CXX_FLAGS_RELEASE &quot;${CMAKE_CXX_FLAGS_RELEASE} -rdynamic&quot;)
+set(CMAKE_C_FLAGS_RELEASE  &quot;${CMAKE_C_FLAGS_RELEASE} -rdynamic&quot;)
+
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE &quot;Debug&quot;)
+endif()
+
+message(&quot;CMAKE_BUILD_TYPE is:${CMAKE_BUILD_TYPE}&quot;)
+
+# message(&quot;CMAKE_CXX_FLAGS_DEBUG :================&quot;)
+# message(${CMAKE_CXX_FLAGS_DEBUG})
+
+# message(&quot;CMAKE_CXX_FLAGS_RELEASE  :================&quot;)
+# message(${CMAKE_CXX_FLAGS_RELEASE})
+
+if(NOT CMAKE_BUILD_TYPE STREQUAL &quot;Debug&quot; AND NOT CMAKE_BUILD_TYPE STREQUAL &quot;Release&quot;)
+    message(FATAL_ERROR &quot;CMAKE_BUILD_TYPE must be Debug or Release!!!&quot;)
+endif()
+
+if(CMAKE_BUILD_TYPE STREQUAL &quot;Debug&quot;)
+endif()
+
+if(CMAKE_BUILD_TYPE STREQUAL &quot;Release&quot;)
+endif()
+
+
+# 设置编译输出位置
+# 应该把这两条指令写在工程的 CMakeLists.txt 还是 src 目录下的CMakeLists.txt?
+# 写在ADD_EXECUTABLE 或 ADD_LIBRARY命令的文件中
+set(EXECUTABLE_OUTPUT_PATH ${ROOT_DIR}/bin)
+SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)</code></pre>
+<h3 id="执行前置工作">执行前置工作</h3>
+<pre><code># 执行某个脚本
+execute_process(COMMAND sh ${CMAKE_SOURCE_DIR}/make_depend.sh)</code></pre>
+<h3 id="设置target">设置target</h3>
+<pre><code># 1.动态库 
+add_library(hello_library STATIC
+    ${SOURCES}
+)
+# 2.静态库
+add_library(hello_library SHARED
+    ${SOURCES}
+)
+# 3.可执行文件
+add_executable(hello ${SOURCES})
+# 4.自定义目标
+add_custom_target()</code></pre>
+<h4 id="生成同名的.a和.so库文件">生成同名的.a和.so库文件</h4>
+<pre><code>ADD_LIBRARY(hello SHARED ${LIBHELLO_SRC})
+ADD_LIBRARY(hello_static STATIC ${LIBHELLO_SRC})
+SET_TARGET_PROPERTIES(hello_static PROPERTIES OUTPUT_NAME &quot;hello&quot;)
+SET_TARGET_PROPERTIES(hello PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(hello_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)</code></pre>
+<p>cmake在构建一个新的target 时，会尝试清理掉其他使用这个名字的库，<br />
+所以要用CLEAN_DIRECT_OUTPUT来设置一下不要删除相同的目标<br />
+CLEAN_DIRECT_OUTPUT：Do not delete other variants of this target</p>
+<h4 id="exclude_from_allmake时默认不编译">EXCLUDE_FROM_ALL，make时默认不编译</h4>
+<p>在一个项目中不可避免会有一些测试代码，这些测试代码，我们并不一定需要每次都编译，尤其是编译正式版本的时候，这些测试代码是不会加入release版本的。为了加快编译速度，可以将这些测试用的target或不会加入release的target 加上EXCLUDE_FROM_ALL属性就不需要每次编译它了。 </p>
+<pre><code># fctest指定了EXCLUDE_FROM_ALL 属性,不会自动编译，只能手动编译
+add_executable(fctest EXCLUDE_FROM_ALL FeatureCompareSpeedTest.cpp)</code></pre>
+<h3 id="设置targe属性">设置targe属性</h3>
+<p>targets<br />
+A CMake script defines targets using the add_executable, add_library or add_custom_target commands properties<br />
+Once a target is created, it has properties that you can manipulate using the <code>get_property()</code> and <code>set_property()</code></p>
+<p>Unlike variables, targets are visible <strong>in every scope</strong>, even if they were defined in a subdirectory.<br />
+All target properties are strings.</p>
+<pre><code># Get the target&#39;s SOURCES property and assign it to MYAPP_SOURCES
+get_property(MYAPP_SOURCES TARGET MyApp PROPERTY SOURCES)
+
+
+SET_TARGET_PROPERTIES(hello_static PROPERTIES OUTPUT_NAME &quot;hello&quot;)
+
+
+# 获取属性的名字
+GET_TARGET_PROPERTY(OUTPUT_VALUE hello_static OUTPUT_NAME)
+
+
+# 设置动态库版本号  VERSION 指代动态库版本，SOVERSION 指代 API 版本。
+SET_TARGET_PROPERTIES(hello PROPERTIES VERSION 1.2 SOVERSION 1)
+
+
+# 添加宏定义
+target_compile_definitions(libWAVM PUBLIC &quot;WAVM_API=__attribute__((visibility(\&quot;default\&quot;)))&quot;)</code></pre>
+<h3 id="设置源文件">设置源文件</h3>
+<pre><code># 文件列表
+set(SOURCES
+    src/Hello.cpp
+    src/main.cpp
+)
+# 模式匹配
+file(GLOB SOURCES &quot;src/*.cpp&quot;)</code></pre>
+<h3 id="构建可选选项开关">构建可选选项(开关)</h3>
+<pre><code># should we use our own math functions?
+option (USE_MYMATH
+        &quot;Use tutorial provided math implementation&quot; ON)
+
+
+# add the MathFunctions library?
+if (USE_MYMATH)
+  include_directories (&quot;${PROJECT_SOURCE_DIR}/MathFunctions&quot;)
+  add_subdirectory (MathFunctions)
+  set (EXTRA_LIBS ${EXTRA_LIBS} MathFunctions)
+endif (USE_MYMATH)
+ 
+# add the executable
+add_executable (Tutorial tutorial.cxx)
+target_link_libraries (Tutorial  ${EXTRA_LIBS})
+
+
+
+# 这将使用USE_MYMATH的设置来确定是否应该编译和使用mathfunction库。
+# 注意，使用一个变量(在本例中是EXTRA_LIBS)来设置可选的库，然后将它们链接到可执行文件中。
+# 这是一种常见的方法，用于保持较大的项目具有许多可选组件。
+
+</code></pre>
+<p>源码中使用</p>
+<pre><code>首先在Configure.h.in文件中添加以下内容：
+#cmakedefine USE_MYMATH
+
+
+#ifdef USE_MYMATH
+#include &quot;MathFunctions.h&quot;
+#endif
+
+
+
+#ifdef USE_MYMATH
+  double outputValue = mysqrt(inputValue);
+#else
+  double outputValue = sqrt(inputValue);
+#endif</code></pre>
+<h3 id="自定义生成文件">自定义生成文件</h3>
+<pre><code>set (Tutorial_VERSION_MAJOR 1)
+set (Tutorial_VERSION_MINOR 0)
+ 
+# Copy a file to another location and modify its contents.
+configure_file (
+  &quot;${PROJECT_SOURCE_DIR}/TutorialConfig.h.in&quot;
+  &quot;${PROJECT_BINARY_DIR}/TutorialConfig.h&quot;
+)
+
+</code></pre>
+<p>TutorialConfig.h.in</p>
+<pre><code>// @xx@ 中的变量会被替换掉
+#define Tutorial_VERSION_MAJOR @Tutorial_VERSION_MAJOR@
+#define Tutorial_VERSION_MINOR @Tutorial_VERSION_MINOR@</code></pre>
+<h3 id="设置包含目录">设置包含目录</h3>
+<pre><code>1.
+include_directories(include)
+
+
+2.
+target_include_directories(${PROJECT_NAME}
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/Include
+)</code></pre>
+<h3 id="设置依赖库依赖库目录">设置依赖库、依赖库目录</h3>
+<pre><code>INCLUDE_DIRECTORIES([AFTER|BEFORE] [SYSTEM] dir1 dir2 ...)
+
+
+1.
+target_link_libraries(${PROJECT_NAME} &quot;pthread&quot; )
+
+
+2.
+add_library(glut32 STATIC IMPORTED)
+set_property(TARGET glut32 PROPERTY IMPORTED_LOCATION ${ROOT_DIR}/Library/glut32.lib)
+target_link_libraries(${PROJECT_NAME} glut32 )  #添加glut32.lib</code></pre>
+<h3 id="指定安装规则">指定安装规则</h3>
+<p>安装的内容可以包括目标二进制、动态库、静态库以及文件、目录、脚本等。<br />
+变量CMAKE_INSTALL_PREFIX    用法：cmake -DCMAKE_INSTALL_PREFIX=/usr .<br />
+默认是在DESTINATION目录下</p>
+<pre><code># DESTINATION 在这里是一个相对路径，取默认值。在unix系统中指向 /usr/local 在windows上c:/Program Files/${PROJECT_NAME}。
+# 指定target安装目录， make install时生效
+install(TARGETS testStudent DESTINATION /usr/lib)
+
+
+# 自定义文件复制
+file(COPY ${ROOT_DIR}/Library/glut32.dll
+    DESTINATION ${EXECUTABLE_OUTPUT_PATH}/Release)
+
+
+# 目标文件
+INSTALL(TARGETS targets... [ARCHIVE|LIBRARY|RUNTIME] [DESTINATION dirname] [PERMISSIONS permissions...] [...])
+# 普通文件
+INSTALL(FILES files... DESTINATION &lt;dir&gt; [PERMISSIONS permissions...])
+# 目录的安装
+INSTALL(DIRECTORY dirs... DESTINATION &lt;dir&gt; [FILE_PERMISSIONS permissions...]）
+安装时CMAKE脚本的执行：INSTALL([[SCRIPT &lt;file&gt;] [CODE &lt;code&gt;]] [...])</code></pre>
+<h3 id="pre-build和post-build操作">Pre-build和Post-build操作</h3>
+<p>在CMake中提供了add_custom_command和add_custom_target用来为某个目标或库添加一些自定义命令，该命令本身会成为目标的一部分，仅在目标本身被构建时才会执行。如果该目标已经构建，命令将不会执行。</p>
+<p>add_custom_command: 增加自定义的构建规则到生成的构建系统中</p>
+<pre><code>add_custom_command(TARGET target
+                     PRE_BUILD | PRE_LINK| POST_BUILD
+                     COMMAND command1[ARGS] [args1...]
+                     [COMMAND command2[ARGS] [args2...] ...]
+                     [WORKING_DIRECTORYdir]
+                     [COMMENT comment][VERBATIM])</code></pre>
+<h3 id="cpack生成安装包">cpack生成安装包</h3>
+<h2 id="语法">语法</h2>
+<h3 id="执行指定的脚本">执行指定的脚本</h3>
+<p>cmake -P hello.txt</p>
+<h3 id="变量-all-variables-are-strings">变量 All Variables Are Strings</h3>
+<pre><code># 命令行中设置
+cmake -DNAME=Newman
+
+
+# 脚本中设置
+set(THING &quot;funk&quot;)
+
+
+# 基本语法规则：
+# 1. 变量使用${}方式取值，但是在IF控制语句中是直接使用变量名
+# 2. 指令(参数1 参数2...)
+# 参数使用括弧括起，参数之间使用空格或分号分开
+# 指令是大小写无关的，参数和变量是大小写相关的
+# 参数加不加引号都可以
+# SET(SRC_LIST main.c)也可以写成 SET(SRC_LIST &quot;main.c&quot;)</code></pre>
+<h3 id="结构化变量">结构化变量</h3>
+<p>You Can Simulate a Data Structure using Prefixes<br />
+变量可以嵌套使用</p>
+<pre><code>set(JOHN_NAME &quot;John Smith&quot;)
+set(JOHN_ADDRESS &quot;123 Fake St&quot;)
+set(PERSON &quot;JOHN&quot;)
+message(&quot;${${PERSON}_NAME} lives at ${${PERSON}_ADDRESS}.&quot;)</code></pre>
+<h3 id="语句-every-statement-is-a-command">语句 Every Statement is a Command</h3>
+<p>every statement is a command that takes a list of string arguments and has no return value</p>
+<pre><code>math(EXPR MY_SUM &quot;1 + 1&quot;)   # Evaluate 1 + 1; store result in MY_SUM</code></pre>
+<h3 id="比较语句">比较语句</h3>
+<p>数字比较         LESS,GREATER,EQUAL</p>
+<p>字符串比较       STRLESS、STRGREATER、STREQUAL</p>
+<h3 id="控制语句-flow-control-commands">控制语句 Flow Control Commands</h3>
+<p>cmake所有commands  https://cmake.org/cmake/help/latest/manual/cmake-commands.7.html</p>
+<p>Even flow control statements are commands.</p>
+<pre><code># 缩进不是必须的
+if(WIN32)
+    message(&quot;You&#39;re running CMake on Windows.&quot;)
+endif()
+
+
+# 循环
+set(A &quot;1&quot;)
+set(B &quot;1&quot;)
+while(A LESS &quot;1000000&quot;)
+    message(&quot;${A}&quot;)                 # Print A
+    math(EXPR T &quot;${A} + ${B}&quot;)      # Add the numeric values of A and B; store result in T
+    set(A &quot;${B}&quot;)                   # Assign the value of B to A
+    set(B &quot;${T}&quot;)                   # Assign the value of T to B
+endwhile()</code></pre>
+<h3 id="列表">列表</h3>
+<p>Lists are Just Semicolon-Delimited Strings</p>
+<pre><code>set(ARGS &quot;EXPR;T;1 + 1&quot;)   #此时的ARGS就是一个列表
+math(${ARGS})    # Equivalent to calling math(EXPR T &quot;1 + 1&quot;)
+
+
+set(ARGS &quot;EXPR;T;1 + 1&quot;)   #加引号会原文输出，不加引号会被当做多个值
+message(&quot;${ARGS}&quot;)       # Prints: EXPR;T;1 + 1
+
+
+# 列表在for循环中的应用
+foreach(ARG These are separate arguments)
+    message(&quot;${ARG}&quot;)   # Prints each word on a separate line
+endforeach()
+
+
+foreach(ARG ${MY_LIST})       # Splits the list; passes items as arguments
+    message(&quot;${ARG}&quot;)         # Prints each item on a separate line
+endforeach()</code></pre>
+<h3 id="函数和宏">函数和宏</h3>
+<p>Functions Run In Their Own Scope; Macros Don’t</p>
+<p>函数里的变量不会污染全局的变量，若要在函数中设置变量的值，需要传参并用set设值<br />
+函数可以访问函数外部的全局变量</p>
+<pre><code># VALUE为参数
+function(doubleIt VALUE)
+    math(EXPR RESULT &quot;${VALUE} * 2&quot;)
+    message(&quot;${RESULT}&quot;)
+endfunction()
+
+
+doubleIt(&quot;4&quot;)   # Prints: 8
+
+
+# 改变外部变量
+function(doubleIt VARNAME VALUE)
+    math(EXPR RESULT &quot;${VALUE} * 2&quot;)
+    set(${VARNAME} &quot;${RESULT}&quot; PARENT_SCOPE)    # Set the named variable in caller&#39;s scope
+endfunction()
+
+
+doubleIt(RESULT &quot;4&quot;)                    # Tell the function to set the variable named RESULT
+message(&quot;${RESULT}&quot;)                    # Prints: 8
+
+
+# 上述函数用宏实现
+macro(doubleIt VARNAME VALUE)
+    math(EXPR ${VARNAME} &quot;${VALUE} * 2&quot;)      # Set the named variable in caller&#39;s scope
+endmacro()
+
+
+doubleIt(RESULT &quot;4&quot;)                    # Tell the macro to set the variable named RESULT
+message(&quot;${RESULT}&quot;)                    # Prints: 8
+
+
+
+# 无参函数会把list当做参数，并用ARGN来引用
+function(doubleEach)
+    foreach(ARG ${ARGN})                # Iterate over each argument
+        math(EXPR N &quot;${ARG} * 2&quot;)       # Double ARG&#39;s numeric value; store result in N
+        message(&quot;${N}&quot;)                 # Print N
+    endforeach()
+endfunction()
+
+
+doubleEach(5 6 7 8)                     # Prints 10, 12, 14, 16 on separate lines</code></pre>
+<h3 id="including-other-scripts">Including Other Scripts</h3>
+<h4 id="include">include</h4>
+<p>命令可以包含进来另一个脚本，include的搜索路径的变量在CMAKE_MODULE_PATH中</p>
+<h4 id="find_package">find_package</h4>
+<p>The find_package command looks for scripts of the form Find*.cmake and also runs them in the same scope.<br />
+Such scripts are often used to help find external libraries.</p>
+<p>find_package()命令首先会在模块路径中寻找Find.cmake，这是查找库的一个典型方式。具体查找路径依次为CMake：变量${CMAKE_MODULE_PATH}中的所有目录。如果没有，然后再查看它自己的模块目录/share/cmake-x.y/Modules/<br />
+命令查找： find / -name Find*.cmake |less</p>
+<h4 id="add_subdirectory">add_subdirectory</h4>
+<p>CMake’s add_subdirectory command, on the other hand, creates a new scope, then executes the script named CMakeLists.txt from the specified directory in that new scope</p>
+<h2 id="windows上使用">windows上使用</h2>
+<p>Windows上使用CMake也很方便，除了传统的命令行方式使用CMake，还有一个简单的GUI程序cmake-gui.exe来使用CMake。<br />
+运行cmake-gui<br />
+source code编辑框就是输入代码的所在的路径，这个路径能够找到一个CMakeLists.txt文件。<br />
+build the binaries编辑框就是编译输出的中间文件和最终的二进制文件的目录。<br />
+Add Entry添加预定义的变量<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/c8b32e20-2b60-493b-b07b-f0c644b1f3ab.png" /></p>
+<p>因为CMake最终通过CMakeLists.txt文件生成Windows上对应的vs工程文件，不同的vs版本也会影响到最终生成vs工程文件，所以configure对话框就是选择代码编译工具的，如图所示：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/4b2979e6-edd8-42d0-9c31-25f0f795e993.jpg" /></p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

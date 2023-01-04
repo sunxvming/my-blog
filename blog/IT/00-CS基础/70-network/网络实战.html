@@ -1,0 +1,1213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/00-CS基础/70-network/网络实战</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#开篇词-学好网络编程需要掌握哪些核心问题">开篇词 | 学好网络编程，需要掌握哪些核心问题？</a></li>
+<li><a href="#追古溯源tcpip和linux是如何改变世界的">01 | 追古溯源：TCP/IP和Linux是如何改变世界的？</a></li>
+<li><a href="#丨-网络编程模型认识客户端-服务器网络模型的基本概念">02 丨 网络编程模型：认识客户端-服务器网络模型的基本概念</a>
+<ul>
+<li><a href="#保留网段">保留网段</a></li>
+<li><a href="#子网掩码">子网掩码</a></li>
+</ul></li>
+<li><a href="#丨套接字和地址像电话和电话号码一样理解它们">03丨套接字和地址：像电话和电话号码一样理解它们</a>
+<ul>
+<li><a href="#通用套接字地址格式">通用套接字地址格式</a></li>
+<li><a href="#ipv4-套接字格式地址">IPv4 套接字格式地址</a></li>
+<li><a href="#ipv6-套接字地址格式">IPv6 套接字地址格式</a></li>
+<li><a href="#本地套接字格式">本地套接字格式</a></li>
+<li><a href="#为什么存在通用套接字地址-ipv4ipv6本地套接字格式">为什么存在通用套接字地址， IPv4、IPv6、本地套接字格式？</a></li>
+</ul></li>
+<li><a href="#tcp三次握手怎么使用套接字格式建立连接">04 | TCP三次握手：怎么使用套接字格式建立连接？</a>
+<ul>
+<li><a href="#bind">bind</a></li>
+<li><a href="#listen">listen</a></li>
+<li><a href="#通配地址">通配地址：</a></li>
+<li><a href="#tcp-三次握手的解读">TCP 三次握手的解读</a></li>
+</ul></li>
+<li><a href="#使用套接字进行读写开始交流吧">05 | 使用套接字进行读写：开始交流吧</a>
+<ul>
+<li><a href="#发送数据">发送数据</a></li>
+<li><a href="#发送缓冲区">发送缓冲区</a></li>
+<li><a href="#读取数据">读取数据</a></li>
+</ul></li>
+<li><a href="#嗨别忘了udp这个小兄弟">06 | 嗨，别忘了UDP这个小兄弟</a></li>
+<li><a href="#what-还有本地套接字">07 | What? 还有本地套接字？</a></li>
+<li><a href="#工欲善其事必先利其器学会使用各种工具">08 | 工欲善其事必先利其器：学会使用各种工具</a>
+<ul>
+<li><a href="#必备工具-ping">必备工具: ping</a></li>
+<li><a href="#基本命令-ifconfig">基本命令: ifconfig</a></li>
+<li><a href="#netstat-和-lsof对网络状况了如指掌">netstat 和 lsof：对网络状况了如指掌</a></li>
+<li><a href="#抓包利器-tcpdump">抓包利器: tcpdump</a></li>
+</ul></li>
+<li><a href="#丨答疑篇学习网络编程前需要准备哪些东西">09丨答疑篇：学习网络编程前，需要准备哪些东西？</a></li>
+<li><a href="#time_wait隐藏在细节下的魔鬼">10 | TIME_WAIT：隐藏在细节下的魔鬼</a>
+<ul>
+<li><a href="#断开连接时序图">断开连接时序图</a></li>
+<li><a href="#time_wait-的作用">TIME_WAIT 的作用</a></li>
+<li><a href="#time_wait-的危害">TIME_WAIT 的危害</a></li>
+</ul></li>
+<li><a href="#优雅地关闭还是粗暴地关闭">11 | 优雅地关闭还是粗暴地关闭 ?</a>
+<ul>
+<li><a href="#close-函数">close 函数</a></li>
+<li><a href="#shutdown-函数">shutdown 函数</a></li>
+</ul></li>
+<li><a href="#连接无效使用keep-alive还是应用心跳来检测">12 | 连接无效：使用Keep-Alive还是应用心跳来检测？</a>
+<ul>
+<li><a href="#问题">问题</a></li>
+<li><a href="#tcp-keep-alive-选项">TCP Keep-Alive 选项</a></li>
+<li><a href="#应用层探活">应用层探活</a></li>
+</ul></li>
+<li><a href="#小数据包应对之策理解tcp协议中的动态数据传输">13 | 小数据包应对之策：理解TCP协议中的动态数据传输</a>
+<ul>
+<li><a href="#流量控制-和生产者---消费者模型">流量控制 和生产者 - 消费者模型</a></li>
+<li><a href="#拥塞控制-和数据传输">拥塞控制 和数据传输</a></li>
+</ul></li>
+<li><a href="#丨udp也可以是已连接">14丨UDP也可以是“已连接”？</a>
+<ul>
+<li><a href="#udp-connect-的作用">UDP connect 的作用</a></li>
+<li><a href="#性能考虑">性能考虑</a></li>
+</ul></li>
+<li><a href="#怎么老是出现address-already-in-use">15 | 怎么老是出现“Address already in use”？</a>
+<ul>
+<li><a href="#最佳实践">最佳实践</a></li>
+</ul></li>
+<li><a href="#如何理解tcp的流">16 | 如何理解TCP的“流”？</a>
+<ul>
+<li><a href="#显式编码报文长度">显式编码报文长度</a></li>
+<li><a href="#特殊字符作为边界">特殊字符作为边界</a></li>
+</ul></li>
+<li><a href="#tcp并不总是可靠的">17 | TCP并不总是“可靠”的？</a></li>
+<li><a href="#防人之心不可无检查数据的有效性">18 | 防人之心不可无：检查数据的有效性</a>
+<ul>
+<li><a href="#对端的异常状况">对端的异常状况</a></li>
+<li><a href="#缓冲区处理">缓冲区处理</a></li>
+</ul></li>
+<li><a href="#丨提高篇答疑如何理解tcp四次挥手">19丨提高篇答疑：如何理解TCP四次挥手？</a></li>
+<li><a href="#大名的select看我如何同时感知多个io事件">20 | 大名⿍⿍的select：看我如何同时感知多个I/O事件</a></li>
+<li><a href="#poll另一种io多路复用">21 | poll：另一种I/O多路复用</a></li>
+<li><a href="#非阻塞io提升性能的加速器">22 | 非阻塞I/O：提升性能的加速器</a>
+<ul>
+<li><a href="#非阻塞-io">非阻塞 I/O</a></li>
+<li><a href="#写操作">写操作</a></li>
+<li><a href="#读操作">读操作</a></li>
+<li><a href="#accept">accept</a></li>
+<li><a href="#connect">connect</a></li>
+</ul></li>
+<li><a href="#linux利器epoll的前世今生">23 | Linux利器：epoll的前世今生</a></li>
+<li><a href="#c10k问题高并发模型设计">24 | C10K问题：高并发模型设计</a>
+<ul>
+<li><a href="#操作系统层面">操作系统层面</a>
+<ul>
+<li><a href="#文件句柄">文件句柄</a></li>
+<li><a href="#内存">内存</a></li>
+</ul></li>
+<li><a href="#解法方案">解法方案</a>
+<ul>
+<li><a href="#阻塞-io-进程">阻塞 I/O + 进程</a></li>
+<li><a href="#阻塞-io-线程">阻塞 I/O + 线程</a></li>
+<li><a href="#非阻塞-io-readiness-notification-单线程">非阻塞 I/O + readiness notification + 单线程</a></li>
+<li><a href="#非阻塞-io-readiness-notification-多线程">非阻塞 I/O + readiness notification + 多线程</a></li>
+<li><a href="#异步-io-多线程">异步 I/O+ 多线程</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#使用阻塞io和进程模型最传统的方式">25 | 使用阻塞I/O和进程模型：最传统的方式</a></li>
+<li><a href="#使用阻塞io和线程模型换一种轻量的方式">26 | 使用阻塞I/O和线程模型：换一种轻量的方式</a>
+<ul>
+<li><a href="#每个连接一个线程处理">每个连接一个线程处理</a></li>
+<li><a href="#构建线程池处理多个连接">构建线程池处理多个连接</a></li>
+</ul></li>
+<li><a href="#io多路复用遇上线程使用poll单线程处理所有io事件">27 | I/O多路复用遇上线程：使用poll单线程处理所有I/O事件</a></li>
+<li><a href="#io多路复用进阶子线程使用poll处理连接io事件">28 | I/O多路复用进阶：子线程使用poll处理连接I/O事件</a></li>
+<li><a href="#渐入佳境使用epoll和多线程模型">29 | 渐入佳境：使用epoll和多线程模型</a></li>
+<li><a href="#真正的大杀器异步io探索">30 | 真正的大杀器：异步I/O探索</a></li>
+<li><a href="#自己动手写高性能http服务器一设计和思路">32 | 自己动手写高性能HTTP服务器（一）：设计和思路</a>
+<ul>
+<li><a href="#反应堆模式设计">反应堆模式设计</a></li>
+<li><a href="#io-模型和多线程模型设计">I/O 模型和多线程模型设计</a></li>
+<li><a href="#buffer-和数据读写">Buffer 和数据读写、</a></li>
+</ul></li>
+<li><a href="#自己动手写高性能http服务器二io模型和多线程模型实现">33 | 自己动手写高性能HTTP服务器（二）：I/O模型和多线程模型实现</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="开篇词-学好网络编程需要掌握哪些核心问题">开篇词 | 学好网络编程，需要掌握哪些核心问题？</h2>
+<p>网络编程是一个高度重视实战的内容模块<br />
+很多人在理论部分折了戟，干脆跑向了另一个极端，转而去学习框架，快速上手。事实上，<br />
+理论是基石，框架则是站在一个更为抽象的角度来看待网络编程问题。框架的产生或是为了<br />
+实现跨平台支持，例如 JDK，或是为了屏蔽网络编程的细节，让开发更为方便，例如libevent。<br />
+没有理论为底，框架也只是空中楼阁。直接学习框架反而会更加摸不着头脑，对网络编程也<br />
+很难有实打实的收获。<br />
+我认为学习高性能网络编程，掌握两个核心要点就可以了：<br />
+第一就是理解网络协议，并在这个基础上和<strong>操作系统内核</strong>配合，感知各种网络 I/O 事件；<br />
+第二就是学会使用线程处理并发。</p>
+<p>要学好网络编程，需要达到以下三个层次：<br />
+第一个层次，充分理解 TCP/IP 网络协议和相应的系统接口。<br />
+第二个层次，结合对协议的理解，增强对各种异常情况的优雅处理能力。<br />
+第三个层次，写出可以支持大规模高并发的网络处理程序。</p>
+<h2 id="追古溯源tcpip和linux是如何改变世界的">01 | 追古溯源：TCP/IP和Linux是如何改变世界的？</h2>
+<p>本节主要讲了TCP/IP、unix、linux、gnu的一些历史。</p>
+<p>我们正处于一个属于我们的时代里，我们也正在第一线享受着这个时代的红利。<br />
+具体到互联网技术里，有两件事最为重要，<br />
+一个是 TCP/IP 协议，它是万物互联的事实标准；<br />
+另一个是 Linux 操作系统，它是推动互联网技术走向繁荣的基石。</p>
+<p>OSI 的七层模型定得过于复杂，并且没有参考实现，在一定程度上阻碍了普及。<br />
+不过，OSI 教科书般的层次模型，对后世的影响很深远，一般我们说的 4 层、7 层，也是<br />
+遵从了 OSI 模型的定义，分别指代传输层和应用层。</p>
+<p>TCP/IP 的成功也不是偶然的，而是综合了几个因素后的结果：<br />
+1. TCP/IP 是免费或者是少量收费的，这样就扩大了使用人群；<br />
+2. TCP/IP 搭上了 UNIX 这辆时代快车，很快推出了基于套接字（socket）的实际编程接口；<br />
+3. 这是最重要的一点，TCP/IP 来源于实际需求，大家都在翘首盼望出一个统一标准，可<br />
+是在此之前实际的问题总要解决啊，TCP/IP 解决了实际问题，并且在实际中不断完善。</p>
+<h2 id="丨-网络编程模型认识客户端-服务器网络模型的基本概念">02 丨 网络编程模型：认识客户端-服务器网络模型的基本概念</h2>
+<p>区别出客户端和服务器，本质上是因为二者<strong>编程模型是不同的</strong>。<br />
+有一点需要强调的是，无论是客户端，还是服务器端，它们运行的单位都是进程（process），而不是机器。<br />
+服务器端需要在一开始就监听在一个众所周知的端口上，等待客户端发送请求，一旦有客户<br />
+端连接建立，服务器端就会消耗一定的计算机资源为它服务，服务器端是需要同时为成千上<br />
+万的客户端服务的。如何保证服务器端在数据量巨大的客户端访问时依然能维持效率和稳<br />
+定，这也是我们讲述高性能网络编程的目的。<br />
+客户端相对来说更为简单，它向服务器端的监听端口发起连接请求，连接建立之后，通过连<br />
+接通路和服务器端进行通信。<br />
+一个连接可以通过做套接字对，四元组表示：<br />
+（clientaddr:clientport, serveraddr: serverport)</p>
+<h3 id="保留网段">保留网段</h3>
+<p>国际标准组织在 IPv4 地址空间里面，专门划出了一些网段，这些网<br />
+段不会用做公网上的 IP，而是<strong>仅仅保留做内部使用</strong>，我们把这些地址称作保留网段。<br />
+下表是三个保留网段，其可以容纳的计算机主机个数分别是 16777216 个、1048576 个和65536 个</p>
+<pre><code>10.0.0.0--10.255.255.255
+172.16.0.0--172.31.255.255
+192.168.0.0--192.168.255.255</code></pre>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/27c6c6ea-199e-4ca9-a42c-7b1e57dfed22.png" /></p>
+<h3 id="子网掩码">子网掩码</h3>
+<p>在网络 IP 划分的时候，我们需要区分两个概念。第一是网络（network）的概念,第二是主机（host）的概念<br />
+子网掩码的格式永远都是二进制格式：前面是一连串的 1，后面跟着一连串的 0<br />
+不过一大串的数字会有点不好用，比如像 255.192.0.0 这样的子网掩码，人们无法直观地<br />
+知道有多少个 1，多少个 0，后来人们发明了新的办法，你只需要将一个斜线放在 IP 地址<br />
+后面，接着用一个十进制的数字用以表示网络的位数，类似这样：192.0.2.12/30, 这样就很<br />
+容易知道有 30 个 1， 2 个 0，所以主机个数为 4。</p>
+<p>TCP，又被叫做字节流套接字（Stream Socket） SOCK_STREAM”<br />
+UDP 也有一个类似的叫法, 数据报套接字（Datagram Socket）SOCK_DGRAM<br />
+有一种叫做广播或多播的技术，就是向网络中的多个节点同时发送信息，这个时候，选择<br />
+UDP 更是非常合适的<br />
+UDP 也可以做到更高的可靠性，只不过这种可靠性，需要应用程序进行设计处理，比如对<br />
+报文进行编号，设计 Request-Ack 机制，再加上重传等，在一定程度上可以达到更为高可<br />
+靠的 UDP 程序。当然，这种可靠性和 TCP 相比还是有一定的距离，不过也可以弥补实战<br />
+中 UDP 的一些不足。</p>
+<h2 id="丨套接字和地址像电话和电话号码一样理解它们">03丨套接字和地址：像电话和电话号码一样理解它们</h2>
+<h3 id="通用套接字地址格式">通用套接字地址格式</h3>
+<pre><code>/* POSIX.1g 规范规定了地址族为 2 字节的值. */
+typedef unsigned short int sa_family_t;
+/* 描述通用套接字地址 */
+struct sockaddr{
+    sa_family_t sa_family; /* 地址族. 16-bit*/
+    char sa_data[14]; /* 具体的地址值 112-bit */
+  };</code></pre>
+<p>在这个结构体里，第一个字段是地址族，它表示使用什么样的方式对地址进行解释和保存<br />
+glibc 里的定义非常多，常用的有以下几种：<br />
+* AF_LOCAL：表示的是本地地址，对应的是 Unix 套接字，这种情况一般用于本地 socket 通信，很多情况下也可以写成 AF_UNIX、AF_FILE；<br />
+* AF_INET：因特网使用的 IPv4 地址；<br />
+* AF_INET6：因特网使用的 IPv6 地址。<br />
+这里的 AF_ 表示的含义是 Address Family，但是很多情况下，我们也会看到以 PF_ 表示的宏，比如 PF_INET、PF_INET6 等，实际上 PF_ 的意思是 Protocol Family，也就是协议族的意思。我们用 AF_xxx 这样的值来初始化 socket 地址，用 PF_xxx 这样的值来初始化 socket。我们在 &lt;sys/socket.h&gt; 头文件中可以清晰地看到，这两个值本身就是一一对应的。</p>
+<pre><code>#define AF_UNSPEC PF_UNSPEC
+#define AF_LOCAL PF_LOCAL
+#define AF_UNIX PF_UNIX
+#define AF_FILE PF_FILE
+#define AF_INET PF_INET</code></pre>
+<h3 id="ipv4-套接字格式地址">IPv4 套接字格式地址</h3>
+<pre><code>/* IPV4 套接字地址，32bit 值. */
+typedef uint32_t in_addr_t;
+struct in_addr
+  {
+    in_addr_t s_addr;
+  };
+/* 描述 IPV4 的套接字地址格式 */
+struct sockaddr_in
+  {
+    sa_family_t sin_family; /* 16-bit */
+    in_port_t sin_port; /* 端口口 16-bit*/
+    struct in_addr sin_addr; /* Internet address. 32-bit */
+    /* 这里仅仅用作占位符，不做实际用处 */
+    unsigned char sin_zero[8];
+  };</code></pre>
+<p>可以发现和 sockaddr 一样，都有一个 16-bit 的 sin_family 字段，对于 IPv4 来说这个值就是 AF_INET</p>
+<h3 id="ipv6-套接字地址格式">IPv6 套接字地址格式</h3>
+<p>struct sockaddr_in6<br />
+{<br />
+sa_family_t sin6_family; /* 16-bit <em>/<br />
+in_port_t sin6_port; /</em> 传输端口号 # 16-bit <em>/<br />
+uint32_t sin6_flowinfo; /</em> IPv6 流控信息 32-bit<em>/<br />
+struct in6_addr sin6_addr; /</em> IPv6 地址 128-bit <em>/<br />
+uint32_t sin6_scope_id; /</em> IPv6 域 ID 32-bit */<br />
+}</p>
+<h3 id="本地套接字格式">本地套接字格式</h3>
+<pre><code>struct sockaddr_un {
+    unsigned short sun_family; /* 固定为 AF_LOCAL */
+    char sun_path[108]; /* 路径名 */
+};</code></pre>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/a5c8c564-47dd-4e26-90ee-918d86272ecd.png" /></p>
+<h3 id="为什么存在通用套接字地址-ipv4ipv6本地套接字格式">为什么存在通用套接字地址， IPv4、IPv6、本地套接字格式？</h3>
+<p>这样设计的目的是为了给用户提供一个统一的接口, 不用每个地址族成员都增加个函数原型; 只用通过sockaddr.sa_family来确定具体是什么类型的地址,<br />
+通用套接字就是所有函数的入口参数，用通用套接字就不需要为Tcp udp等各定义一组socket函数了</p>
+<h2 id="tcp三次握手怎么使用套接字格式建立连接">04 | TCP三次握手：怎么使用套接字格式建立连接？</h2>
+<h3 id="bind">bind</h3>
+<pre><code>bind(int fd, sockaddr * addr, socklen_t len)</code></pre>
+<p>BSD 设计套接字的时候大约是 1982 年，那个时候的 C 语言还没有void *的支持，为了解决这个问题，BSD 的设计者们创造性地设计了通用地址格式来作为支持 bind 和 accept 等这些函数的参数。<br />
+对于使用者来说，每次需要将 IPv4、IPv6 或者本地套接字格式转化为通用套接字格式<br />
+对于实现者来说，可根据该地址结构的前两个字节判断出是哪种地址。为了处理长度可变的结构，需要读取函数里的第三个参数，也就是 len 字段，这样就可以对地址进行解析和判断了。</p>
+<h3 id="listen">listen</h3>
+<pre><code>int listen (int socketfd, int backlog)</code></pre>
+<p>第二个参数 backlog，官方的<br />
+解释为未完成连接队列的大小，这个参数的大小决定了可以接收的并发数目。这个参数越<br />
+大，并发数目理论上也会越大。但是参数过大也会占用过多的系统资源，一些系统，比如<br />
+Linux 并不允许对这个参数进行改变。</p>
+<h3 id="通配地址">通配地址：</h3>
+<p>可以把地址设置成本机的 IP 地址，这相当告诉操作系统内核，仅仅对目标 IP 是本机 IP 地址的 IP 包进行处理。但是这样写的程序在部署时有一个问题，我们编写应用程序时并<strong>不清楚自己的应用程序将会被部署到哪台机器上</strong>。这个时候，可以利用<strong>通配地址</strong>的能力帮助我们解决这个问题。通配地址相当于告诉操作系统内核：“Hi，我可不挑活，只要目标地址是咱们的都可以。”比如一台机器有两块网卡，IP 地址分别是 202.61.22.55 和 192.168.1.11，那么向这两个 IP 请求的请求包都会被我们编写的应用程序处理。</p>
+<pre><code>struct sockaddr_in name;
+name.sin_addr.s_addr = htonl (INADDR_ANY); /* IPV4 通配地址,在linux下其定义是0 */</code></pre>
+<p>除了地址，还有端口。如果把端口设置成 0，就相当于把端口的选择权交给操作系统内核来<br />
+处理，操作系统内核会根据一定的算法选择一个空闲的端口，完成套接字的绑定。这在服务<br />
+器端不常使用。</p>
+<h3 id="tcp-三次握手的解读">TCP 三次握手的解读</h3>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/8669424e-7f23-4eea-9ae1-64640a367b4b.jpg" /></p>
+<p>三次通信是<strong>理论上的最小值</strong>. 所以三次握手不是TCP本身的要求, 而是为了满足"在不可靠信道上可靠地传输信息"这一需求所导致的<br />
+下面是具体的过程：<br />
+1. 客户端的协议栈向服务器端发送了 SYN 包，并告诉服务器端当前发送序列号 j，客户端<br />
+进入 SYNC_SENT 状态；<br />
+2. 服务器端的协议栈收到这个包之后，和客户端进行 ACK 应答，应答的值为 j+1，表示<br />
+对 SYN 包 j 的确认，同时服务器也发送一个 SYN 包，告诉客户端当前我的发送序列号<br />
+为 k，服务器端进入 SYNC_RCVD 状态；<br />
+3. 客户端协议栈收到 ACK 之后，使得应用程序从 connect 调用返回，表示客户端到服务<br />
+器端的单向连接建立成功，客户端的状态为 ESTABLISHED，同时客户端协议栈也会对<br />
+服务器端的 SYN 包进行应答，应答数据为 k+1；<br />
+4. 应答包到达服务器端后，服务器端协议栈使得 accept 阻塞调用返回，这个时候服务器<br />
+端到客户端的单向连接也建立成功，服务器端也进入 ESTABLISHED 状态。</p>
+<h2 id="使用套接字进行读写开始交流吧">05 | 使用套接字进行读写：开始交流吧</h2>
+<h3 id="发送数据">发送数据</h3>
+<p>发送数据时常用的有三个函数，分别是 write、send 和 sendmsg。</p>
+<pre><code>ssize_t write (int socketfd, const void *buffer, size_t size)
+ssize_t send (int socketfd, const void *buffer, size_t size, int flags)
+ssize_t sendmsg(int sockfd, const struct msghdr *msg, int flags)</code></pre>
+<p>第一个函数：常见的文件写函数，如果把 socketfd 换成文件描述符，就是普通的文件写入。<br />
+第二个函数：如果想指定选项，发送band of data，或peek数据，就需要使用第二个带 flag 的函数。<br />
+第三个函数：如果想指定多重缓冲区传输数据，就需要使用第三个函数，以结构体 msghdr 的方式发送数据。</p>
+<p>对于<strong>普通文件描述符</strong>而言，一个文件描述符代表了打开的一个文件句柄，通过调用 write 函数，操作系统内核帮我们不断地往文件系统中写入字节流。注意，写入的字节流大小通常和输入参数 size 的值是相同的，否则表示出错。<br />
+对于<strong>套接字描述符</strong>而言，它代表了一个双向连接，在套接字描述符上调用 write 写入的字节数有可能比请求的数量少。</p>
+<h3 id="发送缓冲区">发送缓冲区</h3>
+<p>三次握手成功，TCP 连接成功建立后，操作系统内核会为每一个连接创建配套的基础设施，比如发送缓冲区和状态记录。<br />
+当我们的应用程序调用 write 函数时，实际所做的事情是把数据从应用程序中拷贝到操作系统内核的发送缓冲区中，并不一定是把数据通过套接字写出去。<br />
+发送成功仅仅表示的是<strong>数据被拷贝到了发送缓冲区中，并不意味着连接对端已经收到所有的数据</strong>。之后的缓冲区的数据就不归程序管了，而是操作系统了(组装数据，数据打包)。<br />
+对于 send 来说，返回成功仅仅表示数据写到发送缓冲区成功，并不表示对端已经成功收到。<br />
+已经发送到网络的数据<strong>依然需要暂存在send buffer中</strong>，只有收到对方的ack后，kernel才从buffer中清除这一部分数据，为后续发送数据腾出空间</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/1a7cf265-edbf-4591-a94b-32b2af9b0de6.jpg" /></p>
+<h3 id="读取数据">读取数据</h3>
+<pre><code>ssize_t read (int socketfd, void *buffer, size_t size)</code></pre>
+<p>read 函数要求操作系统内核从套接字描述字 socketfd读取最多多少个字节（size），并将<br />
+结果存储到 buffer 中。返回值告诉我们实际读取的字节数目，也有一些特殊情况，如果返<br />
+回值为 0，表示 EOF（end-of-file），这在网络中表示对端发送了 FIN 包，要处理断连的<br />
+情况；如果返回值为 -1，表示出错。当然，如果是非阻塞 I/O，情况会略有不同</p>
+<ul>
+<li><p>read 阻塞情况下：<br />
+如果没有发现数据在网络缓冲中会一直等待<br />
+如果这个时候读到的数据量比较少，比参数中指定的长度要小，read 并不会一直等待下去，而是立刻返回，需要循环读取数据，并且需要考虑 EOF 等异常条件。</p></li>
+<li><p>read 非阻塞情况下：<br />
+如果发现没有数据就直接返回，<br />
+如果发现有数据那么也是采用有多少读多少的进行处理</p></li>
+<li><p>write阻塞情况下：<br />
+阻塞情况下，write会将数据发送完。(不过可能被中断)，在阻塞的情况下，是会一直等待，直到write 完，全部的数据再返回．这点行为上与读操作有所不同。<br />
+原因：<br />
+读，究其原因主要是读数据的时候我们并不知道对端到底有没有数据，数据是在什么时候结束发送的，如果一直等待就可能会造成死循环，所以并没有去进行这方面的处理；<br />
+写，而对于write, 由于需要写的长度是已知的，所以可以一直再写，直到写完．不过问题是write 是可能被打断吗，造成write 一次只write 一部分数据, 所以write 的过程还是需要考虑循环write, 只不过多数情况下次write 调用就可能成功.</p></li>
+<li><p>write非阻塞情况下：</p></li>
+</ul>
+<p>能写多少写多少，写完了或不能写了就返回</p>
+<h2 id="嗨别忘了udp这个小兄弟">06 | 嗨，别忘了UDP这个小兄弟</h2>
+<p>UDP 比较简单，适合的场景还是比较多的，我们常见的 DNS 服务，SNMP 服务都是基于 UDP 协议的，这些场景对时延、丢包都不是特别敏感。另外多人通信的场景，如聊天室、多人游戏等，也都会使用到 UDP 协议。</p>
+<p>UDP服务器端重启后可以继续收到客户端的报文，TCP 里是不可以的，TCP 断联之后必须重新连接才可以发送报文信息。<br />
+但是 UDP 报文的”无连接“的特点，可以在 UDP 服务器重启之后，继续进行报文的发送。</p>
+<p>UDP socket 设置为的非阻塞模式<br />
+1.recvform中设置</p>
+<pre><code>Len = recvfrom(SocketFD, szRecvBuf, sizeof(szRecvBuf), MSG_DONTWAIT, (struct sockaddr *)&amp;SockAddr,&amp;ScokAddrLen);</code></pre>
+<p>2.通过fcntl函数将套接字设置为非阻塞模式。</p>
+<p>问：recvfrom 一直处于阻塞状态中，这是非常不合理的，你觉得这种情形应该怎么处理呢？<br />
+可以添加超时时间做处理<br />
+问：既然 UDP 是请求 - 应答模式的，那么请求中的 UDP 报文最大可以是多大呢？<br />
+用UDP协议发送时，用sendto函数最大能发送数据的长度为：65535- IP头(20) - UDP头(8)＝65507字节</p>
+<h2 id="what-还有本地套接字">07 | What? 还有本地套接字？</h2>
+<p>本地套接字一般也叫做 UNIX 域套接字，最新的规范已经改叫本地套接字。<br />
+本地套接字是一种特殊类型的套接字，和 TCP/UDP 套接字不同。TCP/UDP 即使在本地地址通信，也要走系统网络协议栈，而本地套接字，严格意义上说提供了一种<strong>单主机跨进程间调用的手段</strong>，效率比 TCP/UDP 套接字都要高许多。</p>
+<p>套接字文件xxx.sock,是在 服务器端bind 的时候自动创建出来的，客户端连接时候的地址通过这个套接字文件的路径来连接。<br />
+它的主要作用是起到定位的作用<br />
+关于本地文件路径，需要明确一点，它必须是“绝对路径”，这样的话，编写好的程序可以在任何目录里被启动和管理。<br />
+还有一点需要注意的是套接字文件的权限问题。</p>
+<h2 id="工欲善其事必先利其器学会使用各种工具">08 | 工欲善其事必先利其器：学会使用各种工具</h2>
+<h3 id="必备工具-ping">必备工具: ping</h3>
+<p>ping 是基于一种叫做 ICMP 的协议开发的，ICMP 又是一种基于 IP 协议的控制协议，翻译为网际控制协议<br />
+另外一种对路由的检测命令 Traceroute 也是通过 ICMP 协议来完成的<br />
+ICMP 在 IP 报文后加入了新的内容，这些内容包括：<br />
+类型：即 ICMP 的类型, 其中 ping 的请求类型为 0，应答为 8。<br />
+代码：进一步划分 ICMP 的类型, 用来查找产生错误的原因。<br />
+校验和：用于检查错误的数据。<br />
+标识符：通过标识符来确认是谁发送的控制协议，可以是进程 ID。<br />
+序列号：唯一确定的一个报文，前面 ping 名字执行后显示的 icmp_seq 就是这个值。</p>
+<h3 id="基本命令-ifconfig">基本命令: ifconfig</h3>
+<h3 id="netstat-和-lsof对网络状况了如指掌">netstat 和 lsof：对网络状况了如指掌</h3>
+<p>netstat -apn 查看所有的连接详<br />
+lsof -i :80 查看80端口被什么占用了<br />
+lsof /var/run/docker.sock 查看本地socket是哪个进程占用</p>
+<h3 id="抓包利器-tcpdump">抓包利器: tcpdump</h3>
+<h2 id="丨答疑篇学习网络编程前需要准备哪些东西">09丨答疑篇：学习网络编程前，需要准备哪些东西？</h2>
+<p>github代码实例：<br />
+https://github.com/froghui/yolanda</p>
+<p>有些同学一上来就啃“TCP/IP 协议”，我觉得对于实战来说，显得过于着急。我们可以<br />
+把“TCP/IP 协议”当做编程过程中答疑解惑的好帮手，有问题之后再从中寻找答案，而不<br />
+是急急忙忙就来啃这类书籍。说实话，这类书籍理论性偏强，有时候大段读下来也少有收<br />
+获。<br />
+最好的办法，还是自己跟随一些入门书籍，或者我的这篇实战，尝试动手去写、去调试代<br />
+码，这中间你会不断获得一些反馈，然后再和大家一起探讨，不断加深了解。<br />
+当你学到了一定阶段，就可以给自己开一些小的任务，比如写一个聊天室程序，或者写一个<br />
+HTTP 服务器端程序，带着任务去学习，获得成就感的同时，对网络编程的理解也随之更上<br />
+一层楼了。<br />
+书籍推荐：<br />
+《C 程序设计语言》《UNIX 网络编程》《TCP/IP 详解 卷 1：协议》</p>
+<p>一段数据流从应用程序发送端，一直到应用程序接收端，总共经过了多少次拷贝？<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/6d3b4bc3-062f-4981-bb4e-f2bf29fbce01.jpg" /></p>
+<h2 id="time_wait隐藏在细节下的魔鬼">10 | TIME_WAIT：隐藏在细节下的魔鬼</h2>
+<h3 id="断开连接时序图">断开连接时序图</h3>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/d3807ad5-c819-4e58-9ba0-cee3d4f8929f.jpg" /><br />
+当套接字被关闭时，TCP 为其所在端发送一个 FIN 包。在大多数情况下，这是由应用进程<br />
+调用 close 而发生的，值得注意的是，一个进程无论是正常退出（exit 或者 main 函数返<br />
+回），还是非正常退出（比如，收到 SIGKILL 信号关闭，就是我们常常干的 kill -9），所<br />
+有该进程打开的描述符都会被系统关闭，这也导致 TCP 描述符对应的连接上发出一个 FIN包。<br />
+无论是客户端还是服务器，任何一端都可以发起主动关闭。大多数真实情况是客户端执行主动关闭<br />
+若作为客户端的进程频繁的去连接不同的服务器，然后再close掉，当次数非常多的时候就会出现好多time_wait的状态，然后会导致端口耗尽的情况。</p>
+<p>MSL（maximum segment lifetime）的两倍，一般称之为 2MSL。 Linux 系统停留在 TIME_WAIT 的时间为固定的 60 秒<br />
+2MSL 的时间是从主机 1 接收到 FIN 后发送 ACK 开始计时的，且每次都会增加。</p>
+<h3 id="time_wait-的作用">TIME_WAIT 的作用</h3>
+<p>首先，这样做是为了确保最后的 ACK 能让被动关闭方接收，从而帮助其正常关闭<br />
+如果图中主机 1 的 ACK 报文没有传输成功，那么主机 2 就会重新发送 FIN 报文。如果主机 1 没有维护 TIME_WAIT 状态，而直接进入 CLOSED 状态，它就失去了当前状态的上下文，只能回复一个 RST 操作，从而导致被动关闭方出现错误。<br />
+现在主机 1 知道自己处于 TIME_WAIT 的状态，就可以在接收到 FIN 报文之后，重新发出<br />
+一个 ACK 报文，使得主机 2 可以进入正常的 CLOSED 状态。<br />
+第二个理由和连接“化身”和报文迷走有关系，为了让旧连接的重复分节在网络中自然消失。</p>
+<h3 id="time_wait-的危害">TIME_WAIT 的危害</h3>
+<p>第一是内存资源占用，这个目前看来不是太严重，基本可以忽略。<br />
+第二是对端口资源的占用，如果 TIME_WAIT 状态过多，会导致无法创建新连接。服务器端问题不大，主要是客户端。<br />
+解决：net.ipv4.tcp_tw_reuse 选项<br />
+tcp_tw_reuse仅在TCP套接字作为客户端，调用connect时起作用。绝大部分的TCP服务器，应该不会有大量主动连接的动作（或许会连接DB等，但一般也是长连接）。因此这个选项对于TCP服务来说，基本上是无用的，完全是没必要打开，甚至可能还会给一些初级的运维工程师带来迷惑和干扰。</p>
+<pre><code>sysctl -w net.ipv4.tcp_tw_reuse=1    //configure kernel parameters at runtime</code></pre>
+<h2 id="优雅地关闭还是粗暴地关闭">11 | 优雅地关闭还是粗暴地关闭 ?</h2>
+<p>最后的连接关闭阶段，我们需要重点关注的是“半连接”状态。<br />
+因为 TCP 是双向的，这里说的方向，指的是数据流的写入 和 读出的方向。<br />
+在绝大数情况下，TCP 连接都是先关闭一个方向（写入），此时另外一个方向还是可以正常进行数据传输（读取）。</p>
+<h3 id="close-函数">close 函数</h3>
+<p>这个函数会对套接字引用计数减一，一旦发现套接字引用计数到 0，就会对套接字进行彻底释放，并且会关闭TCP 两个方向的数据流。<br />
+close 函数具体是如何关闭两个方向的数据流呢？<br />
+在输入方向，系统内核会将该套接字设置为不可读，任何读操作都会返回异常。<br />
+在输出方向，系统内核尝试将<strong>发送缓冲区的数据发送给对端</strong>，并最后向对端发送一个 FIN 报文，接下来如果再对该套接字进行写操作会返回异常。<br />
+如果对端没有检测到套接字已关闭，还继续发送报文，就会收到一个<strong>RST</strong>报文，告诉对端：“Hi, 我已经关闭了，别再给我发数据了。”<br />
+我们会发现，close 函数并不能帮助我们关闭连接的一个方向，那么如何在需要的时候关闭一个方向呢？幸运的是，设计 TCP 协议的人帮我们想好了解决方案，这就是 shutdown 函数。</p>
+<h3 id="shutdown-函数">shutdown 函数</h3>
+<pre><code>int shutdown(int sockfd, int howto)</code></pre>
+<p>howto 是这个函数的设置选项，它的设置有三个主要选项：<br />
+SHUT_RD(0)：关闭连接的“读”这个方向，对该套接字进行读操作直接返回 EOF。从数<br />
+据角度来看，套接字上接收缓冲区已有的数据将被丢弃，如果再有新的数据流到达，会对<br />
+数据进行 ACK，然后悄悄地丢弃。也就是说，对端还是会接收到 ACK，在这种情况下根<br />
+本不知道数据已经被丢弃了。<br />
+SHUT_WR(1)：关闭连接的“写”这个方向，这就是常被称为”半关闭“的连接。此<br />
+时，不管套接字引用计数的值是多少，都会直接关闭连接的写方向。套接字上发送缓冲区<br />
+已有的数据将被立即发送出去，并发送一个 FIN 报文给对端。应用程序如果对该套接字进行写操作会报错。<br />
+SHUT_RDWR(2)：相当于 SHUT_RD 和 SHUT_WR 操作各一次，关闭套接字的读和写两个方向。</p>
+<p>比如：客户端调用 shutdown 函数只是关闭连接的一个方向，服务器端到客户端的这个方向还可以继续进行数据的发送和接收，<br />
+当服务器端读到 EOF 时，立即向客户端发送缓冲区的数据和FIN报文，客户端在 read 函数中感知了 EOF，也进行了正常退出。</p>
+<p>close和SHUT_RDWR的区别：<br />
+第一个差别：close 会关闭连接，并释放所有连接对应的资源，而 shutdown 并不会释放<br />
+掉套接字和所有的资源。<br />
+第二个差别：close 存在引用计数的概念，并不一定导致该套接字不可用；shutdown 则不<br />
+管引用计数，直接使得该套接字不可用，如果有别的进程企图使用该套接字，将会受到影响。</p>
+<h2 id="连接无效使用keep-alive还是应用心跳来检测">12 | 连接无效：使用Keep-Alive还是应用心跳来检测？</h2>
+<h3 id="问题">问题</h3>
+<p>我之前做过一个基于 NATS 消息系统的项目，多个消息的提供者 （pub）和订阅者<br />
+（sub）都连到 NATS 消息系统，通过这个系统来完成消息的投递和订阅处理。<br />
+突然有一天，线上报了一个故障，一个流程不能正常处理。经排查，发现消息正确地投递到<br />
+了 NATS 服务端，但是消息订阅者没有收到该消息，也没能做出处理，导致流程没能进行下去。<br />
+通过观察消息订阅者后发现，消息订阅者到 NATS 服务端的连接虽然显示是“正常”的，<br />
+但实际上，这个连接已经是无效的了。为什么呢？这是因为 NATS 服务器崩溃过，NATS<br />
+服务器和消息订阅者之间的连接中断 FIN 包，由于异常情况，没能够正常到达消息订阅<br />
+者，这样造成的结果就是消息订阅者一直维护着一个“过时的”连接，不会收到 NATS 服<br />
+务器发送来的消息。<br />
+这个故障的根本原因在于，作为 NATS 服务器的客户端，消息订阅者没有及时对连接的有<br />
+效性进行检测，这样就造成了问题。</p>
+<h3 id="tcp-keep-alive-选项">TCP Keep-Alive 选项</h3>
+<p>很多刚接触 TCP 编程的人会惊讶地发现，在没有数据读写的“静默”的连接上，是没有办法发现 TCP 连接是有效还是无效的。<br />
+比如客户端突然崩溃，服务器端可能在几天内都维护着一个无用的 TCP 连接。<br />
+那么有没有办法开启类似的“轮询”机制，让 TCP 告诉我们，连接是不是“活着”的呢？<br />
+这就是 TCP 保持活跃机制所要解决的问题。实际上，TCP 有一个保持活跃的机制叫做 Keep-Alive。<br />
+这个机制的原理是这样的：<br />
+定义一个时间段，在这个时间段内，如果没有任何连接相关的活动，TCP 保活机制会开始作用，每隔一个时间间隔，发送一个<strong>探测报文</strong>，该探测报文包含的数据非常少，如果连续几个探测报文都没有得到响应，则认为当前的 TCP 连接已经死亡，系统内核将错误信息通知给上层应用程序。<br />
+上述的可定义变量，分别被称为保活时间、保活时间间隔和保活探测次数。<br />
+在 Linux 系统中，这些变量分别对应 sysctl 变量:<br />
+net.ipv4.tcp_keepalive_time、 // 7200 秒（2 小时）<br />
+net.ipv4.tcp_keepalive_intvl、 // 75 秒<br />
+net.ipv4.tcp_keepalve_probes，// 9 次探测， 多次探活是为了防止误伤，避免ping包在网络中丢失掉了，而误认为对端死亡<br />
+TCP 保活机制<strong>默认是关闭的</strong>，当我们选择打开时，可以分别在连接的两个方向上开启，也可以单独在一个方向上开启。如果开启服务器端到客户端的检测，就可以在客户端非正常断连的情况下清除在服务器端保留的“脏数据”；而开启客户端到服务器端的检测，就可以在服务器无响应的情况下，重新发起连接。<br />
+为什么 TCP 不提供一个频率很好的保活机制呢？我的理解是早期的网络带宽非常有限，如果提供一个频率很高的保活机制，对有限的带宽是一个比较严重的浪费。</p>
+<h3 id="应用层探活">应用层探活</h3>
+<p>我们可以通过在应用程序中模拟 TCP Keep-Alive 机制，来完成在应用层的连接探活。<br />
+我们可以设计一个 PING-PONG 的机制，需要保活的一方，比如客户端，在保活时间达到后，发起对连接的 PING 操作，如果服务器端对 PING 操作有回应，则重新设置保活时间，否则对探测次数进行计数，如果最终探测次数达到了保活探测次数预先设置的值之后，则认为连接已经无效。<br />
+实现要点：<br />
+第一个是需要使用定时器，这可以通过使用 I/O 复用自身的机制来实现；<br />
+第二个是需要设计一个 PING-PONG 的协议。</p>
+<p>场景：游戏中,所以服务器为了判定他是否真的存活还是需要一个心跳包 隔了一段时间过后把朋友角色踢下线</p>
+<h2 id="小数据包应对之策理解tcp协议中的动态数据传输">13 | 小数据包应对之策：理解TCP协议中的动态数据传输</h2>
+<h3 id="流量控制-和生产者---消费者模型">流量控制 和生产者 - 消费者模型</h3>
+<p>调用send write这些接口并不意味着数据被真正发送到网络上，其实，这些数据只是从应用程序中被拷贝到了系统内核的套接字缓冲区中，或者说是发送缓冲区中，等待协议栈的处理。至于这些数据是什么时候被发送出去的，对应用程序来说，是无法预知的。对这件事情真正负责的，是运行于操作系统内核的 TCP 协议栈实现模块。<br />
+发送窗口和接收窗口的本质，我管这个叫做“TCP 的生产者 - 消费者”模型。<br />
+作为 TCP 发送端，也就是生产者，不能忽略 TCP 的接收端，也就是消费者的实际状况，不管不顾地把数据包都传送过来。<br />
+如果都传送过来，消费者来不及消费，必然会丢弃；而丢弃反过使得生产者又重传，发送更多的数据包，最后导致网络崩溃。<br />
+我想，理解了“TCP 的生产者 - 消费者”模型，再反过来看发送窗口和接收窗口的设计目的和方式，我们就会恍然大悟了。</p>
+<h3 id="拥塞控制-和数据传输">拥塞控制 和数据传输</h3>
+<p>TCP 的生产者 - 消费者模型，只是在考虑单个连接的数据传递，但是， TCP 数据包是需要经过<strong>网卡、交换机、核心路由器</strong>等一系列的网络设备的，<strong>网络设备本身的能力也是有限的</strong>，当多个连接的数据包同时在网络上传送时，势必会发生带宽争抢、数据丢失等，这样，<strong>TCP 就必须考虑多个连接共享在有限的带宽上，兼顾效率和公平性的控制</strong>，这就是拥塞控制的本质。<br />
+在 TCP 协议中，拥塞控制是通过<strong>拥塞窗口</strong>来完成的，拥塞窗口的大小会随着网络状况实时调整。<br />
+拥塞控制常用的算法有“慢启动”，它通过一定的规则，慢慢地将网络发送数据的速率增加到一个阈值。超过这个阈值之后，慢启动就结束了，<br />
+另一个叫做“拥塞避免”的算法登场。在这个阶段，TCP 会不断地探测网络状况，并随之不断调整拥塞窗口的大小。<br />
+现在你可以发现，在任何一个时刻，TCP 发送缓冲区的数据是否能真正发送出去，至少取决于两个因素，一个是当前的发送窗口大小，另一个是拥塞窗口大小，而 TCP 协议中总是<strong>取两者中最小值作为判断依据</strong>。<br />
+比如当前发送的字节为 100，发送窗口的大小是 200，拥塞窗口的大小是 80，那么取 200 和 80 中的最小值，就是 80，当前发送的字节数显然是大于拥塞窗口的，结论就是不能发送出去。</p>
+<ul>
+<li><p>发送窗口反应了作为单 TCP 连接、点对点之间的流量控制模型，它是需要和接收端一起共同协调来调整大小的；</p></li>
+<li><p>拥塞窗口则是反应了作为多个 TCP 连接共享带宽的拥塞控制模型，它是发送端独立地根据网络状况来动态调整的。</p>
+<h3 id="延时-ack">延时 ACK</h3>
+<p>延时 ACK 在收到数据后并不马上回复，而是累计需要发送的 ACK 报文，等到有数据需要发送给对端时，<br />
+将累计的 ACK捎带一并发送出去。当然，延时 ACK 机制，不能无限地延时下去，否则发送<br />
+端误认为数据包没有发送成功，引起重传，反而会占用额外的网络带宽。</p>
+<h3 id="禁用-nagle-算法">禁用 Nagle 算法</h3>
+<p>Nagle 算法的本质其实就是限制大批量的小数据包同时发送，发送端就可以把接下来连续的几个小数据包存储起来，等待接收到前一个小数据<br />
+包的 ACK 分组之后，再将数据一次性发送出去。</p></li>
+</ul>
+<pre><code>int on = 1;
+setsockopt(sock, IPPROTO_TCP, TCP_NODELAY, (void *)&amp;on, sizeof(on));</code></pre>
+<p>小数据包加剧了网络带宽的浪费，为了解决这个问题，引入了如 Nagle 算法、延时 ACK等机制。<br />
+在程序设计层面，不要多次频繁地发送小报文，如果有，可以使用 <code>writev</code> 批量发送。</p>
+<h2 id="丨udp也可以是已连接">14丨UDP也可以是“已连接”？</h2>
+<p>之所以对 UDP使用 connect：<br />
+1.是为了让我们的程序可以快速获取异步错误信息的<br />
+2.同时也可以获得一定性能上的提升<br />
+3.可以使用recv和send简化接口调用。</p>
+<h3 id="udp-connect-的作用">UDP connect 的作用</h3>
+<p>UDP connect并不会引起和服务器目标端的网络交互，也就是说，并不会触发所谓的”握手“报文发送和应答。<br />
+通过对 UDP 套接字进行 connect 操作，将 UDP 套接字建立了”上下文“，<strong>该套接字和服务器端的地址和端口产生了联系</strong>，正是这种绑定关系给了操作系统内核必要的信息，能收到的信息和对应的套接字进行关联。<br />
+事实上，当我们调用 sendto 或者 send 操作函数时，应用程序报文被发送，我们的应用程<br />
+序返回，操作系统内核接管了该报文，之后操作系统开始尝试往对应的地址和端口发送，因<br />
+为对应的地址和端口不可达，一个 ICMP 报文会返回给操作系统内核，该 ICMP 报文含有<br />
+目的地址和端口等信息。<br />
+如果我们不进行 connect 操作，建立（UDP 套接字——目的地址 + 端口）之间的映射关<br />
+系，操作系统内核就没有办法把 ICMP 不可达的信息和 UDP 套接字进行关联，也就没有办<br />
+法将 ICMP 信息通知给应用程序。</p>
+<h3 id="性能考虑">性能考虑</h3>
+<p>一般来说，客户端通过 connect 绑定服务端的地址和端口，对 UDP 而言，可以有一定程度的性能提升。<br />
+因为如果不使用 connect 方式，每次发送报文都会需要这样的过程：<br />
+连接套接字→发送报文→断开套接字→连接套接字→发送报文→断开套接字 →………<br />
+而如果使用 connect 方式，就会变成下面这样：<br />
+连接套接字→发送报文→发送报文→……→最后断开套接字<br />
+连接套接字是需要一定开销的，比如需要查找路由表信息。所以，UDP 客户端程序通过 connect 可以获得一定的性能提升。</p>
+<h2 id="怎么老是出现address-already-in-use">15 | 怎么老是出现“Address already in use”？</h2>
+<p>处在TIME_WAIT状态下重启服务器会报Address already in use的错误，开启SO_REUSEADDR 这个选项可以避免。<br />
+在很小的概率下，客户端 Telnet 使用了相同的端口，从而造成了新连接和旧<br />
+连接的四元组相同，在现代 Linux 操作系统下，也不会有什么大的问题，原因是现代 Linux<br />
+操作系统对此进行了一些优化。</p>
+<p>SO_REUSEADDR 套接字选项还有一个作用，那就是本机服务器如果有多个地址，可以在不同地址上使用相同的端口提供服务。<br />
+比如，一台服务器有 192.168.1.101 和 10.10.2.102 连个地址，我们可以在这台机器上启动三个不同的 HTTP 服务，第一个以本地通配地址 ANY 和端口 80 启动；第二个以 192.168.101 和端口 80 启动；第三个以 10.10.2.102 和端口 80 启动。<br />
+这样目的地址为 192.168.101，目的端口为 80 的连接请求会被发往第二个服务；目的地址<br />
+为 10.10.2.102，目的端口为 80 的连接请求会被发往第三个服务；目的端口为 80 的所有<br />
+其他连接请求被发往第一个服务。<br />
+我们必须给这三个服务设置 SO_REUSEADDR 套接字选项，否则第二个和第三个服务调用<br />
+bind 绑定到 80 端口时会出错。</p>
+<h3 id="最佳实践">最佳实践</h3>
+<p>服务器端程序，都应该设置 SO_REUSEADDR 套接字选项，以便服务端程序可以在极短时间内复用同一个端口启动。<br />
+有些人可能觉得这不是安全的。其实，单独重用一个套接字不会有任何问题。我在前面已经讲过，TCP 连接是通过四元组唯一区分的，只要客户端不使用相同的源端口，连接服务器是没有问题的，即使使用了相同的端口，根据序列号或者时间戳，也是可以区分出新旧连接的。</p>
+<ul>
+<li>tcp_tw_reuse 是内核选项，主要用在连接的发起方。TIME_WAIT 状态的连接创建时间<br />
+超过 1 秒后，新的连接才可以被复用，注意，这里是连接的发起方；</li>
+<li>SO_REUSEADDR 是用户态的选项，SO_REUSEADDR 选项用来告诉操作系统内核，如<br />
+果端口已被占用，但是 TCP 连接状态位于 TIME_WAIT ，可以重用端口。如果端口忙，<br />
+而 TCP 处于其他状态，重用端口时依旧得到“Address already in use”的错误信息。<br />
+注意，这里一般都是连接的服务方。</li>
+</ul>
+<h2 id="如何理解tcp的流">16 | 如何理解TCP的“流”？</h2>
+<p>报文格式最重要的是如何确定报文的边界。常见的报文格式有两种方法，<br />
+一种是发送端把要发送的报文长度预先通过报文告知给接收端；另一种是通过一些特殊的字符来进行边界的划分。</p>
+<h3 id="显式编码报文长度">显式编码报文长度</h3>
+<p>消息长度|消息类型|消息正文<br />
+解析报文：readn 函数</p>
+<pre><code>size_t readn(int fd, void *buffer, size_t length) {
+ size_t count;
+ ssize_t nread;
+ char *ptr;
+ ptr = buffer;
+ count = length;
+ while (count &gt; 0) {
+  nread = read(fd, ptr, count);
+  if (nread &lt; 0) {
+   if (errno == EINTR)
+   continue;
+   else
+   return (-1);
+  } else if (nread == 0)
+   break; /* EOF */
+  count -= nread;
+  ptr += nread;
+ }
+ return (length - count); /* return &gt;= 0 */
+}</code></pre>
+<p>解析报文: read_message 函数</p>
+<pre><code>size_t read_message(int fd, char *buffer, size_t length) {
+ u_int32_t msg_length;
+ u_int32_t msg_type;
+ int rc;
+ rc = readn(fd, (char *) &amp;msg_length, sizeof(u_int32_t));
+ if (rc != sizeof(u_int32_t))
+  return rc &lt; 0 ? -1 : 0;
+ msg_length = ntohl(msg_length);
+ rc = readn(fd, (char *) &amp;msg_type, sizeof(msg_type));
+ if (rc != sizeof(u_int32_t))
+  return rc &lt; 0 ? -1 : 0;
+ if (msg_length &gt; length) {
+  return -1;
+ }
+ rc = readn(fd, buffer, msg_length);
+ if (rc != msg_length)
+  return rc &lt; 0 ? -1 : 0;
+ return rc;
+}</code></pre>
+<h3 id="特殊字符作为边界">特殊字符作为边界</h3>
+<p>比如用换行来作为边界的话，对应的代码应该有一个read_line()函数，每次读一行数据。<br />
+//需要处理不同平台的换行符</p>
+<pre><code>int read_line(int fd, char *buf, int size) {
+ int i = 0;
+ char c = &#39;\0&#39;;
+ int n;
+ while ((i &lt; size - 1) &amp;&amp; (c != &#39;\n&#39;)) {
+  n = recv(fd, &amp;c, 1, 0);
+  if (n &gt; 0) {
+   if (c == &#39;\r&#39;) {
+    n = recv(fd, &amp;c, 1, MSG_PEEK);    //注意
+    if ((n &gt; 0) &amp;&amp; (c == &#39;\n&#39;))
+    recv(fd, &amp;c, 1, 0);
+    else
+    c = &#39;\n&#39;;
+   }
+   buf[i] = c;
+   i++;
+  } else
+  c = &#39;\n&#39;;
+ }
+ buf[i] = &#39;\0&#39;;
+ return (i);
+}</code></pre>
+<h2 id="tcp并不总是可靠的">17 | TCP并不总是“可靠”的？</h2>
+<p>TCP 是一种可靠的协议，这种可靠体现在端到端的通信上。<br />
+TCP 连接建立之后，能感知 TCP异常情况方式是有限的，一种是以 read 为核心的读操作，另一种是以 write 为核心的写操作。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/24af3d9e-29b5-406a-8640-0ef4b04eb8a4.jpg" /></p>
+<p>对端无 FIN 包<br />
+当系统突然崩溃，如断电时，不会发送 FIN 包<br />
+此时，如果是阻塞套接字，会一直阻塞在 read 等调用上，没有办法感知套接字的异常。</p>
+<p>对端有 FIN 包发出<br />
+对端调用了 close 或 shutdown 显式地关闭了连接，也可能是对端应用程序崩溃，操作系统内核代为清理所发出的。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/d8189e1e-dace-4e0e-b291-6756fcb7ef7d.jpg" /><br />
+我们需要记得为 SIGPIPE 注册处理函数，通过 write 操作感知 RST 的错误信息</p>
+<h2 id="防人之心不可无检查数据的有效性">18 | 防人之心不可无：检查数据的有效性</h2>
+<h3 id="对端的异常状况">对端的异常状况</h3>
+<p>若服务器完全崩溃，或者网络中断的情况下，此时，如果是阻塞套接字，会一直阻塞在 read 等调用上，没有办法感知套接字的异常。<br />
+* 方法一：设置超时</p>
+<pre><code>setsockopt(connfd, SOL_SOCKET, SO_RCVTIMEO, (const char *) &amp;tv, sizeof tv);</code></pre>
+<p>关键之处在读操作返回异常，根据出错信息是EAGAIN或者EWOULDBLOCK，判断出超时<br />
+* 方法二：心跳检测<br />
+* 方法三：select设置超时，通过返回值判断</p>
+<h3 id="缓冲区处理">缓冲区处理</h3>
+<p>1.read或revc时程序设置的缓存区溢出。<br />
+2.在使用显式编码报文长度的时候，需要对对方传过来的报文长度保持警惕，对方可能传了个很大的长度值，但并么有传那么多的数据，<br />
+此时会造成之后的数据读不了，或者缓冲区溢出。</p>
+<h2 id="丨提高篇答疑如何理解tcp四次挥手">19丨提高篇答疑：如何理解TCP四次挥手？</h2>
+<p>这篇对之前的几讲的常见疑惑做了些答疑。</p>
+<ul>
+<li>MSL ：是任何 IP 数据报能够在因特网中存活的最长时间。超过这个时间报文将被丢弃。<br />
+RFC793中规定 MSL 的时间为 2 分钟，Linux 实际设置为 30 秒。</li>
+<li>TTL：每个数据报里都包含有一个被称为 TTL（time to live）的 8 位字段，它的最大值为<br />
+255。TTL 可译为“生存时间”，这个生存时间由源主机设置初始值，它表示的是一个 IP<br />
+数据报可以经过的最大跳跃数，每经过一个路由器，就相当于经过了一跳，它的值就减 1，<br />
+当此值减为 0 时，则所在的路由器会将其丢弃，同时发送 ICMP 报文通知源主机。</li>
+<li>RTT：是客户到服务器往返所花时间（round-trip time，简称RTT），TCP含有动态估算RTT的算法。TCP还持续估算一个给定连接的RTT，这是因为RTT受网络传输拥塞程序的变化而变化本文来自：IT运维空间，原地址：www.94ip.comhttps://www.94ip.com/post/376.html</li>
+</ul>
+<h2 id="大名的select看我如何同时感知多个io事件">20 | 大名⿍⿍的select：看我如何同时感知多个I/O事件</h2>
+<p>i/o多路复用：使用 select 函数，通知内核挂起进程，当一个或多个 I/O 事件发生后，控制权返<br />
+还给应用程序，由应用程序进行 I/O 事件的处理。<br />
+select检测读<br />
+第一种情况是套接字接收缓冲区有数据可以读，如果我们使用 read 函数去执行读操作，肯定不会被阻塞，而是会直接读到这部分数据。<br />
+第二种情况是对方发送了 FIN，使用 read 函数执行读操作，不会被阻塞，直接返回 0。<br />
+第三种情况是针对一个监听套接字而言的，有已经完成的连接建立，此时使用 accept 函数去执行不会阻塞，直接返回已经完成的连接。<br />
+第四种情况是套接字有错误待处理，使用 read 函数去执行读操作，不阻塞，且返回 -1。<br />
+总结成一句话就是，内核通知我们套接字有数据可以读了，使用 read 函数不会阻塞。</p>
+<p>select 检测套接字可写<br />
+第一种是套接字发送缓冲区足够大，如果我们使用非阻塞套接字进行 write 操作，将不会被阻塞，直接返回。<br />
+第二种是连接的写半边已经关闭，如果继续进行写操作将会产生 SIGPIPE 信号。<br />
+第三种是套接字上有错误待处理，使用 write 函数去执行读操作，不阻塞，且返回 -1。<br />
+总结成一句话就是，内核通知我们套接字可以往里写了，使用 write 函数就不会阻塞。<br />
+细节：<br />
+描述符基数是当前最大描述符 +1；<br />
+每次 select 调用完成之后，记得要重置待测试集合。<br />
+* fdset的结构<br />
+很多系统是用一个<strong>整型数组</strong>来表示一个描述字集合的，一个 32 位的整型数可以表<br />
+示 32 个描述字，例如第一个整型数表示 0-31 描述字，第二个整型数可以表示 32-63 描述字<br />
+* select的timeval参数<br />
+空 (NULL)，表示如果没有 I/O 事件发生，则 select 一直等待下去。<br />
+一个非零的值，这个表示等待固定的一段时间后从 select 阻塞调用中返回<br />
+将 tv_sec 和 tv_usec 都设置成 0，表示根本不等待，检测完毕立即返回。这种情况使用得比较少。</p>
+<h2 id="poll另一种io多路复用">21 | poll：另一种I/O多路复用</h2>
+<p>select 有一个缺点，那就是所支持的文件描述符的个数是有限的。在 Linux 系统中，select 的默认最大值为 1024。<br />
+poll 是除了 select 之外，另一种普遍使用的 I/O 多路复用技术，和 select 相比，它和内核交互的数据结构有所变化，<br />
+另外，也突破了文件描述符的个数限制。</p>
+<pre><code>int poll(struct pollfd *fds, unsigned long nfds, int timeout);
+返回值：若有就绪描述符则为其数目，若超时则为 0，若出错则为 -1</code></pre>
+<p>和 select 函数对比一下，我们发现 poll 函数和 select 不一样的地方就是，在 select 里<br />
+面，文件描述符的个数已经随着 fd_set 的实现而固定，没有办法对此进行配置；而在 poll<br />
+函数里，我们可以控制 pollfd 结构的数组大小，这意味着我们可以突破原来 select 函数最<br />
+大描述符的限制，在这种情况下，应用程序调用者需要分配 pollfd 数组并通知 poll 函数该<br />
+数组的大小。</p>
+<h2 id="非阻塞io提升性能的加速器">22 | 非阻塞I/O：提升性能的加速器</h2>
+<p>非阻塞 I/O 配合 I/O 多路复用，是高性能网络编程中的常见技术。<br />
+阻塞时内核所做的事情是将 CPU 时间切换给其他有需要的进程。</p>
+<h3 id="非阻塞-io">非阻塞 I/O</h3>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/3d2cc04a-5bbd-495f-8730-42ec2014e912.jpg" /></p>
+<h3 id="写操作">写操作</h3>
+<p>write 等函数是可以同时作用到阻塞 I/O 和非阻塞 I/O 上的，为了复用一个函数，处理非阻<br />
+塞和阻塞 I/O 多种情况，设计出了写入返回值，并用这个返回值表示实际写入的数据大小。<br />
+非阻塞 I/O 需要这样：拷贝→返回→再拷贝→再返回。<br />
+而阻塞 I/O 需要这样：拷贝→直到所有数据拷贝至发送缓冲区完成→返回。</p>
+<h3 id="读操作">读操作</h3>
+<p>非阻塞情况下 read 调用会立即返回，一般返回 EWOULDBLOCK 或 EAGAIN 出错信息</p>
+<h3 id="accept">accept</h3>
+<p>当 accept 和 I/O 多路复用 select、poll 等一起配合使用时，如果在监听套接字上触发事<br />
+件，说明有连接建立完成，此时调用 accept 肯定可以返回已连接套接字。但这仅限于正常情况下。<br />
+一定要将监听套接字设置为非阻塞的，在极端情况下回产生阻塞。<br />
+在使用非阻塞accept时要注意处理返回值，需要正确地处理各种看似异常的错误，例如忽略 EWOULDBLOCK、EAGAIN 等</p>
+<h3 id="connect">connect</h3>
+<p>在非阻塞 TCP 套接字上调用 connect 函数，会立即返回一个 EINPROGRESS 错误。TCP<br />
+三次握手会正常进行，应用程序可以继续做其他初始化的事情。当该连接建立成功或者失败<br />
+时，通过 I/O 多路复用 select、poll 等可以进行连接的状态检测。<br />
+connect的超时时间在75秒到几分钟之间。有时程序希望在等待一定时间内结束，使用非阻塞connect可以防止阻塞75秒，在多线程网络编程中，尤其必要。 例如有一个通过建立线程与其他主机进行socket通信的应用程序，如果建立的线程使用阻塞connect与远程通信，当有几百个线程并发的时候，由于网络延迟而全部阻塞，阻塞的线程不会释放系统的资源，同一时刻阻塞线程超过一定数量时候，系统就不再允许建立新的线程，如果使用非阻塞的connect，连接失败使用select等待很短时间，如果还没有连接后，线程立刻结束释放资源，防止大量线程阻塞而使程序崩溃。</p>
+<pre><code>int net_com::connect_init(u32 u32_ip, u16 u16_port)
+{
+    int confd = 0;
+    struct sockaddr_in servaddr = { 0 };
+    struct sockaddr_in my_addr = { 0 };
+    int ret = 0;
+
+
+    confd = Socket(AF_INET, SOCK_STREAM, 0);
+    int flags = 1;
+    Setsockopt(confd, SOL_SOCKET, SO_REUSEADDR, &amp;flags, sizeof(int));
+    flags = 1;
+    Setsockopt(confd, SOL_SOCKET, SO_REUSEPORT, &amp;flags, sizeof(int));
+
+
+
+
+    // 绑定端口
+    memset(&amp;my_addr, 0, sizeof(my_addr));
+    my_addr.sin_family = AF_INET;
+    my_addr.sin_port = htons(SERVERMAINPORT);
+
+
+    ret = bind(confd, (struct sockaddr*) &amp; my_addr, sizeof(struct sockaddr));
+    if (ret &lt; 0)
+        perror(&quot;bind hold port&quot;);
+
+
+    //连接对方
+    memset(&amp;servaddr, 0, sizeof(servaddr));
+    servaddr.sin_family = AF_INET;
+    servaddr.sin_port = htons(u16_port);
+    struct in_addr addr = {0};
+    memcpy(&amp;addr, &amp;u32_ip, sizeof(u32_ip));
+    inet_pton(AF_INET, inet_ntoa(addr), &amp;servaddr.sin_addr);
+
+
+    /*阻塞情况下linux系统默认超时时间为75s*/
+    if (set_fd_noblocking(confd) &lt; 0)
+    {
+        debug(&quot;setnonblock error&quot;);
+        return -1;
+    }
+
+
+    ret = Connect(confd, (struct sockaddr*) &amp; servaddr, sizeof(servaddr));
+
+
+    //fd_set fdr, fdw;
+    fd_set fdw;
+    struct timeval timeout = {0};
+    int err = 0;
+    socklen_t errlen = sizeof(err);
+
+
+    if (ret != 0) {
+        if (errno == EINPROGRESS) {
+            debug(&quot;Doing connection.&quot;);
+            /*正在处理连接*/
+            //FD_ZERO(&amp;fdr);
+            FD_ZERO(&amp;fdw);
+            //FD_SET(confd, &amp;fdr);
+            FD_SET(confd, &amp;fdw);
+            timeout.tv_sec = 10;
+            timeout.tv_usec = 0;
+            int ret;
+            do
+            {
+                //et = select(confd + 1, &amp;fdr, &amp;fdw, NULL, &amp;timeout);
+                ret = select(confd + 1, NULL, &amp;fdw, NULL, &amp;timeout);
+            } while (ret &lt; 0 &amp;&amp; errno == EINTR);
+            std::cout &lt;&lt; &quot;select 监测结束&quot; &lt;&lt; std::endl;
+            /*select调用失败*/
+            if (ret &lt; 0) {
+                debug(&quot;connect error(%s)&quot;, strerror(errno));
+                close(confd);
+                return -1;
+            }
+
+
+            /*连接超时*/
+            if (ret == 0) {
+                debug(&quot;Connect timeout.&quot;);
+                close(confd);
+                return -1;
+            }
+            /*[1] 当连接成功建立时，描述符变成可写,rc=1*/
+            if (ret == 1) {
+
+
+                /* ret返回为1（表示套接字可写），可能有两种情况，一种是连接建立成功，一种是套接字产生错误，*/
+                /* 此时错误信息不会保存至errno变量中，因此，需要调用getsockopt来获取。 */
+                int err;
+                socklen_t sockLen = sizeof(err);
+                int sockoptret = getsockopt(confd, SOL_SOCKET, SO_ERROR, &amp;err, &amp;sockLen);
+                if (sockoptret == -1)
+                {
+                    return -1;
+                }
+                if (err == 0)
+                {
+                    return confd; // 成功建立连接
+                }
+                else
+                {
+                    // 连接失败
+                    return -1;
+                }
+                debug(&quot;Connect success confd(%d)&quot;, confd);
+                return confd;
+            }
+            /*[2] 当连接建立遇到错误时，描述符变为即可读，也可写，rc=2 遇到这种情况，可调用getsockopt函数*/
+            if (ret == 2) {
+                if (getsockopt(confd, SOL_SOCKET, SO_ERROR, &amp;err, &amp;errlen) == -1) {
+                    debug(&quot;getsockopt(SO_ERROR): %s&quot;, strerror(errno));
+                    close(confd);
+                    return -1;
+                }
+                if (err) {
+                    debug(RED &quot;connect error:%s\n&quot; RESET, strerror(errno));
+                    close(confd);
+                    return -1;
+                }
+            }
+        }
+        debug(RED &quot;connect failed, error(%s).&quot; RESET, strerror(errno));
+        return -1;
+    }
+
+
+    debug(&quot;connect_init num confd(%d)&quot;, confd);
+
+
+    return confd;
+}</code></pre>
+<h2 id="linux利器epoll的前世今生">23 | Linux利器：epoll的前世今生</h2>
+<p>不同于 poll 的是，epoll 不仅提供了默认的 level-triggered（条件触发）机制，还提供了性能更为强劲的 edge-triggered（边缘触发）机制。<br />
+条件触发的意思是只要满足事件的条件，比如有数据需要读，就一直不<br />
+断地把这个事件传递给用户；而边缘触发的意思是只有第一次满足条件的时候才触发，之后就不会再传递同样的事件了。<br />
+一般我们认为，边缘触发的效率比条件触发的效率要高，这一点也是 epoll 的杀手锏之一。</p>
+<p>epoll 通过改进的接口设计，避免了用户态 - 内核态频繁的数据拷贝，大大提高了系统性能。</p>
+<h2 id="c10k问题高并发模型设计">24 | C10K问题：高并发模型设计</h2>
+<p>支持单机 1 万并发的问题被称为 C10K (client)问题，为了解决 C10K 问题，需要重点考虑两个方面的问题：<br />
+如何和操作系统配合，感知 I/O 事件的发生？<br />
+如何分配和使用进程、线程资源来服务上万个连接？</p>
+<h3 id="操作系统层面">操作系统层面</h3>
+<h4 id="文件句柄">文件句柄</h4>
+<p>在 Linux 下，单个进程打开的文件句柄数是有限制的，没有经过修改的值一般都是 1024。</p>
+<pre><code>$ulimit -n
+1024</code></pre>
+<p>我们可以对这个值进行修改，比<br />
+如用 root 权限修改 /etc/sysctl.conf 文件，使得系统可用支持 10000 个描述符上限。</p>
+<pre><code>fs.file-max = 10000
+net.ipv4.ip_conntrack_max = 10000
+net.ipv4.netfilter.ip_conntrack_max = 10000</code></pre>
+<h4 id="内存">内存</h4>
+<p>Linux 4.4.0 下发送缓冲区和接收缓冲区的值。</p>
+<pre><code>$cat /proc/sys/net/ipv4/tcp_wmem
+4096 16384 4194304
+$ cat /proc/sys/net/ipv4/tcp_rmem
+4096 87380 6291456</code></pre>
+<p>估算内存的时候还需要加上自己程序本身的缓存区。<br />
+通过前面我们对操作系统层面的资源分析，可以得出一个结论，在系统资源层面，C10K 问题是可以解决的。</p>
+<h3 id="解法方案">解法方案</h3>
+<h4 id="阻塞-io-进程">阻塞 I/O + 进程</h4>
+<p>do{<br />
+accept connections<br />
+fork for conneced connection fd<br />
+process_run(fd)<br />
+}while(true)</p>
+<h4 id="阻塞-io-线程">阻塞 I/O + 线程</h4>
+<p>do{<br />
+accept connections<br />
+pthread_create for conneced connection fd<br />
+thread_run(fd)<br />
+}while(true)<br />
+线程池<br />
+create thread pool<br />
+do{<br />
+accept connections<br />
+get connection fd<br />
+push_queue(fd)<br />
+}while(true)</p>
+<h4 id="非阻塞-io-readiness-notification-单线程">非阻塞 I/O + readiness notification + 单线程</h4>
+<p>轮询<br />
+问题是如果这个 fdset 有一万个之多，每次循环判断都会消耗大量的<br />
+CPU 时间，而且极有可能在一个循环之内，没有任何一个套接字准备好可读，或者可写。</p>
+<pre><code>for fd in fdset{
+if(is_readable(fd) == true){
+    handle_read(fd)
+}else if(is_writeable(fd)==true){
+    handle_write(fd)
+}
+}</code></pre>
+<p>poll<br />
+这样的方法需要每次 dispatch 之后，对所有注册的套接字进行逐个排查，效率并不<br />
+是最高的。如果 dispatch 调用返回之后只提供有 I/O 事件或者 I/O 变化的套接字</p>
+<pre><code>do {
+poller.dispatch()
+for fd in registered_fdset{
+if(is_readable(fd) == true){
+    handle_read(fd)
+}else if(is_writeable(fd)==true){
+    handle_write(fd)
+}
+}while(ture)</code></pre>
+<p>epoll</p>
+<pre><code>do {
+poller.dispatch()
+for fd_event in active_event_set{
+if(is_readable_event(fd_event) == true){
+    handle_read(fd_event)
+}else if(is_writeable_event(fd_event)==true){
+    handle_write(fd_event)
+}
+}while(ture)</code></pre>
+<h4 id="非阻塞-io-readiness-notification-多线程">非阻塞 I/O + readiness notification + 多线程</h4>
+<h4 id="异步-io-多线程">异步 I/O+ 多线程</h4>
+<h2 id="使用阻塞io和进程模型最传统的方式">25 | 使用阻塞I/O和进程模型：最传统的方式</h2>
+<p>这种方式可能很难足高性能程序的需求，但好处在于实现简单。</p>
+<h2 id="使用阻塞io和线程模型换一种轻量的方式">26 | 使用阻塞I/O和线程模型：换一种轻量的方式</h2>
+<h3 id="每个连接一个线程处理">每个连接一个线程处理</h3>
+<h3 id="构建线程池处理多个连接">构建线程池处理多个连接</h3>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/152834fe-f575-4a06-8e9b-54e4ed439fa7.jpg" /></p>
+<p>再没有线程池的情况下，如果并发连接过多，就会引起线程的频繁创建和销毁。虽然线程切换的上下文开销不大，但是线程创建和销毁的开<br />
+销却是不小的。<br />
+我们可以使用预创建线程池的方式来进行优化。在服务器端启动时，可以先按照固定大小预<br />
+创建出多个线程，当有新连接建立时，往<strong>连接字队列</strong>里放置这个新连接描述字，线程池里的<br />
+线程负责从连接字队列里取出连接描述字进行处理。<br />
+这个程序的关键是连接字队列的设计，因为这里既有往这个队列里放置描述符的操作，也有<br />
+从这个队列里取出描述符的操作。<br />
+对此，需要引入两个重要的概念，一个是锁 mutex，一个是条件变量 condition。锁很好<br />
+理解，加锁的意思就是其他线程不能进入；条件变量则是在多个线程需要交互的情况下，用<br />
+来线程间同步的原语</p>
+<h2 id="io多路复用遇上线程使用poll单线程处理所有io事件">27 | I/O多路复用遇上线程：使用poll单线程处理所有I/O事件</h2>
+<p>事件驱动的流程：<br />
+一个无限循环的事件分发线程在后台运行，一旦用户在界面上产生了某<br />
+种操作，例如点击了某个 Button，或者点击了某个文本框，一个事件会被产生并放置到事<br />
+件队列中，这个事件会有一个类似前面的 onButtonClick 回调函数。事件分发线程的任<br />
+务，就是为每个发生的事件找到对应的事件回调函数并执行它。这样，一个基于事件驱动的<br />
+GUI 程序就可以完美地工作了。</p>
+<p>事件驱动模型，也被叫做反应堆模型（reactor），或者是 Event loop 模型。这个模型的核心有两点。<br />
+第一，它存在一个无限循环的<strong>事件分发线程</strong>，或者叫做 reactor 线程、Event loop 线程。这个事件分发线程的背后，就是 poll、epoll 等 I/O 分发技术的使用。<br />
+第二，所有的 I/O 操作都可以抽象成事件，每个事件必须有回调函数来处理。acceptor 上有连接建立成功、发送缓冲区空出以写、通信管道 pipe 上有数据可以读，这些都是一个个事件，通过事件分发，这些事件都可以一一被检测，并调用对应的回调函数加以处理。</p>
+<p>任何一个网络程序，所做的事情可以总结成下面几种：<br />
+* read：从套接字收取数据；<br />
+* decode：对收到的数据进行解析；<br />
+* compute：根据解析之后的内容，进行计算和处理；<br />
+* encode：将处理之后的结果，按照约定的格式进行编码；<br />
+* send：最后，通过套接字把结果发送出去。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/30d247a9-776b-41a4-b70b-db74103d7604.jpg" /></p>
+<h2 id="io多路复用进阶子线程使用poll处理连接io事件">28 | I/O多路复用进阶：子线程使用poll处理连接I/O事件</h2>
+<h2 id="渐入佳境使用epoll和多线程模型">29 | 渐入佳境：使用epoll和多线程模型</h2>
+<h2 id="真正的大杀器异步io探索">30 | 真正的大杀器：异步I/O探索</h2>
+<p>同步 异步<br />
+无论是第一种阻塞 I/O，还是第二种非阻塞 I/O，第三种基于非阻塞 I/O 的多路复用都是同<br />
+步调用技术。为什么这么说呢？因为同步调用、异步调用的说法，是对于获取数据的过程而<br />
+言的，前面几种最后获取数据的 read 操作调用，都是同步的，在 read 调用时，内核将数<br />
+据从内核空间拷贝到应用程序空间，这个过程是在 read 函数中同步进行的，如果内核实现<br />
+的拷贝效率很差，read 调用就会在这个同步过程中消耗比较长的时间。<br />
+而真正的异步调用则不用担心这个问题，我们接下来就来介绍第四种 I/O 技术，当我们发<br />
+起 aio_read 之后，就立即返回，内核自动将数据从内核空间拷贝到应用程序空间，这个拷<br />
+贝过程是异步的，内核自动完成的，和前面的同步操作不一样，<strong>应用程序并不需要主动发起<br />
+拷贝动作</strong>。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/1b26b5b1-5de8-4c24-9a9f-6de9365262f2.jpg" /><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/1f7a19b2-0bc1-4ecd-979e-774aa2e1c7d9.jpg" /></p>
+<p>aio 系列函数是由 POSIX 定义的异步操作接口，可惜的是，Linux 下的 aio 操作，不是真<br />
+正的操作系统级别支持的，它只是由 GNU libc 库函数在用户空间借由 pthread 方式实现<br />
+的，而且仅仅针对磁盘类 I/O，套接字 I/O 不支持。Linux 下对异步操作的支持非常有限，这也是为什么使用 epoll 等多路<br />
+分发技术加上非阻塞 I/O 来解决 Linux 下高并发高性能网络 I/O 问题的根本原因。</p>
+<p>无论是 Reactor 模式，还是 Proactor 模式，都是一种基于事件分发的网络编程模式。<br />
+Reactor 模式是基于待完成的 I/O 事件，而 Proactor 模式则是基于已完成的 I/O 事件，<br />
+两者的本质，都是借由事件分发的思想，设计出可兼容、可扩展、接口友好的一套程序框架</p>
+<p>总结<br />
+和同步 I/O 相比，异步 I/O 的读写动作由内核自动完成，不过，在 Linux 下目前仅仅支持<br />
+简单的基于本地文件的 aio 异步操作，这也使得我们在编写高性能网络程序时，首选<br />
+Reactor 模式，借助 epoll 这样的 I/O 分发技术完成开发；而 Windows 下的 IOCP 则是<br />
+一种异步 I/O 的技术，并由此产生了和 Reactor 齐名的 Proactor 模式，借助这种模式，<br />
+可以完成 Windows 下高性能网络程序设计。</p>
+<h2 id="自己动手写高性能http服务器一设计和思路">32 | 自己动手写高性能HTTP服务器（一）：设计和思路</h2>
+<p>性能网络框架需要满足的需求有以下三点。<br />
+第一，采用 reactor 模型，可以灵活使用 poll/epoll 作为事件分发实现。<br />
+第二，必须支持多线程，从而可以支持单线程单 reactor 模式，也可以支持多线程主 - 从<br />
+reactor 模式。可以将套接字上的 I/O 事件分离到多个线程上。<br />
+第三，封装读写操作到 Buffer 对象中。</p>
+<h3 id="反应堆模式设计">反应堆模式设计</h3>
+<p>event_loop channel acceptor event_dispatcher channel_map</p>
+<h3 id="io-模型和多线程模型设计">I/O 模型和多线程模型设计</h3>
+<p>thread_pool event_loop_thread</p>
+<h3 id="buffer-和数据读写">Buffer 和数据读写、</h3>
+<p>buffer tcp_connection</p>
+<h2 id="自己动手写高性能http服务器二io模型和多线程模型实现">33 | 自己动手写高性能HTTP服务器（二）：I/O模型和多线程模型实现</h2>
+<p>在这一讲里，我们重点讲解了框架中涉及多线程的两个重要问题，第一是主线程如何等待多<br />
+个子线程完成初始化，第二是如何通知处于事件分发中的子线程有新的事件加入、删除、修<br />
+改。第一个问题通过使用锁和信号量加以解决；第二个问题通过使用 socketpair，并将<br />
+sockerpair 作为 channel 注册到 event loop 中来解决。</p>
+<hr />
+<p>【线程】<br />
+acceptor线程<br />
+reactor线程</p>
+<p>thread_pool 记录了主线程和所有子线程<br />
+thread_pool 维护了一个 sub-reactor 的线程列表，它可以提供给主 reactor 线程使用，<br />
+每次当有新的连接建立时，可以从 thread_pool 里获取一个线程，以便用它来完成对新连<br />
+接套接字的 read/write 事件注册，将 I/O 线程和主 reactor 线程分离。<br />
+event_loop_thread 具体的子线程</p>
+<p>pthread_create的时候，运行event_loop_run线程</p>
+<p>epoll_dispatch<br />
+channel_event_activate<br />
+在eventLoop-&gt;channelMap中通过fd来查找channel<br />
+channel中有对应的eventReadCallback、eventWriteCallback</p>
+<p>tcp_connection<br />
+每个 tcp_connection 对象一定包含了一个 channel 对象，而<br />
+channel 对象未必是一个 tcp_connection 对象。</p>
+<p>加channel<br />
+channel_new<br />
+event_loop_add_channel_event<br />
+先加入pending链表<br />
+event_loop_handle_pending_channel用来修改当前监听的事件列表，把pending链表的add、del到channelMap中<br />
+把channel挂到epoll上</p>
+<p>主线程如何判断子线程已经完成初始化并启动，继续执行下去呢？</p>
+<p>通知这个线程有新的事件加入。而这个线程很可能是处于事件分发的阻塞调用之中，<br />
+如何协调主线程数据写入给子线程？</p>
+<p>【框架接口】<br />
+tcp_server_init<br />
+设置各种回调函数<br />
+回调的意思体现在“框架会在适合的时机调用预定好的接口实现”<br />
+tcp_server_start<br />
+开启主线程和子线程，添加监听连接的channel</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

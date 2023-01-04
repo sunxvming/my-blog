@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/10-编程语言/c.c++/c++笔记/12.C++STL</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#c容器stl容器">C++容器（STL容器）</a>
+<ul>
+<li><a href="#顺序容器">顺序容器</a></li>
+<li><a href="#关联容器">关联容器</a></li>
+</ul></li>
+<li><a href="#c迭代器stl迭代器iterator详解">C++迭代器（STL迭代器）iterator详解</a>
+<ul>
+<li><a href="#迭代器的功能分类">迭代器的功能分类</a></li>
+<li><a href="#迭代器的辅助函数">迭代器的辅助函数</a></li>
+</ul></li>
+<li><a href="#stl算法">STL算法</a></li>
+<li><a href="#stl中大小和相等的概念">STL中“大”、“小”和“相等”的概念</a></li>
+<li><a href="#stl-vector可变长的动态数组">STL vector（可变长的动态数组）</a></li>
+<li><a href="#stl-list双向链表">STL list（双向链表）</a></li>
+<li><a href="#stl-deque双向队列详解">STL deque（双向队列详解）</a></li>
+<li><a href="#c函数对象详解">C++函数对象详解</a></li>
+<li><a href="#stl关联容器">STL关联容器</a></li>
+<li><a href="#stl-pair类模板">STL pair类模板</a></li>
+<li><a href="#stl-multiset">STL multiset</a></li>
+<li><a href="#stl-set">STL set</a></li>
+<li><a href="#stl-multimap">STL multimap</a>
+<ul>
+<li><a href="#stl-map">STL map</a></li>
+</ul></li>
+<li><a href="#c容器适配器简介">C++容器适配器简介</a>
+<ul>
+<li><a href="#stl-stack">STL stack</a></li>
+<li><a href="#stl-queue">STL queue</a></li>
+<li><a href="#priority_queue">priority_queue</a></li>
+<li><a href="#stl算法分类">STL算法分类</a></li>
+<li><a href="#c-bitset类">C++ bitset类</a></li>
+<li><a href="#c-stl-中的-stdstring-类以字符-0结尾么">C++ STL 中的 std：string 类以字符 \0'结尾么</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>STL 是一些常用数据结构和算法的模板的集合，于 1998 年被加入 C++ 标准</p>
+<h2 id="c容器stl容器">C++容器（STL容器）</h2>
+<p>容器（container）中可以存放基本类型的变量，也可以存放对象。对象或基本类型的变量被插入容器中时，实际插入的是对象或变量的一个复制品<br />
+但是不能放引用，因为：<br />
+The component type of containers like vectors must be <a href="https://en.cppreference.com/w/cpp/named_req/CopyAssignable"><em>assignable</em></a>. References are not assignable (you can only initialize them once when they are declared, and you cannot make them reference something else later).<br />
+Other non-assignable types are also not allowed as components of containers, e.g. <code>vector&lt;const int&gt;</code> is not allowed.</p>
+<p>STL 中的许多算法（即函数模板），如排序、查找等算法，在执行过程中会对容器中的元素进行比较。这些算法在比较元素是否相等时通常用运算符进行，比较大小通常用&lt;运算符进行，因此，被放入容器的对象所属的类<strong>最好重载==和&lt;运算符</strong>，以使得两个对象用==和&lt;进行比较是有定义的。</p>
+<h3 id="顺序容器">顺序容器</h3>
+<p>顺序容器有以下三种：可变长动态数组 vector、双端队列 deque、双向链表 list。<br />
+它们之所以被称为顺序容器，是因为将元素插入容器时，指定在什么位置（尾部、头部或中间某处）插入，元素就会位于什么位置。<br />
+顺序容器和关联容器还有以下成员函数：<br />
+<em> begin()：返回指向容器中第一个元素的迭代器。<br />
+</em> end()：返回指向容器中最后一个元素后面的位置的迭代器。<br />
+<em> rbegin()：返回指向容器中最后一个元素的反向迭代器。<br />
+</em> rend()：返回指向容器中第一个元素前面的位置的反向迭代器。<br />
+<em> erase(...)：从容器中删除一个或几个元素。该函数参数较复杂，此处省略。<br />
+</em> clear()：从容器中删除所有元素。<br />
+顺序容器还有以下常用成员函数：<br />
+<em> front()：返回容器中第一个元素的引用。<br />
+</em> back()：返回容器中最后一个元素的引用。<br />
+<em> push_back()：在容器末尾增加新元素。<br />
+</em> pop_back()：删除容器末尾的元素。<br />
+* insert(...)：插入一个或多个元素。该函数参数较复杂，此处省略。</p>
+<h3 id="关联容器">关联容器</h3>
+<p>关联容器有以下四种：set、multiset、map、multimap。关联容器内的元素是排序的。插入元素时，容器会按<strong>一定的排序规则</strong>将元素放到适当的位置上，因此插入元素时不能指定位置。<br />
+默认情况下，关联容器中的元素是从小到大排序（或按关键字从小到大排序）的，而且用<code>&lt;</code>运算符比较元素或关键字大小。因为是排好序的，所以关联容器在<strong>查找时</strong>具有非常好的性能。</p>
+<p>除了以上两类容器外，STL 还在两类容器的基础上屏蔽一部分功能，突出或增加另一部分功能，实现了三种容器适配器：<br />
+栈 stack、队列 queue、优先级队列 priority_queue。<br />
+容器适配器 stack、queue 和 priority_queue 没有迭代器。容器适配器有一些成员函数，可以用来对元素进行访问</p>
+<h2 id="c迭代器stl迭代器iterator详解">C++迭代器（STL迭代器）iterator详解</h2>
+<p>要访问顺序容器和关联容器中的元素，需要通过“迭代器（iterator）”进行。迭代器是一个<strong>变量</strong>，相当于容器和操纵容器的算法之间的<strong>中介</strong>。迭代器可以指向容器中的某个元素，通过迭代器就可以1.读写它指向的元素,2.通过递减或递增来改变指向。从这一点上看，迭代器和指针类似。<br />
+<code>iterator</code> <code>const_iterator</code>  <code>reverse_iterator</code> <code>const_reverse_iterator</code>  <code>move_iterator</code></p>
+<h3 id="迭代器的功能分类">迭代器的功能分类</h3>
+<p>1. 正向迭代器(不支持大于小于比较)<br />
+2. 双向迭代器(不支持大于小于比较)<br />
+3. 随机访问迭代器(可以比较，可以随机访问)</p>
+<h3 id="迭代器的辅助函数">迭代器的辅助函数</h3>
+<p><em> advance(p, n)：使迭代器 p 向前或向后移动 n 个元素。<br />
+</em> distance(p, q)：计算两个迭代器之间的距离，如果调用时 p 已经指向 q 的后面，则这个函数会陷入死循环。<br />
+* iter_swap(p, q)：用于交换两个迭代器 p、q 指向的值。</p>
+<h2 id="stl算法">STL算法</h2>
+<p>STL 提供能在各种容器中通用的算法，如插入、删除、查找、排序等。算法就是<strong>函数模板</strong>。<br />
+<strong>算法通过迭代器来操纵容器中的元素</strong><br />
+STL 中的大部分常用算法都在头文件 algorithm 中定义。此外，头文件 numeric 中也有一些算法。<br />
+有的算法会改变其所作用的容器。例如：<br />
+<em> copy：将一个容器的内容复制到另一个容器。<br />
+</em> remove：在容器中删除一个元素。<br />
+<em> random_shuffle：随机打乱容器中的元素。<br />
+</em> fill：用某个值填充容器。<br />
+有的算法不会改变其所作用的容器。例如：<br />
+<em> find：在容器中查找元素。<br />
+</em> count_if：统计容器中符合某种条件的元素的个数。</p>
+<h2 id="stl中大小和相等的概念">STL中“大”、“小”和“相等”的概念</h2>
+<p>在 STL 中，默认情况下，<strong>比较大小是通过&lt;运算符进行的</strong>，和&gt;运算符无关<br />
+y比x大意味着<code>x&lt;y</code>为真，而不是<code>y&gt;x</code>为真。<code>y&gt;x</code>的结果如何并不重要，甚至<code>y&gt;x</code>是没定义的都没有关系。<br />
+综上所述，使用 STL 中的关联容器和许多算法时，往往需要对<code>&lt;</code>运算符进行适当的重载，使得这些容器和算法可以用&lt;运算符对所操作的元素进行比较。</p>
+<h2 id="stl-vector可变长的动态数组">STL vector（可变长的动态数组）</h2>
+<h2 id="stl-list双向链表">STL list（双向链表）</h2>
+<p>STL 中的算法 sort 可以用来对 vector 和 deque 排序，它需要随机访问迭代器的支持。因为 list <strong>不支持随机访问迭代器</strong>，所以不能用算法 sort 对 list 容器排序。因此，list 容器引入了 <code>sort</code> 成员函数以完成排序。</p>
+<h2 id="stl-deque双向队列详解">STL deque（双向队列详解）</h2>
+<p>deque 也是顺序容器的一种，同时也是一个可变长数组。所有适用于 vector 的操作都适用于 deque。<br />
+优点:头尾增删元素都具有较好的性能</p>
+<h2 id="c函数对象详解">C++函数对象详解</h2>
+<p>如果一个类将<code>()</code>运算符重载为成员函数，这个类就称为<strong>函数对象类</strong>，这个类的对象就是<strong>函数对象</strong>。函数对象其实就是重载了<code>()</code>的对象，是一个<strong>更加面向对象的函数指针</strong>，它可以用很多面相对象的很多特性。</p>
+<pre><code>class CAverage
+{
+public:
+    double operator()(int a1, int a2, int a3)
+    { //重载()运算符
+        return (double)(a1 + a2 + a3) / 3;
+    }
+};
+int main()
+{
+    CAverage average; //能够求三个整数平均数的函数对象
+    cout &lt;&lt; average(3, 2, 3); //等价于 cout &lt;&lt; average.operator(3, 2, 3);
+    return 0;
+}</code></pre>
+<h2 id="stl关联容器">STL关联容器</h2>
+<p>关联容器内部的元素都是排好序的，有以下四种。<br />
+<em> set：排好序的集合，不允许有相同元素。<br />
+</em> multiset：排好序的集合，允许有相同元素。<br />
+<em> map：每个元素都分为关键字和值两部分，容器中的元素是按关键字排序的。不允许有多个元素的关键字相同。<br />
+</em> multimap：和 map 类似，差别在于元素的关键字可以相同。<br />
+不能<strong>修改</strong> set 或 multiset 容器中元素的值。因为元素被修改后，容器并不会自动重新调整顺序，于是容器的有序性就会被破坏，再在其上进行查找等操作就会得到错误的结果。因此，如果要修改 set 或 multiset 容器中某个元素的值，<br />
+正确的做法是<strong>先删除该元素，再插入新元素</strong>。<br />
+同理，也不能修改 map 和 multimap 容器中元素的<strong>关键字</strong>。<br />
+使用关联容器的目的也就在于快速查找。当一个元素被插入关联容器时，该元素会和已有的元素进行比较，最终被插入一个合适的位置。<br />
+关联容器一般是用<code>平衡二叉树</code>实现的。</p>
+<h2 id="stl-pair类模板">STL pair类模板</h2>
+<p>在学习关联容器之前，首先要了解 STL 中的 <code>pair</code> 类模板，因为关联容器的一些成员函数的返回值是 <code>pair</code> 对象<br />
+STL 中还有一个函数模板 <code>make_pair</code>，其功能是生成一个 pair 模板类对象</p>
+<pre><code>pair&lt;int,double&gt; p1;
+pair&lt;string,int&gt; p2(&quot;this&quot;,20);
+pair&lt;int,int&gt; p3(pair&lt;char,char&gt;(&#39;a&#39;,&#39;b&#39;));
+pair&lt;int,string&gt; p4 = make_pair(200,&quot;hello&quot;);</code></pre>
+<h2 id="stl-multiset">STL multiset</h2>
+<p>multiset 是关联容器的一种，是排序好的集合（元素已经进行了排序），并且允许有相同的元素。</p>
+<p><strong><code>&lt;</code>运算符必须经过适当重载，才可以向 <code>multiset &lt;A&gt;</code>容器中插人元素</strong>。</p>
+<pre><code>#include &lt;set&gt;
+using namespace std;
+class A{};
+int main(){
+    multiset &lt;A&gt; a;
+    a.insert( A() ); //编译出错，因为不能用“&lt;”运算符比较两个A对象
+}</code></pre>
+<pre><code>typedef multiset&lt;A&gt; MSET1; //用“&lt;”运算符比较大小
+MSET1::iterator pp = m1.find(19);
+if (pp != m1.end())
+{
+    cout &lt;&lt; &quot;found&quot; &lt;&lt; endl; //本行会被执行，输出 found
+    cout &lt;&lt; *m1.lower_bound(22)
+    &lt;&lt; &quot;,&quot; &lt;&lt; *m1.upper_bound(22) &lt;&lt; endl; //输出 22,33
+
+}
+pp = m1.erase(m1.lower_bound(22), m1.upper_bound(22));</code></pre>
+<h2 id="stl-set">STL set</h2>
+<p>set 是关联容器的一种，是排序好的集合（元素已经进行了排序）。set 和 multiset 类似，它和 multiset 的差别在于 set 中不能有重复的元素。multiset 的成员函数 set 中也都有。<br />
+由于不能有重复元素，所以 set 中插入单个元素的 insert 成员函数与 multiset 中的有所不同，其原型如下：</p>
+<pre><code>pair&lt;iterator, bool&gt; insert(const T &amp; val);</code></pre>
+<p>如果 set 的 insert 成员函数的返回值是 pair 模板类对象 x，如果 x.second 为 true，则说明插入成功，此时 x.first 就是指向被插入元素的迭代器；<br />
+如果 x.second 为 false，则说明要插入的元素<strong>已在容器中</strong>，此时 x.first 就是指向原有那个元素的迭代器。</p>
+<h2 id="stl-multimap">STL multimap</h2>
+<p>multimap 是关联容器的一种，multimap 的每个元素都分为关键字和值两部分，容器中的元素是按关键字排序的，并且允许有多个元素的关键字相同。</p>
+<h3 id="stl-map">STL map</h3>
+<p>不允许有多个元素的关键字相同。</p>
+<h2 id="c容器适配器简介">C++容器适配器简介</h2>
+<p>STL 中的容器适配器有 stack、queue、priority_queue 三种。它们都是在顺序容器的基础上实现的，屏蔽了顺序容器的一部分功能，突出或增加了另外一些功能。<br />
+容器适配器是<strong>没有迭代器</strong>的，因此 STL 中的各种排序、查找、变序等算法都不适用于容器适配器。</p>
+<h3 id="stl-stack">STL stack</h3>
+<p>stack的定义如下：</p>
+<pre><code>template &lt; class T, class Cont == deque &lt;T&gt; &gt;
+class stack{
+    ...
+};</code></pre>
+<p>第二个参数表明，在默认情况下，stack 就是用 deque 实现的。当然，也可以指定用 vector 或 list 实现。</p>
+<h3 id="stl-queue">STL queue</h3>
+<p>queue 的定义如下：</p>
+<pre><code>template &lt; class T, class Cont = deque&lt;T&gt; &gt;
+class queue{
+    ...
+};</code></pre>
+<h3 id="priority_queue">priority_queue</h3>
+<p>priority_queue 是“优先队列”。它和普通队列的区别在于，优先队列的队头元素总是<strong>最大的</strong>——即执行 pop 操作时，删除的总是最大的元素；执行 top 操作时，返回的是最大元素的引用。<br />
+priority_queue 可以用 vector 和 deque 实现，默认情况下用 vector 实现。<br />
+priority_queue实现是<strong>二叉堆</strong>，特别适用于“不停地在一堆元素中取走最大的元素”</p>
+<pre><code>#include &lt;queue&gt;
+#include &lt;iostream&gt;
+using namespace std;
+int main()
+{
+    priority_queue&lt;double&gt; pq1;
+    pq1.push(3.2); pq1.push(9.8); pq1.push(9.8); pq1.push(5.4);
+    while(!pq1.empty()) {
+        cout &lt;&lt; pq1.top() &lt;&lt; &quot; &quot;;
+        pq1.pop();
+    } //上面输出 9.8 9.8 5.4 3.2
+    cout &lt;&lt; endl;
+    priority_queue&lt;double,vector&lt;double&gt;,greater&lt;double&gt; &gt; pq2;
+    pq2.push(3.2); pq2.push(9.8); pq2.push(9.8); pq2.push(5.4);
+    while(!pq2.empty()) {
+        cout &lt;&lt; pq2.top() &lt;&lt; &quot; &quot;;
+        pq2.pop();
+    }
+    //上面输出 3.2 5.4 9.8 9.8
+    return 0;
+}</code></pre>
+<h3 id="stl算法分类">STL算法分类</h3>
+<p>在 STL 中，算法就是<strong>函数模板</strong>。STL 中的算法大多数是用来对容器进行操作的，如排序、 查找等。大部分算法都是在头文件 <code>&lt;algorithm&gt;</code> 中定义的，还有些算法用于数值处理，定义在头文件 <code>&lt;numeric&gt;</code> 中。<br />
+大多数重载的算法都有两个版本，其中一个用<code>==</code>判断元素是否相等，或用<code>&lt;</code>比较大小；<br />
+而另一个版本多出来一个类型参数 <code>Pred</code> 以及函数形参 <code>Pred op</code>，该版本通过表达式op(x, y)的返回值是 true 还是 false 来判断 x 是否“等于”y 或者“小于”y。比如下面有两个版本的 min_element：</p>
+<pre><code>iterate min_element(iterate first, iterate last);
+iterate min_element(iterate first, iterate last, Pred op);</code></pre>
+<p>min_element 返回区间中最小的元素。第一个版本用&lt;比较大小，而第二个版本用自定义的比较器 op 来比较大小，op(x, y) 的值为 true，则说明 x 比 y 小。</p>
+<h3 id="c-bitset类">C++ bitset类</h3>
+<p>bitset 模板类由若干个位（bit）组成，它提供一些成员函数，使程序员不必通过位运算就能很方便地访问、修改其中的任意一位。</p>
+<pre><code>template &lt;size_t N&gt;
+class bitset
+{
+    ...
+};</code></pre>
+<p>size_t 可看作 unsigned int。将 bitset 实例化时，N 必须是一个整型常数。例如：</p>
+<pre><code>bitset &lt;40&gt; bst;</code></pre>
+<p>则 bst 是一个由 40 个位组成的对象，用 bitset 的成员函数可以方便地访问其中任意一位。bitset 中的位从 0 开始编号，第 0 位是最右边的位。</p>
+<h3 id="c-stl-中的-stdstring-类以字符-0结尾么">C++ STL 中的 std：string 类以字符 \0'结尾么</h3>
+<p>无规定，但是我认为内部没有理由不以零结尾或不预留结尾零的位置<br />
+原因在于c_str()这个函数的调用<br />
+这个函数会返回c风格的字符串，是以零结尾的。如果内部不以零结尾或不预留结尾零的位置，那么这个函数的实现会比较低效率，因为意味着要重新分配更大的缓冲区来盛放数据。因此（或还有其他原因），主流实现都会以零结尾或预留结尾零的位置。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

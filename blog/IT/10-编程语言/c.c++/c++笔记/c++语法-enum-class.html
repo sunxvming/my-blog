@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/10-编程语言/c.c++/c++笔记/c++语法-enum-class</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#enum由来">enum由来：</a></li>
+<li><a href="#c惯用法之enum-class"> C++惯用法之enum class</a></li>
+<li><a href="#enum的基础类型">enum的基础类型</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="enum由来">enum由来：</h2>
+<p>在enum没出现之前，enum的功能则需要需要一系列的#define来完成，而enum则完成了这一系列#define的“打包收集”，即：</p>
+<pre><code>enum Color {black, white, red};
+
+#define black 0
+#define white 1
+#define red 2</code></pre>
+<p>也正是如此，对于两个不一样的枚举体，它们即使枚举体的名字不同，里面的内容也不能重名。如：</p>
+<pre><code>enum Direction {TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT};
+// error!
+enum WindowsCorner {TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT};</code></pre>
+<h2 id="c惯用法之enum-class"> C++惯用法之enum class</h2>
+<p>在Effective modern C++中Item 10: Prefer scoped enums to unscoped enum，调到要用有范围的enum class代替无范围的enum。</p>
+<p>例如：</p>
+<pre><code>enum Shape {circle,retangle};
+auto circle = 10;  // error</code></pre>
+<p>上述错误是因为两个circle在同一范围。对于enum等价</p>
+<pre><code>#define circle 0
+#define retangle 1</code></pre>
+<p>因此后面再去定义circle就会出错。<br />
+所以不管枚举名是否一样,里面的成员只要有一致的,就会出问题。例如：</p>
+<pre><code>enum A {a,b};
+enum B {c,a};</code></pre>
+<p>a出现两次,在enum B的a处报错。</p>
+<p>根据前面我们知道,enum名在范围方面没有什么作用,因此我们想到了namespace,如下例子:</p>
+<pre><code>// 在创建枚举时，将它们放在名称空间中，以便可以使用有意义的名称访问它们:
+namespace EntityType {enum Enum {
+        Ground = 0,
+        Human,
+        Aerial,
+        Total
+    };
+}
+
+
+void foo(EntityType::Enum entityType)
+{
+    if (entityType == EntityType::Ground) {
+        /*code*/
+    }
+}</code></pre>
+<p>但是不断的使用命名空间,势必太繁琐,而且如果我不想使用namespace,要达到这样的效果,便会变得不安全,也没有约束。<br />
+因此在c++11后,引入enum class。它解决了为enum成员定义类型、类型安全、约束等问题。回到上述例子：</p>
+<pre><code>// enum class
+enum class EntityType {
+    Ground = 0,
+    Human,
+    Aerial,
+    Total
+};
+
+void foo(EntityType entityType)
+{
+    if (entityType == EntityType::Ground) {
+        /*code*/
+    }
+}</code></pre>
+<h2 id="enum的基础类型">enum的基础类型</h2>
+<p>枚举通常用某种整数类型表示，这个类型被称为枚举的<strong>基础类型</strong>。<br />
+基础类型默认是int，也可以显式的指定：</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+enum class Color:int {red,green,blue};
+enum class Font:char {normal,bold};
+int main()
+{
+
+    Color c;
+    std::cout&lt;&lt;sizeof(c)&lt;&lt;std::endl;  //输出为  4
+
+    Font f;
+    std::cout&lt;&lt;sizeof(f)&lt;&lt;std::endl;  //输出为  1
+}</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

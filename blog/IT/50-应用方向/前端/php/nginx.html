@@ -1,0 +1,728 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/50-应用方向/前端/php/nginx</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#nginx-的安装">1.nginx 的安装</a></li>
+<li><a href="#nginx的信号控制">2.Nginx的信号控制</a></li>
+<li><a href="#nginx配置段">3.Nginx配置段</a></li>
+<li><a href="#日志管理">4.日志管理</a></li>
+<li><a href="#location-语法">5.location 语法</a></li>
+<li><a href="#rewrite-重写">6.rewrite 重写</a></li>
+<li><a href="#nginxphp的编译">7.nginx+php的编译</a></li>
+<li><a href="#网页内容的压缩编码与传输速度优化">8.网页内容的压缩编码与传输速度优化</a></li>
+<li><a href="#nginx的缓存设置-提高网站性能">9.nginx的缓存设置 提高网站性能</a></li>
+<li><a href="#nginx反向代理服务器负载均衡">10.nginx反向代理服务器+负载均衡</a></li>
+<li><a href="#nginx----php-fpm之间的优化">Nginx----&gt;php-fpm之间的优化</a></li>
+<li><a href="#常见问题">常见问题</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="nginx-的安装">1.nginx 的安装</h2>
+<p>Nginx ("engine x") 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。</p>
+<p>安装准备: nginx依赖于pcre库,要先安装pcre(Perl Compatible Regular Expressions, 正则表达式的库)</p>
+<p><strong>安装</strong></p>
+<pre><code>yum install pcre pcre-devel (开发的包）
+
+cd /usr/local/src/     # usr(Unix System Resource)
+
+wget http://nginx.org/download/nginx-1.4.2.tar.gz
+
+tar zxvf nginx-1.4.2.tar.gz
+
+cd nginx-1.4.2
+
+./configure --prefix=/usr/local/nginx
+
+make &amp;&amp; make install</code></pre>
+<p><strong>启动</strong></p>
+<pre><code>cd /usr/local/nginx, 看到如下4个目录
+
+./
+ ....conf 配置文件 
+ ... html 网页文件
+ ...logs  日志文件
+ ...sbin  主要二进制程序
+
+# 启动
+./sbin/nginx</code></pre>
+<p><strong>外网用浏览器访问不了的问题</strong></p>
+<ol>
+<li>先在服务器上 wget http://127.0.0.1</li>
+<li>service iptables status</li>
+<li>上两步都ok的话，若用的是云服，可能还需要在云服上配置开放的端口</li>
+</ol>
+<h2 id="nginx的信号控制">2.Nginx的信号控制</h2>
+<p><strong>所有信号</strong></p>
+<pre><code>TERM, INT   Quick shutdown   （轻易别这样用）
+QUIT        Graceful shutdown  优雅的关闭进程,即等请求结束后再关闭
+HUP         Configuration reload ,Start the new worker processes with a new configuration Gracefully shutdown the old worker processes
+            改变配置文件,平滑的重读配置文件   改配置文件后不用重启服务器
+USR1        Reopen the log files 重读日志,在日志按月/日志割时有用，备份
+USR2        Upgrade Executable on the fly 平滑的升级
+WINCH       Gracefully shutdown the worker processes 优雅关闭旧的进程(配合USR2来进行升级)</code></pre>
+<p><strong>具体语法</strong>:</p>
+<pre><code>ps aux|grep nginx
+
+Kill -信号选项 nginx的主进程号
+
+Kill -HUP 4873
+
+Kill -信号控制 `cat /xxx/path/log/nginx.pid`
+
+Kill -USER1 进程号
+
+Kill -USR1  `cat /xxx/path/log/nginx.pid`  # nginx.pid 中有进程号  用执行引号引起来
+
+./sbin/nignx -s signal # 达到同样的效果
+
+./sbin/nignx -h   # 查看帮助命令</code></pre>
+<h2 id="nginx配置段">3.Nginx配置段</h2>
+<pre><code>// 全局区
+worker_processes 1; // 有1个工作的子进程,可以自行修改,但太大无益,因为要争夺CPU,一般设置为 CPU数*核数
+
+
+Event {
+    // 一般是配置nginx连接的特性
+    // 如1个worker能同时允许多少连接
+     worker_connections  1024; // 这是指 一个子进程最大允许连1024个连接
+}
+
+
+http {                      //这是配置http服务器的主要段
+     Server1 {              // 这是虚拟主机段
+            Location {      //定位,把特殊的路径或文件再次定位 ,如image目录单独处理（刷你流量）
+            }               // 如.php单独处理
+
+
+     }
+
+
+     Server2 {
+
+
+     }
+
+
+}</code></pre>
+<p><strong>虚拟主机配置</strong><br />
+例子1: 基于域名的虚拟主机</p>
+<pre><code>server {
+    listen 80;  #监听端口
+    server_name a.com; #监听域名
+    location / {
+        root /var/www/a.com;   #根目录定位
+        index index.html;
+    }
+}</code></pre>
+<p>例子2: 基于端口的虚拟主机配置 ，和基于ip的虚拟主机配置</p>
+<pre><code>server {
+    listen 8080;
+    server_name 192.168.1.204;
+
+
+    location / {
+        root /var/www/html8080;
+        index index.html;
+    }
+}</code></pre>
+<h2 id="日志管理">4.日志管理</h2>
+<p>我们观察nginx的server段,可以看到如下类似信息</p>
+<pre><code>#access_log  logs/host.access.log  main;</code></pre>
+<p>这说明 该server, 它的访问日志的文件是 logs/host.access.log ,使用的格式"main"格式.</p>
+<p>除了main格式,你可以自定义其他格式.</p>
+<p>main格式是我们定义好一种日志的格式,并起个名字,便于引用.</p>
+<p><strong>1.日志格式</strong><br />
+默认的日志格式: main, 指记录哪些选项</p>
+<pre><code>log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
+                    &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
+                    &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;</code></pre>
+<p>如默认的main日志格式,记录这么几项:<br />
+远程IP- 远程用户/用户时间 请求方法(如GET/POST) 请求体body长度 referer来源信息</p>
+<p>http-user-agent: 用户代理/蜘蛛 ,被转发的请求的原始IP 浏览器<br />
+http_x_forwarded_for:在经过代理时,代理把你的本来IP加在此头信息中,传输你的原始IP</p>
+<p><strong>2.声明一个独特的log_format</strong></p>
+<pre><code>log_format  mylog &#39;$remote_addr- &quot;$request&quot; &#39;
+
+
+                 &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
+
+
+                    &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;</code></pre>
+<p>在下面的server/location,我们就可以引用 mylog</p>
+<p>Nginx允许针对不同的server做不同的Log,在server段中,这样来声明</p>
+<pre><code>声明log         log位置            log格式;
+access_log   logs/access_8080.log   mylog;</code></pre>
+<p>服务器运维，大网站的日志一天可能会很大，一天几G很正常，故要<strong>分割备份日志</strong></p>
+<p><strong>实际应用: shell+定时任务+nginx信号管理,完成日志按日期存储</strong></p>
+<p>分析思路:<br />
+凌晨00:00:01,把昨天的日志重命名,放在相应的目录下<br />
+再USR1信息号控制nginx重新生成新的日志文件</p>
+<p>具体脚本:</p>
+<pre><code>#!/bin/bash
+
+
+base_path=&#39;/usr/local/nginx/logs&#39;
+
+
+log_path=$(date -d yesterday +&quot;%Y%m&quot;)                 // 例如想要取得核心版本的设定：&#39;version=$(uname -r)&#39;再&#39;echo $version&#39;可得&#39;2.6.18-128.el5&#39;  执行其中的命令
+
+
+day=$(date -d yesterday +&quot;%d&quot;)                              //date -d yesterday +%y/%m/%d    2015/11/11 昨天的日期
+
+
+mkdir -p $base_path/$log_path
+
+
+mv $base_path/access.log $base_path/$log_path/access_$day.log
+
+
+#echo $base_path/$log_path/access_$day.log
+
+
+Touch $base_path/access.log
+
+
+kill -USR1 `cat /usr/local/nginx/logs/nginx.pid`</code></pre>
+<p>定时任务 // crontab 除了可以使用指令执行外，亦可编辑 /etc/crontab /etc/init.d/atd restart service atd start 两个都能使</p>
+<p>Crontab 编辑定时任务</p>
+<pre><code>01 00 * * * /xxx/path/b.sh    # 每天0时1分(建议在02-04点之间,系统负载小)</code></pre>
+<h2 id="location-语法">5.location 语法</h2>
+<p><strong>try_files</strong><br />
+try_files的作用是按顺序检查文件是否存在，返回第一个找到的文件或文件夹（结尾加斜线表示为文件夹），如果所有的文件或文件夹都找不到，会进行一个内部重定向到最后一个参数。</p>
+<pre><code>try_files    $uri $uri/  /index.php?_url=/$uri&amp;$args;
+$args 表示url中的参数。  $arg_xx,表示特定的那个参数
+$is_args 如果$args设置,值为&quot;?&quot;,否则为&quot;&quot;</code></pre>
+<p><strong>location</strong><br />
+location 有"定位"的意思, 根据uri来进行不同的定位.</p>
+<p>在虚拟主机的配置中,是必不可少的,location可以把网站的不同部分,定位到不同的处理方式上.</p>
+<p>比如, 碰到<code>.php</code>, 如何调用PHP解释器? --这时就需要location</p>
+<p>location 的语法</p>
+<pre><code>location [=|~|~*|^~] patt {
+
+
+}</code></pre>
+<p>中括号可以不写任何参数,此时称为<strong>一般匹配</strong></p>
+<p>也可以写参数<br />
+因此,大类型可以分为3种</p>
+<pre><code>location = patt {} [精准匹配]
+
+
+location patt{}  [一般匹配]
+
+
+location ~ patt{} [正则匹配]</code></pre>
+<p>如何发挥作用?<br />
+首先看有没有精准匹配,如果有,则停止匹配过程.<br />
+若都没有匹配上，则继承全局的配置.</p>
+<pre><code>location = patt {
+
+
+    config A
+
+
+}</code></pre>
+<p>如果 <code>$uri == patt</code>,匹配成功，使用configA</p>
+<pre><code>location = / {
+    root   /var/www/html/;       //root表根目录
+    index  index.htm index.html;
+}
+
+
+
+location / {
+    root   /usr/local/nginx/html;
+    index  index.html index.htm;
+}</code></pre>
+<p>如果访问 http://xxx.com/,定位流程是:</p>
+<ol>
+<li>精准匹配中　"/" ,得到index页为　　index.htm</li>
+<li>再次访问 /index.htm , 此次内部转跳uri已经是"/index.htm" , 根目录为/usr/local/nginx/html</li>
+<li>最终结果,访问了 /usr/local/nginx/html/index.htm</li>
+</ol>
+<p>再来看,正则也来参与.</p>
+<pre><code>location / {
+    root   /usr/local/nginx/html;
+    index  index.html index.htm;
+
+
+}
+
+
+location ~ image {
+   root /var/www/image;
+   index index.html;
+}</code></pre>
+<p>如果我们访问 http://xx.com/image/logo.png<br />
+此时, "/" 与"/image/logo.png" 匹配<br />
+同时,"image"正则 与"image/logo.png"也能匹配,谁发挥作用?<br />
+正则表达式的成果将会使用.<br />
+图片真正会访问 /var/www/image/logo.png</p>
+<pre><code>location / {
+    root   /usr/local/nginx/html;
+    index  index.html index.htm;
+}
+
+
+ 
+location /foo {
+    root /var/www/html;
+    index index.html;
+}</code></pre>
+<p>我们访问 http://xxx.com/foo</p>
+<p>对于uri "/foo", 两个location的patt,都能匹配他们</p>
+<p>即 '/'能从左前缀匹配 '/foo', '/foo'也能左前缀匹配'/foo',<br />
+此时, 真正访问 /var/www/html/index.html<br />
+原因:'/foo'匹配的更长,因此使用之.;<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/95ad9212-77d6-482c-a04e-7781a2b96137.jpg" /></p>
+<h2 id="rewrite-重写">6.rewrite 重写</h2>
+<p><strong>重写中用到的指令</strong></p>
+<pre><code>if  (条件) {}  设定条件,再进行重写
+set #设置变量
+return #返回状态码
+break #跳出rewrite
+rewrite #重写</code></pre>
+<p>If 语法格式</p>
+<pre><code>If 空格 (条件) {
+    重写模式
+}</code></pre>
+<p><strong>条件如何写?</strong></p>
+<p>答:3种写法</p>
+<pre><code>1: &quot;=&quot;来判断相等, 用于字符串比较
+2: &quot;~&quot; 用正则来匹配(此处的正则区分大小写)
+   ~* 不区分大小写的正则
+3: -f -d -e   来判断是否为文件,为目录,是否存在.</code></pre>
+<p>例子：</p>
+<pre><code>if ($remote_addr = 192.168.1.100) {
+    return 403;
+}
+
+
+if ($http_user_agent ~ MSIE) {    #浏览器是ie的话
+    rewrite ^.*$    /ie.htm;
+    break;                        #(不break会循环重定向)
+}
+
+
+
+if (!-e $document_root$fastcgi_script_name) {    // 在这之前发生的， .php的被转到fastcgi_pass,然后没有这个脚本，再然后就被重定向
+    rewrite ^.*$    /404.html break;             // 注, 此处还要加break,
+}</code></pre>
+<p>Nginx有权访问的变量在<code>nginx/conf/fastcgi.conf</code>中有说明</p>
+<p>Php中的一些全局变量有的是apache、nginx传过来的 负责两个进程之间通话的变量</p>
+<p>以 <code>xx.com/dsafsd.html</code>这个不存在页面为例,</p>
+<p>我们观察访问日志, 日志中显示的访问路径,依然是<code>GET /dsafsd.html HTTP/1.1</code></p>
+<p>提示: 服务器内部的rewrite和302跳转不一样.<br />
+302跳转的话URL都变了,变成重新http请求404.html, 而内部rewrite, 上下文没变,<br />
+就是说 <code>fastcgi_script_name</code> 仍然是 <code>dsafsd.html</code>,因此 会循环重定向.</p>
+<p><strong>set用法</strong><br />
+set 是设置变量用的, 可以用来达到多条件判断时作标志用. 达到apache下的 rewrite_condition的效果</p>
+<p>如下: 判断IE并重写,且不用break; 我们用set变量来达到目的</p>
+<pre><code>if ($http_user_agent ~* msie) {
+
+
+    set $isie 1;
+
+
+}
+
+
+if ($fastcgi_script_name = ie.html) {
+
+
+    set $isie 0;
+
+
+}
+
+
+if ($isie 1) {
+
+
+    rewrite ^.*$ ie.html;
+
+
+}</code></pre>
+<p><strong>Rewrite语法</strong></p>
+<pre><code>Rewrite 正则表达式  定向后的位置 模式</code></pre>
+<p><strong>Rewrite例子</strong></p>
+<pre><code># 要达到的效果
+Goods-3.html ----&gt;Goods.php?goods_id=3
+goods-([\d]+)\.html ---&gt; goods.php?goods_id =$1 
+
+
+# 配置
+location /ecshop {
+
+
+    index index.php;
+
+
+    rewrite goods-([\d]+)\.html$   /ecshop/goods.php?id=$1;
+
+
+    rewrite article-([\d]+)\.html$   /ecshop/article.php?id=$1;
+
+
+    rewrite category-(\d+)-b(\d+)\.html    /ecshop/category.php?id=$1&amp;brand=$2;
+
+
+    
+
+
+    rewrite category-(\d+)-b(\d+)-min(\d+)-max(\d+)-attr([\d\.]+)\.html
+
+
+    /ecshop/category.php?id=$1&amp;brand=$2&amp;price_min=$3&amp;price_max=$4&amp;filter_attr=$5;
+
+
+   
+    rewrite category-(\d+)-b(\d+)-min(\d+)-max(\d+)-attr([\d+\.])-(\d+)-([^-]+)-([^-]+)\.html /ecshop/category.php?id=$1&amp;brand=$2&amp;price_min=$3&amp;price_max=$4&amp;filter_attr=$5&amp;page=$6&amp;sort=$7&amp;order=$8;
+}</code></pre>
+<blockquote>
+<p>注意:用url重写时, 正则里如果有"{}",正则要用双引号包起来</p>
+</blockquote>
+<p><strong>重定向例子</strong></p>
+<pre><code>location ~^/mclient {
+  rewrite ^/mclient/(\w+)/.*$   /mclient/$1/ark.exe break;
+}</code></pre>
+<h2 id="nginxphp的编译">7.nginx+php的编译</h2>
+<p>apache一般是把php当做自己的一个模块来启动的.</p>
+<p>而nginx则是把http<strong>请求</strong>变量(如get,user_agent等)<strong>转发</strong>给php进程,即<strong>php独立进程</strong>,与nginx进行通信. 称为 <strong>fastcgi</strong>运行方式.</p>
+<p>因此,为apache所编译的php,是不能用于nginx的.</p>
+<p>注意: 我们编译的PHP 要有如下功能:<br />
+连接mysql, gd, ttf, 以fpm(fascgi)方式运行</p>
+<p>如何去找：./configure -help |grep mysql 然后再去看具体的配置</p>
+<p>若没成功少了.h头文件 就需再安装后加-devel (开发的包）</p>
+<pre><code>./configure  --prefix=/usr/local/fastphp \
+
+--with-mysql=mysqlnd \
+--enable-mysqlnd \
+--with-gd \
+--enable-gd-native-ttf \
+--enable-gd-jis-conv
+--enable-fpm   #（以独立进程编译）FastCGI Process Manager
+--with-apxs2=/usr/local/http2/bin/apxs \  以apache模块编译</code></pre>
+<p>编译前一定要想好那些编译选项是必须的，比如我弄curl的时候就忘了弄了，后来又重新安装了一遍<br />
+<code>fastCGI</code>负责两个进程之间(php,nginx)的通话,启动的时候就启动php-fpm</p>
+<p>nginx一般是把请求发<code>fastcgi</code>管理进程处理，fascgi管理进程选择cgi子进程处理结果并返回给nginx</p>
+<p>PHP-FPM提供了更好的PHP进程管理方式，可以有效控制内存和进程、可以<strong>平滑重载PHP配置</strong>，比<code>spawn-fcgi</code>具有更多优点，所以被PHP官方收录了。</p>
+<p><strong>nginx+php的配置</strong><br />
+nginx+php的配置比较简单,核心就一句话:</p>
+<blockquote>
+<p>把请求的信息转发给9000端口的PHP进程</p>
+</blockquote>
+<p>让PHP进程处理 指定目录下的PHP文件.</p>
+<p>如下例子:</p>
+<pre><code>location ~ \.php$ {         #  \. 转义
+    root html;
+    fastcgi_pass   127.0.0.1:9000;
+    fastcgi_index  index.php;
+    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    include    fastcgi_params;
+}</code></pre>
+<p>过程如下：<br />
+1. 碰到php文件,<br />
+2. 把根目录定位到 html,<br />
+3. 把请求上下文转交给<strong>9000端口PHP进程</strong><br />
+4. 并告诉PHP进程,当前的脚本是 <span class="math inline"><em>d</em><em>o</em><em>c</em><em>u</em><em>m</em><em>e</em><em>n</em><em>t</em><sub><em>r</em></sub><em>o</em><em>o</em><em>t</em></span>fastcgi_script_name。注：PHP会去找这个脚本并处理,所以脚本的位置要指对。</p>
+<p><strong>php启动</strong></p>
+<pre><code>/php/sbin/php-fpm -D</code></pre>
+<p>安装ecshop时找不到数据库是因为：linux下和数据库通讯用的是socket而不是tcp/ip</p>
+<p>解决：<br />
+1. 数据库主机改为ip地址<br />
+2. php的改配置文件</p>
+<pre><code>Mysql_default_socket=/var/lib/mysql/mysql.socket </code></pre>
+<h2 id="网页内容的压缩编码与传输速度优化">8.网页内容的压缩编码与传输速度优化</h2>
+<p>我们观察news.163.com的头信息</p>
+<p>请求:</p>
+<pre><code>Accept-Encoding:gzip,deflate,sdch</code></pre>
+<p>响应:</p>
+<pre><code>Content-Encoding:gzip
+
+
+Content-Length:36093</code></pre>
+<p>再把页面另存下来,观察,约10W字节,实际传输的36093字节</p>
+<p>从http协议的角度看--请求头 声明 acceopt-encoding: gzip deflate sdch (是指压缩算法,其中sdch是google倡导的一种压缩方式,目前支持的服务器尚不多)</p>
+<p><strong>gzip配置的常用参数</strong><br />
+这需作为nginx的模块来编译的， 配置的时候可去官网查看所放的位置，上下文</p>
+<pre><code>gzip on|off;  #是否开启gzip
+
+
+gzip_buffers 32 4K| 16 8K #缓冲(压缩在内存中缓冲几块? 每块多大?)
+
+
+gzip_comp_level [1-9] #推荐6 压缩级别(级别越高,压的越小,越浪费CPU计算资源)
+
+
+gzip_disable #正则匹配UA 什么样的Uri不进行gzip
+
+
+gzip_min_length 200 # 开始压缩的最小长度(再小就不要压缩了,意义不在)
+
+
+gzip_http_version 1.0|1.1 # 开始压缩的http协议版本(可以不设置,目前几乎全是1.1协议)
+
+
+gzip_proxied          # 设置请求者代理服务器,该如何缓存内容
+
+
+gzip_types text/plain  application/xml # 对哪些类型的文件用压缩 如txt,xml,html ,css  
+
+
+gzip_vary on|off  # 是否传输gzip压缩标志</code></pre>
+<p>注意:<br />
+* 图片/mp3这样的二进制文件,不必压缩因为压缩率比较小, 比如100-&gt;80字节,而且压缩也是耗费CPU资源的.<br />
+* 比较小的文件不必压缩</p>
+<h2 id="nginx的缓存设置-提高网站性能">9.nginx的缓存设置 提高网站性能</h2>
+<p>Nginx对于图片,js等静态文件的缓存设置<br />
+注:这个缓存是指针对<strong>浏览器</strong>所做的缓存,不是指服务器端的数据缓存.</p>
+<p>主要知识点: location expires指令</p>
+<pre><code>location ~ \.(jpg|jpeg|png|gif)$ {
+    expires 1d;
+}
+
+
+location ~ \.js$ {
+   expires 1h;
+}</code></pre>
+<p>设置并载入新配置文件,用firebug观察,<br />
+会发现 图片内容,没有再次产生新的请求,原因--利用了本地缓存的效果.<br />
+注: 在大型的新闻站,或文章站中,图片变动的可能性很小,建议做1周左右的缓存<br />
+Js,css等小时级的缓存.<br />
+如果信息流动比较快,也可以不用expires指令,</p>
+<h2 id="nginx反向代理服务器负载均衡">10.nginx反向代理服务器+负载均衡</h2>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/25d33256-aa03-4a0d-941c-bdab559d7ca7.jpg" /></p>
+<p>用户A始终认为它访问的是原始服务器B而不是代理服务器Z，但实用际上反向代理服务器接 受用户A的应答，<br />
+从原始资源服务器B中取得用户A的需求资源，然后发送给用户A。由于防火墙的作用，只允<br />
+许代理服务器Z访问原始资源服务器B。尽管在这个虚拟的环境下，防火墙和反向代理的共同<br />
+作用保护了原始资源服务器B，但用户A并不知情。</p>
+<p>用nginx做反向代理和负载均衡非常简单.</p>
+<p>支持两个用法 1个<code>proxy</code>, 1个<code>upstream</code>,分别用来做反向代理,和负载均衡</p>
+<p>以反向代理为例, nginx不自己处理php的相关请求,而是把php的相关请求转发给apache来处理.</p>
+<p>这不就是传说的”动静分离”,动静分离不是一个严谨的说法,叫反向代理比较规范.</p>
+<pre><code> location ~ \.php$ {
+
+
+       profix_pass  http://域名：端口 
+
+
+  }</code></pre>
+<p>反向代理导致后端的服务器ip为前端的ip，而不是客户端真正的ip 。</p>
+<p>解决：</p>
+<pre><code>location ~ .*\.(jpg|png|gif|bmp)$ {
+    proxy_set_header X-Forwarded-For $remote_addr;
+    proxy_pass http://192.168.1.204:8080;
+}</code></pre>
+<p>反向代理后端如果有多台服务器,自然可形成负载均衡,</p>
+<p>但proxy_pass如何指向多台服务器?</p>
+<p>把多台服务器用 upstream指定绑定在一起并起个组名,</p>
+<p>然后proxy_pass指向该组</p>
+<p>默认的均衡的算法很简单,就是针对后端服务器的顺序,逐个请求.</p>
+<p>也有其他负载均衡算法,如一致性哈希,需要安装第3方模块.</p>
+<h2 id="nginx----php-fpm之间的优化">Nginx----&gt;php-fpm之间的优化</h2>
+<p>在很多个nginx来访问fpm时, fpm的进程要是不够用, 会生成子进程.(不用了会自动消失，对高并发的网站，时刻都需要子进程，）</p>
+<p>生成子进程需要内核来调度,比较耗时, 如果网站并发比较大, 我们可以用静态方式一次性生成若干子进程,保持在内存中.</p>
+<p>方法 -- 修改php-fpm.conf</p>
+<pre><code>Pm = static  让fpm进程始终保持,不要动态生成
+Pm.max_children= 32  始终保持的子进程数量</code></pre>
+<h2 id="常见问题">常见问题</h2>
+<p>权限问题导致Nginx 403 Forbidden错误的解决方法</p>
+<p>系统中的路径查询结果：<br />
+[root@lizhong html]# ll /root/html/<br />
+总用量 4<br />
+-rw-r--r-- 1 root root 3 4月 18 11:07 index.html<br />
+目录时存在，重启nginx还是这个错误，后来想到是不是权限问题？于是在nginx.conf头部加入一行：<br />
+user root;<br />
+重启nginx再访问，就可以正常访问了</p>
+<p>如果不想使用root用户运行，可以通过修改目录访问权限解决403问题，但不能把目录放在root用户宿主目录下，放在任意一个位置并给它755，或者通过chown改变它的拥有者与nginx运行身份一致也可以解决权限问题。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

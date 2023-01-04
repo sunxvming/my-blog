@@ -1,0 +1,815 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/00-CS基础/10-组成原理&amp;体系结构/深入浅出计算机组成原理-3处理器</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#建立数据通路上指令运算cpu">17 | 建立数据通路（上）：指令+运算=CPU</a>
+<ul>
+<li><a href="#指令周期instruction-cycle">指令周期（Instruction Cycle）</a></li>
+<li><a href="#建立数据通路">建立数据通路</a></li>
+<li><a href="#cpu-所需要的硬件电路">CPU 所需要的硬件电路</a></li>
+</ul></li>
+<li><a href="#建立数据通路中指令运算cpu">18 | 建立数据通路（中）：指令+运算=CPU</a>
+<ul>
+<li><a href="#时钟信号的硬件实现">时钟信号的硬件实现</a></li>
+<li><a href="#通过-d-触发器实现存储功能">通过 D 触发器实现存储功能</a></li>
+<li><a href="#总结延伸">总结延伸</a></li>
+</ul></li>
+<li><a href="#建立数据通路下指令运算cpu">19 | 建立数据通路（下）：指令+运算=CPU</a>
+<ul>
+<li><a href="#pc-寄存器所需要的计数器">PC 寄存器所需要的计数器</a></li>
+<li><a href="#读写数据所需要的译码器">读写数据所需要的译码器</a></li>
+<li><a href="#建立数据通路构造一个最简单的-cpu">建立数据通路，构造一个最简单的 CPU</a></li>
+</ul></li>
+<li><a href="#面向流水线的指令设计上一心多用的现代cpu">20 | 面向流水线的指令设计（上）：一心多用的现代CPU</a>
+<ul>
+<li><a href="#单指令周期处理器">单指令周期处理器</a></li>
+<li><a href="#现代处理器的流水线设计">现代处理器的流水线设计</a></li>
+<li><a href="#超长流水线的性能瓶颈">超长流水线的性能瓶颈</a></li>
+<li><a href="#总结延伸-1">总结延伸</a></li>
+</ul></li>
+<li><a href="#面向流水线的指令设计下奔腾4是怎么失败的">21 | 面向流水线的指令设计（下）：奔腾4是怎么失败的？</a>
+<ul>
+<li><a href="#新的挑战冒险和分支预测">新的挑战：冒险和分支预测</a></li>
+</ul></li>
+<li><a href="#冒险和预测一hazard是危也是机">22 | 冒险和预测（一）：hazard是“危”也是“机”</a>
+<ul>
+<li><a href="#结构冒险为什么工程师都喜欢用机械键盘">结构冒险：为什么工程师都喜欢用机械键盘？</a></li>
+<li><a href="#数据冒险三种不同的依赖关系">数据冒险：三种不同的依赖关系</a></li>
+<li><a href="#再等等通过流水线停顿解决数据冒险">再等等：通过流水线停顿解决数据冒险</a></li>
+</ul></li>
+<li><a href="#冒险和预测二流水线里的接力赛">23 | 冒险和预测（二）：流水线里的接力赛</a>
+<ul>
+<li><a href="#nop-操作和指令对齐">NOP 操作和指令对齐</a></li>
+<li><a href="#流水线里的接力赛操作数前推转发">流水线里的接力赛：操作数前推(转发）</a></li>
+</ul></li>
+<li><a href="#冒险和预测三cpu里的线程池">24 | 冒险和预测（三）：CPU里的“线程池”</a>
+<ul>
+<li><a href="#填上空闲的-nop乱序执行">填上空闲的 NOP：乱序执行</a></li>
+<li><a href="#cpu-里的线程池理解乱序执行">CPU 里的“线程池”：理解乱序执行</a></li>
+</ul></li>
+<li><a href="#冒险和预测四今天下雨了明天还会下雨么">25 | 冒险和预测（四）：今天下雨了，明天还会下雨么？</a>
+<ul>
+<li><a href="#分支预测今天下雨了明天还会继续下雨么">分支预测：今天下雨了，明天还会继续下雨么？</a></li>
+<li><a href="#缩短分支延迟">缩短分支延迟</a></li>
+<li><a href="#静态预测分支预测">静态预测分支预测</a></li>
+<li><a href="#动态分支预测">动态分支预测</a></li>
+</ul></li>
+<li><a href="#superscalar和vliw如何让cpu的吞吐率超过1">26 | Superscalar和VLIW：如何让CPU的吞吐率超过1？</a>
+<ul>
+<li><a href="#多发射与超标量同一时间执行的两条指令">多发射与超标量：同一时间执行的两条指令</a></li>
+<li><a href="#intel-的失败之作安腾的超长指令字设计">Intel 的失败之作：安腾的超长指令字设计</a></li>
+</ul></li>
+<li><a href="#simd如何加速矩阵乘法">27 | SIMD：如何加速矩阵乘法？</a>
+<ul>
+<li><a href="#超线程intel-多卖给你的那一倍-cpu">超线程：Intel 多卖给你的那一倍 CPU</a></li>
+<li><a href="#simd如何加速矩阵乘法-1">SIMD：如何加速矩阵乘法？</a></li>
+<li><a href="#时钟周期时间和指令执行耗时有直接关系吗">时钟周期时间和指令执行耗时有直接关系吗？</a></li>
+<li><a href="#总结延伸-2">总结延伸</a></li>
+</ul></li>
+<li><a href="#异常和中断程序出错了怎么办">28 | 异常和中断：程序出错了怎么办？</a>
+<ul>
+<li><a href="#异常硬件系统和应用的组合拳">异常：硬件、系统和应用的组合拳</a></li>
+<li><a href="#异常的分类中断陷阱故障和中止">异常的分类：中断、陷阱、故障和中止</a></li>
+<li><a href="#异常的处理上下文切换">异常的处理：上下文切换</a></li>
+</ul></li>
+<li><a href="#cisc和risc为什么手机芯片都是arm">29 | CISC和RISC：为什么手机芯片都是ARM？</a>
+<ul>
+<li><a href="#arm-和-risc-vcpu-的现在与未来">ARM 和 RISC-V：CPU 的现在与未来</a></li>
+</ul></li>
+<li><a href="#gpu上为什么玩游戏需要使用gpu">30 | GPU（上）：为什么玩游戏需要使用GPU？</a>
+<ul>
+<li><a href="#图形渲染的流程">图形渲染的流程</a></li>
+<li><a href="#解放图形渲染的-gpu">解放图形渲染的 GPU</a></li>
+<li><a href="#总结延伸-3">总结延伸</a></li>
+</ul></li>
+<li><a href="#gpu下为什么深度学习需要使用gpu">31 | GPU（下）：为什么深度学习需要使用GPU？</a>
+<ul>
+<li><a href="#shader-的诞生和可编程图形处理器">Shader 的诞生和可编程图形处理器</a></li>
+<li><a href="#现代-gpu-的三个核心创意">现代 GPU 的三个核心创意</a>
+<ul>
+<li><a href="#芯片瘦身">芯片瘦身</a></li>
+<li><a href="#多核并行和-simt">多核并行和 SIMT</a></li>
+<li><a href="#gpu-里的超线程">GPU 里的“超线程”</a></li>
+</ul></li>
+<li><a href="#gpu-在深度学习上的性能差异">GPU 在深度学习上的性能差异</a></li>
+</ul></li>
+<li><a href="#fpgaasic和tpu上计算机体系结构的黄金时代">32 | FPGA、ASIC和TPU（上）：计算机体系结构的黄金时代</a>
+<ul>
+<li><a href="#fpga">FPGA</a></li>
+<li><a href="#asic专用集成电路">ASIC(专用集成电路)</a></li>
+</ul></li>
+<li><a href="#解读tpu设计和拆解一块asic芯片">33 | 解读TPU：设计和拆解一块ASIC芯片</a>
+<ul>
+<li><a href="#tpu-v1-想要解决什么问题">TPU V1 想要解决什么问题？</a></li>
+<li><a href="#深入理解-tpu-v1">深入理解 TPU V1</a>
+<ul>
+<li><a href="#快速上线和向前兼容一个-fpu-的设计">快速上线和向前兼容，一个 FPU 的设计</a></li>
+<li><a href="#专用电路和大量缓存适应推断的工作流程">专用电路和大量缓存，适应推断的工作流程</a></li>
+<li><a href="#细节优化使用-8-bits-数据">细节优化，使用 8 Bits 数据</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#理解虚拟机你在云上拿到的计算机是什么样的">34 | 理解虚拟机：你在云上拿到的计算机是什么样的？</a>
+<ul>
+<li><a href="#解释型虚拟机">解释型虚拟机</a></li>
+<li><a href="#type-1-和-type-2虚拟机的性能提升">Type-1 和 Type-2：虚拟机的性能提升</a></li>
+<li><a href="#docker新时代的最佳选择">Docker：新时代的最佳选择？</a></li>
+<li><a href="#总结延伸-4">总结延伸</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="建立数据通路上指令运算cpu">17 | 建立数据通路（上）：指令+运算=CPU</h2>
+<p>前面几讲里，我从两个不同的部分为你讲解了 CPU 的功能。<br />
+在“<strong>指令</strong>”部分，我为你讲解了计算机的“指令”是怎么运行的，也就是我们撰写的代码，是怎么变成一条条的机器能够理解的指令的，以及是按照什么样的顺序运行的。</p>
+<p>在“<strong>计算</strong>”部分，我为你讲解了计算机的“计算”部分是怎么执行的，数据的二进制表示是怎么样的，我们执行的加法和乘法又是通过什么样的电路来实现的。</p>
+<p>然而，光知道这两部分还不能算是真正揭开了 CPU 的秘密，只有把“指令”和“计算”这两部分功能连通起来，我们才能构成一个真正完整的 CPU。</p>
+<h3 id="指令周期instruction-cycle">指令周期（Instruction Cycle）</h3>
+<p>“<strong>Fetch - Decode - Execute</strong>”的循环，我们把这个循环称之为<strong>指令周期</strong>（Instruction Cycle）。<br />
+1. <strong>Fetch</strong>（<strong>取得指令</strong>），也就是从 PC 寄存器里找到对应的指令地址，根据指令地址从内存里把具体的指令，加载到指令寄存器中，然后把 PC 寄存器自增，好在未来执行下一条指令。<br />
+2. <strong>Decode</strong>（<strong>指令译码</strong>），也就是根据指令寄存器里面的指令，解析成要进行什么样的操作，是哪一种指令，具体要操作哪些寄存器、数据或者内存地址。<br />
+3. <strong>Execute</strong>（<strong>执行指令</strong>），也就是实际运行对应的特定的指令，进行算术逻辑操作、数据传输或者直接的地址跳转。</p>
+<p>不同部分其实是由计算机中的不同组件完成的<br />
+在取指令的阶段，我们的指令是放在<strong>存储器</strong>里的，实际上，通过 PC 寄存器和指令寄存器取出指令的过程，是由<strong>控制器</strong>（Control Unit）操作的。指令的解码过程，也是由<strong>控制器</strong>进行的。一旦到了执行指令阶段，无论是进行算术操作、逻辑操作的 R 型指令，还是进行数据传输、条件分支的 I 型指令，都是由<strong>算术逻辑单元</strong>（ALU）操作的，也就是由<strong>运算器</strong>处理的。不过，如果是一个简单的无条件地址跳转，那么我们可以直接在<strong>控制器</strong>里面完成，不需要用到运算器。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/7a646edc-ac18-4940-9400-af4192b43313.jpg" /></p>
+<p>除了 Instruction Cycle 这个指令周期，在 CPU 里面我们还会提到另外两个常见的 Cycle。一个叫<strong>Machine Cycle</strong>，<strong>机器周期</strong>或者<strong>CPU 周期</strong>。CPU 内部的操作速度很快，但是访问内存的速度却要慢很多。每一条指令都需要从内存里面加载而来，所以我们一般把从内存里面读取一条指令的最短时间，称为 CPU 周期。</p>
+<p>还有一个是我们之前提过的<strong>Clock Cycle</strong>，也就是<strong>时钟周期</strong>以及我们机器的主频。一个 CPU 周期，通常会由几个时钟周期累积起来。一个 CPU 周期的时间，就是这几个 Clock Cycle 的总和。</p>
+<p>对于一个指令周期来说，我们取出一条指令，然后执行它，至少需要两个 CPU 周期。取出指令至少需要一个 CPU 周期，执行至少也需要一个 CPU 周期，复杂的指令则需要更多的 CPU 周期。<br />
+所以，我们说一个指令周期，包含多个 CPU 周期，而一个 CPU 周期包含多个时钟周期。<br />
+<strong>三个周期（Cycle）之间的关系</strong><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/61b4b281-dd5f-44e8-8bf8-b72316a59585.jpg" /></p>
+<h3 id="建立数据通路">建立数据通路</h3>
+<p>数据通路就是我们的处理器单元。它通常由两类原件组成。</p>
+<p>第一类叫<strong>操作元件</strong>，也叫组合逻辑元件（Combinational Element），其实就是我们的 ALU。在前面讲 ALU 的过程中可以看到，它们的功能就是在特定的输入下，根据下面的组合电路的逻辑，生成特定的输出。</p>
+<p>第二类叫<strong>存储元件</strong>，也有叫状态元件（State Element）的。比如我们在计算过程中需要用到的寄存器，无论是通用寄存器还是状态寄存器，其实都是存储元件。</p>
+<p>我们通过数据总线的方式，把它们连接起来，就可以完成数据的存储、处理和传输了，这就是所谓的<strong>建立数据通路</strong>了。</p>
+<p>下面我们来说<strong>控制器</strong>。它的逻辑就没那么复杂了。我们可以把它看成只是机械地重复“Fetch - Decode - Execute“循环中的前两个步骤，然后把最后一个步骤，通过控制器产生的控制信号，交给 ALU 去处理。</p>
+<p>指令译码器将输入的机器码，解析成不同的操作码和操作数，然后传输给 ALU 进行计算<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/559a5ad5-0bcc-4218-8726-4a99f9d942d1.jpg" /></p>
+<h3 id="cpu-所需要的硬件电路">CPU 所需要的硬件电路</h3>
+<p>首先，自然是我们之前已经讲解过的 ALU 了，它实际就是一个没有状态的，根据输入计算输出结果的第一个电路。</p>
+<p>第二，我们需要有一个能够进行状态读写的电路元件，也就是我们的寄存器。我们需要有一个电路，能够存储到上一次的计算结果。这个计算结果并不一定要立刻拿到电路的下游去使用，但是可以在需要的时候拿出来用。常见的能够进行状态读写的电路，就有锁存器（Latch），以及我们后面要讲的 D 触发器（Data/Delay Flip-flop）的电路。</p>
+<p>第三，我们需要有一个“自动”的电路，按照固定的周期，不停地实现 PC 寄存器自增，自动地去执行“Fetch - Decode - Execute“的步骤。我们的程序执行，并不是靠人去拨动开关来执行指令的。我们希望有一个“自动”的电路，不停地去一条条执行指令。</p>
+<p>第四，我们需要有一个“译码”的电路。无论是对于指令进行 decode，还是对于拿到的内存地址去获取对应的数据或者指令(寻址)，我们都需要通过一个电路找到对应的数据。这个对应的自然就是“译码器”的电路了。</p>
+<h2 id="建立数据通路中指令运算cpu">18 | 建立数据通路（中）：指令+运算=CPU</h2>
+<p>上一讲，我们看到，要能够实现一个完整的 CPU 功能，除了加法器这样的电路之外，我们还需要实现其他功能的电路。其中有一些电路，和我们实现过的加法器一样，只需要给定输入，就能得到固定的输出。这样的电路，我们称之为<strong>组合逻辑电路</strong>（Combinational Logic Circuit）</p>
+<p>我们还需要引入第二类的电路，也就是<strong>时序逻辑电路</strong>（Sequential Logic Circuit）。时序逻辑电路可以帮我们<strong>解决这样几个问题</strong>。<br />
+1. <strong>自动运行</strong>的问题。时序电路接通之后可以不停地开启和关闭开关，进入一个自动运行的状态。这个使得我们上一讲说的，控制器不停地让 PC 寄存器自增读取下一条指令成为可能。</p>
+<ol>
+<li><p><strong>存储</strong>的问题。通过时序电路实现的触发器，能把计算结果存储在特定的电路里面，而不是像组合逻辑电路那样，一旦输入有任何改变，对应的输出也会改变。</p></li>
+<li><p>各个功能按照<strong>时序协调</strong>的问题。无论是程序实现的软件指令，还是到硬件层面，各种指令的操作都有先后的顺序要求。时序电路使得不同的事件按照时间顺序发生。</p></li>
+</ol>
+<h3 id="时钟信号的硬件实现">时钟信号的硬件实现</h3>
+<p>想要实现时序逻辑电路，第一步我们需要的就是一个时钟。CPU 的主频是由一个晶体振荡器来实现的，而这个晶体振荡器生成的电路信号，就是我们的时钟信号。</p>
+<p>实现这样一个电路，如下：<br />
+在下面这张图里你可以看到，我们在原先一般只放一个开关的信号输入端，放上了两个开关。一个开关 A，一开始是断开的，由我们手工控制；另外一个开关 B，一开始是合上的，磁性线圈对准一开始就合上的开关 B。</p>
+<p>于是，一旦我们合上开关 A，磁性线圈就会通电，产生磁性，开关 B 就会从合上变成断开。一旦这个开关断开了，电路就中断了，磁性线圈就失去了磁性。于是，开关 B 又会弹回到合上的状态。这样一来，电路接通，线圈又有了磁性。我们的电路就会来回不断地在开启、关闭这两个状态中切换。</p>
+<p>开关 A 闭合（也就是相当于接通电路之后），开关 B 就会不停地在开和关之间切换，生成对应的时钟信号<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/08a86f82-4889-4f85-b174-2d2b68382679.jpg" /></p>
+<p>这个不断切换的过程，对于下游电路来说，就是不断地产生新的 0 和 1 这样的信号。如果你在下游的电路上接上一个灯泡，就会发现这个灯泡在亮和暗之间不停切换。这个按照固定的周期不断在 0 和 1 之间切换的信号，就是我们的<strong>时钟信号</strong>（Clock Signal）。<br />
+这种电路，其实就相当于把电路的输出信号作为输入信号，再回到当前电路。这样的电路构造方式呢，我们叫作<strong>反馈电路</strong>（Feedback Circuit）。</p>
+<p><strong>通过一个反相器实现时钟信号</strong><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/dae6565d-f17a-44ce-844e-4edba8e02866.jpg" /></p>
+<h3 id="通过-d-触发器实现存储功能">通过 D 触发器实现存储功能</h3>
+<p>有了时钟信号，我们的系统里就有了一个像“自动门”一样的开关。利用这个开关和相同的反馈电路，我们就可以构造出一个有“记忆”功能的电路。这个有记忆功能的电路，可以实现在 CPU 中用来存储计算结果的寄存器，也可以用来实现计算机五大组成部分之一的存储器。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/5163b4bc-fe8d-4301-8f43-ee0ddab80ce7.jpg" /><br />
+这样一个电路，我们称之为触发器（Flip-Flop）。接通开关 R，输出变为 1，即使断开开关，输出还是 1 不变。接通开关 S，输出变为 0，即使断开开关，输出也还是 0。也就是，<strong>当两个开关都断开的时候，最终的输出结果，取决于之前动作的输出结果，这个也就是我们说的记忆功能</strong>。</p>
+<h3 id="总结延伸">总结延伸</h3>
+<p>好了，到了这里，我们可以顺一顺思路了。通过引入了时序电路，我们终于可以把数据“存储”下来了。我们通过反馈电路，创建了时钟信号，然后再利用这个时钟信号和门电路组合，实现了“状态记忆”的功能。</p>
+<p>电路的输出信号不单单取决于当前的输入信号，还要取决于输出信号之前的状态。最常见的这个电路就是我们的 D 触发器，它也是我们实际在 CPU 内实现存储功能的寄存器的实现方式。</p>
+<p>这也是现代计算机体系结构中的“冯·诺伊曼”机的一个关键，就是程序需要可以“存储”，而不是靠固定的线路连接或者手工拨动开关，来实现计算机的可存储和可编程的功能。</p>
+<p>有了时钟信号和触发器之后，我们还差一个“自动”需求没有实现。我们的计算机还不能做到自动地不停地从内存里面读取指令去执行。这一部分，我们留在下一讲。下一讲里，我们看看怎么让程序自动运转起来。</p>
+<h2 id="建立数据通路下指令运算cpu">19 | 建立数据通路（下）：指令+运算=CPU</h2>
+<p>通过一个时钟信号，我们可以实现计数器，这个会成为我们的 PC 寄存器。然后，我们还需要一个能够帮我们在内存里面寻找指定数据地址的译码器，以及解析读取到的机器指令的译码器。这样，我们就能把所有学习到的硬件组件串联起来，变成一个 CPU，实现我们在计算机指令的执行部分的运行步骤。</p>
+<h3 id="pc-寄存器所需要的计数器">PC 寄存器所需要的计数器</h3>
+<p>我们常说的 PC 寄存器，还有个名字叫程序计数器。<br />
+有了时钟信号，我们可以提供定时的输入；有了 D 型触发器，我们可以在时钟信号控制的时间点写入数据。我们把这两个功能组合起来，就可以实现一个自动的计数器了。</p>
+<p>加法器的两个输入，一个始终设置成 1，另外一个来自于一个 D 型触发器 A。我们把加法器的输出结果，写到这个 D 型触发器 A 里面。于是，D 型触发器里面的数据就会在固定的时钟信号为 1 的时候更新一次。<br />
+这样，我们就有了一个每过一个时钟周期，就能固定自增 1 的自动计数器了。这个自动计数器，可以拿来当我们的 PC 寄存器。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0b43da7f-9993-4b92-b76e-a25081ab0196.jpg" /></p>
+<p>每次自增之后，我们可以去对应的 D 型触发器里面取值，这也是我们下一条需要运行指令的地址。<br />
+加法计数、内存取值，乃至后面的命令执行，最终其实都是由我们一开始讲的<strong>时钟信号，来控制执行时间点和先后顺序的</strong>，这也是我们需要时序电路最核心的原因。</p>
+<p>在最简单的情况下，我们需要让每一条指令，从程序计数，到获取指令、执行指令，都在一个时钟周期内完成。如果 PC 寄存器自增地太快，程序就会出错。因为前一次的运算结果还没有写回到对应的寄存器里面的时候，后面一条指令已经开始读取里面的数据来做下一次计算了。这个时候，如果我们的指令使用同样的寄存器，前一条指令的计算就会没有效果，计算结果就错了。</p>
+<p>在这种设计下，我们需要在一个时钟周期里，确保执行完一条最复杂的 CPU 指令，也就是耗时最长的一条 CPU 指令。这样的 CPU 设计，我们称之为<strong>单指令周期处理器</strong>（Single Cycle Processor）。<br />
+很显然，这样的设计有点儿浪费。因为即便只调用一条非常简单的指令，我们也需要等待整个时钟周期的时间走完，才能执行下一条指令。在后面章节里我们会讲到，通过流水线技术进行性能优化，可以减少需要等待的时间</p>
+<h3 id="读写数据所需要的译码器">读写数据所需要的译码器</h3>
+<p>现在，我们的数据能够存储在 D 型触发器里了。如果我们把很多个 D 型触发器放在一起，就可以形成一块很大的存储空间，甚至可以当成一块内存来用。像我现在手头这台电脑，有 16G 内存。那我们怎么才能知道，写入和读取的数据，是在这么大的内存的哪几个比特呢？</p>
+<p>于是，我们就需要有一个电路，来完成“寻址”的工作。这个“寻址”电路，就是我们接下来要讲的译码器。</p>
+<p>其实译码器的本质，就是从输入的多个位的信号中，根据一定的开关和电路组合，选择出自己想要的信号。除了能够进行“寻址”之外，我们还可以把对应的需要运行的指令码，同样通过译码器，找出我们期望执行的指令，也就是在之前我们讲到过的 opcode，以及后面对应的操作数或者寄存器地址。</p>
+<h3 id="建立数据通路构造一个最简单的-cpu">建立数据通路，构造一个最简单的 CPU</h3>
+<p>D 触发器、自动计数以及译码器，再加上一个我们之前说过的 ALU，我们就凑齐了一个拼装一个 CPU 必须要的零件了。</p>
+<p><strong>CPU 实现的抽象逻辑图</strong></p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/8e6c01d3-9629-4f5c-9fd5-3ba2eaddd782.jpg" /><br />
+1. 首先，我们有一个自动计数器。这个自动计数器会随着时钟主频不断地自增，来作为我们的 PC 寄存器。<br />
+2. 在这个自动计数器的后面，我们连上一个译码器。译码器还要同时连着我们通过大量的 D 触发器组成的内存。<br />
+3. 自动计数器会随着时钟主频不断自增，从译码器当中，找到对应的计数器所表示的内存地址，然后读取出里面的 CPU 指令。<br />
+4. 读取出来的 CPU 指令会通过我们的 CPU 时钟的控制，写入到一个由 D 触发器组成的寄存器，也就是指令寄存器当中。<br />
+5. 在指令寄存器后面，我们可以再跟一个译码器。这个译码器不再是用来寻址的了，而是把我们拿到的指令，解析成 opcode 和对应的操作数。<br />
+6. 当我们拿到对应的 opcode 和操作数，对应的输出线路就要连接 ALU，开始进行各种算术和逻辑运算。对应的计算结果，则会再写回到 D 触发器组成的寄存器或者内存当中。</p>
+<p>在上面的抽象的逻辑模型中，你很容易发现，我们执行一条指令，其实可以不放在一个时钟周期里面，可以直接拆分到多个时钟周期。<br />
+我们可以在一个时钟周期里面，去自增 PC 寄存器的值，也就是指令对应的内存地址。然后，我们要根据这个地址从 D 触发器里面读取指令，这个还是可以在刚才那个时钟周期内。但是对应的指令写入到指令寄存器，我们可以放在一个新的时钟周期里面。指令译码给到 ALU 之后的计算结果，要写回到寄存器，又可以放到另一个新的时钟周期。所以，执行一条计算机指令，其实可以拆分到很多个时钟周期，而不是必须使用单指令周期处理器的设计。<br />
+因为从内存里面读取指令时间很长，所以如果使用单指令周期处理器，就意味着我们的指令都要去等待一些慢速的操作。这些不同指令执行速度的差异，也正是计算机指令有指令周期、CPU 周期和时钟周期之分的原因。因此，现代我们优化 CPU 的性能时，用的 CPU 都不是单指令周期处理器，而是通过流水线、分支预测等技术，来实现在一个周期里同时执行多个指令。<br />
+如果某一个操作步骤的时间太长，我们就可以考虑把这个步骤，拆分成更多的步骤，让所有步骤需要执行的时间尽量都差不多长。这样，也就可以解决我们在单指令周期处理器中遇到的，性能瓶颈来自于最复杂的指令的问题。像我们现代的 ARM 或者 Intel 的 CPU，流水线级数都已经到了 14 级。<br />
+虽然我们不能通过流水线，来减少单条指令执行的“延时”这个性能指标，但是，通过<strong>同时在执行多条指令的不同阶段</strong>，我们提升了 CPU 的“吞吐率”。在外部看来，我们的 CPU 好像是“一心多用”，在同一时间，同时执行 5 条不同指令的不同阶段。在 CPU 内部，其实它就像生产线一样，不同分工的组件不断处理上游传递下来的内容，而不需要等待单件商品生产完成之后，再启动下一件商品的生产过程。</p>
+<h2 id="面向流水线的指令设计上一心多用的现代cpu">20 | 面向流水线的指令设计（上）：一心多用的现代CPU</h2>
+<h3 id="单指令周期处理器">单指令周期处理器</h3>
+<p>我们希望能确保让这样一整条指令的执行，在一个时钟周期内完成。这样，我们一个时钟周期可以执行一条指令，CPI 也就是 1，看起来就比执行一条指令需要多个时钟周期性能要好。采用这种设计思路的处理器，就叫作<strong>单指令周期处理器</strong>（Single Cycle Processor），也就是在一个时钟周期内，处理器正好能处理一条指令。<br />
+不同指令的执行时间不同，但是我们需要让所有指令都在一个时钟周期内完成，那就只好把时钟周期和执行时间最长的那个指令设成一样。在这种情况下时钟频率却没法太高。因为太高的话，有些复杂指令没有办法在一个时钟周期内运行完成。那么在下一个时钟周期到来，开始执行下一条指令的时候，前一条指令的执行结果可能还没有写入到寄存器里面。那下一条指令读取的数据就是不准确的，就会出现错误。<br />
+<strong>快速执行完成的指令，需要等待满一个时钟周期，才能执行下一条指令</strong><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/e057b155-2a25-4513-85f8-2e5ac329f60a.jpg" /></p>
+<h3 id="现代处理器的流水线设计">现代处理器的流水线设计</h3>
+<p>指令执行过程会拆分成“取指令、译码、执行”这样三大步骤。更细分一点的话，执行的过程，其实还包含从寄存器或者内存中读取数据，通过 ALU 进行运算，把结果写回到寄存器或者内存中。</p>
+<p><strong>流水线执行示意图</strong><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0309bbe4-21f6-4fa7-a432-c1a3ae4e8253.jpg" /><br />
+这里面每一个独立的步骤，我们就称之为<strong>流水线阶段</strong>或者流水线级（Pipeline Stage）。<br />
+如果我们把一个指令拆分成“取指令 - 指令译码 - 执行指令”这样三个部分，那这就是一个三级的流水线。如果我们进一步把“执行指令”拆分成“ALU 计算（指令执行）- 内存访问 - 数据写回”，那么它就会变成一个五级的流水线。</p>
+<p>五级的流水线，就表示我们在同一个时钟周期里面，同时运行五条指令的不同阶段。这个时候，虽然执行一条指令的时钟周期变成了 5，但是我们可以把 CPU 的主频提得更高了。<strong>我们不需要确保最复杂的那条指令在时钟周期里面执行完成，而只要保障一个最复杂的流水线级的操作，在一个时钟周期内完成就好了。</strong></p>
+<h3 id="超长流水线的性能瓶颈">超长流水线的性能瓶颈</h3>
+<p>既然流水线可以增加我们的吞吐率，你可能要问了，为什么我们不把流水线级数做得更深呢？<br />
+这里先讲一个最基本的原因，就是增加流水线深度，其实是有性能成本的。</p>
+<p>我们用来同步时钟周期的，不再是指令级别的，而是流水线阶段级别的。每一级流水线对应的输出，都要放到<strong>流水线寄存器</strong>（Pipeline Register）里面，然后在下一个时钟周期，交给下一个流水线级去处理。所以，每增加一级的流水线，就要多一级写入到流水线寄存器的操作。虽然流水线寄存器非常快，比如只有 20 皮秒。但是，如果我们不断加深流水线，这些操作占整个指令的执行时间的比例就会不断增加，额外的消耗也就越大。所以，设计合理的流水线级数也是现代 CPU 中非常重要的一点。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/9a08672f-4e1b-43a0-819e-2695957c6087.jpg" /></p>
+<h3 id="总结延伸-1">总结延伸</h3>
+<p>讲到这里，相信你已经能够理解，为什么我们的 CPU 需要流水线设计了，也能把每一个流水线阶段在干什么，和上一讲的整个 CPU 的数据通路的连接过程对上了。</p>
+<p>可以看到，为了能够不浪费 CPU 的性能，我们通过把指令的执行过程，切分成一个一个流水线级，来提升 CPU 的吞吐率。而我们本身的 CPU 的设计，又是由一个个独立的组合逻辑电路串接起来形成的，天然能够适合这样采用流水线“专业分工”的工作方式。</p>
+<p>因为每一级的 overhead，一味地增加流水线深度，并不能无限地提高性能。同样地，因为指令的执行不再是顺序地一条条执行，而是在上一条执行到一半的时候，下一条就已经启动了，所以也给我们的程序带来了很多挑战。这些挑战和对应的解决方案，就要请你坚持关注后面的几讲，我们一起来揭开答案了。</p>
+<h2 id="面向流水线的指令设计下奔腾4是怎么失败的">21 | 面向流水线的指令设计（下）：奔腾4是怎么失败的？</h2>
+<p>流水线技术并不能缩短单条指令的<strong>响应时间</strong>这个性能指标，但是可以增加在运行很多条指令时候的<strong>吞吐率</strong>。</p>
+<h3 id="新的挑战冒险和分支预测">新的挑战：冒险和分支预测</h3>
+<p>既然这样，Pentium 4 的超长流水线看起来很合理呀，为什么 Pentium 4 会失败呢？</p>
+<p><strong>第一个，自然是我们在第 3 讲里讲过的功耗问题</strong>。提升流水线深度，必须要和提升 CPU 主频同时进行。因为在单个 Pipeline Stage 能够执行的功能变简单了，也就意味着单个时钟周期内能够完成的事情变少了。所以，只有提升时钟周期，CPU 在指令的响应时间这个指标上才能保持和原来相同的性能。<br />
+同时，由于流水线深度的增加，我们需要的电路数量变多了，也就是我们所使用的晶体管也就变多了。<br />
+主频的提升和晶体管数量的增加都使得我们 CPU 的功耗变大了。这个问题导致了 Pentium 4 在整个生命周期里，都成为了耗电和散热的大户。</p>
+<p><strong>第二点了，就是上面说的流水线技术带来的性能提升，是一个理想情况。在实际的程序执行中，并不一定能够做得到</strong>。</p>
+<p>还回到我们刚才举的三条指令的例子。如果这三条指令，是下面这样的三条代码，会发生什么情况呢？</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="dt">int</span> a = <span class="dv">10</span> + <span class="dv">5</span>; <span class="co">// 指令 1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="dt">int</span> b = a * <span class="dv">2</span>; <span class="co">// 指令 2</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="dt">float</span> c = b * <span class="fl">1.0</span><span class="bu">f</span>; <span class="co">// 指令 3</span></span></code></pre></div>
+<p>我们会发现，指令 2，不能在指令 1 的第一个 Stage 执行完成之后进行。因为指令 2，依赖指令 1 的计算结果。同样的，指令 3 也要依赖指令 2 的计算结果。这样，即使我们采用了流水线技术，这三条指令执行完成的时间就变成三者这和，变成顺序执行的了。从而失去了并行执行的优势了。<br />
+这个依赖问题，就是我们在计算机组成里面所说的<strong>冒险</strong>（Hazard）问题。这里我们只列举了在数据层面的依赖，也就是数据冒险。在实际应用中，还会有<strong>结构冒险、控制冒险</strong>等其他的依赖问题。</p>
+<p>对应这些冒险问题，我们也有在<strong>乱序执行</strong>、<strong>分支预测</strong>等相应的解决方案。<br />
+但是，我们的流水线越长，这个冒险的问题就越难一解决。这是因为，同一时间同时在运行的指令太多了。如果我们只有 3 级流水线，我们可以把后面没有依赖关系的指令放到前面来执行。这个就是我们所说的乱序执行的技术。比方说，我们可以扩展一下上面的 3 行代码，再加上几行代码</p>
+<pre><code>int a = 10 + 5; // 指令 1
+int b = a * 2; // 指令 2
+float c = b * 1.0f; // 指令 3
+int x = 10 + 5; // 指令 4
+int y = a * 2; // 指令 5
+float z = b * 1.0f; // 指令 6
+int o = 10 + 5; // 指令 7
+int p = a * 2; // 指令 8
+float q = b * 1.0f; // 指令 9</code></pre>
+<p>我们可以不先执行 1、2、3 这三条指令，而是在流水线里，先执行 1、4、7 三条指令。这三条指令之间是没有依赖关系的。然后再执行 2、5、8 以及 3、6、9。这样，我们又能够充分利用 CPU 的计算能力了。</p>
+<p>但是，如果我们有 20 级流水线，意味着我们要确保这 20 条指令之间没有依赖关系。这个挑战一下子就变大了很多。毕竟我们平时撰写程序，通常前后的代码都是有一定的依赖关系的，几十条没有依赖关系的指令可不好找。这也是为什么，超长流水线的执行效率发而降低了的一个重要原因。</p>
+<h2 id="冒险和预测一hazard是危也是机">22 | 冒险和预测（一）：hazard是“危”也是“机”</h2>
+<p>任何一本讲解 CPU 的流水线设计的教科书，都会提到流水线设计需要解决的三大冒险，分别是<strong>结构冒险</strong>（Structural Hazard）、<strong>数据冒险</strong>（Data Hazard）以及<strong>控制冒险</strong>（Control Hazard）。</p>
+<h3 id="结构冒险为什么工程师都喜欢用机械键盘">结构冒险：为什么工程师都喜欢用机械键盘？</h3>
+<p>我们先来看一看结构冒险。结构冒险，本质上是一个硬件层面的资源竞争问题，也就是一个硬件电路层面的问题。</p>
+<p>CPU 在同一个时钟周期，同时在运行两条计算机指令的不同阶段。但是这两个不同的阶段，可能会用到同样的硬件电路。最典型的例子就是内存的数据访问。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/91d59776-4333-4dd0-8932-1024494d0c24.jpg" /><br />
+类似的资源冲突，其实你在日常使用计算机的时候也会遇到。最常见的就是薄膜键盘的“锁键”问题。常用的最廉价的薄膜键盘，并不是每一个按键的背后都有一根独立的线路，而是多个键共用一个线路。如果我们在同一时间，按下两个共用一个线路的按键，这两个按键的信号就没办法都传输出去。</p>
+<p>这也是为什么，重度键盘用户，都要买贵一点儿的机械键盘或者电容键盘。因为这些键盘的每个按键都有独立的传输线路，可以做到“全键无冲”，这样，无论你是要大量写文章、写程序，还是打游戏，都不会遇到按下了键却没生效的情况。</p>
+<p>“全键无冲”这样的资源冲突解决方案，其实本质就是<strong>增加资源</strong><br />
+同样的方案，我们一样可以用在 CPU 的结构冒险里面。对于访问内存数据和取指令的冲突，一个直观的解决方案就是把我们的内存分成两部分，让它们各有各的地址译码器。这两部分分别是<strong>存放指令的程序内存</strong>和<strong>存放数据的数据内存</strong>。这样把内存拆成两部分的解决方案，在计算机体系结构里叫作哈佛架构（Harvard Architecture）<br />
+不过，借鉴了哈佛结构的思路，现代的 CPU 虽然没有在内存层面进行对应的拆分，却在 CPU 内部的高速缓存部分进行了区分，把高速缓存分成了<strong>指令缓存</strong>（Instruction Cache）和<strong>数据缓存</strong>（Data Cache）两部分。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/a1e84488-8fb9-4fa2-b414-42a8c26089c4.jpg" /></p>
+<h3 id="数据冒险三种不同的依赖关系">数据冒险：三种不同的依赖关系</h3>
+<p>数据冒险，其实就是同时在执行的多个指令之间，有数据依赖的情况。这些数据依赖，我们可以分成三大类，分别是<br />
+* 先写后读（Read After Write，RAW）<br />
+这个先写后读的依赖关系，我们一般被称之为<strong>数据依赖</strong>，也就是 Data Dependency。<br />
+* 先读后写（Write After Read，WAR）<br />
+这个先写后读的依赖关系，我们一般被称之为<strong>数据依赖</strong>，也就是 Data Dependency。<br />
+* 写后再写（Write After Write，WAW）<br />
+比如：先设置变量 a = 1，然后再设置变量 a = 2。这个写后再写的依赖，一般被叫作<strong>输出依赖</strong>，也就是 Output Dependency。</p>
+<h3 id="再等等通过流水线停顿解决数据冒险">再等等：通过流水线停顿解决数据冒险</h3>
+<p>除了读之后再进行读，你会发现，对于同一个寄存器或者内存地址的操作，都有明确强制的顺序要求。而这个顺序操作的要求，也为我们使用流水线带来了很大的挑战。因为流水线架构的核心，就是在前一个指令还没有结束的时候，后面的指令就要开始执行。</p>
+<p>所以，我们需要有解决这些数据冒险的办法。其中最简单的一个办法，不过也是最笨的一个办法，就是<a href="https://en.wikipedia.org/wiki/Pipeline_stall">流水线停顿</a>（Pipeline Stall），或者叫流水线冒泡（Pipeline Bubbling）。</p>
+<p>流水线停顿的办法很容易理解。如果我们发现了后面执行的指令，会对前面执行的指令有数据层面的依赖关系，那最简单的办法就是“<strong>再等等</strong>”。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/1dc91696-c485-417c-b9ae-762fc5918c28.jpg" /><br />
+这个插入的NOP指令，就好像一个水管（Pipeline）里面，进了一个空的气泡。在水流经过的时候，没有传送水到下一个步骤，而是给了一个什么都没有的空气泡。这也是为什么，我们的流水线停顿，又被叫作流水线冒泡（Pipeline Bubble）的原因。</p>
+<h2 id="冒险和预测二流水线里的接力赛">23 | 冒险和预测（二）：流水线里的接力赛</h2>
+<h3 id="nop-操作和指令对齐">NOP 操作和指令对齐</h3>
+<p>以五级流水线“取指令（IF）- 指令译码（ID）- 指令执行（EX）- 内存访问（MEM）- 数据写回（WB） ”为例，有些指令没有对应的流水线阶段，但是我们并不能跳过对应的阶段直接执行下一阶段。不然，如果我们先后执行一条 LOAD 指令和一条 ADD 指令，就会发生 LOAD 指令的 WB 阶段和 ADD 指令的 WB 阶段，在同一个时钟周期发生。这样，相当于触发了一个结构冒险事件，产生了资源竞争。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/b2225b14-a062-4c36-b9e2-299632e63285.jpg" /><br />
+在实践当中，各个指令不需要的阶段，并不会直接跳过，而是会运行一次 NOP 操作。通过插入一个 NOP 操作，我们可以使后一条指令的每一个 Stage，一定不和前一条指令的同 Stage 在一个时钟周期执行。这样，就不会发生先后两个指令，在同一时钟周期竞争相同的资源，产生结构冒险了。</p>
+<h3 id="流水线里的接力赛操作数前推转发">流水线里的接力赛：操作数前推(转发）</h3>
+<p>以ADD 指令作为例子</p>
+<pre><code>add $t0, $s2,$s1
+add $s2, $s1,$t0</code></pre>
+<p>这两条指令很简单。<br />
+1. 第一条指令，把 s1 和 s2 寄存器里面的数据相加，存入到 t0 这个寄存器里面。<br />
+2. 第二条指令，把 s1 和 t0 寄存器里面的数据相加，存入到 s2 这个寄存器里面。</p>
+<p>进行指令对齐后的示意图：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/d62aa8ab-8c59-46f5-a5d0-4443b3126a2f.jpg" /><br />
+不过，其实我们第二条指令的执行，未必要等待第一条指令写回完成，才能进行。如果我们第一条指令的执行结果，能够直接传输给第二条指令的执行阶段，作为输入，那我们的第二条指令，就不用再从寄存器里面，把数据再单独读出来一次，才来执行代码。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/6e01efd4-48a2-49c1-b895-1f0e57e9351a.jpg" /><br />
+这样的解决方案，我们就叫作<strong>操作数前推</strong>（Operand Forwarding），或者<strong>操作数旁路</strong>（Operand Bypassing）。其实我觉得，更合适的名字应该叫<strong>操作数转发</strong>。</p>
+<p>转发，其实是这个技术的<strong>逻辑含义</strong>，也就是在第 1 条指令的执行结果，直接“转发”给了第 2 条指令的 ALU 作为输入。<br />
+另外一个名字，旁路（Bypassing），则是这个技术的<strong>硬件含义</strong>。<br />
+为了能够实现这里的“转发”，我们在 CPU 的硬件里面，需要再单独拉一根信号传输的线路出来，使得 ALU 的计算结果，能够重新回到 ALU 的输入里来。这样的一条线路，就是我们的“旁路”。它越过（Bypass）了写入寄存器，再从寄存器读出的过程，也为我们节省了 2 个时钟周期。<br />
+这个前推的解决方案，不仅可以单独使用，还可以和前面讲解过的流水线冒泡结合在一起使用。因为有些时候，我们的操作数前推并不能减少所有“冒泡”，只能去掉其中的一部分。我们仍然需要通过插入一些“气泡”来解决冒险问题。<br />
+总的来说，操作数前推的解决方案，比流水线停顿更进了一步。流水线停顿的方案，有点儿像游泳比赛的接力方式。下一名运动员，需要在前一个运动员游玩了全程之后，触碰到了游泳池壁才能出发。而操作数前推，就好像短跑接力赛。后一个运动员可以提前抢跑，而前一个运动员会多跑一段主动把交接棒传递给他。</p>
+<h2 id="冒险和预测三cpu里的线程池">24 | 冒险和预测（三）：CPU里的“线程池”</h2>
+<h3 id="填上空闲的-nop乱序执行">填上空闲的 NOP：乱序执行</h3>
+<p>比如以下</p>
+<pre><code>a = b + c
+d = a * e
+x = y * z</code></pre>
+<p>计算里面的 x ，却要等待 a 和 d 都计算完成，实在没啥必要。所以我们完全可以在 d 的计算等待 a 的计算的过程中，先把 x 的结果给算出来。</p>
+<p>在流水线里，后面的指令不依赖前面的指令，那就不用等待前面的指令执行，它完全可以先执行。这样的解决方案，在计算机组成里面，被称为<strong>乱序执行</strong>（Out-of-Order Execution，OoOE）。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/565b8e47-fa98-4c83-ac15-6e44ac94e857.jpg" /></p>
+<h3 id="cpu-里的线程池理解乱序执行">CPU 里的“线程池”：理解乱序执行</h3>
+<p>我们的 CPU 怎样才能实现乱序执行呢？<br />
+从今天软件开发的维度来思考，乱序执行好像是在指令的执行阶段，引入了一个“线程池”。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/826f2cc9-bb7b-4d9a-b361-d9772174b2f4.jpg" /></p>
+<ol>
+<li><p>在取指令和指令译码的时候，乱序执行的 CPU 和其他使用流水线架构的 CPU 是一样的。它会一级一级顺序地进行取指令和指令译码的工作。</p></li>
+<li><p>在指令译码完成之后，就不一样了。CPU 不会直接进行指令执行，而是进行一次指令分发，把指令发到一个叫作<strong>保留站</strong>（Reservation Stations）的地方。顾名思义，这个保留站，就像一个火车站一样。发送到车站的指令，就像是一列列的火车。</p></li>
+<li><p>这些指令不会立刻执行，而要<strong>等待它们所依赖的数据</strong>，传递给它们之后才会执行。这就好像一列列的火车都要等到乘客来齐了才能出发。</p></li>
+<li><p>一旦指令依赖的数据来齐了，指令就可以交到后面的功能单元（Function Unit，FU），其实就是 ALU，去执行了。我们有很多功能单元可以并行运行，但是不同的功能单元能够支持执行的指令并不相同。</p></li>
+<li><p>指令执行的阶段完成之后，我们并不能立刻把结果写回到寄存器里面去，而是把结果再存放到一个叫作重排序缓冲区（Re-Order Buffer，ROB）的地方。</p></li>
+<li><p>在重排序缓冲区里，我们的 CPU 会按照取指令的顺序，对指令的计算结果重新排序。只有排在前面的指令都已经完成了，才会提交指令，完成整个指令的运算结果。</p></li>
+<li><p>实际的指令的计算结果数据，并不是直接写到内存或者高速缓存里，而是先写入存储缓冲区（Store Buffer 面，最终才会写入到高速缓存和内存里。</p></li>
+</ol>
+<p>可以看到，在乱序执行的情况下，只有 CPU 内部指令的执行层面，可能是“乱序”的。只要我们能在指令的译码阶段正确地分析出指令之间的数据依赖关系，这个“乱序”就只会在互相没有影响的指令之间发生。</p>
+<p>即便指令的执行过程中是乱序的，我们在最终指令的计算结果写入到寄存器和内存之前，依然会进行一次排序，以确保所有指令在外部看来仍然是有序完成的。</p>
+<p>有了乱序执行，我们重新去执行上面的 3 行代码。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>a = b + c</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>d = a * e</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>x = y * z</span></code></pre></div>
+<p>里面的 d 依赖于 a 的计算结果，不会在 a 的计算完成之前执行。但是我们的 CPU 并不会闲着，因为 x = y * z 的指令同样会被分发到保留站里。因为 x 所依赖的 y 和 z 的数据是准备好的， 这里的乘法运算不会等待计算 d，而会先去计算 x 的值。</p>
+<p>如果我们只有一个 FU 能够计算乘法，那么这个 FU 并不会因为 d 要等待 a 的计算结果，而被闲置，而是会先被拿去计算 x。</p>
+<p>在 x 计算完成之后，d 也等来了 a 的计算结果。这个时候，我们的 FU 就会去计算出 d 的结果。然后在重排序缓冲区里，把对应的计算结果的提交顺序，仍然设置成 a -&gt; d -&gt; x，而计算完成的顺序是 x -&gt; a -&gt; d。</p>
+<p>在这整个过程中，整个计算乘法的 FU 都没有闲置，这也意味着我们的 CPU 的吞吐率最大化了。</p>
+<p>整个乱序执行技术，就好像在指令的执行阶段提供一个“线程池”。指令不再是顺序执行的，而是根据池里所拥有的资源，以及各个任务是否可以进行执行，进行动态调度。在执行完成之后，又重新把结果在一个队列里面，按照指令的分发顺序重新排序。即使内部是“乱序”的，但是在外部看起来，仍然是井井有条地顺序执行。</p>
+<p>乱序执行，极大地提高了 CPU 的运行效率。核心原因是，现代 CPU 的运行速度比访问主内存的速度要快很多。如果完全采用顺序执行的方式，很多时间都会浪费在前面指令等待获取内存数据的时间里。CPU 不得不加入 NOP 操作进行空转。而现代 CPU 的流水线级数也已经相对比较深了，到达了 14 级。这也意味着，同一个时钟周期内并行执行的指令数是很多的。</p>
+<p>而乱序执行，以及我们后面要讲的高速缓存，<strong>弥补了 CPU 和内存之间的性能差异</strong>。同样，也充分利用了较深的流水行带来的并发性，使得我们可以充分利用 CPU 的性能。</p>
+<h2 id="冒险和预测四今天下雨了明天还会下雨么">25 | 冒险和预测（四）：今天下雨了，明天还会下雨么？</h2>
+<p>取指令和指令译码不会需要遇到任何停顿，这是基于一个假设。这个假设就是，所有的指令代码都是顺序加载执行的。不过这个假设，在执行的代码中，一旦遇到 if…else 这样的条件分支，或者 for/while 循环，就会不成立。<br />
+在 jmp 指令发生的时候，CPU 可能会跳转去执行其他指令。jmp 后的那一条指令是否应该顺序加载执行，在流水线里面进行取指令的时候，我们没法知道。要等 jmp 指令执行完成，去更新了 PC 寄存器之后，我们才能知道，是否执行下一条指令，还是跳转到另外一个内存地址，去取别的指令。</p>
+<p>这种为了确保能取到正确的指令，而不得不进行等待延迟的情况，就是今天我们要讲的<strong>控制冒险</strong>（Control Harzard）。这也是流水线设计里最后一种冒险。</p>
+<h3 id="分支预测今天下雨了明天还会继续下雨么">分支预测：今天下雨了，明天还会继续下雨么？</h3>
+<p>在遇到了控制冒险之后，我们的 CPU 具体会怎么应对呢？除了流水线停顿，等待前面的 jmp 指令执行完成之后，再去取最新的指令，还有什么好办法吗？</p>
+<h3 id="缩短分支延迟">缩短分支延迟</h3>
+<p>可以将条件判断、地址跳转，都提前到指令译码阶段进行，而不需要放在指令执行阶段。对应的，我们也要在 CPU 里面设计对应的旁路，在<strong>指令译码阶段</strong>，就提供对应的判断比较的电路。</p>
+<p>这种方式，本质上和前面数据冒险的操作数前推的解决方案类似，就是在硬件电路层面，把一些计算结果更早地反馈到流水线中。这样<strong>反馈变得更快了</strong>，后面的指令需要等待的时间就变短了。</p>
+<h3 id="静态预测分支预测">静态预测分支预测</h3>
+<p>让 CPU 来猜一猜，条件跳转后执行的指令，应该是哪一条。<br />
+最简单的分支预测技术，叫作“<strong>假装分支不发生</strong>”。顾名思义，自然就是仍然按照顺序，把指令往下执行。其实就是 CPU 预测，条件跳转一定不发生。这样的预测方法，其实也是一种<strong>静态预测</strong>技术。就好像猜硬币的时候，你一直猜正面，会有 50% 的正确率。<br />
+如果分支预测是正确的，我们自然赚到了。这个意味着，我们节省下来本来需要停顿下来等待的时间。如果分支预测失败了呢？那我们就把后面已经取出指令已经执行的部分，给丢弃掉，比如：清空已经使用的寄存器里面的数据等等。<br />
+个丢弃的操作，在流水线里面，叫作 Zap 或者 Flush。</p>
+<h3 id="动态分支预测">动态分支预测</h3>
+<p>有一个简单的策略，就是完全根据今天的天气来猜。如果今天下雨，我们就预测明天下雨。如果今天天晴，就预测明天也不会下雨。<br />
+而同样的策略，我们一样可以放在分支预测上。这种策略，我们叫<strong>一级分支预测</strong>（One Level Branch Prediction），或者叫<strong>1 比特饱和计数</strong>（1-bit saturating counter）。这个方法，其实就是<strong>用一个比特，去记录当前分支的比较情况</strong>，直接用当前分支的比较情况，来预测下一次分支时候的比较情况。<br />
+只用一天下雨，就预测第二天下雨，这个方法还是有些“草率”，我们可以用更多的信息，而不只是一次的分支信息来进行预测。于是，我们可以引入一个<strong>状态机</strong>（State Machine）来做这个事情。</p>
+<p>如果连续发生下雨的情况，我们就认为更有可能下雨。之后如果只有一天放晴了，我们仍然认为会下雨。在连续下雨之后，要连续两天放晴，我们才会认为之后会放晴。整个状态机的流转，可以参考我在文稿里放的图。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/c7afc6a1-5c50-4339-b436-679f5846d63a.jpg" /><br />
+这个状态机里，我们一共有 4 个状态，所以我们需要 2 个比特来记录对应的状态。这样这整个策略，就可以叫作<strong>2 比特饱和计数</strong>，或者叫<strong>双模态预测器</strong>（Bimodal Predictor）。</p>
+<h2 id="superscalar和vliw如何让cpu的吞吐率超过1">26 | Superscalar和VLIW：如何让CPU的吞吐率超过1？</h2>
+<p>程序的 CPU 执行时间 = 指令数 × CPI × Clock Cycle Time<br />
+这个公式里，有一个叫 CPI 的指标。我们知道，CPI 的倒数，又叫作 IPC（Instruction Per Clock），也就是一个时钟周期里面能够执行的指令数，代表了 CPU 的吞吐率。那么，这个指标，放在我们前面几节反复优化流水线架构的 CPU 里，能达到多少呢？</p>
+<p>答案是，最佳情况下，IPC 也只能到 1。因为无论做了哪些流水线层面的优化，即使做到了指令执行层面的乱序执行，CPU <strong>仍然只能在一个时钟周期里面，取一条指令</strong>。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/03ea51ff-309a-4b93-a647-0e8b8a1e4d50.jpg" /></p>
+<h3 id="多发射与超标量同一时间执行的两条指令">多发射与超标量：同一时间执行的两条指令</h3>
+<p>我们会有多个 ALU。这也是为什么，在第 24 讲讲乱序执行的时候，你会看到，其实指令的执行阶段，是由很多个功能单元（FU）并行（Parallel）进行的。<br />
+不过，在指令乱序执行的过程中，我们的取指令（IF）和指令译码（ID）部分并不是并行进行的。<br />
+其实只要我们把取指令和指令译码，也一样通过增加硬件的方式，并行进行就好了。我们可以一次性从内存里面取出多条指令，然后分发给多个并行的指令译码器，进行译码，然后对应交给不同的功能单元去处理。这样，我们在一个时钟周期里，能够完成的指令就不只一条了。IPC 也就能做到大于 1 了。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/2282d3e5-297f-44c5-98eb-68f795e4bf57.jpg" /><br />
+这种 CPU 设计，我们叫作<strong>多发射</strong>（Mulitple Issue）和<strong>超标量</strong>（Superscalar）。<br />
+什么叫多发射呢？这个词听起来很抽象，其实它意思就是说，我们同一个时间，可能会同时把多条指令发射（Issue）到不同的译码器或者后续处理的流水线中去。<br />
+在超标量的 CPU 里面，有很多条并行的流水线，而不是只有一条流水线。“超标量“这个词是说，本来我们在一个时钟周期里面，只能执行一个标量（Scalar）的运算。在多发射的情况下，我们就能够超越这个限制，同时进行多次计算。</p>
+<h3 id="intel-的失败之作安腾的超长指令字设计">Intel 的失败之作：安腾的超长指令字设计</h3>
+<p>无论是之前几讲里讲的乱序执行，还是现在更进一步的超标量技术，在实际的硬件层面，其实实施起来都挺麻烦的。这是因为，在乱序执行和超标量的体系里面，我们的 CPU 要解决依赖冲突的问题。这也就是前面几讲我们讲的冒险问题。<br />
+CPU 需要在指令执行之前，去判断指令之间是否有依赖关系。如果有对应的依赖关系，指令就不能分发到执行阶段。因为这样，上面我们所说的超标量 CPU 的多发射功能，又被称为<strong>动态多发射处理器</strong>。这些对于<strong>依赖关系的检测</strong>，都会使得我们的 CPU 电路变得更加复杂。</p>
+<p>在 Intel 的 x86 的 CPU 里，从 Pentium 时代，第一次开始引入超标量技术，整个 CPU 的性能上了一个台阶。对应的技术，一直沿用到了现在。超标量技术和你之前看到的其他流水线技术一样，依赖于在硬件层面，能够检测到对应的指令的先后依赖关系，解决“冒险”问题。所以，它也使得 CPU 的电路变得更复杂了。</p>
+<p>因为这些复杂性，惠普和 Intel 又共同推出了著名的安腾处理器。通过在<strong>编译器层面</strong>接分析出指令的前后依赖关系。于是，硬件在代码编译之后，就可以直接拿到调换好先后顺序的指令。并且这些指令中，可以并行执行的部分，会打包在一起组成一个指令包。安腾处理器在取指令和指令译码的时候，拿到的不再是单个指令，而是这样一个指令包。并且在指令执行阶段，可以并行执行指令包里所有的指令。<br />
+虽然看起来，VLIW (超长指令字)在技术层面更具有颠覆性，不仅仅只是一个硬件层面的改造，而且利用了软件层面的编译器，来组合解决提升 CPU 指令吞吐率的问题。然而，最终 VLIW 却没有得到市场和业界的认可。</p>
+<h2 id="simd如何加速矩阵乘法">27 | SIMD：如何加速矩阵乘法？</h2>
+<h3 id="超线程intel-多卖给你的那一倍-cpu">超线程：Intel 多卖给你的那一倍 CPU</h3>
+<p>超线程的 CPU，其实是把一个物理层面 CPU 核心，“伪装”成两个逻辑层面的 CPU 核心。这个 CPU，会在硬件层面增加很多电路，使得我们可以在一个 CPU 核心内部，维护两个不同线程的指令的状态信息。</p>
+<p>比如，在一个物理 CPU 核心内部，会有<strong>双份的 PC 寄存器、指令寄存器乃至条件码寄存器</strong>。这样，这个 CPU 核心就可以维护两条并行的指令的状态。在外面看起来，似乎有两个逻辑层面的 CPU 在同时运行。所以，超线程技术一般也被叫作<strong>同时多线程</strong>（Simultaneous Multi-Threading，简称 SMT）技术。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/3e5e189a-960a-4670-9bd5-45dc7e156c58.png" /><br />
+不过，你也看到了，我们并没有增加真的功能单元。所以超线程只在特定的应用场景下效果比较好。一般是在那些<strong>各个线程“等待”时间比较长的应用场景下</strong>。比如，我们需要应对很多请求的数据库应用，就很适合使用超线程。各个指令都要等待访问内存数据，但是并不需要做太多计算。</p>
+<h3 id="simd如何加速矩阵乘法-1">SIMD：如何加速矩阵乘法？</h3>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/a148899b-ece8-4397-9853-c3923818709b.jpg" /><br />
+<strong>SIMD</strong>，中文叫作<strong>单指令多数据流</strong>（Single Instruction Multiple Data）<br />
+读数据的时候一次读的多一些，取到了之后，在指令的执行层面，SIMD 也是可以并行进行的。4 个整数各自加 1，互相之前完全没有依赖，也就没有冒险问题需要处理。只要 CPU 里有足够多的功能单元，能够同时进行这些计算，这个加法就是 4 路同时并行的，自然也省下了时间。</p>
+<p>所以，对于那些在计算层面存在<strong>大量“数据并行”（Data Parallelism）的计算中</strong>，使用 SIMD 是一个很划算的办法。在这个大量的“数据并行”，其实通常就是实践当中的<strong>向量或者矩阵运算</strong>。在实际的程序开发过程中，过去通常是在进行图片、视频、音频的处理。最近几年则通常是在进行各种机器学习算法的计算。</p>
+<h3 id="时钟周期时间和指令执行耗时有直接关系吗">时钟周期时间和指令执行耗时有直接关系吗？</h3>
+<p>“晶振时间与 CPU 执行固定指令耗时成正比”，这个说法更准确一点。我们为了理解，可以暂且认为，是晶振在触发一条一条电路变化指令。这就好比你拨算盘的节奏一样。算盘拨得快，珠算就算得快。结果就是，一条简单的指令需要的时间就和一个时钟周期一样。</p>
+<p>从最简单的单指令周期 CPU 来说，其实时钟周期应该是放下最复杂的一条指令的时间长度。但是，我们现在实际用的都没有单指令周期 CPU 了，而是采用了流水线技术。采用了流水线技术之后，单个时钟周期里面，能够执行的就不是一个指令了。我们会把一条机器指令，拆分成很多个小步骤。不同的指令的步骤数量可能还不一样。不同的步骤的执行时间，也不一样。所以，一个时钟周期里面，能够放下的是最耗时间的某一个指令步骤。</p>
+<p>这样的话，单看一条指令，其实一定需要很多个时钟周期。也就是说，从响应时间的角度来看，一个时钟周期一定是不够执行一条指令的。但是呢，因为有流水线，我们同时又会去执行很多个指令的不同步骤。再加上后面讲的像超线程技术等等，从吞吐量的角度来看，我们又能够做到，平均一个时钟周期里面，完成指令数可以超过 1。</p>
+<h3 id="总结延伸-2">总结延伸</h3>
+<p>这一讲，我们讲完了超线程和 SIMD 这两个 CPU 的“并行计算”方案。超线程，其实是一个“线程级并行”的解决方案。它通过让一个物理 CPU 核心，“装作”两个逻辑层面的 CPU 核心，使得 CPU 可以同时运行两个不同线程的指令。虽然，这样的运行仍然有着种种的限制，很多场景下超线程并不一定能带来 CPU 的性能提升。但是 Intel 通过超线程，让使用者有了“占到便宜”的感觉。同样的 4 核心的 CPU，在有些情况下能够发挥出 8 核心 CPU 的作用。而超线程在今天，也已经成为 Intel CPU 的标配了。</p>
+<p>而 SIMD 技术，则是一种“指令级并行”的加速方案，或者我们可以说，它是一种“数据并行”的加速方案。在处理向量计算的情况下，同一个向量的不同维度之间的计算是相互独立的。而我们的 CPU 里的寄存器，又能放得下多条数据。于是，我们可以一次性取出多条数据，交给 CPU 并行计算。</p>
+<h2 id="异常和中断程序出错了怎么办">28 | 异常和中断：程序出错了怎么办？</h2>
+<h3 id="异常硬件系统和应用的组合拳">异常：硬件、系统和应用的组合拳</h3>
+<p>关于异常，最有意思的一点就是，它其实是一个硬件和软件组合到一起的处理过程。异常的前半生，也就是异常的发生和捕捉，是在硬件层面完成的。但是异常的后半生，也就是说，异常的处理，其实是由软件来完成的。</p>
+<p>计算机会为每一种可能会发生的异常，分配一个异常代码（Exception Number）。有些教科书会把异常代码叫作<strong>中断向量</strong>（Interrupt Vector）。异常发生的时候，通常是 <strong>CPU 检测到了一个特殊的信号</strong>。比如，你按下键盘上的按键，输入设备就会给 CPU 发一个信号。或者，正在执行的指令发生了加法溢出，同样，我们可以有一个进位溢出的信号。这些信号呢，在组成原理里面，我们一般叫作发生了一个事件（Event）。CPU 在检测到事件的时候，其实也就拿到了对应的异常代码。</p>
+<p>这些异常代码里，I/O 发出的信号的异常代码，是由操作系统来分配的，也就是由软件来设定的。而像加法溢出这样的异常代码，则是由 CPU 预先分配好的，也就是由硬件来分配的。这又是另一个软件和硬件共同组合来处理异常的过程。</p>
+<p>拿到异常代码之后，CPU 就会触发异常处理的流程。计算机在内存里，会保留一个<strong>异常表</strong>（Exception Table）。也有地方，把这个表叫作<strong>中断向量表</strong>（Interrupt Vector Table），好和上面的中断向量对应起来。我们的 CPU 在拿到了异常码之后，会先把当前的程序执行的现场，保存到程序栈里面，然后根据异常码查询，找到对应的异常处理程序，最后把后续指令执行的指挥权，交给这个异常处理程序</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/24e289d6-68ae-4401-9683-4c13cc6a5be5.jpg" /></p>
+<h3 id="异常的分类中断陷阱故障和中止">异常的分类：中断、陷阱、故障和中止</h3>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/48359f5f-b5f7-4d54-ab1e-fa06e54d5176.png" /><br />
+在处理异常的过程当中，无论是异步的中断，还是同步的陷阱和故障，我们都是采用同一套处理流程，也就是上面所说的，“保存现场、异常代码查询、异常处理程序调用“。而中止类型的异常，其实是在故障类型异常的一种特殊情况。当故障发生，但是我们发现<strong>没有异常处理程序能够处理这种异常的情况下</strong>，程序就不得不进入中止状态，也就是最终会退出当前的程序执行。</p>
+<h3 id="异常的处理上下文切换">异常的处理：上下文切换</h3>
+<p>因为切换到异常处理程序的时候，其实就好像是去调用一个异常处理函数。指令的控制权被切换到了另外一个"函数"里面，所以我们自然要把当前正在执行的指令去压栈。这样，我们才能在异常处理程序执行完成之后，重新回到当前的指令继续往下执行。</p>
+<p>不过，切换到异常处理程序，比起函数调用，还是要更复杂一些。原因有下面几点。</p>
+<ol>
+<li><p>因为异常情况往往发生在程序正常执行的预期之外，比如中断、故障发生的时候。所以，除了本来程序压栈要做的事情之外，我们还需要把 CPU 内当前运行程序用到的所有寄存器，都放到栈里面。最典型的就是条件码寄存器里面的内容。</p></li>
+<li><p>像陷阱这样的异常，涉及程序指令在用户态和内核态之间的切换。对应压栈的时候，对应的数据是压到内核栈里，而不是程序栈里。</p></li>
+<li><p>像故障这样的异常，在异常处理程序执行完成之后。从栈里返回出来，继续执行的不是顺序的下一条指令，而是故障发生的当前指令。因为当前指令因为故障没有正常执行成功，<strong>必须重新去执行一次</strong>。</p></li>
+</ol>
+<p>所以，对于异常这样的处理流程，不像是顺序执行的指令间的函数调用关系。而是更<strong>像两个不同的独立进程</strong>之间在 CPU 层面的切换，所以这个过程我们称之为<strong>上下文切换</strong>（Context Switch）。</p>
+<h2 id="cisc和risc为什么手机芯片都是arm">29 | CISC和RISC：为什么手机芯片都是ARM？</h2>
+<p>CPU 的指令集里的机器码是固定长度还是可变长度，也就是<strong>复杂指令集</strong>（Complex Instruction Set Computing，简称 CISC）和<strong>精简指令集</strong>（Reduced Instruction Set Computing，简称 RISC）这两种风格的指令集一个最重要的差别。</p>
+<p>CPU 指令集的设计，需要仔细考虑硬件限制。为了性能考虑，很多功能都直接通过硬件电路来完成。为了少用内存，指令的长度也是可变的。就像算法和数据结构里的赫夫曼编码（Huffman coding）一样，常用的指令要短一些，不常用的指令可以长一些。那个时候的计算机，想要用尽可能少的内存空间，存储尽量多的指令。</p>
+<p>不过，历史的车轮滚滚向前，计算机的性能越来越好，存储的空间也越来越大了。到了 70 年代末，RISC 开始登上了历史的舞台。当时，<a href="https://en.wikipedia.org/wiki/University_of_California,_Berkeley">UC Berkeley</a>的大卫·帕特森（David Patterson）教授发现，实际在 CPU 运行的程序里，80% 的时间都是在使用 20% 的简单指令。于是，他就提出了 RISC 的理念。自此之后，RISC 类型的 CPU 开始快速蓬勃发展。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/23170e60-b189-427c-a863-9d1d38e396f1.png" /></p>
+<p>RISC 架构的 CPU 的想法其实非常直观。既然我们 80% 的时间都在用 20% 的简单指令，那我们能不能只要那 20% 的简单指令就好了呢？答案当然是可以的。因为指令数量多，计算机科学家们在软硬件两方面都受到了很多挑战。</p>
+<p>在硬件层面，我们要想支持更多的复杂指令，CPU 里面的电路就要更复杂，设计起来也就更困难。更复杂的电路，在散热和功耗层面，也会带来更大的挑战。在软件层面，支持更多的复杂指令，编译器的优化就变得更困难。毕竟，面向 2000 个指令来优化编译器和面向 500 个指令来优化编译器的困难是完全不同的。<br />
+于是，在 RISC 架构里面，CPU 选择把指令“精简”到 20% 的简单指令。而原先的复杂指令，则通过用<strong>简单指令组合</strong>起来来实现，<strong>让软件来实现硬件</strong>的功能。这样，CPU 的整个硬件设计就会变得更简单了，在硬件层面提升性能也会变得更容易了。<br />
+RISC 的 CPU 里完成指令的电路变得简单了，于是也就腾出了更多的空间。这个空间，常常被拿来放通用寄存器。因为 RISC 完成同样的功能，执行的指令数量要比 CISC 多，所以，如果需要反复从内存里面读取指令或者数据到寄存器里来，那么很多时间就会花在访问内存上。于是，RISC 架构的 CPU 往往就有更多的通用寄存器。</p>
+<p>回到第 4 讲讲的程序运行时间的公式：</p>
+<blockquote>
+<p>CPU 执行时间 = 指令数 × CPI × Clock Cycle Time</p>
+</blockquote>
+<p>CISC 的架构，其实就是通过优化指令数，来减少 CPU 的执行时间。<br />
+而 RISC 的架构，其实是在优化 CPI。因为指令比较简单，需要的时钟周期就比较少。</p>
+<p>AMD，趁着 Intel 研发安腾的时候，推出了兼容 32 位 x86 指令集的 64 位架构，也就是 AMD64。如果你现在在 Linux 下安装各种软件包，一定经常会看到像下面这样带有 AMD64 字样的内容。这是因为 x86 下的 64 位的指令集 x86-64，并不是 Intel 发明的，而是 AMD 发明的。</p>
+<p>花开两朵，各表一枝。Intel 在开发安腾处理器的同时，也在不断借鉴其他 RISC 处理器的设计思想。既然核心问题是要始终向前兼容 x86 的指令集，那么我们能不能不修改指令集，但是让 CISC 风格的指令集，用 RISC 的形式在 CPU 里面运行呢？<br />
+于是，从 Pentium Pro 时代开始，Intel 就开始在处理器里引入了<strong>微指令</strong>（Micro-Instructions/Micro-Ops）<strong>架构</strong>。而微指令架构的引入，也让 CISC 和 RISC 的分界变得模糊了。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/72bc796b-fd10-4616-8425-1e260d6a0378.jpg" /></p>
+<p>在微指令架构的 CPU 里面，编译器编译出来的机器码和汇编代码并没有发生什么变化。但在<strong>指令译码的阶段</strong>，指令译码器“翻译”出来的，不再是某一条 CPU 指令。译码器会把一条机器码，“<strong>翻译</strong>”成好几条“微指令”。这里的一条条微指令，就不再是 CISC 风格的了，而是变成了固定长度的 RISC 风格的了。</p>
+<p>这些 RISC 风格的微指令，会被放到一个<strong>微指令缓冲区</strong>里面，然后再从缓冲区里面，分发给到后面的超标量，并且是乱序执行的流水线架构里面。不过这个流水线架构里面接受的，就不是复杂的指令，而是精简的指令了。在这个架构里，我们的指令译码器相当于变成了设计模式里的一个“<strong>适配器”（Adaptor）</strong>。这个适配器，填平了 CISC 和 RISC 之间的指令差异。<br />
+不过，凡事有好处就有坏处。这样一个能够把 CISC 的指令译码成 RISC 指令的指令译码器，比原来的指令译码器要复杂。这也就意味着更复杂的电路和更长的译码时间：本来以为可以通过 RISC 提升的性能，结果又有一部分浪费在了指令译码上。针对这个问题，我们有没有更好的办法呢？</p>
+<p>我在前面说过，之所以大家认为 RISC 优于 CISC，来自于一个数字统计，那就是在实际的程序运行过程中，有 80% 运行的代码用着 20% 的常用指令。这意味着，CPU 里执行的代码有很强的局部性。而对于有着很强局部性的问题，常见的一个解决方案就是使用缓存。</p>
+<p>所以，Intel 就在 CPU 里面加了一层 <strong>L0 Cache</strong>。这个 Cache 保存的就是指令译码器把 CISC 的指令“翻译”成 RISC 的微指令的结果。于是，在大部分情况下，CPU 都可以从 Cache 里面拿到译码结果，而不需要让译码器去进行实际的译码操作。这样不仅优化了性能，因为译码器的晶体管开关动作变少了，还减少了功耗。</p>
+<p>因为“微指令”架构的存在，从 Pentium Pro 开始，Intel 处理器已经不是一个纯粹的 CISC 处理器了。它同样融合了大量 RISC 类型的处理器设计。不过，由于 Intel 本身在 CPU 层面做的大量优化，比如乱序执行、分支预测等相关工作，x86 的 CPU 始终在功耗上还是要远远超过 RISC 架构的 ARM，所以最终在智能手机崛起替代 PC 的时代，落在了 ARM 后面。</p>
+<h3 id="arm-和-risc-vcpu-的现在与未来">ARM 和 RISC-V：CPU 的现在与未来</h3>
+<p>ARM 这个名字现在的含义，是“Advanced RISC Machines”。你从名字就能够看出来，ARM 的芯片是基于 RISC 架构的。不过，ARM 能够在移动端战胜 Intel，并不是因为 RISC 架构。</p>
+<p>ARM 真正能够战胜 Intel，我觉得主要是因为下面这两点原因。<br />
+* 第一点是功耗优先的设计。<br />
+ARM 的 CPU，主频更低，晶体管更少，高速缓存更小，乱序执行的能力更弱。所有这些，都是为了功耗所做的妥协。<br />
+* 第二点则是低价。<br />
+ARM 并没有自己垄断 CPU 的生产和制造，只是进行 CPU 设计，然后把对应的知识产权授权出去，让其他的厂商来生产 ARM 架构的 CPU。ARM 自己只是<strong>收取对应的专利授权费用</strong>。多个厂商之间的竞争，使得 ARM 的芯片在市场上价格很便宜。所以，尽管 ARM 的芯片的出货量远大于 Intel，但是收入和利润却比不上 Intel。</p>
+<p>不过，ARM 并不是开源的。所以，在 ARM 架构逐渐垄断移动端芯片市场的时候，“<strong>开源硬件</strong>”也慢慢发展起来了。一方面，MIPS 在 2019 年宣布开源；另一方面，从 UC Berkeley 发起的<a href="https://riscv.org/">RISC-V</a>项目也越来越受到大家的关注。而 RISC 概念的发明人，图灵奖的得主大卫·帕特森教授从伯克利退休之后，成了 RISC-V 国际开源实验室的负责人，开始推动 RISC-V 这个“CPU 届的 Linux”的开发。可以想见，未来的开源 CPU，也多半会像 Linux 一样，逐渐成为一个业界的主流选择。如果想要“打造一个属于自己 CPU”，不可不关注这个项目。</p>
+<h2 id="gpu上为什么玩游戏需要使用gpu">30 | GPU（上）：为什么玩游戏需要使用GPU？</h2>
+<h3 id="图形渲染的流程">图形渲染的流程</h3>
+<p>那为什么 CPU 的性能已经大幅度提升了，但是我们还需要单独的 GPU 呢？想要了解这个问题，我们先来看一看三维图像实际通过计算机渲染出来的流程。</p>
+<p>这个对于图像进行实时渲染的过程，可以被分解成下面这样 5 个步骤：<br />
+1. 顶点处理（Vertex Processing）<br />
+构成多边形建模的每一个多边形呢，都有多个顶点（Vertex）。这些顶点都有一个在三维空间里的坐标。但是我们的屏幕是二维的，所以在确定当前视角的时候，我们需要把这些顶点在三维空间里面的位置，<strong>转化到屏幕这个二维空间里面</strong>。这个转换的操作，就被叫作顶点处理。<br />
+这样的转化都是通过线性代数的计算来进行的。可以想见，我们的建模越精细，需要转换的顶点数量就越多，计算量就越大。<strong>而且，这里面每一个顶点位置的转换，互相之间没有依赖，是可以并行独立计算的。</strong></p>
+<ol>
+<li><p>图元处理（Primitive Processing）<br />
+图元处理，其实就是要把顶点处理完成之后的各个顶点连起来，变成多边形。其实转化后的顶点，仍然是在一个三维空间里，只是第三维的 Z 轴，是正对屏幕的“深度”。所以我们针对这些多边形，需要做一个操作，叫剔除和裁剪（Cull and Clip），也就是把不在屏幕里面，或者一部分不在屏幕里面的内容给去掉，减少接下来流程的工作量。</p></li>
+<li><p>栅格化（Rasterization）<br />
+在图元处理完成之后呢，渲染还远远没有完成。我们的屏幕分辨率是有限的。它一般是通过一个个“像素（Pixel）”来显示出内容的。所以，对于做完图元处理的多边形，我们要开始进行第三步操作。这个操作就是把它们<strong>转换成屏幕里面的一个个像素点</strong>。这个操作呢，就叫作栅格化。<strong>这个栅格化操作，有一个特点和上面的顶点处理是一样的，就是每一个图元都可以并行独立地栅格化。</strong></p></li>
+<li><p>片段处理（Fragment Processing）<br />
+在栅格化变成了像素点之后，我们的图还是“黑白”的。我们还需要计算每一个像素的颜色、透明度等信息，给像素点上色。这步操作，就是片段处理。<strong>这步操作，同样也可以每个片段并行、独立进行，和上面的顶点处理和栅格化一样。</strong></p></li>
+<li><p>像素操作（Pixel Operations）<br />
+最后一步呢，我们就要把不同的多边形的像素点“混合（Blending）”到一起。可能前面的多边形可能是半透明的，那么前后的颜色就要混合在一起变成一个新的颜色；或者前面的多边形遮挡住了后面的多边形，那么我们只要显示前面多边形的颜色就好了。最终，输出到显示设备。</p></li>
+</ol>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/b145c632-043b-4f08-b828-1428ac366058.png" /><br />
+经过这完整的 5 个步骤之后，我们就完成了从三维空间里的数据的渲染，变成屏幕上你可以看到的 3D 动画了。这样 5 个步骤的渲染流程呢，一般也被称之为<strong>图形流水线</strong>（Graphic Pipeline）。</p>
+<h3 id="解放图形渲染的-gpu">解放图形渲染的 GPU</h3>
+<p>我们可以想一想，如果用 CPU 来进行这个渲染过程，需要花上多少资源呢？我们可以通过一些数据来做个粗略的估算。</p>
+<p>在上世纪 90 年代的时候，屏幕的分辨率还没有现在那么高。一般的 CRT 显示器也就是 640×480 的分辨率。这意味着屏幕上有 30 万个像素需要渲染。为了让我们的眼睛看到画面不晕眩，我们希望画面能有 60 帧。于是，每秒我们就要重新渲染 60 次这个画面。也就是说，每秒我们需要完成 1800 万次单个像素的渲染。从栅格化开始，每个像素有 3 个流水线步骤，即使每次步骤只有 1 个指令，那我们也需要 5400 万条指令，也就是 54M 条指令。</p>
+<p>90 年代的 CPU 的性能是多少呢？93 年出货的第一代 Pentium 处理器，主频是 60MHz，后续逐步推出了 66MHz、75MHz、100MHz 的处理器。以这个性能来看，用 CPU 来渲染 3D 图形，基本上就要把 CPU 的性能用完了。因为实际的每一个渲染步骤可能不止一个指令，我们的 CPU 可能根本就跑不动这样的三维图形渲染。</p>
+<p>也就是在这个时候，Voodoo FX 这样的图形加速卡登上了历史舞台。既然图形渲染的流程是固定的，那我们直接用硬件来处理这部分过程，不用 CPU 来计算是不是就好了？很显然，这样的硬件会<strong>比制造有同样计算性能的 CPU 要便宜得多</strong>。因为整个计算流程是完全固定的，不需要流水线停顿、乱序执行等等的各类导致 CPU 计算变得复杂的问题。我们也不需要有什么可编程能力，只要让硬件按照写好的逻辑进行运算就好了。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/128c214a-5c25-49d0-ae16-32bff59944dc.jpg" /></p>
+<h3 id="总结延伸-3">总结延伸</h3>
+<p>这一讲里，我带你了解了一个基于多边形建模的三维图形的渲染过程。这个渲染过程需要经过顶点处理、图元处理、栅格化、片段处理以及像素操作这 5 个步骤。这 5 个步骤把存储在内存里面的多边形数据变成了渲染在屏幕上的画面。因为里面的很多步骤，都需要渲染整个画面里面的每一个像素，所以其实计算量是很大的。我们的 CPU 这个时候，就有点跑不动了。</p>
+<p>于是，像 3dfx 和 NVidia 这样的厂商就推出了 3D 加速卡，用硬件来完成图元处理开始的渲染流程。这些加速卡和现代的显卡还不太一样，它们是<strong>用固定的处理流程来完成整个 3D 图形渲染的过程</strong>。不过，因为不用像 CPU 那样考虑计算和处理能力的通用性。我们就可以用比起 CPU 芯片更低的成本，更好地完成 3D 图形的渲染工作。而 3D 游戏的时代也是从这个时候开始的。</p>
+<h2 id="gpu下为什么深度学习需要使用gpu">31 | GPU（下）：为什么深度学习需要使用GPU？</h2>
+<h3 id="shader-的诞生和可编程图形处理器">Shader 的诞生和可编程图形处理器</h3>
+<p>1999 年 NVidia 推出的 GeForce 256 显卡，就把顶点处理的计算能力，也从 CPU 里挪到了显卡里。不过，这对于想要做好 3D 游戏的程序员们还不够，即使到了 GeForce 256。整个图形渲染过程都是在硬件里面固定的管线来完成的。程序员们在加速卡上能做的事情呢，只有改配置来实现不同的图形渲染效果。如果通过改配置做不到，我们就没有什么办法了。</p>
+<p>这个时候，程序员希望我们的 GPU 也能有一定的可编程能力。这个编程能力不是像 CPU 那样，有非常通用的指令，可以进行任何你希望的操作，而是在整个的<strong>渲染管线</strong>（Graphics Pipeline）的一些特别步骤，能够自己去定义处理数据的算法或者操作。于是，从 2001 年的 Direct3D 8.0 开始，微软第一次引入了<strong>可编程管线</strong>（Programable Function Pipeline）的概念。</p>
+<p>一开始的可编程管线呢，仅限于顶点处理（Vertex Processing）和片段处理（Fragment Processing）部分。比起原来只能通过显卡和 Direct3D 这样的图形接口提供的固定配置，程序员们终于也可以开始在图形效果上开始大显身手了。</p>
+<p>这些可以编程的接口，我们称之为<strong>Shader</strong>，中文名称就是<strong>着色器</strong>。之所以叫“着色器”，是因为一开始这些“可编程”的接口，只能修改顶点处理和片段处理部分的程序逻辑。我们用这些接口来做的，也主要是光照、亮度、颜色等等的处理，所以叫着色器。</p>
+<p>这个时候的 GPU，有两类 Shader，也就是 <strong>Vertex Shader</strong> 和 <strong>Fragment Shader</strong>。我们在上一讲看到，在进行顶点处理的时候，我们操作的是多边形的顶点；在片段操作的时候，我们操作的是屏幕上的像素点。对于顶点的操作，通常比片段要复杂一些。所以一开始，这两类 Shader 都是独立的硬件电路，也各自有独立的编程接口。因为这么做，硬件设计起来更加简单，一块 GPU 上也能容纳下更多的 Shader。</p>
+<p>不过呢，大家很快发现，虽然我们在顶点处理和片段处理上的具体逻辑不太一样，但是里面用到的指令集可以用同一套。而且，虽然把 Vertex Shader 和 Fragment Shader 分开，<strong>可以减少硬件设计的复杂程度，但是也带来了一种浪费</strong>，有一半 Shader 始终没有被使用。在整个渲染管线里，Vertext Shader 运行的时候，Fragment Shader 停在那里什么也没干。Fragment Shader 在运行的时候，Vertext Shader 也停在那里发呆。</p>
+<p>本来 GPU 就不便宜，结果设计的电路有一半时间是闲着的。喜欢精打细算抠出每一分性能的硬件工程师当然受不了了。于是，<strong>统一着色器架构</strong>（Unified Shader Architecture）就应运而生了。</p>
+<p>既然大家用的指令集是一样的，那不如就在 GPU 里面放很多个一样的 Shader 硬件电路，然后通过统一调度，把顶点处理、图元处理、片段处理这些任务，都交给这些 Shader 去处理，让整个 GPU 尽可能地忙起来。这样的设计，就是我们现代 GPU 的设计，就是统一着色器架构。</p>
+<p>有意思的是，这样的 GPU 并不是先在 PC 里面出现的，而是来自于一台游戏机，就是微软的 XBox 360。后来，这个架构才被用到 ATI 和 NVidia 的显卡里。这个时候的“着色器”的作用，其实已经和它的名字关系不大了，而是变成了一个通用的抽象计算模块的名字。</p>
+<p>正是因为 <strong>Shader 变成一个“通用”的模块</strong>，才有了把 GPU 拿来做各种通用计算的用法，也就是<strong>GPGPU</strong>（General-Purpose Computing on Graphics Processing Units，<strong>通用图形处理器</strong>）。而正是因为 GPU 可以拿来做各种通用的计算，才有了过去 10 年深度学习的火热。</p>
+<h3 id="现代-gpu-的三个核心创意">现代 GPU 的三个核心创意</h3>
+<h4 id="芯片瘦身">芯片瘦身</h4>
+<p>我们先来回顾一下，之前花了很多讲仔细讲解的现代 CPU。现代 CPU 里的晶体管变得越来越多，越来越复杂，其实已经不是用来实现“计算”这个核心功能，而是拿来实现处理乱序执行、进行分支预测，以及我们之后要在存储器讲的高速缓存部分。</p>
+<p>而在 GPU 里，这些电路就显得有点多余了，GPU 的整个处理过程是一个<a href="https://en.wikipedia.org/wiki/Stream_processing">流式处理</a>（Stream Processing）的过程。因为没有那么多分支条件，或者复杂的依赖关系，我们可以把 GPU 里这些对应的电路都可以去掉，做一次小小的瘦身，只留下取指令、指令译码、ALU 以及执行这些计算需要的寄存器和缓存就好了。一般来说，我们会把这些电路抽象成三个部分，就是下面图里的取指令和指令译码、ALU 和执行上下文。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/d83d8737-2f32-4331-a377-d62891db8911.jpg" /></p>
+<h4 id="多核并行和-simt">多核并行和 SIMT</h4>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/db4064b5-a333-4232-9531-e993be7b6f8f.jpg" /></p>
+<h4 id="gpu-里的超线程">GPU 里的“超线程”</h4>
+<p>虽然 GPU 里面的主要以数值计算为主。不过既然已经是一个“通用计算”的架构了，GPU 里面也避免不了会有 if…else 这样的条件分支。但是，在 GPU 里我们可没有 CPU 这样的分支预测的电路。这些电路在上面“芯片瘦身”的时候，就已经被我们砍掉了。</p>
+<p>所以，GPU 里的指令，可能会遇到和 CPU 类似的“流水线停顿”问题。想到流水线停顿，你应该就能记起，我们之前在 CPU 里面讲过超线程技术。在 GPU 上，我们一样可以做类似的事情，也就是<strong>遇到停顿的时候，调度一些别的计算任务给当前的 ALU</strong>。</p>
+<p>和超线程一样，既然要调度一个不同的任务过来，我们就需要针对这个任务，提供更多的<strong>执行上下文</strong>。所以，一个 Core 里面的<strong>执行上下文</strong>的数量，需要比 ALU 多。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/45e4fdbe-2d86-46e4-a1fb-ea69ce640634.jpg" /></p>
+<h3 id="gpu-在深度学习上的性能差异">GPU 在深度学习上的性能差异</h3>
+<p>在通过芯片瘦身、SIMT 以及更多的执行上下文，我们就有了一个更擅长并行进行暴力运算的 GPU。这样的芯片，也正适合我们今天的深度学习的使用场景。</p>
+<p>一方面，GPU 是一个可以进行“通用计算”的框架，我们可以通过编程，在 GPU 上实现不同的算法。另一方面，现在的深度学习计算，都是超大的向量和矩阵，海量的训练样本的计算。整个计算过程中，没有复杂的逻辑和分支，非常适合 GPU 这样并行、计算能力强的架构。</p>
+<p>今天，随着 GPGPU 的推出，GPU 已经不只是一个图形计算设备，更是一个用来做数值计算的好工具了。同样，也是因为 GPU 的快速发展，带来了过去 10 年深度学习的繁荣。</p>
+<h2 id="fpgaasic和tpu上计算机体系结构的黄金时代">32 | FPGA、ASIC和TPU（上）：计算机体系结构的黄金时代</h2>
+<h3 id="fpga">FPGA</h3>
+<p>FPGA 本质上是一个可以<strong>通过编程，来控制硬件电路的芯片</strong>。我们通过用 LUT 这样的存储设备，来代替需要的硬连线的电路，有了可编程的逻辑门，然后把很多 LUT 和寄存器放在一起，变成一个更复杂的逻辑电路，也就是 CLB，然后通过控制可编程布线中的很多开关，最终设计出属于我们自己的芯片功能。FPGA，常常被我们用来进行芯片的设计和验证工作，也可以直接拿来当成专用的芯片，替换掉 CPU 或者 GPU，以节约成本。</p>
+<h3 id="asic专用集成电路">ASIC(专用集成电路)</h3>
+<p>除了 CPU、GPU，以及刚刚的 FPGA，我们其实还需要用到很多其他芯片。比如，现在手机里就有专门用在摄像头里的芯片；录音笔里会有专门处理音频的芯片。尽管一个 CPU 能够处理好手机拍照的功能，也能处理好录音的功能，但是在我们直接在手机或者录音笔里塞上一个 Intel CPU，显然比较浪费。</p>
+<p>于是，我们就考虑为这些有专门用途的场景，单独设计一个芯片。这些专门设计的芯片呢，我们称之为<strong>ASIC</strong>（<strong>Application-Specific Integrated Circuit</strong>），也就是<strong>专用集成电路</strong>。事实上，过去几年，ASIC 发展得仍旧特别快。因为 ASIC 是针对专门用途设计的，所以它的电路更精简，单片的制造成本也比 CPU 更低。而且，因为电路精简，所以通常能耗要比用来做通用计算的 CPU 更低。而我们上一讲所说的早期的图形加速卡，其实就可以看作是一种 ASIC。</p>
+<p>那么，我们能不能用刚才说的 FPGA 来做 ASIC 的事情呢？当然是可以的。我们对 FPGA 进行“编程”，其实就是把 FPGA 的电路变成了一个 ASIC。这样的芯片，往往在成本和功耗上优于需要做通用计算的 CPU 和 GPU。</p>
+<p>到底使用 ASIC 这样的专用芯片，还是采用 FPGA 这样可编程的通用硬件，核心的决策因素还是成本。不过这个成本，不只是单个芯片的生产制造成本，还要考虑<strong>总体拥有成本</strong>（Total Cost of Ownership），也就是说，除了生产成本之外，我们要把研发成本也算进去。如果我们只制造了一片芯片，那么成本就是“这枚芯片的成本 + 为了这枚芯片建的生产线的成本 + 芯片的研发成本”，而不只是“芯片的原材料沙子的成本 + 生产的电费”。</p>
+<p>单个 ASIC 的生产制造成本比 FPGA 低，ASIC 的能耗也比能实现同样功能的 FPGA 要低。能耗低，意味着长时间运行这些芯片，所用的电力成本也更低。</p>
+<p>但是，ASIC 有一笔很高的 NRE（Non-Recuring Engineering Cost，一次性工程费用）成本。这个成本，就是 ASIC 实际“研发”的成本。只有需要大量生产 ASIC 芯片的时候，我们才能摊薄这份研发成本。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/75959493-b3ff-4145-800f-7791d0c37282.jpg" /></p>
+<h2 id="解读tpu设计和拆解一块asic芯片">33 | 解读TPU：设计和拆解一块ASIC芯片</h2>
+<p>上一讲，我为你讲解了 FPGA 和 ASIC，讲解了 FPGA 如何实现通过“软件”来控制“硬件”，以及我们可以进一步把 FPGA 设计出来的电路变成一块 ASIC 芯片。</p>
+<h3 id="tpu-v1-想要解决什么问题">TPU V1 想要解决什么问题？</h3>
+<p>第一代的 TPU，首先优化的并不是深度学习的模型训练，而是深度学习的模型推断。这个时候你可能要问了，那模型的训练和推断有什么不同呢？主要有三个点。<br />
+1. 深度学习的推断工作更简单，对灵活性的要求也就更低。<br />
+2. 深度学习的推断的性能，首先要保障响应时间的指标<br />
+3. 深度学习的推断工作，希望在功耗上尽可能少一些。</p>
+<p>这三点的差别，也就带出了第一代 TPU 的设计目标。那就是，在保障响应时间的情况下，能够尽可能地提高<strong>能效比</strong>这个指标，也就是进行同样多数量的推断工作，花费的整体能源要显著低于 CPU 和 GPU。</p>
+<h3 id="深入理解-tpu-v1">深入理解 TPU V1</h3>
+<h4 id="快速上线和向前兼容一个-fpu-的设计">快速上线和向前兼容，一个 FPU 的设计</h4>
+<p>第一点，向前兼容。在计算机产业界里，因为没有考虑向前兼容，惨遭失败的产品数不胜数。<br />
+第二点，TPU 甚至没有像我们之前说的现代 GPU 一样，设计成自己有对应的取指令的电路，而是通过 CPU，向 TPU 发送需要执行的指令。<br />
+这两个设计，使得我们的 TPU 的硬件设计变得简单了，我们只需要专心完成一个专用的“计算芯片”就好了。</p>
+<h4 id="专用电路和大量缓存适应推断的工作流程">专用电路和大量缓存，适应推断的工作流程</h4>
+<p>模块图：整个 TPU 的硬件，完全是按照深度学习一个层（Layer）的计算流程来设计的<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/21816fc1-1a14-476a-b826-f2aa7bed6937.jpg" /></p>
+<p>一个深度学习的推断过程，是由很多层的计算组成的。而每一个层（Layer）的计算过程，就是先进行矩阵乘法，再进行累加，接着调用激活函数，最后进行归一化和池化。这里的硬件设计呢，就是把整个流程变成一套固定的硬件电路。这也是一个 ASIC 的典型设计思路，其实就是把确定的程序指令流程，变成固定的硬件电路。</p>
+<h4 id="细节优化使用-8-bits-数据">细节优化，使用 8 Bits 数据</h4>
+<p>如果你仔细一点看的话，会发现这个矩阵乘法单元，没有用 32 Bits 来存放一个浮点数，而是只用了一个 8 Bits 来存放浮点数。这是因为，在实践的机器学习应用中，会对数据做<a href="https://en.wikipedia.org/wiki/Normalization">归一化</a>（Normalization）和<a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">正则化</a>（Regularization）的处理。咱们毕竟不是一个机器学习课，所以我就不深入去讲什么是归一化和正则化了，你只需要知道，这两个操作呢，会使得我们在深度学习里面操作的数据都不会变得太大。通常来说呢，都能控制在 -3 到 3 这样一定的范围之内。<br />
+所以，8 Bits 的矩阵乘法器，就可以放下更多的计算量，使得 TPU 的推断速度更快。</p>
+<h2 id="理解虚拟机你在云上拿到的计算机是什么样的">34 | 理解虚拟机：你在云上拿到的计算机是什么样的？</h2>
+<p><strong>虚拟机</strong>（Virtual Machine）技术，其实就是指在现有硬件的操作系统上，能够<strong>模拟</strong>一个计算机系统的技术。而模拟一个计算机系统，最简单的办法，其实不能算是虚拟机技术，而是一个模拟器（Emulator）。</p>
+<h3 id="解释型虚拟机">解释型虚拟机</h3>
+<p>要模拟一个计算机系统，最简单的办法，就是兼容这个计算机系统的指令集。我们可以开发一个应用程序，跑在我们的操作系统上。这个应用程序呢，可以识别我们想要模拟的、计算机系统的程序格式和指令，然后一条条去解释执行。</p>
+<p>在这个过程中，我们把原先的操作系统叫作<strong>宿主机</strong>（Host），把能够有能力去模拟指令执行的软件，叫作<strong>模拟器</strong>（Emulator），而实际运行在模拟器上被“虚拟”出来的系统呢，我们叫<strong>客户机</strong>（Guest VM）。</p>
+<p><strong>这种解释执行方式的最大的优势就是，模拟的系统可以跨硬件</strong>。比如，Android 手机用的 CPU 是 ARM 的，而我们的开发机用的是 Intel X86 的，两边的 CPU 指令集都不一样，但是一样可以正常运行。如果你想玩的街机游戏，里面的硬件早就已经停产了，那你自然只能选择 MAME 这样的模拟器。</p>
+<p>不过这个方式也有两个明显的缺陷。<br />
+第一个是，我们<strong>做不到精确的“模拟”</strong>。很多的老旧的硬件的程序运行，要依赖特定的电路乃至电路特有的时钟频率，想要通过软件达到 100% 模拟是很难做到的。<br />
+第二个缺陷就更麻烦了，那就是这种解释执行的方式，<strong>性能实在太差了</strong>。因为我们并不是直接把指令交给 CPU 去执行的，而是要经过各种解释和翻译工作。</p>
+<h3 id="type-1-和-type-2虚拟机的性能提升">Type-1 和 Type-2：虚拟机的性能提升</h3>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/ed5572f3-2c4a-4382-b01f-8fe9de927e13.jpg" /></p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/bff0cbda-9be2-4516-ae81-022deff68cb8.jpg" /></p>
+<h3 id="docker新时代的最佳选择">Docker：新时代的最佳选择？</h3>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/db583a09-b242-4e2b-bc21-5ed0f77941d1.jpg" /></p>
+<h3 id="总结延伸-4">总结延伸</h3>
+<p>虚拟机是模拟一个计算机系统的技术，而其中最简单的办法叫模拟器。我们日常在 PC 上进行 Android 开发，其实就是在使用这样的模拟器技术。不过模拟器技术在性能上实在不行，所以我们才有了虚拟化这样的技术。</p>
+<p>在宿主机的操作系统上，运行一个虚拟机监视器，然后再在虚拟机监视器上运行客户机的操作系统，这就是现代的虚拟化技术。这里的虚拟化技术可以分成 Type-1 和 Type-2 这两种类型。</p>
+<p>Type-1 类型的虚拟化机，实际的指令不需要再通过宿主机的操作系统，而可以直接通过虚拟机监视器访问硬件，所以性能比 Type-2 要好。而 Type-2 类型的虚拟机，所有的指令需要经历客户机操作系统、虚拟机监视器、宿主机操作系统，所以性能上要慢上不少。不过因为经历了宿主机操作系统的一次“翻译”过程，它的硬件兼容性往往会更好一些。</p>
+<p>今天，即使是 Type-1 型的虚拟机技术，我们也会觉得有一些性能浪费。我们常常在同一个物理机上，跑上 8 个、10 个的虚拟机。而且这些虚拟机的操作系统，其实都是同一个 Linux Kernel 的版本。于是，轻量级的 Docker 技术就进入了我们的视野。Docker 也被很多人称之为“操作系统级”的虚拟机技术。不过 Docker 并没有再单独运行一个客户机的操作系统，而是直接运行在宿主机操作系统的内核之上。所以，Docker 也是现在流行的微服务架构底层的基础设施。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

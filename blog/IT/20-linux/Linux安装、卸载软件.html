@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/20-linux/Linux安装、卸载软件</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+ <!--if(toc)-->
+
+<p>卸载的方式要和安装的方式一致：</p>
+<p>一、通常Linux应用软件的安装包有三种：</p>
+<p>1) tar包，如software-1.2.3-1.tar.gz。它是使用UNIX系统的打包工具tar打包的。<br />
+2) rpm包，如software-1.2.3-1.i386.rpm。它是Redhat Linux提供的一种包封装格式。安装rpm包的命令是"rpm -参数，包管理工具 yum 。"<br />
+3) deb包，如software-1.2.3-1.deb。它是Debain Linux提供的一种包封装格式。安装deb包的命令是"dpkg -参数"，包管理工具 apt-get。</p>
+<p>二、包命名规则：<br />
+大多数Linux应用软件包的命名也有一定的规律，它遵循：名称-版本-修正版-类型</p>
+<p>例如：<br />
+1) software-1.2.3-1.tar.gz 意味着：<br />
+　　　　软件名称：software<br />
+　　　　版本号：1.2.3<br />
+　　　　修正版本：1<br />
+　　　　类型：tar.gz，说明是一个tar包。</p>
+<p>2) sfotware-1.2.3-1.i386.rpm</p>
+<p>　　　　软件名称：software<br />
+　　　　版本号：1.2.3<br />
+　　　　修正版本：1<br />
+　　　　可用平台：i386，适用于Intel 80x86平台。<br />
+　　　　类型：rpm，说明是一个rpm包。<br />
+　　　　注：由于rpm格式的通常是已编译的程序，所以需指明平台。<br />
+三、讲解几种方式安装与卸载软件：</p>
+<p>1、yum<br />
+注意：有个前提是yum安装的软件包都是rpm格式的<br />
+search的命令也很有用 ： yum search python | grep python-devel</p>
+<p>安装软件包命令：yum -y install ~<br />
+删除软件包命令：yum -y remove ~</p>
+<p>2、RPM<br />
+安装：rpm -ivh xxx.rpm<br />
+重新安装：rpm -ivh -replacepkgs xxx.rpm<br />
+卸载：rpm -e xxx.rpm<br />
+查询安装哪些软件：rpm -qa|grep [package name]<br />
+查看rpm包安装在哪里：rpm -ql [package name]</p>
+<p>3、tar.gz， tar.bz, tar.bz2<br />
+安装：<br />
+（1）解压：tar -zxvf xxx.tar.gz ( tar -jxvf xxx.tar.bz(or bz2) )<br />
+（2）./configure (./configure --prefix=path (如：/usr/local/xxx)<br />
+（3）make<br />
+（4）make install<br />
+卸载：<br />
+make uninstall<br />
+或者如果删除，就删除相应的软件目录；</p>
+<p>4、bin<br />
+安装：<br />
+（1）chmod +x xxx.bin （添加执行权限）<br />
+（2）执行文件：./xxx.bin<br />
+卸载：<br />
+直接删除安装目录</p>
+<p>5、pip安装python包<br />
+先安装install python-setuptools python-pip<br />
+安装： pip install xxx<br />
+卸载： pip uninstall xxx</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

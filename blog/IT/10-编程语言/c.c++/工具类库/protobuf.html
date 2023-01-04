@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/10-编程语言/c.c++/工具类库/protobuf</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#优点">优点</a></li>
+<li><a href="#缺点">缺点</a></li>
+<li><a href="#编写.proto文件">编写.proto文件</a></li>
+<li><a href="#编译.proto">编译.proto</a></li>
+<li><a href="#数字编号">数字编号</a></li>
+<li><a href="#其他资源">其他资源</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>protobuf 是一个开源项目，而且是后台很硬的开源项目。</p>
+<p>它是一种轻便高效的结构化数据存储格式，适合做数据存储或传输协议格式</p>
+<h3 id="优点">优点</h3>
+<ul>
+<li><p>性能好/效率高<br />
+Google公司为啥放着好端端的 XML 不用，非要另起炉灶，重新造轮子<br />
+XML格式化（序列化）的开销倒还好；但是 XML 解析（反序列化）的开销就不敢恭维<br />
+Google自然无法容忍XML在性能上的明显缺点。再加上 Google 从来就不缺造轮子的牛人，所以 protobuf 也就应运而生了</p></li>
+<li><p>代码生成机制<br />
+一般来说，一个 message 结构会生成一个包装类<br />
+有了这种代码生成机制，开发人员再也不用吭哧吭哧地编写那些协议解析的代码了（干这种活是典型的吃力不讨好）<br />
+从某种意义上讲，可以把proto文件看成是描述通讯协议的规格说明书（或者叫接口规范）</p></li>
+<li><p>支持“向后兼容”和“向前兼容”<br />
+所谓的【向后兼容】（backward compatible），就是说，当模块 B 升级了之后，它能够正确识别模块 A 发出的【老】版本的协议。由于老版本没有“状态”这个属性，在扩充协议时，可以考虑把“状态”属性设置成【非必填】的，或者给“状态”属性设置一个缺省值（如何设置缺省值，参见“这里”）。<br />
+所谓的【向前兼容】（forward compatible），就是说，当模块 A 升级了之后，模块 B 能够正常识别模块 A 发出的【新】版本的协议。这时候，新增加的“状态”属性会被忽略。<br />
+“向后兼容”和“向前兼容”有啥用捏？俺举个例子：<br />
+当你维护一个很庞大的分布式系统时，由于你无法【同时】升级【所有】模块，为了保证在升级过程中，整个系统不受影响（继续运转），就需要尽量保证通讯协议的“向后兼容”或“向前兼容”。</p></li>
+<li><p>支持多种编程语言<br />
+官方支持好多语言，同时因为google社区的号召力，民间也搞了好多其他的语言版本</p></li>
+</ul>
+<h3 id="缺点">缺点</h3>
+<ul>
+<li><p>二进制格式导致可读性差<br />
+举个例子，比如通讯双方如果出现问题，极易导致扯皮（都不承认自己有问题，都说是对方的错）。俺对付扯皮的一个简单方法就是直接抓包并 dump 到日志文件，能比较容易地看出错误在哪一方。但是 protobuf 的二进制格式，导致你抓包并直接 dump 出来的 log 难以看懂。<br />
+另：protobuf提供了TextFormat这个工具类</p></li>
+<li><p>缺乏自描述<br />
+一般来说，XML 是自描述的，而 protobuf 格式则不是。给你一段二进制格式的协议内容，如果不配合相应的 proto 文件，那简直就像天书一般。<br />
+由于“缺乏自描述”，再加上“二进制格式导致可读性差”。所以在“配置文件”方面，protobuf是肯定无法取代XML 的地位滴。</p></li>
+</ul>
+<h3 id="编写.proto文件">编写.proto文件</h3>
+<p>在 protobuf 的术语中，结构化数据被称为 Message</p>
+<h3 id="编译.proto">编译.proto</h3>
+<p>去官网下载protoc</p>
+<p>bat生成脚本<br />
+示例1：</p>
+<pre><code>@echo off
+
+
+if not exist &quot;.\out&quot; md out
+
+
+echo start... 
+for %%i in (.\proto\*.proto) do (     
+    echo %%i ok
+    .\bin\protoc.exe -I=.\proto --cpp_out=.\out %%i    
+)  
+echo end...  
+pause </code></pre>
+<p>示例2：</p>
+<pre><code> @echo off
+ 
+ set SOURCE_FOLDER=.
+ set CPP_COMPILER_PATH=protoc.exe
+ set CPP_TARGET_PATH=./client/
+ 
+
+ for /f &quot;delims=&quot; %%i in (&#39;dir /b &quot;%SOURCE_FOLDER%\*.proto&quot;&#39;) do (
+
+     echo %CPP_COMPILER_PATH% --cpp_out=%CPP_TARGET_PATH% %%i
+     %CPP_COMPILER_PATH% --cpp_out=%CPP_TARGET_PATH% %%i
+ 
+ )
+
+pause</code></pre>
+<h3 id="数字编号">数字编号</h3>
+<p>在消息定义中，每个字段都有唯一的一个数字标识符。这些标识符是用来在消息的二进制格式中识别各个字段的，一旦开始使用就不能够再改变。注：[1,15]之内的标识号在编码的时候会占用一个字节。[16,2047]之内的标识号则占用2个字节。所以应该为那些频繁出现的消息元素保留 [1,15]之内的标识号。切记：要为将来有可能添加的、频繁出现的标识号预留一些标识号。</p>
+<h2 id="其他资源">其他资源</h2>
+<ul>
+<li><a href="https://blog.csdn.net/solstice/article/details/6300108">一种自动反射消息类型的 Google Protobuf 网络传输方案</a> by,陈硕</li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

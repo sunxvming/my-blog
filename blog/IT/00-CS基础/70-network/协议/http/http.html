@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/00-CS基础/70-network/协议/http/http</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#x-forwarded-for">X-Forwarded-For</a></li>
+<li><a href="#http的长连接">http的长连接</a></li>
+<li><a href="#http-post">http post</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="x-forwarded-for">X-Forwarded-For</h2>
+<p>简称XFF头，它代表客户端，也就是HTTP的请求端真实的IP，只有在通过了HTTP 代理或者负载均衡服务器时才会添加该项<br />
+标准格式如下：</p>
+<blockquote>
+<p>X-Forwarded-For: client1, proxy1, proxy2</p>
+</blockquote>
+<p>从标准格式可以看出，X-Forwarded-For头信息可以有多个，中间用逗号分隔，第一项为真实的客户端ip，剩下的就是曾经经过的代理或负载均衡的ip地址，经过几个就会出现几个。<br />
+php中的全局变量<code>$_SERVER["HTTP_X_FORWARDED_FOR"]</code>获取的值也是用逗号分割的ip，跟上边的形式一样。</p>
+<h2 id="http的长连接">http的长连接</h2>
+<p>1.第一个问题是，是不是只要设置Connection为keep-alive就算是长连接了？<br />
+当然是的，但要服务器和客户端都设置。</p>
+<p>2、第二个问题是，我们平时用的是不是长连接？<br />
+现在用的基本上都是HTTP1.1协议，基本上Connection都是keep-alive。而且HTTP协议文档上也提到了，HTTP1.1默认是长连接，也就是默认Connection的值就是keep-alive</p>
+<p>3、长连接有啥好处？<br />
+长连接是为了复用，那既然长连接是指的TCP连接，也就是说复用的是TCP连接。那这就很好解释了，也就是说，长连接情况下，多个HTTP请求可以复用同一个TCP连接，这就节省了很多TCP连接建立和断开的消耗。<br />
+比如你请求了淘宝的一个网页，这个网页里肯定还包含了CSS、JS等等一系列资源，如果你是短连接（也就是每次都要重新建立TCP连接）的话，那你每打开一个网页，基本要建立几个甚至几十个TCP连接，这浪费了多少资源就不用去说了吧。<br />
+但如果是长连接的话，那么这么多次HTTP请求（这些请求包括请求网页内容，CSS文件，JS文件，图片等等），其实使用的都是一个TCP连接，很显然是可以节省很多消耗的,只需要一次TCP三次握手就行了。<br />
+长连接还要多提一句，那就是，长连接并不是永久连接的。如果一段时间内（具体的时间长短，是可以在header当中进行设置的，也就是所谓的超时时间），这个连接没有HTTP请求发出的话，那么这个长连接就会被断掉。</p>
+<h2 id="http-post">http post</h2>
+<p>Post提交的data在http协议的body中，Form表单有两种enctype类型：<br />
+1、enctype=”application/x-www-form-urlencoded”</p>
+<pre><code>&lt;form action=&quot;user/login.do&quot; method=&quot;post&quot; &gt;  
+    用户名:&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;  
+    密码:&lt;input type=&quot;text&quot; name=&quot;password&quot;&gt;&lt;br&gt;  
+    &lt;input type=&quot;submit&quot; value=&quot;登录&quot;/&gt;  
+&lt;/form&gt; 
+
+
+
+
+POST http://localhost:8080/springmvc/user/login.do HTTP/1.1  
+Host: localhost:8080  
+Connection: keep-alive  
+Content-Length: 33  
+Cache-Control: max-age=0  
+Origin: http://localhost:8080  
+Upgrade-Insecure-Requests: 1  
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36  
+Content-Type: application/x-www-form-urlencoded  
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8  
+Referer: http://localhost:8080/springmvc/  
+Accept-Encoding: gzip, deflate  
+Accept-Language: zh-CN,zh;q=0.8  
+
+
+username=xiaoming&amp;password=123456789  </code></pre>
+<p>2、enctype=”multipart/form-data”<br />
+请求消息头中, Content-Type: multipart/form-data; boundary=- - - -WebKitFormBoundarykALcKBgBaI9xA79y<br />
+boundary为分隔符.<br />
+如果要传输二进制需要经过BASE64或MIME等编码<br />
+HTTP协议明确地指出了，HTTP头和Body都没有长度的要求,但一般服务器都会有长度限制的要求。</p>
+<pre><code>&lt;form action=&quot;user/login.do&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;  
+    用户名:&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;  
+    密码:&lt;input type=&quot;text&quot; name=&quot;password&quot;&gt;&lt;br&gt;  
+    上传文件:&lt;input type=&quot;file&quot; name=&quot;uploadFile&quot;/&gt;&lt;br&gt;  
+    &lt;input type=&quot;submit&quot; value=&quot;登录&quot;/&gt;  
+&lt;/form&gt;  
+
+
+POST http://localhost:8080/springmvc/user/login.do HTTP/1.1  
+Host: localhost:8080  
+Connection: keep-alive  
+Content-Length: 400  
+Cache-Control: max-age=0  
+Origin: http://localhost:8080  
+Upgrade-Insecure-Requests: 1  
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36  
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundarykALcKBgBaI9xA79y  
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8  
+Referer: http://localhost:8080/springmvc/  
+Accept-Encoding: gzip, deflate  
+Accept-Language: zh-CN,zh;q=0.8  
+
+
+------WebKitFormBoundarykALcKBgBaI9xA79y  
+Content-Disposition: form-data; name=&quot;username&quot;  
+
+
+xiaoming 
+------WebKitFormBoundarykALcKBgBaI9xA79y  
+Content-Disposition: form-data; name=&quot;password&quot;  
+
+
+123456789  
+------WebKitFormBoundarykALcKBgBaI9xA79y  
+Content-Disposition: form-data; name=&quot;uploadFile&quot;; filename=&quot;file.txt&quot;  
+Content-Type: text/plain  
+
+
+文件中的内容       
+------WebKitFormBoundarykALcKBgBaI9xA79y--  </code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

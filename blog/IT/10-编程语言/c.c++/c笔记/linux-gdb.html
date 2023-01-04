@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/10-编程语言/c.c++/c笔记/linux-gdb</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#gdb">gdb</a>
+<ul>
+<li><a href="#常用命令">常用命令</a></li>
+<li><a href="#远程调试">远程调试</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="gdb">gdb</h2>
+<p>GDB 不仅是一个调试工具，它也是一个学习源码的好工具。用它开跟踪代码的分支和数据的流向，这样走上几个来回之后，再结合源码，就能够对程序的整体情况“了然于胸”。</p>
+<p>gdb 程序名 [corefile] corefile是可选的，但能增强gdb的调试能力。<br />
+Linux默认是不生成corefile的，所以需要在.bashrc文件中添加(开发期间设置打开就行)<br />
+ulimit -c unlimited<br />
+(修改完.bashrc文件后记得. .bashrc让修改生效)</p>
+<h3 id="常用命令">常用命令</h3>
+<pre><code>help  h     按模块列出命令类 
+help xx     查看某命令的使用
+gdb -p pid  attach指定pid的程序,  detach用于detach进程
+run  r      运行程序， 它的后面可以加上**程序的参数**，程序运行完重新执行的时候也用这个
+dir  sourcePath，若调试的程序没有源码或源码的位置有移动，需要再次指定源码路径
+
+
+【查看】
+list  显示附近的10行代码
+print 变量，表达式。
+    print &#39;file&#39;::变量，表达式,&#39;&#39;是必须的，以便让gdb知道指的是一个文件名。
+    print funcname::变量，表达式
+whatis 命令可以告诉你变量的类型
+ptype pt 查看变量的真实类型，不受 typedef 的影响
+info xx   查看xx的信息
+
+
+watch a        观察a的值，当有变化时，停止，其实一个watch就是一个特殊的断点（数据断点）
+i watch   info watch       显示观察点
+delete num     删除一个watch
+
+display  变量名，      用于监视变量值，每次gdb中断都会打印相应的值，不用老用print打印了。
+undisplay      取消观察变量
+i display      查看display的值
+
+【打印类相关】
+p *this: 打印出当前类里所有的成员的值
+p this-&gt;member: 打印出当前类里的某个成员的值
+ptype this: 打印出当前类里所有的成员（原型）
+whatis this: 打印出当前类的类型
+set print element 0, 当字符串太长导致打印不全时用这个打破限制
+
+【stack】
+bt backtrace|where|info stack   打印出错的函数调用栈
+up/down：在函数调用栈里上下移动。
+frame f x    切换到第几个函数帧
+info frame
+
+【断点】
+break b命令设置断点
+    break linenum
+    break funcname
+    break filename:linenum
+    break filename:funcname
+break...if...  条件断点
+info break(i b) 查看断点
+condition 断点编号 条件，给普通断点加命中的条件
+enable breakpoints  启用断点
+disable breakpoints  禁用断点
+delete 删除一个断点，若没有参数删除所有，若加断点序号删除指定的
+tbreak   临时断点，只生效一次
+
+【控制命令】
+start     单步执行，运行程序，停在第一行执行语句
+continue  c 命令从断点以后继续执行，直到运行到下一个断点。
+step      相当于step into
+next      相当于step over
+finish fin   结束当前函数，返回到函数调用点
+return [value] 停止执行当前函数，将value返回给调用者，相当于step return
+quit或者Ctrl+d    退出
+until  行号， 使程序运行到指定的行
+jump  行号，使程序直接跳到指定的行，其行为是不可控的，因为其破坏了程序本来的执行流
+
+【修改命令】
+set variable varname = value 改变一个变量的值
+p 也可以进行变量的修改，比如 p server.port = 1001
+
+
+【多线程】
+info threads
+thread 线程编号， 切换到指定线程
+set scheduler-locking on/step/off
+on 可以锁定当前线程，使其他线程暂停，达到只执行当前线程的效果
+step  只有再进行单步调试时才锁定当前线程，执行其他的命令其他线程依然有机会执行
+off  关闭线程锁定
+
+
+【多进程】
+show follow-fork mode  查看fork的mode
+set follow-fork parent/child   fork时进父进程还是子进程
+
+
+
+【TUI模式】
+`-tui` 选项进入TUI模式
+layout src|asm|regs
+`Ctrl+X+A`组合键可以在TUI模式和非TUI模式切换
+在tui模式下，上下键是用来控制src窗口的，可以通过ctrl+N  ctrl+P来显示上一条或下一条命令
+
+
+【cgdb】
+gdb的升级版，在gdb上做了一层包装，调试看源码更方便
+
+
+【visualGDB】
+visual studio的插件，可以通过ssh连接到远程机器进行远程调试，并且还可以使用图形化的界面
+
+
+【其他】
+enter  重复执行上条命令
+winheight wh     Set or modify the height of a specified window
+handle SIGINT nostop print pass
+    ctrl + c信号会让gdb中断，若想要将信号传递给被调试程序，则可用上面的命令设置
+使用break functionname未能中断时，换成文件+行号的再试
+</code></pre>
+<p>【程序运行参数】<br />
+set args 可指定运行时参数。（如：set args 10 20 30 40 50）<br />
+show args 命令可以查看设置好的运行参数。</p>
+<h3 id="远程调试">远程调试</h3>
+<pre><code>gdbserver 192.168.1.21:6666 a.out
+(gdb) target remote 192.168.1.23:6666</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

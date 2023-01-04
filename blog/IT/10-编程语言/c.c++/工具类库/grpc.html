@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/10-编程语言/c.c++/工具类库/grpc</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#介绍">介绍</a></li>
+<li><a href="#为什么使用grpc">为什么使用grpc?</a></li>
+<li><a href="#使用场景">使用场景</a></li>
+<li><a href="#编译grpc">编译grpc</a></li>
+<li><a href="#grpc四类服务方法">gRPC四类服务方法</a>
+<ul>
+<li><a href="#单项-rpc">1. 单项 RPC</a></li>
+<li><a href="#服务端流式-rpc">2. 服务端流式 RPC</a></li>
+<li><a href="#客户端流式-rpc">3. 客户端流式 RPC</a></li>
+<li><a href="#双向流式-rpc">4. 双向流式 RPC</a></li>
+</ul></li>
+<li><a href="#grpc-helloworld实例详解">gRPC HelloWorld实例详解</a>
+<ul>
+<li><a href="#通过protobuf来定义数据类型和接口">1.  通过protobuf来定义数据类型和接口</a></li>
+<li><a href="#用protocol-buffer-编译器-protoc-生成相应的数据类型类">2.  用protocol buffer 编译器 protoc 生成相应的数据类型类</a></li>
+<li><a href="#用protocol-buffer-编译器-protoc-生成客户端服务端的接口代码生成的代码包括客户端的存根和服务端要实现的抽象接口">3.  用protocol buffer 编译器 protoc 生成客户端、服务端的接口代码，生成的代码包括客户端的存根和服务端要实现的抽象接口</a></li>
+<li><a href="#编写grpc-server端代码">4.  编写gRPC server端代码</a></li>
+<li><a href="#编写grpc-client端代码">5.  编写gRPC client端代码</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="介绍">介绍</h2>
+<p><a href="https://github.com/grpc/grpc">gRPC</a> - An RPC library and framework</p>
+<h2 id="为什么使用grpc">为什么使用grpc?</h2>
+<p>主要包括以下两点原因：<br />
+<em> gRPC可以通过protobuf来定义接口，从而可以有更加严格的接口约束条件。<br />
+</em> 通过protobuf可以将数据序列化为二进制编码，这会大幅减少需要传输的数据量，从而大幅提高性能<br />
+* 支持http 2.0标准化协议。</p>
+<p>http/2带来了网络性能的巨大提升，下面列举一些个人觉得比较重要的细节：<br />
+http/2对每个源只需创建一个持久连接，在这一个连接内，可以并行的处理多个请求和响应，而且做到不相互影响。<br />
+允许客户端和服务端实现自己的数据流和连接流控制，这对我们传输大数据非常有帮助。</p>
+<h2 id="使用场景">使用场景</h2>
+<p>1.  需要对接口进行严格约束的情况，比如我们提供了一个公共的服务，很多人，甚至公司外部的人也可以访问这个服务，这时对于接口我们希望有更加严格的约束，我们不希望客户端给我们传递任意的数据，尤其是考虑到安全性的因素，我们通常需要对接口进行更加严格的约束。这时gRPC就可以通过protobuf来提供严格的接口约束。<br />
+2.  对于性能有更高的要求时。有时我们的服务需要传递大量的数据，而又希望不影响我们的性能，这个时候也可以考虑gRPC服务，因为通过protobuf我们可以将数据压缩编码转化为二进制格式，通常传递的数据量要小得多，而且通过http2我们可以实现异步的请求，从而大大提高了通信效率。</p>
+<h2 id="编译grpc">编译grpc</h2>
+<p>- <a href="https://www.grpc.io/docs/languages/cpp/quickstart/">官网入门教程,C++ Quick start</a><br />
+- <a href="https://github.com/grpc/grpc/tree/master/examples">grpc examples</a></p>
+<p>注意：<br />
+git源码依赖的其他项目比较多，大都在third_party目录下，这里引了好多其他的github项目，所以在拉代码的时候要把其他的github项目也拉过来，国内github的网络不好，拉的要有耐心。</p>
+<h2 id="grpc四类服务方法">gRPC四类服务方法</h2>
+<p>gRPC 允许你定义四类服务方法：</p>
+<h3 id="单项-rpc">1. 单项 RPC</h3>
+<p>即客户端发送一个请求给服务端，从服务端获取一个应答，就像一次普通的函数调用。</p>
+<pre><code>rpc SayHello(HelloRequest) returns (HelloResponse){
+}</code></pre>
+<h3 id="服务端流式-rpc">2. 服务端流式 RPC</h3>
+<p>即客户端发送一个请求给服务端，可获取一个数据流用来读取一系列消息。客户端从返回的数据流里一直读取直到没有更多消息为止。</p>
+<pre><code>rpc LotsOfReplies(HelloRequest) returns (stream HelloResponse){
+}</code></pre>
+<h3 id="客户端流式-rpc">3. 客户端流式 RPC</h3>
+<p>即客户端用提供的一个数据流写入并发送一系列消息给服务端。一旦客户端完成消息写入，就等待服务端读取这些消息并返回应答。</p>
+<pre><code>rpc LotsOfGreetings(stream HelloRequest) returns (HelloResponse) {
+}</code></pre>
+<h3 id="双向流式-rpc">4. 双向流式 RPC</h3>
+<p>即两边都可以分别通过一个读写数据流来发送一系列消息。这两个数据流操作是相互独立的，所以客户端和服务端能按其希望的任意顺序读写，例如：服务端可以在写应答前等待所有的客户端消息，或者它可以先读一个消息再写一个消息，或者是读写相结合的其他方式。每个数据流里消息的顺序会被保持。</p>
+<pre><code>rpc BidiHello(stream HelloRequest) returns (stream HelloResponse){
+}</code></pre>
+<h2 id="grpc-helloworld实例详解">gRPC HelloWorld实例详解</h2>
+<h3 id="通过protobuf来定义数据类型和接口">1.  通过protobuf来定义数据类型和接口</h3>
+<pre><code>syntax = &quot;proto3&quot;;
+
+option java_multiple_files = true;
+option java_package = &quot;io.grpc.examples.helloworld&quot;;
+option java_outer_classname = &quot;HelloWorldProto&quot;;
+option objc_class_prefix = &quot;HLW&quot;;
+
+package helloworld;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+// The request message containing the user&#39;s name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}</code></pre>
+<h3 id="用protocol-buffer-编译器-protoc-生成相应的数据类型类">2.  用protocol buffer 编译器 protoc 生成相应的数据类型类</h3>
+<pre><code>protoc --cpp_out=. *.proto</code></pre>
+<p>生成的文件的后缀为：pb.h、pb.cc  比如：helloworld.pb.h</p>
+<h3 id="用protocol-buffer-编译器-protoc-生成客户端服务端的接口代码生成的代码包括客户端的存根和服务端要实现的抽象接口">3.  用protocol buffer 编译器 protoc 生成客户端、服务端的接口代码，生成的代码包括客户端的存根和服务端要实现的抽象接口</h3>
+<pre><code>protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto</code></pre>
+<p>生成的文件的后缀为：grpc.pb.h、grpc.pb.cc  比如：helloworld.grpc.pb.h<br />
+在helloworld.grpc.pb.h文件中，include了helloworld.pb.h，因为在接口定义中用的数据类型是protobuf定义的</p>
+<h3 id="编写grpc-server端代码">4.  编写gRPC server端代码</h3>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;memory&gt;
+#include &lt;string&gt;
+
+#include &lt;grpcpp/grpcpp.h&gt;
+#include &lt;grpcpp/health_check_service_interface.h&gt;
+#include &lt;grpcpp/ext/proto_server_reflection_plugin.h&gt;
+
+#ifdef BAZEL_BUILD
+#include &quot;examples/protos/helloworld.grpc.pb.h&quot;
+#else
+#include &quot;helloworld.grpc.pb.h&quot;
+#endif
+
+using grpc::Server;
+using grpc::ServerBuilder;
+using grpc::ServerContext;
+using grpc::Status;
+using helloworld::HelloRequest;
+using helloworld::HelloReply;
+using helloworld::Greeter;
+
+// Logic and data behind the server&#39;s behavior.
+class GreeterServiceImpl final : public Greeter::Service {
+  Status SayHello(ServerContext* context, const HelloRequest* request,
+                  HelloReply* reply) override {
+    std::string prefix(&quot;Hello &quot;);
+    reply-&gt;set_message(prefix + request-&gt;name());
+    return Status::OK;
+  }
+};
+
+void RunServer() {
+  std::string server_address(&quot;0.0.0.0:50051&quot;);
+  GreeterServiceImpl service;
+
+  grpc::EnableDefaultHealthCheckService(true);
+  grpc::reflection::InitProtoReflectionServerBuilderPlugin();
+  ServerBuilder builder;
+  // Listen on the given address without any authentication mechanism.
+  builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
+  // Register &quot;service&quot; as the instance through which we&#39;ll communicate with
+  // clients. In this case it corresponds to an *synchronous* service.
+  builder.RegisterService(&amp;service);  // 向rpc框架注册rpc接口
+  // Finally assemble the server.
+  std::unique_ptr&lt;Server&gt; server(builder.BuildAndStart());
+  std::cout &lt;&lt; &quot;Server listening on &quot; &lt;&lt; server_address &lt;&lt; std::endl;
+
+  // Wait for the server to shutdown. Note that some other thread must be
+  // responsible for shutting down the server for this call to ever return.
+  server-&gt;Wait();
+}
+
+int main(int argc, char** argv) {
+  RunServer();
+
+  return 0;
+}</code></pre>
+<h3 id="编写grpc-client端代码">5.  编写gRPC client端代码</h3>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;memory&gt;
+#include &lt;string&gt;
+
+#include &lt;grpcpp/grpcpp.h&gt;
+
+#ifdef BAZEL_BUILD
+#include &quot;examples/protos/helloworld.grpc.pb.h&quot;
+#else
+#include &quot;helloworld.grpc.pb.h&quot;
+#endif
+
+using grpc::Channel;
+using grpc::ClientContext;
+using grpc::Status;
+using helloworld::HelloRequest;
+using helloworld::HelloReply;
+using helloworld::Greeter;
+
+class GreeterClient {
+ public:
+  GreeterClient(std::shared_ptr&lt;Channel&gt; channel)
+      : stub_(Greeter::NewStub(channel)) {}
+
+  // Assembles the client&#39;s payload, sends it and presents the response back
+  // from the server.
+  std::string SayHello(const std::string&amp; user) {
+    // Data we are sending to the server.
+    HelloRequest request;
+    request.set_name(user);
+
+    // Container for the data we expect from the server.
+    HelloReply reply;
+
+    // Context for the client. It could be used to convey extra information to
+    // the server and/or tweak certain RPC behaviors.
+    ClientContext context;
+
+    // The actual RPC.
+    Status status = stub_-&gt;SayHello(&amp;context, request, &amp;reply);
+
+    // Act upon its status.
+    if (status.ok()) {
+      return reply.message();
+    } else {
+      std::cout &lt;&lt; status.error_code() &lt;&lt; &quot;: &quot; &lt;&lt; status.error_message()
+                &lt;&lt; std::endl;
+      return &quot;RPC failed&quot;;
+    }
+  }
+
+ private:
+  std::unique_ptr&lt;Greeter::Stub&gt; stub_;
+};
+
+int main(int argc, char** argv) {
+  // Instantiate the client. It requires a channel, out of which the actual RPCs
+  // are created. This channel models a connection to an endpoint specified by
+  // the argument &quot;--target=&quot; which is the only expected argument.
+  // We indicate that the channel isn&#39;t authenticated (use of
+  // InsecureChannelCredentials()).
+  std::string target_str;
+  std::string arg_str(&quot;--target&quot;);
+  if (argc &gt; 1) {
+    std::string arg_val = argv[1];
+    size_t start_pos = arg_val.find(arg_str);
+    if (start_pos != std::string::npos) {
+      start_pos += arg_str.size();
+      if (arg_val[start_pos] == &#39;=&#39;) {
+        target_str = arg_val.substr(start_pos + 1);
+      } else {
+        std::cout &lt;&lt; &quot;The only correct argument syntax is --target=&quot; &lt;&lt; std::endl;
+        return 0;
+      }
+    } else {
+      std::cout &lt;&lt; &quot;The only acceptable argument is --target=&quot; &lt;&lt; std::endl;
+      return 0;
+    }
+  } else {
+    target_str = &quot;localhost:50051&quot;;
+  }
+  GreeterClient greeter(grpc::CreateChannel(
+      target_str, grpc::InsecureChannelCredentials()));
+  std::string user(&quot;world&quot;);
+  std::string reply = greeter.SayHello(user);
+  std::cout &lt;&lt; &quot;Greeter received: &quot; &lt;&lt; reply &lt;&lt; std::endl;
+
+  return 0;
+}</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

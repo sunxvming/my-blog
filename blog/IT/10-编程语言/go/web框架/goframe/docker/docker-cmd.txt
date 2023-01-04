@@ -1,0 +1,17 @@
+# 1.start mysql service
+docker network create mysql
+
+docker run -itd `
+    --network mysql --network-alias mysql `
+    -v mysql-data:/var/lib/mysql `
+	--name mysql-test -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql
+
+# 2.build go binary
+gf build
+
+# 3.build docker image
+docker build -t gf-demos .
+
+# 4.run go container 
+docker run -dp 8199:8199  --network mysql --name gf-demos gf-demos
+

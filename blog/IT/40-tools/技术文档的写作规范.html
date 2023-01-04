@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/40-tools/技术文档的写作规范</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#技术文档的写作规范">技术文档的写作规范</a>
+<ul>
+<li><a href="#标题">标题</a></li>
+<li><a href="#文本">文本</a></li>
+<li><a href="#段落">段落</a></li>
+<li><a href="#数值">数值</a></li>
+<li><a href="#标点符号">标点符号</a></li>
+<li><a href="#文档体系">文档体系</a>
+<ul>
+<li><a href="#文件名">文件名</a></li>
+</ul></li>
+<li><a href="#参考链接">参考链接</a></li>
+<li><a href="#参考链接-1">参考链接</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h1 id="技术文档的写作规范">技术文档的写作规范</h1>
+<h2 id="标题">标题</h2>
+<p>标题分为四级。</p>
+<p><em> 一级标题：文章的标题<br />
+</em> 二级标题：文章主要部分的大标题<br />
+<em> 三级标题：二级标题下面一级的小标题<br />
+</em> 四级标题：三级标题下面某一方面的小标题</p>
+<p>下面是示例。</p>
+<pre><code># 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题</code></pre>
+<p>谨慎使用四级标题，尽量避免出现，保持层级的简单，防止出现过于复杂的章节。<br />
+如果三级标题下有并列性的内容，建议只使用项目列表（Item list）。<br />
+示例：下面的结构二要好于结构一。结构一适用的场景，主要是较长篇幅的内容。</p>
+<pre><code>结构一
+
+
+### 三级标题
+
+
+#### 四级标题 A
+
+
+#### 四级标题 B
+
+
+#### 四级标题 C
+
+
+结构二
+
+
+### 三级标题
+
+
+**（1）A**
+
+
+**（2）B**
+
+
+**（3）C**</code></pre>
+<h2 id="文本">文本</h2>
+<h2 id="段落">段落</h2>
+<h2 id="数值">数值</h2>
+<h2 id="标点符号">标点符号</h2>
+<h2 id="文档体系">文档体系</h2>
+<h3 id="文件名">文件名</h3>
+<p><em> 文档的文件名不得含有空格。<br />
+</em> 文件名必须使用半角字符，不得使用全角字符。这也意味着，中文不能用于文件名。<br />
+<em> 文件名建议只使用小写字母，不使用大写字母。<br />
+</em> 为了醒目，某些说明文件的文件名，可以使用大写字母，比如README、LICENSE。<br />
+* 文件名包含多个单词时，单词之间建议使用半角的连词线（-）分隔。<br />
+    + 不佳：advanced_usage.md<br />
+    + 正确：advanced-usage.md</p>
+<h2 id="参考链接">参考链接</h2>
+<h2 id="参考链接-1">参考链接</h2>
+<p>- <a href="https://github.com/ruanyf/document-style-guide">中文技术文档的写作规范？</a>, by 阮一峰<br />
+- <a href="https://github.com/selfteaching/markdown-writing-with-mixed-cn-en">Markdown 简体中文与西文混排要点</a>, by 李笑来</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

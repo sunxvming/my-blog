@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/10-编程语言/c.c++/c笔记/popen用法和实现</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#popen使用">popen使用</a></li>
+<li><a href="#linux的system和popen差异">Linux的system()和popen()差异</a>
+<ul>
+<li><a href="#systempopen源码">system()、popen()源码</a></li>
+<li><a href="#执行流程">执行流程</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>popen可以让你在 C++ 程序中执行 shell 命令，并且得到命令执行的结果</p>
+<h2 id="popen使用">popen使用</h2>
+<p>以下是对popen的封装，输入是执行的命令，输出是命令执行的结果</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;stdexcept&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string&gt;
+
+
+std::string exec(const char* cmd)  // cmd 是你要执行的命令
+{
+    char buffer[128];
+    std::string result ;  // result 保存命令执行的结果
+
+
+    FILE* pipe = popen(cmd, &quot;r&quot;);
+
+
+    if (!pipe) 
+        throw std::runtime_error(&quot;popen() failed!&quot;);
+
+
+    try 
+    {
+        while (fgets(buffer, sizeof buffer, pipe) != NULL) 
+        {
+            result += buffer ;
+        }
+    } 
+    catch (...) 
+    {
+        pclose(pipe);
+        throw ;
+    }
+
+
+    pclose(pipe);
+
+
+    return result ;
+}</code></pre>
+<p>C++11写法</p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;iostream&gt;
+#include &lt;memory&gt;
+#include &lt;stdexcept&gt;
+#include &lt;string&gt;
+#include &lt;array&gt;
+
+
+std::string exec(const char* cmd)  // cmd 是你要执行的命令
+{
+    std::array&lt;char, 128&gt; buffer ;
+    std::string result ;  // result 保存命令执行的结果
+
+
+    std::unique_ptr&lt;FILE, decltype(&amp;pclose)&gt; pipe(popen(cmd, &quot;r&quot;), pclose);
+
+
+    if (!pipe) 
+    {
+        throw std::runtime_error(&quot;popen() failed!&quot;);
+    }
+
+
+    while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) 
+    {
+        result += buffer.data();
+    }
+
+
+    return result ;
+}</code></pre>
+<h2 id="linux的system和popen差异">Linux的system()和popen()差异</h2>
+<p>system()、popen()给我们处理了fork、exec、waitpid等一系列的处理流程，让我们只需要关注最后的返回结果(函数的返回值)即可。</p>
+<h3 id="systempopen源码">system()、popen()源码</h3>
+<pre><code>int system(const char *command)
+{
+    struct sigaction sa_ignore, sa_intr, sa_quit;
+    sigset_t block_mask, orig_mask;
+    pid_t pid;
+
+    sigemptyset(&amp;block_mask);
+    sigaddset(&amp;block_mask, SIGCHLD);
+    sigprocmask(SIG_BLOCK, &amp;block_mask, &amp;orig_mask);        //1. block SIGCHLD
+
+    sa_ignore.sa_handler = SIG_IGN;
+    sa_ignore.sa_flags = 0;
+    sigemptyset(&amp;sa_ignore.sa_mask);
+    sigaction(SIGINT, &amp;sa_ignore, &amp;sa_intr);                //2. ignore SIGINT signal
+    sigaction(SIGQUIT, &amp;sa_ignore, &amp;sa_quit);                //3. ignore SIGQUIT signal
+
+    switch((pid = fork()))
+    {
+        case -1:
+            return -1;
+        case 0:
+            sigaction(SIGINT, &amp;sa_intr, NULL); 
+            sigaction(SIGQUIT, &amp;sa_quit, NULL); 
+            sigprocmask(SIG_SETMASK, &amp;orig_mask, NULL);
+            execl(&quot;/bin/sh&quot;, &quot;sh&quot;, &quot;-c&quot;, command, (char *) 0);
+            exit(127);
+        default:
+            while(waitpid(pid, NULL, 0) == -1)    //4. wait child process exit
+            {
+                if(errno != EINTR)
+                {
+                    break;
+                }
+            }
+    }
+}
+return 0;</code></pre>
+<pre><code>static pid_t    *childpid = NULL;  
+                        /* ptr to array allocated at run-time */  
+static int      maxfd;  /* from our open_max(), {Prog openmax} */  
+
+#define SHELL   &quot;/bin/sh&quot;  
+
+FILE *  
+popen(const char *cmdstring, const char *type)  
+{  
+    int     i, pfd[2];  
+    pid_t   pid;  
+    FILE    *fp;  
+
+            /* only allow &quot;r&quot; or &quot;w&quot; */  
+    if ((type[0] != &#39;r&#39; &amp;&amp; type[0] != &#39;w&#39;) || type[1] != 0) {  
+        errno = EINVAL;     /* required by POSIX.2 */  
+        return(NULL);  
+    }  
+
+    if (childpid == NULL) {     /* first time through */  
+                /* allocate zeroed out array for child pids */  
+        maxfd = open_max();  
+        if ( (childpid = calloc(maxfd, sizeof(pid_t))) == NULL)  
+            return(NULL);  
+    }  
+
+    if (pipe(pfd) &lt; 0)  
+        return(NULL);   /* errno set by pipe() */  
+
+    if ( (pid = fork()) &lt; 0)  
+        return(NULL);   /* errno set by fork() */  
+    else if (pid == 0) {                            /* child */  
+        if (*type == &#39;r&#39;) {  
+            close(pfd[0]);  
+            if (pfd[1] != STDOUT_FILENO) {  
+                dup2(pfd[1], STDOUT_FILENO);  
+                close(pfd[1]);  
+            }  
+        } else {  
+            close(pfd[1]);  
+            if (pfd[0] != STDIN_FILENO) {  
+                dup2(pfd[0], STDIN_FILENO);  
+                close(pfd[0]);  
+            }  
+        }  
+            /* close all descriptors in childpid[] */  
+        for (i = 0; i &lt; maxfd; i++)  
+            if (childpid[ i ] &gt; 0)  
+                close(i);  
+
+        execl(SHELL, &quot;sh&quot;, &quot;-c&quot;, cmdstring, (char *) 0);  
+        _exit(127);  
+    }  
+                                /* parent */  
+    if (*type == &#39;r&#39;) {  
+        close(pfd[1]);  
+        if ( (fp = fdopen(pfd[0], type)) == NULL)  
+            return(NULL);  
+    } else {  
+        close(pfd[0]);  
+        if ( (fp = fdopen(pfd[1], type)) == NULL)  
+            return(NULL);  
+    }  
+    childpid[fileno(fp)] = pid; /* remember child pid for this fd */  
+    return(fp);  
+}  </code></pre>
+<p>popen如何获取命令执行的结果？<br />
+命令执行时会将命令的结果输出到标准输出中，通过在父进程中创建一个管道，然后将标准输出到这个管道中，然后父进程从这个管道中读取结果。</p>
+<h3 id="执行流程">执行流程</h3>
+<p>从上面的源码可以看到system和popen都是执行了类似的运行流程，大致是<code>fork-&gt;execl-&gt;return</code>。但是我们看到system在执行期间调用进程会一直等待shell命令执行完成(waitpid等待子进程结束)才返回，但是popen无须等待shell命令执行完成就返回了。我们可以理解system为串行执行，在执行期间调用进程放弃了”控制权”，popen为并行执行。<br />
+popen中的子进程没人给它”收尸”了啊？是的，如果你没有在调用popen后调用pclose那么这个子进程就可能变成”僵尸”。<br />
+上面我们没有给出pclose的源码，其实我们根据system的源码差不多可以猜测出pclose的源码就是system中第4部分的内容。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/00-CS基础/50-algorithm/设计模式/消息队列</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#直观感受">直观感受</a></li>
+<li><a href="#使用的场景">使用的场景</a>
+<ul>
+<li><a href="#异步">异步</a></li>
+<li><a href="#解耦发布订阅模式">解耦（发布订阅模式）</a></li>
+<li><a href="#削峰">削峰</a></li>
+</ul></li>
+<li><a href="#缺点">缺点</a>
+<ul>
+<li><a href="#系统复杂性">系统复杂性</a></li>
+<li><a href="#数据一致性">数据一致性</a></li>
+<li><a href="#可用性">可用性</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<blockquote>
+<p>没有最好的技术，只有最适合的技术，不要为了用而用。</p>
+</blockquote>
+<h3 id="直观感受">直观感受</h3>
+<p>消息队列的主要特点是异步处理，主要目的是减少请求响应时间和解耦。所以主要的使用场景就是将比较耗时而且不需要即时（同步）返回结果的操作作为消息放入消息队列。同时由于使用了消息队列，只要保证消息格式不变，消息的发送方和接收方并不需要彼此联系，也不需要受对方的影响，即解耦和。<br />
+使用场景的话，举个例子：假设用户在你的软件中注册，服务端收到用户的注册请求后，它会做这些操作：<br />
+* 校验用户名等信息，如果没问题会在数据库中添加一个用户记录<br />
+* 如果是用邮箱注册会给你发送一封注册成功的邮件，手机注册则会发送一条短信<br />
+* 分析用户的个人信息，以便将来向他推荐一些志同道合的人，或向那些人推荐他<br />
+* 发送给用户一个包含操作指南的系统通知<br />
+* 等等……</p>
+<p>但是对于用户来说，注册功能实际只需要第一步，只要服务端将他的账户信息存到数据库中他便可以登录上去做他想做的事情了。至于其他的事情，非要在这一次请求中全部完成么？值得用户浪费时间等你处理这些对他来说无关紧要的事情么？所以实际当第一步做完后，服务端就可以把其他的操作放入对应的消息队列中然后马上返回用户结果，由消息队列异步的进行这些操作。</p>
+<p>或者还有一种情况，同时有大量用户注册你的软件，再高并发情况下注册请求开始出现一些问题，例如邮件接口承受不住，或是分析信息时的大量计算使cpu满载，这将会出现虽然用户数据记录很快的添加到数据库中了，但是却卡在发邮件或分析信息时的情况，导致请求的响应时间大幅增长，甚至出现超时，这就有点不划算了。面对这种情况一般也是将这些操作放入消息队列（生产者消费者模型），消息队列慢慢的进行处理，同时可以很快的完成注册请求，不会影响用户使用其他功能。</p>
+<p>所以在软件的正常功能开发中，并不需要去刻意的寻找消息队列的使用场景，而是当出现性能瓶颈时，去查看业务逻辑是否存在可以异步处理的耗时操作，如果存在的话便可以引入消息队列来解决。否则盲目的使用消息队列可能会增加维护和开发的成本却无法得到可观的性能提升，那就得不偿失了。</p>
+<h3 id="使用的场景">使用的场景</h3>
+<h4 id="异步">异步</h4>
+<p>我们之前的场景里面有很多步骤都是在一个流程里面需要做完的，就比如说我的下单系统吧，本来我们业务简单，下单了付了钱就好了，流程就走完了。<br />
+但是后面来了个产品经理，搞了个优惠券系统，OK问题不大，流程里面多100ms去扣减优惠券。<br />
+后来产品经理灵光一闪说我们可以搞个积分系统啊，也行吧，流程里面多了200ms去增减积分。<br />
+再后来后来隔壁的产品老王说：下单成功后我们要给用户发短信，也将就吧，100ms去发个短信。<br />
+再后来。。。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/5c14ab7a-5e72-420e-9640-35c563d04a91.jpg" /><br />
+嗯不错，链路长了就慢了，那你怎么解决的？<br />
+那链路长了就慢了，但是我们发现上面的流程其实可以同时做的呀，你支付成功后，我去校验优惠券的同时我可以去增减积分啊，还可以同时发个短信啊。<br />
+那正常的流程我们是没办法实现的呀，怎么办，<strong>异步</strong>。不仅是可以线程级别的异步，还可以是机器级别的异步。</p>
+<h4 id="解耦发布订阅模式">解耦（发布订阅模式）</h4>
+<p>你下单了，你就把你支付成功的消息告诉别的系统，他们收到了去处理就好了，你只用走完自己的流程，把自己的消息发出去，那后面要接入什么系统简单，直接订阅你发送的支付成功消息，你支付成功了我监听就好了。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/2c867084-f529-40d2-a976-e95ec8497dc8.jpg" /><br />
+那你的流程走完了，你不用管别人是否成功么？比如你下单了积分没加，优惠券没扣怎么办？ 问题是个好问题，但是没必要考虑，业务系统本身就是自己的开发人员维护的，你积分扣失败关我下单的什么事情？你管好自己下单系统的就好了。Tip：话是这么说，但是这其实是用了消息队列的一个缺点，涉及到分布式事务的知识点，我下面会提到。</p>
+<h4 id="削峰">削峰</h4>
+<p>拿秒杀来说，你平时流量很低，但是你要做秒杀活动00 ：00的时候流量疯狂怼进来，你的服务器，Redis，MySQL各自的承受能力都不一样，你直接全部流量照单全收肯定有问题啊，直接就打挂了。<br />
+简单，把请求放到队列里面，然后至于每秒消费多少请求，就看自己的服务器处理能力，你能处理5000QPS你就消费这么多，可能会比正常的慢一点，但是不至于打挂服务器，等流量高峰下去了，你的服务也就没压力了。</p>
+<h3 id="缺点">缺点</h3>
+<h4 id="系统复杂性">系统复杂性</h4>
+<p>本来蛮简单的一个系统，我代码随便写都没事，现在你凭空接入一个中间件在那，我是不是要考虑去维护他，而且使用的过程中是不是要考虑各种问题，比如消息重复消费、消息丢失、消息的顺序消费等等，反正用了之后就是贼烦。</p>
+<h4 id="数据一致性">数据一致性</h4>
+<p>这个其实是分布式服务本身就存在的一个问题，不仅仅是消息队列的问题，但是放在这里说是因为用了消息队列这个问题会暴露得比较严重一点。就像我开头说的，你下单的服务自己保证自己的逻辑成功处理了，你成功发了消息，但是优惠券系统，积分系统等等这么多系统，他们成功还是失败你就不管了？<br />
+所有的服务都成功才能算这一次下单是成功的，那怎么才能保证数据一致性呢？<br />
+<strong>分布式事务</strong>：把下单，优惠券，积分。。。都放在一个事务里面一样，要成功一起成功，要失败一起失败。</p>
+<h4 id="可用性">可用性</h4>
+<p>你搞个系统本身没啥问题，你现在突然接入一个中间件在那放着，万一挂了怎么办？我下个单MQ挂了，优惠券不扣了，积分不减了，这不是杀一个程序员能搞定的吧，感觉得杀一片。至于怎么保证高可用，还是那句话也不在这里展开讨论了，我后面一样会写，像写Redis那样写出来的。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

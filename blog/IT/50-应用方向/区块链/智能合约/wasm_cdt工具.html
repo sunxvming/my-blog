@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/50-应用方向/区块链/智能合约/wasm_cdt工具</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#github源码地址">github源码地址</a></li>
+<li><a href="#一目录结构">一、目录结构</a></li>
+<li><a href="#二编译安装">二、编译安装</a>
+<ul>
+<li><a href="#安装遇到问题">安装遇到问题</a>
+<ul>
+<li><a href="#代码分支">代码分支：</a></li>
+<li><a href="#编译失败位置">编译失败位置：</a></li>
+<li><a href="#失败可能的原因">失败可能的原因：</a></li>
+<li><a href="#解决">解决：</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#三编译合约文件">三、编译合约文件</a>
+<ul>
+<li><a href="#编译方式">编译方式</a>
+<ul>
+<li><a href="#用wasm-ccwasm-cpp工具链直接编">1.用wasm-cc、wasm-cpp工具链直接编</a></li>
+<li><a href="#用cmake编译">2.用cmake编译</a></li>
+</ul></li>
+<li><a href="#编译合约遇到的问题">编译合约遇到的问题</a>
+<ul>
+<li><a href="#根目录下的cmake文件">根目录下的cmake文件</a></li>
+<li><a href="#src目录下的cmake文件">src目录下的cmake文件</a></li>
+<li><a href="#问题">问题：</a></li>
+<li><a href="#解决-1">解决：</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>为了编写自己的wasm智能合约的工具，于是参考了维基链的wasm_cdt，而维基链的代码是参考eos的。</p>
+<h2 id="github源码地址">github源码地址</h2>
+<p>https://github.com/WaykiChain/wicc-wasm-cdt</p>
+<h2 id="一目录结构">一、目录结构</h2>
+<ul>
+<li>libraries 合约引用的库的头文件、源文件</li>
+<li>examples 合约示例</li>
+<li>modules 和cmake相关的编译工具文件</li>
+<li>tools wasm编译工具文件</li>
+<li>wasm_llvm llvm的工程</li>
+<li>wasm_llvm/lib/Target/WebAssembly wasm的编译器前后端</li>
+</ul>
+<h2 id="二编译安装">二、编译安装</h2>
+<p>注意事项：<br />
+* 1.配置最低4核8G<br />
+* 2.若是虚拟机的话不要共享目录中安装<br />
+* 3.不要用自带的<code>build.sh</code>来安装，因为<code>build.sh</code>会检查机器的硬件和软件环境，不符合的话会报错<br />
+可以直接用cmake直接安装</p>
+<pre><code>mkdir build
+cmake ..
+make
+make install</code></pre>
+<p>编译好之后需要进行安装，安装的路径为<code>/usr/local/wasm.cdt</code><br />
+内容包括：</p>
+<pre><code>1.头文件  /usr/local/wasm.cdt/include 
+2.静态库 /usr/local/wasm.cdt/lib 
+3.二进制程序 /usr/local/wasm.cdt/lib  
+4.cmake编译时用到的文件 /usr/local/lib/cmake/wasm.cdt </code></pre>
+<h3 id="安装遇到问题">安装遇到问题</h3>
+<h4 id="代码分支">代码分支：</h4>
+<p>master的最新代码</p>
+<h4 id="编译失败位置">编译失败位置：</h4>
+<p>CMakeLists.txt中的<code>include(modules/LibrariesExternalProject.txt)</code><br />
+编译的内容为<code>libraries</code>目录下的内容，包括boost、libc、libc++、wasmlib</p>
+<pre><code>Scanning dependencies of target WasmLibraries
+[ 70%] Creating directories for &#39;WasmLibraries&#39;
+[ 74%] No download step for &#39;WasmLibraries&#39;
+[ 77%] No patch step for &#39;WasmLibraries&#39;
+[ 81%] No update step for &#39;WasmLibraries&#39;
+[ 85%] Performing configure step for &#39;WasmLibraries&#39;</code></pre>
+<h4 id="失败可能的原因">失败可能的原因：</h4>
+<p>编译<code>libraries</code>中的文件需要wasm编译工具链:wasm-cc wasm-cpp wasm-ld等，<br />
+但是cmake并没有找到工具链的位置，而是用gcc的工具链去编，导致编译无法进行</p>
+<h4 id="解决">解决：</h4>
+<p>把wasm.cdt的代码版本切换到v1.0的稳定版本后编译通过</p>
+<h2 id="三编译合约文件">三、编译合约文件</h2>
+<p>可以参考eos官方文档<br />
+https://developers.eos.io/manuals/eosio.cdt/latest/how-to-guides/compile/compile-a-contract-via-cli</p>
+<h3 id="编译方式">编译方式</h3>
+<h4 id="用wasm-ccwasm-cpp工具链直接编">1.用wasm-cc、wasm-cpp工具链直接编</h4>
+<pre><code>wasm-cpp -abigen ../src/hello.cpp -o hello.wasm -I ../include/</code></pre>
+<h4 id="用cmake编译">2.用cmake编译</h4>
+<pre><code>$ cd examples/hello
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make</code></pre>
+<h3 id="编译合约遇到的问题">编译合约遇到的问题</h3>
+<pre><code>CMake Warning at CMakeLists.txt:4 (find_package):
+  By not providing &quot;Findeosio.cdt.cmake&quot; in CMAKE_MODULE_PATH this project
+  has asked CMake to find a package configuration file provided by
+  &quot;wasm.cdt&quot;, but CMake did not find one.
+
+
+  Could not find a package configuration file provided by &quot;wasm.cdt&quot; with
+  any of the following names:
+
+
+    wasm.cdtConfig.cmake
+    wasm.cdt-config.cmake
+
+
+  Add the installation prefix of &quot;wasm.cdt&quot; to CMAKE_PREFIX_PATH or set
+  &quot;wasm.cdt_DIR&quot; to a directory containing one of the above files.  If
+  &quot;wasm.cdt&quot; provides a separate development package or SDK, be sure it has
+  been installed.</code></pre>
+<h4 id="根目录下的cmake文件">根目录下的cmake文件</h4>
+<pre><code>project(hello)
+cmake_minimum_required(VERSION 3.5)
+
+
+include(ExternalProject)
+# if no cdt root is given use default path
+if(WASM_CDT_ROOT STREQUAL &quot;&quot; OR NOT WASM_CDT_ROOT)
+   find_package(wasm.cdt)
+endif()
+
+
+ExternalProject_Add(
+   hello_project
+   SOURCE_DIR ${CMAKE_SOURCE_DIR}/src
+   BINARY_DIR ${CMAKE_BINARY_DIR}/hello
+   CMAKE_ARGS -DCMAKE_TOOLCHAIN_FILE=${WASM_CDT_ROOT}/lib/cmake/wasm.cdt/WasmWasmToolchain.cmake
+   UPDATE_COMMAND &quot;&quot;
+   PATCH_COMMAND &quot;&quot;
+   TEST_COMMAND &quot;&quot;
+   INSTALL_COMMAND &quot;&quot;
+   BUILD_ALWAYS 1
+)</code></pre>
+<h4 id="src目录下的cmake文件">src目录下的cmake文件</h4>
+<pre><code>project(hello)
+cmake_minimum_required(VERSION 3.5)
+
+
+set(WASM_WASM_OLD_BEHAVIOR &quot;Off&quot;)
+find_package(wasm.cdt)
+
+
+add_contract( hello hello hello.cpp )
+target_include_directories( hello PUBLIC ${CMAKE_SOURCE_DIR}/../include )
+target_ricardian_directory( hello ${CMAKE_SOURCE_DIR}/../ricardian )</code></pre>
+<h4 id="问题">问题：</h4>
+<p>根目录下的find_package可以找到，src目录下的find_package确找不到包</p>
+<h4 id="解决-1">解决：</h4>
+<p>在src目录中的cmake文件增加如下代码，让find_package可以找到wasm.cdt的cmake配置的路径</p>
+<pre><code>set(wasm.cdt_DIR /usr/local/lib/cmake/wasm.cdt)</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

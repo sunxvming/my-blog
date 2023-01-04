@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/60-其他主题/标准/语种名称代码规范</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>我们经常需要用缩写的代码来表示一种语言，比如用en表示英语，用de表示德语。<a href="https://www.loc.gov/standards/iso639-2/">ISO 639</a>就是规定语种代码的国际标准。</p>
+<p>最早的时候，ISO 639规定的代码是，用两个拉丁字母表示一种语言，这被称为ISO 639-1。但是，两个拉丁字母最多只有26<sup>2</sup>=676种组合，而世界上已知的语言总数可能有六七千种，因此明显是不够的。所以，后来又规定了ISO 639-2，用三个拉丁字母的组合表示一种语言。</p>
+<p>常见语言的ISO 代码如下表。</p>
+<table>
+<thead>
+<tr class="header">
+<th>col 1</th>
+<th>col 2</th>
+<th>col 3</th>
+<th>col 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ISO639-1 Code</td>
+<td>ISO639-2 Code</td>
+<td>中文名</td>
+<td>英文名</td>
+</tr>
+<tr class="even">
+<td>ar</td>
+<td>ara</td>
+<td>阿拉伯语</td>
+<td>Arabic</td>
+</tr>
+<tr class="odd">
+<td>ko</td>
+<td>kor</td>
+<td>朝鲜语</td>
+<td>Korean</td>
+</tr>
+<tr class="even">
+<td>de</td>
+<td>deu</td>
+<td>德语</td>
+<td>German</td>
+</tr>
+<tr class="odd">
+<td>ru</td>
+<td>rus</td>
+<td>俄语</td>
+<td>Russian</td>
+</tr>
+<tr class="even">
+<td>fr</td>
+<td>fra</td>
+<td>法语</td>
+<td>French</td>
+</tr>
+<tr class="odd">
+<td>zh</td>
+<td>zho</td>
+<td>汉语</td>
+<td>Chinese</td>
+</tr>
+<tr class="even">
+<td>la</td>
+<td>lat</td>
+<td>拉丁语</td>
+<td>Latin</td>
+</tr>
+<tr class="odd">
+<td>pt</td>
+<td>por</td>
+<td>葡萄牙语</td>
+<td>Portuguese</td>
+</tr>
+<tr class="even">
+<td>ja</td>
+<td>jpn</td>
+<td>日语</td>
+<td>Japanese</td>
+</tr>
+<tr class="odd">
+<td>es</td>
+<td>spa</td>
+<td>西班牙语</td>
+<td>Spainese</td>
+</tr>
+<tr class="even">
+<td>en</td>
+<td>eng</td>
+<td>英语</td>
+<td>English</td>
+</tr>
+<tr class="odd">
+<td>it</td>
+<td>ita</td>
+<td>意大利语</td>
+<td>Italian</td>
+</tr>
+<tr class="even">
+<td>hi</td>
+<td>hin</td>
+<td>印地语</td>
+<td>Hindi</td>
+</tr>
+<tr class="odd">
+<td>yi</td>
+<td>yid</td>
+<td>意第绪语</td>
+<td>Yiddish</td>
+</tr>
+</tbody>
+</table>
+<p>完整的语言代码表请看<a href="https://www.loc.gov/standards/iso639-2/php/code_list.php">这里</a>。</p>
+<p>但是只规定语种代码还不够，在同一种语言中，往往还包括许多种变体，比如中文分为简体中文和繁体中文两种，因此还必须规定子代码。</p>
+<p>以往，人们常用zh-CN表示在中国大陆地区使用的中文，也就是简体中文，用zh-TW表示在台湾地区使用的中文，也就是繁体中文。但是，这种表示法很不完善，试问中国大陆地区出版的繁体中文书籍，应该如何用代码表示呢？</p>
+<p>目前，语言的标签表示法的国际标准是<a href="https://www.ietf.org/rfc/rfc4646.txt">RFC 4646</a>，名称是《Tags for Identifying Languages》。</p>
+<p>简单说，这个文件规定，一种语言的标签应该按照如下方式排列：</p>
+<blockquote>
+<p><strong>language-script-region-variant-extension-privateuse</strong></p>
+<ol>
+<li><p>language：这部分就是ISO 639规定的代码，比如中文是zh。</p></li>
+<li><p>script：表示变体，比如简体汉字是zh-Hans，繁体汉字是zh-Hant。</p></li>
+<li><p>region：表示语言使用的地理区域，比如zh-Hans-CN就是中国大陆使用的简体中文。</p></li>
+<li><p>variant：表示方言。</p></li>
+<li><p>extension-privateus：表示扩展用途和私有标识。</p></li>
+</ol>
+<p>一般约定，language标签全部小写，region标签全部大写，script标签只有首字母大写。不同标签之间用连字号-链接。</p>
+</blockquote>
+<p>下面列出一些与中文有关的语言标签。</p>
+<blockquote>
+<p>zh-Hans 简体中文<br />
+zh-Hans-CN 大陆地区使用的简体中文<br />
+zh-Hans-HK 香港地区使用的简体中文<br />
+zh-Hans-MO 澳门使用的简体中文<br />
+zh-Hans-SG 新加坡使用的简体中文<br />
+zh-Hans-TW 台湾使用的简体中文<br />
+zh-Hant 繁体中文<br />
+zh-Hant-CN 大陆地区使用的繁体中文<br />
+zh-Hant-HK 香港地区使用的繁体中文<br />
+zh-Hant-MO 澳门使用的繁体中文<br />
+zh-Hant-SG 新加坡使用的繁体中文<br />
+zh-Hant-TW 台湾使用的繁体中文</p>
+</blockquote>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://www.ruanyifeng.com/blog/2008/02/codes_for_language_names.html">语种名称代码</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

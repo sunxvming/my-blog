@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/50-应用方向/安全/DDOS攻击</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#应对策略">应对策略</a>
+<ul>
+<li><a href="#备份网站">1.备份网站</a></li>
+<li><a href="#http-请求的拦截">2.HTTP 请求的拦截</a></li>
+<li><a href="#带宽扩容">3.带宽扩容</a></li>
+<li><a href="#cdn">4.CDN</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>DOS 是 denial of service（停止服务）的缩写，最前面的那个 D 是 distributed （分布式）。</p>
+<p>CC攻击（全称Challenge Collapsar），它就是简单粗暴地送来大量正常的请求，超出服务器的最大承受量，导致宕机。</p>
+<h2 id="应对策略">应对策略</h2>
+<h3 id="备份网站">1.备份网站</h3>
+<p>防范 DDOS 的第一步，就是你要有一个备份网站，或者最低限度有一个临时主页。生产服务器万一下线了，可以立刻切换到备份网站，不至于毫无办法。<br />
+备份网站不一定是全功能的，如果能做到全静态浏览，就能满足需求。最低限度应该可以显示公告，告诉用户，网站出了问题，正在全力抢修。<br />
+这种临时主页建议放到 Github Pages 或者 Netlify，它们的带宽大，可以应对攻击，而且都支持绑定域名，还能从源码自动构建。</p>
+<h3 id="http-请求的拦截">2.HTTP 请求的拦截</h3>
+<p>HTTP 请求的特征一般有两种：IP 地址和 User Agent 字段。比如，恶意请求都是从某个 IP 段发出的，那么把这个 IP 段封掉就行了。或者，它们的 User Agent 字段有特征（包含某个特定的词语），那就把带有这个词语的请求拦截。</p>
+<p>拦截可以在三个层次做。<br />
+（1）专用硬件<br />
+Web 服务器的前面可以架设硬件防火墙，专门过滤请求。这种效果最好，但是价格也最贵。</p>
+<p>（2）本机防火墙<br />
+操作系统都带有软件防火墙，Linux 服务器一般使用 iptables。比如，拦截 IP 地址1.2.3.4的请求，可以执行下面的命令。</p>
+<pre><code>$ iptables -A INPUT -s 1.2.3.4 -j DROP</code></pre>
+<p>iptables 比较复杂，我也不太会用。它对服务器性能有一定影响，也防不住大型攻击。</p>
+<p>（3）Web 服务器<br />
+Web 服务器也可以过滤请求。拦截 IP 地址1.2.3.4，nginx 的写法如下。</p>
+<pre><code>location / {
+  deny 1.2.3.4;
+}</code></pre>
+<p>Apache 的写法是在.htaccess文件里面，加上下面一段。</p>
+<pre><code>&lt;RequireAll&gt;
+    Require all granted
+    Require not ip 1.2.3.4
+&lt;/RequireAll&gt;</code></pre>
+<p>如果想要更精确的控制（比如自动识别并拦截那些频繁请求的 IP 地址），就要用到 WAF。这里就不详细介绍了，nginx 这方面的设置可以参考这里和这里。<br />
+Web 服务器的拦截非常消耗性能，尤其是 Apache。稍微大一点的攻击，这种方法就没用了。</p>
+<h3 id="带宽扩容">3.带宽扩容</h3>
+<p>上一节的 HTTP 拦截有一个前提，就是请求必须有特征。但是，真正的 DDOS 攻击是没有特征的，它的请求看上去跟正常请求一样，而且来自不同的 IP 地址，所以没法拦截。这就是为什么 DDOS 特别难防的原因。</p>
+<p>对于网站来说，就是在短时间内急剧扩容，提供几倍或几十倍的带宽，顶住大流量的请求。这就是为什么云服务商可以提供防护产品，因为他们有大量冗余带宽，可以用来消化 DDOS 攻击。</p>
+<p>一个朋友传授了一个方法，给我留下深刻印象。某云服务商承诺，每个主机保 5G 流量以下的攻击，他们就一口气买了5个。网站架设在其中一个主机上面，但是不暴露给用户，其他主机都是镜像，用来面对用户，DNS 会把访问量均匀分配到这四台镜像服务器。一旦出现攻击，这种架构就可以防住 20G 的流量，如果有更大的攻击，那就买更多的临时主机，不断扩容镜像。</p>
+<h3 id="cdn">4.CDN</h3>
+<p>上一节提到的镜像服务器，本质就是自己搭建一个微型 CDN。各大云服务商提供的高防 IP，背后也是这样做的：网站域名指向高防 IP，它提供一个缓冲层，清洗流量，并对源服务器的内容进行缓存。</p>
+<p>这里有一个关键点，一旦上了 CDN，千万不要泄露源服务器的 IP 地址，否则攻击者可以绕过 CDN 直接攻击源服务器，前面的努力都白费。搜一下"绕过 CDN 获取真实 IP 地址"，你就会知道国内的黑产行业有多猖獗。</p>
+<p>cloudflare 是一个免费 CDN 服务，并提供防火墙，高度推荐。我还要感谢 v2ex.com 的站长 @livid 热情提供帮助，我现在用的就是他们的 CDN 产品。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

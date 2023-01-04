@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/20-linux/supervisor</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+ <!--if(toc)-->
+
+<p>【所遇到的问题】</p>
+<p>如果使用过Laravel队列的朋友应该发现，queue:listen是线性执行的，即一个任务做完以后才会读取下一条任务。这样并不能满足我们日常的异步耗时任务处理的需求，于是有人建议启动多个queue:listen。</p>
+<p>php artisan queue:listen &amp;&amp; php artisan queue:listen ...<br />
+这样虽然理论上是可行的，因为在异步队列的帮助下，程序并不会出现冲突。但是由于PHP本身对内存处理的缺陷，很难保证一个长期运行在后台的程序不出现内存泄露，例如queue:listen这样的死循环程序。因此在正式环境中我们更倾向于使用多个queue:work并行执行异步队列中的任务。queue:work只是读取队首的一项任务，执行完成后即结束程序，如果没有任务也会结束程序。这个方式类似于PHP对于WEB请求的处理，不会出现内存泄露。</p>
+<p>【特点】<br />
+Supervisor是一个<strong>进程控制系统</strong>，由python编写，它提供了大量的功能来实现对进程的管理。<br />
+优点：1.可并行启动多个 2.自动重启</p>
+<p>程序的多进程启动，可以配置同时启动的进程数，而不需要一个个启动<br />
+程序的退出码，可以根据程序的退出码来判断是否需要自动重启<br />
+程序所产生日志的处理<br />
+进程初始化的环境，包括目录，用户，umask，关闭进程所需要的信号等等<br />
+手动管理进程(开始，启动，重启，查看进程状态)的web界面，和xmlrpc接口</p>
+<p>Supervisor 是一个 C/S 模型的程序，<code>supervisord</code> 是 server 端，<code>supervisorctl</code> 是 client 端。</p>
+<p>Supervisor服务管理的进程程序，它们作为supervisor的子进程来运行，而supervisor是父进程。supervisor来监控管理子进程的启动关闭和异常退出后的自动启动。<br />
+如果Supervisor</p>
+<p>【下载】</p>
+<pre><code># 以下方式都可以
+yum install supervisor -y
+apt-get install supervisor  -y
+pip install supervisor</code></pre>
+<p>配置文件在<code>/etc/supervisord.conf</code>,<code>/etc/supervisord.d/</code>下，其中前者include后者。</p>
+<p>若没有配置文件的话可以通过如下命令来生成配置文件：<br />
+<code>echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf</code></p>
+<p>【配置】<br />
+[program:laravelworker]<br />
+process_name=%(program_name)s_%(process_num)02d<br />
+command=/opt/lampp/bin/php /opt/lampp/htdocs/project/activity/gamecenter/artisan queue:work --sleep=3 --tries=1 --daemon<br />
+autostart=true<br />
+autorestart=true<br />
+user=root<br />
+numprocs=10 //启动的进程数<br />
+redirect_stderr=true<br />
+stdout_logfile=/tmp/larvaelworker.log</p>
+<p>【Supervisor 常用命令】<br />
+supervisord -c /etc/supervisord.conf 启动<br />
+supervisorctl shutdown 关闭<br />
+supervisorctl reload 重新载入配置</p>
+<p>supervisorctl status 查看所有进程状态<br />
+supervisorctl restart <application name> ;重启指定应用<br />
+supervisorctl stop <application name> ;停止指定应用<br />
+supervisorctl start <application name> ;启动指定应用<br />
+supervisorctl restart all ;重启所有应用<br />
+supervisorctl stop all ;停止所有应用<br />
+supervisorctl start all ;启动所有应用</p>
+<p>注意：在新增或修改配置文件后，要使用supervisorctl update命令，使用此命令后会自动加载新的配置，并且启动该进程。</p>
+<p>【systemctl方式启动】<br />
+systemctl enable/start/stop supervisord</p>
+<p>【web控制界面】</p>
+<pre><code>[inet_http_server]         ; inet (TCP) server disabled by default
+port=*:9001        ; (ip_address:port specifier, *:port for all iface)
+username=user              ; (default is no username (open server))
+password=123               ; (default is no password (open server))</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -36,6 +36,8 @@ check:
 	./checkinvalidlink.sh
 
 
+meun:
+	python3 md_file_tree.py
 
 clean:
 	@rm $(Q_HTML) -f

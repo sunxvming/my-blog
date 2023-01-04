@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/50-应用方向/前端/php/php框架/laravel入门</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#资源链接">资源链接</a></li>
+<li><a href="#问题">问题</a></li>
+<li><a href="#目录结构">目录结构</a></li>
+<li><a href="#命令行">命令行</a></li>
+<li><a href="#路由">路由</a></li>
+<li><a href="#controller">controller</a></li>
+<li><a href="#model">model</a></li>
+<li><a href="#view">view</a></li>
+<li><a href="#其他">其他</a></li>
+<li><a href="#路径">路径</a></li>
+<li><a href="#日志">日志</a></li>
+<li><a href="#laravel-debugbar">laravel debugbar</a></li>
+<li><a href="#自动类加载">自动类加载</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="资源链接">资源链接</h2>
+<ul>
+<li><a href="https://learnku.com/docs/laravel/5.8/">laravel5.8中文文档</a></li>
+</ul>
+<h2 id="问题">问题</h2>
+<p>如果有报错且页面空白没有输出<br />
+1.看<code>php.ini</code>里面的display_error<br />
+2.<code>./config/app.php env debug=&gt;true</code><br />
+3.<code>storage/logs里面的权限问题</code></p>
+<pre><code>chmod -R 666 logs/  # 日志文件可读可写
+chmod 777 logs/     # 目录可读可写可执行</code></pre>
+<h2 id="目录结构">目录结构</h2>
+<p>composer.json composer的配置文件<br />
+vendor 依赖包存放的目录</p>
+<p>laravel依赖的包通过composer来进行管理和下载。<br />
+依赖包通过使用<code>composer require</code>命令下载到<code>vendor</code>目录下。</p>
+<p><strong>Laravel 如何使用 vendor 里面的包的？</strong><br />
+直接在控制器中 use 你引入的 composer 包就可以了</p>
+<p>以 QueryList 为例，在 composer 安装之后，在控制器中</p>
+<pre><code>use QL\QueryList;</code></pre>
+<button class="copy-code-button ui label" style="position: absolute; top: 20px; right: 1px; display: none;">
+<p>Copy</button></p>
+<p>包的使用</p>
+<pre><code>QueryList::get();</code></pre>
+<h2 id="命令行">命令行</h2>
+<pre><code># 数据库迁移
+php artisan migrate      数据库迁移（建数据库的表，数据库本身不建立，得手动建）
+php artisan db:seed      数据库里面插入数据(默认 DatabaseSeeder )
+php artisan db:seed --class=UserTableSeeder   指定执行某个表
+
+
+# 创建数据库迁移
+php artisan make:migration create_users_table --create=users
+php artisan make:migration add_votes_to_users_table --table=users
+
+# 创建seed
+php artisan make:seeder UsersTableSeeder
+
+# 创建controller
+php artisan make:controller Home/UserController         命名空间要大写
+
+# 创建model
+php artisan make:model Article    也可以指定命名空间  Models\Auth
+
+# 创建中间件
+php artisan make:middleware OldMiddleware
+
+
+php artisan down（up）         开启关闭维护模式
+
+php artisan queue:work --daemon --sleep=3 --tries=1
+使用队列时，如果队列的代码改了的话，需要重启一下队列的监听器，要不然的话修改是不会生效的
+
+# 框架加速操作
+php artisan config:cache     将所有的配置文件缓存到单个文件。通过此命令将所有的设置选项合并成一个文件，让框架能够更快速的加载。</code></pre>
+<h2 id="路由">路由</h2>
+<p>请求的分诊台，指导请求具体往哪里走</p>
+<pre><code>Route::get(&#39;/a/b&#39;, function () {
+    return view(&#39;welcome&#39;);
+});
+Route::get(&#39;/&#39;, function () {
+    return &#39;Hello World&#39;;
+});
+Route::match([&#39;get&#39;,&#39;post&#39;],&#39;/&#39;, function () {
+    return view(&#39;welcome&#39;);
+});
+Route::any(&#39;foo&#39;, function () {
+    return &#39;Hello World&#39;;
+});
+Route::get(&#39;user/profile&#39;, &#39;UserController@showProfile&#39;)-&gt;name(&#39;profile&#39;);  // name是为路由的命个名</code></pre>
+<p>prefix为前缀，namespace为controller的命名空间</p>
+<pre><code>Route::group([&#39;prefix&#39; =&gt; &#39;admin&#39;,&#39;middleware&#39; =&gt; &#39;auth&#39;,&#39;namespace&#39; =&gt; &#39;Home&#39;], function(){
+    Route::get(&#39;/home/user&#39;, [&#39;uses&#39;=&gt;&#39;UserController@index&#39;]);
+});</code></pre>
+<p>防跨网站请求伪造</p>
+<pre><code>{{ csrf_field() }}</code></pre>
+<h2 id="controller">controller</h2>
+<p>请求的处理者<br />
+所在目录</p>
+<pre><code>app/Http/Controllers</code></pre>
+<pre><code>$r = $Request-&gt;all();                  全部get post
+$ids = $Request-&gt;get(&#39;ids&#39;);           特定get post
+$request-&gt;input( &#39;iscopy&#39; ),           特定get post
+$name = $request-&gt;input(&#39;name&#39;, &#39;Sally&#39;);      默认值
+$input = $request-&gt;input(&#39;products.0.name&#39;);   数组用点形式
+
+$uri = $request-&gt;path();       得到uri
+$request-&gt;is(&#39;admin/*&#39;)        uri模式判断
+$url = $request-&gt;url();
+$name = $request-&gt;name;            属性方式访问
+$request-&gt;isMethod(&#39;post&#39;)
+
+$request-&gt;has(&#39;name&#39;)
+
+$input = $request-&gt;only([&#39;username&#39;, &#39;password&#39;]);
+
+$input = $request-&gt;except(&#39;credit_card&#39;);
+
+$value = $request-&gt;cookie(&#39;name&#39;);
+
+
+重定向         return redirect(&#39;act/index&#39;);
+返回json信息   return response()-&gt;json([&#39;name&#39; =&gt; &#39;Abigail&#39;, &#39;state&#39; =&gt; &#39;CA&#39;]);
+下载文件       return response()-&gt;download($pathToFile, $name, $headers);
+
+
+# 文件上传
+$file = $request-&gt;file(&#39;photo&#39;);
+
+if ($request-&gt;hasFile(&#39;photo&#39;)) {
+    //
+}
+if ($request-&gt;file(&#39;photo&#39;)-&gt;isValid()) {
+    //
+}
+$request-&gt;file(&#39;photo&#39;)-&gt;move($destinationPath, $fileName);</code></pre>
+<h2 id="model">model</h2>
+<p>查</p>
+<pre><code># model对象直接操作
+$act = Act::find($id);
+Flight::all();
+
+$Act = Act::where(&#39;id&#39;,&#39;&gt;&#39;,0)-&gt;where(&#39;status&#39;,&#39;&gt;=&#39;,0);
+$Act-&gt;where( &#39;name&#39;, &#39;like&#39;, &#39;%&#39;.$name.&#39;%&#39; );
+$actlist = $Act-&gt;orderBy(&#39;id&#39;,&#39;desc&#39;)-&gt;get();
+
+
+# table对象操作
+$user = DB::table(&#39;users&#39;)-&gt;where(&#39;name&#39;, &#39;John&#39;)-&gt;first();
+DB::table(&#39;acts&#39;)-&gt;where(&#39;status&#39;,&#39;&gt;=&#39;,0)-&gt;orderBy(&#39;id&#39;,&#39;desc&#39;)-&gt;paginate( 30 )
+
+
+# sql语句直接操作
+$actlist =  DB::select(
+&quot;select * from acts where ((start_time &gt;= ? and start_time &lt;= ?) or (end_time &gt;= ? and end_time &lt;= ?)) and status =99 and id !=$id&quot;,
+[$act-&gt;start_time,$act-&gt;end_time,$act-&gt;start_time,$act-&gt;end_time]
+);</code></pre>
+<p>添加</p>
+<pre><code># model对象直接操作
+$flight = new Flight;
+$flight-&gt;name = $request-&gt;name;
+$flight-&gt;save();
+
+# table对象操作
+DB::table(&#39;users&#39;)-&gt;insert([
+    &#39;name&#39; =&gt; str_random(10),
+    &#39;email&#39; =&gt; str_random(10).&#39;@gmail.com&#39;,
+    &#39;password&#39; =&gt; bcrypt(&#39;secret&#39;),
+]);</code></pre>
+<p>修改</p>
+<pre><code>$act = Act::find($id);
+$act-&gt;status = 9;//等同步
+$act-&gt;save( );</code></pre>
+<p>条件修改</p>
+<pre><code>App\Flight::where(&#39;active&#39;, 1)
+    -&gt;where(&#39;destination&#39;, &#39;San Diego&#39;)
+    -&gt;update([&#39;delayed&#39; =&gt; 1]);
+
+
+Act::whereIn(&#39;id&#39;,$ids)-&gt;update([
+     &#39;status&#39; =&gt; 9
+]);</code></pre>
+<p>删除</p>
+<pre><code>$flight = App\Flight::find(1);
+$flight-&gt;delete();
+$deletedRows = App\Flight::where(&#39;active&#39;, 0)-&gt;delete();
+
+App\Flight::destroy(1);  也是删除</code></pre>
+<p>事务<br />
+laravel 提供专门的闭包的数据库事务,可以自动回滚事务也可以手动回滚事务</p>
+<pre><code>//自动回滚事务
+DB::transaction(function () {
+    DB::table(&#39;users&#39;)-&gt;update([&#39;posts&#39; =&gt; 1]);
+    DB::table(&#39;posts&#39;)-&gt;save();
+});</code></pre>
+<p>若在闭包中使用外部变量，需要使用use来使用闭包外部定义的变量的.</p>
+<pre><code>public function update(Post $post)
+    {
+        DB::transaction(function ()use($post){
+            $post-&gt;update(\request([&#39;title&#39;,&#39;content&#39;]));
+        });
+    }</code></pre>
+<h2 id="view">view</h2>
+<pre><code>return view(
+    &#39;act.index&#39;,
+    [&#39;actlist&#39;=&gt; DB::table(&#39;acts&#39;)-&gt;where(&#39;status&#39;,&#39;&gt;=&#39;,0)-&gt;orderBy(&#39;id&#39;,&#39;desc&#39;)-&gt;paginate( 30 )
+    ]
+);
+if (view()-&gt;exists(&#39;emails.customer&#39;)) {</code></pre>
+<p>把数据共享给所有视图</p>
+<p>你可以选择直接写在 AppServiceProvider 或是自己生成一个不同的服务提供者来放置这些代码</p>
+<p>你可以放置任何你想要的 PHP 代码到 Blade 显示的语法里面： 目前的 UNIX 时间戳为:</p>
+<pre><code>{{ time() }}。
+
+
+{{ $name or &#39;Default&#39; }}</code></pre>
+<pre><code>@forelse ($users as $user)
+    &lt;li&gt;{{ $user-&gt;name }}&lt;/li&gt;
+@empty
+    &lt;p&gt;没有用户&lt;/p&gt;
+@endforelse</code></pre>
+<pre><code>@include(&#39;view.name&#39;, [&#39;some&#39; =&gt; &#39;data&#39;])</code></pre>
+<pre><code>404页面要放在views/error中
+在http/kernel中命名中间件
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset(&quot;assets/stylesheets/dashboard.css&quot;) }}&quot; /&gt; asset是从public目录下开始的</code></pre>
+<h2 id="其他">其他</h2>
+<pre><code>$this-&gt;dispatch(new SyncActJob( $act-&gt;id, &#39;updatefeast&#39; ));  添加任务队列
+
+得到配置            $value = config(&#39;app.timezone&#39;);
+修改配置            config([&#39;app.timezone&#39; =&gt; &#39;America/Chicago&#39;]);
+抛服务器异常        abort(403, &#39;Unauthorized action.&#39;);</code></pre>
+<h2 id="路径">路径</h2>
+<p>一、public_path('uploads'); 说明：public文件路径<br />
+二、base_path('xx');<br />
+三、app_path('xx');<br />
+四、resource_path('xx');</p>
+<p>public目录<br />
+通常，浏览器需要直接访问的所有内容都在公共目录中。 这通常意味着:JavaScript, CSS，图像，也许是一些视频或音频文件。</p>
+<p>resources目录<br />
+资源/资产是指那些必须首先编译或缩小的东西。 资源/资产中会有一些LESS或SASS文件它们会被编译并缩小到一个CSS文件，放到公共目录中。</p>
+<p>使用dd()函数，将感兴趣的数据输出到浏览器上,快速查看变量的内容</p>
+<pre><code>$items = array( &#39;items&#39; =&gt; [&#39;Pack luggage&#39;, &#39;Go to airport&#39;, &#39;Arrive in San Juan&#39;]);
+dd($items);</code></pre>
+<p>使用Log输出感兴趣的信息，Log信息会记录到storage/logs/laravel.log文件中，可以使用Debugbar等查看Log信息<br />
+可以使用tail -f 命令查看storage/logs/laravel.log文件中加入的log信息</p>
+<h2 id="日志">日志</h2>
+<pre><code>use Illuminate\Support\Facades\Log;
+
+Log::emergency($message);
+Log::alert($message);
+Log::critical($message);
+Log::error($message);
+Log::warning($message);
+Log::notice($message);
+Log::info($message);
+Log::debug($message);</code></pre>
+<h2 id="laravel-debugbar">laravel debugbar</h2>
+<h2 id="自动类加载">自动类加载</h2>
+<p>在composer.json下面配置了要自动加载的类，如下所示：</p>
+<pre><code>    &quot;autoload&quot;: {
+        &quot;classmap&quot;: [
+            &quot;database/seeds&quot;,
+            &quot;database/factories&quot;
+        ],
+        &quot;psr-4&quot;: {
+            &quot;App\\&quot;: &quot;app/&quot;
+        }
+    }</code></pre>
+<p>执行<code>composer install/require</code>更新自动加载，更新执行<code>composer dump-autoload</code>。composer会扫描指定目录下以.php 或.inc 结尾的文件中的 class，生成 class 到指定 file path 的映射，并加入新生成的<code>vendor/composer/autoload_classmap.php</code> 文件中。</p>
+<p><code>dump-autoload</code> 是用来生成自动加载的<br />
+执行 <code>composer dump-autoload</code> 后<code>vendor/composer/autoload_classmap.php</code>，会删除，然后重新建立的</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/10-编程语言/go/惯用法</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#构造对象">构造对象</a></li>
+<li><a href="#类型嵌入type-embedding">类型嵌入(Type Embedding)</a></li>
+<li><a href="#if语句">if语句</a></li>
+<li><a href="#comma-ok">comma ok</a>
+<ul>
+<li><a href="#清晰的map访问">清晰的map访问</a></li>
+<li><a href="#安全的类型断言">安全的类型断言</a></li>
+<li><a href="#channel-receive">channel receive</a></li>
+</ul></li>
+<li><a href="#错误处理">错误处理</a></li>
+<li><a href="#接受接口返回结构体">接受接口，返回结构体</a></li>
+<li><a href="#option">Option</a></li>
+<li><a href="#mustxxx">MustXXX</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="构造对象">构造对象</h2>
+<pre><code>// $GOROOT/src/time/sleep.go
+func NewTimer(d Duration) *Timer {
+    c := make(chan Time, 1)
+    t := &amp;Timer{
+        C: c,
+        r: runtimeTimer{
+            when: when(d),
+            f:    sendTime,
+            arg:  c,
+        },
+    }
+    startTimer(&amp;t.r)
+    return t
+}</code></pre>
+<h2 id="类型嵌入type-embedding">类型嵌入(Type Embedding)</h2>
+<p><strong>结构体类型</strong></p>
+<pre><code>// $GOROOT/src/sync/pool.go
+type poolLocal struct {
+    private interface{}   
+    shared  []interface{}
+    Mutex               
+    pad     [128]byte  
+}</code></pre>
+<p>在代码段中，我们在 poolLocal 这个结构体类型中嵌入了类型 Mutex，这就使得 poolLocal 这个类型具有了互斥同步的能力，我们可以通过 poolLocal 类型的变量，直接调用 Mutex 类型的方法 Lock 或 Unlock。</p>
+<p><strong>接口类型</strong></p>
+<pre><code>// $GOROOT/src/io/io.go
+type ReadWriter interface {
+    Reader
+    Writer
+}</code></pre>
+<p>这里，标准库通过<strong>嵌入接口类型</strong>的方式来实现接口行为的聚合，组成大接口，这种方式在标准库中尤为常用。</p>
+<h2 id="if语句">if语句</h2>
+<pre><code>if statement; condition {  
+    // do something  
+}</code></pre>
+<p>statement中</p>
+<h2 id="comma-ok">comma ok</h2>
+<h3 id="清晰的map访问">清晰的map访问</h3>
+<pre><code>m := make(map[string]int)
+v := m[&quot;k&quot;]</code></pre>
+<p>按照以上写法，当m中不存在k这个key时，v的值是自身类型对应的“零值”。如int类型的零值为0，string类型的零值为""，slice、map、func、channel和指针类型的零值为nil。</p>
+<pre><code>// 使用“comma ok”的惯用法来判断key是否在map中
+m := make(map[string]int)
+
+if v, ok := m[&quot;key1&quot;]; ok  {
+    // &quot;key1&quot;在map中
+}</code></pre>
+<h3 id="安全的类型断言">安全的类型断言</h3>
+<p>不使用comma ok的类型断言：</p>
+<pre><code>i := 10
+var a interface{} = i
+s := a.(string)</code></pre>
+<p>以上实例中a的实际类型为int，无法通过类型断言转换为string，所以会因断言失败而panic。</p>
+<p>comma ok语法的方式：</p>
+<pre><code>s, ok := a.(string)</code></pre>
+<h3 id="channel-receive">channel receive</h3>
+<p>Go语言的channel被设计为能够用作“事件通知”，具体实现就是在close之后可以无限receive，不会阻塞并且得到的值都是对应元素类型的“零值”。</p>
+<p>首先看一下普通的channel receive语法：</p>
+<pre><code>ch := make(chan int)
+i := &lt;-ch</code></pre>
+<p>如果以上示例中i等于0，我们无法判断是通道ch中确实传递过来一个0；还是因为ch已经被关闭，所以我们得到一个“零值”。<br />
+comma ok语法：</p>
+<pre><code>// 如果因为ch关闭而得到一个“零值”，ok会是false。
+i, ok := &lt;-ch</code></pre>
+<p>对于有缓冲channel，如果在其被关闭后缓冲中还有数据，此时comma ok得到的ok会是true，直到缓冲数据读尽变成false:</p>
+<h2 id="错误处理">错误处理</h2>
+<p>Go 语言惯用法，是使用 error 这个接口类型表示错误，并且按惯例，我们通常将 error 类型返回值放在返回值列表的末尾，这样在调用函数时，我们可以通过简单的判断返回值列表的最后一个值是否为 nil 来判断函数是否执行成功。</p>
+<h2 id="接受接口返回结构体">接受接口，返回结构体</h2>
+<p>Go 社区流传一个经验法则：“接受接口，返回结构体(Accept interfaces, return structs)”</p>
+<pre><code>type Cond struct {
+    ... ...
+    L Locker
+}
+func NewCond(l Locker) *Cond {
+    return &amp;Cond{L: l}
+}</code></pre>
+<h2 id="option">Option</h2>
+<p>Option 写法，顾名思义，就是将所有可选的参数作为一个可选方式，一般我们会设计一个“函数类型”来代表这个 Option，然后配套将所有<strong>可选字段</strong>设计为一个这个函数类型的具体实现。在具体的使用的时候，使用可变字段的方式来控制有多少个函数类型会被执行。</p>
+<pre><code>// 普通写法
+package newdemo
+type Foo struct {
+   name string
+   id int
+   age int
+   db interface{}
+}
+func NewFoo(name string, id int, age int, db interface{}) *Foo {
+   return &amp;Foo{
+      name: name,
+      id:   id,
+      age:  age,
+      db:   db,
+   }
+}
+
+//使用Option的写法
+type Foo struct {
+    name string
+    id int
+    age int
+    db interface{}
+}
+// FooOption 代表可选参数
+type FooOption func(foo *Foo)
+// WithName 代表Name为可选参数
+func WithName(name string) FooOption {
+   return func(foo *Foo) {
+      foo.name = name
+   }
+}
+// WithAge 代表age为可选参数
+func WithAge(age int) FooOption {
+   return func(foo *Foo) {
+      foo.age = age
+   }
+}
+// WithDB 代表db为可选参数
+func WithDB(db interface{}) FooOption {
+   return func(foo *Foo) {
+      foo.db = db
+   }
+}
+// NewFoo 代表初始化
+func NewFoo(id int, options ...FooOption) *Foo {
+   foo := &amp;Foo{
+      name: &quot;default&quot;,
+      id:   id,
+      age:  10,
+      db:   nil,
+   }
+   for _, option := range options {
+      option(foo)
+   }
+   return foo
+}</code></pre>
+<h2 id="mustxxx">MustXXX</h2>
+<p>XXX()和MustXXX()的函数命名方式，是一种 Go 代码设计技巧。<br />
+例如 Go 标准库中regexp包提供的Compile和MustCompile函数。和XXX相比，MustXXX 会在某种情况不满足时 panic。<br />
+因此使用MustXXX的开发者看到函数名就会有一个心理预期：使用不当，会造成程序 panic。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

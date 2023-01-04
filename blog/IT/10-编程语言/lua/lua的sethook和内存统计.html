@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/10-编程语言/lua/lua的sethook和内存统计</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#什么是钩子hook">什么是钩子(hook)？</a></li>
+<li><a href="#怎么统计内存">怎么统计内存</a></li>
+<li><a href="#放码过来">放码过来</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<blockquote>
+<p>本文通过lua的debug.sethook()和collectgabage()的结合使用来达到统计内存的作用，以便知道自己的程序在文件的什么地方会分配大量的内存</p>
+</blockquote>
+<h3 id="什么是钩子hook">什么是钩子(hook)？</h3>
+<p>顾名思义，就是用来钩东西的东西，是一个实实在在的东西。而在程序界，钩子是虚的，一般就是在某处钩个函数什么的，当某处发生了什么事件后，钩在这里的函数也会被执行。在lua里，sethook是放在debug库里的，说明它的主要功能是用来调试用的。lua里的sethook一般是钩在三种事件中的：<br />
+* 调用一个函数时<br />
+* 从一个函数内返回时<br />
+* 每当 Lua 进入新的一行时<br />
+也就是说，每当上述事件发生后事先够好的钩子函数都会被执行。lua的官方文档是这样说滴：</p>
+<blockquote>
+<p>debug.sethook ([thread,] hook, mask [, count])<br />
+Sets the given function as a hook. The string mask and the number count describe when the hook will be called. The string mask may have the following characters, with the given meaning:</p>
+<ul>
+<li>"c": the hook is called every time Lua calls a function;</li>
+<li>"r": the hook is called every time Lua returns from a function;</li>
+<li>"l": the hook is called every time Lua enters a new line of code.</li>
+</ul>
+</blockquote>
+<h3 id="怎么统计内存">怎么统计内存</h3>
+<p>接下来再说什么统计内存，lua里有个collectgabage()函数，调用collectgabage("count")将会返回当前所占用的内存。说到这里有没有产生灵感呢？统计内存就是统计出程序在某某处产生了多少的内存，结合上面的设置钩子的函数可以很容易想到在Lua进入新的一行时设置一个钩子函数，里面所作的内容是统计内存的增长量。用上述说的可以实现程序每执行新的一行就统计一下内存，但是还缺一个东西，那就是我怎么知道是那个代码文件的哪行呢。不怕，文件可以通过debug.getinfo来获取，行号可以通过钩子函数的第二个参数得到。详见<a href="http://www.lua.org/manual/5.1/manual.html#pdf-debug.sethook">lua官方文档</a>到这里该有的东西都就有了，剩下的就是组织编写调试代码喽。</p>
+<h3 id="放码过来">放码过来</h3>
+<pre><code>local memStat = { }    -- 记录每一行代码的内存状况 k = [文件名--行号] v = {执行次数，内存量}
+local currentMem = 0   -- 当前内存量
+------------------------------
+-- 钩子函数，作用是统计每行的内存增长量
+------------------------------
+local function RecordAlloc(event, lineNo)
+    local memInc = collectgarbage(&quot;count&quot;) - currentMem
+    -- 没涨内存就不统计
+    if (memInc &lt;= 1e-6) then
+        currentMem = collectgarbage(&quot;count&quot;)
+        return
+    end
+    local s = debug.getinfo(2, &#39;S&#39;).source
+    s = string.format(&quot;%s--%d&quot;, s, lineNo )   -- 文件名--行号
+    local item = memStat[s]
+    if (not item) then
+        memStat[s] = { s, 1, memInc }
+    else
+        item[2] = item[2] + 1
+        item[3] = item[3] + memInc
+    end
+    -- 最后再读一次内存，忽略本次统计引起的增长
+    currentMem = collectgarbage(&quot;count&quot;)
+end
+------------------------------
+-- 挂上钩子
+------------------------------
+function RecordStart()
+    memStat = { }
+    currentMem = collectgarbage(&quot;count&quot;)
+    debug.sethook(RecordAlloc, &#39;l&#39;)
+end
+------------------------------
+-- 摘掉钩子
+------------------------------
+function RecordStop()
+    debug.sethook()
+    local sorted = { }
+    for k, v in pairs(memStat) do
+        table.insert(sorted, v)
+    end
+    table.sort(sorted, function(a, b) return a[3] &gt; b[3] end)
+    dump(sorted)
+end
+------------------------------
+-- 测试代码
+------------------------------
+RecordStart()
+for i = 1,1000 do
+    local t1 = {1,2,3,4,5,6,7,8}
+end
+for i = 1,1000 do
+    local t1 = {a=&#39;a&#39;,b=&#39;b&#39;,c=&#39;c&#39;,d=&#39;d&#39;,e=&#39;e&#39;,f=&#39;f&#39;,g=&#39;g&#39;,h=&#39;h&#39;}
+end
+RecordStop()</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>
