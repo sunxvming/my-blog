@@ -1,0 +1,14 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor 系统用户
+actor 受调查者
+rectangle 通用问卷调查系统{
+  系统用户 --> (验证用户)
+  系统用户 --> (创建问卷)
+  系统用户 --> (发布问卷)
+  (填写问卷) <-- 受调查者
+  系统用户 --> (查看问卷答卷)
+  系统用户 --> (在线客服中心)
+}
+@enduml

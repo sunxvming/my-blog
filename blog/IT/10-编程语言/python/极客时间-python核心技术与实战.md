@@ -641,7 +641,7 @@ print(next(g))
 
 
 ## 20 | 揭秘 Python 协程
-协程是实现并发编程的一种方式，其底层的实现为事件循环机制。
+协程是实现并发编程的一种方式，其底层的实现为**事件循环机制**。
 ```
 asyncio.create_task(worker_1()) # 创建任务
 asyncio.run(main())  # 启动任务

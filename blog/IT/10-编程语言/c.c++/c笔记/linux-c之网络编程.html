@@ -200,7 +200,7 @@ jQuery(document).ready(function(){
 <li><a href="#select模型">select模型</a></li>
 <li><a href="#epoll模型">epoll模型</a></li>
 </ul></li>
-<li><a href="#proactor-和-reactor">5.Proactor 和 Reactor：</a></li>
+<li><a href="#preactor-和-reactor">5.Preactor 和 Reactor：</a></li>
 </ul></li>
 <li><a href="#unix-domain">UNIX Domain</a>
 <ul>
@@ -718,7 +718,7 @@ int main(int arg, char *args[])
 
 
 </code></pre>
-<h3 id="proactor-和-reactor">5.Proactor 和 Reactor：</h3>
+<h3 id="preactor-和-reactor">5.Preactor 和 Reactor：</h3>
 <p>这两种模式都是针对IO操作的，我的理解是Reactor只是告诉调用者什么时候事件到来，但是需要进行什么操作，需要调用者自己处理。Preactor不是当事件到来时通知，而是针对此事件对应的操作完成时，通知调用者，一般通知方式都是异步回调。<br />
 举例，Reactor中注册读事件，那么文件描述符可读时，需要调用者自己调用read系统调用读取数据，若工作在Preactor模式，注册读事件，同时提供一个buffer用于存储读取的数据，那么Preactor通过回调函数通知用户时，用户无需在调用系统调用读取数据，因为数据已经存储在buffer中了。显然epoll是Reactor的。</p>
 <h2 id="unix-domain">UNIX Domain</h2>

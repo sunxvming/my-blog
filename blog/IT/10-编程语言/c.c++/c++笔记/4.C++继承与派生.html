@@ -200,7 +200,7 @@ jQuery(document).ready(function(){
 <li><a href="#多继承的问题命名冲突">多继承的问题：命名冲突</a></li>
 </ul></li>
 <li><a href="#c多继承时的对象内存模型">C++多继承时的对象内存模型</a></li>
-<li><a href="#借助指针突破访问权限的限制访问privateprotected属性的成员变量">借助指针突破访问权限的限制，访问private、protected属性的成员变量</a></li>
+<li><a href="#通过指针访问成员变量">通过指针访问成员变量</a></li>
 <li><a href="#c虚继承和虚基类详解">C++虚继承和虚基类详解</a>
 <ul>
 <li><a href="#虚继承virtual-inheritance">虚继承（Virtual Inheritance）</a></li>
@@ -225,10 +225,10 @@ jQuery(document).ready(function(){
 
 <h2 id="c继承和派生简明教程">C++继承和派生简明教程</h2>
 <p>派生（Derive）和继承（Inheritance）是一个概念，只是站的角度不同。继承是儿子接收父亲的产业，派生是父亲把产业传承给儿子<br />
-<strong>子类”和“父类”</strong>通常放在一起称呼，<strong>“基类”和“派生类”</strong>通常放在一起称呼。</p>
+<strong>子类和父类</strong>通常放在一起称呼，<strong>“基类和派生类</strong>通常放在一起称呼。</p>
 <h2 id="c三种继承方式">C++三种继承方式</h2>
 <p>继承方式默认为 private（成员变量和成员函数默认也是 private）<br />
-继承方式中的 public、protected、private 是用来指明基类成员在派生类中的最高访问权限的<br />
+继承方式中的 public、protected、private 是用来指明基类成员在派生类中的<strong>最高访问权限的</strong><br />
 1) public继承方式<br />
 基类中所有 public 成员在派生类中为 public 属性；<br />
 基类中所有 protected 成员在派生类中为 protected 属性；<br />
@@ -242,11 +242,11 @@ jQuery(document).ready(function(){
 基类中的所有 protected 成员在派生类中均为 private 属性；<br />
 基类中的所有 private 成员在派生类中不能使用。</p>
 <p>其规律是：基类成员在派生类中的访问权限<strong>不得高于继承方式中指定的权限</strong>。</p>
-<p>我们这里说的是基类的 private 成员不能在派生类中使用，并没有说基类的 private 成员不能被继承。实际上，基类的 private 成员是能够被继承的，并且（成员变量）会占用派生类对象的内存，它只是在派生类中不可见，导致无法使用罢了。private 成员的这种特性，能够很好的对派生类隐藏基类的实现，以体现面向对象的封装性。<br />
+<p>我们这里说的是基类的 private 成员不能在派生类中使用，并没有说基类的 private 成员不能被继承。实际上，基类的 private 成员是能够被继承的，并且（成员变量）会占用派生类对象的内存，它只是在派生类中不可见，导致无法使用罢了。private 成员的这种特性，能够很好的对派生类隐藏基类的实现，<strong>以体现面向对象的封装性</strong>。<br />
 在派生类中访问基类 private 成员的<strong>唯一方法</strong>就是<strong>借助基类的非 private 成员函数</strong>，如果基类没有非 private 成员函数，那么该成员在派生类中将无法访问。</p>
 <p>由于 private 和 protected 继承方式会改变基类成员在派生类中的访问权限，导致继承关系复杂，所以实际开发中我们一般使用<code>public</code></p>
 <h3 id="改变访问权限">改变访问权限</h3>
-<p>使用 using 关键字可以<strong>改变基类成员在派生类中的访问权限</strong>，例如将 public 改为 private、将 protected 改为 public。提供一个细粒度的权限的修改。<br />
+<p>使用 using 关键字可以<strong>改变基类成员在派生类中的访问权限</strong>，例如将 public 改为 private、将 protected 改为 public。提供一个<strong>细粒度的权限的修改</strong>。<br />
 但是不能改变 <strong>private</strong> 成员的访问权限，因为基类中 private 成员在派生类中是不可见的，根本不能使用。</p>
 <pre><code>//派生类Student, 基类是People
 class Student : public People {
@@ -260,7 +260,7 @@ private:
     using People::show; //将public改为private
 };</code></pre>
 <h2 id="c继承时的名字遮蔽问题">C++继承时的名字<strong>遮蔽</strong>问题</h2>
-<p><em> 所谓遮蔽，就是在子类和父类<strong>成员重名</strong>,在派生类中使用该成员时，实际上使用的是派生类新增的成员，而不是从基类继承来的，就像作用域里的遮蔽一样<br />
+<p><em> 所谓遮蔽，就是在子类和父类<strong>成员重名</strong>,在派生类中使用该成员时，实际上使用的是派生类新增的成员，而不是从基类继承来的，<strong>就像作用域里的遮蔽一样</strong><br />
 </em> 基类成员函数和派生类成员函数不构成重载，如果派生类有同名函数(<strong>不管它们的参数是否一样</strong>)，那么就会<strong>遮蔽</strong>基类中的所有同名函数。</p>
 <h2 id="c类继承时的作用域嵌套破解c继承的一切秘密">C++类继承时的作用域嵌套，破解C++继承的一切秘密！</h2>
 <p>* 当存在继承关系时，派生类的作用域嵌套在基类的作用域之内，如果一个名字在派生类的作用域内无法找到，编译器会继续到外层的基类作用域中查找该名字的定义。</p>
@@ -272,8 +272,7 @@ private:
 A类的m_b 和 B类的m_c，被C类给遮蔽了。如果访问A类的m_b成员，得加上<strong>作用域符号  A::m_b</strong><br />
 <img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/55933d4c-c91c-4447-988e-12d204e5790f.png" /></p>
 <h2 id="c基类和派生类的构造函数">C++基类和派生类的构造函数</h2>
-<p>类的构造函数不能被继承。构造函数不能被继承是有道理的，因为即使继承了，<strong>它的名字和派生类的名字也不一样</strong>，不能成为派生类的构造函数<br />
-在设计派生类时，<strong>对继承过来的成员变量的初始化工作也要由派生类的构造函数完成</strong>，但是大部分基类都有 private 属性的成员变量，它们在派生类中无法访问，更不能使用派生类的构造函数来初始化。<br />
+<p>在设计派生类时，<strong>对继承过来的成员变量的初始化工作也要由派生类的构造函数完成</strong>，但是大部分基类都有 private 属性的成员变量，它们在派生类中无法访问，更不能使用派生类的构造函数来初始化。<br />
 这种矛盾在C++继承中是普遍存在的，解决这个问题的思路是：<strong>在派生类的构造函数中调用基类的构造函数</strong>。</p>
 <pre><code>Student::Student(char *name, int age, float score): People(name, age), m_score(score){ }</code></pre>
 <p>派生类构造函数总是先调用<strong>基类</strong>构造函数再执行其他代码（包括参数初始化表以及函数体中的代码）</p>
@@ -286,33 +285,25 @@ A类的m_b 和 B类的m_c，被C类给遮蔽了。如果访问A类的m_b成员
 如果没有默认构造函数，那么编译失败。</p>
 <h3 id="c11构造函数继承">c++11构造函数继承</h3>
 <p>书写多个派生类构造函数<strong>只为传递参数完成基类初始化</strong>，这种方式无疑给开发人员带来麻烦，降低了编码效率。从 C++11 开始，推出了继承构造函数（Inheriting Constructor），使用 using 来声明继承基类的构造函数，我们可以这样书写。</p>
-<pre><code>class Base {
-public:
-    Base(int v) :_value(v), _c(&#39;0&#39;){}
-    Base(char c): _value(0), _c(c){}
-private:
-    int _value;
-    char _c;
+<pre><code>struct Base
+{
+  void f(double i){
+  cout&lt;&lt;&quot;Base:&quot;&lt;&lt;i&lt;&lt;endl;
+  }
 };
-
-
-class Derived :public Base {
-public:
-    // 使用继承构造函数
-    using Base::Base;
-
-
-    // 假设派生类只是添加了一个普通的函数
-    void display() {
-        //dosomething        
-    }
-};
-
-Derived derived(1,&#39;a&#39;);  //会调用基类的构造函数</code></pre>
+ 
+struct Drived:Base
+{
+  using Base::f;
+  void f(int i){
+    cout&lt;&lt;&quot;Drived:&quot;&lt;&lt;i&lt;&lt;endl;
+  }
+};</code></pre>
 <h2 id="c基类和派生类的析构函数">C++基类和派生类的析构函数</h2>
-<p><em> 和构造函数类似，析构函数也不能被继承。<br />
-与构造函数不同的是，在派生类的析构函数中<strong>不用显式地调用基类的析构函数</strong>，因为每个类只有一个析构函数，编译器知道如何选择，无需程序员干涉。所有析构函数都有编译器完成了。<br />
-</em> 先执行派生类析构函数，再执行基类析构函数。</p>
+<ul>
+<li>与构造函数不同的是，在派生类的析构函数中<strong>不用显式地调用基类的析构函数</strong>，因为每个类只有一个析构函数，编译器知道如何选择，无需程序员干涉。所有析构函数都有编译器完成了。<br />
+* 先执行派生类析构函数，再执行基类析构函数。</li>
+</ul>
 <h2 id="c多继承">C++多继承</h2>
 <p>多继承容易让代码逻辑复杂、思路混乱，一直备受争议，中小型项目中较少使用，后来的 Java、C#、PHP 等干脆取消了多继承。</p>
 <pre><code>class D: public A, private B, protected C{
@@ -331,8 +322,9 @@ Derived derived(1,&#39;a&#39;);  //会调用基类的构造函数</code></pre
 <p>基类对象的排列顺序和继承时声明的顺序相同。<br />
 class C: public A, public B{ } 的示意图：<br />
 <img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/4ee0fb3d-c2aa-44b8-a21b-dd52a7222f69.png" /></p>
-<h2 id="借助指针突破访问权限的限制访问privateprotected属性的成员变量">借助指针突破访问权限的限制，访问private、protected属性的成员变量</h2>
-<p>一旦知道了<strong>对象的起始地址</strong>，再加上<strong>偏移量</strong>就能够求得<strong>成员变量的地址</strong>，知道了成员变量的地址和类型，也就能够轻而易举地知道它的值。<br />
+<h2 id="通过指针访问成员变量">通过指针访问成员变量</h2>
+<p>借助指针突破访问权限的限制，访问private、protected属性的成员变量<br />
+一旦知道了<strong>对象的起始地址</strong>，再加上<strong>偏移量</strong>就能够求得<strong>成员变量的地址</strong>，知道了成员变量的地址和类型，也就能够轻而易举地知道它的值。<br />
 当成员变量的访问权限为 private 时，我们也可以手动转换，只要能正确<strong>计算偏移</strong>即可，这样就突破了访问权限的限制。<br />
 C++ 的成员访问权限<strong>仅仅是语法层面上</strong>的，是指访问权限仅对取成员运算符<code>.</code>和<code>-&gt;</code>起作用，而无法防止直接通过指针来访问。你可以认为这是指针的强大，也可以认为是 C++ 语言设计的瑕疵。</p>
 <h2 id="c虚继承和虚基类详解">C++虚继承和虚基类详解</h2>

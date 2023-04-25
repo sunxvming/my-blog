@@ -116,7 +116,6 @@ char *getpass( const char *prompt);
 char *s = getpass("please input:");
 printf("%s\n", s);
 ```
-getpass用于从键盘读取用户输入，但屏幕不回显。
 ## 库函数和系统调用的区别
 * 系统调用能够让你直接访问linux内核提供的服务
 * 系统调用函数存在与内核空间，库函数都是用户模式，所以系统调用不当可能会破坏系统，但库函数调用风险就要小很多。

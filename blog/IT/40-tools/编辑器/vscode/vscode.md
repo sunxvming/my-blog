@@ -45,10 +45,10 @@
 ![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/a4506184-9100-4a13-93c2-d8607d1bccbd.png)
 右上角的红圈可以打开json的配置
 
-ctrl +` 显示console
+ctrl +`` 显示console
 F1 或 Ctrl+Shift+P 打开的命令面板了
 行过长的时候自动折行: alt + Z
-
+ctrl+.(显示代码操作）   若不好使，可能是被输入法中的热键占用了
 
 列选择快捷键   Alt+Shift+左键,  shift+ctrl+alt+up/down
 
@@ -139,7 +139,7 @@ jupyter插件，可以直接在vscode启动jupyter
 
 ## vim插件
 【vim不覆盖vscode快捷键】
-文件 --> 首选项 --> 设置 -- >扩展 --> vim --> vim.useCtrlkeys
+文件 --> 首选项 --> 设置 -- >扩展 --> vim --> vim.useCtrlkeys  取消勾选
 
 【使用windows剪切板】
 文件 --> 首选项 --> 设置 -- >扩展 --> vim --> vim.useSystemClipboard

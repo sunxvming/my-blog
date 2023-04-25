@@ -260,7 +260,7 @@ catch (exception_type_n e){
 <p>exceptionData 可以是 int、float、bool 等基本类型，也可以是指针、数组、字符串、结构体、类等聚合类型</p>
 <h4 id="一个动态数组的例子">一个动态数组的例子</h4>
 <h4 id="throw-用作异常规范">throw 用作异常规范</h4>
-<p>throw 关键字除了可以用在函数体中抛出异常，还可以用在函数头和函数体之间，指明当前函数能够抛出的异常类型，这称为<strong>异常规范（Exception specification）</strong>，有些教程也称为异常指示符或异常列表。请看下面的例子：<br />
+<p>throw 关键字除了可以用在函数体中抛出异常，还可以用在函数头和函数体之间，指明当前函数能够抛出的异常类型，这称为<strong>异常规范（Exception specification）</strong>，有些教程也称为<strong>异常指示符或异常列表</strong>。请看下面的例子：<br />
 <code>double func (char param) throw (int, char, exception);</code><br />
 只能抛出异常规范中的异常，如果抛出其他类型的异常，try 将无法捕获，只能终止程序<br />
 1. 虚函数中的异常规范<br />

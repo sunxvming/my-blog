@@ -28,10 +28,16 @@ git config --global credential.helper 'cache --timeout=3600000'
 
 
 【基本】
+查看git配置信息：git config --list
+查看用户名：git config user.name
+查看邮箱：git config user.email
 
-生成密钥对                              ssh-keygen -t rsa -C "sunxvming@gmail.com"
+生成密钥对       
+ssh-keygen -t rsa -C "sunxvming@gmail.com"
+git config --global user.name "sunxvming"
+git config --global user.email sunxvming@gmail.com
 
-克隆远程仓库                          git clone https://10.12.7.86/xajh/client.git
+克隆远程仓库                    git clone xxx
 
 初始化仓库                            git init
 提交到缓存区                          git add *
@@ -113,7 +119,7 @@ $ git tag -a v0.1 -m "version 0.1 released" 3628164
 git push的时候默认不推送tag的，若推送的话可以用下面的命令
 git push --tags
 git push origin --tags
-
+git checkout tagname  切换tag
 
 
 【git rebase】

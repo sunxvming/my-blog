@@ -1,13 +1,16 @@
 <!-- filetree -->
 
+ - [index_md](./index_md.html)
  - **blog/**
+   - [about-me](./blog/about-me.html)
    - **IT/**
      - **00-CS基础/**
        - [程序员技术练级攻略](./blog/IT/00-CS基础/程序员技术练级攻略.html)
        - [程序员的知识和技能树](./blog/IT/00-CS基础/程序员的知识和技能树.html)
        - [黑客](./blog/IT/00-CS基础/黑客.html)
        - **00-数字电子/**
-         - [数字电路基础](./blog/IT/00-CS基础/00-数字电子/数字电路基础.html)
+         - [数字电子技术(第十一版)--Floyd](./blog/IT/00-CS基础/00-数字电子/数字电子技术(第十一版)--Floyd.html)
+         - [数字电子技术基础(第六版)--阎石](./blog/IT/00-CS基础/00-数字电子/数字电子技术基础(第六版)--阎石.html)
        - **10-组成原理&体系结构/**
          - [图灵机](./blog/IT/00-CS基础/10-组成原理&体系结构/图灵机.html)
          - [深入浅出计算机组成原理-1入门篇](./blog/IT/00-CS基础/10-组成原理&体系结构/深入浅出计算机组成原理-1入门篇.html)
@@ -15,7 +18,6 @@
          - [深入浅出计算机组成原理-3处理器](./blog/IT/00-CS基础/10-组成原理&体系结构/深入浅出计算机组成原理-3处理器.html)
          - [深入浅出计算机组成原理-4存储与IO系统](./blog/IT/00-CS基础/10-组成原理&体系结构/深入浅出计算机组成原理-4存储与IO系统.html)
          - [深入浅出计算机组成原理-5应用篇](./blog/IT/00-CS基础/10-组成原理&体系结构/深入浅出计算机组成原理-5应用篇.html)
-         - [自考教材-计算机组成原理](./blog/IT/00-CS基础/10-组成原理&体系结构/自考教材-计算机组成原理.html)
          - [计算机体系结构基础-胡伟武-第三版](./blog/IT/00-CS基础/10-组成原理&体系结构/计算机体系结构基础-胡伟武-第三版.html)
          - [计算机科学方法](./blog/IT/00-CS基础/10-组成原理&体系结构/计算机科学方法.html)
        - **20-汇编/**
@@ -80,7 +82,7 @@
          - **c++笔记/**
            - [1.从C到C++](./blog/IT/10-编程语言/c.c++/c++笔记/1.从C到C++.html)
            - [10.输入输出流](./blog/IT/10-编程语言/c.c++/c++笔记/10.输入输出流.html)
-           - [11.C++多文件编程是什么](./blog/IT/10-编程语言/c.c++/c++笔记/11.C++多文件编程是什么.html)
+           - [11.C++多文件编程](./blog/IT/10-编程语言/c.c++/c++笔记/11.C++多文件编程.html)
            - [12.C++STL](./blog/IT/10-编程语言/c.c++/c++笔记/12.C++STL.html)
            - [2.C++类和对象](./blog/IT/10-编程语言/c.c++/c++笔记/2.C++类和对象.html)
            - [3.C++引用](./blog/IT/10-编程语言/c.c++/c++笔记/3.C++引用.html)
@@ -107,6 +109,7 @@
            - [对象内存模型总结](./blog/IT/10-编程语言/c.c++/c++笔记/对象内存模型总结.html)
            - [极客时间-现代C++实战30讲](./blog/IT/10-编程语言/c.c++/c++笔记/极客时间-现代C++实战30讲.html)
            - [极客时间-罗剑锋的C++实战笔记](./blog/IT/10-编程语言/c.c++/c++笔记/极客时间-罗剑锋的C++实战笔记.html)
+         - **code/**
          - **c笔记/**
            - [c总结-const用法](./blog/IT/10-编程语言/c.c++/c笔记/c总结-const用法.html)
            - [c总结-位运算](./blog/IT/10-编程语言/c.c++/c笔记/c总结-位运算.html)
@@ -161,9 +164,9 @@
              - [cmake修改__FILE__宏为相对路径](./blog/IT/10-编程语言/c.c++/程序工具/编译工具/cmake修改__FILE__宏为相对路径.html)
              - [premake和cmake比较](./blog/IT/10-编程语言/c.c++/程序工具/编译工具/premake和cmake比较.html)
        - **go/**
-         - [Go语言第一课](./blog/IT/10-编程语言/go/Go语言第一课.html)
-         - [Go语言项目开发实战](./blog/IT/10-编程语言/go/Go语言项目开发实战.html)
-         - [c语言中文网-Go语言入门教程](./blog/IT/10-编程语言/go/c语言中文网-Go语言入门教程.html)
+         - [0-c语言中文网-Go语言入门教程](./blog/IT/10-编程语言/go/0-c语言中文网-Go语言入门教程.html)
+         - [1-极客时间-Go语言第一课](./blog/IT/10-编程语言/go/1-极客时间-Go语言第一课.html)
+         - [2-Go语言项目开发实战](./blog/IT/10-编程语言/go/2-Go语言项目开发实战.html)
          - [go-modules](./blog/IT/10-编程语言/go/go-modules.html)
          - [go-web框架](./blog/IT/10-编程语言/go/go-web框架.html)
          - [go交叉编译](./blog/IT/10-编程语言/go/go交叉编译.html)
@@ -177,18 +180,15 @@
          - [go编译速度为什么比c++快](./blog/IT/10-编程语言/go/go编译速度为什么比c++快.html)
          - [package](./blog/IT/10-编程语言/go/package.html)
          - [question](./blog/IT/10-编程语言/go/question.html)
-         - [学习资源](./blog/IT/10-编程语言/go/学习资源.html)
          - [惯用法](./blog/IT/10-编程语言/go/惯用法.html)
-         - [手把手带你写一个Web框架](./blog/IT/10-编程语言/go/手把手带你写一个Web框架.html)
-         - [极客时间-Go语言第一课](./blog/IT/10-编程语言/go/极客时间-Go语言第一课.html)
          - [编码规范](./blog/IT/10-编程语言/go/编码规范.html)
          - [编译器](./blog/IT/10-编程语言/go/编译器.html)
          - [设计模式](./blog/IT/10-编程语言/go/设计模式.html)
          - [语言特性](./blog/IT/10-编程语言/go/语言特性.html)
          - **web框架/**
+           - [手把手带你写一个Web框架](./blog/IT/10-编程语言/go/web框架/手把手带你写一个Web框架.html)
            - **goframe/**
              - [goframe](./blog/IT/10-编程语言/go/web框架/goframe/goframe.html)
-             - **docker/**
          - **书籍/**
            - [Go-Programming-Cookbook-Second-Edition](./blog/IT/10-编程语言/go/书籍/Go-Programming-Cookbook-Second-Edition.html)
        - **java/**
@@ -208,6 +208,7 @@
          - [tolua使用](./blog/IT/10-编程语言/lua/tolua使用.html)
          - [基础知识](./blog/IT/10-编程语言/lua/基础知识.html)
          - [概率算法--通过权重返回index](./blog/IT/10-编程语言/lua/概率算法--通过权重返回index.html)
+         - **code/**
        - **python/**
          - [CentOS7升级Python至3.x](./blog/IT/10-编程语言/python/CentOS7升级Python至3.x.html)
          - [__init__.py作用](./blog/IT/10-编程语言/python/__init__.py作用.html)
@@ -219,13 +220,12 @@
          - [the-craft-of-selfteaching](./blog/IT/10-编程语言/python/the-craft-of-selfteaching.html)
          - [使用PyInstaller打包python程序](./blog/IT/10-编程语言/python/使用PyInstaller打包python程序.html)
          - [极客时间-python核心技术与实战](./blog/IT/10-编程语言/python/极客时间-python核心技术与实战.html)
+         - **book/**
+           - [Modern-Python-Cookbook-Second-Edition](./blog/IT/10-编程语言/python/book/Modern-Python-Cookbook-Second-Edition.html)
          - **python/**
-           - [Modern-Python-Cookbook-Second-Edition](./blog/IT/10-编程语言/python/python/Modern-Python-Cookbook-Second-Edition.html)
        - **rust/**
-         - [Rust程序设计语言](./blog/IT/10-编程语言/rust/Rust程序设计语言.html)
          - [Rust编程第一课](./blog/IT/10-编程语言/rust/Rust编程第一课.html)
-         - [rust工具](./blog/IT/10-编程语言/rust/rust工具.html)
-         - [代码规范](./blog/IT/10-编程语言/rust/代码规范.html)
+         - [学习资源](./blog/IT/10-编程语言/rust/学习资源.html)
      - **20-linux/**
        - [Linux安装、卸载软件](./blog/IT/20-linux/Linux安装、卸载软件.html)
        - [Netperf网络性能测试](./blog/IT/20-linux/Netperf网络性能测试.html)
@@ -272,6 +272,9 @@
          - [kubernetes](./blog/IT/20-linux/docker/kubernetes.html)
          - [kubernetes与swarm的区别](./blog/IT/20-linux/docker/kubernetes与swarm的区别.html)
          - [windows下使用docker](./blog/IT/20-linux/docker/windows下使用docker.html)
+         - **docker/**
+       - **shell/**
+         - [1-list](./blog/IT/20-linux/shell/1-list.html)
      - **30-database/**
        - **Elasticsearch/**
          - [Elasticsearch入门教程](./blog/IT/30-database/Elasticsearch/Elasticsearch入门教程.html)
@@ -319,6 +322,7 @@
          - [svn服务器搭建](./blog/IT/40-tools/版本管理/svn服务器搭建.html)
          - [命令行svn](./blog/IT/40-tools/版本管理/命令行svn.html)
        - **编辑器/**
+         - [emeditor](./blog/IT/40-tools/编辑器/emeditor.html)
          - [intellji](./blog/IT/40-tools/编辑器/intellji.html)
          - [notepad++](./blog/IT/40-tools/编辑器/notepad++.html)
          - [visual-studio](./blog/IT/40-tools/编辑器/visual-studio.html)
@@ -333,6 +337,7 @@
            - [极客时间-Vim实用技巧必知必会](./blog/IT/40-tools/编辑器/vim/极客时间-Vim实用技巧必知必会.html)
          - **vscode/**
            - [vscode-go](./blog/IT/40-tools/编辑器/vscode/vscode-go.html)
+           - [vscode-rust](./blog/IT/40-tools/编辑器/vscode/vscode-rust.html)
            - [vscode](./blog/IT/40-tools/编辑器/vscode/vscode.html)
            - [vscode运行php脚本](./blog/IT/40-tools/编辑器/vscode/vscode运行php脚本.html)
      - **50-应用方向/**
@@ -353,10 +358,10 @@
            - [导航网格寻路C++实现版(入门级)](./blog/IT/50-应用方向/game/游戏/导航网格寻路C++实现版(入门级).html)
            - [导航网格寻路C++实现版(进阶版)](./blog/IT/50-应用方向/game/游戏/导航网格寻路C++实现版(进阶版).html)
            - [拐点算法](./blog/IT/50-应用方向/game/游戏/拐点算法.html)
-           - [游戏寻路逻辑](./blog/IT/50-应用方向/game/游戏/游戏寻路逻辑.html)
            - [游戏服务器](./blog/IT/50-应用方向/game/游戏/游戏服务器.html)
            - [游戏相关知识点](./blog/IT/50-应用方向/game/游戏/游戏相关知识点.html)
        - **前端/**
+         - [杂项](./blog/IT/50-应用方向/前端/杂项.html)
          - **VUE/**
            - [Vue.js-3-Cookbook](./blog/IT/50-应用方向/前端/VUE/Vue.js-3-Cookbook.html)
            - [Vue开发入门看这篇文章就够了](./blog/IT/50-应用方向/前端/VUE/Vue开发入门看这篇文章就够了.html)
@@ -373,33 +378,8 @@
            - [npm插件](./blog/IT/50-应用方向/前端/javascript/npm插件.html)
            - [代码片段](./blog/IT/50-应用方向/前端/javascript/代码片段.html)
            - [玩转Vue3全家桶](./blog/IT/50-应用方向/前端/javascript/玩转Vue3全家桶.html)
-         - **php/**
-           - [Composer](./blog/IT/50-应用方向/前端/php/Composer.html)
-           - [PHP-FPM](./blog/IT/50-应用方向/前端/php/PHP-FPM.html)
-           - [apple支付](./blog/IT/50-应用方向/前端/php/apple支付.html)
-           - [aws服务的php接口](./blog/IT/50-应用方向/前端/php/aws服务的php接口.html)
-           - [google支付](./blog/IT/50-应用方向/前端/php/google支付.html)
-           - [nginx](./blog/IT/50-应用方向/前端/php/nginx.html)
-           - [nginx高可用性](./blog/IT/50-应用方向/前端/php/nginx高可用性.html)
-           - [php中的cookie和session的使用](./blog/IT/50-应用方向/前端/php/php中的cookie和session的使用.html)
-           - [php常见错误](./blog/IT/50-应用方向/前端/php/php常见错误.html)
-           - [php数组占用过多内存空间](./blog/IT/50-应用方向/前端/php/php数组占用过多内存空间.html)
-           - [php的mysql驱动](./blog/IT/50-应用方向/前端/php/php的mysql驱动.html)
-           - [php面向对象代码片段](./blog/IT/50-应用方向/前端/php/php面向对象代码片段.html)
-           - [wordpress的一些实用插件](./blog/IT/50-应用方向/前端/php/wordpress的一些实用插件.html)
-           - [代码片段](./blog/IT/50-应用方向/前端/php/代码片段.html)
-           - [查看php错误日志](./blog/IT/50-应用方向/前端/php/查看php错误日志.html)
-           - [苹果登录支付](./blog/IT/50-应用方向/前端/php/苹果登录支付.html)
-           - **php框架/**
-             - [laravel入门](./blog/IT/50-应用方向/前端/php/php框架/laravel入门.html)
-             - [lavarel中使用redis](./blog/IT/50-应用方向/前端/php/php框架/lavarel中使用redis.html)
-             - [lavarel依赖注入](./blog/IT/50-应用方向/前端/php/php框架/lavarel依赖注入.html)
-             - [lavarel常用功能](./blog/IT/50-应用方向/前端/php/php框架/lavarel常用功能.html)
-             - [lavarel框架](./blog/IT/50-应用方向/前端/php/php框架/lavarel框架.html)
-             - [lavarel调试](./blog/IT/50-应用方向/前端/php/php框架/lavarel调试.html)
-             - [单元测试](./blog/IT/50-应用方向/前端/php/php框架/单元测试.html)
-             - [框架功能](./blog/IT/50-应用方向/前端/php/php框架/框架功能.html)
        - **区块链/**
+         - [web3](./blog/IT/50-应用方向/区块链/web3.html)
          - [区块链法律相关政策](./blog/IT/50-应用方向/区块链/区块链法律相关政策.html)
          - [区块链行业](./blog/IT/50-应用方向/区块链/区块链行业.html)
          - [国内公链](./blog/IT/50-应用方向/区块链/国内公链.html)
@@ -434,6 +414,33 @@
        - **后端/**
          - [说透中台](./blog/IT/50-应用方向/后端/说透中台.html)
          - [高并发系统设计40问](./blog/IT/50-应用方向/后端/高并发系统设计40问.html)
+         - **php/**
+           - [Composer](./blog/IT/50-应用方向/后端/php/Composer.html)
+           - [PHP-FPM](./blog/IT/50-应用方向/后端/php/PHP-FPM.html)
+           - [apple支付](./blog/IT/50-应用方向/后端/php/apple支付.html)
+           - [aws服务的php接口](./blog/IT/50-应用方向/后端/php/aws服务的php接口.html)
+           - [google支付](./blog/IT/50-应用方向/后端/php/google支付.html)
+           - [nginx](./blog/IT/50-应用方向/后端/php/nginx.html)
+           - [nginx高可用性](./blog/IT/50-应用方向/后端/php/nginx高可用性.html)
+           - [php中的cookie和session的使用](./blog/IT/50-应用方向/后端/php/php中的cookie和session的使用.html)
+           - [php常见错误](./blog/IT/50-应用方向/后端/php/php常见错误.html)
+           - [php数组占用过多内存空间](./blog/IT/50-应用方向/后端/php/php数组占用过多内存空间.html)
+           - [php的mysql驱动](./blog/IT/50-应用方向/后端/php/php的mysql驱动.html)
+           - [php面向对象代码片段](./blog/IT/50-应用方向/后端/php/php面向对象代码片段.html)
+           - [wordpress的一些实用插件](./blog/IT/50-应用方向/后端/php/wordpress的一些实用插件.html)
+           - [代码片段](./blog/IT/50-应用方向/后端/php/代码片段.html)
+           - [查看php错误日志](./blog/IT/50-应用方向/后端/php/查看php错误日志.html)
+           - [苹果登录支付](./blog/IT/50-应用方向/后端/php/苹果登录支付.html)
+           - **code/**
+           - **php框架/**
+             - [laravel入门](./blog/IT/50-应用方向/后端/php/php框架/laravel入门.html)
+             - [lavarel中使用redis](./blog/IT/50-应用方向/后端/php/php框架/lavarel中使用redis.html)
+             - [lavarel依赖注入](./blog/IT/50-应用方向/后端/php/php框架/lavarel依赖注入.html)
+             - [lavarel常用功能](./blog/IT/50-应用方向/后端/php/php框架/lavarel常用功能.html)
+             - [lavarel框架](./blog/IT/50-应用方向/后端/php/php框架/lavarel框架.html)
+             - [lavarel调试](./blog/IT/50-应用方向/后端/php/php框架/lavarel调试.html)
+             - [单元测试](./blog/IT/50-应用方向/后端/php/php框架/单元测试.html)
+             - [框架功能](./blog/IT/50-应用方向/后端/php/php框架/框架功能.html)
          - **中间件/**
            - [Kafka核心技术与实战](./blog/IT/50-应用方向/后端/中间件/Kafka核心技术与实战.html)
            - [kafka](./blog/IT/50-应用方向/后端/中间件/kafka.html)
@@ -464,6 +471,7 @@
          - [其他的工具](./blog/IT/60-其他主题/windows&mac/其他的工具.html)
          - [办公软件](./blog/IT/60-其他主题/windows&mac/办公软件.html)
          - [浏览器调用exe程序](./blog/IT/60-其他主题/windows&mac/浏览器调用exe程序.html)
+         - [解决浏览器打开本地md文件变成直接下载](./blog/IT/60-其他主题/windows&mac/解决浏览器打开本地md文件变成直接下载.html)
        - **标准/**
          - [语种名称代码规范](./blog/IT/60-其他主题/标准/语种名称代码规范.html)
        - **软件工程/**
@@ -488,14 +496,9 @@
          - [职位描述-php服务器开发](./blog/IT/60-其他主题/软件工程/职位描述-php服务器开发.html)
          - [语义化版本](./blog/IT/60-其他主题/软件工程/语义化版本.html)
          - [面试标准](./blog/IT/60-其他主题/软件工程/面试标准.html)
+         - [项目工具](./blog/IT/60-其他主题/软件工程/项目工具.html)
          - [项目规范](./blog/IT/60-其他主题/软件工程/项目规范.html)
-       - **面试题/**
-         - [关于简历](./blog/IT/60-其他主题/面试题/关于简历.html)
-         - [如何在面试中发挥出自己的真实水平](./blog/IT/60-其他主题/面试题/如何在面试中发挥出自己的真实水平.html)
-         - [找工作注意事项](./blog/IT/60-其他主题/面试题/找工作注意事项.html)
-         - [简历](./blog/IT/60-其他主题/面试题/简历.html)
-         - [自我介绍](./blog/IT/60-其他主题/面试题/自我介绍.html)
-         - [面试问的问题](./blog/IT/60-其他主题/面试题/面试问的问题.html)
+         - **plantuml/**
 
 <!-- filetreestop -->
 

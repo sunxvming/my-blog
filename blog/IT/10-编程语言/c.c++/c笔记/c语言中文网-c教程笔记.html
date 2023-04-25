@@ -7,6 +7,70 @@
 
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="../../../../.././css/style.css" />
 
@@ -290,7 +354,7 @@ C语言是<strong>计算机产业的核心语言</strong></p>
 <p>攻克内存后我竟然也能够理解进程和线程了，原来<strong>进程和线程</strong>也是围绕内存打转的，从一定程度上讲，它们的存在也是为了更加高效地利用内存（另一方面还有CPU）。<br />
 从C语言到内存，从内存到进程和线程，环环相扣：不学C语言就吃不透内存，不学内存就吃不透进程和线程。</p>
 <h3 id="学编程难吗多久能入门">学编程难吗？多久能入门？</h3>
-<p>很多领域都是<strong>「一年打基础，两年见成效，三年有突破」</strong>，但是很多人在不到一年的时间里就放弃了，总觉得这个行业太难，不太适合自己。</p>
+<p>很多领域都是「一年打基础，两年见成效，三年有突破」，但是很多人在不到一年的时间里就放弃了，总觉得这个行业太难，不太适合自己。</p>
 <h3 id="学了c语言到底能做什么能从事什么工作">学了C语言到底能做什么，能从事什么工作？</h3>
 <p>既然C语言能做这么多事情，为什么很多初学者学完C语言以后仍然非常迷茫，只能编写没有界面的控制台程序呢？</p>
 <p>这是因为，<strong>C语言仅仅是一个工具，它的标准库也很简单</strong>，只提供了最基本的功能，如果希望开发出实用的程序，往往还需要学习其他方面的知识。例如：<br />
@@ -350,10 +414,10 @@ wchar_t数据类型<strong>一般为16位或32位，但不同的C或C++库有不
 如 L"我的字符串" 表示将ANSI字符串转换成unicode的字符串，就是每个字符占用两个字节。<br />
 strlen("asd") = 3;<br />
 strlen(L"asd") = 6;<br />
-**【_T】<strong><br />
-</strong>_T宏**可以把一个引号引起来的字符串，根据你的环境设置，使得编译器会根据编译目标环境选择合适的（Unicode还是ANSI）字符处理方式<br />
-如果你定义了UNICODE，那么_T宏会把字符串前面加一个L。这时 _T("ABCD") 相当于 L"ABCD" ，这是宽字符串，返回的类型是<strong>wchar_t</strong>.<br />
-如果没有定义，那么_T宏不会在字符串前面加那个L，_T("ABCD") 就等价于 "ABCD"<br />
+<strong>【<code>_T</code>】</strong><br />
+<code>_T</code>宏可以把一个引号引起来的字符串，根据你的环境设置，使得编译器会根据编译目标环境选择合适的（Unicode还是ANSI）字符处理方式<br />
+如果你定义了UNICODE，那么_T宏会把字符串前面加一个L。这时 <code>_T("ABCD")</code> 相当于 <code>L"ABCD"</code> ，这是宽字符串，返回的类型是<strong>wchar_t</strong>.<br />
+如果没有定义，那么<code>_T</code>宏不会在字符串前面加那个L，_T("ABCD") 就等价于 "ABCD"<br />
 如果你接触过unicode你就明白在<strong>许多API函数中字符串都需要宽字符的</strong>，也就是用两个字节来表示一个字符，这与ANSI字符不同，后者使用一个字节表示一个字符，字符串前加L，就是将ANSI字符转换成UNICODE字符。</p>
 <h2 id="c语言初探">C语言初探</h2>
 <h3 id="c语言的三套标准c89c99和c11">C语言的三套标准：C89、C99和C11</h3>
@@ -407,7 +471,7 @@ a=123;把 123 交给了变量 a，我们把这个过程叫做给<strong>变量�
 <p>加上后缀，虽然数字的类型变了，但这并不意味着该数字只能赋值给指定的类型，它仍然能够赋值给其他的类型，只要进行了一下<strong>类型转换</strong>就可以了。</p>
 <p>将一个小数赋值给整数类型，就得把小数部分丢掉，只能取整数部分，这会改变数字本来的值<br />
 由于将小数赋值给整数类型时会“失真”，所以编译器一般会给出警告，让大家引起注意<br />
-c++用列表初始化若精度有丢失的话，编译器会报错的。</p>
+c++用<strong>列表初始化</strong>若精度有丢失的话，编译器会报错的。</p>
 <h3 id="小数在内存中是如何存储的">小数在内存中是如何存储的</h3>
 <p>小数在内存中是以浮点数的形式存储的。浮点数是数字在内存中的一种<strong>存储格式</strong>，它和定点数是相对的。</p>
 <p>C语言使用定点格式存储整数，使用浮点格式存储小数，这是在“数值范围”和“数值精度”两项重要指标之间追求平衡的结果<br />
@@ -429,12 +493,13 @@ base因其固定，可以省略</code></pre>
 <p>正确地存储中文字符需要解决两个问题。<br />
 1) 足够长的数据类型<br />
 char 只能处理 ASCII 编码中的英文字符，是因为 char 类型太短，只有一个字节，容纳不下几万汉字，要想处理中文字符，必须得使用更长的数据类型。<br />
-一个字符在存储之前会<strong>转换成它在字符集中的编号</strong>，而这样的编号是一个整数，所以我们可以用整数类型来存储一个字符，比如 unsigned short、unsigned int、unsigned long 等。<br />
+一个字符在存储之前会<strong>转换成它在字符集中的编号</strong>，而这样的编号是一个整数，<strong>所以我们可以用整数类型来存储一个字符</strong>，比如 unsigned short、unsigned int、unsigned long 等。<br />
 2) 选择包含中文的字符集<br />
 C语言规定，对于汉语、日语、韩语等 ASCII 编码之外的单个字符，也就是专门的字符类型，要使用<strong>宽字符的编码方式</strong>。常见的宽字符编码有 UTF-16 和 UTF-32，它们都是基于 Unicode 字符集的，能够支持全球的语言文化。</p>
 <p>在真正实现时，微软编译器（内嵌于 Visual Studio 或者 Visual C++ 中）采用 UTF-16 编码，使用 2 个字节存储一个字符，用 unsigned short 类型就可以容纳。GCC、LLVM/Clang（内嵌于 Xcode 中）采用 UTF-32 编码，使用 4 个字节存储字符，用 unsigned int 类型就可以容纳。</p>
 <p><strong>编码字符集和运行字符集</strong><br />
-站在专业的角度讲，源文件使用的字符集被称为<strong>编码字符集</strong>，也就是写代码的时候使用的字符集；程序中的字符或者字符串使用的字符集被称为<strong>运行字符集</strong>，也就是程序运行后使用的字符集。</p>
+站在专业的角度讲，源文件使用的字符集被称为<strong>编码字符集</strong>，也就是写代码的时候使用的字符集；<br />
+程序中的字符或者字符串使用的字符集被称为<strong>运行字符集</strong>，也就是程序运行后使用的字符集。</p>
 <p>源文件需要保存到硬盘，或者在网络上传输，使用的编码要<strong>尽量节省存储空间</strong>，同时要方便跨国交流，所以一般使用 UTF-8，这就是选择编码字符集的标准。<br />
 程序中的字符或者字符串，在程序运行后必须被载入到内存，才能进行后续的处理，对于这些字符来说，要尽量选用能够<strong>提高处理速度的编码</strong>，例如 UTF-16 和 UTF-32 编码就能够快速定位（查找）字符。</p>
 <pre><code>std::string s = &quot;你好&quot;;  // s.size() = 6
@@ -531,9 +596,9 @@ C语言标准规定，当 fflush() 用于 stdout 时，必须要有清空输出�
 <p>里面没啥重点内容</p>
 <h2 id="c语言数组详解">C语言数组详解</h2>
 <p>我们可以通过下面的形式将数组的所有元素初始化为 0：</p>
-<pre><code>int nums[10] = {0};
-char str[10] = {0};
-float scores[10] = {0.0};</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="dt">int</span> nums[<span class="dv">10</span>] = {<span class="dv">0</span>};</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="dt">char</span> str[<span class="dv">10</span>] = {<span class="dv">0</span>};</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="dt">float</span> scores[<span class="dv">10</span>] = {<span class="fl">0.0</span>};</span></code></pre></div>
 <p>二维数组在概念上是二维的，但在内存中是连续存放的；换句话说，二维数组的各个元素是相互挨着的，彼此之间没有缝隙。那么，如何在线性内存中存放二维数组呢？有两种方式：<br />
 一种是按行排列， 即放完一行之后再放入第二行；<br />
 另一种是按列排列， 即放完一列之后再放入第二列。<br />
@@ -583,9 +648,6 @@ str[0] = &#39;a&#39;; str[1] = &#39;b&#39;; str[2] = &#39;c&#39;;</code></pre>
 <h3 id="递归函数的致命缺陷巨大的时间开销和内存开销">递归函数的致命缺陷：巨大的时间开销和内存开销</h3>
 <p>对每个线程来说，栈能使用的内存是有限的，一般是 <strong>1M~8M</strong>，这在<strong>编译时</strong>就已经决定了，程序运行期间不能再改变。如果程序使用的栈内存超出最大值，就会发生栈溢出（Stack Overflow）错误。</p>
 <p>栈内存的大小和编译器有关，编译器会为栈内存指定一个最大值，在 VC/VS 下，默认是 1M，在 C-Free 下，默认是 2M，在 Linux GCC 下，默认是 <code>8M</code>。当然，我们也可以通过<strong>参数来修改</strong>栈内存的大小。</p>
-<p>每次调用函数都会在栈上分配内存，函数调用结束后再释放这一部分内存，内存的分配和释放都是需要时间的。<br />
-每次调用函数还会多次修改寄存器的值，函数调用结束后还需要找到上层函数的位置再继续执行，这也是需要时间的。<br />
-所有的这些时间加在一起是非常恐怖的。</p>
 <h3 id="忽略语法细节从整体上理解函数">忽略语法细节，从整体上理解函数</h3>
 <p>从整体上看，C语言代码是由一个一个的函数构成的，除了定义和说明类的语句（例如变量定义、宏定义、类型定义等）可以放在函数外面，<strong>所有具有运算或逻辑处理能力的语句</strong>（例如加减乘除、if else、for、函数调用等）都要放在函数内部。</p>
 <pre><code>#include &lt;stdio.h&gt;
@@ -596,14 +658,14 @@ int main(){
 }</code></pre>
 <h2 id="c语言预处理命令宏定义和条件编译">C语言预处理命令（宏定义和条件编译）</h2>
 <h3 id="c语言预处理命令是什么">C语言预处理命令是什么？</h3>
-<p>较之其他编程语言，C/C++ 语言更依赖预处理器。<code>#</code>号开头的命令称为预处理命令。<br />
+<p>较之其他编程语言，C/C++ 语言<strong>更依赖预处理器</strong>。<code>#</code>号开头的命令称为预处理命令。<br />
 编译器会将预处理的结果保存到和源文件同名的.i文件中，例如 main.c 的预处理结果在 main.i 中</p>
 <h3 id="c语言include的用法详解文件包含命令">C语言#include的用法详解（文件包含命令）</h3>
 <p>使用尖括号&lt; &gt;和双引号" "的区别在于头文件的搜索路径不同：<br />
 * 使用尖括号&lt; &gt;，编译器会到系统路径下查找头文件；<br />
 * 而使用双引号" "，编译器首先在当前目录下查找头文件，如果没有找到，再到系统路径下查找。</p>
 <p>个人的习惯是使用尖括号来引入标准头文件，使用双引号来引入自定义头文件（自己编写的头文件），这样一眼就能看出头文件的区别。</p>
-<p>「在头文件中定义定义函数和全局变量」这种认知是原则性的错误！不管是标准头文件，还是自定义头文件，都只能包含变量和函数的声明，不能包含定义，否则在多次引入时会引起重复定义错误。</p>
+<p>「在头文件中定义定义函数和全局变量」这种认知是原则性的错误！不管是标准头文件，还是自定义头文件，都只能包含变量和函数的声明，<strong>不能包含定义</strong>，否则在多次引入时会引起重复定义错误。</p>
 <h3 id="c语言define的用法c语言宏定义">C语言#define的用法，C语言宏定义</h3>
 <p>对 <code>#define</code> 用法的几点说明<br />
 * 1) 宏定义是用宏名来表示一个字符串，在宏展开时又以该字符串取代宏名，这只是一种简单粗暴的替换。字符串中可以含任何字符，预处理程序对它不作任何检查，如有错误，只能在编译已被宏展开后的源程序时发现。<br />
@@ -621,7 +683,7 @@ int main(){
 * 3) 在宏定义中，字符串内的形参通常要用括号括起来以避免出错。例如上面的宏定义中 (y)<em>(y) 表达式的 y 都用括号括起来，因此结果是正确的。<br />
 </em> 4) 对于带参宏定义不仅要在参数两侧加括号，还应该在整个字符串外加括号</p>
 <h3 id="c语言带参宏定义和函数的区别">C语言带参宏定义和函数的区别</h3>
-<p>带参数的宏和函数很相似，但有本质上的区别：宏展开仅仅是字符串的替换，不会对表达式进行计算；宏在编译之前就被处理掉了，它没有机会参与编译，也不会占用内存。而函数是一段可以重复使用的代码，会被编译，会给它分配内存，每次调用函数，就是执行这块内存中的代码。<br />
+<p>带参数的宏和函数很相似，但有本质上的区别：<strong>宏展开仅仅是字符串的替换，不会对表达式进行计算</strong>；宏在编译之前就被处理掉了，它没有机会参与编译，也不会占用内存。而函数是一段可以重复使用的代码，会被编译，会给它分配内存，每次调用函数，就是执行这块内存中的代码。<br />
 带参数的宏也可以用来定义多个语句，在宏调用时，把这些语句又替换到源程序中，请看下面的例子：</p>
 <pre><code>#define SSSV(s1, s2, s3, v) s1 = length * width; s2 = length * height; s3 = width * height; v = width * length * height;</code></pre>
 <h3 id="c语言宏参数的字符串化和宏参数的连接">C语言宏参数的字符串化和宏参数的连接</h3>
@@ -651,7 +713,7 @@ printf(&quot;%d\n&quot;, CON2(12, 34));   //展开为： printf(&quot;%d\n&quot;
     #else
         printf(&quot;NUM Error\n&quot;);
     #endif</code></pre>
-<p>VS/VC 有两种编译模式，Debug 和 Release。当以 Debug 模式编译程序时，宏 _DEBUG 会被定义。</p>
+<p>VS/VC 有两种编译模式，Debug 和 Release。当以 Debug 模式编译程序时，宏 <code>_DEBUG</code> 会被定义。</p>
 <h3 id="c语言error命令阻止程序编译">C语言<code>#error</code>命令，阻止程序编译</h3>
 <p><code>#error</code> 指令用于在编译期间产生错误信息，并阻止程序的编译<br />
 例如，我们的程序针对 Linux 编写，不保证兼容 Windows，那么可以这样做：</p>
@@ -684,22 +746,22 @@ printf(&quot;%d\n&quot;, CON2(12, 34));   //展开为： printf(&quot;%d\n&quot;
     }
     return 0;
 }</code></pre>
-<p>Mon、Tues、Wed 这些名字在<strong>编译</strong>的时候都被替换成了对应的数字。这意味着，Mon、Tues、Wed 等都不是变量，它们不占用数据区（常量区、全局数据区、栈区和堆区）的内存，而是直接被编译到命令里面，放到代码区。这就是枚举的本质。</p>
+<p>Mon、Tues、Wed 这些名字在<strong>编译</strong>的时候都被替换成了对应的数字。这意味着，Mon、Tues、Wed 等<strong>都不是变量</strong>，它们不占用数据区（常量区、全局数据区、栈区和堆区）的内存，而是直接被编译到命令里面，放到代码区。这就是枚举的本质。</p>
 <h3 id="c语言union联合体或共用体">C语言union(联合体或共用体)</h3>
 <p>结构体和union的区别在于：结构体的各个成员会占用不同的内存，互相之间没有影响；而共用体的所有成员占用同一段内存，修改一个成员会影响其余所有成员。<br />
-结构体占用的内存大于等于所有成员占用的内存的总和（成员之间可能会存在缝隙），共用体占用的内存等于最长的成员占用的内存。共用体使用了内存覆盖技术，同一时刻只能保存一个成员的值，如果对新的成员赋值，就会把原来成员的值覆盖掉。<br />
+结构体占用的内存大于等于所有成员占用的内存的总和（成员之间可能会存在缝隙），共用体占用的内存等于<strong>最长的成员占用的内存</strong>。共用体使用了内存覆盖技术，同一时刻只能保存一个成员的值，如果对新的成员赋值，就会把原来成员的值覆盖掉。<br />
 一个经典的实例是：</p>
-<pre><code>//这个结构可以同时记录老师和学生的信息，通过profession字段来判断类型，然后再根据类型去sc union中的字段分别取值
-struct{
-    char name[20];
-    int num;
-    char sex;
-    char profession;        
-    union{
-        float score;
-        char course[20];
-    } sc;
-} ;</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="co">//这个结构可以同时记录老师和学生的信息，通过profession字段来判断类型，然后再根据类型去sc union中的字段分别取值</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a><span class="kw">struct</span>{</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a>    <span class="dt">char</span> name[<span class="dv">20</span>];</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true"></a>    <span class="dt">int</span> num;</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true"></a>    <span class="dt">char</span> sex;</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true"></a>    <span class="dt">char</span> profession;        </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true"></a>    <span class="kw">union</span>{</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true"></a>        <span class="dt">float</span> score;</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true"></a>        <span class="dt">char</span> course[<span class="dv">20</span>];</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true"></a>    } sc;</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true"></a>} ;</span></code></pre></div>
 <h3 id="用union判别大端和小端">用union判别大端和小端</h3>
 <p>若内存从左到右变大，那么大端的1234的内存就是1234<br />
 大端和小端是指数据在内存中的存储模式，它由 CPU 决定：<br />
@@ -730,7 +792,7 @@ int main(){
         unsigned p: 4;   //占用 4 位（Bit）
     };
     printf(&quot;%d\n&quot;, sizeof(struct bs));     //4  之所以为 4，而不是 3，是因为要将内存对齐到 4 个字节，以便提高存取效率</code></pre>
-<p>C语言标准并没有规定位域的具体存储方式，不同的编译器有不同的实现，但它们都尽量压缩存储空间。<br />
+<p>C语言标准并没有规定位域的具体存储方式，不同的编译器有不同的实现，但它们都<strong>尽量压缩存储空间</strong>。<br />
 位域的具体存储规则如下：<br />
 * 1) 当相邻成员的类型相同时，如果它们的位宽之和小于类型的 sizeof 大小，那么后面的成员紧邻前一个成员存储，直到不能容纳为止；如果它们的位宽之和大于类型的 sizeof 大小，那么后面的成员将从新的存储单元开始，其偏移量为类型大小的整数倍。<br />
 * 2) 当相邻成员的类型不同时，不同的编译器有不同的实现方案，GCC 会压缩存储，而 VC/VS 不会。<br />
@@ -769,7 +831,7 @@ int main(){
 <li>条件断点<br />
 在一个循环体中设置断点，假设有一千次循环，我们想在第五百次循环中设置断点，这该怎么办？<br />
 鼠标右键单击第4行的断点图标，在弹出的菜单中选择 <strong>命中次数(H)</strong> ,接下来会弹出如下图的一个对话框，我们在中间的选择框中选择 “中断，条件是命中次数等于”，让后选择次数<br />
-鼠标右键单击左侧的断点图标，在弹出的菜单中选择<strong>条件(C)</strong>，IDE会弹出如下对话框，我们在条件输入框中输入 a==b ,然后在下面选择 为 true ,然后点击确定即可。</li>
+鼠标右键单击左侧的断点图标，在弹出的菜单中选择<strong>条件(C)</strong>，IDE会弹出如下对话框，我们在条件输入框中输入 <code>a==b</code> ,然后在下面选择 为 true ,然后点击确定即可。</li>
 <li>assert断言函数<br />
 函数在 assert.h 头文件中被定义
 <ul>
@@ -789,11 +851,11 @@ Windows 操作系统提供的函数 —— OutputDebugString，这个函数非�
 函数的定义有函数体，函数的声明没有函数体，编译器很容易区分定义和声明，所以对于函数声明来说，有没有 extern 都是一样的。<br />
 2) 变量的声明<br />
 变量和函数不同，编译器只能根据 extern 来区分，有 extern 才是声明，没有 extern 就是定义。</p>
-<p>变量的定义有两种形式，你可以在定义的同时初始化，也可以不初始化：<br />
-datatype name = value;<br />
-datatype name;</p>
-<p>而变量的声明只有一种形式，就是使用 extern 关键字：<br />
-extern datatype name;</p>
+<p>变量的定义有两种形式，你可以在定义的同时初始化，也可以不初始化：</p>
+<pre><code>datatype name = value;
+datatype name;</code></pre>
+<p>而变量的声明只有一种形式，就是使用 extern 关键字：</p>
+<pre><code>extern datatype name;</code></pre>
 <p>另外，变量也可以在声明的同时初始化，格式为：<br />
 extern datatype name = value;<br />
 这种似是而非的方式是不被推荐的，有的编译器也会给出警告，我们不再深入讨论，也建议各位读者把定义和声明分开，尽量不要这样写。</p>
@@ -818,7 +880,8 @@ extern datatype name = value;<br />
 <p>我们将一块连续的、具有相同权限的数据称为一个 Segment，一个 Segment 由多个权限相同的 Section 构成。<br />
 不巧的是，“Segment”也被翻译为“段”，但这里的段（Segment）是针对加载和执行的过程。</p>
 <p>在目标文件中，段表（Section Table）用来描述各个 Section 的信息，包括它的名字、长度、在文件中的偏移、读写权限等，通过段表可以详细地了解目标文件的结构。</p>
-<p>而在可执行文件中，段表被删除了，取代它的是<strong>程序头表</strong>（Program Header Table）；程序头表用来描述各个 <strong>Segment</strong> 的信息，包括它的类型、偏移、在进程虚拟地址空间中的起始地址、物理装载地址、长度、权限等。<strong>操作系统就是根据程序头表</strong>将可执行文件加载到内存，并为各个 Segment 分配内存空间、确定起止地址。</p>
+<p>而在可执行文件中，段表被删除了，取代它的是<strong>程序头表</strong>（Program Header Table）；<br />
+程序头表用来描述各个 <strong>Segment</strong> 的信息，包括它的类型、偏移、在进程虚拟地址空间中的起始地址、物理装载地址、长度、权限等。<strong>操作系统就是根据程序头表</strong>将可执行文件加载到内存，并为各个 Segment 分配内存空间、确定起止地址。</p>
 <p>也就是说，可执行文件不再关注具体的文件结构，而是<strong>关注程序的加载和执行过程</strong>。</p>
 <p>由于可执行文件在加载时实际上是被映射的虚拟地址空间，所以可执行文件很多时候又被叫做映像文件（Image）。</p>
 <h4 id="段section的合并">段（Section）的合并</h4>
@@ -831,7 +894,7 @@ extern datatype name = value;<br />
 <p>符号（Symbol）这个概念随着汇编语言的普及被广泛接受，它用来表示一个地址，这个地址可能是一段子程序（后来发展为函数）的起始地址，也可以是一个变量的地址。</p>
 <h4 id="模块化开发">模块化开发</h4>
 <p>现代软件的规模往往都很大，动辄数百万行代码，程序员需要把它们分散到成百上千个模块中。这些模块之间相互依赖又相互独立，原则上每个模块都可以单独开发、编译、测试，改变一个模块中的代码不需要编译整个程序。<br />
-在C语言中，一个模块可以认为是一个源文件（.c 文件）。<br />
+在C语言中，<strong>一个模块可以认为是一个源文件（.c 文件）</strong>。<br />
 在程序被分隔成多个模块后，需要解决的一个重要问题是如何将这些模块组合成一个单一的可执行程序。在C语言中，模块之间的依赖关系主要有两种：一种是模块间的函数调用，另外一种是模块间的变量访问。</p>
 <p>函数调用需要知道函数的首地址，变量访问需要知道变量的地址，所以这两种方式可以归结为一种，那就是<strong>模块间的符号引用</strong>。<br />
 这种通过符号将多个模块拼接为一个独立的程序的过程就叫做<strong>链接</strong>（Linking）。</p>
@@ -876,7 +939,7 @@ extern datatype name = value;<br />
 /* 头文件内容 */
 #endif</code></pre>
 <h3 id="c语言static变量和函数">C语言static变量和函数</h3>
-<p>实际开发中，我们通常将不需要被其他模块调用的全局变量或函数用 static 关键字来修饰，static 能够将全局变量和函数的作用域限制在当前文件中，在其他文件中无效</p>
+<p>实际开发中，我们通常将不需要被其他模块调用的全局变量或函数用 static 关键字来修饰，static 能够将全局变量和函数的作用域<strong>限制在当前文件中，在其他文件中无效</strong></p>
 <p>使用 static 修饰的变量或函数的作用域仅限于当前模块，对其他模块隐藏，利用这一特性可以在不同的文件中定义同名的变量或函数，而不必担心命名冲突。</p>
 <p>static 变量主要有两个作用：<br />
 * 1) 隐藏<br />

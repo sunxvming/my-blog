@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/50-应用方向/后端/php/nginx高可用性</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#dns保证高可用">1.DNS保证高可用</a></li>
+<li><a href="#硬件保证高可用">2.硬件保证高可用</a></li>
+<li><a href="#主备模式">3.主备模式</a></li>
+<li><a href="#简单组合模式">4.简单组合模式</a></li>
+<li><a href="#lvskeepalivednginx">5.LVS+KeepAlived+Nginx</a></li>
+<li><a href="#负载均衡keepalive虚拟ip如何获得">负载均衡keepalive虚拟ip如何获得？</a></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>如何保证Nginx的高可用呢？<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/efddf909-1abb-4f4a-9cec-848828e9498e.jpg" /></p>
+<h2 id="dns保证高可用">1.DNS保证高可用</h2>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/59c9fa9d-844f-412d-b927-7e9bd186d104.jpg" /><br />
+但这玩意有一个致命的问题，那就是故障的感知时间。</p>
+<p>我们的浏览器在访问到真正的Nginx之前，需要把域名转化为真正的IP地址，DNS就是干解析这个动作的，每次需要耗费20-20ms不等。</p>
+<p>为了加快解析速度，一般都会有多级的缓存。比如浏览器就有DNS的缓存；你使用的PC机上也有这样的缓存；IPS服务提供商，也会有缓存；再加上有的企业为了加速访问所自建的DNS服务器，中间的缓存层就更多了。</p>
+<p>只有所有的缓存都不命中的情况下，DNS才会查询真正的IP地址。所以，如果有一台Nginx当机了，这个故障的感知能力就会特别的差。总有一部分用户的请求，会落在这台已经死亡的机器上。</p>
+<h2 id="硬件保证高可用">2.硬件保证高可用</h2>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0ca53f98-51f8-4d9b-94fd-ba05fdec67c7.jpg" /><br />
+这种架构一般的企业玩不起，只有那些采购有回扣有油水的公司，才会喜欢这个。互联网中用的很少，就不过多介绍了。</p>
+<p>当然，F5同样有单点的问题。虽然硬件肯定要比软件稳定上一点，但是总归是一个隐患。就像Oracle无论再厉害，它还是有出问题的时候，到时候备机是必须的。</p>
+<h2 id="主备模式">3.主备模式</h2>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/7529beb6-7596-4de9-a8ac-1b677f715f74.jpg" /><br />
+如图，使用<code>keepalived</code>组件，通过<code>VRRP</code>协议，即可完成最简单的高可用配置。</p>
+<p>我们把<code>DNS</code>的地址绑定在<code>VIP</code>上，当正在服务的<code>Nginx</code>发生问题，<code>VIP</code>会发生<code>漂移</code>，转移到另外一台<code>Nginx</code>上。</p>
+<p>可以看到，备份的Nginx，正常情况下是无法进行服务的，它也叫做<code>影子节点</code>，只有主Nginx发生问题的时候才有用。如果你的节点非常多，这种模式下，会有非常大的浪费。</p>
+<p>除了浪费，还有一个非常大的问题。那就是，单台Nginx无论性能多么牛X，总是有上限的。当网卡的流量达到顶峰，接下来何去何从呢？</p>
+<p>这种模式肯定是不满足需求的。</p>
+<h2 id="简单组合模式">4.简单组合模式</h2>
+<p>这个时候，我们就可以配合DNS解析，以及主备模式做文章了。如下图，DNS解析到两个VIP上，VIP本身也做了高可用。这样就能够缩短故障时间，同时也能够保证每个组件的高可用。<br />
+这种架构模式思路是非常清晰的，但依然存在影子节点的浪费。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/1d9fc3de-04a0-43b0-91ec-9187d7cf02c0.jpg" /></p>
+<h2 id="lvskeepalivednginx">5.LVS+KeepAlived+Nginx</h2>
+<p>LVS 是 Linux Virtual Server 的简称，也就是 Linux 虚拟服务器。现在 LVS 已经是 Linux 标准内核的一部分，从 Linux2.4 内核以后，已经完全内置了 LVS 的各个功能模块，无需给内核打任何补丁，可以直接使用 LVS 提供的各种功能。</p>
+<p>LVS工作在OSI模型的第4层：传输层，比如TCP/UDP，所以像7层网络的HTTP协议，它是识别不出来的。也就是说，我们不能拿HTTP协议的一些内容来控制路由，它的路由切入层次更低一些。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/d5d7abcc-725a-4b67-ae3e-42ce8321c980.jpg" /></p>
+<h2 id="负载均衡keepalive虚拟ip如何获得">负载均衡keepalive虚拟ip如何获得？</h2>
+<p>VIP是也是实实在在的IP地址，跟一般的IP地址是一样的，自己的理解是 ”可以漂移的IP地址“（不官方）。1、要配置keepalived服务，需要事先需要准备三个IP地址。主服务器上的IP，备服务器上的IP，对外提供服务的VIP。主、备服务机器的IP直接配置到各自的网卡上。VIP写到配置文件里面，keepalived会将VIP配置到主服务器的网卡上。2、用户访问的是VIP。只有主服务器的keepalived会将VIP配置到网卡上，容灾之后，主变备：keepalived将VIP从网卡上移走。备变主：keepalived将VIP配置到网卡上。3、用户访问域名如何防止单点瘫痪：配好DNS，{域名:VIP}。用户访问该域名，经过解析，拿到VIP。此时，数据包会走上面主备服务器中的主服务器，如果主服务器瘫痪，备服务器会自动接过VIP，备变主，对外提供服务。整个过程，对于用户来说是透明的，用的是同样的域名，解析到的是同样的VIP。</p>
+<h2 id="参考链接">参考链接</h2>
+<p>- <a href="https://cloud.tencent.com/developer/article/1696880">HA（高可用）就像套娃，像胖子，剥掉一层还有一层</a></p>
+<p>- <a href="https://www.jianshu.com/p/32b7724b78e6">Nginx + Keepalive生产环境搭建</a></p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

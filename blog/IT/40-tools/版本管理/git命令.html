@@ -204,9 +204,15 @@ git图形化界面Sourcetree</p>
 工作区 -- add--&gt; Index(暂存区) --commit--&gt; HEAD</p>
 <p>【linux设置密码】<br />
 git config --global credential.helper 'cache --timeout=3600000'</p>
-<p>【基本】</p>
-<p>生成密钥对 ssh-keygen -t rsa -C "sunxvming@gmail.com"</p>
-<p>克隆远程仓库 git clone https://10.12.7.86/xajh/client.git</p>
+<p>【基本】<br />
+查看git配置信息：git config --list<br />
+查看用户名：git config user.name<br />
+查看邮箱：git config user.email</p>
+<p>生成密钥对<br />
+ssh-keygen -t rsa -C "sunxvming@gmail.com"<br />
+git config --global user.name "sunxvming"<br />
+git config --global user.email sunxvming@gmail.com</p>
+<p>克隆远程仓库 git clone xxx</p>
 <p>初始化仓库 git init<br />
 提交到缓存区 git add *<br />
 git add -A The -A option is shorthand for --all.<br />
@@ -260,7 +266,8 @@ $ git tag -a v0.1 -m "version 0.1 released" 3628164<br />
 删除标签 ：git tag -d v0.1</p>
 <p>git push的时候默认不推送tag的，若推送的话可以用下面的命令<br />
 git push --tags<br />
-git push origin --tags</p>
+git push origin --tags<br />
+git checkout tagname 切换tag</p>
 <p>【git rebase】<br />
 第二种合并分支的方法是 git rebase</p>
 <p>Rebase 实际上就是取出一系列的提交记录，“复制”它们，然后在此基础上把此分支的提交记录扔上去</p>

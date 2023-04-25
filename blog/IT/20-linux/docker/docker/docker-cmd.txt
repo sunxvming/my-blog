@@ -1,0 +1,17 @@
+# 1.start mysql service，can auto download mysql
+docker network create mysql
+
+docker run -itd `
+    --network mysql --network-alias mysql `
+    -v mysql-data:/var/lib/mysql `
+	--name mysql-test -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql
+
+# 2.build go binary
+gf build
+
+# 3.build docker image
+docker build -t gf-demos .
+
+# 4.run go container，程序中链接的地址不是ip地址，而是前面声明的network：mysql 
+docker run  -v gf-demos-log:/var/www/gf-demos/log -dp 8000:8000  --network mysql --name gf-demos gf-demos  
+

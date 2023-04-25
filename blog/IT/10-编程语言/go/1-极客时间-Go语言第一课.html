@@ -1,0 +1,2354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="http://www.sunxvming.com/imgs/QQ图片20191023170517.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/IT/10-编程语言/go/1-极客时间-Go语言第一课</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#资源链接">资源链接</a></li>
+<li><a href="#开篇词这样入门go才能少走弯路">开篇词｜这样入门Go，才能少走弯路</a></li>
+<li><a href="#前世今生你不得不了解的go的历史和现状">01｜前世今生：你不得不了解的Go的历史和现状</a></li>
+<li><a href="#拒绝hello-and-byego语言的设计哲学是怎么一回事">02｜拒绝“Hello and Bye”：Go语言的设计哲学是怎么一回事？</a>
+<ul>
+<li><a href="#简单">简单</a></li>
+<li><a href="#显示">显示</a></li>
+<li><a href="#组合">组合</a></li>
+<li><a href="#并发">并发</a></li>
+<li><a href="#面向工程">面向工程</a></li>
+</ul></li>
+<li><a href="#配好环境选择一种最适合你的go安装方法">03｜配好环境：选择一种最适合你的Go安装方法</a></li>
+<li><a href="#初窥门径一个go程序的结构是怎样的">04｜初窥门径：一个Go程序的结构是怎样的？</a></li>
+<li><a href="#标准先行go项目的布局标准是什么">05｜标准先行：Go项目的布局标准是什么？</a></li>
+<li><a href="#构建模式go是怎么解决包依赖管理问题的">06｜构建模式：Go是怎么解决包依赖管理问题的？</a>
+<ul>
+<li><a href="#深入-go-module-构建模式">深入 Go Module 构建模式</a></li>
+<li><a href="#最小版本选择">最小版本选择</a></li>
+</ul></li>
+<li><a href="#构建模式go-module的6类常规操作">07｜构建模式：Go Module的6类常规操作</a>
+<ul>
+<li><a href="#为当前-module-添加一个依赖">为当前 module 添加一个依赖</a></li>
+<li><a href="#升级降级依赖的版本">升级/降级依赖的版本</a></li>
+<li><a href="#添加一个主版本号大于-1-的依赖">添加一个主版本号大于 1 的依赖</a></li>
+<li><a href="#升级依赖版本到一个不兼容版本">升级依赖版本到一个不兼容版本</a></li>
+<li><a href="#移除一个依赖">移除一个依赖</a></li>
+<li><a href="#特殊情况使用-vendor这种方式很便于开发者查看源码还不错">特殊情况：使用 vendor,这种方式很便于开发者查看源码，还不错</a></li>
+</ul></li>
+<li><a href="#入口函数与包初始化搞清go程序的执行次序">08｜入口函数与包初始化：搞清Go程序的执行次序</a>
+<ul>
+<li><a href="#go-包的初始化次序">Go 包的初始化次序</a></li>
+<li><a href="#init-函数的用途">init 函数的用途</a>
+<ul>
+<li><a href="#重置包级变量值">重置包级变量值</a></li>
+<li><a href="#实现对包级变量的复杂初始化">实现对包级变量的复杂初始化</a></li>
+<li><a href="#在-init-函数中实现注册模式">在 init 函数中实现“注册模式”</a></li>
+</ul></li>
+<li><a href="#init-函数在检查包数据初始状态时遇到失败或错误的情况">init 函数在检查包数据初始状态时遇到失败或错误的情况</a></li>
+</ul></li>
+<li><a href="#即学即练构建一个web服务就是这么简单">09｜即学即练：构建一个Web服务就是这么简单</a></li>
+<li><a href="#变量声明静态语言有别于动态语言的重要特征">10｜变量声明：静态语言有别于动态语言的重要特征</a></li>
+<li><a href="#代码块与作用域如何保证变量不会被遮蔽">11｜代码块与作用域：如何保证变量不会被遮蔽？</a></li>
+<li><a href="#基本数据类型go原生支持的数值类型有哪些">12｜基本数据类型：Go原生支持的数值类型有哪些？</a>
+<ul>
+<li><a href="#创建自定义的数值类型">创建自定义的数值类型</a></li>
+</ul></li>
+<li><a href="#基本数据类型为什么go要原生支持字符串类型">13｜基本数据类型：为什么Go要原生支持字符串类型？</a>
+<ul>
+<li><a href="#原生支持字符串有什么好处">原生支持字符串有什么好处？</a></li>
+<li><a href="#go-字符串的组成">Go 字符串的组成</a></li>
+<li><a href="#rune-类型与字符字面值">rune 类型与字符字面值</a></li>
+<li><a href="#go-字符串类型的内部表示">Go 字符串类型的内部表示</a>
+<ul>
+<li><a href="#字符迭代">字符迭代。</a></li>
+<li><a href="#字符串转换">字符串转换。</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#常量go在常量设计上的创新有哪些">14｜常量：Go在“常量”设计上的创新有哪些？</a></li>
+<li><a href="#同构复合类型从定长数组到变长切片">15｜同构复合类型：从定长数组到变长切片</a>
+<ul>
+<li><a href="#多维数组">多维数组</a></li>
+<li><a href="#切片">切片</a></li>
+</ul></li>
+<li><a href="#复合数据类型原生map类型的实现机制是怎样的">16｜复合数据类型：原生map类型的实现机制是怎样的？</a>
+<ul>
+<li><a href="#方法一使用复合字面值初始化-map-类型变量">方法一：使用复合字面值初始化 map 类型变量。</a></li>
+<li><a href="#方法二使用-make-为-map-类型变量进行显式初始化">方法二：使用 make 为 map 类型变量进行显式初始化。</a></li>
+<li><a href="#map操作">map操作</a></li>
+<li><a href="#map-的内部实现">map 的内部实现</a></li>
+<li><a href="#map-与并发">map 与并发</a></li>
+</ul></li>
+<li><a href="#复合数据类型用结构体建立对真实世界的抽象">17｜复合数据类型：用结构体建立对真实世界的抽象</a>
+<ul>
+<li><a href="#如何自定义一个新类型">如何自定义一个新类型？</a></li>
+<li><a href="#第二种自定义新类型的方式是使用类型别名type-alias">第二种自定义新类型的方式是使用类型别名(Type Alias)</a></li>
+<li><a href="#如何定义一个结构体类型">如何定义一个结构体类型？</a>
+<ul>
+<li><a href="#第一种定义一个空结构体">第一种：定义一个空结构体。</a></li>
+<li><a href="#第二种情况使用其他结构体作为自定义结构体中字段的类型">第二种情况：使用其他结构体作为自定义结构体中字段的类型。</a></li>
+</ul></li>
+<li><a href="#结构体变量的声明与初始化">结构体变量的声明与初始化</a>
+<ul>
+<li><a href="#零值初始化">零值初始化</a></li>
+<li><a href="#使用复合字面值">使用复合字面值</a></li>
+</ul></li>
+<li><a href="#结构体类型的内存布局">结构体类型的内存布局</a></li>
+</ul></li>
+<li><a href="#控制结构if的快乐路径原则">18｜控制结构：if的“快乐路径”原则</a></li>
+<li><a href="#控制结构go的for循环仅此一种">19｜控制结构：Go的for循环，仅此一种</a>
+<ul>
+<li><a href="#带-label-的-continue-语句">带 label 的 continue 语句</a></li>
+<li><a href="#for-语句的常见坑与避坑方法">for 语句的常见“坑”与避坑方法</a></li>
+</ul></li>
+<li><a href="#控制结构go中的switch语句有哪些变化">20｜控制结构：Go中的switch语句有哪些变化？</a>
+<ul>
+<li><a href="#type-switch">type switch</a></li>
+<li><a href="#section"></a></li>
+</ul></li>
+<li><a href="#函数请叫我一等公民">21｜函数：请叫我“一等公民”</a>
+<ul>
+<li><a href="#函数是一等公民">函数是“一等公民”</a>
+<ul>
+<li><a href="#特征一go-函数可以存储在变量中">特征一：Go 函数可以存储在变量中。</a></li>
+<li><a href="#特征二支持在函数内创建并通过返回值返回">特征二：支持在函数内创建并通过返回值返回。</a></li>
+<li><a href="#特征三作为参数传入函数一般都是做回调函数">特征三：作为参数传入函数(一般都是做回调函数)</a></li>
+<li><a href="#特征四拥有自己的类型">特征四：拥有自己的类型。</a></li>
+</ul></li>
+<li><a href="#函数一等公民特性的高效运用">函数“一等公民”特性的高效运用</a></li>
+</ul></li>
+<li><a href="#函数怎么结合多返回值进行错误处理">22｜函数：怎么结合多返回值进行错误处理？</a></li>
+<li><a href="#函数怎么让函数更简洁健壮">23｜函数：怎么让函数更简洁健壮？</a>
+<ul>
+<li><a href="#认识-go-语言中的异常panic">认识 Go 语言中的异常：panic</a></li>
+<li><a href="#如何应对-panic">如何应对 panic？</a>
+<ul>
+<li><a href="#第一点评估程序对-panic-的忍受度不同应用对异常引起的程序崩溃退出的忍受度是不一样的">第一点：评估程序对 panic 的忍受度，不同应用对异常引起的程序崩溃退出的忍受度是不一样的。</a></li>
+<li><a href="#第二点提示潜在-bug">第二点：提示潜在 bug</a></li>
+<li><a href="#第三点不要混淆异常与错误">第三点：不要混淆异常与错误</a></li>
+</ul></li>
+<li><a href="#使用-defer-简化函数实现">使用 defer 简化函数实现</a></li>
+</ul></li>
+<li><a href="#方法理解方法的本质">24｜方法：理解“方法”的本质</a>
+<ul>
+<li><a href="#方法的本质是什么">方法的本质是什么？</a></li>
+</ul></li>
+<li><a href="#方法方法集合与如何选择receiver类型">25｜方法：方法集合与如何选择receiver类型？</a>
+<ul>
+<li><a href="#方法集合">方法集合</a></li>
+</ul></li>
+<li><a href="#方法如何用类型嵌入模拟实现继承">26｜方法：如何用类型嵌入模拟实现“继承”？</a></li>
+<li><a href="#即学即练跟踪函数调用链理解代码更直观">27｜即学即练：跟踪函数调用链，理解代码更直观</a></li>
+<li><a href="#加餐聊聊go-1.17版本的那些新特性">加餐｜聊聊Go 1.17版本的那些新特性</a>
+<ul>
+<li><a href="#支持将切片转换为数组指针">支持将切片转换为数组指针</a></li>
+<li><a href="#go-module-构建模式的变化">Go Module 构建模式的变化</a></li>
+<li><a href="#go-编译器的变化">Go 编译器的变化</a></li>
+</ul></li>
+<li><a href="#加餐他山之石学习go你还可以参考什么">加餐｜他山之石：学习Go你还可以参考什么？</a></li>
+<li><a href="#接口接口即契约">28｜接口：接口即契约</a>
+<ul>
+<li><a href="#go-语言接口定义的惯例">Go 语言接口定义的惯例</a></li>
+</ul></li>
+<li><a href="#接口为什么nil接口不等于nil">29｜接口：为什么nil接口不等于nil？</a></li>
+<li><a href="#接口go中最强大的魔法">30｜接口：Go中最强大的魔法</a>
+<ul>
+<li><a href="#基本模式">1. 基本模式</a></li>
+<li><a href="#创建模式">2.创建模式</a></li>
+<li><a href="#包装器模式">3.包装器模式</a></li>
+<li><a href="#适配器模式">4.适配器模式</a></li>
+<li><a href="#中间件middleware">5.中间件(Middleware)</a></li>
+<li><a href="#尽量避免使用空接口作为函数参数类型">6.尽量避免使用空接口作为函数参数类型</a></li>
+</ul></li>
+<li><a href="#并发go的并发方案实现方案是怎样的">31｜并发：Go的并发方案实现方案是怎样的？</a></li>
+<li><a href="#并发聊聊goroutine调度器的原理">32｜并发：聊聊Goroutine调度器的原理</a></li>
+<li><a href="#并发小channel中蕴含大智慧">33｜并发：小channel中蕴含大智慧</a>
+<ul>
+<li><a href="#关闭-channel">关闭 channel</a></li>
+<li><a href="#select">select</a></li>
+<li><a href="#无缓冲-channel-的惯用法">无缓冲 channel 的惯用法</a>
+<ul>
+<li><a href="#用作信号传递routin之间的同步">1.用作信号传递(routin之间的同步)</a></li>
+<li><a href="#用于替代锁机制">2.用于替代锁机制</a></li>
+</ul></li>
+<li><a href="#带缓冲-channel-的惯用法">带缓冲 channel 的惯用法</a>
+<ul>
+<li><a href="#第一种用法用作消息队列">第一种用法：用作消息队列</a></li>
+<li><a href="#第二种用法用作计数信号量counting-semaphore">第二种用法：用作计数信号量(counting semaphore)</a></li>
+</ul></li>
+<li><a href="#lenchannel-的应用">len(channel) 的应用</a></li>
+<li><a href="#nil-channel-的妙用">nil channel 的妙用</a></li>
+<li><a href="#与-select-结合使用的一些惯用法">与 select 结合使用的一些惯用法</a>
+<ul>
+<li><a href="#第一种用法利用-default-分支避免阻塞">第一种用法：利用 default 分支避免阻塞</a></li>
+<li><a href="#第二种用法实现超时机制">第二种用法：实现超时机制</a></li>
+<li><a href="#第三种用法实现心跳机制">第三种用法：实现心跳机制</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#并发如何使用共享变量">34｜并发：如何使用共享变量？</a>
+<ul>
+<li><a href="#sync-包中同步原语使用的注意事项">sync 包中同步原语使用的注意事项</a></li>
+<li><a href="#条件变量">条件变量</a></li>
+</ul></li>
+<li><a href="#即学即练如何实现一个轻量级线程池">35｜即学即练：如何实现一个轻量级线程池？</a></li>
+<li><a href="#加餐如何拉取私有的go-module">加餐｜如何拉取私有的Go Module？</a>
+<ul>
+<li><a href="#导入本地-module">导入本地 module</a></li>
+<li><a href="#拉取私有-module-的需求与参考方案">拉取私有 module 的需求与参考方案</a></li>
+</ul></li>
+<li><a href="#加餐聊聊最近大热的go泛型">加餐｜聊聊最近大热的Go泛型</a>
+<ul>
+<li><a href="#约束constraint">约束(constraint)</a></li>
+<li><a href="#泛型类型">泛型类型</a></li>
+</ul></li>
+<li><a href="#大咖助阵大明go泛型泛了但没有完全泛">大咖助阵｜大明：Go泛型，泛了，但没有完全泛</a>
+<ul>
+<li><a href="#泛型方法">泛型方法</a></li>
+<li><a href="#go-泛型的局限">Go 泛型的局限</a>
+<ul>
+<li><a href="#go-接口和结构体不支持泛型方法">Go 接口和结构体不支持泛型方法；</a></li>
+<li><a href="#泛型约束不能作为类型声明">泛型约束不能作为类型声明；</a></li>
+<li><a href="#泛型约束只能是接口而不能是结构体">泛型约束只能是接口，而不能是结构体。</a></li>
+<li><a href="#这三个对应的可行的解决思路">这三个对应的、可行的解决思路：</a></li>
+</ul></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul></li>
+<li><a href="#打稳根基怎么实现一个tcp服务器上">36｜打稳根基：怎么实现一个TCP服务器？（上）</a>
+<ul>
+<li><a href="#并发-socket-读写">并发 Socket 读写</a></li>
+</ul></li>
+<li><a href="#代码操练怎么实现一个tcp服务器中">37｜代码操练：怎么实现一个TCP服务器？（中）</a></li>
+<li><a href="#成果优化怎么实现一个tcp服务器下">38｜成果优化：怎么实现一个TCP服务器？（下）</a></li>
+<li><a href="#大咖助阵海纳聊聊语言中的类型系统与泛型">大咖助阵｜海纳：聊聊语言中的类型系统与泛型</a></li>
+<li><a href="#孔令飞从小白到老鸟我的go语言进阶之路">孔令飞｜从小白到“老鸟”：我的Go语言进阶之路</a></li>
+<li><a href="#叶剑峰go语言中常用的那些代码优化点">叶剑峰｜Go语言中常用的那些代码优化点</a></li>
+<li><a href="#加餐作为go-module的作者你应该知道的几件事">加餐｜作为Go Module的作者，你应该知道的几件事</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="资源链接">资源链接</h2>
+<ul>
+<li><a href="https://github.com/bigwhite/publication/tree/master/column">github源码</a></li>
+</ul>
+<h2 id="开篇词这样入门go才能少走弯路">开篇词｜这样入门Go，才能少走弯路</h2>
+<p>使用go的理由<br />
+* 对初学者足够友善，能够快速上手。<br />
+* 生产力与性能的最佳结合。<br />
+* 快乐又有“钱景”。</p>
+<h2 id="前世今生你不得不了解的go的历史和现状">01｜前世今生：你不得不了解的Go的历史和现状</h2>
+<p>当你开始接触一门新语言的时候，你一定要去了解它的历史和现状。因为这样，你才能建立起对这门语言的整体认知，了解它未来的走向。<br />
+2007年，Go 语言的创始人有三位，分别是图灵奖获得者、C 语法联合发明人、Unix 之父肯·汤普森(Ken Thompson)、Plan 9 操作系统领导者、UTF-8 编码的最初设计者罗伯·派克(Rob Pike)，以及 Java 的 HotSpot 虚拟机和 Chrome 浏览器的 JavaScript V8 引擎的设计者之一罗伯特·格瑞史莫(Robert Griesemer)。有了创建go的想法。<br />
+2009年，Go 语言第一次公之于众，并开源。<br />
+2012年 ，Go 1.0 版本正式发布</p>
+<h2 id="拒绝hello-and-byego语言的设计哲学是怎么一回事">02｜拒绝“Hello and Bye”：Go语言的设计哲学是怎么一回事？</h2>
+<p>编程语言的设计哲学，就是指决定这门语言演化进程的高级原则和依据。设计哲学之于编程语言，就好比一个人的价值观之于这个人的行为。<br />
+我将 Go 语言的设计哲学总结为五点：简单、显式、组合、并发和面向工程</p>
+<h3 id="简单">简单</h3>
+<p>选择了“简单”，就意味着 Go 不会像 C++、Java 那样将其他编程语言的新特性兼蓄并收，所以你在 Go 语言中看不到传统的面向对象的类、构造函数与继承，看不到结构化的异常处理，也看不到本属于函数编程范式的语法元素。</p>
+<h3 id="显示">显示</h3>
+<pre><code>c = int64(a) + int64(b)
+fmt.Printf(&quot;%d\n&quot;, c)</code></pre>
+<p>而这其实就是 Go 语言显式设计哲学的一个体现。在 Go 语言中，不同类型变量是不能在一起进行混合计算的，这是因为 Go 希望开发人员明确知道自己在做什么。<br />
+除此之外，Go 设计者所崇尚的显式哲学还直接决定了 Go 语言错误处理的形态：Go 语言采用了显式的基于值比较的错误处理方案，函数 / 方法中的错误都会通过 return 语句显式地返回，并且通常调用者不能忽略对返回的错误的处理。</p>
+<h3 id="组合">组合</h3>
+<p>Go 语言为支撑组合的设计提供了类型嵌入(Type Embedding)。</p>
+<pre><code>// $GOROOT/src/sync/pool.go
+type poolLocal struct {
+    private interface{}   
+    shared  []interface{}
+    Mutex               
+    pad     [128]byte  
+}</code></pre>
+<p>在代码段中，我们在 poolLocal 这个结构体类型中嵌入了类型 Mutex，这就使得 poolLocal 这个类型具有了互斥同步的能力，我们可以通过 poolLocal 类型的变量，直接调用 Mutex 类型的方法 Lock 或 Unlock。</p>
+<p>另外，我们在标准库中还会经常看到类似如下定义接口类型的代码段：</p>
+<pre><code>// $GOROOT/src/io/io.go
+type ReadWriter interface {
+    Reader
+    Writer
+}</code></pre>
+<p>这里，标准库通过<strong>嵌入接口类型</strong>的方式来实现接口行为的聚合，组成大接口，这种方式在标准库中尤为常用，并且已经成为了 Go 语言的一种<strong>惯用法</strong>。</p>
+<h3 id="并发">并发</h3>
+<p>Go 放弃了传统的基于操作系统线程的并发模型，而采用了用户层轻量级线程，Go 将之称为 goroutine。<br />
+goroutine 占用的资源非常小，Go 运行时默认为每个 goroutine 分配的栈空间仅 2KB。goroutine 调度的切换也不用陷入(trap)操作系统内核层完成，代价很低。因此，一个 Go 程序中可以创建成千上万个并发的 goroutine。而且，所有的 Go 代码都在 goroutine 中执行，哪怕是 go 运行时的代码也不例外。</p>
+<h3 id="面向工程">面向工程</h3>
+<p>Go 语言设计的初衷，就是面向解决真实世界中 Google 内部大规模软件开发存在的各种问题，为这些问题提供答案，这些问题包括：程序构建慢、依赖管理失控、代码难于理解、跨语言构建难等。<br />
+在 Go 语言最初设计阶段就将解决工程问题作为 Go 的设计原则之一去考虑 Go 语法、工具链与标准库的设计，这也是 Go 与其他偏学院派、偏研究型的编程语言在设计思路上的一个重大差异。</p>
+<h2 id="配好环境选择一种最适合你的go安装方法">03｜配好环境：选择一种最适合你的Go安装方法</h2>
+<p>安装多个 Go 版本<br />
+1. 手动安装不同的go版本，安装到不同的路径后再设置环境变量，通过考环境变量来使用不同的go版本<br />
+2. go get 命令，例如如下，之后带版本的go就下载下来了，然后通过带版本号的 go 命令来使用特定版本的 Go 了</p>
+<pre><code>go get golang.org/dl/go1.15.13
+go1.15.13 download</code></pre>
+<p>Go 版本的选择策略：<br />
+* 第一种，也是我们推荐的一种，那就是使用 Go 最新的版本，这样你可以体验到 Go 的最新语言特性，应用到标准库的最新 API 以及 Go 工具链的最新功能，并且很多老版本中的 bug 在最新版本中都会得到及时修复；<br />
+* 如果你还是对最新版本的稳定性有一丝担忧，你也可以选择使用次新版；<br />
+* 最后，如果你要考虑现存生产项目或开源项目，那你按照需要选择，与项目策略保持一致就好了。</p>
+<h2 id="初窥门径一个go程序的结构是怎样的">04｜初窥门径：一个Go程序的结构是怎样的？</h2>
+<h2 id="标准先行go项目的布局标准是什么">05｜标准先行：Go项目的布局标准是什么？</h2>
+<p>Go 项目的典型结构布局是怎样的？<br />
+一个 Go 项目通常分为可执行程序项目和库项目(让其他用户使用的)，<br />
+可执行程序</p>
+<pre><code>exe-layout
+├── cmd/
+│   ├── app1/
+│   │   └── main.go
+│   └── app2/
+│       └── main.go
+├── go.mod
+├── go.sum
+├── internal/
+│   ├── pkga/
+│   │   └── pkg_a.go
+│   └── pkgb/
+│       └── pkg_b.go
+├── pkg1/
+│   └── pkg1.go
+├── pkg2/
+│   └── pkg2.go
+└── vendor/</code></pre>
+<p>库程序</p>
+<pre><code>lib-layout
+├── go.mod
+├── internal/
+│   ├── pkga/
+│   │   └── pkg_a.go
+│   └── pkgb/
+│       └── pkg_b.go
+├── pkg1/
+│   └── pkg1.go
+└── pkg2/
+    └── pkg2.go</code></pre>
+<h2 id="构建模式go是怎么解决包依赖管理问题的">06｜构建模式：Go是怎么解决包依赖管理问题的？</h2>
+<h3 id="深入-go-module-构建模式">深入 Go Module 构建模式</h3>
+<p>Go 语言设计者在设计 Go Module 构建模式，来解决“包依赖管理”的问题时，进行了几项创新，这其中就包括语义导入版本 (Semantic Import Versioning)，以及和其他主流语言不同的最小版本选择 (Minimal Version Selection) 等机制。</p>
+<ul>
+<li>go.mod 的 require 段中依赖的版本号，都符合 vX.Y.Z 的格式。</li>
+<li>如果同一个包的新旧版本是兼容的，那么它们的包导入路径应该是相同的。</li>
+<li>如果包的主版本升级后，或主版本不同时，在导入包的时候将包主版本号引入到包导入路径中。例如：<code>import "github.com/sirupsen/logrus/v2"</code></li>
+<li>可以同时依赖一个包的两个不兼容版本，有些语言的包管理机制则不允许同时依赖两个不兼容的版本的包。</li>
+<li>当不同的包依赖于同一个包的不同版本时， Go 会在该项目依赖项的所有版本中，选出符合项目整体要求的“最小版本”，而不是最新的版本。</li>
+</ul>
+<h3 id="最小版本选择">最小版本选择</h3>
+<p>当前存在的主流编程语言，以及 Go Module 出现之前的很多 Go 包依赖管理工具都会选择依赖项的“最新最大 (Latest Greatest) 版本。<br />
+理想状态下，如果语义版本控制被正确应用，并且这种“社会契约”也得到了很好的遵守，那么这种选择算法是有道理的，而且也可以正常工作。在这样的情况下，依赖项的“最新最大版本”应该是最稳定和安全的版本，并且应该有向后兼容性。至少在相同的主版本 (Major Verion) 依赖树中是这样的。</p>
+<p>go的方式：<br />
+A和B都依赖于C，A依赖于C的v1.0.0，B依赖于C的v1.3.0，而C的最新版本是v1.7.0，那么Go会选择v1.3.0作为项目依赖项的版本。<br />
+Go 设计者另辟蹊径，在诸多兼容性版本间，他们不光要考虑最新最大的稳定与安全，还要尊重各个 module 的述求：A 明明说只要求 C v1.1.0，B 明明说只要求 C v1.3.0。所以 Go 会在该项目依赖项的所有版本中，选出符合项目整体要求的“最小版本”,能同时满足A和B的声明要求。</p>
+<p>go.sum<br />
+这是 Go Module 的一个<strong>安全措施</strong>。当将来这里的某个 module 的特定版本被再次下载的时候，go 命令会使用 go.sum 文件中对应的哈希值，和新下载的内容的哈希值进行比对，只有哈希值比对一致才是合法的，这样可以确保你的项目所依赖的 module 内容，不会被恶意或意外篡改。因此，我推荐你把 go.mod 和 go.sum 两个文件与源码，一并提交到代码版本控制服务器上。</p>
+<p>小结:<br />
+在这一讲中，我们初步了解了 Go 语言构建模式的演化历史。<br />
+Go 语言最初发布时内置的构建模式为 <strong>GOPATH 构建模式</strong>。在这种构建模式下，所有构建都离不开 GOPATH 环境变量。在这个模式下，Go 编译器并没有关注依赖包的版本，开发者也无法控制第三方依赖的版本，导致开发者无法实现可重现的构建。<br />
+那么，为了支持可重现构建，Go 1.5 版本引入了 vendor 机制，开发者可以在项目目录下缓存项目的所有依赖，实现可重现构建。但 vendor 机制依旧不够完善，开发者还需要手工管理 vendor 下的依赖包，这就给开发者带来了不小的心智负担。<br />
+后来，Go 1.11 版本中，Go 核心团队推出了新一代构建模式：Go Module 以及一系列创新机制，包括语义导入版本机制、最小版本选择机制等。语义导入版本机制是 Go Moudle 其他机制的基础，它是通过在包导入路径中引入主版本号的方式，来区别同一个包的不兼容版本。而且，Go 命令使用最小版本选择机制进行包依赖版本选择，这和当前主流编程语言，以及 Go 社区之前的包依赖管理工具使用的算法都有点不同。</p>
+<h2 id="构建模式go-module的6类常规操作">07｜构建模式：Go Module的6类常规操作</h2>
+<h3 id="为当前-module-添加一个依赖">为当前 module 添加一个依赖</h3>
+<ol>
+<li>import 包名 2. go get 包名或go mod tidy进行依赖包下载，一般会下载最新的版本</li>
+</ol>
+<h3 id="升级降级依赖的版本">升级/降级依赖的版本</h3>
+<p>比如基于初始状态执行的 go mod tidy 命令，帮我们选择了 logrus 的最新发布版本 v1.8.1<br />
+如果你觉得这个版本存在某些问题，想将 logrus 版本降至某个之前发布的兼容版本，比如 v1.7.0，那么我们可以在项目的 module 根目录下，执行带有版本号的 go get 命令：</p>
+<pre><code># 在项目根目录下执行
+$go get github.com/sirupsen/logrus@v1.7.0
+go: downloading github.com/sirupsen/logrus v1.7.0
+go get: downgraded github.com/sirupsen/logrus v1.8.1 =&gt; v1.7.0
+# 或者
+$go mod edit -require=github.com/sirupsen/logrus@v1.7.0
+$go mod tidy       
+go: downloading github.com/sirupsen/logrus v1.7.0
+
+# 当依赖的主版本号为 0 或 1 的时候，我们在 Go 源码中导入依赖包，不需要在包的导入路径上增加版本号，即
+import github.com/user/repo/v0 等价于 import github.com/user/repo
+import github.com/user/repo/v1 等价于 import github.com/user/repo</code></pre>
+<h3 id="添加一个主版本号大于-1-的依赖">添加一个主版本号大于 1 的依赖</h3>
+<ol>
+<li>在声明它的导入路径的基础上，加上版本号信息，例如：<code>import  "github.com/go-redis/redis/v7"</code></li>
+<li><code>go get github.com/go-redis/redis/v7</code> 或 <code>go mod tidy</code></li>
+</ol>
+<h3 id="升级依赖版本到一个不兼容版本">升级依赖版本到一个不兼容版本</h3>
+<ol>
+<li>先将代码中包导入路径中的版本号改为升级后的版本</li>
+<li><code>go get github.com/go-redis/redis/v7</code> 或 <code>go mod tidy</code></li>
+</ol>
+<h3 id="移除一个依赖">移除一个依赖</h3>
+<p>仅从源码中删除对依赖项的导入语句还不够。这是因为如果源码满足成功构建的条件，go build 命令是不会“多管闲事”地清理 go.mod 中多余的依赖项的。<br />
+我们还得用 go mod tidy 命令，它会自动分析源码依赖，而且将不再使用的依赖从 go.mod 和 go.sum 中移除。</p>
+<h3 id="特殊情况使用-vendor这种方式很便于开发者查看源码还不错">特殊情况：使用 vendor,这种方式很便于开发者查看源码，还不错</h3>
+<p>vendor 机制虽然诞生于 GOPATH 构建模式主导的年代，但在 Go Module 构建模式下，它依旧被保留了下来，并且成为了 Go Module 构建机制的一个很好的补充。特别是在一些不方便访问外部网络，并且对 Go 应用构建性能敏感的环境，比如在一些内部的持续集成或持续交付环境 (CI/CD) 中，使用 vendor 机制可以实现与 Go Module 等价的构建。<br />
+和 GOPATH 构建模式不同，Go Module 构建模式下，我们再也无需手动维护 vendor 目录下的依赖包了，Go 提供了可以快速建立和更新 vendor 的命令。</p>
+<pre><code>go mod vendor</code></pre>
+<p>go mod vendor 命令在 vendor 目录下，创建了一份这个项目的依赖包的副本，并且通过 vendor/modules.txt 记录了 vendor 下的 module 以及版本。<br />
+如果我们要基于 vendor 构建，而不是基于本地缓存的 Go Module 构建，我们需要在 go build 后面加上 -mod=vendor 参数。<br />
+在 Go 1.14 及以后版本中，如果 Go 项目的顶层目录下<strong>存在 vendor 目录</strong>，那么 go build 默认也会优先基于 vendor 构建，除非你给 go build 传入 -mod=mod 的参数。</p>
+<h2 id="入口函数与包初始化搞清go程序的执行次序">08｜入口函数与包初始化：搞清Go程序的执行次序</h2>
+<p>相较于 main.main 作为 Go 应用的入口，main.main 函数返回的意义其实更大，因为 main 函数返回就意味着整个 Go 程序的终结，而且你也不用管这个时候是否还有其他子 Goroutine 正在执行。<br />
+对于 main 包的 main 函数来说，它虽然是用户层逻辑的入口函数，但它却不一定是用户层第一个被执行的函数。<br />
+在main函数执行之前，会进行包初始化的 init 函数，注意：包的init函数不能被手工显式地调用</p>
+<h3 id="go-包的初始化次序">Go 包的初始化次序</h3>
+<p>我们从程序逻辑结构角度来看，Go 包是程序逻辑封装的基本单元，每个包都可以理解为是一个“自治”的、封装良好的、对外部暴露有限接口的基本单元。一个 Go 程序就是由一组包组成的，程序的初始化就是这些包的初始化。每个 Go 包还会有自己的依赖包、常量、变量、init 函数(其中 main 包有 main 函数)等。<br />
+在这里你要注意：我们在阅读和理解代码的时候，需要知道这些元素在在程序初始化过程中的初始化顺序，这样便于我们确定在某一行代码处这些元素的当前状态。<br />
+* 包初始化是个递归的过程，采用深度优先的规则进行<br />
+* 一个被多个包依赖的包仅会初始化一次<br />
+* 每个包内按以“常量 -&gt; 变量 -&gt; init 函数”的顺序进行初始化；<br />
+* 包内的多个 init 函数按出现次序进行自动调用。</p>
+<h3 id="init-函数的用途">init 函数的用途</h3>
+<p>Go 包初始化时，init 函数的初始化次序在变量之后，这给了开发人员在 init 函数中对包级变量进行进一步检查与操作的机会。</p>
+<h4 id="重置包级变量值">重置包级变量值</h4>
+<p>init 函数就好比 Go 包真正投入使用之前唯一的“质检员”，负责对包内部以及暴露到外部的包级数据（主要是包级变量）的初始状态进行检查。</p>
+<h4 id="实现对包级变量的复杂初始化">实现对包级变量的复杂初始化</h4>
+<pre><code>var (
+    http2VerboseLogs    bool // 初始化时默认值为false
+    http2logFrameWrites bool // 初始化时默认值为false
+    http2logFrameReads  bool // 初始化时默认值为false
+    http2inTests        bool // 初始化时默认值为false
+)
+func init() {
+    e := os.Getenv(&quot;GODEBUG&quot;)
+    if strings.Contains(e, &quot;http2debug=1&quot;) {
+        http2VerboseLogs = true // 在init中对http2VerboseLogs的值进行重置
+    }
+    if strings.Contains(e, &quot;http2debug=2&quot;) {
+        http2VerboseLogs = true // 在init中对http2VerboseLogs的值进行重置
+        http2logFrameWrites = true // 在init中对http2logFrameWrites的值进行重置
+        http2logFrameReads = true // 在init中对http2logFrameReads的值进行重置
+    }
+}</code></pre>
+<h4 id="在-init-函数中实现注册模式">在 init 函数中实现“注册模式”</h4>
+<p>这种通过在 init 函数中注册自己的实现的模式，就有效降低了 Go 包对外的直接暴露，尤其是包级变量的暴露，从而避免了外部通过包级变量对包状态的改动。</p>
+<pre><code>import (
+    &quot;database/sql&quot;
+    _ &quot;github.com/lib/pq&quot;
+)
+func main() {
+    db, err := sql.Open(&quot;postgres&quot;, &quot;user=pqgotest dbname=pqgotest sslmode=verify-full&quot;)     //没有使用lib/pq库的地方
+    if err != nil {
+        log.Fatal(err)
+    }
+    
+    age := 21
+    rows, err := db.Query(&quot;SELECT name FROM users WHERE age = $1&quot;, age)
+    ...
+}
+
+// 这个奥秘就在，我们其实是利用了用空导入的方式导入 lib/pq 包时产生的一个“副作用”，也就是 lib/pq 包作为 main 包的依赖包，它的 init 函数会在 pq 包初始化的时候得以执行。
+
+// pq包中的init函数
+func init() {
+    //pq 包将自己实现的 sql 驱动注册到了 sql 包中
+    //这样只要应用层代码在 Open 数据库的时候，传入驱动的名字(这里是“postgres”)，那么通过 sql.Open 函数，
+    //返回的数据库实例句柄对数据库进行的操作，实际上调用的都是 pq 包中相应的驱动实现。
+    sql.Register(&quot;postgres&quot;, &amp;Driver{})      
+}</code></pre>
+<p>另外，从标准库 database/sql 包的角度来看，这种“注册模式”实质是一种工厂设计模式的实现，sql.Open 函数就是这个模式中的工厂方法，它根据外部传入的驱动名称“生产”出不同类别的数据库实例句柄。</p>
+<h3 id="init-函数在检查包数据初始状态时遇到失败或错误的情况">init 函数在检查包数据初始状态时遇到失败或错误的情况</h3>
+<p>一般是根据初始化严重程度的级别来抛出不同的错误，若是较为严重的影响程序生命周期的错误，则直接抛出运行时恐慌(Panic)，如果是较低级别的错误，可以通过记录trance等提供相应错误日志</p>
+<h2 id="即学即练构建一个web服务就是这么简单">09｜即学即练：构建一个Web服务就是这么简单</h2>
+<h2 id="变量声明静态语言有别于动态语言的重要特征">10｜变量声明：静态语言有别于动态语言的重要特征</h2>
+<p>如果你没有显式为变量赋予初值，Go 编译器会为变量赋予这个类型的零值：</p>
+<pre><code>var a int // a的初值为int类型的零值：0</code></pre>
+<p>Go 语言的变量可以分为两类：一类称为包级变量 (package varible)，另一类则是局部变量 (local varible)<br />
+包级变量只能使用带有 var 关键字的变量声明形式</p>
+<h2 id="代码块与作用域如何保证变量不会被遮蔽">11｜代码块与作用域：如何保证变量不会被遮蔽？</h2>
+<p>在这一讲中，我们学习了另外两个变量相关的概念：代码块与作用域。<br />
+代码块有显式与隐式之分，显式代码块就是包裹在一对配对大括号内部的语句序列，而隐式代码块则不容易肉眼分辨，它是通过 Go 语言规范明确规定的。理解隐式代码块是理解代码块概念以及后续作用域概念的前提与基础。<br />
+隐式代码块有五种，分别是：<br />
+* 宇宙代码块<br />
+* 包代码块<br />
+* 文件代码块<br />
+* 分支控制语句隐式代码块<br />
+* switch/select 的子句隐式代码块</p>
+<p><strong>作用域</strong>的概念是 Go 源码编译过程中标识符(包括变量)的一个属性。Go 编译器会校验每个标识符的作用域，如果它的使用范围超出其作用域，编译器会报错。<br />
+不过呢，我们可以使用<strong>代码块的概念来划定每个标识符的作用域</strong>。划定原则就是声明于外层代码块中的标识符，其作用域包括所有内层代码块。但是，Go 的这种作用域划定也带来了<strong>变量遮蔽</strong>问题。简单的遮蔽问题，我们通过分析代码可以很快找出，复杂的遮蔽问题，即便是通过 go vet 这样的静态代码分析工具也难于找全。<br />
+因此，我们只有了解变量遮蔽问题本质，在日常编写代码时注意同名变量的声明，注意短变量声明与控制语句的结合，才能从根源上尽量避免变量遮蔽问题的发生。</p>
+<p>变量遮蔽(Variable Shadowing)<br />
+变量遮蔽问题的根本原因，就是内层代码块中声明了一个与外层代码块同名且同类型的变量，这样，内层代码块中的同名变量就会替代那个外层变量</p>
+<p>短变量声明与控制语句的结合十分容易导致变量遮蔽问题，并且很不容易识别，因此在日常 go 代码开发中你要尤其注意两者结合使用的地方。</p>
+<p>利用工具检测变量遮蔽问题<br />
+Go 官方提供了 go vet 工具可以用于对 Go 源码做一系列静态检查，在 Go 1.14 版以前默认支持变量遮蔽检查，Go 1.14 版之后，变量遮蔽检查的插件就需要我们单独安装了</p>
+<h2 id="基本数据类型go原生支持的数值类型有哪些">12｜基本数据类型：Go原生支持的数值类型有哪些？</h2>
+<p>Go 语言的类型大体可分为基本数据类型、复合数据类型和接口类型这三种<br />
+整形分为：平台无关整型和平台相关整型<br />
+* 平台无关整型，它们在任何 CPU 架构或任何操作系统下面，长度都是固定不变的<br />
+* 平台相关型，int，unit，uintptr，比如int在32位是4字节，64位是8字节</p>
+<h3 id="创建自定义的数值类型">创建自定义的数值类型</h3>
+<ul>
+<li>类型定义语法，通过类型定义语法实现的自定义数值类型虽然在数值性质上与原类型是一致的，但它们却是完全不同的类型，不能相互赋值，需要显式转换，要不会有编译错误<br />
+type MyInt int32</li>
+<li>类型别名语法，通过类型别名创建的新类型则等价于原类型，可以互相替代。类型别名加入go的初衷就是为了<strong>重构</strong>，这也是其主要场景。<br />
+type MyInt = int32</li>
+</ul>
+<h2 id="基本数据类型为什么go要原生支持字符串类型">13｜基本数据类型：为什么Go要原生支持字符串类型？</h2>
+<h3 id="原生支持字符串有什么好处">原生支持字符串有什么好处？</h3>
+<p>1.string 类型的数据是不可变的，提高了字符串的并发安全性和存储利用率。<br />
+Go 语言规定，字符串类型的值在它的生命周期内是不可改变的。Go 这样的“字符串类型数据不可变”的性质给开发人员带来的最大好处，就是我们不用再担心字符串的并发安全问题。<br />
+另外，也由于字符串的不可变性，针对同一个字符串值，无论它在程序的几个位置被使用，Go 编译器只需要为它分配一块存储就好了，大大提高了存储利用率。</p>
+<pre><code>var s string = &quot;hello&quot;
+s[0] = &#39;k&#39;   // 错误：字符串的内容是不可改变的
+s = &quot;gopher&quot; // ok</code></pre>
+<p>2.没有结尾’\0’，而且获取长度的时间复杂度是常数时间，消除了获取字符串长度的开销。</p>
+<p>3.原生支持“所见即所得”的原始字符串，大大降低构造多行字符串时的心智负担。<br />
+Go 语言就简单多了，通过一对反引号原生支持构造“所见即所得”的原始字符串(Raw String)。</p>
+<p>4.对非 ASCII 字符提供原生支持，消除了源码在不同环境下显示乱码的可能。<br />
+Go 语言源文件默认采用的是 Unicode 字符集，Go 字符串中的每个字符都是一个 Unicode 字符，并且这些 Unicode 字符是以 UTF-8 编码格式存储在内存当中的。</p>
+<h3 id="go-字符串的组成">Go 字符串的组成</h3>
+<p>两种视角<br />
+* 1. 可空的字节序列，字节序列中的字节个数称为该字符串的长度。一个个的字节只是孤立数据，不表意。<br />
+* 2. 可空的字符序列构成</p>
+<pre><code>// 字节
+var s = &quot;中国人&quot;
+fmt.Printf(&quot;the length of s = %d\n&quot;, len(s)) // 9，长度的时候要注意
+for i := 0; i &lt; len(s); i++ {
+  fmt.Printf(&quot;0x%x &quot;, s[i]) // 0xe4 0xb8 0xad 0xe5 0x9b 0xbd 0xe4 0xba 0xba
+}
+fmt.Printf(&quot;\n&quot;)
+
+// 字符
+var s = &quot;中国人&quot;
+fmt.Println(&quot;the character count in s is&quot;, utf8.RuneCountInString(s)) // 3
+for _, c := range s {
+  fmt.Printf(&quot;0x%x &quot;, c) // 0x4e2d 0x56fd 0x4eba,   打印的为Unicode码点(Code Point)
+}
+fmt.Printf(&quot;\n&quot;)</code></pre>
+<h3 id="rune-类型与字符字面值">rune 类型与字符字面值</h3>
+<p>rune 本质上是 int32 类型的别名类型 <code>type rune = int32</code><br />
+一个 rune 实例就是一个 Unicode 字符，rune 本质是表示一个<strong>码点</strong>。 一个 Go 字符串也可以被视为 rune 实例的集合。我们可以通过字符字面值来初始化一个 rune 变量。</p>
+<pre><code>// rune -&gt; []byte                                                                            
+func encodeRune() {                                                                          
+    var r rune = 0x4E2D               // 此处标识的是码点                                                   
+    fmt.Printf(&quot;the unicode charactor is %c\n&quot;, r) // 中                                     
+    buf := make([]byte, 3)                                                                   
+    _ = utf8.EncodeRune(buf, r) // 对rune进行utf-8编码                                                           
+    fmt.Printf(&quot;utf-8 representation is 0x%X\n&quot;, buf) // 0xE4B8AD， 此处表示的是码点的utf8的编码表示的十六进制。                           
+}                                                                                            
+                                                                                             
+// []byte -&gt; rune                                                                            
+func decodeRune() {                                                                          
+    var buf = []byte{0xE4, 0xB8, 0xAD}                                                       
+    r, _ := utf8.DecodeRune(buf) // 对buf进行utf-8解码
+    fmt.Printf(&quot;the unicode charactor after decoding [0xE4, 0xB8, 0xAD] is %s\n&quot;, string(r)) // 中
+}</code></pre>
+<h3 id="go-字符串类型的内部表示">Go 字符串类型的内部表示</h3>
+<p>string 类型其实是一个“描述符”，它本身并不真正存储字符串数据，而仅是由一个指向底层存储的指针和字符串的长度字段组成的。</p>
+<pre><code>// $GOROOT/src/reflect/value.go
+// StringHeader是一个string的运行时表示
+type StringHeader struct {
+    Data uintptr
+    Len  int
+}</code></pre>
+<p>这段代码利用了 unsafe.Pointer 的通用指针转型能力，按照 StringHeader 给出的结构内存布局，“顺藤摸瓜”，一步步找到了底层数组的地址，并输出了底层数组内容。</p>
+<pre><code>func dumpBytesArray(arr []byte) {
+    fmt.Printf(&quot;[&quot;)
+    for _, b := range arr {
+        fmt.Printf(&quot;%c &quot;, b)
+    }
+    fmt.Printf(&quot;]\n&quot;)
+}
+func main() {
+    var s = &quot;hello&quot;
+    hdr := (*reflect.StringHeader)(unsafe.Pointer(&amp;s)) // 将string类型变量地址显式转型为reflect.StringHeader
+    fmt.Printf(&quot;0x%x\n&quot;, hdr.Data) // 0x10a30e0
+    p := (*[5]byte)(unsafe.Pointer(hdr.Data)) // 获取Data字段所指向的数组的指针
+    dumpBytesArray((*p)[:]) // [h e l l o ]   // 输出底层数组的内容
+}</code></pre>
+<p>了解了 string 类型的实现原理后，我们还可以得到这样一个结论，那就是我们直接将 string 类型通过函数 / 方法参数传入也不会带来太多的开销</p>
+<h4 id="字符迭代">字符迭代。</h4>
+<p>通过常规 for 迭代与 for range 迭代所得到的结果不同，常规 for 迭代采用的是<strong>字节视角</strong>；而 for range 迭代采用的是<strong>字符视角</strong>；</p>
+<pre><code>var s = &quot;中国人&quot;
+for i := 0; i &lt; len(s); i++ {
+  fmt.Printf(&quot;index: %d, value: 0x%x\n&quot;, i, s[i])
+}
+// output
+index: 0, value: 0xe4
+index: 1, value: 0xb8
+index: 2, value: 0xad
+index: 3, value: 0xe5
+index: 4, value: 0x9b
+index: 5, value: 0xbd
+index: 6, value: 0xe4
+index: 7, value: 0xba
+index: 8, value: 0xba
+
+var s = &quot;中国人&quot;
+for i, v := range s {
+    fmt.Printf(&quot;index: %d, value: 0x%x\n&quot;, i, v)
+}
+// output
+index: 0, value: 0x4e2d
+index: 3, value: 0x56fd
+index: 6, value: 0x4eba</code></pre>
+<h4 id="字符串转换">字符串转换。</h4>
+<p>Go 支持字符串与字节切片、字符串与 rune 切片的双向转换，并且这种转换无需调用任何函数，只需使用显式类型转换就可以了</p>
+<pre><code>var s string = &quot;中国人&quot;
+                      
+// string -&gt; []rune
+rs := []rune(s) 
+fmt.Printf(&quot;%x\n&quot;, rs) // [4e2d 56fd 4eba]
+                
+// string -&gt; []byte
+bs := []byte(s) 
+fmt.Printf(&quot;%x\n&quot;, bs) // e4b8ade59bbde4baba
+                
+// []rune -&gt; string
+s1 := string(rs)
+fmt.Println(s1) // 中国人
+                
+// []byte -&gt; string
+s2 := string(bs)
+fmt.Println(s2) // 中国人</code></pre>
+<p>这样的转型看似简单，但无论是 string 转切片，还是切片转 string，这类转型背后也是有着一定开销的。这些开销的根源就在于 <strong>string是不可变的</strong>，运行时要为转换后的类型分配新内存。</p>
+<h2 id="常量go在常量设计上的创新有哪些">14｜常量：Go在“常量”设计上的创新有哪些？</h2>
+<p>Go 语言对类型安全是有严格要求的：即便两个类型拥有着相同的底层类型，但它们仍然是不同的数据类型，不可以进行运算。常量依然如此。</p>
+<ul>
+<li>无类型常量<br />
+声明常量时不加类型。无类型常量也不是说就真的没有类型，它也有自己的默认类型，不过它的默认类型是根据它的初值形式来决定的。</li>
+<li>隐式转型<br />
+对于无类型常量参与的表达式求值，Go 编译器会根据上下文中的类型信息，把无类型常量自动转换为相应的类型后，再参与求值计算。如果类型有溢出，编译时会报错。</li>
+<li>实现枚举<br />
+Go 语言其实并没有原生提供枚举类型。<br />
+Go 的 const 语法提供了“隐式重复前一个非空表达式”的机制<br />
+iota <strong>行偏移量指示器</strong>。iota 是 Go 语言的一个预定义标识符，它表示的是 const 声明块(包括单行声明)中，每个常量所处位置在块中的偏移值(从零开始)。</li>
+</ul>
+<pre><code>const (
+    _ = iota
+    IPV6_V6ONLY  // 1
+    SOMAXCONN    // 2
+    SO_ERROR     // 3
+)</code></pre>
+<h2 id="同构复合类型从定长数组到变长切片">15｜同构复合类型：从定长数组到变长切片</h2>
+<p>Go 的数组类型包含两个重要属性：元素的<strong>类型</strong>和数组<strong>长度</strong>(元素的个数)<br />
+如果两个数组类型的元素类型 T 与数组长度 N 都是一样的，那么这两个数组类型是等价的，如果有一个属性不同，它们就是两个不同的数组类型。</p>
+<pre><code>func foo(arr [5]int) {}
+func main() {
+    var arr1 [5]int
+    var arr2 [6]int
+    var arr3 [5]string
+    foo(arr1) // ok
+    foo(arr2) // 错误：[6]int与函数foo参数的类型[5]int不是同一数组类型
+    foo(arr3) // 错误：[5]string与函数foo参数的类型[5]int不是同一数组类型
+}  </code></pre>
+<pre><code>var arr = [6]int{1, 2, 3, 4, 5, 6}
+fmt.Println(&quot;数组长度：&quot;, len(arr))           // 6
+fmt.Println(&quot;数组大小：&quot;, unsafe.Sizeof(arr)) // 48, 6*8,64 位平台上，int 长度是8</code></pre>
+<p>数组初始化</p>
+<pre><code>// 方式一
+var arr2 = [6]int {
+    11, 12, 13, 14, 15, 16,
+} // [11 12 13 14 15 16]
+
+// 方式二
+var arr3 = [...]int { 
+    21, 22, 23,
+} // [21 22 23]
+fmt.Printf(&quot;%T\n&quot;, arr3) // [3]int
+
+//方式三
+var arr4 = [...]int{
+    99: 39, // 将第100个元素(下标值为99)的值赋值为39，其余元素值均为0
+}
+fmt.Printf(&quot;%T\n&quot;, arr4) // [100]int</code></pre>
+<h3 id="多维数组">多维数组</h3>
+<pre><code>var mArr [2][3][4]int</code></pre>
+<p>注意点 ：<br />
+* Go 传递数组的方式都是纯粹的值拷贝，这会带来较大的内存拷贝开销。这跟c的传数组会退化成指针有区别<br />
+* 数组在使用上确有两点不足：1.固定的元素个数 2.传值机制下导致的开销较大。于是 Go 设计者们又引入了另外一种同构复合类型：切片(slice)，来弥补数组的这两处不足。</p>
+<h3 id="切片">切片</h3>
+<p>创建</p>
+<pre><code>//方法一：
+var nums = []int{1, 2, 3, 4, 5, 6} 
+   
+//方法二：通过make
+sl := make([]byte, 6, 10) // 其中10为cap值，即底层数组长度，6为切片的初始长度
+sl := make([]byte, 6) // cap = len = 6
+
+//方法三：数组的切片化，采用 array[low : high : max]语法基于一个已存在的数组创建切片，**底层访问的数组还是原数组**，修改切片内容，底层的也会跟着改
+// 类似于c++中的string_view
+arr := [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+sl := arr[3:7:9]
+
+//方法四：基于切片创建切片
+a := []int{1, 2, 3,4,5}
+b := a[2:4]</code></pre>
+<p>切片声明相比数组仅仅是少了一个“长度”属性。<br />
+Go 切片在运行时其实是一个三元组结构</p>
+<pre><code>type slice struct {
+    array unsafe.Pointer      //指针
+    len   int    //个数
+    cap   int   //最大容量
+}</code></pre>
+<p>在 Go 语言中，数组更多是“退居幕后”，承担的是底层存储空间的角色。切片就是数组的“描述符”，也正是因为这一特性，切片才能在函数参数传递时避免较大性能开销。<br />
+另外，针对一个已存在的数组，我们还可以建立多个操作数组的切片，这些切片共享同一底层数组，切片对底层数组的操作也同样会反映到其他切片中。<br />
+append 操作的这种自动扩容行为，有些时候会给我们开发者带来一些困惑，比如基于一个已有数组建立的切片，一旦追加的数据操作触碰到切片的容量上限(实质上也是数组容量的上界)，<strong>切片就会和原数组解除“绑定”</strong>，后续对切片的任何修改都不会反映到原数组中了。</p>
+<p>s1和s2的区别</p>
+<pre><code>var s1 []int
+var s2 = []int{}</code></pre>
+<p>s1是声明，还没初始化，是nil值，底层<strong>没有分配内存空间</strong>。<br />
+s2初始化了，不是nil值，底层分配了内存空间</p>
+<h2 id="复合数据类型原生map类型的实现机制是怎样的">16｜复合数据类型：原生map类型的实现机制是怎样的？</h2>
+<p>map 类型对 value 的类型没有限制，但是对 key 的类型却有严格要求，因为 map 类型要保证 key 的唯一性。Go 语言中要求，key 的类型必须支持“==”和“!=”两种比较操作符。<br />
+在 Go 语言中，函数类型、map 类型以及切片只支持与 nil 的比较，而不支持同类型两个变量的比较。所以函数类型、map 类型自身，以及切片类型是不能作为 map 的 key 类型的。</p>
+<p>map 变量的声明和初始化</p>
+<pre><code>var m map[string]int // 一个map[string]int类型的变量</code></pre>
+<p>和切片类型变量一样，如果我们没有显式地赋予 map 变量初值，map 类型变量的默认值为 nil。</p>
+<p>不过切片变量和 map 变量在这里也有些不同。初值为零值 nil 的切片类型变量，可以借助内置的 append 的函数进行操作，这种在 Go 语言中被称为“<strong>零值可用</strong>”。定义“零值可用”的类型，可以提升我们开发者的使用体验，我们不用再担心变量的初始状态是否有效。<br />
+但 map 类型，因为它内部实现的复杂性，<strong>无法“零值可用”</strong>。所以，如果我们对处于零值状态的 map 变量直接进行操作，就会导致运行时异常(panic)，从而导致程序进程异常退出：</p>
+<pre><code>var m map[string]int // m = nil
+m[&quot;key&quot;] = 1         // 发生运行时异常：panic: assignment to entry in nil map</code></pre>
+<p>为 map 类型变量显式赋值有两种方式：一种是使用复合字面值；另外一种是使用 make 这个预声明的内置函数。</p>
+<h3 id="方法一使用复合字面值初始化-map-类型变量">方法一：使用复合字面值初始化 map 类型变量。</h3>
+<pre><code>// 初始化为空
+m := map[int]string{}
+
+// 初始化为微复杂一些的复合字面值
+type Position struct { 
+    x float64 
+    y float64
+}
+m2 := map[Position]string{
+    Position{29.935523, 52.568915}: &quot;school&quot;,
+    Position{25.352594, 113.304361}: &quot;shopping-mall&quot;,
+    Position{73.224455, 111.804306}: &quot;hospital&quot;,
+}
+
+//Go 允许省略字面值中的元素类型,编译器可以自动推断其类型
+m2 := map[Position]string{
+    {29.935523, 52.568915}: &quot;school&quot;,
+    {25.352594, 113.304361}: &quot;shopping-mall&quot;,
+    {73.224455, 111.804306}: &quot;hospital&quot;,
+}</code></pre>
+<h3 id="方法二使用-make-为-map-类型变量进行显式初始化">方法二：使用 make 为 map 类型变量进行显式初始化。</h3>
+<pre><code>//这样可以为 map 类型变量指定键值对的初始容量，但无法进行具体的键值对赋值
+m1 := make(map[int]string) // 未指定初始容量
+m2 := make(map[int]string, 8) // 指定初始容量为8</code></pre>
+<h3 id="map操作">map操作</h3>
+<pre><code>//赋值和获取键值对数量
+m := map[string]int {
+  &quot;key1&quot; : 1,
+  &quot;key2&quot; : 2,
+}
+fmt.Println(len(m)) // 2
+m[&quot;key3&quot;] = 3  
+fmt.Println(len(m)) // 3
+
+// 查找和数据读取
+m := make(map[string]int)
+v := m[&quot;key1&quot;]       // 如果这个键在 map 中并不存在，我们也会得到一个值，这个值是 value 元素类型的零值。
+
+// 使用“comma ok”的惯用法来判断key是否在map中
+m := make(map[string]int)
+
+if v, ok := m[&quot;key1&quot;]; ok  {
+    // &quot;key1&quot;在map中
+}
+// &quot;key1&quot;在map中，v将被赋予&quot;key1&quot;键对应的value
+
+//只关心key在不在map中
+m := make(map[string]int)
+_, ok := m[&quot;key1&quot;]
+... ...
+
+
+//删除数据
+m := map[string]int {
+  &quot;key1&quot; : 1,
+  &quot;key2&quot; : 2,
+}
+fmt.Println(m) // map[key1:1 key2:2]
+delete(m, &quot;key2&quot;) // 删除&quot;key2&quot;， delete 函数是从 map 中删除键的唯一方法，即使key不在map中，也不会报错
+fmt.Println(m) // map[key1:1]</code></pre>
+<p>注意：<br />
+对同一 map 做多次遍历的时候，每次遍历元素的次序都不相同。</p>
+<h3 id="map-的内部实现">map 的内部实现</h3>
+<p>Go 运行时使用一张哈希表来实现抽象的 map 类型。运行时实现了 map 类型操作的所有功能，包括查找、插入、删除等。在编译阶段，Go 编译器会将 Go 语法层面的 map 操作，重写成运行时对应的<strong>函数调用</strong>。大致的对应关系是这样的：</p>
+<pre><code>// 创建map类型变量实例
+m := make(map[keyType]valType, capacityhint) → m := runtime.makemap(maptype, capacityhint, m)
+// 插入新键值对或给键重新赋值
+m[&quot;key&quot;] = &quot;value&quot; → v := runtime.mapassign(maptype, m, &quot;key&quot;) v是用于后续存储value的空间的地址
+// 获取某键的值 
+v := m[&quot;key&quot;]      → v := runtime.mapaccess1(maptype, m, &quot;key&quot;)
+v, ok := m[&quot;key&quot;]  → v, ok := runtime.mapaccess2(maptype, m, &quot;key&quot;)
+// 删除某键
+delete(m, &quot;key&quot;)   → runtime.mapdelete(maptype, m, “key”)</code></pre>
+<h3 id="map-与并发">map 与并发</h3>
+<p>map 实例不是并发写安全的，也不支持并发读写。如果我们对 map 实例进行并发读写，程序运行时就会抛出异常。<br />
+不过，如果我们仅仅是进行并发读，map 是没有问题的。<br />
+考虑到 map 可以自动扩容，map 中数据元素的 value 位置可能在这一过程中发生变化，所以 Go 不允许获取 map 中 value 的地址，这个约束是在编译期间就生效的。</p>
+<h2 id="复合数据类型用结构体建立对真实世界的抽象">17｜复合数据类型：用结构体建立对真实世界的抽象</h2>
+<h3 id="如何自定义一个新类型">如何自定义一个新类型？</h3>
+<pre><code>type T S // 定义一个新类型T
+type M map[int]string
+type S []string
+
+
+type T1 int     // T1的底层类型是int
+type T2 T1     // T2的底层类型也是int</code></pre>
+<p>底层类型在 Go 语言中有重要作用，它被用来判断两个类型本质上是否相同(Identical)。<br />
+在上面例子中，虽然 T1 和 T2 是不同类型，但因为它们的底层类型都是类型 int，所以它们在本质上是相同的。<br />
+而本质上相同的两个类型，它们的变量可以通过显式转型进行相互赋值，相反，如果本质上是不同的两个类型，<br />
+它们的变量间连显式转型都不可能，更不要说相互赋值了。</p>
+<h3 id="第二种自定义新类型的方式是使用类型别名type-alias">第二种自定义新类型的方式是使用类型别名(Type Alias)</h3>
+<pre><code>type T = S // type alias</code></pre>
+<h3 id="如何定义一个结构体类型">如何定义一个结构体类型？</h3>
+<pre><code>type Book struct {
+     Title string              // 书名
+     Pages int                 // 书的页数
+     Indexes map[string]int    // 书的索引
+}</code></pre>
+<h4 id="第一种定义一个空结构体">第一种：定义一个空结构体。</h4>
+<pre><code>type Empty struct{} // Empty是一个不包含任何字段的空结构体类型
+
+var s Empty
+println(unsafe.Sizeof(s)) // 0
+// 空结构体类型变量的内存占用为 0。基于空结构体类型**内存零开销**这样的特性，
+// 我们在日常 Go 开发中会经常使用空结构体类型元素，作为一种“事件”信息进行 Goroutine 之间的通信
+// 这种以空结构体为元素类建立的 channel，是目前能实现的、内存占用最小的 Goroutine 间通信方式
+var c = make(chan Empty) // 声明一个元素类型为Empty的channel
+c&lt;-Empty{}               // 向channel写入一个“事件”</code></pre>
+<h4 id="第二种情况使用其他结构体作为自定义结构体中字段的类型">第二种情况：使用其他结构体作为自定义结构体中字段的类型。</h4>
+<pre><code>type Person struct {
+    Name string
+    Phone string
+    Addr string
+}
+type Book struct {
+    Title string
+    Author Person
+    ... ...
+}
+
+// 或者，以这种方式定义的结构体字段，我们叫做**嵌入字段**(Embedded Field)。
+type Book struct {
+    Title string
+    Person
+    ... ...
+}
+
+//字段访问
+var book Book 
+println(book.Person.Phone) // 将类型名当作嵌入字段的名字
+println(book.Phone)        // 支持直接访问嵌入字段所属类型中字段</code></pre>
+<h3 id="结构体变量的声明与初始化">结构体变量的声明与初始化</h3>
+<h4 id="零值初始化">零值初始化</h4>
+<pre><code>type Book struct {
+    ...
+}
+var book Book
+var book = Book{}
+book := Book{}</code></pre>
+<p>如果一种类型采用零值初始化得到的零值变量，是有意义的，而且是直接可用的，我称这种类型为“<strong>零值可用</strong>”类型。<br />
+在 Go 语言标准库和运行时的代码中，有很多践行“零值可用”理念的好例子，最典型的莫过于 sync 包的 Mutex 类型了。Mutex 是 Go 标准库中提供的、用于多个并发 Goroutine 之间进行同步的互斥锁。</p>
+<pre><code>var mu sync.Mutex
+mu.Lock()
+mu.Unlock()</code></pre>
+<h4 id="使用复合字面值">使用复合字面值</h4>
+<p>最简单的对结构体变量进行显式初始化的方式，就是按顺序依次给每个结构体字段进行赋值，比如下面的代码：</p>
+<pre><code>type Book struct {
+    Title string              // 书名
+    Pages int                 // 书的页数
+    Indexes map[string]int    // 书的索引
+}
+var book = Book{&quot;The Go Programming Language&quot;, 700, make(map[string]int)}      //不推荐用这种形式，容易出错</code></pre>
+<p>Go 推荐我们用“field:value”形式的复合字面值,field:value”形式字面值中的字段可以以任意次序出现,<br />
+未显式出现在字面值中的结构体字段默认零值。</p>
+<pre><code>var t = T{
+    F2: &quot;hello&quot;,
+    F1: 11,
+    F4: 14,
+}</code></pre>
+<h3 id="结构体类型的内存布局">结构体类型的内存布局</h3>
+<pre><code>var t T
+unsafe.Sizeof(t)      // 结构体类型变量占用的内存大小
+unsafe.Offsetof(t.Fn) // 字段Fn在内存中相对于变量t起始地址的偏移量</code></pre>
+<h2 id="控制结构if的快乐路径原则">18｜控制结构：if的“快乐路径”原则</h2>
+<ul>
+<li>Go 坚持“一件事情仅有一种做法的理念”，只保留了 for 这一种循环结构，去掉了 C 语言中的 while 和 do-while 循环结构；</li>
+<li>Go 填平了 C 语言中 switch 分支结构中每个 case 语句都要以 break 收尾的“坑”；</li>
+<li>Go 支持了 type switch 特性，让“类型”信息也可以作为分支选择的条件；</li>
+<li>Go 的 switch 控制结构的 case 语句还支持表达式列表，让相同处理逻辑的多个分支可以合并为一个分支，等等。</li>
+</ul>
+<p>在 if 语句中声明自用变量是 Go 语言的一个惯用法，这种使用方式直观上可以让开发者有一种代码行数减少的感觉，提高可读性。同时，由于这些变量是 if 语句自用变量，它的作用域仅限于 if 语句的各层隐式代码块中，if 语句外部无法访问和更改这些变量</p>
+<pre><code>func main() {
+    if a, c := f(), h(); a &gt; 0 {
+        println(a)
+    } else if b := f(); b &gt; 0 {
+        println(a, b)
+    } else {
+        println(a, b, c)
+    }
+}</code></pre>
+<p>建议在使用 if 语句时尽量符合“快乐路径”原则，这个原则通常只使用最容易理解的单分支结构，所有正常代码均“靠左”，这让函数内代码逻辑一目了然，提升了代码可读性与可维护性。</p>
+<pre><code>func doSomething() error {
+  if errorCondition1 {
+    // some error logic
+    ... ...
+    return err1
+  }
+  
+  // some success logic
+  ... ...
+  if errorCondition2 {
+    // some error logic
+    ... ...
+    return err2
+  }
+  // some success logic
+  ... ...
+  return nil
+}</code></pre>
+<h2 id="控制结构go的for循环仅此一种">19｜控制结构：Go的for循环，仅此一种</h2>
+<p>Go 语言的 for 循环支持声明多循环变量，并且可以应用在循环体以及判断条件中</p>
+<pre><code>for i, j, k := 0, 1, 2; (i &lt; 20) &amp;&amp; (j &lt; 10) &amp;&amp; (k &lt; 30); i, j, k = i+1, j+1, k+5 {
+    sum += (i + j + k)
+    println(sum)
+}</code></pre>
+<p>for的不同形式</p>
+<pre><code>// 省略语句1和语句3
+i := 0
+for ; i &lt; 10; {
+    println(i)
+    i++
+}  
+// 等同于上边
+i := 0
+for i &lt; 10 {
+    println(i)
+    i++
+} 
+//死循环
+for { 
+   // 循环体代码
+}
+
+// for range
+var sl = []int{1, 2, 3, 4, 5}
+for i, v := range sl {
+    fmt.Printf(&quot;sl[%d] = %d\n&quot;, i, v)
+}
+
+// for channel
+// 每次从 channel 中读取一个元素后，会把它赋值给循环变量 v，并进入循环体。当 channel 中没有数据可读的时候，
+// for range 循环会阻塞在对 channel 的读操作上。直到 channel 关闭时，for range 循环才会结束
+var c = make(chan int)
+for v := range c {
+}</code></pre>
+<h3 id="带-label-的-continue-语句">带 label 的 continue 语句</h3>
+<p>而带 label 的 continue 语句，通常出现于嵌套循环语句中，被用于跳转到外层循环并继续执行外层循环语句的下一个迭代，比如下面这段代码：</p>
+<pre><code>//找到数组中每一行的第一个13，并立即进行下一行的查找
+func main() {
+    var sl = [][]int{
+        {1, 34, 26, 35, 78},
+        {3, 45, 13, 24, 99},
+        {101, 13, 38, 7, 127},
+        {54, 27, 40, 83, 81},
+    }
+outerloop:
+    for i := 0; i &lt; len(sl); i++ {
+        for j := 0; j &lt; len(sl[i]); j++ {
+            if sl[i][j] == 13 {
+                fmt.Printf(&quot;found 13 at [%d, %d]\n&quot;, i, j)
+                continue outerloop         // 若不加label的话只会跳出本次循环，而跳不到外层循环
+            }
+        }
+    }
+}</code></pre>
+<p>和 continue 语句一样，Go 也 break 语句增加了对 label 的支持。而且，和前面 continue 语句一样，如果遇到嵌套循环，break 要想跳出外层循环，用不带 label 的 break 是不够，因为不带 label 的 break 仅能跳出其所在的最内层循环。</p>
+<h3 id="for-语句的常见坑与避坑方法">for 语句的常见“坑”与避坑方法</h3>
+<p>问题一：循环变量的重用</p>
+<pre><code>func main() {
+    var m = []int{1, 2, 3, 4, 5}  
+             
+    for i, v := range m {            //每次循环i和v都是同一个变量，不会生成临时变量的
+        go func() {
+            time.Sleep(time.Second * 3)      //最终每个goroutine都会打印出5
+            fmt.Println(i, v)
+        }()
+    }
+    time.Sleep(time.Second * 10)
+}
+// 等同于
+func main() {
+    var m = []int{1, 2, 3, 4, 5}  
+    {
+      i, v := 0, 0
+        for i, v = range m {
+            go func() {
+                time.Sleep(time.Second * 3)
+                fmt.Println(i, v)
+            }()
+        }
+    }
+    time.Sleep(time.Second * 10)
+}
+// 正确做法
+func main() {
+    var m = []int{1, 2, 3, 4, 5}
+    for i, v := range m {
+        go func(i, v int) {
+            time.Sleep(time.Second * 3)
+            fmt.Println(i, v)
+        }(i, v)
+    }
+    time.Sleep(time.Second * 10)
+}
+// 结果
+0 1
+1 2
+2 3
+3 4
+4 5</code></pre>
+<p>问题二：参与循环的是 range 表达式的副本</p>
+<pre><code>func main() {
+    var a = [5]int{1, 2, 3, 4, 5}
+    var r [5]int
+    fmt.Println(&quot;original a =&quot;, a)
+    for i, v := range a {   // range后跟的是数组a的一个副本
+        if i == 0 {      // 在循环第一次就改变索引1和2的值
+            a[1] = 12
+            a[2] = 13
+        }
+        r[i] = v
+    }
+    fmt.Println(&quot;after for range loop, r =&quot;, r)
+    fmt.Println(&quot;after for range loop, a =&quot;, a)
+}
+// 输出， 数组a的值没变
+original a = [1 2 3 4 5]
+after for range loop, r = [1 2 3 4 5]
+after for range loop, a = [1 12 13 4 5]
+
+以上类似下面的代码
+
+for i, v := range a&#39; { //a&#39;是a的一个值拷贝， 只是对数组是这样，因为数组是值拷贝，其他的如slice和map是引用拷贝(其实也是值拷贝，不过只是他们的底层都是指针实现)
+    if i == 0 {
+        a[1] = 12
+        a[2] = 13
+    }
+    r[i] = v
+}
+
+// 正确做法
+func main() {
+    var a = [5]int{1, 2, 3, 4, 5}
+    var r [5]int
+    fmt.Println(&quot;original a =&quot;, a)
+    for i, v := range a[:] {
+        if i == 0 {
+            a[1] = 12
+            a[2] = 13
+        }
+        r[i] = v
+    }
+    fmt.Println(&quot;after for range loop, r =&quot;, r)
+    fmt.Println(&quot;after for range loop, a =&quot;, a)
+}</code></pre>
+<p>问题三：遍历 map 中元素的随机性<br />
+如果我们在循环的过程中，对 map 进行了修改，那么这样修改的结果是否会影响后续迭代呢？这个结果和我们遍历 map 一样，具有随机性。</p>
+<h2 id="控制结构go中的switch语句有哪些变化">20｜控制结构：Go中的switch语句有哪些变化？</h2>
+<p>switch的执行顺序<br />
+Go 先对 switch expr 表达式进行求值，然后再按 case 语句的出现顺序，从上到下进行逐一求值。在带有表达式列表的 case 语句中，Go 会从左到右，对列表中的表达式进行求值。如果 switch 表达式匹配到了某个 case 表达式，那么程序就会执行这个 case 对应的代码分支。这个分支后面的 case 表达式将不会再得到求值机会。无论 default 分支出现在什么位置，它都只会在所有 case 都没有匹配上的情况下才会被执行的。</p>
+<p>Go 语言就宽容得多了，只要类型支持比较操作，都可以作为 switch 语句中的表达式类型。<br />
+不过，实际开发过程中，以结构体类型为 switch 表达式类型的情况并不常见</p>
+<p>和 if、for 等控制结构语句一样，switch 语句的 initStmt 可用来声明只在这个 switch 隐式代码块中使用的变量，这种就近声明的变量最大程度地缩小了变量的作用域。</p>
+<p>Go 语言中的 Swith 语句就修复了 C 语言的这个缺陷，取消了默认执行下一个 case 代码逻辑的“非常规”语义，每个 case 对应的分支代码执行完后就结束 switch 语句。</p>
+<pre><code>func checkWorkday(a int) {
+    switch a {
+    case 1, 2, 3, 4, 5:
+        println(&quot;it is a work day&quot;)
+    case 6, 7:
+        println(&quot;it is a weekend day&quot;)
+    default:
+        println(&quot;are you live on earth&quot;)
+    }
+}</code></pre>
+<h3 id="type-switch">type switch</h3>
+<pre><code>
+func main() {
+    var x interface{} = 13
+    switch x.(type) {                     // x 必须是一个接口类型变量
+    case nil:
+        println(&quot;x is nil&quot;)
+    case int:
+        println(&quot;the type of x is int&quot;)
+    case string:
+        println(&quot;the type of x is string&quot;)
+    case bool:
+        println(&quot;the type of x is string&quot;)
+    default:
+        println(&quot;don&#39;t support the type&quot;)
+    }
+}</code></pre>
+<h3 id="section"></h3>
+<pre><code>func main() {
+    var sl = []int{5, 19, 6, 3, 8, 12}
+    var firstEven int = -1
+    // find first even number of the interger slice
+    for i := 0; i &lt; len(sl); i++ {
+        switch sl[i] % 2 {
+        case 0:
+            firstEven = sl[i]
+            break                             //break只会跳出switch 语句
+        case 1:
+            // do nothing
+        }
+    }
+    println(firstEven)
+}</code></pre>
+<pre><code>func main() {
+    var sl = []int{5, 19, 6, 3, 8, 12}
+    var firstEven int = -1
+    // find first even number of the interger slice
+loop:
+    for i := 0; i &lt; len(sl); i++ {
+        switch sl[i] % 2 {
+        case 0:
+            firstEven = sl[i]
+            break loop                   // break可以跳出当前的for循环
+        case 1:
+            // do nothing
+        }
+    }
+    println(firstEven) // 6
+}</code></pre>
+<h2 id="函数请叫我一等公民">21｜函数：请叫我“一等公民”</h2>
+<ul>
+<li><p>变长参数<br />
+在 Go 中，变长参数实际上是通过<strong>切片</strong>来实现的。所以，我们在函数体中，就可以使用切片支持的所有操作来操作变长参数，这会大大简化了变长参数的使用复杂度。</p></li>
+<li><p>函数支持多返回值</p></li>
+<li><p>具名返回值<br />
+当函数的返回值<strong>个数较多时</strong>，具名返回值可以让代码显得更优雅清晰</p></li>
+</ul>
+<h3 id="函数是一等公民">函数是“一等公民”</h3>
+<h4 id="特征一go-函数可以存储在变量中">特征一：Go 函数可以存储在变量中。</h4>
+<h4 id="特征二支持在函数内创建并通过返回值返回">特征二：支持在函数内创建并通过返回值返回。</h4>
+<p>这个例子，模拟了执行一些重要逻辑之前的上下文建立(setup)，以及之后的上下文拆除(teardown)</p>
+<pre><code>func setup(task string) func() {
+    println(&quot;do some setup stuff for&quot;, task)
+    return func() {
+        println(&quot;do some teardown stuff for&quot;, task)
+    }
+}
+func main() {
+    teardown := setup(&quot;demo&quot;)
+    defer teardown()
+    println(&quot;do some bussiness stuff&quot;)
+}</code></pre>
+<h4 id="特征三作为参数传入函数一般都是做回调函数">特征三：作为参数传入函数(一般都是做回调函数)</h4>
+<pre><code>time.AfterFunc(time.Second*2, func() { println(&quot;timer fired&quot;) })</code></pre>
+<h4 id="特征四拥有自己的类型">特征四：拥有自己的类型。</h4>
+<pre><code>// $GOROOT/src/net/http/server.go
+type HandlerFunc func(ResponseWriter, *Request)</code></pre>
+<h3 id="函数一等公民特性的高效运用">函数“一等公民”特性的高效运用</h3>
+<ul>
+<li>应用一：函数类型的妙用</li>
+</ul>
+<pre><code>func greeting(w http.ResponseWriter, r *http.Request) {   //greeting并没有ServeHTTP的方法，转换后便拥有了ServeHTTP方法
+    fmt.Fprintf(w, &quot;Welcome, Gopher!\n&quot;)
+}                    
+func main() {
+    //HandlerFunc 的底层类型是func(ResponseWriter, *Request)，与 greeting 函数的类型是一致的,可以转换
+    http.ListenAndServe(&quot;:8080&quot;, http.HandlerFunc(greeting))      
+}
+
+// $GOROOT/src/net/http/server.go
+func ListenAndServe(addr string, handler Handler) error {
+    server := &amp;Server{Addr: addr, Handler: handler}
+    return server.ListenAndServe()
+}
+// $GOROOT/src/net/http/server.go
+type Handler interface {
+    ServeHTTP(ResponseWriter, *Request)
+}
+
+// $GOROOT/src/net/http/server.go
+type HandlerFunc func(ResponseWriter, *Request)
+// ServeHTTP calls f(w, r).
+func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request) {    // 为函数类型添加方法
+        f(w, r)
+}</code></pre>
+<ul>
+<li>应用二：利用闭包简化函数调用。</li>
+</ul>
+<pre><code>times(2, 5) // 计算2 x 5
+times(3, 5) // 计算3 x 5
+times(4, 5) // 计算4 x 5
+
+func partialTimes(x int) func(int) int {
+  return func(y int) int {
+    return times(x, y)
+  }
+}
+
+timesTwo := partialTimes(2)   // 以高频乘数2为固定乘数的乘法函数
+timesThree := partialTimes(3) // 以高频乘数3为固定乘数的乘法函数
+timesFour := partialTimes(4)  // 以高频乘数4为固定乘数的乘法函数</code></pre>
+<h2 id="函数怎么结合多返回值进行错误处理">22｜函数：怎么结合多返回值进行错误处理？</h2>
+<p>C 语言这种错误处理机制也有一些弊端。比如，由于 C 语言中的函数最多仅支持一个返回值，很多开发者会把这单一的返回值“一值多用”。什么意思呢？就是说，一个返回值，不仅要承载函数要返回给调用者的信息，又要承载函数调用的最终错误状态。比如 C 标准库中的fprintf函数的返回值就承载了两种含义。在正常情况下，它的返回值表示输出到 FILE 流中的字符数量，但如果出现错误，这个返回值就变成了一个负数，代表具体的错误值</p>
+<p>Go 函数增加了<strong>多返回值机制</strong>，来支持错误状态与返回信息的分离，并建议开发者把要返回给调用者的信息和错误状态标识，分别放在不同的返回值中。</p>
+<p>error 类型</p>
+<pre><code>type interface error {
+    Error() string
+}</code></pre>
+<p>错误值构造,他们返回的都是errors.errorString类型的值，错误信息只是一个单一的字符串，若要包含更多信息，需要自己构造增强版的错误对象</p>
+<pre><code>err := errors.New(&quot;your first demo error&quot;)
+errWithCtx = fmt.Errorf(&quot;index %d is out of bounds&quot;, i)
+
+type errorString struct {
+    s string
+}
+func (e *errorString) Error() string {
+    return e.s
+}</code></pre>
+<p>基于 Go 错误处理机制、统一的错误值类型以及错误值构造方法的基础上，Go 语言形成了多种错误处理的惯用策略，<br />
+包括<br />
+1. 透明错误处理策略<br />
+调用函数返回啥错误，我也直接将错误返回给上一层</p>
+<pre><code>err := doSomething()
+if err != nil {
+    // 不关心err变量底层错误值所携带的具体上下文信息
+    // 执行简单错误处理逻辑并返回
+    ... ...
+    return err
+}</code></pre>
+<ol>
+<li>“哨兵”错误处理策略、<br />
+根据错误类型进行相应的处理</li>
+</ol>
+<pre><code>var (
+    ErrInvalidUnreadByte = errors.New(&quot;bufio: invalid use of UnreadByte&quot;)
+    ErrInvalidUnreadRune = errors.New(&quot;bufio: invalid use of UnreadRune&quot;)
+    ErrBufferFull        = errors.New(&quot;bufio: buffer full&quot;)
+    ErrNegativeCount     = errors.New(&quot;bufio: negative count&quot;)
+)
+
+data, err := b.Peek(1)
+if err != nil {
+    switch err {
+    case bufio.ErrNegativeCount:
+        // ... ...
+        return
+    case bufio.ErrBufferFull:
+        // ... ...
+        return
+    case bufio.ErrInvalidUnreadByte:
+        // ... ...
+        return
+    default:
+        // ... ...
+        return
+    }
+}
+
+//case中的写法可以用如下的更好的写法代替
+if errors.Is(err, ErrOutOfBounds) {
+    // 越界的错误处理
+}
+不同的是，如果 error 类型变量的底层错误值是一个包装错误（Wrapped Error），errors.Is 方法会沿着该包装错误所在错误链（Error Chain)，与链上所有被包装的错误（Wrapped Error）进行比较，直至找到一个匹配的错误为止。
+
+err1 := fmt.Errorf(&quot;wrap sentinel: %w&quot;, ErrSentinel)
+err2 := fmt.Errorf(&quot;wrap err1: %w&quot;, err1)
+println(err2 == ErrSentinel) //false
+println(errors.Is(err2, ErrSentinel)) //true </code></pre>
+<ol>
+<li>错误值类型检视策略</li>
+</ol>
+<pre><code>type UnmarshalTypeError struct {
+    Value  string       
+    Type   reflect.Type 
+    Offset int64        
+    Struct string       
+    Field  string      
+}
+
+func (d *decodeState) addErrorContext(err error) error {
+    if d.errorContext.Struct != nil || len(d.errorContext.FieldStack) &gt; 0 {
+        switch err := err.(type) {
+        case *UnmarshalTypeError:
+            err.Struct = d.errorContext.Struct.Name()
+            err.Field = strings.Join(d.errorContext.FieldStack, &quot;.&quot;)
+            return err
+        }
+    }
+    return err
+}</code></pre>
+<ol>
+<li>错误行为特征检视策略等。<br />
+将某个包中的错误类型归类，统一提取出一些公共的错误行为特征，并将这些错误行为特征放入一个公开的接口类型中。这种方式也被叫做错误行为特征检视策略。<br />
+以标准库中的net包为例，它将包内的所有错误类型的公共行为特征抽象并放入net.Error这个接口中，如下面代码：</li>
+</ol>
+<pre><code>// $GOROOT/src/net/net.go
+type Error interface {
+    error
+    Timeout() bool  
+    Temporary() bool
+}
+
+func (srv *Server) Serve(l net.Listener) error {
+    ... ...
+    for {
+        rw, e := l.Accept()
+        if e != nil {
+            select {
+            case &lt;-srv.getDoneChan():
+                return ErrServerClosed
+            default:
+            }
+            if ne, ok := e.(net.Error); ok &amp;&amp; ne.Temporary() {
+                // 注：这里对临时性(temporary)错误进行处理
+                ... ...
+                time.Sleep(tempDelay)
+                continue
+            }
+            return e
+        }
+        ...
+    }
+    ... ...
+}</code></pre>
+<p>而错误处理方只需要依赖这个公共接口，就可以检视具体错误值的错误行为特征信息，并根据这些信息做出后续错误处理分支选择的决策。</p>
+<p>这些策略都有适用的场合，但没有某种单一的错误处理策略可以适合所有项目或所有场合。</p>
+<p>在错误处理策略选择上，我有一些个人的建议，你可以参考一下：<br />
+* 请尽量使用“透明错误”处理策略，降低错误处理方与错误值构造方之间的耦合；<br />
+* 如果可以通过错误值类型的特征进行错误检视，那么请尽量使用“错误行为特征检视策略”;<br />
+* 在上述两种策略无法实施的情况下，再使用“哨兵”策略和“错误值类型检视”策略；<br />
+* Go 1.13 及后续版本中，尽量用errors.Is和errors.As函数替换原先的错误检视比较语句。</p>
+<h2 id="函数怎么让函数更简洁健壮">23｜函数：怎么让函数更简洁健壮？</h2>
+<p>健壮性的“三不要”原则<br />
+原则一：不要相信任何外部输入的参数。<br />
+原则二：不要忽略任何一个错误，调用标准库或第三方包提供的函数，不能假定它一定会成功<br />
+原则三：不要假定异常不会发生。</p>
+<h3 id="认识-go-语言中的异常panic">认识 Go 语言中的异常：panic</h3>
+<p>panic 指的是 Go 程序在运行时出现的一个异常情况。如果异常出现了，但没有被捕获并恢复，Go 程序的执行就会<strong>被终止</strong>，即便出现异常的位置<strong>不在主 Goroutine</strong> 中也会这样。<br />
+在 Go 中，panic 主要有两类来源，一类是来自 Go 运行时，另一类则是 Go 开发人员通过 panic 函数主动触发的。<br />
+无论是哪种，一旦 panic 被触发，后续 Go 程序的执行过程都是一样的，这个过程被 Go 语言称为 panicking。</p>
+<h3 id="如何应对-panic">如何应对 panic？</h3>
+<h4 id="第一点评估程序对-panic-的忍受度不同应用对异常引起的程序崩溃退出的忍受度是不一样的">第一点：评估程序对 panic 的忍受度，不同应用对异常引起的程序崩溃退出的忍受度是不一样的。</h4>
+<p>像后端 HTTP 服务器程序这样的任务关键系统，我们就需要在特定位置捕捉并恢复 panic，以保证服务器整体的健壮度。在这方面，Go 标准库中的 http server 就是一个典型的代表。<br />
+Go 标准库提供的 http server 采用的是，每个客户端连接都使用一个单独的 Goroutine 进行处理的并发处理模型。也就是说，客户端一旦与 http server 连接成功，http server 就会为这个连接新创建一个 Goroutine，并在这 Goroutine 中执行对应连接(conn)的 <strong>serve</strong> 方法，来处理这条连接上的客户端请求。<br />
+前面提到了 panic 的“危害”时，我们说过，无论在哪个 Goroutine 中发生未被恢复的 panic，整个程序都将崩溃退出。所以，为了保证处理某一个客户端连接的 Goroutine 出现 panic 时，不影响到 http server 主 Goroutine 的运行，Go 标准库在 serve 方法中加入了对 panic 的捕捉与恢复</p>
+<h4 id="第二点提示潜在-bug">第二点：提示潜在 bug</h4>
+<p>C 语言中有个很好用的辅助函数，断言(assert 宏)。在 Go 标准库中，大多数 panic 的使用都是<strong>充当类似断言</strong>的作用的。</p>
+<h4 id="第三点不要混淆异常与错误">第三点：不要混淆异常与错误</h4>
+<h3 id="使用-defer-简化函数实现">使用 defer 简化函数实现</h3>
+<p>defer 是 Go 语言提供的一种延迟调用机制，defer 的运作离不开函数。怎么理解呢？这句话至少有以下两点含义：<br />
+* 在 Go 中，只有在函数(和方法)内部才能使用 defer；<br />
+* defer 关键字后面只能接函数(或方法)，这些函数被称为 deferred 函数。defer 将它们注册到其所在 Goroutine 中，用于存放 deferred 函数的栈数据结构中，这些 deferred 函数将在执行 defer 的函数退出前，按后进先出(LIFO)的顺序被程序调度执行(如下图所示)。</p>
+<p>deferred 函数是一个可以在任何情况下为函数进行收尾工作的好“伙伴”。</p>
+<h2 id="方法理解方法的本质">24｜方法：理解“方法”的本质</h2>
+<pre><code>func (t *T或T) MethodName(参数列表) (返回值列表) {
+    // 方法体
+}</code></pre>
+<p>Go 中的方法必须是归属于一个<strong>类型</strong>，而 receiver(方法接收器) 参数的类型就是这个方法归属的类型，或者说这个方法就是这个类型的一个方法。</p>
+<p>注意：<br />
+1.receiver 参数的基类型本身不能为指针类型或接口类型。<br />
+2.方法声明要与 receiver 参数的基类型声明放在同一个包内。</p>
+<p>基于这个约束，我们还可以得到两个推论。<br />
+第一个推论：我们不能为原生类型(诸如 int、float64、map 等)添加方法。<br />
+第二个推论：不能跨越 Go 包为其他包的类型声明新方法。</p>
+<p>如果 receiver 参数的基类型为 T，那么我们说 receiver 参数绑定在 T 上，我们可以通过 *T 或 T 的变量实例调用该方法：</p>
+<pre><code>type T struct{}
+func (t T) M(n int) {
+}
+func main() {
+    var t T
+    t.M(1) // 通过类型T的变量实例调用方法M
+    p := &amp;T{}
+    p.M(2) // 通过类型*T的变量实例调用方法M
+}</code></pre>
+<h3 id="方法的本质是什么">方法的本质是什么？</h3>
+<p>C++ 中的对象在调用方法时，编译器会自动传入指向对象自身的 this 指针作为方法的第一个参数。而 Go 方法中的原理也是相似的.<br />
+Go 语言中的方法的本质就是，一个以方法的 receiver 参数作为第一个参数的<strong>普通函数</strong>。</p>
+<pre><code>type T struct { 
+    a int
+}
+func (t T) Get() int {  
+    return t.a 
+}
+func (t *T) Set(a int) int { 
+    t.a = a 
+    return t.a 
+}
+
+//==========等价式============
+// 类型T的方法Get的等价函数
+func Get(t T) int {  
+    return t.a 
+}
+// 类型*T的方法Set的等价函数
+func Set(t *T, a int) int { 
+    t.a = a 
+    return t.a 
+}
+//===========调用============
+var t T
+t.Get()
+t.Set(1)
+// ===========Method Expression的调用============
+var t T
+T.Get(t)
+(*T).Set(&amp;t, 1)</code></pre>
+<h2 id="方法方法集合与如何选择receiver类型">25｜方法：方法集合与如何选择receiver类型？</h2>
+<h3 id="方法集合">方法集合</h3>
+<p><strong>方法集合</strong>也是用来判断一个类型<strong>是否实现了某接口类型的唯一手段</strong>，可以说，“方法集合决定了接口实现”<br />
+Go 中任何一个类型都有属于自己的方法集合，或者说方法集合是 Go 类型的一个“属性”。但不是所有类型都有自己的方法呀，比如 int 类型就没有。所以，对于没有定义方法的 Go 类型，我们称其拥有空方法集合。</p>
+<p>Go 语言规定，<code>*T</code> 类型的方法集合包含所有以 <code>*T</code> 为 receiver 参数类型的方法，以及所有以 T 为 receiver 参数类型的方法。</p>
+<pre><code>func dumpMethodSet(i interface{}) {
+    dynTyp := reflect.TypeOf(i)
+    if dynTyp == nil {
+        fmt.Printf(&quot;there is no dynamic type\n&quot;)
+        return
+    }
+    n := dynTyp.NumMethod()
+    if n == 0 {
+        fmt.Printf(&quot;%s&#39;s method set is empty!\n&quot;, dynTyp)
+        return
+    }
+    fmt.Printf(&quot;%s&#39;s method set:\n&quot;, dynTyp)
+    for j := 0; j &lt; n; j++ {
+        fmt.Println(&quot;-&quot;, dynTyp.Method(j).Name)
+    }
+    fmt.Printf(&quot;\n&quot;)
+}
+//===============
+type T struct{}
+func (T) M1() {}
+func (T) M2() {}
+func (*T) M3() {}
+func (*T) M4() {}
+func main() {
+    var n int
+    dumpMethodSet(n)
+    dumpMethodSet(&amp;n)
+    var t T
+    dumpMethodSet(t)
+    dumpMethodSet(&amp;t)
+}
+//===============
+int&#39;s method set is empty!
+*int&#39;s method set is empty!
+main.T&#39;s method set:
+- M1
+- M2
+*main.T&#39;s method set:
+- M1
+- M2
+- M3
+- M4</code></pre>
+<p><strong>方法集合决定接口实现的含义就是</strong>：<br />
+如果某类型 T 的方法集合与某接口类型的方法集合相同，或者类型 T 的方法集合是接口类型 I 方法集合的超集，那么我们就说这个类型 T 实现了接口 I。<br />
+或者说，方法集合这个概念在 Go 语言中的主要用途，就是用来判断某个类型是否实现了某个接口。</p>
+<ul>
+<li>原则1：<br />
+依据就是<strong>T类型是否需要实现某个接口</strong>。<br />
+如果 T 类型需要实现某个接口，那我们就要使用 T 作为 receiver 参数的类型，来满足接口类型方法集合中的所有方法。<br />
+如果 T 不需要实现某一接口，但 <em>T 需要实现该接口，那么根据方法集合概念，</em>T 的方法集合是包含 T 的方法集合的，这样我们在确定 Go 方法的 receiver 的类型时，参考原则一和原则二就可以了。</li>
+<li>原则2：<br />
+如果 Go 方法要把对 receiver 参数代表的类型实例的修改，反映到原类型实例上，那么我们应该选择 <em>T 作为 receiver 参数的类型。<br />
+无论是 T 类型实例，还是 </em>T 类型实例，都既可以调用 receiver 为 T 类型的方法，也可以调用 receiver 为 *T 类型的方法。这是因为go编译器帮你自动进行了处理。</li>
+<li>原则3：<br />
+不需要在方法中对类型实例进行修改时，通常会为 receiver 参数选择 T 类型，尽量少暴露可以修改类型内部状态的方法。<br />
+如果 receiver 参数类型的 size 较大，以值拷贝形式传入就会导致较大的性能开销，这时我们选择 *T 作为 receiver 类型可能更好些。</li>
+</ul>
+<h2 id="方法如何用类型嵌入模拟实现继承">26｜方法：如何用类型嵌入模拟实现“继承”？</h2>
+<p>类型嵌入指的就是在一个类型的定义中嵌入了其他类型。Go 语言支持两种类型嵌入，<br />
+分别是<strong>接口类型</strong>的类型嵌入和<strong>结构体</strong>类型的类型嵌入。这是 Go 组合设计哲学的一种体现。<br />
+<strong>结构体类型</strong>的方法集合，包含嵌入的接口类型的方法集合。</p>
+<p>类型嵌入对新类型的方法集合的影响，包括：<br />
+* 结构体类型的方法集合包含嵌入的接口类型的方法集合；<br />
+* 当结构体类型 T 包含嵌入字段 E 时，<em>T 的方法集合不仅包含类型 E 的方法集合，还要包含类型 </em>E 的方法集合。</p>
+<p>基于非接口类型的 defined 类型创建的新 defined 类型<strong>不会继承</strong>原类型的方法集合，而通过类型别名定义的新类型则和原类型拥有相同的方法集合。</p>
+<pre><code>
+package main
+type T struct{}
+func (T) M1()  {}
+func (*T) M2() {}
+type T1 T
+func main() {
+  var t T
+  var pt *T
+  var t1 T1
+  var pt1 *T1
+  dumpMethodSet(t)
+  dumpMethodSet(t1)
+  dumpMethodSet(pt)
+  dumpMethodSet(pt1)
+}
+// output:
+main.T&#39;s method set:
+- M1
+main.T1&#39;s method set is empty!
+*main.T&#39;s method set:
+- M1
+- M2
+*main.T1&#39;s method set is empty!</code></pre>
+<h2 id="即学即练跟踪函数调用链理解代码更直观">27｜即学即练：跟踪函数调用链，理解代码更直观</h2>
+<p>使用 defer 可以跟踪函数的执行过程</p>
+<pre><code>func Trace(name string) func() {
+    println(&quot;enter:&quot;, name)
+    return func() {
+        println(&quot;exit:&quot;, name)
+    }
+}
+func foo() {
+    defer Trace(&quot;foo&quot;)()
+    bar()
+}
+func bar() {
+    defer Trace(&quot;bar&quot;)()
+}
+func main() {
+    defer Trace(&quot;main&quot;)()
+    foo()
+}</code></pre>
+<h2 id="加餐聊聊go-1.17版本的那些新特性">加餐｜聊聊Go 1.17版本的那些新特性</h2>
+<h3 id="支持将切片转换为数组指针">支持将切片转换为数组指针</h3>
+<pre><code>//1.17之前
+b := []int{11, 12, 13}
+var p = (*[3]int)(unsafe.Pointer(&amp;b[0]))
+p[1] += 10
+fmt.Printf(&quot;%v\n&quot;, b) // [11 22 13]
+
+//1.17之后
+b := []int{11, 12, 13}
+p := (*[3]int)(b) // 将切片转换为数组类型指针
+p[1] = p[1] + 10
+fmt.Printf(&quot;%v\n&quot;, b) // [11 22 13]</code></pre>
+<p>注意：转换后的数组长度不能大于原切片的长度</p>
+<h3 id="go-module-构建模式的变化">Go Module 构建模式的变化</h3>
+<p>Go 1.17 版本中，Go Module 最重要的一个变化就是 pruned module graph，即修剪的 module 依赖图。</p>
+<h3 id="go-编译器的变化">Go 编译器的变化</h3>
+<p>Go 1.17 版本中，Go 编译器最大的变化是在 AMD64 架构下率先实现了从基于堆栈的调用惯例到基于寄存器的调用惯例的切换。</p>
+<h2 id="加餐他山之石学习go你还可以参考什么">加餐｜他山之石：学习Go你还可以参考什么？</h2>
+<p>第一名：《Go 程序设计语言》- 人手一本的 Go 语言“圣经”<br />
+第二名：《Go 语言实战》- 实战系列经典之作，紧扣 Go 语言的精华<br />
+第三名：《Go 语言学习笔记》- Go 源码剖析与实现原理探索<br />
+第四名：《Go 101》- Go 语言参考手册<br />
+第五名：《The Way To Go》- Go 语言百科全书</p>
+<p>其他形式的参考资料<br />
+Go 官方文档<br />
+Go 相关博客<br />
+Go 播客<br />
+Go 技术演讲<br />
+Go 日报 / 周刊邮件列表</p>
+<h2 id="接口接口即契约">28｜接口：接口即契约</h2>
+<p>Go 规定：如果一个类型 T 的方法集合是某接口类型 I 的方法集合的等价集合或超集，我们就说类型 T 实现了接口类型 I，那么类型 T 的变量就可以作为合法的右值赋值给接口类型 I 的变量。</p>
+<p>空接口类型的这一可接受任意类型变量值作为右值的特性，让他成为 Go 加入泛型语法之前唯一一种具有“泛型”能力的语法元素</p>
+<pre><code>v, ok := i.(T)   // 把接口类型转成指定的类型
+v := i.(T)        // 直接这样转的话如果类型不对，会引起panic</code></pre>
+<h3 id="go-语言接口定义的惯例">Go 语言接口定义的惯例</h3>
+<p>尽量定义“小接口”<br />
+优势：<br />
+* 第一点：接口越小，抽象程度越高。而这种情况的极限恰恰就是无方法的空接口 interface{}，空接口的这个抽象对应的事物集合空间包含了 Go 语言世界的所有事物。<br />
+* 第二点：小接口易于实现和测试<br />
+* 第三点：小接口表示的“契约”职责单一，易于复用组合</p>
+<p>定义小接口，你可以遵循的几点<br />
+* 首先，别管接口大小，先抽象出接口。<br />
+* 第二，将大接口拆分为小接口。<br />
+* 最后，我们要注意接口的单一契约职责。</p>
+<h2 id="接口为什么nil接口不等于nil">29｜接口：为什么nil接口不等于nil？</h2>
+<p>为什么接口在 Go 中有这么高的地位呢？这是因为接口是 Go 这门静态语言中唯一“动静兼备”的语法特性。</p>
+<p>接口的静态特性与动态特性<br />
+接口的<strong>静态特性</strong>体现在接口类型变量具有静态类型，比如var err error中变量 err 的静态类型为 error。拥有静态类型，那就意味着编译器会在编译阶段对所有接口类型变量的赋值操作进行类型检查，编译器会检查右值的类型是否实现了该接口方法集合中的所有方法。如果不满足，就会报错。<br />
+而接口的<strong>动态特性</strong>，就体现在接口类型变量在运行时还存储了右值的真实类型信息，这个右值的真实类型被称为接口类型变量的动态类型。有点类似多态。</p>
+<p>要更好地理解 Go 接口的这两种特性，我们需要深入到 Go 接口在运行时的表示层面上去。接口类型变量在运行时表示为 eface 和 iface，eface 用于表示空接口类型变量，iface 用于表示非空接口类型变量。只有两个接口类型变量的类型信息(eface._type/iface.tab._type)相同，且数据指针(eface.data/iface.data)所指数据相同时，两个接口类型变量才是相等的。<br />
+最后，接口类型变量的赋值本质上是一种装箱操作，装箱操作是由 Go 编译器和运行时共同完成的，有一定的性能开销，对于性能敏感的系统来说，我们应该尽量避免或减少这类装箱操作。</p>
+<h2 id="接口go中最强大的魔法">30｜接口：Go中最强大的魔法</h2>
+<p>Go 语言之父 Rob Pike 曾说过：如果 C++ 和 Java 是关于类型层次结构和类型分类的语言，那么 Go 则是关于组合的语言。</p>
+<p>接口应用的几种模式</p>
+<h3 id="基本模式">1. 基本模式</h3>
+<pre><code>func YourFuncName(param YourInterfaceType)     //实现多态</code></pre>
+<h3 id="创建模式">2.创建模式</h3>
+<p>Go 社区流传一个经验法则：“接受接口，返回结构体(Accept interfaces, return structs)”</p>
+<pre><code>type Cond struct {
+    ... ...
+    L Locker
+}
+func NewCond(l Locker) *Cond {
+    return &amp;Cond{L: l}
+}</code></pre>
+<h3 id="包装器模式">3.包装器模式</h3>
+<p>通过这个函数，我们可以实现对输入参数的类型的包装，并在不改变被包装类型(输入参数类型)的定义的情况下，返回具备新功能特性的、实现相同接口类型的新类型。</p>
+<pre><code>func YourWrapperFunc(param YourInterfaceType) YourInterfaceType
+
+// example
+func LimitReader(r Reader, n int64) Reader { return &amp;LimitedReader{r, n} }
+type LimitedReader struct {
+    R Reader // underlying reader
+    N int64  // max bytes remaining
+}
+func (l *LimitedReader) Read(p []byte) (n int, err error) {
+    // ... ...
+}
+
+
+func main() {
+    r := strings.NewReader(&quot;hello, gopher!\n&quot;)
+    lr := io.LimitReader(r, 4)
+    if _, err := io.Copy(os.Stdout, lr); err != nil {
+        log.Fatal(err)
+    }
+}</code></pre>
+<h3 id="适配器模式">4.适配器模式</h3>
+<p>适配器模式的核心是适配器函数类型(Adapter Function Type)</p>
+<p>最典型的适配器函数类型莫过于我们在第 21 讲中提到过的http.HandlerFunc了</p>
+<pre><code>func greetings(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, &quot;Welcome!&quot;)
+}
+func main() {
+    //http.HandlerFunc(greetings)这一句是一个类型转换，就是把普通的函数转换成框架可以用的类型
+    //将一个普通函数(比如例子中的几个匿名函数)转型为实现了 http.Handler 的类型的实例。
+    http.ListenAndServe(&quot;:8080&quot;, http.HandlerFunc(greetings))  
+}
+
+// HandlerFunc类型的实现
+type Handler interface {
+    ServeHTTP(ResponseWriter, *Request)
+}
+type HandlerFunc func(ResponseWriter, *Request)
+func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request) {    // 框架在底层调用这个方法以达到调用用户自定义方法的作用
+    f(w, r)
+}</code></pre>
+<h3 id="中间件middleware">5.中间件(Middleware)</h3>
+<p>实质上，这里的中间件就是包装模式和适配器模式结合的产物。</p>
+<pre><code>func validateAuth(s string) error {
+    if s != &quot;123456&quot; {
+        return fmt.Errorf(&quot;%s&quot;, &quot;bad auth token&quot;)
+    }
+    return nil
+}
+func greetings(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, &quot;Welcome!&quot;)
+}
+func logHandler(h http.Handler) http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        t := time.Now()
+        log.Printf(&quot;[%s] %q %v\n&quot;, r.Method, r.URL.String(), t)
+        h.ServeHTTP(w, r)
+    })
+}
+func authHandler(h http.Handler) http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        err := validateAuth(r.Header.Get(&quot;auth&quot;))
+        if err != nil {
+            http.Error(w, &quot;bad auth param&quot;, http.StatusUnauthorized)
+            return
+        }
+        h.ServeHTTP(w, r)
+    })
+}
+func main() {
+    http.ListenAndServe(&quot;:8080&quot;, logHandler(authHandler(http.HandlerFunc(greetings))))
+}</code></pre>
+<p>我们看到，所谓中间件(如：logHandler、authHandler)本质就是一个包装函数(支持链式调用)，但它的内部利用了适配器函数类型(http.HandlerFunc)，将一个普通函数(比如例子中的几个匿名函数)转型为实现了 http.Handler 的类型的实例。</p>
+<h3 id="尽量避免使用空接口作为函数参数类型">6.尽量避免使用空接口作为函数参数类型</h3>
+<p>建议广大 Gopher 尽可能地抽象出带有一定行为契约的接口，并将它作为函数参数类型，尽量不要使用可以“逃过”编译器类型安全检查的空接口类型(interface{})。<br />
+一般传数据可以用空接口，传带有<strong>某种行为</strong>的结构体就不要用空接口了</p>
+<p>这些使用interface{}作为参数类型的函数或方法都有一个共同特点，就是它们面对的都是未知类型的数据，所以在这里使用具有“泛型”能力的interface{}类型。我们也可以理解为是在 Go 语言尚未支持泛型的这个阶段的权宜之计。等 Go 泛型落地后，很多场合下 interface{}就可以被泛型替代了。</p>
+<h2 id="并发go的并发方案实现方案是怎样的">31｜并发：Go的并发方案实现方案是怎样的？</h2>
+<p>Go 并没有使用操作系统线程作为承载分解后的代码片段(模块)的基本执行单元，而是实现了goroutine这一由 Go 运行时(runtime)负责调度的、轻量的用户级线程，为并发程序设计提供原生支持。</p>
+<p>goroutine 的优势主要是：<br />
+* 资源占用小，每个 goroutine 的初始栈大小仅为 2k；<br />
+* 由 Go 运行时而不是操作系统调度，goroutine 上下文切换在用户层完成，开销更小；<br />
+* 在语言层面而不是通过标准库提供。goroutine 由go关键字创建，一退出就会被回收或销毁，开发体验更佳；<br />
+* 语言内置 channel 作为 goroutine 间通信原语，为并发设计提供了强大支撑。</p>
+<p>我们看到，和传统编程语言不同的是，Go 语言是面向并发而生的，所以，在程序的结构设计阶段，<strong>Go 的惯例是优先考虑并发设计</strong>。这样做的目的更多是考虑随着外界环境的变化，通过并发设计的 Go 应用可以更好地、更自然地适应<strong>规模化(scale)</strong>。</p>
+<p>并发不是并行。并发是<strong>应用程序结构设计</strong>相关的概念，而并行只是程序<strong>执行期</strong>的概念，并行的必要条件是具有多个处理器或多核处理器，否则无论是否是并发的设计</p>
+<h2 id="并发聊聊goroutine调度器的原理">32｜并发：聊聊Goroutine调度器的原理</h2>
+<p>Goroutine 调度器<br />
+Goroutine 的调度问题就演变为，Go 运行时如何将程序内的众多 Goroutine，按照一定算法调度到“CPU”资源上运行的问题了。<br />
+可是，在操作系统层面，线程竞争的“CPU”资源是真实的物理 CPU，但在 Go 程序层面，各个 Goroutine 要竞争的“CPU”资源又是什么呢？<br />
+Go 程序是用户层程序，它本身就是整体运行在一个或多个操作系统线程上的。<br />
+所以这个答案就出来了：Goroutine 们要竞争的“CPU”资源就是操作系统线程。这样，Goroutine 调度器的任务也就明确了：将 Goroutine 按照一定算法放到不同的操作系统线程中去执行。</p>
+<p>深入 G-P-M 模型<br />
+关于 G、P、M 的定义，我们可以参见$GOROOT/src/runtime/runtime2.go这个源文件<br />
+* G: 代表 Goroutine，存储了 Goroutine 的执行栈信息、Goroutine 状态以及 Goroutine 的任务函数等，而且 G 对象是可以重用的；<br />
+* P: 代表逻辑 processor，P 的数量决定了系统内最大可并行的 G 的数量，P 的最大作用还是其拥有的各种 G 对象队列、链表、一些缓存和状态；<br />
+* M: M 代表着真正的执行计算资源。在绑定有效的 P 后，进入一个调度循环，而调度循环的机制大致是从 P 的本地运行队列以及全局队列中获取 G，切换到 G 的执行栈上并执行 G 的函数，调用 goexit 做清理工作并回到 M，如此反复。M 并不保留 G 状态，这是 G 可以跨 M 调度的基础。</p>
+<p>而 Goroutine 调度器的目标，就是公平合理地将各个 G 调度到 P 上“运行”，下面我们重点看看 G 是如何被调度的。</p>
+<p>前面说过，除非极端的无限循环，否则只要 G 调用函数，Go 运行时就有了抢占 G 的机会。Go 程序启动时，运行时会去启动一个名为 sysmon 的 M(一般称为监控线程)，这个 M 的特殊之处在于它不需要绑定 P 就可以运行(以 g0 这个 G 的形式)，这个 M 在整个 Go 程序的运行过程中至关重要</p>
+<p>如果一个 G 任务运行 10ms，sysmon 就会认为它的运行时间太久而发出抢占式调度的请求。<br />
+不过，除了这个常规调度之外，还有两个特殊情况下 G 的调度方法。<br />
+* 第一种：channel 阻塞或网络 I/O 情况下的调度。<br />
+* 第二种：系统调用阻塞情况下的调度。</p>
+<p>小结<br />
+基于 Goroutine 的并发设计离不开一个高效的生产级调度器。Goroutine 调度器演进了 10 余年，先后经历了 G-M 模型、G-P-M 模型和 work stealing 算法、协作式的抢占调度以及基于信号的异步抢占等改进与优化，目前 Goroutine 调度器相对稳定和成熟，可以适合绝大部分生产场合。<br />
+现在的 G-P-M 模型和最初的 G-M 模型相比，通过向 G-M 模型中增加了一个代表逻辑处理器的 P，使得 Goroutine 调度器具有了更好的伸缩性。<br />
+M 是 Go 代码运行的真实载体，包括 Goroutine 调度器自身的逻辑也是在 M 中运行的。<br />
+P 在 G-P-M 模型中占据核心地位，它拥有待调度的 G 的队列，同时 M 要想运行 G 必须绑定一个 P。一个 G 被调度执行的时间不能过长，超过特定长的时间后，G 会被设置为可抢占，并在下一次执行函数或方法时被 Go 运行时移出运行状态。<br />
+如果 G 被阻塞在某个 channel 操作或网络 I/O 操作上时，M 可以不被阻塞，这避免了大量创建 M 导致的开销。但如果 G 因慢系统调用而阻塞，那么 M 也会一起阻塞，但在阻塞前会与 P 解绑，P 会尝试与其他 M 绑定继续运行其他 G。但若没有现成的 M，Go 运行时会建立新的 M，这也是系统调用可能导致系统线程数量增加的原因，你一定要注意这一点。</p>
+<h2 id="并发小channel中蕴含大智慧">33｜并发：小channel中蕴含大智慧</h2>
+<p>作为一等公民的 channel</p>
+<p>那 channel 作为一等公民意味着什么呢？<br />
+这意味着我们可以像使用普通变量那样使用 channel，比如，定义 channel 类型变量、给 channel 变量赋值、将 channel 作为参数传递给函数 / 方法、将 channel 作为返回值从函数 / 方法中返回，甚至将 channel 发送到其他 channel 中。这就大大简化了 channel 原语的使用，提升了我们开发者在做并发设计和实现时的体验。</p>
+<p>创建channel<br />
+为 channel 类型变量赋初值的唯一方法就是使用 <strong>make</strong> 这个 Go 预定义的函数，比如下面代码</p>
+<pre><code>var ch chan int      //默认值为 nil
+
+
+ch1 := make(chan int)         //无缓冲的
+ch2 := make(chan int, 5)      //带缓冲的</code></pre>
+<p>channel 是用于 Goroutine 间通信的，所以绝大多数对 channel 的读写都被分别放在了不同的 Goroutine 中。一个goroutine中写入channel，另一个goroutine中读取channel，这样就实现了两个goroutine之间的通信。</p>
+<p>由于无缓冲 channel 的运行时层实现不带有缓冲区，所以 Goroutine 对无缓冲 channel 的接收和发送操作是<strong>同步</strong>的。也就是说，对同一个无缓冲 channel，只有对它进行接收操作的 Goroutine 和对它进行发送操作的 Goroutine <strong>都存在的情况下</strong>，通信才能得以进行，否则单方面的操作会让对应的 Goroutine 陷入挂起状态<br />
+对无缓冲 channel 类型的发送与接收操作，一定要放在两个不同的 Goroutine 中进行，否则会导致 deadlock。</p>
+<p>和无缓冲 channel 相反，带缓冲 channel 的运行时层实现带有缓冲区，因此，对带缓冲 channel 的发送操作在缓冲区未满、接收操作在缓冲区非空的情况下是异步的(发送或接收不需要阻塞等待)。<br />
+也就是说，对一个带缓冲 channel 来说，在缓冲区未满的情况下，对它进行发送操作的 Goroutine 并不会阻塞挂起；在缓冲区有数据的情况下，对它进行接收操作的 Goroutine 也不会阻塞挂起。<br />
+但当缓冲区满了的情况下，对它进行发送操作的 Goroutine 就会阻塞挂起；当缓冲区为空的情况下，对它进行接收操作的 Goroutine 也会阻塞挂起。</p>
+<p>使用操作符&lt;-，我们还可以声明只发送 channel 类型(send-only)和只接收 channel 类型(recv-only)</p>
+<pre><code>ch1 := make(chan&lt;- int, 1) // 只发送channel类型
+ch2 := make(&lt;-chan int, 1) // 只接收channel类型</code></pre>
+<p>通常只发送 channel 类型和只接收 channel 类型，会被用作函数的参数类型或返回值，用于限制对 channel 内的操作，或者是明确可对 channel 进行的操作的类型</p>
+<pre><code>func produce(ch chan&lt;- int) {
+    for i := 0; i &lt; 10; i++ {
+        ch &lt;- i + 1
+        time.Sleep(time.Second)
+    }
+    close(ch)
+}
+func consume(ch &lt;-chan int) {
+    for n := range ch {
+        println(n)
+    }
+}
+func main() {
+    ch := make(chan int, 5)
+    var wg sync.WaitGroup
+    wg.Add(2)
+    go func() {
+        produce(ch)
+        wg.Done()
+    }()
+    go func() {
+        consume(ch)
+        wg.Done()
+    }()
+    wg.Wait()
+}</code></pre>
+<h3 id="关闭-channel">关闭 channel</h3>
+<p>channel 关闭后，所有等待从这个 channel 接收数据的操作都将返回。</p>
+<pre><code>n := &lt;- ch      // 当ch被关闭后，n将被赋值为ch元素类型的零值
+m, ok := &lt;-ch   // 当ch被关闭后，m将被赋值为ch元素类型的零值, ok值为false
+for v := range ch { // 当ch被关闭后，for range循环结束
+    ... ...
+}</code></pre>
+<p>从前面 produce 的示例程序中，我们也可以看到，channel 是在 produce 函数中被关闭的，这也是 channel 的一个使用惯例，那就是<strong>发送端负责关闭</strong> channel。<br />
+这是因为发送端没有像接受端那样的、可以安全判断 channel 是否被关闭了的方法。同时，一旦<strong>向一个已经关闭的 channel 执行发送操作，这个操作就会引发 panic</strong></p>
+<h3 id="select">select</h3>
+<p>通过 select，我们可以同时在多个 channel 上进行发送/接收操作：</p>
+<pre><code>select {
+case x := &lt;-ch1:     // 从channel ch1接收数据
+  ... ...
+case y, ok := &lt;-ch2: // 从channel ch2接收数据，并根据ok值判断ch2是否已经关闭
+  ... ...
+case ch3 &lt;- z:       // 将z值发送到channel ch3中:
+  ... ...
+default:             // 当上面case中的channel通信均无法实施时，执行该默认分支
+}</code></pre>
+<p>当 select 语句中没有 default 分支，而且所有 case 中的 channel 操作都阻塞了的时候，整个 select 语句都将<strong>被阻塞</strong>，直到某一个 case 上的 channel 变成可发送，或者某个 case 上的 channel 变成可接收，select 语句才可以继续进行下去。</p>
+<h3 id="无缓冲-channel-的惯用法">无缓冲 channel 的惯用法</h3>
+<h4 id="用作信号传递routin之间的同步">1.用作信号传递(routin之间的同步)</h4>
+<p>1 对 1 通知信号</p>
+<pre><code>type signal struct{}
+func worker() {
+    println(&quot;worker is working...&quot;)
+    time.Sleep(1 * time.Second)
+}
+func spawn(f func()) &lt;-chan signal {
+    c := make(chan signal)
+    go func() {
+        println(&quot;worker start to work...&quot;)
+        f()
+        c &lt;- signal(struct{}{})
+    }()
+    return c
+}
+func main() {
+    println(&quot;start a worker...&quot;)
+    c := spawn(worker)
+    &lt;-c
+    fmt.Println(&quot;worker work done!&quot;)
+}</code></pre>
+<p>1 对 n 的信号通知,这样的信号通知机制，常被用于协调多个 Goroutine 一起工作</p>
+<pre><code>func worker(i int) {
+    fmt.Printf(&quot;worker %d: is working...\n&quot;, i)
+    time.Sleep(1 * time.Second)
+    fmt.Printf(&quot;worker %d: works done\n&quot;, i)
+}
+func spawnGroup(f func(i int), num int, groupSignal &lt;-chan signal) &lt;-chan signal {
+    c := make(chan signal)
+    var wg sync.WaitGroup
+    for i := 0; i &lt; num; i++ {
+        wg.Add(1)
+        go func(i int) {
+            &lt;-groupSignal   // 进入后默认先阻塞起来，等到父goroutine统一close这个channel来统一发信号
+            fmt.Printf(&quot;worker %d: start to work...\n&quot;, i)
+            f(i)
+            wg.Done()
+        }(i + 1)
+    }
+    go func() {
+        wg.Wait()
+        c &lt;- signal(struct{}{})
+    }()
+    return c
+}
+func main() {
+    fmt.Println(&quot;start a group of workers...&quot;)
+    groupSignal := make(chan signal)
+    c := spawnGroup(worker, 5, groupSignal)
+    time.Sleep(5 * time.Second)
+    fmt.Println(&quot;the group of workers start to work...&quot;)
+    //关闭一个无缓冲 channel 会让所有阻塞在这个 channel 上的接收操作返回,相当于一个信号枪的作用
+    close(groupSignal)
+    &lt;-c
+    fmt.Println(&quot;the group of workers work done!&quot;)
+}</code></pre>
+<h4 id="用于替代锁机制">2.用于替代锁机制</h4>
+<p>无缓冲 channel 具有同步特性，这让它在某些场合可以替代锁，让我们的程序更加清晰，可读性也更好</p>
+<p>锁的方式</p>
+<pre><code>type counter struct {
+    sync.Mutex
+    i int
+}
+var cter counter
+func Increase() int {
+    cter.Lock()
+    defer cter.Unlock()
+    cter.i++
+    return cter.i
+}
+func main() {
+    var wg sync.WaitGroup
+    for i := 0; i &lt; 10; i++ {
+        wg.Add(1)
+        go func(i int) {
+            v := Increase()
+            fmt.Printf(&quot;goroutine-%d: current counter value is %d\n&quot;, i, v)
+            wg.Done()
+        }(i)
+    }
+    wg.Wait()
+}</code></pre>
+<p>channel的方式<br />
+这种并发设计逻辑更符合 Go 语言所倡导的“不要通过共享内存来通信，而是通过通信来共享内存”的原则。</p>
+<pre><code>type counter struct {
+    c chan int
+    i int
+}
+func NewCounter() *counter {
+    cter := &amp;counter{
+        c: make(chan int),
+    }
+    go func() {       // 所有的Increase操作都放到一个goroutine中，从而达到了锁的作用
+        for {
+            cter.i++          
+            cter.c &lt;- cter.i
+        }
+    }()
+    return cter
+}
+func (cter *counter) Increase() int {
+    return &lt;-cter.c
+}
+func main() {
+    cter := NewCounter()
+    var wg sync.WaitGroup
+    for i := 0; i &lt; 10; i++ {
+        wg.Add(1)
+        go func(i int) {
+            v := cter.Increase()
+            fmt.Printf(&quot;goroutine-%d: current counter value is %d\n&quot;, i, v)
+            wg.Done()
+        }(i)
+    }
+    wg.Wait()
+}</code></pre>
+<h3 id="带缓冲-channel-的惯用法">带缓冲 channel 的惯用法</h3>
+<p>带缓冲的 channel 与无缓冲的 channel 的最大不同之处，就在于它的异步性。</p>
+<h4 id="第一种用法用作消息队列">第一种用法：用作消息队列</h4>
+<p>channel 经常被 Go 初学者视为在多个 Goroutine 之间通信的消息队列，这是因为，channel 的原生特性与我们认知中的消息队列十分相似，包括 Goroutine 安全、有 FIFO(first-in, first out)保证等。</p>
+<h4 id="第二种用法用作计数信号量counting-semaphore">第二种用法：用作计数信号量(counting semaphore)</h4>
+<pre><code>var active = make(chan struct{}, 3)   //最大容量是3
+var jobs = make(chan int, 10)
+func main() {
+    go func() {
+        for i := 0; i &lt; 8; i++ {
+            jobs &lt;- (i + 1)
+        }
+        close(jobs)
+    }()
+    var wg sync.WaitGroup
+    for j := range jobs {
+        wg.Add(1)
+        go func(j int) {
+            active &lt;- struct{}{}     // active记到3就会被阻塞掉
+            log.Printf(&quot;handle job: %d\n&quot;, j)
+            time.Sleep(2 * time.Second)
+            &lt;-active
+            wg.Done()
+        }(j)
+    }
+    wg.Wait()
+}</code></pre>
+<h3 id="lenchannel-的应用">len(channel) 的应用</h3>
+<p>针对 channel ch 的类型不同，len(ch) 有如下两种语义：<br />
+* 当 ch 为无缓冲 channel 时，len(ch) 总是返回 0；<br />
+* 当 ch 为带缓冲 channel 时，len(ch) 返回当前 channel ch 中<strong>尚未被读取的元素个数</strong>。</p>
+<p>在“多发送单接收”的场景，也就是有多个发送者，但有且只有一个接收者。在这样的场景下，我们可以在接收 goroutine 中使用len(channel)是否大于0来判断是否 channel 中有数据需要接收。</p>
+<p>而在“多接收单发送”的场景，也就是有多个接收者，但有且只有一个发送者。在这样的场景下，我们可以在发送 Goroutine 中使用len(channel)是否小于cap(channel)来判断是否可以执行向 channel 的发送操作。</p>
+<h3 id="nil-channel-的妙用">nil channel 的妙用</h3>
+<p>如果一个 channel 类型变量的值为 nil，我们称它为 nil channel。nil channel 有一个特性，那就是对 nil channel 的读写都会发生阻塞。</p>
+<h3 id="与-select-结合使用的一些惯用法">与 select 结合使用的一些惯用法</h3>
+<h4 id="第一种用法利用-default-分支避免阻塞">第一种用法：利用 default 分支避免阻塞</h4>
+<p>select 语句的 default 分支的语义，就是在其他非 default 分支因通信未就绪，而无法被选择的时候执行的，这就给 default 分支赋予了一种“避免阻塞”的特性。</p>
+<pre><code>func tryRecv(c &lt;-chan int) (int, bool) {
+  select {
+  case i := &lt;-c:
+    return i, true
+  default: // channel为空
+    return 0, false
+  }
+}
+
+func trySend(c chan&lt;- int, i int) bool {
+  select {
+  case c &lt;- i:
+    return true
+  default: // channel满了
+    return false
+  }
+}</code></pre>
+<h4 id="第二种用法实现超时机制">第二种用法：实现超时机制</h4>
+<p>通过超时事件，我们既可以避免长期陷入某种操作的等待中，也可以做一些异常处理工作</p>
+<pre><code>func worker() {
+  select {
+  case &lt;-c:
+       // ... do some stuff
+  case &lt;-time.After(30 *time.Second):
+      return
+  }
+}</code></pre>
+<h4 id="第三种用法实现心跳机制">第三种用法：实现心跳机制</h4>
+<p>结合 time 包的 Ticker，我们可以实现带有心跳机制的 select。这种机制让我们可以在监听 channel 的同时，执行一些周期性的任务，比如下面这段代码：</p>
+<pre><code>func worker() {
+  heartbeat := time.NewTicker(30 * time.Second)
+  defer heartbeat.Stop()    //在使用完 ticker 之后，调用它的Stop，避免心跳事件在 ticker 的 channel(本例中的 heartbeat.C)中持续产生
+  for {
+    select {
+    case &lt;-c:
+      // ... do some stuff
+    case &lt;- heartbeat.C:
+      //... do heartbeat stuff
+    }
+  }
+}</code></pre>
+<h2 id="并发如何使用共享变量">34｜并发：如何使用共享变量？</h2>
+<p>sync 包低级同步原语可以用在哪？<br />
+1. 首先是需要高性能的临界区(critical section)同步机制场景。<br />
+我们可以把 channel 看成是一种高级的同步原语，它自身的实现也是建构在低级同步原语之上的。也正因为如此，channel 自身的性能与低级同步原语相比要略微逊色，开销要更大。<br />
+差距可能在几倍之间。<br />
+因此，通常在需要高性能的临界区(critical section)同步机制的情况下，sync 包提供的低级同步原语更为适合。</p>
+<ol>
+<li>第二种就是在不想转移结构体对象所有权，但又要保证结构体内部状态数据的同步访问的场景。<br />
+基于 channel 的并发设计，有一个特点：在 Goroutine 间通过 channel 转移数据对象的所有权。所以，只有拥有数据对象所有权(从 channel 接收到该数据)的 Goroutine 才可以对该数据对象进行状态变更。</li>
+</ol>
+<h3 id="sync-包中同步原语使用的注意事项">sync 包中同步原语使用的注意事项</h3>
+<p>在使用 sync 包提供的同步原语之前，我们一定要牢记这些原语使用的注意事项：<br />
+不要复制首次使用后的 Mutex/RWMutex/Cond 等。一旦复制，你将很大可能得到意料之外的运行结果。也就是值类型的不可以被复制<br />
+以Mutex为例</p>
+<pre><code>// $GOROOT/src/sync/mutex.go
+type Mutex struct {
+    state int32
+    sema  uint32
+}</code></pre>
+<p>初始情况下，Mutex 的实例处于 Unlocked 状态(state 和 sema 均为 0)。对 Mutex 实例的复制也就是两个整型字段的复制。一旦发生复制，原变量与副本就是两个单独的内存块，各自发挥同步作用，互相就没有了关联。</p>
+<h3 id="条件变量">条件变量</h3>
+<p>sync.Cond是传统的条件变量原语概念在 Go 语言中的实现。</p>
+<p>条件变量是同步原语的一种，如果没有条件变量，开发人员可能需要在 Goroutine 中通过连续轮询的方式，检查某条件是否为真，这种连续轮询非常消耗资源，因为 Goroutine 在这个过程中是处于活动状态的，但它的工作又没有进展。</p>
+<p>sync 包中的低级同步原语各有各的擅长领域，你可以记住：<br />
+* 在具有一定并发量且读多写少的场合使用 RWMutex；<br />
+* 在需要“等待某个条件成立”的场景下使用 Cond；<br />
+* 当你不确定使用什么原语时，那就使用 Mutex 吧。<br />
+* 简单类型的，如数字类型的，就用atomic 包提供的原子操作函数。</p>
+<h2 id="即学即练如何实现一个轻量级线程池">35｜即学即练：如何实现一个轻量级线程池？</h2>
+<p>Goroutine 的开销十分小，一个 Goroutine 的起始栈大小为 2KB，而且创建、切换与销毁的代价很低，我们可以创建成千上万甚至更多 Goroutine。<br />
+但是，一旦规模化后，这种非零成本也会成为瓶颈。我们以一个 Goroutine 分配 2KB 执行栈为例，100w Goroutine 就是 2GB 的内存消耗。<br />
+另外，随着 Goroutine 数量的增加，Go 运行时进行 Goroutine 调度的处理器消耗，也会随之增加，成为阻碍 Go 应用性能提升的重要因素。</p>
+<p>Goroutine 池就是一种常见的解决方案。这个方案的核心思想是对 Goroutine 的重用，也就是把 M 个计算任务调度到 N 个 Goroutine 上，而不是为每个计算任务分配一个独享的 Goroutine，从而提高计算资源的利用率。</p>
+<p>workerpool 的实现主要分为三个部分：<br />
+* pool 的创建与销毁；<br />
+* pool 中 worker(Goroutine)的管理；<br />
+* task 的提交与调度。</p>
+<h2 id="加餐如何拉取私有的go-module">加餐｜如何拉取私有的Go Module？</h2>
+<h3 id="导入本地-module">导入本地 module</h3>
+<p>如果我们的项目依赖的是本地正在开发、尚未发布到公共站点上的 Go Module，那么我们应该如何做呢？<br />
+这个时候，我们就可以借助 go.mod 的 replace 指示符，来解决这个问题。解决的步骤是这样的：<br />
+1. 首先，我们需要在 module a 的 go.mod 中的 require 块中，手工加上这一条,<br />
+注意了，这里的 v1.0.0 版本号是一个“假版本号”，目的是满足 go.mod 中 require 块的语法要求。</p>
+<pre><code>require github.com/user/b v1.0.0</code></pre>
+<ol>
+<li>然后，我们再在 module a 的 go.mod 中使用 replace，将上面对 module b v1.0.0 的依赖，替换为本地路径上的 module b:</li>
+</ol>
+<pre><code>replace github.com/user/b v1.0.0 =&gt; module b的本地源码路径</code></pre>
+<p>但显然这种方法也是有“瑕疵”的。这个替换的本地路径是因开发者环境而异的。<br />
+解决：<br />
+在Go 1.18 版本中加入了 Go 工作区(Go workspace，也译作 Go 工作空间)辅助构建机制。<br />
+基于这个机制，我们可以将多个本地路径放入同一个 workspace 中，这样，在这个 workspace 下各个 module 的构建将优先使用 workspace 下的 module 的源码。工作区配置数据会放在一个名为 go.work 的文件中，这个文件是开发者环境相关的，因此并不需要提交到源码服务器上，这就解决了上面“伪造 go.mod”方案带来的那些问题。</p>
+<h3 id="拉取私有-module-的需求与参考方案">拉取私有 module 的需求与参考方案</h3>
+<p>随着公司内 Go 使用者和 Go 项目的增多，“重造轮子”的问题就出现了。抽取公共代码放入一个独立的、可被复用的内部私有仓库成为了必然，这样我们就有了拉取私有 Go Module 的需求。</p>
+<p>第一个方案，是通过直连组织公司内部的私有 Go Module 服务器拉取。<br />
+第二种方案，是将外部 Go Module 与私有 Go Module 都交给内部统一的 GOPROXY 服务去处理：</p>
+<h2 id="加餐聊聊最近大热的go泛型">加餐｜聊聊最近大热的Go泛型</h2>
+<p>Go 1.18加入泛型<br />
+Go 1.18 发布说明中给出了一个结论：Go 1.18 编译器的性能要比 Go 1.17 下降 15% 左右</p>
+<p>在没有泛型之前，Gopher 们通常使用空接口类型 interface{}，作为算法操作的对象的数据类型，不过这样做的不足之处也很明显：一是无法进行类型安全检查，二是性能有损失。</p>
+<p>类型参数(type parameter)的名字都是首字母大写的，通常都是用单个大写字母命名。</p>
+<h3 id="约束constraint">约束(constraint)</h3>
+<p>约束(constraint)规定了一个类型实参(type argument)必须满足的条件要求。如果某个类型满足了某个约束规定的所有条件要求，那么它就是这个约束修饰的类型形参的一个合法的类型实参。</p>
+<pre><code>type C1 interface {      //C就是一个泛型约束
+    ~int | ~int32
+    M1()
+}
+type T struct{}
+func (T) M1() {
+}
+type T1 int
+func (T1) M1() {
+}
+func foo[P C1](t P)() {
+}
+func main() {
+    var t1 T1
+    foo(t1)
+    var t T
+    foo(t) // 编译器报错：T does not implement C1
+}</code></pre>
+<h3 id="泛型类型">泛型类型</h3>
+<pre><code>type Slice[T int|float32|float64 ] []T
+
+// 这里传入了类型实参int，泛型类型Slice[T]被实例化为具体的类型 Slice[int]
+var a Slice[int] = []int{1, 2, 3}  
+fmt.Printf(&quot;Type Name: %T&quot;,a)  //输出：Type Name: Slice[int]
+
+// 传入类型实参float32, 将泛型类型Slice[T]实例化为具体的类型 Slice[string]
+var b Slice[float32] = []float32{1.0, 2.0, 3.0} 
+fmt.Printf(&quot;Type Name: %T&quot;,b)  //输出：Type Name: Slice[float32]</code></pre>
+<p>在 Go 1.18 中，any 是 interface{}的别名，也是一个预定义标识符，使用 any 作为类型参数的约束，代表没有任何约束。</p>
+<pre><code>type Vector[T any] []T
+func (v Vector[T]) Dump() {
+    fmt.Printf(&quot;%#v\n&quot;, v)
+}
+func main() {
+    var iv = Vector[int]{1,2,3,4}
+    var sv Vector[string]
+    sv = []string{&quot;a&quot;,&quot;b&quot;, &quot;c&quot;, &quot;d&quot;}
+    iv.Dump()
+    sv.Dump()
+}</code></pre>
+<p>什么情况适合使用泛型<br />
+* 如果你发现自己多次编写完全相同的代码(样板代码)，各个版本之间唯一的差别是代码使用不同的类型，那就请你考虑是否可以使用类型参数。<br />
+* 当编写的函数的操作元素的类型为 slice、map、channel 等特定类型的时候。如果一个函数接受这些类型的形参，并且函数代码没有对参数的元素类型作出任何假设，那么使用类型参数可能会非常有用。<br />
+* 另一个适合使用类型参数的情况是编写通用数据结构</p>
+<p>什么情况不宜使用泛型<br />
+* 当不同的类型使用一个共同的方法时，如果一个方法的实现对于所有类型都相同，就使用类型参数；相反，如果每种类型的实现各不相同，请使用不同的方法，不要使用类型参数。</p>
+<h2 id="大咖助阵大明go泛型泛了但没有完全泛">大咖助阵｜大明：Go泛型，泛了，但没有完全泛</h2>
+<p>如果你经常要分别为不同的类型写完全相同逻辑的代码，那么使用泛型将是最合适的选择</p>
+<h3 id="泛型方法">泛型方法</h3>
+<pre><code>func Add[T int | float32 | float64](a T, b T) T {
+    return a + b
+}
+
+Add[int](1,2) // 传入类型实参int，计算结果为 3
+Add[float32](1.0, 2.0) // 传入类型实参float32, 计算结果为 3.0
+Add[string](&quot;hello&quot;, &quot;world&quot;) // 错误。因为泛型函数Add的类型约束中并不包含string</code></pre>
+<h3 id="go-泛型的局限">Go 泛型的局限</h3>
+<h4 id="go-接口和结构体不支持泛型方法">Go 接口和结构体不支持泛型方法；</h4>
+<pre><code>// ================没加泛型==================
+type Orm interface {
+   Insert(data ...interface{}) (sql.Result, error)
+}
+
+// ==================接口或结构体加泛型============
+type Orm[T any] interface {
+   Insert(data ...T) (sql.Result, error)
+}
+
+var userOrm Orm[User]          // 这样需要创建很多个Orm实例
+var orderOrm Orm[Order]
+
+//======== 结构体和接口方法加泛型，但是go不支持========
+type orm struct {     
+}
+func (o orm) Insert[T any](data ...T) (sql.Result, error) {
+    //...
+}
+
+type Orm interface {
+   Insert[T any](data ...T) (sql.Result, error)
+}
+
+orm.Insert[*User](&amp;User{}, &amp;User{})
+orm.Insert[*Order](&amp;Order{}, &amp;Order{})
+
+
+// 实际上，操作任意类型的接口很常见，特别是对于提供客户端功能的中间件来说
+type HttpClient interface {
+   Get[T any](url string) (T, error)
+}
+
+type CacheClient interface {
+   Get[T any](key string) (T, error)
+}</code></pre>
+<h4 id="泛型约束不能作为类型声明">泛型约束不能作为类型声明；</h4>
+<p>泛型约束不能被用于做参数，它只能和泛型结合在一起使用，这就导致我们并不能用泛型的约束，来解决某个接口可以处理有限多种类型输入的问题。所以长期来看， interface{} 这种参数类型还会广泛存在于所有中间件的设计中。</p>
+<pre><code>type Selectable interface {
+   string | Aggregate      // 限制类型只能是string或Aggregate类型
+}
+type Selector struct {
+   columns []Selectable
+}
+func (s *Selector) Select(cols ...Selectable) *Selector {      // 方法的参数做限制
+   panic(&quot;implement me&quot;)
+}</code></pre>
+<h4 id="泛型约束只能是接口而不能是结构体">泛型约束只能是接口，而不能是结构体。</h4>
+<pre><code>type BaseEntity struct {
+   Id int64
+}
+func Insert[Entity BaseEntity](e *Entity) {     //BaseEntity是个结构体，所以不行
+   
+}
+type myEntity struct {
+   BaseEntity
+   Name string
+}</code></pre>
+<h4 id="这三个对应的可行的解决思路">这三个对应的、可行的解决思路：</h4>
+<ul>
+<li>Builder 模式；</li>
+<li>标记接口；</li>
+<li>Getter/Setter 接口。</li>
+</ul>
+<h3 id="参考链接">参考链接</h3>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000041634906">Go 1.18 泛型全面讲解：一篇讲清泛型的全部</a></li>
+</ul>
+<h2 id="打稳根基怎么实现一个tcp服务器上">36｜打稳根基：怎么实现一个TCP服务器？（上）</h2>
+<p>虽然目前主流 socket 网络编程模型是 I/O 多路复用模型，但考虑到这个模型在使用时的体验较差，Go 语言将这种复杂性隐藏到运行时层，并结合 Goroutine 的轻量级特性，在用户层提供了基于 I/O 阻塞模型的 Go socket 网络编程模型，这一模型就大大降低了 gopher 在编写 socket 应用程序时的心智负担。</p>
+<p>网络 I/O 操作都是系统调用，Goroutine 执行 I/O 操作的话，一旦阻塞在系统调用上，就会导致 M 也被阻塞，为了解决这个问题，Go 设计者将这个“复杂性”隐藏在 Go 运行时中，他们在运行时中实现了网络轮询器（netpoller)，netpoller 的作用，就是只阻塞执行网络 I/O 操作的 Goroutine，但不阻塞执行 Goroutine 的线程（也就是 M）。<br />
+这样一来，对于 Go 程序的用户层（相对于 Go 运行时层）来说，它眼中看到的 goroutine 采用了“阻塞 I/O 模型”进行网络 I/O 操作，Socket 都是“阻塞”的。<br />
+但实际上，这样的“假象”，是通过 Go 运行时中的 netpoller I/O 多路复用机制，“模拟”出来的，对应的、真实的底层操作系统 Socket，实际上是非阻塞的。只是运行时拦截了针对底层 Socket 的系统调用返回的错误码，并通过 netpoller 和 Goroutine 调度，让 Goroutine“阻塞”在用户层所看到的 Socket 描述符上。<br />
+比如：当用户层针对某个 Socket 描述符发起read操作时，如果这个 Socket 对应的连接上还没有数据，运行时就会将这个 Socket 描述符加入到 netpoller 中监听，同时发起此次读操作的 Goroutine 会被挂起。<br />
+直到 Go 运行时收到这个 Socket 数据可读的通知，Go 运行时才会重新唤醒等待在这个 Socket 上准备读数据的那个 Goroutine。而这个过程，从 Goroutine 的视角来看，就像是 read 操作<strong>一直阻塞在那个 Socket 描述符上一样</strong>。<br />
+而且，Go 语言在网络轮询器（netpoller）中采用了 I/O 多路复用的模型。考虑到最常见的多路复用系统调用 select 有比较多的限制，比如：监听 Socket 的数量有上限（1024）、时间复杂度高，等等，Go 运行时选择了在不同操作系统上，使用操作系统各自实现的高性能多路复用函数，比如：Linux 上的 epoll、Windows 上的 iocp、FreeBSD/MacOS 上的 kqueue、Solaris 上的 event port 等，这样可以最大程度提高 netpoller 的调度和执行性能。</p>
+<h3 id="并发-socket-读写">并发 Socket 读写</h3>
+<p>go的Read、Write底层使用的锁机制来保证并发安全，多个goruntine同时读写同一个socket，不会出现数据错乱的情况。<br />
+在应用层面，要想保证多个 Goroutine 在一个conn上 write 操作是安全的，需要一次 write 操作完整地写入一个“业务包”。一旦将业务包的写入拆分为多次 write，那也无法保证某个 Goroutine 的某“业务包”数据在conn发送的连续性。<br />
+对于 Read 操作而言，由于 TCP 是面向字节流，conn.Read无法正确区分数据的业务边界，因此，多个 Goroutine 对同一个 conn 进行 read 的意义不大，Goroutine 读到不完整的业务包，反倒增加了业务处理的难度。</p>
+<h2 id="代码操练怎么实现一个tcp服务器中">37｜代码操练：怎么实现一个TCP服务器？（中）</h2>
+<p>协议的解包与打包<br />
+所谓协议的解包（decode），就是指识别 TCP 连接上的字节流，将一组字节“转换”成一个特定类型的协议消息结构，然后这个消息结构会被业务处理逻辑使用。<br />
+而打包（encode）刚刚好相反，是指将一个特定类型的消息结构转换为一组字节，然后这组字节数据会被放在连接上发送出去。</p>
+<h2 id="成果优化怎么实现一个tcp服务器下">38｜成果优化：怎么实现一个TCP服务器？（下）</h2>
+<p>在这一讲中，我们重点讲解了如何针对上一讲实现的第一版服务端进行优化。我们给出了 Go 程序优化的四步循环方法，这四步依次是建立性能基准、性能剖析、代码优化和与性能基准比较，确定优化效果。如果经过一轮优化，Go 应用的性能仍然无法达到你的要求，那么还可以按这个循环，进行多轮优化。<br />
+建立性能基准是整个优化过程的前提，基准提供了性能优化的起点与参照物。而建立性能基准的前提又是建立观测设施。观测设施的建立方法有很多，这里我们基于 Prometheus+Grafana 的组合，实现了一个可视化的观测平台。基于这个平台，我们为第一版服务端实现建立了性能基准。<br />
+另外，剖析 Go 应用性能有很多工具，而 Gopher 的最爱依然是 Go 原生提供的 pprof，我们可以以图形化的形式或命令行的方式，收集和展示获取到的采样数据。针对我们的服务端程序，我们进行了带缓冲的网络 I/O 以及重用内存对象的优化，取得了很不错的效果。</p>
+<h2 id="大咖助阵海纳聊聊语言中的类型系统与泛型">大咖助阵｜海纳：聊聊语言中的类型系统与泛型</h2>
+<p>在这节课里，我们先了解到什么是类型系统，并介绍了什么是强类型和弱类型，什么是静态类型和动态类型。然后我们通过举例来说明 Python，JavaScript，Go 和 C++ 各自的类型系统的特点。<br />
+从这些例子中，我们看到静态强类型语言更容易阅读和维护，但灵活性不如动态弱类型语言。所以动态弱类型语言往往都是脚本语言，不太适合构建大型程序。<br />
+接下来，我们简单介绍了泛型的概念。我们使用了一个栈的例子来说明了使用泛型可以提高编程效率，节省代码量。Go 语言从 1.18 开始也支持泛型编程。<br />
+然后我们又提供了一个新的视角来理解泛型，这种新的视角是把泛型类看成是一种函数，它的输入参数可以是类型，也可以是值，它的返回值是一种新的类型。<br />
+最后，我们介绍了 C++ 的泛型实现和 Java 的泛型实现。C++ 不同的泛型参数会得到一种新的类型，这个过程我们也会称它为泛型的实例化。而 Java 则会进行类型擦除，从而导致表面上不同的类型参数实际上指代的是同一种类型。</p>
+<h2 id="孔令飞从小白到老鸟我的go语言进阶之路">孔令飞｜从小白到“老鸟”：我的Go语言进阶之路</h2>
+<h2 id="叶剑峰go语言中常用的那些代码优化点">叶剑峰｜Go语言中常用的那些代码优化点</h2>
+<p>第一点：使用 pkg/errors 而不是官方 error 库<br />
+第二点：在初始化 slice 的时候尽量补全 cap<br />
+第三点：初始化一个类的时候，如果类的构造参数较多，尽量使用 Option 写法<br />
+第四点：巧用大括号控制变量作用域</p>
+<h2 id="加餐作为go-module的作者你应该知道的几件事">加餐｜作为Go Module的作者，你应该知道的几件事</h2>
+<p>在这一讲，我们更多从 Go Module 的作者或维护者的角度出发，去思考规划、发布和维护 Go Module 过程中可能遇到的问题以及解决方法。<br />
+Go Module 经过多年打磨已经逐渐成熟，对各种 Go Module 仓库的布局方式都提供了很好的支持。通常情况下，我们会采用在单仓库单 module 的布局方式，无论是发布 module 打版本号还是升级 major 版本号，这种方式都简单易懂，心智负担低。<br />
+当然 Go Module 也支持在一个仓库下管理多个 module，如果使用这种方式，要注意发布某 module 时，tag 名字要包含 module 目录名，比如：module1/v1.0.1。<br />
+升级 module 的 major 版本号时，你一定要注意：如果 module 内部包间有相互导入，那么这些包的 import 路径上也要增加 vN，否则就会存在在高 major 号的 module 代码中，引用低 major 号的 module 代码的情况，导致出现一些奇怪的问题。<br />
+此外，发布 Go Module 时你也一定要谨慎小心，因为一旦将 broken 的版本发布出去，要想作废这个版本是没有太好的方案的，现有的方案都或多或少对 module 使用者有些影响。尤其是采用单 repo 多 module 的布局方式时，发布 module 时更是要格外细心。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

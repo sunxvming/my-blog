@@ -248,7 +248,11 @@ docker pull ubuntu
     拉取最新版本的镜像
 docker rmi ubuntu
     删除镜像
+    删除所有上一次构建时间超过 24 小时且未被标记为 keep 的镜像
+    `docker image prune --filter &quot;until=24h&quot; --filter &quot;label!=keep&quot; --force`
 
+    删除所有上一次构建时间超过 24 小时且未被标记为 keep 的镜像
+    docker image prune --filter &quot;before=2022-01-01&quot; --force
 
 创建镜像
     1、从已经创建的容器中更新镜像，并且提交这个镜像

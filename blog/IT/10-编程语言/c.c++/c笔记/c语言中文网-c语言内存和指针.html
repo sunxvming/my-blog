@@ -7,6 +7,70 @@
 
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="../../../../.././css/style.css" />
 
@@ -317,7 +381,7 @@ int main(){
 <strong>所谓虚拟地址空间，就是程序可以使用的虚拟地址的有效范围</strong>。虚拟地址和物理地址的映射关系由操作系统决定，相应地，虚拟地址空间的大小也由操作系统决定，但还会受到编译模式的影响。<br />
 CPU是计算机的核心，决定了计算机的<strong>数据处理能力</strong>和<strong>寻址能力</strong>，也即决定了计算机的性能。CPU一次（一个时钟内）能处理的数据的大小由<strong>寄存器的位数</strong>和能支持的<strong>数据总线的宽度</strong>（也即有多少根数据总线）决定，我们通常所说的多少位的CPU，除了可以理解为寄存器的位数，也可以理解数据总线的宽度，通常情况下它们是相等的。</p>
 <p><strong>数据总线</strong>和<strong>主频</strong>都是CPU的重要指标：数据总线决定了CPU单次的数据处理能力，主频决定了CPU单位时间内的数据处理次数，它们的乘积就是CPU单位时间内的数据处理量。<br />
-需要注意的是，<strong>数据总线</strong>和<strong>地址总线</strong>不是一回事，数据总线用于在CPU和内存之间传输数据，地址总线用于在内存上定位数据，它们之间没有必然的联系，宽度并不一定相等。实际情况是，地址总线的宽度往往随着数据总线的宽度而增长，以访问更大的内存。</p>
+需要注意的是，<strong>数据总线</strong>和<strong>地址总线</strong>不是一回事，数据总线用于在CPU和内存之间传输数据，<strong>地址总线用于在内存上定位数据</strong>，它们之间没有必然的联系，宽度并不一定相等。实际情况是，地址总线的宽度往往随着数据总线的宽度而增长，以访问更大的内存。</p>
 <h4 id="实际支持的物理内存">实际支持的物理内存</h4>
 <p>CPU支持的物理内存只是理论上的数据，实际应用中还会受到操作系统的限制，例如，Win7 64位家庭版最大仅支持8GB或16GB的物理内存，Win7 64位专业版或企业版能够支持到192GB的物理内存。<br />
 Windows Server 2003 数据中心版专为大型企业或国家机构而设计，可以处理海量数据，分为32位版和64位版，32位版最高支持512GB的物理内存，这显然超出了32位CPU的寻址能力，可以通过<strong>两次寻址来实现</strong>。</p>
@@ -364,7 +428,7 @@ Windows 在默认情况下会将高地址的 2GB 空间分配给内核（也可�
 <img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/72f98ca8-61d8-4989-be0c-83de9d6708cf.png" /><br />
 程序代码区、常量区、全局数据区在程序加载到内存后就分配好了，并且在程序运行期间一直存在，不能销毁也不能增加（大小已被固定），只能等到程序运行结束后由操作系统收回，所以全局变量、字符串常量等在程序的任何地方都能访问，因为它们的内存一直都在。</p>
 <blockquote>
-<p>常量区和全局数据区有时也被合称为静态数据区，意思是这段内存专门用来保存数据，在程序运行期间一直存在。</p>
+<p>常量区和全局数据区有时也被合称为<strong>静态数据区</strong>，意思是这段内存专门用来保存数据，在程序运行期间一直存在。</p>
 </blockquote>
 <pre><code>#include &lt;stdio.h&gt;
 
@@ -477,7 +541,7 @@ C语言不会对数组溢出做检测，这是一个典型的由于数组溢出�
 <h4 id="动态内存分配函数">动态内存分配函数</h4>
 <p>1) malloc()</p>
 <pre><code>void* malloc (size_t size);</code></pre>
-<p>2) calloc()</p>
+<p>2) calloc(), 自动初始化该内存空间为零，而malloc不做初始化</p>
 <pre><code>void* calloc(size_t n, size_t size);</code></pre>
 <p>3) realloc()</p>
 <pre><code>void* realloc(void *ptr, size_t size);</code></pre>
@@ -489,7 +553,7 @@ malloc() 实现是向操作系统申请一块适当大小的堆空间，然后�
 <h4 id="链表式内存管理">链表式内存管理</h4>
 <p>在程序运行过程中，堆内存从低地址向高地址连续分配，随着内存的释放，会出现不连续的空闲区域，如下图所示：<br />
 <img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/18fca017-d44d-4b29-b230-c15de2e7cd2c.png" /><br />
-带阴影的方框是已被分配的内存，白色方框是空闲内存或已被释放的内存。程序需要内存时，malloc() 首先遍历空闲区域，看是否有大小合适的内存块，如果有，就分配，如果没有，就向操作系统申请（发生系统调用）。为了保证分配给程序的内存的连续性，malloc() 只会在一个空闲区域中分配，而不能将多个空闲区域联合起来。<br />
+带阴影的方框是已被分配的内存，白色方框是空闲内存或已被释放的内存。程序需要内存时，malloc() 首先遍历空闲区域，看是否有大小合适的内存块，如果有，就分配，如果没有，就向操作系统申请（发生系统调用）。<br />
 内存块（包括已分配和空闲的）的结构类似于链表，它们之间通过指针连接在一起。<br />
 <img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/51aea78a-564d-473c-8990-8e71752f433e.png" /><br />
 <img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/fafc237b-1ef4-4a42-a807-1ce302f01570.png" /><br />
@@ -505,7 +569,7 @@ malloc() 和 free() 所做的工作主要是对已有内存块的<strong>分拆�
 内存池的研究重点不是向操作系统申请内存，而是<strong>对已申请到的内存的管理</strong>。<br />
 * 池化技术<br />
 在计算机中，有很多使用“池”这种技术的地方，除了内存池，还有连接池、线程池、对象池等。以服务器上的线程池为例，它的主要思想是：先启动若干数量的线程，让它们处于睡眠状态，当接收到客户端的请求时，唤醒池中某个睡眠的线程，让它来处理客户端的请求，当处理完这个请求，线程又进入睡眠状态。<br />
-所谓“池化技术”，就是程序先向系统申请过量的资源，然后自己管理，以备不时之需。之所以要申请过量的资源，是因为<strong>每次申请该资源都有较大的开销，不如提前申请好了</strong>，这样使用时就会变得非常快捷，大大提高程序运行效率。</p>
+所谓“池化技术”，就是<strong>程序先向系统申请过量的资源，然后自己管理，以备不时之需</strong>。之所以要申请过量的资源，是因为<strong>每次申请该资源都有较大的开销，不如提前申请好了</strong>，这样使用时就会变得非常快捷，大大提高程序运行效率。</p>
 <h3 id="空指针和野指针悬挂指针">空指针和野指针（悬挂指针）</h3>
 <p>指针指向非法的内存地址，那么这个指针就是<strong>悬挂指针</strong>，也叫野指针。意为无法正常使用的指针。</p>
 <pre><code>#define NULL 0 # 实际上就是让指针＝0，就是让指针受控制</code></pre>
@@ -536,35 +600,35 @@ void main()
 }</code></pre>
 <p>NULL表示没有任何指向。p++没有任何意义，运行时会造成程序崩溃。这里就应该想到不能对NULL的指针进行直接操作。</p>
 <h4 id="使用指向释放掉的内存">3.使用指向释放掉的内存</h4>
-<pre><code>void function( void )  
-{  
-    char* str = new char[100];  
-    delete[] str;  
-    // Do something  
-    strcpy( str, &quot;Dangerous!!&quot; );  
-}      </code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="dt">void</span> function( <span class="dt">void</span> )  </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>{  </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a>    <span class="dt">char</span>* str = new <span class="dt">char</span>[<span class="dv">100</span>];  </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a>    delete[] str;  </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a>    <span class="co">// Do something  </span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a>    strcpy( str, <span class="st">&quot;Dangerous!!&quot;</span> );  </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true"></a>}      </span></code></pre></div>
 <p>之所以说其危险，是因为这是一段完全合乎语法的代码，编译的时候完美得一点错误也不会有，<br />
 然而当运行到strcpy一句的时候，问题就会出现，因为在这之 前，<br />
 str的空间已经被delete掉了，所以strcpy当然不会成功。</p>
 <h4 id="指针所指的对象已经消亡">4.指针所指的对象已经消亡</h4>
 <p>比如函数中的局部变量在函数调用结束消失</p>
-<pre><code>char * getstring3()
-{
-    char buf[30];
-    strcpy(buf, &quot;abcde&quot;);
-    return buf; //因为其在栈空间内，掉用此函数返回的是错的
-}     
-int main()
-{
-    char * ch = getstring3()
-} </code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="dt">char</span> * getstring3()</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>{</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>    <span class="dt">char</span> buf[<span class="dv">30</span>];</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a>    strcpy(buf, <span class="st">&quot;abcde&quot;</span>);</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a>    <span class="cf">return</span> buf; <span class="co">//因为其在栈空间内，掉用此函数返回的是错的</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a>}     </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true"></a><span class="dt">int</span> main()</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true"></a>{</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true"></a>    <span class="dt">char</span> * ch = getstring3()</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true"></a>} </span></code></pre></div>
 <h4 id="指针指向常量区且对其写访问">5.指针指向常量区且对其写访问</h4>
-<pre><code> {
-    char *p = &quot;abcdefg&quot;;
-    p = 100;
-    printf(&quot;%x \n&quot;, p);
-    *p = &#39;z&#39;; //也会报错，字符串是在全局区--&gt;常量区
- }</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a> {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a>    <span class="dt">char</span> *p = <span class="st">&quot;abcdefg&quot;</span>;</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a>    p = <span class="dv">100</span>;</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a>    printf(<span class="st">&quot;%x </span><span class="sc">\n</span><span class="st">&quot;</span>, p);</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a>    *p = <span class="ch">&#39;z&#39;</span>; <span class="co">//也会报错，字符串是在全局区--&gt;常量区</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a> }</span></code></pre></div>
 <h4 id="realloc函数使用不当">6.realloc函数使用不当</h4>
 <pre><code>#include&lt;malloc.h&gt;
 void main()
@@ -623,19 +687,19 @@ char *str = &quot;http://c.biancheng.net&quot;;    //我们将第二种形式的
 <p>它们最根本的区别是在内存中的存储区域不一样，字符数组存储在全局数据区或栈区，第二种形式的字符串存储在常量区。<br />
 全局数据区和栈区的字符串（也包括其他数据）有读取和写入的权限，<br />
 而常量区的字符串（也包括其他数据）只有读取权限，没有写入权限。</p>
-<pre><code>#include &lt;stdio.h&gt;
-int main(){
-    char *str = &quot;Hello World!&quot;;
-    str = &quot;I love C!&quot;; //正确，可以把指针指向其他地方
-    str[3] = &#39;P&#39;; //错误
-    return 0;
-}</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true"></a><span class="dt">int</span> main(){</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true"></a>    <span class="dt">char</span> *str = <span class="st">&quot;Hello World!&quot;</span>;</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true"></a>    str = <span class="st">&quot;I love C!&quot;</span>; <span class="co">//正确，可以把指针指向其他地方</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true"></a>    str[<span class="dv">3</span>] = <span class="ch">&#39;P&#39;</span>; <span class="co">//错误</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true"></a>}</span></code></pre></div>
 <p>到底使用字符数组还是字符串常量？<br />
 获取用户输入的字符串就是一个典型的写入操作，只<strong>能使用字符数组</strong>，不能使用字符串常量。</p>
 <h3 id="指针变量作为函数参数">指针变量作为函数参数</h3>
 <pre><code>int max(int intArr[6], int len){ ... }</code></pre>
-<p>不管是int intArr[6]还是int intArr[]都不会创建一个数组出来，编译器也不会为它们分配内存，它们最终还是会转换为<code>int *intArr</code>这样的指针。<br />
-int intArr[6]这种形式只能说明<strong>函数期望</strong>用户传递的数组有 6 个元素，并不意味着数组只能有 6 个元素，真正传递的数组可以有少于或多于 6 个的元素。</p>
+<p>不管是<code>int intArr[6]</code>还是int intArr[]都不会创建一个数组出来，编译器也不会为它们分配内存，它们最终还是会转换为<code>int *intArr</code>这样的指针。<br />
+<code>int intArr[6]</code>这种形式只能说明<strong>函数期望</strong>用户传递的数组有 6 个元素，并不意味着数组只能有 6 个元素，真正传递的数组可以有少于或多于 6 个的元素。</p>
 <pre><code>// 二维数组的情况
 void f(int a[5])-----&gt; void f(int a[]); -----&gt;  void f(int* a);
 void g(int a[3][5])-----&gt; void g(int a[][5]); -----&gt;  void g(int (*a)[5]);  
@@ -664,41 +728,41 @@ changeNum(&amp;a);</code></pre>
 <li>返回一级指针<br />
 注意：返回的指针不能指向局部变量。</li>
 </ol>
-<pre><code>char * getBuffer()
-{
- char *p = (char *)malloc(100*sizeof(char));
- return p;
-}</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"></a><span class="dt">char</span> * getBuffer()</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a>{</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true"></a> <span class="dt">char</span> *p = (<span class="dt">char</span> *)malloc(<span class="dv">100</span>*<span class="kw">sizeof</span>(<span class="dt">char</span>));</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true"></a> <span class="cf">return</span> p;</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true"></a>}</span></code></pre></div>
 <ol>
 <li>二级指针做输入(通常是字符串数组)</li>
 </ol>
-<pre><code>int main(int arc ,char *arg[]);          //指针数组
-int shouMatrix(int [3][4], int iLine);  //二维字符串数组</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true"></a><span class="dt">int</span> main(<span class="dt">int</span> arc ,<span class="dt">char</span> *arg[]);          <span class="co">//指针数组</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true"></a><span class="dt">int</span> shouMatrix(<span class="dt">int</span> [<span class="dv">3</span>][<span class="dv">4</span>], <span class="dt">int</span> iLine);  <span class="co">//二维字符串数组</span></span></code></pre></div>
 <ol>
 <li>二级指针做输出（改变指针的值）</li>
 </ol>
-<pre><code>void getBuffer(char ** buff)
-{
- char *p = (char *)malloc(100*sizeof(char));
- *buff = p；
- return;
-}</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true"></a><span class="dt">void</span> getBuffer(<span class="dt">char</span> ** buff)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true"></a>{</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true"></a> <span class="dt">char</span> *p = (<span class="dt">char</span> *)malloc(<span class="dv">100</span>*<span class="kw">sizeof</span>(<span class="dt">char</span>));</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true"></a> *buff = p；</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true"></a> <span class="cf">return</span>;</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true"></a>}</span></code></pre></div>
 <p>一般都有对应的释放函数</p>
-<pre><code>int freeBuffer(char *p)
-{
-    if (p ==NULL)
-    {
-        return -1;
-    }
-    if (p != NULL)
-    {
-        free(p);
-    }
-    return 0;
-}</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true"></a><span class="dt">int</span> freeBuffer(<span class="dt">char</span> *p)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true"></a>{</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true"></a>    <span class="cf">if</span> (p ==NULL)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true"></a>    {</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true"></a>        <span class="cf">return</span> -<span class="dv">1</span>;</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true"></a>    }</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true"></a>    <span class="cf">if</span> (p != NULL)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true"></a>    {</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true"></a>        free(p);</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true"></a>    }</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true"></a>}</span></code></pre></div>
 <h3 id="c语言二级指针指向指针的指针详解">C语言二级指针（指向指针的指针）详解</h3>
 <p>如果一个指针指向的是另外一个指针，我们就称它为二级指针<br />
-其实还是指针，只是用来表明含义用</p>
+其实还是指针，<strong>只是用来表明不同的含义用</strong></p>
 <pre><code>int a =100;
 int *p1 = &amp;a;
 int **p2 = &amp;p1;</code></pre>
@@ -722,7 +786,7 @@ C语言动态内存分配函数 malloc() 的返回值就是<code>void *</code>�
 <strong>站在编译器的角度讲</strong>，变量名、数组名都是一种符号，它们最终都要和数据绑定起来。<br />
 变量名用来指代一份数据，<strong>数组名</strong>用来指代一组数据（数据集合），<strong>它们都是有类型的</strong>，以便推断出所指代的数据的长度。<br />
 对，数组也有类型，这是很多读者没有意识到的，大部分C语言书籍对这一点也含糊其辞！我们可以将 int、float、char 等理解为基本类型，将数组理解为由基本类型派生得到的稍微复杂一些的类型。sizeof 就是根据符号的类型来计算长度的。<br />
-int a[6] = {0, 1, 2, 3, 4, 5}; 它的类型是<code>int [6]</code>，表示这是一个<strong>拥有 6 个 int 数据的集合</strong>。<code>int [3]</code>表示3个 int 数据的集合<br />
+<code>int a[6] = {0, 1, 2, 3, 4, 5};</code> 它的类型是<code>int [6]</code>，表示这是一个<strong>拥有 6 个 int 数据的集合</strong>。<code>int [3]</code>表示3个 int 数据的集合<br />
 整数、小数、数组、指针等不同类型的数据都是对内存的抽象，它们的名字用来指代不同的内存块，程序员在编码过程中不需要直接面对内存，使用这些名字将更加方便。<br />
 编译器在编译过程中会创建一张专门的<strong>表格(符号表)</strong> 用来保存名字以及名字对应的数据类型、长度、地址、作用域等信息，sizeof 是一个操作符，不是函数，使用 sizeof 时可以从这张表格中查询到符号的长度。<br />
 与普通变量名相比，数组名既有一般性也有特殊性：<br />
@@ -764,7 +828,7 @@ int (*p2)[5]; //二维数组指针，不能去掉括号，  它是一个指针�
 num代表数组首元素地址 &amp;num代表数组的地址 他们的步长不一样</p>
 <pre><code>sizeof(*num) //4
 sizeof(*&amp;num) 20</code></pre>
-<p>int num[3][4] = {1,2,3,4,5,6,7,8,9,10,11,12}<br />
+<p><code>int num[3][4] = {1,2,3,4,5,6,7,8,9,10,11,12}</code><br />
 这是一个包含3个元素，每个元素又包含4个int的数组</p>
 <pre><code>指针的步长，根据所指内存空间类型来定
 num代表第一个4个int的东西 步长为16
@@ -797,13 +861,13 @@ int main(){
 <pre><code>int main();
 int main(int argc, char *argv[]);</code></pre>
 <h3 id="对c语言指针的总结">对C语言指针的总结</h3>
-<pre><code>定 义        含 义
-int *p;       p可以指向 int 类型的数据，也可以指向类似 int arr[n] 的数组。
-int **p;      p为二级指针，指向 int * 类型的数据。
-int *p[n];    p为指针数组。[ ] 的优先级高于 *，所以应该理解为 int *(p[n]);
-int (*p)[n];  p为二维数组指针。
-int *p();     p是一个函数声明，它的返回值类型为 int *。
-int (*p)();   p是一个函数指针，指向原型为 int func() 的函数。</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true"></a>定 义        含 义</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true"></a><span class="dt">int</span> *p;       p可以指向 <span class="dt">int</span> 类型的数据，也可以指向类似 int arr[n] 的数组。</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true"></a><span class="dt">int</span> **p;      p为二级指针，指向 <span class="dt">int</span> * 类型的数据。</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true"></a><span class="dt">int</span> *p[n];    p为指针数组。[ ] 的优先级高于 *，所以应该理解为 <span class="dt">int</span> *(p[n]);</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true"></a><span class="dt">int</span> (*p)[n];  p为二维数组指针。</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true"></a><span class="dt">int</span> *p();     p是一个函数声明，它的返回值类型为 <span class="dt">int</span> *。</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true"></a><span class="dt">int</span> (*p)();   p是一个函数指针，指向原型为 <span class="dt">int</span> func() 的函数。</span></code></pre></div>
 <h3 id="深copy和浅copy">深copy和浅copy</h3>
 <p>结构体复制的时候，如果有指针的话，只会复制其指针</p>
 <pre><code>typedef struct _AdvTeacher

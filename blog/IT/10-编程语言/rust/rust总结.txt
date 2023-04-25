@@ -1,0 +1,1067 @@
+通用概念
+    变量
+        可变/不可变  
+        变量遮蔽（shadow）
+        变量解构（destructuring）
+    全局变量
+        常量
+            编译时编译器会尽可能将其内联到代码中
+        静态变量
+            必须使用unsafe语句块才能访问，因为在多线程中是不安全的
+            静态变量都是在编译期初始化，用lazy_static可以在运行期初始化静态变量
+        原子类型
+            想要全局计数器、状态控制等功能，又想要线程安全的实现
+            AtomicBool AtomicIsize AtomicUsize AtomicI8 AtomicU8 AtomicPtr<T>
+        Box::leak
+            使堆上的数据全局化，将一个 Box<T> 的所有权转换为静态生命周期
+            主要用于在一些需要手动管理内存的场景中，例如实现类似单例模式的功能，或者将某个对象的生命周期延长到程序结束时。
+                struct Counter {
+                    count: usize,
+                }
+
+                impl Counter {
+                    fn new() -> Self {
+                        Counter { count: 0 }
+                    }
+
+                    fn increment(&mut self) {
+                        self.count += 1;
+                    }
+
+                    fn get_count(&self) -> usize {
+                        self.count
+                    }
+                }
+
+                lazy_static::lazy_static! {
+                    static ref COUNTER: *mut Counter = Box::leak(Box::new(Counter::new()));
+                }
+
+                fn main() {
+                    // 访问计数器的方法
+                    unsafe {
+                        (*COUNTER).increment();
+                        println!("Count: {}", (*COUNTER).get_count());
+                    }
+                }
+        lazy::OnceCell、lazy::SyncOnceCell
+            它们用来存储堆上的信息，并且具有最多只能赋值一次的特性
+    表达式
+        Rust 中除了 let / fn / static / const 这些定义性语句外，都是**表达式**，而一切表达式都有类型
+
+        let if
+            let number = if condition { 5 } else { 6 };
+        let loop
+            let mut counter = 0;
+            let result = loop {  //result = 20
+                counter += 1;
+
+                if counter == 10 {
+                    break counter * 2;
+                }
+            };
+    控制流
+        循环
+            loop 
+            while 
+            for in
+        match
+        if let
+            是 match 的一个语法糖，只会匹配某一模式
+            let config_max = Some(3u8);
+            if let Some(max) = config_max {
+                println!("The maximum is configured to be {}", max);
+            }
+
+    模式匹配
+        解构结构体
+            let p = Point { x: 0, y: 7 };
+            let Point { x, y } = p;
+        解构结构体和元组
+            let ((feet, inches), Point { x, y }) = ((3, 10), Point { x: 3, y: -10 });
+        解构枚举
+            enum Message {
+                Quit,
+                Move { x: i32, y: i32 },
+                Write(String),
+                ChangeColor(i32, i32, i32),
+            }
+            let msg = Message::ChangeColor(0, 160, 255);
+            match msg {
+                Message::Quit => {
+                    println!("The Quit variant has no data to destructure.");
+                }
+                Message::Move { x, y } => {
+                    println!("Move in the x direction {x} and in the y direction {y}");
+                }
+                Message::Write(text) => {
+                    println!("Text message: {text}");
+                }
+                Message::ChangeColor(r, g, b) => {
+                    println!("Change the color to red {r}, green {g}, and blue {b}",)
+                }
+            }
+        忽略模式
+            let _x = 5;   //可以不使用
+
+            fn foo(_: i32, y: i32) {    // 可能为了兼容啥的吧
+                println!("This code only uses the y parameter: {}", y);
+            }
+
+            let mut setting_value = Some(5);
+            let new_setting_value = Some(10);
+            match (setting_value, new_setting_value) {
+                (Some(_), Some(_)) => {      //只使用下划线本身，并不会绑定值
+                    println!("Can't overwrite an existing customized value");
+                }
+                _ => {
+                    setting_value = new_setting_value;
+                }
+            }
+            
+            用 .. 忽略剩余值
+            let origin = Point { x: 0, y: 0, z: 0 };
+            match origin {
+                Point { x, .. } => println!("x is {}", x),
+            }
+        
+        匹配字面值
+            let x = 1;
+
+            match x {
+                1 => println!("one"),
+                2 => println!("two"),
+                3 => println!("three"),
+                _ => println!("anything"),
+            }
+        匹配命名变量
+            let x = Some(5);
+            let y = 10;
+
+            match x {
+                Some(50) => println!("Got 50"),
+                Some(y) => println!("Matched, y = {y}"),
+                _ => println!("Default case, x = {:?}", x),
+            }
+        多个模式
+            let x = 1;
+
+            match x {
+                1 | 2 => println!("one or two"),
+                3 => println!("three"),
+                _ => println!("anything"),
+            }
+        通过 ..= 匹配值的范围
+            let x = 5;
+
+            match x {
+                1..=5 => println!("one through five"),
+                _ => println!("something else"),
+            }
+        匹配守卫（match guard）
+            是一个指定于 match 分支模式之后的额外 if 条件
+            Some(x) if x % 2 == 0 => println!("The number {} is even", x),
+        @ 绑定,可以在一个模式中同时测试和保存变量值
+            match msg {
+                Message::Hello {
+                    id: id_variable @ 3..=7,  //测试id是否在3..=7之间，并将值赋给id_variable
+                } => println!("Found an id in range: {}", id_variable),
+                Message::Hello { id: 10..=12 } => {
+                    println!("Found an id in another range")
+                }
+                Message::Hello { id } => println!("Found some other id: {}", id),
+            }
+
+内存安全	
+    所有权
+        一份内存只有一个所有者，使内存管理更方便
+        规则：
+            一个值只能被一个变量所拥有，一个值同一时刻只能有一个所有者
+            赋值时(广义的)会发生所有权转移(Move 语义)，使用被转移所有权的变量会编译不通过
+            当所有者离开作用域，其拥有的值被丢弃
+        例外规则：
+            实现Copy trait值会进行copy(Copy语义)
+            借用
+        转移所有权的情况
+            赋值给另一个变量
+            给函数传递参数
+            从函数返回值
+            分配内存：当使用 Vec::new() 或 String::new()，其实是从函数返回值的情况
+            闭包move
+            match 表达式中的模式匹配
+            if let中的模式匹配
+            调用带有 self 参数的方法
+            struct MyStruct {
+                field: String,
+            }
+            impl MyStruct {
+                fn consume(self) {
+                    println!("Consumed {}", self.field);
+                }
+            }
+            my_struct.consume(); // 移动 my_struct 的所有权到 consume() 方法中
+
+    Copy trait
+        * 原生类型，包括函数(其实就是个指针)、不可变引用和裸指针实现了 Copy；
+        * 数组和元组，如果其内部的数据结构实现了 Copy，那么它们也实现了 Copy；
+        * 可变引用没有实现 Copy；
+        * 非固定大小的数据结构，没有实现 Copy。
+    
+    借用(引用)
+        避免所有权在函数之间来回专递的麻烦，使用引用的时候得需要解引用
+        规则：
+            * 默认下Rust的借用都是只读的
+            * 引用必须总是有效的，不能超过（outlive）值的生存期，否则编译不过
+            * 在一个作用域内，仅允许一个活跃的可变引用。所谓活跃，就是真正被使用来修改数据的可变引用，如果只是定义了，却没有使用或者当作只读引用使用，不算活跃。
+            * 在一个作用域内，活跃的可变引用（写）和只读引用（读）是互斥的，不能同时存在。
+        Deref解引用
+            隐式deref(Deref 强制转换（deref coercions）)，会执行任意多次，在编译期间完成
+                传参时
+                用智能指针调用方法时，智能指针会deref
+            常用转换
+                String 在解引用时，会转换成 &str
+                Vec<T> 和 [T; n] 会转化成为 &[T]
+    生命周期(伴随着引用)
+        主要目标是避免悬垂引用，通过借用检查器（borrow checker），来检查**借用**超过（outlive）值的生存期的情况
+        在没有函数调用的情况下，检查容易，但是在函数调用情况下有时得明确的告诉编译器才行
+        生命周期省略（Lifetime Elision）
+            1.每一个引用参数都会获得独自的生命周期
+                fn foo<'a, 'b>(x: &'a i32, y: &'b i32)
+            2.若只有一个输入生命周期(函数参数中只有一个引用类型)，那么该生命周期会被赋给所有的输出生命周期
+                fn foo<'a>(x: &'a i32) -> &'a i32
+            3.若存在多个输入生命周期，且其中一个是 &self 或 &mut self，则 &self 的生命周期被赋给所有的输出生命周期
+        
+        生命周期注解语法，编译器无法识别时就要程序员来上了
+            描述多个参数与其返回值的生命周期的关联，而不影响其生命周期，
+            其本质是将参数的生命周期传到函数中，返回值自然也就知道自己的生命周期有多长了
+            例子：
+                fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {  'a代表x和y作用域的交集
+                函数返回的引用的生命周期与函数参数所引用的值的生命周期的较小者一致
+                
+        结构体定义中的生命周期注解
+            struct ImportantExcerpt<'a> {
+                part: &'a str,
+            }
+            意味着 ImportantExcerpt 的实例不能比其 part 字段中的引用存在的更久            
+        方法定义中的生命周期注解
+            struct ImportantExcerpt<'a> {
+                part: &'a str,
+            }
+            impl<'a> ImportantExcerpt<'a> { //因为生命周期标注也是结构体类型的一部分,故得加上<'a>
+                fn level(&self) -> i32 {    //由省略规则，这里不需要标注
+                    3
+                }
+            }
+类型系统
+    类型安全
+        类型安全是指代码，只能按照被允许的方法，访问它被授权访问的内存。
+        
+    类型大小
+        编译期可确定大小的类型（Sized Type）
+            &str由指针和长度信息组成
+        动态大小的类型（Dynamic Sized Type，DST）
+            切片 
+            特征对象 dyn Trait
+                fn foobar_1(thing: &dyn MyThing) {}     // OK
+                fn foobar_2(thing: Box<dyn MyThing>) {} // OK
+                fn foobar_3(thing: MyThing) {}          // ERROR!
+        
+            泛型中的动态大小
+                fn generic<T: ?Sized>(t: &T) {  因为T可能是动态数据类型，所以得使用引用
+                    // --snip--
+                }        
+            递归类型
+                enum List {  //会出错
+                    Cons(i32, List),
+                    Nil,
+                }
+                enum List {   //用box包一下
+                    Cons(i32, Box<List>),
+                    Nil,
+                }
+        零大小类型 （Zero Sized Type，ZST）
+            单元类型
+                () 默认会返回单元类型
+            单元结构体
+                struct UnitStruct;
+        底类型
+            1.没有值 2.是其他任意类型的子类型。
+            底类型是 ()
+        never(!)
+            根本无法返回值的情况
+
+             发散函数（Diverging Function）
+             continue 和 break 关键字
+             loop 循环
+             空枚举，比如 enum Void{}
+    原生类型
+        bool
+        char
+        i8/i16/i32/i64/i128/isize
+        u8/u16/u32/u64/u128/usize
+        f32/f64
+        array
+            [T,N]
+        tuple
+        slice
+            切片一般只出现在数据结构的定义中，不能直接访问
+            str
+                str是一个切片。&str是str切片的引用，存储于栈上，str字符串序列存储于堆上，切片只能分配到堆上，只能用切片引用来使用切片
+                字符串字面  let s = "Hello, world!";  s值是slice &str
+            [T]
+                比如[i8]  &[i8]这个是切片的引用
+                &[T] 指向的位置可以是栈也可以是堆；此外，Box<[T]> 对数据具有所有权，而 &[T] 只是一个借用
+        指针
+        引用
+        函数
+    组合类型
+        struct
+            字段初始化简写语法（field init shorthand）
+                fn build_user(email: String, username: String) -> User {
+                    User {
+                        active: true,
+                        username,
+                        email,
+                        sign_in_count: 1,
+                    }
+                }
+            结构体更新语法（struct update syntax）
+                let user2 = User {
+                    email: String::from("another@example.com"),
+                    ..user1    // user1中的所有权会转移  Move语义
+                };
+            元组结构体
+                struct Color(i32, i32, i32);  //跟正常的区别是这里是小括号
+            类单元结构体（unit-like structs）
+                类单元结构体常常在你想要在某个类型上实现 trait 但不需要在类型中存储数据的时候发挥作用
+                struct AlwaysEqual;
+            关联函数
+                为结构体实现方法
+        enum
+        Option<T>
+            有或没有返回值
+        Result<T, E>
+            正确的值，有时返回错误的值
+        String
+        Vec<T>  
+            丢弃 vector 时也会丢弃其所有元素  
+        VecDeque<T>
+        LinkedList<T>
+        HashMap<K,V>   
+        BTreeMap<K, V>
+            和HashMap的区别是有序的，在遍历时，BTreeMap 会按照 key 的顺序
+        HashSet<T> 
+            实际上是 HashMap<K, ()> 的一个类型别名   
+            使用 HashSet 查看一个元素是否属于集合的效率非常高。
+        BTreeSet<T>
+
+        Mutex<T>
+        RwLock<T>
+
+    智能指针
+        Box<T> 
+            分配在堆上的类型T， 
+            数据较大时，又不想在转移所有权时进行数据拷贝
+            类型的大小在编译期无法确定，但是我们又需要固定大小的类型时
+            Box<[T]> 
+                只会指向堆，&[T] 指向的位置可以是栈也可以是堆；
+                Box<[T]> 对数据具有所有权，而 &[T] 只是一个借用
+                一旦生成就固定下来，没有 capacity，也无法增长
+                如何产生 Box<[T]> ？从已有的 Vec<T> 中转换
+                    let b1 = v1.into_boxed_slice();  // 从 Vec<T> 转换成 Box<[T]>，此时会丢弃多余的 capacity
+                    let v2 = b1.into_vec();     
+
+
+        Rc/Arc
+            绕过一个值只有一个所有者的限制，在运行过程中，通过对引用计数的检查保证安全
+            Rc 会把对应的数据结构创建在堆上，堆是唯一可以让动态创建的数据被到处使用的内存。
+            Rc(Reference counter)
+                clone()  增加引用计数
+            Arc(Atomic reference counter)
+                所线程中使用
+        Weak<T>
+            弱引用，解决循环引用不能释放的问题
+        Cell/RefCell        
+            实现编译期可变、不可变引用共存
+            内部可变性，允许我们在运行时，对某个只读数据进行可变借用
+            Cell     
+                对实现Copy特征的数据进行修改，一般用的不多
+            RefCell
+                RefCell 只是将借用规则从编译期推迟到程序运行期，并不能帮你绕过这个规则
+                RefCell 适用于编译期误报或者一个引用被在多处代码使用、修改以至于难于管理借用关系时
+                使用 RefCell 时，违背借用规则会导致运行期的 panic
+        Cow<'a, B>
+            写时复制，用来优化内存分配  
+            Cow 结构是一种使用 enum 根据当前的状态进行分发的经典方案
+
+    新类型
+        Type Alias
+            type Meters = u32;  其实就是将类型当做变量来使用
+        newtype
+            struct Meters(u32);
+            1.为外部类型实现外部特征 2.更好的可读性及类型异化 3.隐藏内部类型的细节
+    
+    强类型
+        类型推导
+            在一个作用域之内，Rust 可以根据**变量使用的上下文**，推导出变量的类型
+            即使上下文中含有类型的信息，也需要开发者为变量提供类型，比如常量和静态变量的定义
+            手动标注类型
+                在泛型函数后使用  ::<T> 来强制使用类型 T，这种写法被称为 turbofish
+        类型转换(规则最多的地方，也是比较难的地方)    
+            as
+            TryInto
+            方法调用的点操作符
+                值方法调用->引用方法调用->解引用方法调用->定长转不定长
+            
+            mem::transmute<T, U>
+                唯一的要求就是，这两个类型占用同样大小的字节数
+            mem::transmute_copy<T, U>
+            
+            
+    泛型(静态分发(static dispatch))    
+        生命周期标注其实也是泛型的一部分
+        泛型数据结构
+            struct
+                struct Point<T> {
+                    x: T,
+                    y: T,
+                }
+
+            enum
+                enum Option<T> {
+                    Some(T),
+                    None,
+                }
+        泛型函数
+            fn largest<T>(list: &[T]) -> T {
+                let mut largest = list[0];
+
+                for &item in list.iter() {
+                    if item > largest {
+                        largest = item;
+                    }
+                }
+
+                largest
+            }
+        泛型方法
+            struct Point<T> {
+                x: T,
+                y: T,
+            }
+
+            impl<T> Point<T> {     //第一个<>中的T表明第二个<>中的T为泛型
+                fn x(&self) -> &T {
+                    &self.x
+                }
+            }
+        为具体的泛型类型实现方法
+            impl Point<f32> {     // 类似c++的偏特化
+                fn distance_from_origin(&self) -> f32 {
+                    (self.x.powi(2) + self.y.powi(2)).sqrt()
+                }
+            }
+        const泛型
+            fn display_array<T: std::fmt::Debug, const N: usize>(arr: [T; N]) {
+                println!("{:?}", arr);
+            }
+        const 泛型表达式
+            fn something<T>(val: T)
+            where
+                Assert<{ core::mem::size_of::<T>() < 768 }>: IsTrue,
+                //       ^-----------------------------^ 这里是一个 const 表达式，换成其它的 const 表达式也可以
+
+        单态化（Monomorphization）
+            好处：泛型函数的调用是静态分派（static dispatch）
+            坏处：1.编译速度慢 2.二进制会比较大 3.代码以二进制分发会损失泛型的信息
+            
+        泛型参数的约束
+            类似函数参数的类型声明，用 “:” 来表明约束
+            使用where子句
+
+    
+    trait
+        trait是Rust中的接口，它定义了类型使用这个接口的行为
+        trait其实就是对类型的一个约束，约束其行为，这样会使类型更加安全
+        
+        trait的定义和实现
+            pub trait Summary {
+                fn summarize_author(&self) -> String;   // 可以有默认实现
+
+                fn summarize(&self) -> String {
+                    format!("(Read more from {}...)", self.summarize_author())
+                }
+            }
+            
+            pub struct Tweet {
+                pub username: String,
+                pub content: String,
+                pub reply: bool,
+                pub retweet: bool,
+            }
+
+            impl Summary for Tweet {
+                fn summarize(&self) -> String {
+                    format!("{}: {}", self.username, self.content)
+                }
+            }
+            
+        特征定义与实现的位置(孤儿规则)
+            如果你想要为类型 A 实现特征 T，那么 A 或者 T 至少有一个是在当前作用域中定义的！
+            目的：可以确保其它人编写的代码不会破坏你的代码，也确保了你不会莫名其妙就破坏了风马牛不相及的代码。
+            
+        trait作为参数 && Trait Bound(特征约束)     
+            pub fn notify<T: Summary>(item: T) {
+            pub fn notify(item: impl Summary) { //语法糖  
+            
+            pub fn notify<T: Summary + Display>(item: T) {
+            pub fn notify(item: impl Summary + Display) {  //语法糖  
+
+            where 简化 trait bound
+            fn some_function<T: Display + Clone, U: Clone + Debug>(t: T, u: U) -> i32 {
+
+            fn some_function<T, U>(t: T, u: U) -> i32
+                where T: Display + Clone,
+                      U: Clone + Debug
+            {
+        
+        trait作为返回值
+            在闭包和迭代器场景十分的有用，而无需写出实际的冗长的类型
+            fn returns_summarizable() -> impl Summary {
+                xxx
+            }
+        
+        使用 trait bound 有条件地实现方法
+            impl<T: Display + PartialOrd> Pair<T> {   实现了指定约束条件的T才会拥有下面的方法
+                fn cmp_display(&self) {
+                    if self.x >= self.y {
+                        println!("The largest member is x = {}", self.x);
+                    } else {
+                        println!("The largest member is y = {}", self.y);
+                    }
+                }
+            }
+        
+        泛型trait
+            pub trait Add<Rhs = Self> {
+                type Output;
+                #[must_use]
+                fn add(self, rhs: Rhs) -> Self::Output;
+            }
+        关联类型（associated types）
+            在特征定义的语句块中，申明一个自定义类型，这样就可以在特征的方法签名中使用该类型,把相关的类型的确定延迟到 trait 实现的时候
+            实现的时候需要    type Item = xx; 这样定义
+            目的：提升代码的可读性
+        默认泛型类型参数    
+            trait Add<RHS=Self> {
+                type Output;
+
+                fn add(self, rhs: RHS) -> Self::Output;
+            }
+        trait 的“继承”
+            pub trait Copy: Clone {}   // copy为 marker trait
+            比如 trait B: A ， // trait B 在定义时可以使用 trait A 中的关联类型和方法。   
+
+        常见的trait
+            内存相关：Clone / Copy / Drop
+                Clone
+                    clone
+                    clone_from  更高效
+                Copy
+                    pub trait Copy: Clone {}   marker trait
+                Copy trait 和 Drop trait 是互斥的，Copy 是按位做浅拷贝，那么它会默认拷贝的数据没有需要释放的资源；而 Drop 恰恰是为了释放额外的资源而生的。
+                Allocator
+                    allocate deallocate grow/shrink
+            标记trait(marker trait)：Sized / Send / Sync / Unpin
+                Sized
+                    在使用泛型参数时，Rust 编译器会自动为泛型参数加上 Sized 约束
+
+            类型转换相关：
+                From<T>/Into<T>  
+                    实现 From<T> 的时候会自动实现 Into<T>
+                FromStr
+                    实现它之后，就可以调用字符串的 parse() 泛型函数，很方便地处理字符串到某个类型的转换了
+                TryFrom<T>/TryInto<T> 
+                    返回的结果为 Result<T, Self::Error>
+                AsRef<T>/AsMut<T>
+                    引用类型到引用类型的转换
+            操作符相关：
+                解引用
+                    Deref/DerefMut
+                        struct MyBox<T>(T);
+                        impl<T> Deref for MyBox<T> {
+                            type Target = T;
+
+                            fn deref(&self) -> &Self::Target {
+                                &self.0     //返回引用，因为并不希望获取 MyBox<T> 内部值的所有权
+                            }
+                        }
+                        *b 会被展开为 *(b.deref())
+                算数运算   
+                    Add Addssign(+=) Sub Mul Div Neg(-) Rem(%)
+                索引
+                    Index IndexMut
+
+            其它：Debug / Display / Default
+                Debug 是为开发者调试打印数据结构所设计的，而 Display 是给用户显示数据结构所设计的。
+                Debug 用 {:?} 来打印，Display 用 {} 打印。
+                Default
+                    pub fn new(name: &str) -> Self {
+                        // 用 ..Default::default() 为剩余字段使用缺省值
+                        Self {
+                            name: name.to_owned(),
+                            ..Default::default()
+                        }
+                    }
+                    
+                    let dev1 = Developer::default();
+            IntoIterator 迭代器
+                into_iter()
+            Iterator 
+                fn next(&mut self) -> Option<Self::Item>;
+
+    Trait Object
+        特征对象,动态分发(dynamic dispatch),动态的多态，类似c++中的虚函数，需要指针或引用
+        特征对象可以是任意实现了某个特征的类型，故在编译期间不可知，可以通过 & 引用或者 Box<T> 智能指针的方式来创建特征对象
+        Trait Object 的底层逻辑就是**胖指针**。其中，一个指针指向数据本身，另一个则指向虚函数表（vtable）。
+        vtable 是一张静态的表，Rust 在编译时会为每种类型的每个 trait 实现生成一张表，放在可执行文件中（一般在 TEXT 或 RODATA 段）
+        vtable 中存储了每个方法的地址，当调用特征对象的方法时，Rust 会根据 vtable 中的地址来调用对应的方法。
+
+        // 若 T 实现了 Draw 特征， 则调用该函数时传入的 Box<T> 可以被隐式转换成函数参数签名中的 Box<dyn Draw>
+        fn draw1(x: Box<dyn Draw>) {
+            // 由于实现了 Deref 特征，Box 智能指针会自动解引用为它所包裹的值，然后调用该值对应的类型上定义的 `draw` 方法
+            x.draw();
+        }
+
+        fn draw2(x: &dyn Draw) {
+            x.draw();
+        }
+        
+        let x = 1.1f64;
+        draw1(Box::new(x));
+        draw2(&x);
+        
+        特征对象的限制
+            方法的返回类型不能是 Self
+                不允许返回 Self，是因为 trait object 在产生时，原来的类型会被抹去，所以 Self 究竟是谁不知道。
+                因为 Self 是一个具体的类型，而特征对象是一个动态的类型，所以不能使用 Self 作为返回类型。
+            方法没有任何泛型参数
+                不允许携带泛型参数，是因为 Rust 里带泛型的类型在编译时会做单态化，而 trait object 是运行时的产物，两者不能兼容。
+
+
+错误处理
+    组合器，函数式错误处理
+        or() 和 and()               类似短路 || &&
+        or_else() 和 and_then()     区别是第二个表达式是一个闭包
+        filter                      对 Option 进行过滤
+        map()                       map Some 或 Ok
+        map_err()                   map Err
+        map_or() 和 map_or_else()   在 map 的基础上提供了一个默认值
+        ok_or() and ok_or_else()    Option类型转换为Result
+        unwrap_or_else              返回Some中的值，或者else
+    must_use标注
+        Result 类型声明时有个 must_use 的标注，编译器会对有 must_use 标注的所有类型做特殊处理：如果该类型对应的值没有被显式使用，则会告警
+    可恢复错误 Result<T, E>
+        unwrap 
+            成功则返回值，失败则 panic，总之不进行任何错误处理
+        expect    
+            在unwarp基础上返回自定义错误信息 
+            let f = File::open("hello.txt").expect("Failed to open hello.txt");
+        传播错误（体验是很爽的）
+            '?'可以提前返回E， '?'也可用在Option中，提前返回None
+            File::open("hello.txt")?.read_to_string(&mut s)?;
+            ? 操作符内部被展开成类似这样的代码：
+                match result {
+                  Ok(v) => v,
+                  Err(e) => return Err(e.into())
+                }
+
+    不可恢复错误 panic!
+        如果是 main 线程，则程序会终止，如果是其它子线程，该线程会终止，但是不会影响 main 线程
+        数组访问越界，就要 panic 的原因，保证内存安全
+        你确切的知道你的程序是正确时，可以使用 panic
+    catch_unwind 
+        可以用来捕获panic，并被转换为一个 Result
+
+    自定义错误类型
+        自定义错误类型只需要实现 Debug 和 Display 特征即可
+    错误转换 From 特征
+        比如将io库中的Error转换成自定义的AppError
+        impl From<io::Error> for AppError {
+            fn from(error: io::Error) -> Self {
+                AppError {
+                    kind: String::from("io"),
+                    message: error.to_string(),
+                }
+            }
+        }
+    归一化不同的错误类型
+        使用特征对象 Box<dyn Error>
+        自定义错误类型
+        使用 thiserror
+
+函数式编程
+    函数的返回值等同于函数体**最后一个表达式的值**
+
+    迭代器Iterator
+        生成迭代器,在容器上调用以下方法
+            iter()       不可变引用，而对于不拥有所有权的数据结构，例如 &str、&[T] 等，只能使用 iter() 方法生成引用迭代器。 
+            iter_mut()   可变引用
+            into_iter()  获取容器的所有权，一般是针对拥有所有权的数据结构，例如 Vec、String 等
+        消费者适配器
+            会拿走迭代器的所有权
+            v1_iter.sum();
+        迭代器适配器
+            会返回一个新的迭代器，能链式调用
+            迭代器适配器是惰性的，意味着你需要一个消费者适配器来收尾，最终将迭代器转换成一个具体的值
+            let v2: Vec<_> = v1.iter().map(|x| x + 1).collect();  //map为迭代适配器，collect最终消费收尾
+
+
+    闭包
+        捕获的三种形式
+            let list = vec![1, 2, 3];
+            let only_borrows = || println!("From closure: {:?}", list);
+
+            let mut list = vec![1, 2, 3];
+            let mut borrows_mutably = || list.push(7);
+
+            let list = vec![1, 2, 3];
+            thread::spawn(move || println!("From thread: {:?}", list))
+                .join()
+                .unwrap();
+        在Rust中，Closure是一个匿名的结构体，其类型为 Fn/FnMut/FnOnce 其一。
+            FnOnce 只能调用一次；  一个会将捕获的值移出闭包体的闭包只实现 FnOnce trait
+            FnMut  可能会修改被捕获的值
+            Fn     不允许修改闭包的内部数据，也可以执行多次。
+    
+
+模块化编程 
+    crate 根节点
+        当编译一个 crate, 编译器首先在 crate 根文件
+        通常，对于一个库 crate 而言是src/lib.rs，对于一个二进制 crate 而言是src/main.rs，中寻找需要被编译的代码。
+    模块mod
+        由mod定义，可以包含函数、结构体、枚举、常量和其他模块。模块还可以嵌套
+        一个文件会自动生成一个以文件名为名字的模块。如 foo.rs 的文件，则 Rust 会自动生成一个名为 foo 的模块
+        一个文件中也可以有多个模块，每个都需要用mod进行定义，但是其父模块依然是此文件名
+        每个模块都有一个隐式的父模块，即当前模块所在的文件或文件夹
+        在多个文件中定义一个模块的方式
+            mod my_submodule { // 在 foo.rs 文件中定义一个名为 `my_submodule` 的子模块
+            }
+            mod my_submodule { // 在 bar.rs 文件中定义一个名为 `my_submodule` 的子模块
+            }
+            mod my_submodule {  // 在 main.rs 文件中重新定义一个名为 `my_submodule` 的模块
+                // 导入 foo.rs 中定义的 `my_submodule` 模块
+                pub use crate::foo::my_submodule;
+                // 导入 bar.rs 中定义的 `my_submodule` 模块
+                pub use crate::bar::my_submodule;
+            }
+        目录作为模块
+            2015             2018
+            ├── lib.rs       ├── lib.rs     
+            └── foo/         ├── foo.rs
+                ├── mod. rs  └── foo/
+                └── bar. rs      └── bar.rs
+    mod mod_name;
+        告诉 Rust 编译器，在当前模块的作用域中引入一个名为 mod_name 的子模块，并将其编译为当前模块的一部分
+        在 Rust 中，每个文件都被视为一个模块，而 mod mod_name; 语句用于引入同一目录下的另一个 Rust 源代码文件或目录作为子模块。
+        在默认情况下，mod mod_name; 语句只会将 mod_name.rs 或 mod_name/mod.rs 文件中的定义包含在当前模块中
+        一个模块**只能被其父模块所引用**，因此它只会影响到父模块及其子模块的编译。
+        声明了mod之后需要再用use关键字来引入模块中的内容，当然也可以用其全路径        
+
+        pub mod mod_name;
+            使用 pub mod 来引入模块，以便在当前模块中使用该模块中定义的内容。
+            将一个子模块导出到其父模块的公共接口中，使得其他模块可以访问该子模块
+    pub 关键字
+        用于指定一个项是否可以从其定义的模块外部访问
+        Rust 中默认所有项（函数、方法、结构体、枚举、模块和常量）都是私有的
+        父模块中的项不能使用子模块中的私有项，但是子模块中的项可以使用他们父模块中的项。
+        结构体定义的前面使用了 pub ，这个结构体会变成公有的，但是这个结构体的字段仍然是私有的
+        将枚举设为公有，则它的所有成员都将变为公有
+    路径
+        在 Rust 代码中引用模块或其他项的方式，用"::"来进行引用，类似c++中的命名空间， 如：my_module::my_function
+        路径可以使用 self、super 和 crate 关键字来引用当前模块、父模块和根模块
+        绝对路径：以crate开头
+        相对路径：self、super、或当前模块的标识符开头
+    use 关键字(为解决路径太长而用)
+        用于将某个路径名称导入到当前作用域中，并使用短名称来引用它们，比如：use std::io::Write
+        使用 `use` 引入结构体、枚举和其他项时，习惯是指定它们的完整路径
+        可以用 as 关键字提供新的名称
+        pub use
+            这种技术被称为 “重导出（re-exporting）”：它不仅将一个名称导入了当前作用域，还允许别人把它导入他们自己的作用域。
+    Package目录结构
+        ├── Cargo.lock
+        ├── Cargo.toml
+        ├── src/
+        │   ├── lib.rs
+        │   ├── main.rs
+        │   └── bin/
+        │       ├── named-executable.rs
+        │       ├── another-executable.rs
+        │       └── multi-file-executable/
+        │           ├── main.rs
+        │           └── some_module.rs
+        ├── benches/
+        │   ├── large-input.rs
+        │   └── multi-file-bench/
+        │       ├── main.rs
+        │       └── bench_module.rs
+        ├── examples/
+        │   ├── simple.rs
+        │   └── multi-file-example/
+        │       ├── main.rs
+        │       └── ex_module.rs
+        └── tests/
+            ├── some-integration-tests.rs
+            └── multi-file-test/
+                ├── main.rs
+                └── test_module.rs
+
+并发编程
+    多线程
+        Send/Sync
+            Send
+                T 在某个线程中的独占访问是线程安全的
+                基本上原生数据结构都支持 Send / Sync
+            Sync
+                T 在线程间的只读共享是安全的
+            不支持 Send / Sync
+                裸指针 *const T / *mut T
+                UnsafeCell<T>
+                引用计数 Rc 
+                RefCell<T> 不支持Sync
+        线程相关接口
+            创建线程  
+                thread::spawn
+            等待子线程的结束
+                thread.join
+            在线程闭包中使用 move来转移所有权
+
+        消息传递（Message passing）并发(类似通道)
+            std::sync::mpsc  multiple producer, single consumer
+                send    
+                    非Copy的会move过去
+                recv
+                try_recv 
+                通道关闭条件
+                    发送者全部drop或接收者被drop
+        锁、Condvar 和信号量（共享状态（Shared state）并发）
+            Mutex
+                Rust uses the notion of protecting the shared data itself and not code
+                lock
+                    let value = Mutex::new(23);
+                    *value.lock().unwrap() += 1;
+                MutexGuard 
+                    调用Mutex::lock 时生成
+            RwLock
+                read  获得读锁
+                write 获得写锁
+            Condvar
+                wait
+                notify_one
+            Semaphore
+                已经不再推荐使用
+        Atomic 原子类型与内存顺序
+            AtomicXXX
+            原子类型内部使用了CAS循环
+        线程安全
+            Send 标记特征 在线程间安全的传递其所有权
+            Sync 标记特征 在线程间安全的共享(通过引用)    
+            几乎所有类型都默认实现了Send和Sync
+
+    异步编程
+        异步编程是一个并发编程模型，异步编程允许我们同时并发运行大量的任务，却仅仅需要几个甚至一个 OS 线程或 CPU 核心
+        Future 在 Rust 中是惰性的，只有在被轮询(poll)时才会运行
+        你可以将Future理解为一个在未来某个时间点被调度执行的任务
+        Rust 没有内置异步调用所必需的运行时，可以用社区的tokio
+        运行时同时支持单线程和多线程
+        
+        OS多线程非常适合少量任务并发，对于长时间运行的 CPU 密集型任务，例如并行计算，使用线程将更有优势
+        异步编程: 高并发更适合 IO 密集型任务，例如 web 服务器、数据库连接等等网络服务
+
+        async 底层也是基于线程实现，但是它基于线程封装了一个运行时，可以将多个任务映射到少量线程上
+
+        如何选：
+            有大量 IO 任务需要并发运行时，选 async 模型
+            有部分 IO 任务需要并发运行时，选多线程，如果想要降低线程创建和销毁的开销，可以使用线程池
+            有大量 CPU 密集任务需要并行运行时，例如并行计算，选多线程模型，且让线程数等于或者稍大于 CPU 核心数
+            无所谓时，统一选多线程
+
+        异步需要的对象
+            Future对象
+            执行器
+                block_on()
+                    阻塞当前线程以等待任务完成
+                .await
+                    可以等待另一个异步调用的完成。.await并不会阻塞当前的线程,而是异步的等待Future A的完成，可以做其他事情
+                futures::join!(f1, f2);
+                    join多个多个`Future`
+unsafe  
+    注意点：
+        unsafe 语句块的范围一定要尽可能的小
+        使用 unsafe 声明的函数时，一定要看看相关的文档，确定自己没有遗漏什么
+        unsafe 无需俄罗斯套娃
+    作用
+        解引用裸指针
+        调用一个 unsafe
+        跟其它语言的外部代码进行交互  FFI（Foreign Function Interface）
+            extern "C" {
+                fn abs(input: i32) -> i32;
+            }
+
+            fn main() {
+                unsafe {
+                    println!("Absolute value of -3 according to C: {}", abs(-3));
+                }
+            }
+        访问或修改一个可变的静态变量
+            static mut REQUEST_RECV: usize = 0;
+            fn main() {
+               unsafe {
+                    REQUEST_RECV += 1;
+                    assert_eq!(REQUEST_RECV, 1);
+               }
+            }
+        实现一个 unsafe 特征
+            unsafe trait Foo {
+                // 方法列表
+            }
+
+            unsafe impl Foo for i32 {
+                // 实现相应的方法
+            }
+        访问 union 中的字段
+    一些实用工具(库)
+        rust-bindgen 和 cbindgen
+            和c的双向的调用
+        cxx
+            和c++的双向的调用
+
+
+Macro 宏编程
+    通过展开宏来阅读和调试自己写的宏
+        cargo install cargo-expand
+    作用
+        元编程
+        可变参数
+    声明式宏 macro_rules!
+        #[macro_export]
+        macro_rules! vec {
+            ( $( $x:expr ),* ) => {
+                {
+                    let mut temp_vec = Vec::new();
+                    $(
+                        temp_vec.push($x);
+                    )*
+                    temp_vec
+                }
+            };
+        }
+    过程宏 ( procedural macros )
+        而过程宏的定义更像是我们平时写函数的方式，因此它更加灵活。使用源代码作为输入参数，基于代码进行一系列操作后，再输出一段全新的代码
+        
+        1.自定义 derive
+        2.类属性宏(Attribute-like macros)
+        3.类函数宏(Function-like macros)
+            
+
+
+
+常用库
+    serde
+        高效地对 Rust 数据结构，进行序列化 / 反序列化操作，它对 Cow 就有很好的支持
+    smartstring
+        优化的string实现
+    itertools 
+        迭代器的增强版
+
+
+测试
+    属性
+        #[cfg(test)]           条件编译，test的时候才编译
+        #[test]
+        #[should_panic]
+        #[ignore]   
+        #[bench]
+    命令
+        cargo test xxx                       运行含有xxx的测试，还会编译examples下的实例
+        cargo test --test xxx                运行指定名称的test
+        cargo test -- --test-threads=1       并行或连续的运行测试
+        cargo test -- --ignored              运行忽略的test
+        cargo test -- --show-output          test默认成功不会打印，此命令会始终打印
+        cargo test --no-run                  生成测试二进制文件
+        cargo bench
+    集成测试
+        对某一个功能或者接口进行测试
+        tests 目录下的每个文件都是一个单独的包
+        tests 目录下的子目录中的文件不会被当作独立的包，也不会有测试输出
+        Rust 只支持对 lib 类型的包进行集成测试，对于二进制包例如 src/main.rs 是无能为力的
+    断言assertion
+        assert!, assert_eq!, assert_ne!
+        debug_assert!, debug_assert_eq!, debug_assert_ne!
+
+    benchmark
+        test::black_box(fibonacci_u64(test::black_box(i)));       告诉编译器，让它尽量少做优化
+
+
+
+cargo
+    常用命令
+        rustc                        编译器
+        rustfmt                      
+        rustup                       管理 Rust 版本和相关工具的命令行工具
+        rustup update stable         安装最新稳定版的Rust
+        rustup docs                  Rust自动的离线文档
+                                     
+        cargo new                    创建项目
+        cargo new <name> -- lib      创建库
+        cargo build 构建项目  -v      输出详细编译信息
+        cargo build --examples       编译例子
+        cargo build --release        
+        cargo check                  在不生成二进制文件的情况下构建项目来检查错误，常用
+        cargo run                    一步构建并运行项目。
+        cargo run -p xxx             运行workspace中指定的package，test的时候也可以用其指定package
+        cargo run --example xxx      运行例子
+        RUST_BACKTRACE=1 cargo run   展开错误栈
+        cargo install ripgrep        下载并安装包，在$HOME/.cargo/bin目录下
+
+        cargo add/remove             添加删除依赖
+        cargo update                 更新所有依赖  Cargo.lock 会锁住依赖的版本，此操作会更新
+        cargo update -p regex        只更新 “regex”
+        cargo doc --open             构建所有本地依赖提供的文档，会生成到target/doc下
+        
+        cargo watch                  cargo install cargo-watch
+    $HOME/.cargo/目录
+        1.存放rust相关的bin二进制文件
+        2.存放cargo构建的缓存
+
+    发布配置（release profiles）
+        定义编译时的配置
+        [profile.dev]
+        opt-level = 0
+
+        [profile.release]
+        opt-level = 3
+    将crate发布到 Crates.io
+        编写有用的文档注释
+        使用 pub use 导出合适的公有 API
+        发布到crate.io上
+            cargo login tokenxxx
+            cargo publish
+            cargo yank --vers 1.0.1
+            cargo yank --vers 1.0.1 --undo
+    工作空间
+        配置
+            [workspace]
+            members = [
+                "adder",
+            ]
+        依赖workspace中的其他package
+            [dependencies]
+            add_one = { path = "../add_one" }
+
+代码规范
+    文件命名
+        小写，多个单词用下划线连接
+    左花括号不需要另起一行
+    缩进风格使用 4 个空格
+    Rust 代码中的函数和变量名使用 snake case 规范风格

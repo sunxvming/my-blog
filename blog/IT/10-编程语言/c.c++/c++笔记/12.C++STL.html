@@ -210,7 +210,7 @@ jQuery(document).ready(function(){
 <li><a href="#priority_queue">priority_queue</a></li>
 <li><a href="#stl算法分类">STL算法分类</a></li>
 <li><a href="#c-bitset类">C++ bitset类</a></li>
-<li><a href="#c-stl-中的-stdstring-类以字符-0结尾么">C++ STL 中的 std：string 类以字符 \0'结尾么</a></li>
+<li><a href="#c-stl-中的-stdstring-类以字符-0结尾么">C++ STL 中的 std：string 类以字符 <code>\0</code>结尾么</a></li>
 </ul></li>
 </ul>
 </div>
@@ -400,7 +400,7 @@ class bitset
 <p>size_t 可看作 unsigned int。将 bitset 实例化时，N 必须是一个整型常数。例如：</p>
 <pre><code>bitset &lt;40&gt; bst;</code></pre>
 <p>则 bst 是一个由 40 个位组成的对象，用 bitset 的成员函数可以方便地访问其中任意一位。bitset 中的位从 0 开始编号，第 0 位是最右边的位。</p>
-<h3 id="c-stl-中的-stdstring-类以字符-0结尾么">C++ STL 中的 std：string 类以字符 \0'结尾么</h3>
+<h3 id="c-stl-中的-stdstring-类以字符-0结尾么">C++ STL 中的 std：string 类以字符 <code>\0</code>结尾么</h3>
 <p>无规定，但是我认为内部没有理由不以零结尾或不预留结尾零的位置<br />
 原因在于c_str()这个函数的调用<br />
 这个函数会返回c风格的字符串，是以零结尾的。如果内部不以零结尾或不预留结尾零的位置，那么这个函数的实现会比较低效率，因为意味着要重新分配更大的缓冲区来盛放数据。因此（或还有其他原因），主流实现都会以零结尾或预留结尾零的位置。</p>

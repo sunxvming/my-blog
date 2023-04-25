@@ -181,14 +181,14 @@ jQuery(document).ready(function(){
 <ul>
 <li><a href="#关于本博客">关于本博客</a></li>
 <li><a href="#本博客仓库目录结构">本博客仓库目录结构</a></li>
+<li><a href="#文章列表">文章列表</a></li>
 <li><a href="#关于我">关于我</a></li>
 </ul>
 </div>
  <!--if(toc)-->
 
 <h2 id="关于本博客">关于本博客</h2>
-<p>记录日常的学习笔记、技术笔记、读书笔记，分享自己的所见所思所得。<br />
-点击查看<a href="index.md">文章列表</a></p>
+<p>记录日常的学习笔记、技术笔记、读书笔记，分享自己的所见所思所得。</p>
 <h2 id="本博客仓库目录结构">本博客仓库目录结构</h2>
 <pre><code>my-blog/
 ├── batch_mod_file_suffix.sh    # 批量修改指定目录下的文件名,可以递归的修改
@@ -210,12 +210,670 @@ jQuery(document).ready(function(){
 │   ├── right_side.html         # 博客侧边栏模板
 │   └── ./css/style.css
 └── up_blog.sh                  # 自动生成html并上传github的脚本</code></pre>
+<h2 id="文章列表">文章列表</h2>
+<ul>
+<li><strong>blog/</strong>
+<ul>
+<li><strong>IT/</strong>
+<ul>
+<li><strong>00-CS基础/</strong>
+<ul>
+<li><a href="./blog/IT/00-CS基础/程序员技术练级攻略.md">程序员技术练级攻略</a></li>
+<li><a href="./blog/IT/00-CS基础/程序员的知识和技能树.md">程序员的知识和技能树</a></li>
+<li><a href="./blog/IT/00-CS基础/黑客.md">黑客</a></li>
+<li><strong>00-数字电子/</strong>
+<ul>
+<li><a href="./blog/IT/00-CS基础/00-数字电子/数字电路基础.md">数字电路基础</a></li>
+</ul></li>
+<li><strong>10-组成原理&amp;体系结构/</strong>
+<ul>
+<li><a href="./blog/IT/00-CS基础/10-组成原理&amp;体系结构/图灵机.md">图灵机</a></li>
+<li><a href="./blog/IT/00-CS基础/10-组成原理&amp;体系结构/深入浅出计算机组成原理-1入门篇.md">深入浅出计算机组成原理-1入门篇</a></li>
+<li><a href="./blog/IT/00-CS基础/10-组成原理&amp;体系结构/深入浅出计算机组成原理-2指令和运算.md">深入浅出计算机组成原理-2指令和运算</a></li>
+<li><a href="./blog/IT/00-CS基础/10-组成原理&amp;体系结构/深入浅出计算机组成原理-3处理器.md">深入浅出计算机组成原理-3处理器</a></li>
+<li><a href="./blog/IT/00-CS基础/10-组成原理&amp;体系结构/深入浅出计算机组成原理-4存储与IO系统.md">深入浅出计算机组成原理-4存储与IO系统</a></li>
+<li><a href="./blog/IT/00-CS基础/10-组成原理&amp;体系结构/深入浅出计算机组成原理-5应用篇.md">深入浅出计算机组成原理-5应用篇</a></li>
+<li><a href="./blog/IT/00-CS基础/10-组成原理&amp;体系结构/自考教材-计算机组成原理.md">自考教材-计算机组成原理</a></li>
+<li><a href="./blog/IT/00-CS基础/10-组成原理&amp;体系结构/计算机体系结构基础-胡伟武-第三版.md">计算机体系结构基础-胡伟武-第三版</a></li>
+<li><a href="./blog/IT/00-CS基础/10-组成原理&amp;体系结构/计算机科学方法.md">计算机科学方法</a></li>
+</ul></li>
+<li><strong>20-汇编/</strong>
+<ul>
+<li><a href="./blog/IT/00-CS基础/20-汇编/ProgrammingGroundUp笔记.md">ProgrammingGroundUp笔记</a></li>
+</ul></li>
+<li><strong>30-编译原理/</strong>
+<ul>
+<li><a href="./blog/IT/00-CS基础/30-编译原理/llvm.md">llvm</a></li>
+<li><a href="./blog/IT/00-CS基础/30-编译原理/程序员的自我修养——链接装载与库-读书笔记.md">程序员的自我修养——链接装载与库-读书笔记</a></li>
+<li><a href="./blog/IT/00-CS基础/30-编译原理/编程语言方方面面.md">编程语言方方面面</a></li>
+<li><a href="./blog/IT/00-CS基础/30-编译原理/编译原理之美.md">编译原理之美</a></li>
+</ul></li>
+<li><strong>40-操作系统/</strong>
+<ul>
+<li><a href="./blog/IT/00-CS基础/40-操作系统/操作系统.md">操作系统</a></li>
+</ul></li>
+<li><strong>50-algorithm/</strong>
+<ul>
+<li><a href="./blog/IT/00-CS基础/50-algorithm/qsort.md">qsort</a></li>
+<li><a href="./blog/IT/00-CS基础/50-algorithm/代码模式.md">代码模式</a></li>
+<li><a href="./blog/IT/00-CS基础/50-algorithm/数据结构与算法之美.md">数据结构与算法之美</a></li>
+<li><a href="./blog/IT/00-CS基础/50-algorithm/数据结构和算法.md">数据结构和算法</a></li>
+<li><a href="./blog/IT/00-CS基础/50-algorithm/设计模式.md">设计模式</a></li>
+<li><a href="./blog/IT/00-CS基础/50-algorithm/零碎小算法.md">零碎小算法</a></li>
+<li><strong>设计模式/</strong>
+<ul>
+<li><a href="./blog/IT/00-CS基础/50-algorithm/设计模式/消息队列.md">消息队列</a></li>
+</ul></li>
+</ul></li>
+<li><strong>70-network/</strong>
+<ul>
+<li><a href="./blog/IT/00-CS基础/70-network/RPC实战与核心原理.md">RPC实战与核心原理</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/asio.md">asio</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/libevent.md">libevent</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/libp2p.md">libp2p</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/libuv.md">libuv</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/muduo网络库.md">muduo网络库</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/扫盲VPN.md">扫盲VPN</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/杂项.md">杂项</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/网络实战.md">网络实战</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/趣谈网络.md">趣谈网络</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/通过SSH反向代理连接学校内网服务器.md">通过SSH反向代理连接学校内网服务器</a></li>
+<li><strong>协议/</strong>
+<ul>
+<li><a href="./blog/IT/00-CS基础/70-network/协议/jsonrpc.md">jsonrpc</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/协议/tcp.md">tcp</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/协议/udp.md">udp</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/协议/分布式散列表（DHT）.md">分布式散列表（DHT）</a></li>
+<li><strong>http/</strong>
+<ul>
+<li><a href="./blog/IT/00-CS基础/70-network/协议/http/JWT.md">JWT</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/协议/http/OAuth.md">OAuth</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/协议/http/http.md">http</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/协议/http/https相关.md">https相关</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/协议/http/http状态码.md">http状态码</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/协议/http/糟糕的restful设计.md">糟糕的restful设计</a></li>
+</ul></li>
+</ul></li>
+<li><strong>工具/</strong>
+<ul>
+<li><a href="./blog/IT/00-CS基础/70-network/工具/curl.md">curl</a></li>
+<li><a href="./blog/IT/00-CS基础/70-network/工具/tcpdump.md">tcpdump</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong>10-编程语言/</strong>
+<ul>
+<li><strong>c.c++/</strong>
+<ul>
+<li><strong>boost/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/c.c++/boost/Boost.Stacktrace.md">Boost.Stacktrace</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/boost/Getting-Started.md">Getting-Started</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/boost/boost-test简单使用.md">boost-test简单使用</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/boost/preprocessor.md">preprocessor</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/boost/program_options.md">program_options</a></li>
+</ul></li>
+<li><strong>c++书籍/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++书籍/API-design-for-C++.md">API-design-for-C++</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++书籍/C++Primer.md">C++Primer</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++书籍/Modern-C++-Programming-Cookbook.md">Modern-C++-Programming-Cookbook</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++书籍/c++标准库第二版.md">c++标准库第二版</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++书籍/effective-c++.md">effective-c++</a></li>
+</ul></li>
+<li><strong>c++笔记/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/1.从C到C++.md">1.从C到C++</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/10.输入输出流.md">10.输入输出流</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/11.C++多文件编程是什么.md">11.C++多文件编程是什么</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/12.C++STL.md">12.C++STL</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/2.C++类和对象.md">2.C++类和对象</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/3.C++引用.md">3.C++引用</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/4.C++继承与派生.md">4.C++继承与派生</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/5.C++多态与虚函数.md">5.C++多态与虚函数</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/6.运算符重载.md">6.运算符重载</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/7.C++模板和泛型程序设计.md">7.C++模板和泛型程序设计</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/8.C++异常处理.md">8.C++异常处理</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/9.C++面向对象进阶.md">9.C++面向对象进阶</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/c++11总结.md">c++11总结</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/c++17、20总结.md">c++17、20总结</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/c++23.md">c++23</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/c++标准库-std--function和std--bind.md">c++标准库-std--function和std--bind</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/c++编码规范.md">c++编码规范</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/c++设计模式.md">c++设计模式</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/c++语法-enum-class.md">c++语法-enum-class</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/c++语法-typename和template关键字.md">c++语法-typename和template关键字</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/c++语法-内部类.md">c++语法-内部类</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/c++语法-带有命名空间的类的前置声明.md">c++语法-带有命名空间的类的前置声明</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/c++语法-模板相关语法.md">c++语法-模板相关语法</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/c++语法-迭代器.md">c++语法-迭代器</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/c++面试题汇总.md">c++面试题汇总</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/加快C++代码的编译速度方法.md">加快C++代码的编译速度方法</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/对象内存模型总结.md">对象内存模型总结</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/极客时间-现代C++实战30讲.md">极客时间-现代C++实战30讲</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c++笔记/极客时间-罗剑锋的C++实战笔记.md">极客时间-罗剑锋的C++实战笔记</a></li>
+</ul></li>
+<li><strong>c笔记/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/c总结-const用法.md">c总结-const用法</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/c总结-位运算.md">c总结-位运算</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/c总结-常用的函数.md">c总结-常用的函数</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/c总结-运算符优先级.md">c总结-运算符优先级</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/c语言backtrace.md">c语言backtrace</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/c语言中文网-c教程笔记.md">c语言中文网-c教程笔记</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/c语言中文网-c语言内存和指针.md">c语言中文网-c语言内存和指针</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/c零碎知识点.md">c零碎知识点</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/linux-c之信号.md">linux-c之信号</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/linux-c之线程.md">linux-c之线程</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/linux-c之网络编程.md">linux-c之网络编程</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/linux-c之进程.md">linux-c之进程</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/linux-gcc.md">linux-gcc</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/linux-gdb.md">linux-gdb</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/linux-文件操作.md">linux-文件操作</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/linux-终端-作业控制.md">linux-终端-作业控制</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/popen用法和实现.md">popen用法和实现</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/c笔记/常见错误.md">常见错误</a></li>
+</ul></li>
+<li><strong>多线程/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/c.c++/多线程/Atomic原子操作.md">Atomic原子操作</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/多线程/Cpp-Concurrency-in-Action.md">Cpp-Concurrency-in-Action</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/多线程/c++协程.md">c++协程</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/多线程/c++多线程总结.md">c++多线程总结</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/多线程/thread的join和detach.md">thread的join和detach</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/多线程/在C++中使用openmp进行多线程编程.md">在C++中使用openmp进行多线程编程</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/多线程/读写锁read-write-lock.md">读写锁read-write-lock</a></li>
+</ul></li>
+<li><strong>工具类库/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/Centos7升级GCC8版本.md">Centos7升级GCC8版本</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/ZeroMQ.md">ZeroMQ</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/c-c++第三方类库集合.md">c-c++第三方类库集合</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/grpc.md">grpc</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/gtest.md">gtest</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/hiredis.md">hiredis</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/mysql++.md">mysql++</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/mysql.md">mysql</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/protobuf.md">protobuf</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/rocksdb.md">rocksdb</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/websocket++.md">websocket++</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/使用Crypto++库实现AES加密.md">使用Crypto++库实现AES加密</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/使用NTP协议获取网络时间戳.md">使用NTP协议获取网络时间戳</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/命令行参数处理.md">命令行参数处理</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/工具类库/服务器框架.md">服务器框架</a></li>
+</ul></li>
+<li><strong>程序工具/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/c.c++/程序工具/gcov.md">gcov</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/程序工具/perf.md">perf</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/程序工具/valgrind.md">valgrind</a></li>
+<li><strong>编译工具/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/c.c++/程序工具/编译工具/CMake的CTest.md">CMake的CTest</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/程序工具/编译工具/cmake-find-package.md">cmake-find-package</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/程序工具/编译工具/cmake.md">cmake</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/程序工具/编译工具/cmake修改__FILE__宏为相对路径.md">cmake修改__FILE__宏为相对路径</a></li>
+<li><a href="./blog/IT/10-编程语言/c.c++/程序工具/编译工具/premake和cmake比较.md">premake和cmake比较</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong>go/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/go/Go语言第一课.md">Go语言第一课</a></li>
+<li><a href="./blog/IT/10-编程语言/go/Go语言项目开发实战.md">Go语言项目开发实战</a></li>
+<li><a href="./blog/IT/10-编程语言/go/c语言中文网-Go语言入门教程.md">c语言中文网-Go语言入门教程</a></li>
+<li><a href="./blog/IT/10-编程语言/go/go-modules.md">go-modules</a></li>
+<li><a href="./blog/IT/10-编程语言/go/go-web框架.md">go-web框架</a></li>
+<li><a href="./blog/IT/10-编程语言/go/go交叉编译.md">go交叉编译</a></li>
+<li><a href="./blog/IT/10-编程语言/go/go安装升级.md">go安装升级</a></li>
+<li><a href="./blog/IT/10-编程语言/go/go导出excel.md">go导出excel</a></li>
+<li><a href="./blog/IT/10-编程语言/go/go数据库迁移.md">go数据库迁移</a></li>
+<li><a href="./blog/IT/10-编程语言/go/go断点调试.md">go断点调试</a></li>
+<li><a href="./blog/IT/10-编程语言/go/go测试.md">go测试</a></li>
+<li><a href="./blog/IT/10-编程语言/go/go第三方工具.md">go第三方工具</a></li>
+<li><a href="./blog/IT/10-编程语言/go/go结构体struct标签tag标记.md">go结构体struct标签tag标记</a></li>
+<li><a href="./blog/IT/10-编程语言/go/go编译速度为什么比c++快.md">go编译速度为什么比c++快</a></li>
+<li><a href="./blog/IT/10-编程语言/go/package.md">package</a></li>
+<li><a href="./blog/IT/10-编程语言/go/question.md">question</a></li>
+<li><a href="./blog/IT/10-编程语言/go/学习资源.md">学习资源</a></li>
+<li><a href="./blog/IT/10-编程语言/go/惯用法.md">惯用法</a></li>
+<li><a href="./blog/IT/10-编程语言/go/手把手带你写一个Web框架.md">手把手带你写一个Web框架</a></li>
+<li><a href="./blog/IT/10-编程语言/go/极客时间-Go语言第一课.md">极客时间-Go语言第一课</a></li>
+<li><a href="./blog/IT/10-编程语言/go/编码规范.md">编码规范</a></li>
+<li><a href="./blog/IT/10-编程语言/go/编译器.md">编译器</a></li>
+<li><a href="./blog/IT/10-编程语言/go/设计模式.md">设计模式</a></li>
+<li><a href="./blog/IT/10-编程语言/go/语言特性.md">语言特性</a></li>
+<li><strong>web框架/</strong>
+<ul>
+<li><strong>goframe/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/go/web框架/goframe/goframe.md">goframe</a></li>
+<li><strong>docker/</strong></li>
+</ul></li>
+</ul></li>
+<li><strong>书籍/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/go/书籍/Go-Programming-Cookbook-Second-Edition.md">Go-Programming-Cookbook-Second-Edition</a></li>
+</ul></li>
+</ul></li>
+<li><strong>java/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/java/1.基础知识.md">1.基础知识</a></li>
+<li><a href="./blog/IT/10-编程语言/java/学习资源.md">学习资源</a></li>
+<li><strong>JNI/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/java/JNI/JNI基础.md">JNI基础</a></li>
+</ul></li>
+<li><strong>android/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/java/android/零碎.md">零碎</a></li>
+</ul></li>
+</ul></li>
+<li><strong>lua/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/lua/lualib静态库的编译.md">lualib静态库的编译</a></li>
+<li><a href="./blog/IT/10-编程语言/lua/lua和c交互.md">lua和c交互</a></li>
+<li><a href="./blog/IT/10-编程语言/lua/lua死循环检查.md">lua死循环检查</a></li>
+<li><a href="./blog/IT/10-编程语言/lua/lua的sethook和内存统计.md">lua的sethook和内存统计</a></li>
+<li><a href="./blog/IT/10-编程语言/lua/lua编码实践.md">lua编码实践</a></li>
+<li><a href="./blog/IT/10-编程语言/lua/lua闭包.md">lua闭包</a></li>
+<li><a href="./blog/IT/10-编程语言/lua/tolua使用.md">tolua使用</a></li>
+<li><a href="./blog/IT/10-编程语言/lua/基础知识.md">基础知识</a></li>
+<li><a href="./blog/IT/10-编程语言/lua/概率算法--通过权重返回index.md">概率算法--通过权重返回index</a></li>
+</ul></li>
+<li><strong>python/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/python/CentOS7升级Python至3.x.md">CentOS7升级Python至3.x</a></li>
+<li><a href="./blog/IT/10-编程语言/python/__init__.py作用.md"><strong>init</strong>.py作用</a></li>
+<li><a href="./blog/IT/10-编程语言/python/anaconda安装问题.md">anaconda安装问题</a></li>
+<li><a href="./blog/IT/10-编程语言/python/python-protobuf.md">python-protobuf</a></li>
+<li><a href="./blog/IT/10-编程语言/python/python使用mysql.md">python使用mysql</a></li>
+<li><a href="./blog/IT/10-编程语言/python/python模块.md">python模块</a></li>
+<li><a href="./blog/IT/10-编程语言/python/setuptools.md">setuptools</a></li>
+<li><a href="./blog/IT/10-编程语言/python/the-craft-of-selfteaching.md">the-craft-of-selfteaching</a></li>
+<li><a href="./blog/IT/10-编程语言/python/使用PyInstaller打包python程序.md">使用PyInstaller打包python程序</a></li>
+<li><a href="./blog/IT/10-编程语言/python/极客时间-python核心技术与实战.md">极客时间-python核心技术与实战</a></li>
+<li><strong>python/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/python/python/Modern-Python-Cookbook-Second-Edition.md">Modern-Python-Cookbook-Second-Edition</a></li>
+</ul></li>
+</ul></li>
+<li><strong>rust/</strong>
+<ul>
+<li><a href="./blog/IT/10-编程语言/rust/Rust程序设计语言.md">Rust程序设计语言</a></li>
+<li><a href="./blog/IT/10-编程语言/rust/Rust编程第一课.md">Rust编程第一课</a></li>
+<li><a href="./blog/IT/10-编程语言/rust/rust工具.md">rust工具</a></li>
+<li><a href="./blog/IT/10-编程语言/rust/代码规范.md">代码规范</a></li>
+</ul></li>
+</ul></li>
+<li><strong>20-linux/</strong>
+<ul>
+<li><a href="./blog/IT/20-linux/Linux安装、卸载软件.md">Linux安装、卸载软件</a></li>
+<li><a href="./blog/IT/20-linux/Netperf网络性能测试.md">Netperf网络性能测试</a></li>
+<li><a href="./blog/IT/20-linux/SSH通过代理连接.md">SSH通过代理连接</a></li>
+<li><a href="./blog/IT/20-linux/Squid.md">Squid</a></li>
+<li><a href="./blog/IT/20-linux/VMware设置centos7共享文件夹.md">VMware设置centos7共享文件夹</a></li>
+<li><a href="./blog/IT/20-linux/alias.md">alias</a></li>
+<li><a href="./blog/IT/20-linux/awk.md">awk</a></li>
+<li><a href="./blog/IT/20-linux/cdn.md">cdn</a></li>
+<li><a href="./blog/IT/20-linux/centos修改ip地址.md">centos修改ip地址</a></li>
+<li><a href="./blog/IT/20-linux/c语言中文网-shell编程.md">c语言中文网-shell编程</a></li>
+<li><a href="./blog/IT/20-linux/grep.md">grep</a></li>
+<li><a href="./blog/IT/20-linux/inotify&amp;&amp;inotify_tools.md">inotify&amp;&amp;inotify_tools</a></li>
+<li><a href="./blog/IT/20-linux/linux-cmd.md">linux-cmd</a></li>
+<li><a href="./blog/IT/20-linux/linux-shell快捷键.md">linux-shell快捷键</a></li>
+<li><a href="./blog/IT/20-linux/linux学习阶段.md">linux学习阶段</a></li>
+<li><a href="./blog/IT/20-linux/linux常见的英文缩写.md">linux常见的英文缩写</a></li>
+<li><a href="./blog/IT/20-linux/linux有意思的小程序.md">linux有意思的小程序</a></li>
+<li><a href="./blog/IT/20-linux/linux服务器的性能能分析.md">linux服务器的性能能分析</a></li>
+<li><a href="./blog/IT/20-linux/linux知识地图.md">linux知识地图</a></li>
+<li><a href="./blog/IT/20-linux/lsof.md">lsof</a></li>
+<li><a href="./blog/IT/20-linux/rsync.md">rsync</a></li>
+<li><a href="./blog/IT/20-linux/samba.md">samba</a></li>
+<li><a href="./blog/IT/20-linux/sed.md">sed</a></li>
+<li><a href="./blog/IT/20-linux/shell存在不可见字符(如%5Em)导致无法执行.md">shell存在不可见字符(如^m)导致无法执行</a></li>
+<li><a href="./blog/IT/20-linux/shell编程.md">shell编程</a></li>
+<li><a href="./blog/IT/20-linux/supervisor.md">supervisor</a></li>
+<li><a href="./blog/IT/20-linux/tmpfs.md">tmpfs</a></li>
+<li><a href="./blog/IT/20-linux/ubuntu.md">ubuntu</a></li>
+<li><a href="./blog/IT/20-linux/xampp.md">xampp</a></li>
+<li><a href="./blog/IT/20-linux/yum源配置.md">yum源配置</a></li>
+<li><a href="./blog/IT/20-linux/使用enca转换编码.md">使用enca转换编码</a></li>
+<li><a href="./blog/IT/20-linux/使用webbench进行网站压力测试.md">使用webbench进行网站压力测试</a></li>
+<li><a href="./blog/IT/20-linux/修改服务器时间.md">修改服务器时间</a></li>
+<li><a href="./blog/IT/20-linux/极客时间-趣谈Linux操作系统.md">极客时间-趣谈Linux操作系统</a></li>
+<li><a href="./blog/IT/20-linux/网站部署checklist.md">网站部署checklist</a></li>
+<li><a href="./blog/IT/20-linux/装硬盘-分区-格式化-挂载.md">装硬盘-分区-格式化-挂载</a></li>
+<li><a href="./blog/IT/20-linux/运维.md">运维</a></li>
+<li><a href="./blog/IT/20-linux/进程的proc目录.md">进程的proc目录</a></li>
+<li><a href="./blog/IT/20-linux/配置ssh免登陆.md">配置ssh免登陆</a></li>
+<li><a href="./blog/IT/20-linux/零碎知识.md">零碎知识</a></li>
+<li><strong>docker/</strong>
+<ul>
+<li><a href="./blog/IT/20-linux/docker/docker.md">docker</a></li>
+<li><a href="./blog/IT/20-linux/docker/kubernetes.md">kubernetes</a></li>
+<li><a href="./blog/IT/20-linux/docker/kubernetes与swarm的区别.md">kubernetes与swarm的区别</a></li>
+<li><a href="./blog/IT/20-linux/docker/windows下使用docker.md">windows下使用docker</a></li>
+</ul></li>
+</ul></li>
+<li><strong>30-database/</strong>
+<ul>
+<li><strong>Elasticsearch/</strong>
+<ul>
+<li><a href="./blog/IT/30-database/Elasticsearch/Elasticsearch入门教程.md">Elasticsearch入门教程</a></li>
+</ul></li>
+<li><strong>mysql/</strong>
+<ul>
+<li><a href="./blog/IT/30-database/mysql/mysql分组topN.md">mysql分组topN</a></li>
+<li><a href="./blog/IT/30-database/mysql/mysql密码使用配置文件.md">mysql密码使用配置文件</a></li>
+<li><a href="./blog/IT/30-database/mysql/mysql快速恢复数据.md">mysql快速恢复数据</a></li>
+<li><a href="./blog/IT/30-database/mysql/mysql查看执行时间.md">mysql查看执行时间</a></li>
+<li><a href="./blog/IT/30-database/mysql/mysql笔记.md">mysql笔记</a></li>
+<li><a href="./blog/IT/30-database/mysql/mysql统计某个字段在数值区间内出现的次数.md">mysql统计某个字段在数值区间内出现的次数</a></li>
+<li><a href="./blog/IT/30-database/mysql/mysql调优.md">mysql调优</a></li>
+<li><a href="./blog/IT/30-database/mysql/navicat连接远程内网mysql.md">navicat连接远程内网mysql</a></li>
+<li><a href="./blog/IT/30-database/mysql/php数据库连接池.md">php数据库连接池</a></li>
+<li><a href="./blog/IT/30-database/mysql/数据分区的维护&amp;&amp;行为道具日志.md">数据分区的维护&amp;&amp;行为道具日志</a></li>
+<li><a href="./blog/IT/30-database/mysql/数据库“长连接”与“短连接”.md">数据库“长连接”与“短连接”</a></li>
+<li><a href="./blog/IT/30-database/mysql/有关mysql的innodb_flush_log_at_trx_commit参数.md">有关mysql的innodb_flush_log_at_trx_commit参数</a></li>
+</ul></li>
+<li><strong>postgresql/</strong>
+<ul>
+<li><a href="./blog/IT/30-database/postgresql/PostgreSQL新手入门.md">PostgreSQL新手入门</a></li>
+<li><a href="./blog/IT/30-database/postgresql/yum安装postgresql.md">yum安装postgresql</a></li>
+</ul></li>
+<li><strong>redis/</strong>
+<ul>
+<li><a href="./blog/IT/30-database/redis/redis.md">redis</a></li>
+</ul></li>
+<li><strong>数仓/</strong>
+<ul>
+<li><a href="./blog/IT/30-database/数仓/redshift.md">redshift</a></li>
+</ul></li>
+</ul></li>
+<li><strong>40-tools/</strong>
+<ul>
+<li><a href="./blog/IT/40-tools/Sphinx.md">Sphinx</a></li>
+<li><a href="./blog/IT/40-tools/UML.md">UML</a></li>
+<li><a href="./blog/IT/40-tools/markdown工具.md">markdown工具</a></li>
+<li><a href="./blog/IT/40-tools/markdown演示.md">markdown演示</a></li>
+<li><a href="./blog/IT/40-tools/postman.md">postman</a></li>
+<li><a href="./blog/IT/40-tools/常用软件和工具.md">常用软件和工具</a></li>
+<li><a href="./blog/IT/40-tools/技术文档的写作规范.md">技术文档的写作规范</a></li>
+<li><a href="./blog/IT/40-tools/技术的热门度曲线.md">技术的热门度曲线</a></li>
+<li><a href="./blog/IT/40-tools/文档写作工具Tex-Latex.md">文档写作工具Tex-Latex</a></li>
+<li><a href="./blog/IT/40-tools/文档发布工具.md">文档发布工具</a></li>
+<li><a href="./blog/IT/40-tools/文档转换工具pandoc.md">文档转换工具pandoc</a></li>
+<li><a href="./blog/IT/40-tools/翻译行业工具.md">翻译行业工具</a></li>
+<li><strong>xshell/</strong>
+<ul>
+<li><a href="./blog/IT/40-tools/xshell/xshell.md">xshell</a></li>
+<li><strong>xshell配色方案/</strong></li>
+</ul></li>
+<li><strong>版本管理/</strong>
+<ul>
+<li><a href="./blog/IT/40-tools/版本管理/gitlab搭建.md">gitlab搭建</a></li>
+<li><a href="./blog/IT/40-tools/版本管理/git命令.md">git命令</a></li>
+<li><a href="./blog/IT/40-tools/版本管理/git工作流.md">git工作流</a></li>
+<li><a href="./blog/IT/40-tools/版本管理/git忽略文件.md">git忽略文件</a></li>
+<li><a href="./blog/IT/40-tools/版本管理/svn服务器搭建.md">svn服务器搭建</a></li>
+<li><a href="./blog/IT/40-tools/版本管理/命令行svn.md">命令行svn</a></li>
+</ul></li>
+<li><strong>编辑器/</strong>
+<ul>
+<li><a href="./blog/IT/40-tools/编辑器/intellji.md">intellji</a></li>
+<li><a href="./blog/IT/40-tools/编辑器/notepad++.md">notepad++</a></li>
+<li><a href="./blog/IT/40-tools/编辑器/visual-studio.md">visual-studio</a></li>
+<li><strong>emacs/</strong>
+<ul>
+<li><a href="./blog/IT/40-tools/编辑器/emacs/elisp.md">elisp</a></li>
+<li><a href="./blog/IT/40-tools/编辑器/emacs/emacs.md">emacs</a></li>
+</ul></li>
+<li><strong>obsidian/</strong>
+<ul>
+<li><a href="./blog/IT/40-tools/编辑器/obsidian/obsidian.md">obsidian</a></li>
+</ul></li>
+<li><strong>vim/</strong>
+<ul>
+<li><a href="./blog/IT/40-tools/编辑器/vim/vim基本操作.md">vim基本操作</a></li>
+<li><a href="./blog/IT/40-tools/编辑器/vim/vim寄存器.md">vim寄存器</a></li>
+<li><a href="./blog/IT/40-tools/编辑器/vim/极客时间-Vim实用技巧必知必会.md">极客时间-Vim实用技巧必知必会</a></li>
+</ul></li>
+<li><strong>vscode/</strong>
+<ul>
+<li><a href="./blog/IT/40-tools/编辑器/vscode/vscode-go.md">vscode-go</a></li>
+<li><a href="./blog/IT/40-tools/编辑器/vscode/vscode.md">vscode</a></li>
+<li><a href="./blog/IT/40-tools/编辑器/vscode/vscode运行php脚本.md">vscode运行php脚本</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong>50-应用方向/</strong>
+<ul>
+<li><strong>game/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/game/极客时间-从0开始学游戏开发.md">极客时间-从0开始学游戏开发</a></li>
+<li><a href="./blog/IT/50-应用方向/game/海外版流程.md">海外版流程</a></li>
+<li><a href="./blog/IT/50-应用方向/game/游戏指标.md">游戏指标</a></li>
+<li><a href="./blog/IT/50-应用方向/game/游戏数据分析平台.md">游戏数据分析平台</a></li>
+<li><strong>图形/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/game/图形/glut消息事件处理函数glutMainLoop.md">glut消息事件处理函数glutMainLoop</a></li>
+<li><a href="./blog/IT/50-应用方向/game/图形/烘焙贴图.md">烘焙贴图</a></li>
+</ul></li>
+<li><strong>引擎/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/game/引擎/Unity-Android模拟器调试.md">Unity-Android模拟器调试</a></li>
+<li><a href="./blog/IT/50-应用方向/game/引擎/u3d基础知识.md">u3d基础知识</a></li>
+</ul></li>
+<li><strong>游戏/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/game/游戏/unity一键打包––ios篇.md">unity一键打包––ios篇</a></li>
+<li><a href="./blog/IT/50-应用方向/game/游戏/unity一键打包––安卓篇.md">unity一键打包––安卓篇</a></li>
+<li><a href="./blog/IT/50-应用方向/game/游戏/导航网格寻路C++实现版(入门级).md">导航网格寻路C++实现版(入门级)</a></li>
+<li><a href="./blog/IT/50-应用方向/game/游戏/导航网格寻路C++实现版(进阶版).md">导航网格寻路C++实现版(进阶版)</a></li>
+<li><a href="./blog/IT/50-应用方向/game/游戏/拐点算法.md">拐点算法</a></li>
+<li><a href="./blog/IT/50-应用方向/game/游戏/游戏寻路逻辑.md">游戏寻路逻辑</a></li>
+<li><a href="./blog/IT/50-应用方向/game/游戏/游戏服务器.md">游戏服务器</a></li>
+<li><a href="./blog/IT/50-应用方向/game/游戏/游戏相关知识点.md">游戏相关知识点</a></li>
+</ul></li>
+</ul></li>
+<li><strong>前端/</strong>
+<ul>
+<li><strong>VUE/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/前端/VUE/Vue.js-3-Cookbook.md">Vue.js-3-Cookbook</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/VUE/Vue开发入门看这篇文章就够了.md">Vue开发入门看这篇文章就够了</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/VUE/vue.md">vue</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/VUE/环境搭建.md">环境搭建</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/VUE/项目创建.md">项目创建</a></li>
+</ul></li>
+<li><strong>blog/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/前端/blog/关于俺.md">关于俺</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/blog/博客历险记.md">博客历险记</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/blog/博客搭建工具.md">博客搭建工具</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/blog/博客样式.md">博客样式</a></li>
+</ul></li>
+<li><strong>javascript/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/前端/javascript/es6.md">es6</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/javascript/npm插件.md">npm插件</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/javascript/代码片段.md">代码片段</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/javascript/玩转Vue3全家桶.md">玩转Vue3全家桶</a></li>
+</ul></li>
+<li><strong>php/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/前端/php/Composer.md">Composer</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/PHP-FPM.md">PHP-FPM</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/apple支付.md">apple支付</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/aws服务的php接口.md">aws服务的php接口</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/google支付.md">google支付</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/nginx.md">nginx</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/nginx高可用性.md">nginx高可用性</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/php中的cookie和session的使用.md">php中的cookie和session的使用</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/php常见错误.md">php常见错误</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/php数组占用过多内存空间.md">php数组占用过多内存空间</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/php的mysql驱动.md">php的mysql驱动</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/php面向对象代码片段.md">php面向对象代码片段</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/wordpress的一些实用插件.md">wordpress的一些实用插件</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/代码片段.md">代码片段</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/查看php错误日志.md">查看php错误日志</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/苹果登录支付.md">苹果登录支付</a></li>
+<li><strong>php框架/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/前端/php/php框架/laravel入门.md">laravel入门</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/php框架/lavarel中使用redis.md">lavarel中使用redis</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/php框架/lavarel依赖注入.md">lavarel依赖注入</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/php框架/lavarel常用功能.md">lavarel常用功能</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/php框架/lavarel框架.md">lavarel框架</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/php框架/lavarel调试.md">lavarel调试</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/php框架/单元测试.md">单元测试</a></li>
+<li><a href="./blog/IT/50-应用方向/前端/php/php框架/框架功能.md">框架功能</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong>区块链/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/区块链/区块链法律相关政策.md">区块链法律相关政策</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/区块链行业.md">区块链行业</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/国内公链.md">国内公链</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/学习资源.md">学习资源</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/极客时间-深入浅出区块链.md">极客时间-深入浅出区块链</a></li>
+<li><strong>EOS/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/区块链/EOS/EOS相关资源.md">EOS相关资源</a></li>
+</ul></li>
+<li><strong>IPFS/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/区块链/IPFS/IPFS.md">IPFS</a></li>
+</ul></li>
+<li><strong>书籍/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/区块链/书籍/区块链百科全书-孙健.md">区块链百科全书-孙健</a></li>
+</ul></li>
+<li><strong>以太坊/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/区块链/以太坊/eth使用.md">eth使用</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/以太坊/evm.md">evm</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/以太坊/精通以太坊.md">精通以太坊</a></li>
+</ul></li>
+<li><strong>智能合约/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/区块链/智能合约/EOSVM简析.md">EOSVM简析</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/智能合约/eos-vm源码分析.md">eos-vm源码分析</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/智能合约/eos入门.md">eos入门</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/智能合约/eos源码分析.md">eos源码分析</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/智能合约/wasm_cdt工具.md">wasm_cdt工具</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/智能合约/文章资源.md">文章资源</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/智能合约/维基链.md">维基链</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/智能合约/零碎知识.md">零碎知识</a></li>
+<li><strong>webassembly/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/区块链/智能合约/webassembly/WAVM.md">WAVM</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/智能合约/webassembly/wasm.md">wasm</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/智能合约/webassembly/webassembly.md">webassembly</a></li>
+<li><a href="./blog/IT/50-应用方向/区块链/智能合约/webassembly/内存指令.md">内存指令</a></li>
+</ul></li>
+</ul></li>
+<li><strong>比特币/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/区块链/比特币/精通比特币笔记.md">精通比特币笔记</a></li>
+</ul></li>
+</ul></li>
+<li><strong>后端/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/后端/说透中台.md">说透中台</a></li>
+<li><a href="./blog/IT/50-应用方向/后端/高并发系统设计40问.md">高并发系统设计40问</a></li>
+<li><strong>中间件/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/后端/中间件/Kafka核心技术与实战.md">Kafka核心技术与实战</a></li>
+<li><a href="./blog/IT/50-应用方向/后端/中间件/kafka.md">kafka</a></li>
+</ul></li>
+</ul></li>
+<li><strong>安全/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/安全/DDOS攻击.md">DDOS攻击</a></li>
+<li><a href="./blog/IT/50-应用方向/安全/Session安全性问题.md">Session安全性问题</a></li>
+<li><a href="./blog/IT/50-应用方向/安全/linux安全设置.md">linux安全设置</a></li>
+<li><a href="./blog/IT/50-应用方向/安全/图解密码学.md">图解密码学</a></li>
+<li><a href="./blog/IT/50-应用方向/安全/如何防止黑客入侵.md">如何防止黑客入侵</a></li>
+<li><a href="./blog/IT/50-应用方向/安全/如何隐藏你的踪迹.md">如何隐藏你的踪迹</a></li>
+<li><a href="./blog/IT/50-应用方向/安全/用图片隐藏信息的技术实现.md">用图片隐藏信息的技术实现</a></li>
+<li><a href="./blog/IT/50-应用方向/安全/社会工程学.md">社会工程学</a></li>
+</ul></li>
+<li><strong>移动/</strong>
+<ul>
+<li><a href="./blog/IT/50-应用方向/移动/deeplink.md">deeplink</a></li>
+</ul></li>
+</ul></li>
+<li><strong>60-其他主题/</strong>
+<ul>
+<li><strong>windows&amp;mac/</strong>
+<ul>
+<li><a href="./blog/IT/60-其他主题/windows&amp;mac/MSYS2.md">MSYS2</a></li>
+<li><a href="./blog/IT/60-其他主题/windows&amp;mac/WORD字数统计.md">WORD字数统计</a></li>
+<li><a href="./blog/IT/60-其他主题/windows&amp;mac/bat脚本.md">bat脚本</a></li>
+<li><a href="./blog/IT/60-其他主题/windows&amp;mac/chrome插件.md">chrome插件</a></li>
+<li><a href="./blog/IT/60-其他主题/windows&amp;mac/cmd命令总结.md">cmd命令总结</a></li>
+<li><a href="./blog/IT/60-其他主题/windows&amp;mac/win11.md">win11</a></li>
+<li><a href="./blog/IT/60-其他主题/windows&amp;mac/windows-terminal.md">windows-terminal</a></li>
+<li><a href="./blog/IT/60-其他主题/windows&amp;mac/windows安装scoop.md">windows安装scoop</a></li>
+<li><a href="./blog/IT/60-其他主题/windows&amp;mac/windows实用小技巧.md">windows实用小技巧</a></li>
+<li><a href="./blog/IT/60-其他主题/windows&amp;mac/windows注册表.md">windows注册表</a></li>
+<li><a href="./blog/IT/60-其他主题/windows&amp;mac/wsl.md">wsl</a></li>
+<li><a href="./blog/IT/60-其他主题/windows&amp;mac/其他的工具.md">其他的工具</a></li>
+<li><a href="./blog/IT/60-其他主题/windows&amp;mac/办公软件.md">办公软件</a></li>
+<li><a href="./blog/IT/60-其他主题/windows&amp;mac/浏览器调用exe程序.md">浏览器调用exe程序</a></li>
+</ul></li>
+<li><strong>标准/</strong>
+<ul>
+<li><a href="./blog/IT/60-其他主题/标准/语种名称代码规范.md">语种名称代码规范</a></li>
+</ul></li>
+<li><strong>软件工程/</strong>
+<ul>
+<li><a href="./blog/IT/60-其他主题/软件工程/LEADER绩效评价.md">LEADER绩效评价</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/code-review-list.md">code-review-list</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/《人月神话》笔记.md">《人月神话》笔记</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/事故报告.md">事故报告</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/代码提交规范.md">代码提交规范</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/代码整洁之道.md">代码整洁之道</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/低级错误零容忍具体问题.md">低级错误零容忍具体问题</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/入职手册.md">入职手册</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/后端面试考察题.md">后端面试考察题</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/命名规范.md">命名规范</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/团队合作方法.md">团队合作方法</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/常见缩写.md">常见缩写</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/开发功能的要点.md">开发功能的要点</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/测试.md">测试</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/游戏更新流程.md">游戏更新流程</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/游戏项目立项办法.md">游戏项目立项办法</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/看板工具.md">看板工具</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/编码实践.md">编码实践</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/职位描述-php服务器开发.md">职位描述-php服务器开发</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/语义化版本.md">语义化版本</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/面试标准.md">面试标准</a></li>
+<li><a href="./blog/IT/60-其他主题/软件工程/项目规范.md">项目规范</a></li>
+</ul></li>
+<li><strong>面试题/</strong>
+<ul>
+<li><a href="./blog/IT/60-其他主题/面试题/关于简历.md">关于简历</a></li>
+<li><a href="./blog/IT/60-其他主题/面试题/如何在面试中发挥出自己的真实水平.md">如何在面试中发挥出自己的真实水平</a></li>
+<li><a href="./blog/IT/60-其他主题/面试题/找工作注意事项.md">找工作注意事项</a></li>
+<li><a href="./blog/IT/60-其他主题/面试题/简历.md">简历</a></li>
+<li><a href="./blog/IT/60-其他主题/面试题/自我介绍.md">自我介绍</a></li>
+<li><a href="./blog/IT/60-其他主题/面试题/面试问的问题.md">面试问的问题</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 <h2 id="关于我">关于我</h2>
 <p>俺是一个非科班出身的程序员。大学学的市场营销，带着对技术的兴趣，自学了多半年的编程。15年初和另一个好友来到北京，住着五道口的地下室吃着泡面就开始了北漂生活。狂投了几天简历，狂面了几天试，找到了一份web开发的工作，于是就开始了俺的程序员的生涯。先后搞过web前后端、游戏服务器和客户端、区块链等，技术更侧重服务器方向。<br />
 写这个blog一来是督促自己有点输出，分享一下自己了解的一点东西。二来希望结识些志趣相投的朋友。<br />
 以下是俺的联系方式<br />
 * Mail: sunxvming@163.com<br />
-* <a href="https://github.com/sunxvming">github</a>：https://github.com/sunxvming</p>
+* <a href="https://github.com/sunxvming">github</a>：https://github.com/sunxvming<br />
+* <a href="https://sunxvming.com">blog</a>：https://sunxvming.com</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

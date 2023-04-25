@@ -1,12 +1,6 @@
 `__typeof__()`并且`__typeof()`是C语言的编译器专用扩展，因为标准C不包含这样的运算符。标准C要求编译器用双下划线前缀语言扩展（这也是为什么你不应该为自己的函数，变量等做这些）
 
 
-
-
-
-
-
-
 C++ 程序员偏向于使用 for(;;) 结构来表示一个无限循环。
 
 
@@ -28,7 +22,6 @@ vs中显示winsock2.h 找不到，于是搜索了下发现在
 
 
 
-
 ### VS命令行编译
 在tools下有个bat文件VsDevCmd.bat，运行后就可以把编译的命令设置到环境变量中，然后就可以在命令行中编译了
 ![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/277f4bd4-0fbc-46e5-96df-e3864abaa6f6.png)
@@ -36,16 +29,15 @@ vs中显示winsock2.h 找不到，于是搜索了下发现在
 
 
 
-
-
 ### .net framework ^符号
 在MSDN看到这个“^”符号，它究竟是什么意思？不是位运算符哈。
-
+```
 public static DirectoryInfo^ CreateDirectory(
 
 String^ path
 
 )
+```
 
 这个是c++调用.net framework库里面的对象用到的符号，DirectoryInfo和String都是.net对象，你把^当作一种特殊的指针看就可以了。
 
@@ -55,7 +47,6 @@ String^ path
 man fopen  在linux下就可以查看到c函数的用法
 
 c函数（尤其linux下）正确情况一般返回0 ，错误的话则返回错误码
-
 
 
 
@@ -83,7 +74,8 @@ c函数（尤其linux下）正确情况一般返回0 ，错误的话则返回�
  getchar();
 }
 ```
-### DLL _declspec
+### `DLL _declspec`
+
 ```
 #include<stdlib.h>
 #include<windows.h>
@@ -136,10 +128,7 @@ void main()
 ```
 ### 外挂的思路
 植物大战僵尸外挂的思路
-知道那些地址代表那些属性，然后修改之，（属性包括游戏运行暂停状态，分数，生命值……）这就是外挂可以通过使用Cheat Engine 来扫码比如阳光的地址，然后修改地址，最重要的是扫描出基址，和各个属性的偏移地址。然后根据这些地址写一个修改地址的dll，然后注入到游戏中
-
-
-
+知道那些地址代表那些属性，然后修改之，（属性包括游戏运行暂停状态，分数，生命值……）这就是外挂可以通过使用Cheat Engine 来扫描比如阳光的地址，然后修改地址，最重要的是扫描出基址，和各个属性的偏移地址。然后根据这些地址写一个修改地址的dll，然后注入到游戏中
 
 
 
@@ -169,14 +158,12 @@ volatile 修饰符 volatile 告诉编译器不需要优化volatile声明的�
 C++ 程序中变量/函数的范围（可见性）和生命周期。
 * auto 关键字用于两种情况：声明变量时根据初始化表达式自动推断该变量的类型、声明函数时函数返回值的占位符。
 
-
 * register 存储类用于定义存储在寄存器中而不是 RAM 中的局部变量。这意味着变量的最大尺寸等于寄存器的大小（通常是一个词），且不能对它应用一元的 '&' 运算符（因为它没有内存位置）。
 寄存器只用于需要快速访问的变量，比如计数器。还应注意的是，定义 'register' 并不意味着变量将被存储在寄存器中，它意味着变量可能存储在寄存器中，这取决于硬件和实现的限制。
 
 
 * static 存储类指示编译器在程序的生命周期内保持局部变量的存在，而不需要在每次它进入和离开作用域时进行创建和销毁。因此，使用 static 修饰局部变量可以在函数调用之间保持局部变量的值。
 static 修饰符也可以应用于全局变量。当 static 修饰全局变量时，会使变量的作用域限制在声明它的文件内。
-
 
 
 * extern 修饰符通常用于当有两个或多个文件共享相同的全局变量或函数的时候
@@ -194,7 +181,7 @@ static 修饰符也可以应用于全局变量。当 static 修饰全局变�
 
 
 #### 2.数据的定义，声明
-```
+```c
 extern int x; //变量是声明，并未实际分配地址，未产生实际目标代码，可以有多个重复声明的存在。
 void print(); //函数声明，未产生实际目标代码
 int x; int x = 3 ; void print() {}; //定义,产生了实际目标代码。
@@ -204,7 +191,6 @@ int x; int x = 3 ; void print() {}; //定义,产生了实际目标代�
 声明不产生实际的目标代码，它的作用是告诉编译器，OK，我在该编译单元后面会有这个x变量或函数的定义。
 否则编译器如果发现程序用到x，print，而前面没有声明会报错。
 如果有声明，而没有定义，那么链接的时候会报错未定义。
-
 
 #### 3. 符号重复
 同一编译单元内部的重名符号在编译期就被阻止了，而不同编译单元之间的重名符号要到链接器才会被发现。 
@@ -283,7 +269,7 @@ int x;
 g++ –o test source1.cc source2.cc， 同样会链时发现重复定义的全局变量x。
 
 
-因此变量定义，包括函数的定义不要写到头文件中，因为头文件很可能要被多个.cc引用。
+因此**变量定义，包括函数的定义不要写到头文件中，因为头文件很可能要被多个.cc引用**。
 那么如果我的head.h如下这么写呢，是否防止了x的链接时重定义出错呢？
 ```
 //head.h
@@ -324,14 +310,14 @@ int x;
 
 
 #### 5. 关于类的声明和定义。
-```
+```c
 class A; //类的声明类的声明和普通变量声明一样，不产生目标代码，可以在同一，以及多个编译单元重复声明。
 class A {
-}; //类的定义只是告诉编译器，类的数据格式是如何的，实例话后对象该占多大空间。类的定义也不产生目标代码。
+}; //类的定义只是告诉编译器，类的数据格式是如何的，实例化后对象该占多大空间。类的定义也不产生目标代码。
 ```
 
 
-```
+```c
 //source1.cc
 class A;
 class A; //类重复声明，OK
@@ -345,8 +331,6 @@ class A{
    int x;
 }; //同一编译单元内，类重复定义，会编译时报错,因为编译器不知道在该编译单元，A a；的话要生产怎样的a.
 ```
-
-
 
 
 但是在不同编译单元内，类可以重复定义,因为类的定义未产生实际代码。但链接的时候会出问题。
@@ -364,10 +348,8 @@ class A{
 
 
 
-
-
 ## 示例代码
-```
+```c
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
@@ -375,7 +357,6 @@ class A{
 
 //1.在c中没有字符串这种类型，是通过字符串数组(char buf[100])去模拟
 //2.字符串和字符串数组的区别 是不是 带有\0
-
 
 //字符串数组 也是 数组
 void main11()
@@ -386,7 +367,6 @@ void main11()
     printf("%s\n", buf4);
     system("pause");
 }
-
 
 
 //strlen() 是一个函数 求字符串的长度，不包括\0
@@ -506,7 +486,7 @@ void main41()
     int count = 0; //去除空格后的长度
     int i = 0, j = 0;
 
-
+  
     char *p = "   abcd       ";
     j = strlen(p) -1;
 
@@ -676,400 +656,12 @@ void main()
 
     system("pause");
 }
---------------二级指针第一种内存模型-------------------
 
 
-#include "stdio.h"
-#include "stdlib.h"
-#include "string.h"
-
-
-void main01()
-{
-    int i = 0, j = 0;
-    char *tmp = NULL;
-
-
-    char *ArrayStr[] = {"ccccc", "aaaa", "bbbb","11111"};  //指针类型的数组，从中间往外判断，
-                                                        //先ArrayStr[]可以确定是个数组，再char *可以判定是char指针的数组
-    for (i=0; i<4; i++)
-    {
-        printf("%s \n", ArrayStr[i]);
-    }
-
-
-    //排序
-    for (i=0; i<4; i++)
-    {
-        for (j=i+1; j<4; j++)
-        {
-            if (strcmp(ArrayStr[i],ArrayStr[j]) > 0)
-            {
-                tmp = ArrayStr[i];
-                ArrayStr[i] = ArrayStr[j];
-                ArrayStr[j] = tmp;
-            }
-        }
-    }
-
-
-    for (i=0; i<4; i++)
-    {
-        printf("%s \n", ArrayStr[i]);
-    }
-
-
-    system("pause");
-}
-
-
-int    printfArr(char **ArrayStr, int iNum)
-{
-    int i = 0;
-    for (i=0; i<iNum; i++)
-    {
-        printf("%s \n", ArrayStr[i]);
-    }
-    return 0;
-}
-
-
-int sortArrayStr(char **ArrayStr, int iNum)
-{
-    int i = 0, j = 0;
-    char *tmp = NULL;
-    //排序
-
-
-    for (i=0; i<4; i++)
-    {
-        for (j=i+1; j<4; j++)
-        {
-            if (strcmp(ArrayStr[i],ArrayStr[j]) > 0)
-            {
-                tmp = ArrayStr[i];
-                ArrayStr[i] = ArrayStr[j];
-                ArrayStr[j] = tmp;
-            }
-        }
-    }
-    return 0;
-}
-
-
-//二级指针第一种内存模型
-void main()
-{
-    char *ArrayStr[] = {"ccccc", "aaaa", "bbbb","11111"};
-
-
-    printf("排序之前\n");
-    printfArr(ArrayStr,4);
-    sortArrayStr(ArrayStr, 4);
-
-
-    printf("排序之后\n");
-    printfArr(ArrayStr,4);
-
-
-    system("pause");
-}
---------------第二种内存模型------------------
-#include "stdio.h"
-#include "stdlib.h"
-#include "string.h"
-
-
-void main21()
-{
-    int i = 0, j = 0;
-
-
-    char buf[30];
-    char myArray[10][30] =  {"ccccc", "aaaa", "bbbb","11111"};
-
-
-
-    //打印第二种内存模型
-    for (i=0; i<4; i++)
-    {
-        printf("%s \n", myArray[i]);
-    }
-
-
-    //排序
-    for (i=0; i<4; i++)
-    {
-        for (j=i+1; j<4; j++)
-        {
-            if (strcmp(myArray[i], myArray[j]) > 0)
-            {
-                strcpy(buf, myArray[i]);
-                strcpy(myArray[i],myArray[j]);
-                strcpy(myArray[j], buf);
-            }
-        }
-    }
-
-
-    //打印第二种内存模型
-    for (i=0; i<4; i++)
-    {
-        printf("%s \n", myArray[i]);
-    }
-    system("pause");
-}
-
-
-//指针类型不一样。=====》内存模型不一样。。。。
-int    printfArr22(char **ArrayStr, int iNum)
-{
-    int i = 0;
-    for (i=0; i<iNum; i++)
-    {
-        printf("%s \n", ArrayStr[i]);
-    }
-    return 0;
-}
-
-
-//int array[10]===>int *array===>
-//    int    printfArr22(char array[10], int iNum);
-int    printfArr23(char myArray[10][30], int iNum)
-{
-    int i = 0;
-    for (i=0; i<iNum; i++)
-    {
-        printf("%s \n", myArray[i]);
-    }
-    return 0;
-}
-
-
-//    int    printfArr22(char array[10], int iNum);
-int    sortArr23(char myArray[10][30], int iNum)
-{
-    int i = 0, j = 0;
-    char buf[30]; //buf数组名代表数组首元素的地址
-    //排序
-    for (i=0; i<4; i++)
-    {
-        for (j=i+1; j<4; j++)
-        {
-            if (strcmp(myArray[i], myArray[j]) > 0)
-            {
-                strcpy(buf, myArray[i]);
-                strcpy(myArray[i],myArray[j]);
-                strcpy(myArray[j], buf);
-            }
-        }
-    }
-}
-
-
-void main()
-{
-    int i = 0;
-    char myArray[10][30] =  {"ccccc", "aaaa", "bbbb","11111"}; //myArray数组名代表什么？抛砖
-
-
-    printf("第二种内存模型，排序之前\n");
-    printfArr23(myArray, 4);
-    //printfArr23(myArray[10][30], 4);
-
-
-    sortArr23(myArray, 4);
-
-
-    printf("第二种内存模型，排序之后\n");
-    printfArr23(myArray, 4);
-    system("pause");
-}
-------------第三种内存模型------------------
-#include "stdio.h"
-#include "stdlib.h"
-#include "string.h"
-
-
-
-void main33333()
-{
-    int i = 0, j = 0;
-    char buf[100];
-    char **myarray = (char **)malloc(10*sizeof(char*)); //int array[10]
-    if (myarray == NULL)
-    {
-        return;
-    }
-    for (i=0; i<10; i++)
-    {
-        myarray[i] = (char *)malloc(100*sizeof(char)); //char buf[100];
-        if (myarray[i]  == NULL)
-        {
-            printf("ddddde\n");
-            return;
-        }
-        sprintf(myarray[i],"%d%d%d ", i, i, i);
-    }
-
-
-    //第三种内存模型打印
-    printf("排序之前\n");
-    for (i=0; i<10; i++)
-    {
-        printf("%s\n", myarray[i]);
-    }
-
-
-    //排序
-    for (i=0; i<10; i++)
-    {
-        for (j=i+1; j<10; j++)
-        {
-            if (strcmp(myarray[i], myarray[j]) < 0)
-            {
-                strcpy(buf, myarray[i]);
-                strcpy(myarray[i], myarray[j]);
-                strcpy(myarray[j], buf);
-            }
-        }
-    }
-
-
-    //第三种内存模型打印
-    printf("排序之后\n");
-    for (i=0; i<10; i++)
-    {
-        printf("%s\n", myarray[i]);
-    }
-
-
-    for (i=0; i<10; i++)
-    {
-        free(myarray[i] );
-    }
-    if (myarray != NULL)
-    {
-        free(myarray);
-    }
-
-
-    system("pause");
-}
-
-
-
-
-
-int    printfArr33(char **ArrayStr, int iNum)
-{
-    int i = 0;
-    for (i=0; i<iNum; i++)
-    {
-        printf("%s \n", ArrayStr[i]);
-    }
-    return 0;
-}
-
-
-int    printfArr2_23(char myArray[10][100], int iNum)
-{
-    int i = 0;
-    for (i=0; i<iNum; i++)
-    {
-        printf("%s \n", myArray[i]);
-    }
-    return 0;
-
-
-}
-
-
-
-int sortArrayStr03(char **ArrayStr, int iNum)
-{
-    int i = 0, j = 0;
-    char *tmp = NULL;
-    //排序
-
-
-    for (i=0; i<iNum; i++)
-    {
-        for (j=i+1; j<iNum; j++)
-        {
-            if (strcmp(ArrayStr[i],ArrayStr[j]) < 0)
-            {
-                tmp = ArrayStr[i];
-                ArrayStr[i] = ArrayStr[j];
-                ArrayStr[j] = tmp;
-            }
-        }
-    }
-    return 0;
-}
-
-
-void main()
-{
-    int i = 0, j = 0;
-    char buf[100];
-    char **myarray = (char **)malloc(10*sizeof(char*)); //int array[10]
-    if (myarray == NULL)
-    {
-        return;
-    }
-    for (i=0; i<10; i++)
-    {
-        myarray[i] = (char *)malloc(100*sizeof(char)); //char buf[100];
-        if (myarray[i]  == NULL)
-        {
-            printf("ddddde\n");
-            return;
-        }
-        sprintf(myarray[i],"%d%d%d ", i, i, i);
-    }
-
-
-    //第三种内存模型打印
-    printf("排序之前\n");
-    printfArr33(myarray, 10);
-    //printfArr2_23(myarray, 10); //第二种打印不适合 err
-
-
-    sortArrayStr03(myarray, 10);
-
-
-    //第三种内存模型打印
-    printf("排序之后\n");
-    printfArr33(myarray, 10);
-
-
-    for (i=0; i<10; i++)
-    {
-        free(myarray[i] );
-    }
-    if (myarray != NULL)
-    {
-        free(myarray);
-    }
-
-
-    system("pause");
-}
-
-
------------------------------------
-    //a代表数组首元素的地址，不是整个数组的地址   内存空间的长度不一样
-    //&a表示整个数组的地址，类型是：int[10]
-    //a 数组首元素的类型
-    int a[10] = {1,2}; //其他初始化为0
-    int b[] = {1,2};
----------------------------------
 void main02()
 {
     //我声明了一个数组类型
     typedef int(MyArr5)[5];    //5个int类型的内存空间，也就是类型的长度
-
 
     //用数据类型定义一个变量
     MyArr5 arr5; //相当于int arra[5];
@@ -1125,113 +717,6 @@ void main022()
     system("pause");
 }
 
-
-==================文件操作==============
-
-
-//读文件的代码，系统调用
-int main(int arg, char *args[])  
-{
-    if (arg < 2)
-        return 0;
-    int fd = open(args[1], O_RDONLY); //只读方式打开文件abc.txt
-    if (fd == -1)
-    {
-        printf("error is %s\n", strerror(errno));
-    } else
-    {
-        printf("success fd = %d\n", fd);
-        char buf[100];
-        memset(buf, 0, sizeof(buf));
-        while(read(fd, buf, sizeof(buf) - 1) > 0)  //减1是因为不是已/0结束会有乱码的
-        {
-            printf("%s\n", buf);   
-            memset(buf, 0, sizeof(buf));
-        }
-        close(fd);
-    }
-    return 0;
-}
-
-
-//写文件的代码，系统调用
-int main(int arg, char *args[])
-{
-    char s[] = "abc.txt";
-    int fd = open(s, O_RDWR | O_APPEND);//用读写追加方式打开文件
-    if (fd == -1)
-    {
-        printf("error is %s\n", strerror(errno));
-    }else
-    {
-        printf("success fd = %d\n", fd);
-        char buf[100];
-        memset(buf, 0, sizeof(buf));
-        strcpy(buf, "hello world\n");
-        int i = write(fd, buf, strlen(buf));//这里要用strlen函数
-        close(fd);
-    }
-    return 0;
-}
-
-
-
-//得到文件状态代码
-int main(int arg, char *args[])
-{
-    int fd = open(args[1], O_RDONLY);
-    if (fd == -1)
-    {
-        printf("error is %s\n", strerror(errno));
-    }else
-    {
-        printf("success fd = %d\n", fd);
-        struct stat buf;
-        fstat(fd, &buf);
-        if (S_ISREG(buf.st_mode))//判断文件是否为标准文件
-        {
-            printf("%s is charfile\n", args[1]);
-        }
-        if (S_ISDIR(buf.st_mode))//判断文件是否为目录
-        {
-            printf("%s is dir\n", args[1]);
-        }
-
-
-        printf("%s size =%d\n", args[1], buf.st_size);//得到文件大小
-
-
-        close(fd);
-    }
-    return 0;
-}
-
-
-
-//C库函数读取文件的代码
-int main(int arg, char *args[])
-{
-    FILE *p = fopen(args[1], "r+");
-    if (p == NULL)
-    {
-        printf("error is %s\n", strerror(errno));
-    }else
-    {
-        printf("success\n");
-        char buf[100];
-        size_t rc = 0;
-        while(1)
-        {
-            size_t tmp = fread(buf, 1, sizeof(buf), p);//原则是第二个参数乘以第三个参数的大小不能超过缓冲区
-            rc += tmp;            //返回的是读到的记录数
-            if (tmp == 0)       
-                break;
-        }
-        printf("rc = %d\n", rc);
-        fclose(p);
-    }
-    return 0;
-}
 
 
 
@@ -1344,45 +829,6 @@ void writelog(const char *log)
     }
     return;
 }
-
-
-//读目录的代码
-int main(int arg, char *args[])
-{
-    if (arg <2)
-        return 0;
-
-
-    DIR *dp;
-    struct dirent *dirp;
-    dp = opendir(args[1]);//打开目录文件
-    if (dp == NULL)
-    {
-        printf("error is %s\n", strerror(errno));
-        return 0;
-    }
-
-
-    while((dirp = readdir(dp)) != NULL)//用readdir循环读取目录内容，读到目录尾，循环break
-    {
-        printf("%s\n", dirp->d_name);//将目录下的文件名打印到屏幕
-
-
-    }
-
-
-    closedir(dp);//关闭目录
-
-
-    return 0;
-}
-
-
-
-222
-
-
-
 
 
 

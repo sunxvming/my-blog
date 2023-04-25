@@ -258,7 +258,7 @@ private:
     T1 m_x; //x坐标
     T2 m_y; //y坐标
 };</code></pre>
-<p>模板类方法定义：</p>
+<p>模板类方法实现：</p>
 <pre><code>template&lt;typename T1, typename T2&gt; //模板头
 T1 Point&lt;T1, T2&gt;::getX() const /*函数头*/ {
     return m_x;
@@ -291,7 +291,7 @@ template&lt;typename T&gt; void Swap(T a[], T b[], int len); //模板�
 <em> const 转换：也即将非 const 类型转换为 const 类型，例如将 <code>char *</code> 转换为 <code>const char *</code>。<br />
 </em> 数组或函数指针转换：如数组名会转换为数组指针，函数名也会转换为函数指针。<br />
 * 用户自定的类型转换。</p>
-<p>而对于函数模板，类型转换则受到了更多的限制，仅能进行<strong>「const 转换」和「数组或函数指针转换」</strong></p>
+<p>而对于函数模板，类型转换则受到了更多的限制，仅能进行<strong>const 转换</strong>和<strong>数组或函数指针转</strong></p>
 <h4 id="为函数模板显式地指明实参也就是具体的类型">为函数模板显式地指明实参（也就是具体的类型）</h4>
 <p>函数模板的实参推断是指「在函数调用过程中根据实参的类型来寻找类型参数的具体类型」的过程，这在大部分情况下是奏效的，但是当函数参数少于类型参数时。<br />
 下面是一个实参推断失败的例子：</p>
@@ -402,8 +402,8 @@ int main(){
 }</code></pre>
 <p>需要定义两套类，一个模板的，一个具体类型的。</p>
 <h4 id="部分显式具体化偏特化">部分显式具体化(偏特化)</h4>
-<p>在上面的显式具体化例子中，我们<strong>为所有的类型参数都提供了实参</strong>，所以最后的模板头为空，也即template&lt;&gt;。另外 C++ 还允许只为一部分类型参数提供实参，这称为部分显式具体化。<br />
-部分显式具体化只能用于类模板，不能用于函数模板。<br />
+<p>在上面的显式具体化例子中，我们<strong>为所有的类型参数都提供了实参</strong>，所以最后的模板头为空，也即template&lt;&gt;。另外 C++ 还允许只为一部分类型参数提供实参，这称为<strong>部分显式具体化</strong>。<br />
+部分显式具体化<strong>只能用于类模板</strong>，不能用于函数模板。<br />
 此种方法依然是重写一套类，只不过类中可以部分的是类型参数。</p>
 <pre><code>#include &lt;iostream&gt;
 using namespace std;
@@ -458,7 +458,7 @@ template&lt;class T, int N&gt; void func(T (&amp;arr)[N]);</code></pre>
         b[i] = temp;
     }
 }
-//调用
+//调用，编译器会自动推断类型为int，长度为5
 int a[5] = { 1, 2, 3, 4, 5 };
 int b[5] = { 10, 20, 30, 40, 50 };
 Swap(a, b);</code></pre>
