@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/图形/osg</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#设置的环境变量">设置的环境变量</a></li>
+<li><a href="#osg编译成静态库">osg编译成静态库</a></li>
+<li><a href="#代码使用">代码使用</a></li>
+<li><a href="#出现的问题">出现的问题</a></li>
+<li><a href="#参考文档">参考文档</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<ul>
+<li><a href="https://www.openscenegraph.com/index.php/download-section/stable-releases">osg下载 Stable releases</a></li>
+<li><a href="http://www.osgchina.org/">osg中文社区</a></li>
+<li><a href="https://www.openscenegraph.com/">osg英文官网</a></li>
+</ul>
+<h2 id="设置的环境变量">设置的环境变量</h2>
+<p>Path</p>
+<pre><code># release版
+D:\program\vcpkg\installed\x64-windows\bin
+D:\program\vcpkg\installed\x64-windows\plugins\osgPlugins-3.6.5
+# debug版
+D:\program\vcpkg\installed\x64-windows\debug\bin
+D:\program\vcpkg\installed\x64-windows\debug\plugins\osgPlugins-3.6.5</code></pre>
+<p>release版、debug版都设置了，用cmake编译的时候才能根据当前编译的是debug还是release找到对应版本的依赖。<br />
+下面是lib库的打印</p>
+<pre><code>message(STATUS &quot;OPENSCENEGRAPH_LIBRARIES=====: ${OPENSCENEGRAPH_LIBRARIES}&quot;)
+
+[cmake] -- OPENSCENEGRAPH_LIBRARIES=====: optimized;D:/program/vcpkg/installed/x64-windows/lib/osg.lib;debug;D:/program/vcpkg/installed/x64-windows/debug/lib/osgd.lib;optimized;D:/program/vcpkg/installed/x64-windows/lib/osgDB.lib;debug;D:/program/vcpkg/installed/x64-windows/debug/lib/osgDBd.lib;optimized;D:/program/vcpkg/installed/x64-windows/lib/osgGA.lib;debug;D:/program/vcpkg/installed/x64-windows/debug/lib/osgGAd.lib;optimized;D:/program/vcpkg/installed/x64-windows/lib/osgUtil.lib;debug;D:/program/vcpkg/installed/x64-windows/debug/lib/osgUtild.lib;optimized;D:/program/vcpkg/installed/x64-windows/lib/osgViewer.lib;debug;D:/program/vcpkg/installed/x64-windows/debug/lib/osgViewerd.lib;optimized;D:/program/vcpkg/installed/x64-windows/lib/osgText.lib;debug;D:/program/vcpkg/installed/x64-windows/debug/lib/osgTextd.lib;optimized;D:/program/vcpkg/installed/x64-windows/lib/OpenThreads.lib;debug;D:/program/vcpkg/installed/x64-windows/debug/lib/OpenThreadsd.lib</code></pre>
+<p>OSG_FILE_PATH</p>
+<pre><code>D:\project\c++\OpenSceneGraph-Data
+D:\project\c++\OpenSceneGraph-Data\Images</code></pre>
+<p>OSG_NOTIFY_LEVEL</p>
+<pre><code>NOTICE</code></pre>
+<h2 id="osg编译成静态库">osg编译成静态库</h2>
+<p>osg默认是编译成动态库的，编译静态库需要手动进行设置，参考：<br />
+<a href="https://www.cnblogs.com/mazhenyu/p/17160663.html">OSG3.4.0静态库编译（VS2019） - 3D入魔 - 博客园</a></p>
+<h2 id="代码使用">代码使用</h2>
+<p>设置窗口大小</p>
+<pre><code>viewer.setUpViewInWindow(100, 100, width, height);</code></pre>
+<p>Viewer::Viewer继承osgViewer::View</p>
+<h2 id="出现的问题">出现的问题</h2>
+<p>把自己的osgEarth程序编译好复制到其他电脑上执行，程序报错，提示缺少xxxd.dll的动态库，因为自己编译的是debug版本的，而这太电脑是个新电脑，没有安装c++的开发环境，所有也就没有debug版本的一些dll库。</p>
+<p>然后又编译了release版本的程序，上面的问题便解决了。</p>
+<p>但是又报了如下的错误</p>
+<pre><code>Fontconfig error: Cannot load default config file: No such file: (null)
+Windows Error #127: [Screen #0] ChooseMatchingPixelFormat() - wglChoosePixelFormatARB extension not found, trying GDI. Reason: 找不到指定的程序。
+
+Rendering in software: pixelFormatIndex 1
+Windows Error #127: [Screen #0] GL3: wglCreateContextAttribsARB not available.. Reason: 找不到指定的程序。
+
+Windows Error #127: [Screen #0] ChooseMatchingPixelFormat() - wglChoosePixelFormatARB extension not found, trying GDI. Reason: 找不到指定的程序。
+
+Rendering in software: pixelFormatIndex 3
+Windows Error #127: [Screen #0] GL3: wglCreateContextAttribsARB not available.. Reason: 找不到指定的程序。
+
+Warning 1: PROJ: proj_create_from_database: Cannot find proj.db
+Warning 1: PROJ: proj_create_from_database: Cannot find proj.db
+Warning: detected OpenGL error &#39;invalid enumerant&#39; at Before Renderer::compile</code></pre>
+<p>经过网上搜索说是显卡驱动版本太低了，但是这太电脑装的是新的nvidia 3060的显卡，应该不会太低呀。<br />
+后来打开设备管理器--&gt;显示适配器，里面有两块显卡，然后我就禁用掉了其中的集成显卡，然后重启电脑。重启后就一直卡在启动界面了。然后想进入bios中打开被禁用的显卡，但是没找到地方。经过另一个人的提醒，是不是显示屏接到了集显上了。恍然大悟，于是把显示屏接到独显上再次启动就好了。</p>
+<h2 id="参考文档">参考文档</h2>
+<p><a href="https://podsvirov.github.io/osg/reference/openscenegraph/annotated.html">OpenSceneGraph: Class List</a></p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

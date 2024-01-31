@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/lua/基础知识</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#lua如何实现类">lua如何实现类</a></li>
+<li><a href="#数据结构">数据结构</a></li>
+<li><a href="#变长参数">变长参数</a></li>
+<li><a href="#错误处理">错误处理</a></li>
+<li><a href="#命令行">命令行</a></li>
+<li><a href="#函数">函数</a></li>
+<li><a href="#正则">正则</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="lua如何实现类">lua如何实现类</h2>
+<p>1.创建一个_class函数<br />
+a)在函数中创建一个table，并把<code>__index</code>字段设置成自己，目的是让生成的对象把自己的原表设置成这个table<br />
+b)继承其他类(把父类的字段都复制过来)<br />
+2.创建一个Object基类，实现一个new方法，new方法会创建一个table，并设置table的原表为当前的类，并return</p>
+<h2 id="数据结构">数据结构</h2>
+<p>【table也可以做key】<br />
+原理可能是每个table都有一个唯一的码，用这个码作为table的key</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode lua"><code class="sourceCode lua"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">local</span> cfg <span class="op">=</span> <span class="op">{</span> a <span class="op">=</span> <span class="st">&#39;aaa&#39;</span><span class="op">,</span> b <span class="op">=</span> <span class="st">&#39;bbb&#39;</span><span class="op">,</span> c <span class="op">=</span> <span class="st">&#39;ccc&#39;</span><span class="op">}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">local</span> a <span class="op">=</span> <span class="op">{}</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>a<span class="op">[</span>cfg<span class="op">]</span> <span class="op">=</span> <span class="dv">11111</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="fu">print</span><span class="op">(</span>a<span class="op">[</span>cfg<span class="op">])</span></span></code></pre></div>
+<p>注意传值的方式<br />
+local cfg = { a = 'aaa', b = 'bbb', c = 'ccc'}<br />
+local cfg2 = cfg<br />
+cfg2.a = 'ccc' 会改变cfg的值<br />
+cfg2 = {d = 'ddd'} 不会<br />
+cfg2 = 1 不会</p>
+<p>x = 5<br />
+a = {} -- 空表<br />
+b = { key = x, anotherKey = 10 } -- 字符串作键<br />
+c = { [x] = b, ["string"] = 10, [34] = 10} -- 变量和字面量作键 , 注意：不要用未赋值的变量做key</p>
+<p>local i = {[1]=1,[2]=2,1111}<br />
+print(i[1]) -- 1111 i[2] -- 2 原因是1 被覆盖 掉了</p>
+<pre><code>a = { x = 400, y = 300, [20] = &quot;foo&quot; }
+b = { 20, 30, 40 }
+c = {[111] = 111, [222] = 222}
+for key, value in pairs(c) do           ipairs 只对b有效
+  print(key, value)
+end</code></pre>
+<p>a = {[2] = 123, [3] = 345}<br />
+dump(#a) 索引不是从1开始的话长度就是零</p>
+<p>Lua的table操作：<br />
+t = { 24, 25, 8, 13, 1, 40 }<br />
+table.insert(t, 50) -- 附加50<br />
+table.insert(t, 3, 89) -- 在索引3处插入89<br />
+table.remove(t, 2) -- 删除第2项<br />
+table.sort(t) -- 使用 &lt; 运算符排序<br />
+local s = table.concat( t, '\n' )</p>
+<h2 id="变长参数">变长参数</h2>
+<pre><code>do 
+    function foo(...) 
+        for i = 1, select(&#39;#&#39;, ...) do   //get the count of the params 
+            local arg = select(i, ...)   //select the param 
+            print(&quot;arg&quot;, arg); 
+        end 
+    end 
+    foo(1, 2, nil, 4); 
+end  
+
+function f(...)
+    for i,v in pairs({...}) do
+        print(i..&#39;--------&#39;..v)
+    end
+end
+</code></pre>
+<p>变长参数<code>unpack({...})</code> 如果中间有nil后边的就会被 丢弃掉</p>
+<h2 id="错误处理">错误处理</h2>
+<p>【pcall】<br />
+指的是 protected call 类似其它语言里的 try-catch, 使用pcall 调用函数，如果函数 f 中发生了错误， 它并不会抛出一个错误，而是返回错误的状态, 为被执行函数提供一个保护模式，<strong>保证程序不会意外终止</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode lua"><code class="sourceCode lua"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">local</span> success<span class="op">,</span> resultOrErrorMessage <span class="op">=</span> <span class="fu">pcall</span><span class="op">(</span> f <span class="op">,</span> arg1<span class="op">,</span>···<span class="op">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="op">//</span> success<span class="op">:</span> 没有错误返回 <span class="kw">true</span><span class="op">,</span>  有错误返回 <span class="kw">false</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="op">//</span> resultOrErrorMessage<span class="op">:</span> 发生错误返回错误信息，否则返回函数调用返回值</span></code></pre></div>
+<p>【xpcall】<br />
+<code>xpcall</code> ，xpcall 中的 "x" 代表 "eXtended"，即扩展的意思。允许你指定一个专门用于处理错误的函数。这有助于更灵活地处理错误情况。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode lua"><code class="sourceCode lua"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">function</span> myfunction <span class="op">()</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>   n <span class="op">=</span> n<span class="op">/</span><span class="kw">nil</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="kw">end</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a><span class="kw">function</span> myerrorhandler<span class="op">(</span> err <span class="op">)</span>   <span class="co">-- err 是异常的信息</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>   <span class="fu">print</span><span class="op">(</span> <span class="st">&quot;ERROR:&quot;</span><span class="op">,</span> err <span class="op">)</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a><span class="kw">end</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a><span class="kw">local</span> success<span class="op">,</span> resultOrErrorMessage <span class="op">=</span>  <span class="fu">xpcall</span><span class="op">(</span> myfunction<span class="op">,</span> myerrorhandler <span class="op">)</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a><span class="fu">print</span><span class="op">(</span> status<span class="op">,</span> resultOrErrorMessage<span class="op">)</span></span></code></pre></div>
+<p>print(debug.traceback()) 可以打印调用栈</p>
+<p>【heredoc】</p>
+<pre><code>html = [[
+&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+    &lt;a href=&quot;http://www.w3cschool.cc/&quot;&gt;w3cschool菜鸟教程&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+]]</code></pre>
+<p>在对一个数字字符串上进行 算术操作 时，Lua 会尝试将这个数字字符串转成一个数字:</p>
+<p>使用 # 来计算字符串的长度，放在字符串前面，如下实例：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode lua"><code class="sourceCode lua"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="fu">len</span> <span class="op">=</span> <span class="st">&quot;www.w3cschool.cc&quot;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="fu">print</span><span class="op">(</span> <span class="op">#</span><span class="fu">len</span> <span class="op">)</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="fu">print</span><span class="op">(#</span><span class="st">&quot; www.w3cschool.cc&quot;</span><span class="op">)</span></span></code></pre></div>
+<pre><code>t[i]  =&gt;  t.i    </code></pre>
+<p>当索引为 字符串类型 时的一种简化写法</p>
+<p>a, b, c = 0<br />
+print(a,b,c) --&gt; 0 nil nil<br />
+上面最后一个例子是一个 常见的错误情况 ，注意：如果要对多个变量赋值必须依次对每个变量赋值。</p>
+<p>赋值语句不会返回所赋的值 ，所以foo(a = 3)和a = b = 1导致语法错误。</p>
+<p>x, y = y, x -- swap 'x' for 'y'<br />
+a[i], a[j] = a[j], a[i] -- swap 'a[i]' for 'a[j]'</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode lua"><code class="sourceCode lua"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="cf">repeat</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>   <span class="fu">print</span><span class="op">(</span><span class="st">&quot;a的值为:&quot;</span><span class="op">,</span> a<span class="op">)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>   a <span class="op">=</span> a <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="cf">until</span><span class="op">(</span> a <span class="op">&gt;</span> <span class="dv">15</span> <span class="op">)</span></span></code></pre></div>
+<p>^指数运算，例如10 ^ 2输出100，大多数语言中，^表示XOR。</p>
+<pre><code>_G
+里面存了所有的全局变量：
+a = 3
+print(_G.a) -- 3
+_G.b = 4
+print(b) -- 4
+print(_G._G == _G) -- true</code></pre>
+<h2 id="命令行">命令行</h2>
+<p>命令行参数存储在arg表中，假定你有一个foo.lua脚本：<br />
+print(arg[-1], arg[0])<br />
+for i, v in ipairs(arg) do print(v) end</p>
+<hr />
+<p>文件中的<code>...</code><br />
+由于文件以函数的方式加载，所以我们可以用上...。假定bar.lua内容如下：<br />
+print(...) -- 输出所有传递给该文件函数的 参数<br />
+以如下语句加载：</p>
+<p>loadfile("bar.lua")(1, 2, 3, 4)<br />
+输出为1 2 3 4.</p>
+<h2 id="函数">函数</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode lua"><code class="sourceCode lua"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">function</span> foo<span class="op">()</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>  <span class="kw">local</span> x<span class="op">,</span> y <span class="op">=</span> something<span class="op">(</span><span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">)</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>  <span class="cf">return</span> x <span class="op">^</span> y</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a><span class="kw">end</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a><span class="kw">function</span> something<span class="op">(</span>arg1<span class="op">,</span> arg2<span class="op">)</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>  <span class="kw">local</span> ret1 <span class="op">=</span> <span class="op">(</span>arg1 <span class="op">*</span> arg2<span class="op">)</span> <span class="op">^</span> <span class="dv">2</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>  <span class="kw">local</span> ret2 <span class="op">=</span> <span class="op">(</span>arg1 <span class="op">-</span> arg2<span class="op">)</span> <span class="op">^</span> <span class="dv">2</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>  <span class="cf">return</span> ret1 <span class="op">+</span> ret2<span class="op">,</span> ret1 <span class="op">*</span> ret2</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a><span class="kw">end</span></span></code></pre></div>
+<p>上面的代码说明 定义函数的先后顺序 没有关系，这和C、C++等编译型语言不同。</p>
+<h2 id="正则">正则</h2>
+<pre><code>a = &#39;&lt;text textColor=0xffff00 text=尊貴的VIP&gt;&#39;
+b = &#39;&lt;btn text=點擊查看 noboard=true textSize=14 tasktype=comactfirst arg1=$id underline=true textColor=0x00ff00 &gt;&#39;</code></pre>
+<p>-- 括号代表要匹配的内容<br />
+-- .代表任意<br />
+-- %s代表空格<br />
+-- %&gt;特殊的字符要转义<br />
+pat = 'text=(.-)%s'<br />
+pat1 = 'text=(.-)%&gt;'</p>
+<p>aa = string.gsub(a,pat1,'')<br />
+print(aa)<br />
+string.gsub("hello 42", "(%d+)", "%1 3") -- hello 42 3 -- %1 代表的是 被匹配的字符串<br />
+string.gsub("heLLo", "(%u)", "") -- heo</p>
+<p>-- 4 + 4 = 8 还能传回调<br />
+string.gsub("2 + 2 = 4", "(%d)", function(s)<br />
+return s * 2<br />
+end)</p>
+<p>-- 打印每个单词<br />
+for w in string.gmatch("good morning chaps", "%w+") do<br />
+print(w)<br />
+end</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

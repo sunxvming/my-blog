@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/区块链/精通以太坊</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#the-ethereum-virtual-machine">13 The Ethereum Virtual Machine</a></li>
+<li><a href="#eth使用">eth使用</a>
+<ul>
+<li><a href="#搭建私有链">搭建私有链</a></li>
+<li><a href="#配置文件设置">1.配置文件设置</a></li>
+<li><a href="#启动程序">2.启动程序</a></li>
+<li><a href="#json-rpc接口">json rpc接口</a></li>
+<li><a href="#ethereum-console">ethereum-console</a></li>
+<li><a href="#metamask连接私有链">MetaMask连接私有链</a></li>
+<li><a href="#使用remix部署和执行合约">使用remix部署和执行合约</a></li>
+</ul></li>
+<li><a href="#evm的不合理设计">EVM的不合理设计</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>《精通以太坊——实现数字合约》 中文版 https://github.com/inoutcode/ethereum_book</p>
+<h2 id="the-ethereum-virtual-machine">13 The Ethereum Virtual Machine</h2>
+<p>instruction set<br />
+struc ture<br />
+operation<br />
+the context of Ethereum state updates.</p>
+<p>The EVM has a stack-based architecture, storing all in-memory values on a stack</p>
+<p>The EVM Instruction Set (Bytecode Operations)<br />
+In addition to the typical bytecode operations, the EVM also has access to account<br />
+information (e.g., address and balance) and block information (e.g., block number<br />
+and current gas price)</p>
+<h2 id="eth使用">eth使用</h2>
+<ul>
+<li>cpp-ethereum 从2021已经废弃，不建议使用了</li>
+</ul>
+<h3 id="搭建私有链">搭建私有链</h3>
+<h3 id="配置文件设置">1.配置文件设置</h3>
+<p>见文末config.json</p>
+<h3 id="启动程序">2.启动程序</h3>
+<p>./aleth --config config.json -m on -a 00b99ed83a12d5d20aae7db4168c581b6ee01d87 --no-discovery --pin --unsafe-transactions</p>
+<p>其他命令行参数<br />
+--network-id 1108 --ipc --listen 30307 --port 30307 -d ipctest --db-path db</p>
+<h3 id="json-rpc接口">json rpc接口</h3>
+<ul>
+<li><p>获取账户列表<br />
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}' http://127.0.0.1:8545</p></li>
+<li><p>得到块高度<br />
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":83}' http://127.0.0.1:8545</p></li>
+</ul>
+<h3 id="ethereum-console">ethereum-console</h3>
+<p>连接到cpp-ethereum的工具，因安装过程多次失败，弃之</p>
+<h3 id="metamask连接私有链">MetaMask连接私有链</h3>
+<p>在网络设置中选择：自定义RPC</p>
+<h3 id="使用remix部署和执行合约">使用remix部署和执行合约</h3>
+<pre><code>1.编写合约
+2.编译合约
+3.部署合约
+    1.environment选择Injected Web3
+    2.连接MetaMask
+    3.MetaMask显示一笔部署合约交易
+4.合约部署完毕
+    Deployed Contracts下面显示合约的名字和地址
+5.调用合约    
+    在Deployed Contracts下面执行合约
+6.remix中的合约如何保存在本地
+    需要用到remixd</code></pre>
+<p>交易的代码<br />
+1.普通的交易<br />
+2.创建智能合约的交易<br />
+3.执行智能合约的交易</p>
+<p>虚拟机执行的几个相关区<br />
+栈区<br />
+内存区<br />
+storage区</p>
+<h2 id="evm的不合理设计">EVM的不合理设计</h2>
+<p>缺乏标准库支持：<br />
+EVM缺少完善的标准库支持，甚至最基本的string类型支持，在EVM中都很鸡肋，例如字符串拼接、切割、查找等等都需要开发者自己实现。带来的后果就是开发者需要关注更多非本身业务的零碎细节，不能专注本身业务开发。同时自行实现的类库可能会因为时间、空间复杂度太高，消耗大量无谓的gas，又或者开发者从开源项目中借鉴相关类库代码，但也会引入更多安全性方面的问题，加重合约代码审计的复杂度，亦是得不偿失。</p>
+<p>难以调试和测试：<br />
+EVM难以调试和测试，EVM除了能抛出OutOfGas异常之外，不会给开发者返回任何信息，无法打印日志、要做到断点、单步调试更是完全不可能。虽然event机制可以部分改善这个问题，但event机制的本身设计就决定了他不是一个优雅好用的调试工具。</p>
+<p>不支持浮点数：<br />
+EVM不支持浮点数，以太坊以Wei为最小单位，只有整数，不支持其他粒度的计量，这种设计避免了引入浮点数导致的精度问题，但开发者在实际开发中，为了表示一个eth变量，就会在变量后面跟很多0，导致代码维护极度复杂。同时不可否认，浮点数在特定的场景下，还是有很大的利用价值的，不能一刀切直接放弃引入。</p>
+<p>合约不能升级：<br />
+EVM不支持合约升级，合约升级是智能合约开发中的一个强需求，也是每一个合约开发者必须要考虑的问题，合约升级可以实现给现有合约打安全补丁、扩展现有合约功能等等。EVM完全不支持升级，开发者只能通过发布新合约来解决这个问题，费时费力。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

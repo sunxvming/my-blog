@@ -1,0 +1,656 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/程序工具/gcc</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#toolchain">toolchain</a></li>
+<li><a href="#gcc">gcc</a>
+<ul>
+<li><a href="#gcc查看版本和支持的c标准">gcc查看版本和支持的c++标准</a></li>
+<li><a href="#gcc常用选项">gcc常用选项</a></li>
+<li><a href="#or64位">32or64位</a></li>
+<li><a href="#链接时常见问题">链接时常见问题</a></li>
+</ul></li>
+<li><a href="#make">make</a>
+<ul>
+<li><a href="#make是怎么完成工作的呢">make是怎么完成工作的呢？</a></li>
+<li><a href="#makefile结构说明">Makefile结构说明</a></li>
+<li><a href="#最简单的makefile">最简单的makefile</a></li>
+<li><a href="#稍微复杂的makefile">稍微复杂的makefile</a></li>
+<li><a href="#使用变量">使用变量</a></li>
+<li><a href="#隐晦规则">隐晦规则</a>
+<ul>
+<li><a href="#规则中加匹配">规则中加匹配</a></li>
+</ul></li>
+<li><a href="#其他">其他</a>
+<ul>
+<li><a href="#foreach使用">foreach使用</a></li>
+<li><a href="#wildcard">wildcard</a></li>
+<li><a href="#其他设置">其他设置</a></li>
+</ul></li>
+<li><a href="#make-clean">make clean</a></li>
+<li><a href="#常见的make出错信息">常见的make出错信息</a></li>
+<li><a href="#常用编译方式">常用编译方式</a></li>
+</ul></li>
+<li><a href="#makefile例子">makefile例子</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="toolchain">toolchain</h2>
+<p>binutils 一组用于编译、链接、汇编和其它调试目的的程序</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>命令/工具</th>
+<th>功能描述</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>as</td>
+<td>汇编器</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ar t libxxx.a</td>
+<td>查看静态库中包含的目标文件</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ar x libxxx.a</td>
+<td>将.a文件解压</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ar cr libtinyxml.a tinystr.o tinyxml.o</td>
+<td>打包成静态库</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ranlib</td>
+<td>为静态库文件创建索引，它会在静态库文件中创建一个索引表，加快查找目标文件的速度，通常是在创建静态库时自动执行的，所以在绝大多数情况下你不需要手动运行它</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ld</td>
+<td>链接器</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>nm</td>
+<td>可能是name mapping的缩写，查看可执行程序内部的符号，函数名等信息</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ldd</td>
+<td>List Dynamic Dependencies</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>objcopy</td>
+<td>将原目标文件中的内容复制到新的目标文件中，可以通过不同的命令选项调整目标文件的格式，比如去除某些ELF文件头</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>objdump</td>
+<td>用于生成反汇编文件，主要依赖objcopy实现</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>readelf</td>
+<td>解读ELF文件</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>file</td>
+<td>查看文件类型，架构，32位还是64位等信息</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="gcc">gcc</h2>
+<p>使用gcc，程序员可以对编译过程有更多的控制。可以再编译的任何阶段结束后停止整个编译过程以检查编译器在该阶段输出的信息。</p>
+<h3 id="gcc查看版本和支持的c标准">gcc查看版本和支持的c++标准</h3>
+<p>gcc --version<br />
+gcc -std=c++20 若不支持c++20则会报不支持</p>
+<h3 id="gcc常用选项">gcc常用选项</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>选项</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>--verbose</td>
+<td>打印出编译连接时的详细信息</td>
+</tr>
+<tr class="even">
+<td>-E</td>
+<td>预编译</td>
+</tr>
+<tr class="odd">
+<td>-c</td>
+<td>只编译，不链接 gcc –o hello hello.o 链接目标文件</td>
+</tr>
+<tr class="even">
+<td>-o filename</td>
+<td>输出文件名，如果没指定filename，默认为a.out</td>
+</tr>
+<tr class="odd">
+<td>-lstdc++</td>
+<td>代表gcc要用标准的c++的库完成链接</td>
+</tr>
+<tr class="even">
+<td>-g</td>
+<td>包含调试信息</td>
+</tr>
+<tr class="odd">
+<td>-D</td>
+<td>后面直接跟宏命(中间不加空格)，相当于定义这个宏，默认这个宏的内容是1 例如<code>-DLINUX</code> = <code>#define LINUX 1</code></td>
+</tr>
+<tr class="even">
+<td>-L</td>
+<td>指定其他库文件所在的目录名,即去哪里找so文件， 需要配合-l一起使用</td>
+</tr>
+<tr class="odd">
+<td>-l</td>
+<td>链接库文件, 库文件一般放在/lib和/usr/lib和/usr/local/lib，库名字为libxxx.so。当目录下有同名的.a和.so文件时，会优先连接so文件</td>
+</tr>
+<tr class="even">
+<td>-I</td>
+<td>参数是用来指定头文件目录，/usr/include目录一般是不用指定的，gcc知道去那里找，但是如果头文件不在/usr/include里我们就要用-I参数指定了，比如头文件放在/myinclude目录里，那编译命令行就要加上-I/myinclude参数了</td>
+</tr>
+<tr class="odd">
+<td>-O</td>
+<td>优化编译后的代码</td>
+</tr>
+<tr class="even">
+<td>-w</td>
+<td>关闭所有告警信息</td>
+</tr>
+<tr class="odd">
+<td>-Wall</td>
+<td>开启所有告警信息</td>
+</tr>
+<tr class="even">
+<td>-Werror</td>
+<td>所有告警当error来处理</td>
+</tr>
+<tr class="odd">
+<td>-Wl</td>
+<td>选项告诉编译器将后面的参数传递给链接器</td>
+</tr>
+<tr class="even">
+<td>-M</td>
+<td>生成.c文件与头文件依赖关系以用于Makefile，包括系统库的头文件</td>
+</tr>
+<tr class="odd">
+<td>-MM</td>
+<td>生成.c文件与头文件依赖关系以用于Makefile，不包括系统库的头文件</td>
+</tr>
+<tr class="even">
+<td>-fuse-ld=gold</td>
+<td>使用gold链接器而不是默认链接器</td>
+</tr>
+<tr class="odd">
+<td>-fuse-ld=lld</td>
+<td>使用LLVM lld链接器而不是默认链接器</td>
+</tr>
+</tbody>
+</table>
+<p>gcc默认只链接c的标准库，并不链接c++标准库，需要添加-lstd++</p>
+<pre><code>$gcc –lstdc++ -o hello hello.cpp</code></pre>
+<p>对于C语言和C++语言，gcc编译完的<strong>目标代码</strong>是不同的，最大的区别是C++会修改编译后的变量以及函数各种标号的名称<br />
+g++是gcc的c++编译器，如果是编译c++的文件，建议使用g++</p>
+<h3 id="or64位">32or64位</h3>
+<p>GCC（GNU Compiler Collection）的默认行为取决于你<strong>所使用的编译器版本以及你的操作系统</strong>。通常情况下，如果你在一个64位操作系统上使用最新版本的GCC，它会默认编译为64位程序。如果你在一个32位操作系统上使用GCC，它会默认编译为32位程序。</p>
+<p>然而，你可以通过命令行选项来显式指定编译为32位或64位程序。例如，要编译为64位程序，你可以使用 <code>-m64</code> 选项，而要编译为32位程序，你可以使用 <code>-m32</code> 选项。</p>
+<h3 id="链接时常见问题">链接时常见问题</h3>
+<ol>
+<li>链接的库如存在符号的依赖的话，那么链接时指定库的顺序就很重要，<strong>被依赖的库要放在后面</strong>。</li>
+<li>静态库不同版本冲突的问题<br />
+碰到这样一个情况，链接时报lua里面的符号找不到。经过查找发现源码里引的头文件不是项目中的lua的头文件，而是系统中的lua的头文件。这两个版本不同，项目中的lua为5.4，系统中的为5.1。而链接的时候链接的为lua5.4的静态库，从而造成符号找不到的问题。</li>
+<li>debug和release版本的库混合链接可能会导致崩溃</li>
+</ol>
+<h2 id="make">make</h2>
+<p>make是一个构建工具，用于管理项目的编译和构建过程。</p>
+<h3 id="make是怎么完成工作的呢">make是怎么完成工作的呢？</h3>
+<p>三要素：target、dependency、command<br />
+makefile是一个文本形式的脚本文件，其中包含一些规则告诉make编译哪些文件，怎么样编译以及在什么条件下编译。<br />
+makefile规则遵循以下通用形式,且依赖是<strong>递归结构</strong>的</p>
+<pre><code>target:dependency [dependency[…]]
+    command
+    command
+    […]</code></pre>
+<ul>
+<li>分析各个目标和依赖之间的关系</li>
+<li>根据依赖关系<strong>自底向上</strong>执行命令</li>
+<li>根据修改时间比目标新，确定更新</li>
+<li>如果目标不依赖任何条件，则执行对应命令，以示更新</li>
+</ul>
+<p>注意：每个command第一个字符必须是<strong>tab</strong>键，而不是空格键，不然make会报错并停止。</p>
+<h3 id="makefile结构说明">Makefile结构说明</h3>
+<p>Makefile里主要包含了五个东西：变量定义、显式规则、隐晦规则、文件指示和注释。<br />
+1. 变量的定义。变量一般都是字符串，这个有点像C语言中的宏，当Makefile被执行时，其中的变量都会被扩展到相应的引用位置上。<br />
+2. 显式规则。说明如何生成一个或多的的目标文件。由书写者明显指出，要生成的文件，文件的依赖文件，生成的命令。<br />
+3. 隐晦规则。由于make有自动推导的功能，所以隐晦的规则可以让我们比较粗糙地简略地书写Makefile，这是由make所支持的。<br />
+4. 文件指示。一个是在一个Makefile中引用另一个Makefile，就像C语言中的include一样。<br />
+5. 注释。只有行注释，用“#”字符</p>
+<h3 id="最简单的makefile">最简单的makefile</h3>
+<pre><code>start:
+    gcc -o hello hello.c</code></pre>
+<h3 id="稍微复杂的makefile">稍微复杂的makefile</h3>
+<pre><code>start:hello.o
+        gcc -o hello hello.o
+        @echo &#39;---------------ok---------------&#39;
+hello.o:
+        gcc -o hello.o -c hello.c
+clean:
+        rm -f hello.o</code></pre>
+<ol>
+<li>target start后面的hello.o代表其下的command依赖与hello.o这个target。所以make先执行了hello.o这个target下的command。</li>
+<li>输入make clean,make会直接执行clean其下的command。</li>
+<li>增加了@echo，显示编译成功语句，为了不将语句本身输出，所以前面加@符号。</li>
+</ol>
+<h3 id="使用变量">使用变量</h3>
+<p>为了简化编辑和维护makefile，可以在makefile中使用变量。<br />
+varname=some_text<br />
+把变量用括号括起来，前面加<code>$</code>就可以引用该变量的值, <code>$(varname)</code><br />
+按照惯例makefile的变量都是大写（只是习惯而已，不是必须的）。</p>
+<pre><code>CC=gcc
+SRCS=hello.c
+OBJS=hello.o
+# OBJS=$(SRCS:.c=.o) 更简便的写法，意思是将SRCS变量中的.c替换为.o
+EXEC=hello
+start:hello.o
+        $(CC) -o $(EXEC) $(OBJS)
+        @echo &#39;---------------ok---------------&#39;
+hello.o:
+        $(CC) -o $(OBJS) -c $(SRCS)
+clean:
+        rm -f hello.o</code></pre>
+<h3 id="隐晦规则">隐晦规则</h3>
+<pre><code>%.o : %.c</code></pre>
+<p><code>%</code>通配符，当想生成x.o文件时发现与<code>%.o : %.c</code>匹配，则将%替换为x，也就是x.o : x.c，则会执行规则的命令。<br />
+表示make定义了一条规则，任何x.o文件都从 x.c编译而来</p>
+<p>make定义了一些有用的<strong>预定义变量</strong><br />
+<code>$@</code> 表示target，即目标文件<br />
+<code>$&lt;</code> 表示dependency，即第一个依赖<br />
+完整例子：</p>
+<pre><code>CC=$(CROSS)clang $(TARGET_FLAGS) -lstdc++
+AR=$(CROSS)ar -cr
+SRCS=Circle.cpp Edge.cpp Math.cpp NavPath.cpp Path.cpp Point.cpp Polygon.cpp Triangle.cpp
+OBJS=$(SRCS:.cpp=.o)
+EXEC=libNavPath.a
+start: $(OBJS)
+    $(AR) $(EXEC) $(OBJS)
+    @echo &#39;----------------ok------------$(CC)&#39;
+%.o: %.cpp:
+    $(CC) -Wall -g -o $@ -c $&lt;
+clean:
+    rm -f $(OBJS)
+    rm -f libNavPath.a</code></pre>
+<h4 id="规则中加匹配">规则中加匹配</h4>
+<pre><code>$（C_OBJS）：$（OBJ_PATH）/%.o:%.c
+
+
+$(C_OBJS) 中有很多文件，假设各种各样的都有 （实际中肯定是你自己定义的，不会乱七八糟）
+看看这些文件里面，找出匹配符合 $（OBJ_PATH）/%.o的，其实就是过滤出满足$（OBJ_PATH）/%.o的。
+
+
+一般来说
+$（C_OBJS）：$（OBJ_PATH）/%.o:%.c
+和规则
+$（P_OouDIR）/%.o:%.c
+是等价的
+但是一般性而言，并不等价，比如$(C_OBJS)还定义了其它文件，比如 ./lib/xxx.o
+静态模式规则的好处，是能精确定义，哪个文件，依赖哪个文件。规定了预选范围。
+%.o:%.c 则是泛泛而谈，只要匹配就可以。</code></pre>
+<h3 id="其他">其他</h3>
+<h4 id="foreach使用">foreach使用</h4>
+<pre><code>$(foreach &lt;var&gt;,&lt;list&gt;,&lt;text&gt;)</code></pre>
+<p>这个函数的意思是，把参数<code>&lt;list&gt;</code>中的单词逐一取出放到参数<code>&lt;var&gt;</code>所指定的变量中，然后再执行<code>&lt; text&gt;</code>所包含的表达式。<br />
+每一次<code>&lt;text&gt;</code>会返回一个字符串，循环过程中，<code>&lt;text&gt;</code>的所返回的每个字符串会以空格分隔，最后当整个循环结束时，<code>&lt;text&gt;</code>所返回的每个字符串所组成的整个字符串（以空格分隔）将会是foreach函数的返回值。</p>
+<p>所以，<code>&lt;var&gt;</code>最好是一个变量名，<code>&lt;list&gt;</code>可以是一个表达式，而<code>&lt;text&gt;</code>中一般会使用<code>&lt;var&gt;</code>这个参数来依次枚举<code>&lt;list&gt;</code>中的单词。举个例子：</p>
+<pre><code>    names := a b c d
+    files := $(foreach n,$(names),$(n).o)</code></pre>
+<p>上面的例子中，<code>$(name)</code>中的单词会被挨个取出，并存到变量“n”中，<code>$(n).o</code>每次根据<code>$(n)</code>计算出一个值，这些值以空格分隔，最后作为foreach函数的返回，所以，<code>$(files)</code>的值是<code>a.o b.o c.o d.o</code>。</p>
+<h4 id="wildcard">wildcard</h4>
+<p>在Makefile规则中，通配符会被自动展开。但在变量的定义和函数引用时，通配符将失效。这种情况下如果需要通配符有效，就需要使用函数“wildcard”，它的用法是：<code>$(wildcard PATTERN...)</code> 。在Makefile中，它被展开为已经存在的、使用空格分开的、匹配此模式的所有文件列表。<br />
+一般我们可以使用<code>$(wildcard *.c)</code>来获取工作目录下的所有的.c文件列表。复杂一些用法；可以使用<code>$(patsubst %.c,%.o,$(wildcard *.c))</code>，首先使用“wildcard”函数获取工作目录下的.c文件列表；之后将列表中所有文件名的后缀.c替换为.o。这样我们就可以得到在当前目录可生成的.o文件列表。因此在一个目录下可以使用如下内容的Makefile来将工作目录下的所有的.c文件进行编译并最后连接成为一个可执行文件：</p>
+<pre><code>objects := $(patsubst %.c,%.o,$(wildcard *.c))
+foo : $(objects)
+    cc -o foo $(objects)</code></pre>
+<h4 id="其他设置">其他设置</h4>
+<p>set -x会在执行每一行 shell 脚本时，把执行的内容输出来。它可以让你看到当前执行的情况，里面涉及的变量也会被替换成实际的值。<br />
+set -e会在执行出错时结束程序，就像其他语言中的“抛出异常”一样。（准确说，不是所有出错的时候都会结束程序，见下面的注）</p>
+<h3 id="make-clean">make clean</h3>
+<ul>
+<li>用途：清除编译生成的中间.o文件和最终目标文件</li>
+<li>make clean 如果当前目录下有同名clean文件，则不执行clean对应的命令</li>
+<li>伪目标声明：.PHONY:clean</li>
+<li>clean命令中的特殊符号
+<ul>
+<li>“-”此条命令出错，make也会继续执行后续的命令。如：“-rm main.o”</li>
+<li>“@”不显示命令本身，只显示结果。如：“@echo”clean done“”</li>
+</ul></li>
+</ul>
+<h3 id="常见的make出错信息">常见的make出错信息</h3>
+<ul>
+<li>No rule to make target ‘target’.Stop<br />
+makefile中没有包含创建指定target所需要的规则，而且也没有默认规则可用。</li>
+<li>‘target’ is up to date<br />
+指定的target相关文件没有变化。</li>
+<li>command：Command not found<br />
+make找不到命令，通常是因为命令被拼写错误或者不在$PATH路径下。</li>
+<li><code>makefile:2: *** missing separator. Stop. make</code><br />
+makefile的缩进是用的tab，而不是空格</li>
+</ul>
+<h3 id="常用编译方式">常用编译方式</h3>
+<p>在一些开源项目中，会使用 autogen.sh+configure+make 方式进行代码编译。<br />
+1. 运行 autogen.sh，生成 configure 脚本；<br />
+2. 运行 configure 脚本，检查系统配置；<br />
+3. 运行 make 命令，执行代码的编译操作；<br />
+4. 运行 make install 命令，安装编译生成的文件。</p>
+<h2 id="makefile例子">makefile例子</h2>
+<pre><code>TARGET = main
+OBJ_PATH = objs
+PREFIX_BIN =
+
+
+CC = gcc
+CPP = g++ -std=c++17
+INCLUDES += -I./ -I../include
+LIBS = /usr/lib64/libpthread.so  /usr/lib64/librt.so
+
+G = -g
+CFLAGS :=-Wall  -Wno-unknown-pragmas $(G) 
+LINKFLAGS = -ldl 
+
+
+SRCDIR =. ./include 
+
+C_SRCDIR = $(SRCDIR)
+C_SOURCES = $(foreach d,$(C_SRCDIR),$(wildcard $(d)/*.c) )
+C_OBJS = $(patsubst %.c, $(OBJ_PATH)/%.o, $(C_SOURCES))
+C_DEPEND = $(patsubst %.c, $(OBJ_PATH)/%.d, $(C_SOURCES))
+
+
+CC_SRCDIR = $(SRCDIR)
+CC_SOURCES = $(foreach d,$(CC_SRCDIR),$(wildcard $(d)/*.cc) )
+CC_OBJS = $(patsubst %.cc, $(OBJ_PATH)/%.o, $(CC_SOURCES))
+CC_DEPEND = $(patsubst %.cc, $(OBJ_PATH)/%.d, $(CC_SOURCES))
+
+
+CPP_SRCDIR = $(SRCDIR)
+CPP_SOURCES = $(foreach d,$(CPP_SRCDIR),$(wildcard $(d)/*.cpp) )
+CPP_OBJS = $(patsubst %.cpp, $(OBJ_PATH)/%.o, $(CPP_SOURCES))
+CPP_DEPEND = $(patsubst %.cpp, $(OBJ_PATH)/%.d, $(CPP_SOURCES))
+
+
+default: init compile 
+
+
+
+$(C_OBJS):$(OBJ_PATH)/%.o:%.c
+    $(CC) -c $(CFLAGS) $(INCLUDES) $&lt; -o $@
+
+$(CC_OBJS):$(OBJ_PATH)/%.o:%.cc
+    $(CPP) -c $(CFLAGS) $(INCLUDES) $&lt; -o $@
+
+$(CPP_OBJS):$(OBJ_PATH)/%.o:%.cpp
+    $(CPP) -c $(CFLAGS) $(INCLUDES) $&lt; -o $@
+
+
+init:
+    $(foreach d,$(SRCDIR), mkdir -p $(OBJ_PATH)/$(d);)
+
+test:
+    @echo &quot;C_SOURCES: $(C_SOURCES)&quot;
+    @echo &quot;C_OBJS: $(C_OBJS)&quot;
+    @echo &quot;CPP_SOURCES: $(CPP_SOURCES)&quot;
+    @echo &quot;CPP_OBJS: $(CPP_OBJS)&quot;
+    @echo &quot;CC_SOURCES: $(CC_SOURCES)&quot;
+    @echo &quot;CC_OBJS: $(CC_OBJS)&quot;
+
+compile:$(C_OBJS) $(CC_OBJS) $(CPP_OBJS)
+    $(CPP)  $^ -o $(TARGET)  $(LINKFLAGS) $(LIBS)
+
+clean:
+    rm -rf $(OBJ_PATH)
+    rm -rf $(TARGET)
+    
+cleand:
+    find ./objs -name *.d | xargs rm -rf
+
+
+install: $(TARGET)
+    cp $(TARGET) $(PREFIX_BIN)
+
+uninstall:
+    rm -f $(PREFIX_BIN)/$(TARGET)
+
+# include $(CPP_DEPEND)的作用是生成.d文件，init是先生成objs目录和源文件的子目录
+ifeq ($(MAKECMDGOALS),)  # 如果目标为空
+include $(CPP_DEPEND) init
+endif
+
+# $* 不带后缀的target
+# $&lt; target
+# $@ depend
+# $$xx  变量要用两个$$表示
+# $$$$  进程号
+# sed中的变量用 &#39;&quot;包围， &#39;s,\(&#39;&quot;$$BASESRC&quot;&#39;\)\.o[ :]*,\objs\/$*.o $@ : ,g&#39;
+#
+# 以下为作用为生成.d文件，
+# .d文件就是声明引用的头文件的依赖关系的，文件内容类似于如下
+# objs/./example.o objs/./example.d : example.cpp ThreadPool.h
+$(CPP_DEPEND):$(OBJ_PATH)/%.d:%.cpp
+    BASESRC=`basename $*`;\
+    set -e; rm -f $@; \
+    $(CPP) $(INCLUDES) -MM $(CPPFLAGS) $&lt; &gt; $@.$$$$; \
+    sed &#39;s,\(&#39;&quot;$$BASESRC&quot;&#39;\)\.o[ :]*,\objs\/$*.o $@ : ,g&#39; &lt; $@.$$$$ &gt; $@; \
+    rm -f $@.$$$$
+</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

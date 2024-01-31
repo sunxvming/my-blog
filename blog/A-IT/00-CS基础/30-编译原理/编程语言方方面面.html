@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/00-CS基础/30-编译原理/编程语言方方面面</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#重视语言特性而不是语言">重视语言特性，而不是语言</a></li>
+<li><a href="#掌握关键语言特性忽略次要特性">掌握关键语言特性，忽略次要特性</a></li>
+<li><a href="#语言特性">语言特性</a></li>
+<li><a href="#编程范式">编程范式</a></li>
+<li><a href="#语言的学习路线">语言的学习路线</a></li>
+<li><a href="#语言特色">语言特色</a>
+<ul>
+<li><a href="#python">python</a></li>
+<li><a href="#c">c++</a></li>
+</ul></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="重视语言特性而不是语言">重视语言特性，而不是语言</h2>
+<p>重视“语言特性”，而不是整个的“语言”。任何一种“语言”，都是各种“语言特性”的组合。<br />
+很多人盲目的崇拜语言设计者，只要听到有人设计（或者美其民曰“发明”）了一个语言，就热血沸腾，佩服的五体投地。他们却没有理解，其实所有的程序语言，不过是像 Dell，联想一样的“组装机”。语言特性的设计者，才是像 Intel，AMD，ARM，Qualcomm 那样核心技术的创造者。</p>
+<p>如果你不能用一种语言里面的基本特性写出好的代码，那你换成另外一种语言也无济于事。你会写出一样差的代码。我经常看到有些人 Java 代码写得相当乱，相当糟糕，却骂 Java 不好，雄心勃勃要换用 Go 语言。这些人没有明白，是否能写出好的代码在于人，而不在于语言。如果你的心中没有清晰简单的思维模型，你用任何语言表述出来都是一堆乱麻。如果你 Java 代码写得很糟糕，那么你写 Go 语言代码也会一样糟糕，甚至更差。</p>
+<p>很多初学者不了解，一个高明的程序员如果开始用一种新的程序语言，他往往不是去看这个语言的大部头手册或者书籍，而是先有一个需要解决的问题。手头有了问题，他可以用两分钟浏览一下这语言的手册，看看这语言大概长什么样。然后，他直接拿起一段例子代码来开始修改捣鼓，想法把这代码改成自己正想解决的问题。在这个简短的过程中，他很快的掌握了这个语言，并用它表达出心里的想法。<br />
+在这个过程中，随着需求的出现，他可能会问这样的问题：<br />
+- 这个语言的“变量定义”是什么语法，需要“声明类型”吗，还是可以用“类型推导”？<br />
+- 它的“类型”是什么语法？是否支持“泛型”？泛型的 “variance” 如何表达？<br />
+- 这个语言的“函数”是什么语法，“函数调用”是什么语法，可否使用“缺省参数”？<br />
+- ……</p>
+<p>这些实际问题都是随着写实际的代码，解决手头的问题，自然而然带出来的，而不是一开头就抱着语言手册看得仔仔细细。因为掌握了语言特性的人都知道，自己需要的特性，在任何语言里面一定有对应的表达方式。如果没有直接的方式表达，那么一定有某种“绕过方式”。如果有直接的表达方式，那么它只是语法稍微有所不同而已。所以，他是带着问题找特性，就像查字典一样，而不是被淹没于大部头的手册里面，昏昏欲睡一个月才开始写代码。</p>
+<h2 id="掌握关键语言特性忽略次要特性">掌握关键语言特性，忽略次要特性</h2>
+<p>这里举一些次要语言特性的例子：<br />
+- printf 的各种“格式字符”的意义<br />
+- C 语言的语句块，如果里面只有一条语句，可以不打花括号。<br />
+- Go 语言的函数参数类型如果一样可以合并在一起写，比如 <code>func foo(s string, x, y, z int, c bool) { ... }</code><br />
+- JavaScript 语句可以在某些时候省略句尾的分号</p>
+<h2 id="语言特性">语言特性</h2>
+<p>变量定义<br />
+算术运算<br />
+for 循环语句，while 循环语句<br />
+函数定义，函数调用<br />
+递归<br />
+静态类型系统<br />
+类型推导<br />
+lambda 函数<br />
+面向对象<br />
+垃圾回收<br />
+指针算术<br />
+goto 语句</p>
+<p>静态/动态<br />
+编译、解释<br />
+运行效率<br />
+标准库、生态<br />
+并发性<br />
+安全性<br />
+包管理工具<br />
+支持的编程范式<br />
+动态编程，反射，运行时动态更改代码<br />
+错误处理</p>
+<p>学习难度<br />
+性能<br />
+安全性<br />
+协作<br />
+特性<br />
+使用成本</p>
+<p><strong>工程实践出来的语言</strong>：<br />
+• 智能的编译器<br />
+• 完善的文档<br />
+• 齐全的工具链<br />
+• 成熟的包管理</p>
+<h2 id="编程范式">编程范式</h2>
+<ul>
+<li>命令式语言,面向过程式语言(c)</li>
+<li>面向对象语言(c++)</li>
+<li>函数式语言(lisp)</li>
+<li>逻辑式语言(Prolog)</li>
+<li>并发语言(Erlang)</li>
+<li>说明型语言(SQL)</li>
+<li>领域专用语言（DSL）</li>
+</ul>
+<h2 id="语言的学习路线">语言的学习路线</h2>
+<ul>
+<li><p>学习资源<br />
+官网，靠谱的学习网站，入门书籍</p></li>
+<li><p>开发环境<br />
+开发工具、编辑器、调试器、IDE</p></li>
+<li><p>基本数据类型<br />
+char int float bool，类型转换</p></li>
+<li><p>常量&amp;变量<br />
+定义 声明 作用域</p></li>
+<li><p>表达式<br />
+算数，逻辑，赋值，位运算</p></li>
+<li><p>语句<br />
+简单语句、条件、循环、异常处理</p></li>
+<li><p>字符串处理<br />
+难点-字符编码问题</p></li>
+<li><p>复杂数据类型<br />
+array list set  map</p></li>
+<li><p>过程抽象机制<br />
+函数，函数定义，函数调用，参数的传递，返回值获取</p></li>
+<li><p>面向对象，数据及操作抽象机制<br />
+封装、继承、多态</p></li>
+<li><p>模块化编程，对功能模块的抽象<br />
+如何组织更大的代码规模<br />
+比如：命名空间、python的模块  java的包等等</p></li>
+<li><p>目录结构<br />
+该语言约定俗成的一些目录结构</p></li>
+<li><p>函数式编程<br />
+Lambda函数</p></li>
+<li><p>语言自带的标准库<br />
+数据结构方面、算法方面</p></li>
+<li><p>错误处理<br />
+异常、错误处理、断言、日志和调试支持，对单元测试的支持。</p></li>
+<li><p>输入输出流<br />
+内存流，字符流，文件流</p></li>
+<li><p>callback方法调用机制<br />
+事件驱动编程模型，框架编程都会用到。如：c的函数指针，c#的delegate，C++的std::function/bind</p></li>
+<li><p>序列化和反序列化<br />
+掌握一下缺省的机制就可以了</p></li>
+<li><p>并发编程<br />
+多进程<br />
+多线程<br />
+对多线程的编程的封装，futrue<br />
+异步编程<br />
+asio、协程<br />
+异步编程的机制</p></li>
+<li><p>动态编程：<br />
+反射和元数据编程<br />
+数据和程序之间的相互转化机制，运行时编译和执行的机制</p></li>
+<li><p>泛型<br />
+使用现成的泛型集合和泛型函数</p></li>
+<li><p>较常用的语言特色features</p></li>
+<li><p>习惯用法和模式</p></li>
+<li><p>编译/解释执行机制</p></li>
+<li><p>内存模型<br />
+比如：数据类型的堆栈模型、c++对象内存模型</p></li>
+<li><p>编码风格</p></li>
+<li><p>第三方工具库</p></li>
+<li><p>文档生成工具<br />
+比如python的Docstring用Sphinx生成文档 </p></li>
+</ul>
+<h2 id="语言特色">语言特色</h2>
+<h3 id="python">python</h3>
+<p>list comprehension</p>
+<p>函数工具:装饰器、迭代器、生成器</p>
+<h3 id="c">c++</h3>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://blog.csdn.net/myan/article/details/3144661">快速掌握一个语言最常用的50%</a></li>
+<li><a href="http://www.yinwang.org/blog-cn/2014/04/18/golang">对 Go 语言的综合评价</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

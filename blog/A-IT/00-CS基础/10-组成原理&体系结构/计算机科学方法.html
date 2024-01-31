@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/00-CS基础/10-组成原理&amp;体系结构/计算机科学方法</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#计算机系统结构中的8个伟大思想">计算机系统结构中的8个伟大思想</a></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>抽象<br />
+封装，隐藏实现细节<br />
+自顶向下逐步分解<br />
+以空间换时间<br />
+空间和时间局部性原理</p>
+<h2 id="计算机系统结构中的8个伟大思想">计算机系统结构中的8个伟大思想</h2>
+<ul>
+<li><p>面向摩尔定律的设计<br />
+由于摩尔定律，单芯片的集成度相对于设计开始时很容易翻一番甚至翻两番。计算机设计者必须预测其<strong>设计完成时的工艺水平</strong>，而不是设计开始时的。<br />
+比如google提供的免费gmail服务就是预测将来硬盘价格会大幅下降</p></li>
+<li><p>使用抽象简化设计<br />
+使用抽象技术来表示不同的设计层次，在高层次中看不到低层次的细节，只能看到一个简化的模型。<br />
+例如计算机网络层次划分模型，软件开发SDK，API等无不体现出抽象的思想。</p></li>
+<li><p>加速大概率事件<br />
+加速大概率事件（Common case fast）远比优化小概率时间更能提高性能。大概率事件通常比小概率事件简单，从而易于提高。大概率事件规则意味着设计者需要知道什么事件是经常发生的，这只有通过仔细的实验与评估才能得出。<br />
+例如：各种缓存(内存缓存、CDN缓存)，索引等。</p></li>
+<li><p>Amdahl定律（Amdahl’s law）<br />
+阐述提升一个系统的一个部分的性能对整个系统有多大影响。它是“<strong>收益递减定律</strong>”的量化版本。</p></li>
+<li><p>通过并行提高性能<br />
+从计算机诞生开始，计算机设计者就通过并行执行操作来提高性能。<br />
+例如：多线程，并发编程调用等提升吞吐量。</p></li>
+<li><p>通过流水线提高性能<br />
+现代的工厂里的生产线叫“流水线”。我们可以把装配 iPhone 这样的任务拆分成一个个细分的任务，让每个人都只需要处理一道工序，<strong>减少中间等待的环节</strong>，最大化整个工厂的生产效率。类似的，我们的 CPU 其实就是一个“运算工厂”。我们把 CPU 指令执行的过程进行拆分，细化运行，也是现代 CPU 在主频没有办法提升那么多的情况下，性能仍然可以得到提升的重要原因之一。<br />
+例如：一个大规模的SQL分成几个规模适当的小SQL进行执行、分布式系统、异步编程，分而治之，MapReduce,Fork/Join等。</p></li>
+<li><p>通过预测提高性能<br />
+在某些情况下，如果假定从误预测恢复执行代价不高并且预测的准确率相对较高，则通过猜测的方式提前开始某些操作，要比等到确切知道这些操作应该启动时才开始要快一些。<br />
+例如：小说的下一页预加载，电商大促的CDN预热，空间换时间等。</p></li>
+<li><p>存储器层次<br />
+程序员希望存储器速度更快，容量更大，价格更便宜。设计师们发现可以通过存储器层次（hierarchy of memory）来解决这些相互矛盾的需求。在存储器层次中，速度最快，容量最小并且每位价格最昂贵的存储器位于顶层，而速度最慢，容量最大且每位价格最便宜的存储器位于最底层。程序员看到的主存同时具有存储器层次中顶层的高速度和底层的大容量和便宜的特征。可以把存储器层次想象成一个堆叠的三角形，该形状表示速度/价格/和容量：越靠近顶端，存储器速度越快/每位价格越高：底层宽度越大，存储器容量越大。</p></li>
+<li><p>通过冗余提高可靠性<br />
+计算机不仅需要速度快，还要工作可靠。由于任何一个物理器件都有可能失效，因此可以通过使用冗余部件的方式提高系统的可靠性（dependable），冗余部件可以替换失效部件。可以通过牵引式挂车来理解可靠性：牵引式挂车后轴两边具有双轮胎，在一个轮胎出问题时卡车仍然可以继续工作。（在一个轮胎出问题时，卡车司机立即直接开往修理厂进行修理，从而恢复冗余性。）<br />
+例如：冗余也可以提升性能，如数据库查询。</p></li>
+</ul>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://book.douban.com/subject/26604008/">计算机组成与设计：硬件/软件接口（原书第5版·ARM版）</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

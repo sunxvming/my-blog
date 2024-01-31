@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/工具类库/命令行参数处理</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#linux下getopt方法">linux下getopt()方法</a>
+<ul>
+<li><a href="#参考链接">参考链接</a></li>
+</ul></li>
+<li><a href="#boostprogram_options">boost::program_options</a></li>
+<li><a href="#cli11">CLI11</a>
+<ul>
+<li><a href="#一个简单的例子">一个简单的例子</a></li>
+<li><a href="#主要功能">主要功能</a></li>
+<li><a href="#subcommand-子命令">subcommand 子命令</a></li>
+<li><a href="#实例">实例</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="linux下getopt方法">linux下getopt()方法</h2>
+<p>函数原型</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>int getopt(int argc,char * const argv[ ],const char * optstring);</span></code></pre></div>
+<p>optstring选项字符串格式：</p>
+<pre><code>`a:b:cd::e`，这就是一个选项字符串。
+对应到命令行就是-a ,-b ,-c ,-d, -e 。
+冒号又是什么呢？
+冒号表示参数，一个冒号就表示这个选项后面必须带有参数（没有带参数会报错哦），但是这个参数可以和选项连在一起写，也可以用空格隔开，比如-a123 和-a   123（中间有空格） 都表示123是-a的参数；
+两个冒号的就表示这个选项的参数是可选的，即可以有参数，也可以没有参数，但要注意有参数时，参数与选项之间不能有空格（有空格会报错的哦），这一点和一个冒号时是有区别的。</code></pre>
+<h3 id="参考链接">参考链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/qingergege/p/5914218.html">Linux下getopt()函数的简单使用</a></li>
+</ul>
+<h2 id="boostprogram_options">boost::program_options</h2>
+<p>命令行的处理工具。<br />
+主要通过三个组件完成：<br />
+options_description(选项描述器) 描述当前的程序定义了哪些选项<br />
+parse_command_line(选项分析器) 解析由命令行输入的参数<br />
+variables_map(选项存储器) 容器,用于存储解析后的选项</p>
+<h2 id="cli11">CLI11</h2>
+<p>CLI11是一个基于C++开发的命令行解析库<br />
+使用很方便,只需要<code>#include &lt;CLI11.hpp&gt;</code>,当然也可以使用cmake编译版本</p>
+<ul>
+<li><a href="https://github.com/CLIUtils/CLI11">github</a></li>
+<li><a href="https://cliutils.github.io/CLI11/book/">文档</a></li>
+</ul>
+<h3 id="一个简单的例子">一个简单的例子</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &quot;CLI11.hpp&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;iostream&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="co">//只接受一个可选参数-p</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>int main(int argc, char **argv) {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>    CLI::App app{<span class="st">&quot;App description&quot;</span>};</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>    <span class="co">// Define options</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>    int p = <span class="dv">0</span>;</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>    app.add_option(<span class="st">&quot;-p&quot;</span>, p, <span class="st">&quot;Parameter&quot;</span>);</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>    CLI11_PARSE(app, argc, argv);</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Parameter value: &quot;</span> &lt;&lt; p &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>}</span></code></pre></div>
+<p>CLI::App 是与库的所有交互的基础<br />
+CLI11_PARSE 宏内部执行app.parse(argc,argv)对命令行参数解析,出错时抛出ParseError,然后捕获异常,打印错误信息并退出程序</p>
+<h3 id="主要功能">主要功能</h3>
+<ol>
+<li><strong>位置参数（Positional Arguments）</strong>： 位置参数是指在命令行中按照特定的顺序传递给命令的参数。它们通常用于指定命令需要操作的主要对象或实体。位置参数的顺序很重要，因为命令会根据它们的位置来解释参数的含义。例如，在以下命令中：<code>cp source_file destination_file</code><br />
+这里的<code>source_file</code>和<code>destination_file</code>就是位置参数，它们分别指定了源文件和目标文件的路径。</li>
+<li><strong>标志（Flags）</strong>： 标志通常是以短横线（-）或双短横线（--）开头的参数，用于在命令行中传递额外的选项和信息。标志是可选的，它们通常用于启用或禁用特定功能，或者设置命令的行为。标志没有固定的顺序，因为它们是通过标识符来区分的。例如，在以下命令中：<br />
+<code>python -v</code></li>
+<li><strong>选项（Options）</strong>： 选项是标志的一种特殊形式，通常用于传递具有关联值的参数。选项提供了一种在命令行中指定具体配置或设置的方式。选项的格式通常是<code>--option=value</code>或<code>--option value</code>，具体取决于命令的要求。例如，在以下命令中：<br />
+<code>python script.py --input-file=input.txt --output-file=output.txt</code><br />
+这里的<code>--input-file</code>和<code>--output-file</code>是选项，分别传递了输入文件和输出文件的路径。</li>
+</ol>
+<h3 id="subcommand-子命令">subcommand 子命令</h3>
+<p>子命令就是包含了一系列选项的一个关键字,如git commit/clone 这里面的commit clone后面还可以跟各种选项,他们就是git程序的子命令<br />
+子命令的类类型和App相同,因此可以任意嵌套</p>
+<h3 id="实例">实例</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co">//把CLI11.hpp放到当前目录下</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &quot;CLI11.hpp&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;iostream&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>using namespace std;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>int main(int argc, char **argv) {</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>    CLI::App app{<span class="st">&quot;App description&quot;</span>}; <span class="co">// 软件描述出现在第一行打印</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>    app.footer(<span class="st">&quot;My footer&quot;</span>); <span class="co">// 最后一行打印</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>    app.get_formatter()-&gt;column_width(<span class="dv">40</span>); <span class="co">// 列的宽度</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>    app.require_subcommand(<span class="dv">1</span>); <span class="co">// 表示运行命令需要且仅需要一个子命令</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a>    auto sub1 = app.add_subcommand(<span class="st">&quot;sub1&quot;</span>, <span class="st">&quot;subcommand1&quot;</span>);</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a>    auto sub2 = app.add_subcommand(<span class="st">&quot;sub2&quot;</span>, <span class="st">&quot;subcommand1&quot;</span>);</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>    sub1-&gt;fallthrough(); <span class="co">// 当出现的参数子命令解析不了时,返回上一级尝试解析</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a>    sub2-&gt;fallthrough();</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true"></a>    <span class="co">// 定义需要用到的参数</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true"></a>    string filename;</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true"></a>    int threads = <span class="dv">10</span>;</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true"></a>    int mode = <span class="dv">0</span>;</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true"></a>    vector&lt;<span class="dt">int</span>&gt; barcodes;</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true"></a>    bool reverse = false;</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true"></a>    string outPath;</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true"></a>    if (sub1)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true"></a>    {</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true"></a>        <span class="co">// 第一个参数不加-, 表示位置参数,位置参数按出现的顺序来解析</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true"></a>        <span class="co">// 这里还检查了文件是否存在,已经是必须参数</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true"></a>        sub1-&gt;add_option(<span class="st">&quot;file&quot;</span>, filename, <span class="st">&quot;Position paramter&quot;</span>)-&gt;check(CLI::ExistingFile)-&gt;required();</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true"></a>        <span class="co">// 检查参数必须大于0</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true"></a>        sub1-&gt;add_option(<span class="st">&quot;-n,-N&quot;</span>, threads, <span class="st">&quot;Set thread number&quot;</span>)-&gt;check(CLI::PositiveNumber);</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true"></a>    }</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true"></a>    if (sub2)</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true"></a>    {</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true"></a>        <span class="co">// 设置范围</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true"></a>        sub2-&gt;add_option(<span class="st">&quot;-e,-E&quot;</span>, mode, <span class="st">&quot;Set mode&quot;</span>)-&gt;check(CLI::Range(<span class="dv">0</span>,<span class="dv">3</span>));</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true"></a>        <span class="co">// 将数据放到vector中,并限制可接受的长度</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true"></a>        sub2-&gt;add_option(<span class="st">&quot;-b&quot;</span>, barcodes, <span class="st">&quot;Barcodes info:start,len,mismatch&quot;</span>)-&gt;expected(<span class="dv">3</span>,<span class="dv">6</span>);</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true"></a>    }</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true"></a>    <span class="co">// 添加flag,有就是true</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true"></a>    app.add_flag(<span class="st">&quot;-r,-R&quot;</span>, reverse, <span class="st">&quot;Apply reverse&quot;</span>);</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true"></a>    <span class="co">// 检查目录是否存在</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true"></a>    app.add_option(<span class="st">&quot;-o&quot;</span>, outPath, <span class="st">&quot;Output path&quot;</span>)-&gt;check(CLI::ExistingDirectory);</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true"></a></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true"></a>    CLI11_PARSE(app, argc, argv);</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true"></a></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true"></a></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true"></a>    <span class="co">// 判断哪个子命令被使用</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true"></a>    if (sub1-&gt;parsed())</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true"></a>    {</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true"></a>        cout&lt;&lt;<span class="st">&quot;Got sub1&quot;</span>&lt;&lt;endl;</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true"></a>        cout&lt;&lt;<span class="st">&quot;filename:&quot;</span>&lt;&lt;filename&lt;&lt;endl;</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true"></a>        cout&lt;&lt;<span class="st">&quot;threads:&quot;</span>&lt;&lt;threads&lt;&lt;endl;</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true"></a>    }</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true"></a>    else if (sub2-&gt;parsed())</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true"></a>    {</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true"></a>        cout&lt;&lt;<span class="st">&quot;Got sub2&quot;</span>&lt;&lt;endl;</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true"></a>        cout&lt;&lt;<span class="st">&quot;mode:&quot;</span>&lt;&lt;mode&lt;&lt;endl;</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true"></a>        cout&lt;&lt;<span class="st">&quot;barcodes:&quot;</span>;</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true"></a>        for (<span class="kw">auto</span>&amp; b : barcodes)</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true"></a>            cout&lt;&lt;b&lt;&lt;<span class="st">&quot; &quot;</span>;</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true"></a>        cout&lt;&lt;endl;</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true"></a>    }</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true"></a>    cout&lt;&lt;endl&lt;&lt;<span class="st">&quot;Comman paras&quot;</span>&lt;&lt;endl;</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true"></a>    cout&lt;&lt;<span class="st">&quot;reverse:&quot;</span>&lt;&lt;reverse&lt;&lt;endl;</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true"></a>    cout&lt;&lt;<span class="st">&quot;outPath:&quot;</span>&lt;&lt;outPath&lt;&lt;endl;</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true"></a></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true"></a></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true"></a>}</span></code></pre></div>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

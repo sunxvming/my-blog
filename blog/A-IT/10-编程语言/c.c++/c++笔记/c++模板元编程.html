@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/c++模板元编程</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#模板类型判断">模板类型判断</a>
+<ul>
+<li><a href="#stdis_same-判断类型是否一致">std::is_same 判断类型是否一致</a></li>
+<li><a href="#stddecay-退化类型的修饰">std::decay 退化类型的修饰</a></li>
+<li><a href="#is_xxx">is_xxx</a></li>
+</ul></li>
+<li><a href="#stdconditional">std::conditional</a></li>
+<li><a href="#enable_if">enable_if</a>
+<ul>
+<li><a href="#sfinae">SFINAE</a></li>
+<li><a href="#stdenable_if的实现机制如下代码所示">std::enable_if&lt;&gt;的实现机制如下代码所示：</a></li>
+<li><a href="#典型应用">典型应用</a></li>
+</ul></li>
+<li><a href="#可变参数模板">可变参数模板</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="模板类型判断">模板类型判断</h2>
+<h3 id="stdis_same-判断类型是否一致">std::is_same 判断类型是否一致</h3>
+<p>位于头文件<code>&lt;type_traits&gt;</code>中<br />
+通过std::is_same即可判断两个类型是否一样，特别在模板里面，在不清楚模板的参数时，此功能可以对一些特定的参数类型进行特殊的处理。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="bu">std::</span>is_same&lt;<span class="dt">int</span>, <span class="dt">int32_t</span>&gt;::value   <span class="co">// true</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="bu">std::</span>is_same&lt;<span class="dt">int</span>, <span class="dt">int64_t</span>&gt;::value   <span class="co">// false</span></span></code></pre></div>
+<p><code>std::is_same</code>对int和<code>const int</code> <code>int &amp;</code> <code>const int&amp;</code>等都是区别对待的，但在写模板函数时，经常会强制指定常引用进行传参，以免进行数据拷贝，这时候is_same就做出了不相等的判断，但是有时候其实我们还是希望TYPE和const TYPE&amp; 是能认为是一样的，这时就需要<code>std::decay</code>进行退化处理</p>
+<h3 id="stddecay-退化类型的修饰">std::decay 退化类型的修饰</h3>
+<p><code>std::decay</code>就是对一个类型进行退化处理，他的实现如下:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>template&lt; class T &gt;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>struct decay {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>private:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    typedef typename std::remove_reference&lt;T&gt;::type U;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>public:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>    typedef typename std::conditional&lt; </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>        std::is_array&lt;U&gt;::value,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>        typename std::remove_extent&lt;U&gt;::type*,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>        typename std::conditional&lt; </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>            std::is_function&lt;U&gt;::value,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>            typename std::add_pointer&lt;U&gt;::type,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>            typename std::remove_cv&lt;U&gt;::type</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>        &gt;::type</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>    &gt;::type type;</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>};</span></code></pre></div>
+<p>看着比较抽象，其实就是把各种引用啊什么的修饰去掉，把cosnt int&amp;退化为int，这样就能通过<code>std::is_same</code>正确识别出加了引用的类型了</p>
+<h3 id="is_xxx">is_xxx</h3>
+<p>其中的模板参数即为要判断的类型</p>
+<pre><code>// 假设T是一个模板参数，即template&lt;typename T&gt;
+static_assert(
+    is_integral&lt;T&gt;::value, &quot;int&quot;);
+static_assert(
+    is_pointer&lt;T&gt;::value, &quot;ptr&quot;);
+static_assert(
+    is_default_constructible&lt;T&gt;::value, &quot;constructible&quot;);</code></pre>
+<h2 id="stdconditional">std::conditional</h2>
+<p>根据情况判断选择的模板类型,相当于一个<strong>模板类型的三元操作符</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;iostream&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;type_traits&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;typeinfo&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>int main()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>{</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>    typedef typename <span class="bu">std::</span>conditional&lt;<span class="kw">true</span>, int, double&gt;::type Type1;</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>    typedef typename <span class="bu">std::</span>conditional&lt;<span class="kw">false</span>, int, double&gt;::type Type2;</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>    typedef typename <span class="bu">std::</span>conditional&lt;<span class="kw">sizeof</span>(<span class="dt">int</span>) == sizeof(<span class="dt">double</span>), int, double&gt;::type Type3;</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; typeid(Type1).name() &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; typeid(Type2).name() &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; typeid(Type3).name() &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>    Type1 a = <span class="fl">3.1</span>;</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a>    Type2 b = <span class="fl">4.2</span>;</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; a +  b &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a>}</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true"></a><span class="co">// execute out</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true"></a>i</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true"></a>d</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true"></a>d</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true"></a><span class="fl">7.2</span></span></code></pre></div>
+<h2 id="enable_if">enable_if</h2>
+<h3 id="sfinae">SFINAE</h3>
+<p>SFINAE是英文Substitution failure is not an error的缩写，意思是<strong>匹配失败不是错误</strong><br />
+SFINAE 应用最为广泛的场景是C++中的 std::enable_if。<br />
+在对一个函数调用进行模板推导时，编译器会尝试推导所有的候选函数（重载函数，模板，但是普通函数的优先级要高），以确保得到一个<strong>最完美的匹配</strong>。<br />
+也就是说在推导的过程中，如果出现了无效的模板参数，则会将该候选函数从<strong>重载决议集合</strong>中删除，只要最终得到了一个 perfect match ，编译就不会报错。<br />
+比如：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>long multiply(int i, int j) { return i * j; }</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>template &lt;class T&gt;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>typename T::multiplication_result multiply(T t1, T t2)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>{</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    return t1 * t2;</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>}</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>int main(<span class="dt">void</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>{</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>    multiply(<span class="dv">4</span>, <span class="dv">5</span>);</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>}</span></code></pre></div>
+<p>main 函数调用 multiply 会使编译器会尽可能去匹配所有候选函数，虽然第一个 multiply 函数明显是较优的匹配，但是为了得到一个最精确的匹配，编译器依然会尝试去匹配剩下的候选函数，此时就会去推导 第二个multiply函数，中间在参数推导的过程中出现了一个<strong>无效的类型</strong> <code>int::multiplication_result</code> ，但是因为 SFINAE 原则并不会报错。</p>
+<p>比如：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>struct Test {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>    typedef int foo;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>};</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>template &lt;typename T&gt;</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>void f(typename T::foo) {} <span class="co">// Definition #1</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>template &lt;typename T&gt;</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>void f(T) {}               <span class="co">// Definition #2</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>int main() {</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>    f&lt;Test&gt;(<span class="dv">10</span>); <span class="co">// Call #1.</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>    f&lt;<span class="dt">int</span>&gt;(<span class="dv">10</span>);  <span class="co">// Call #2. Without error (even though there is no int::foo) thanks to SFINAE.</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a>}</span></code></pre></div>
+<p>当调用<code>f&lt;int&gt;(10)</code>时，由于推导模板函数过程中可以找到一个正确的版本（Definition 2），所以即使int::foo（ Definition 1）是一个语法错误，也没有关系。</p>
+<h3 id="stdenable_if的实现机制如下代码所示">std::enable_if&lt;&gt;的实现机制如下代码所示：</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="kw">template</span>&lt;bool Cond, typename T = void&gt; struct enable_if {};</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="kw">template</span>&lt;typename T&gt; struct enable_if&lt;<span class="kw">true</span>, T&gt; { typedef T type; };</span></code></pre></div>
+<p>基本原理是SFINAE。<strong>只有当第一个参数是true的时候才有type</strong>，否则就会发生Substitution Failure，这个时候模版实例化就会失败，也就不会产生任何代码。<br />
+在 condition 为真的时候，由于<strong>偏特化机制</strong>，第二个结构体模板明显是一个更好的匹配，所以 std::enable_if&lt;&gt;::type 就是有效的。<br />
+当 condition 为假的时候，只有第一个结构体模板能够匹配，所以std::enable_if&lt;&gt;::type 是无效的，会被丢弃，编译器会报错：error: no type named ‘type’ in ‘struct std::enable_if&lt;false, bool&gt;。</p>
+<h3 id="典型应用">典型应用</h3>
+<p>1.限制模板的类型</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;iostream&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;type_traits&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>template &lt; class T,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>           class = typename <span class="bu">std::</span>enable_if&lt;<span class="bu">std::</span>is_integral&lt;T&gt;::value&gt;::type&gt;</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>bool is_even (T i) {return !<span class="dt">bool</span>(i%<span class="dv">2</span>);}</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a><span class="co">/*</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a><span class="co">上面的class = typename std::enable_if&lt;std::is_integral&lt;T&gt;::value&gt;::type&gt;可以替换成如下两种写法：</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a><span class="co">std::enable_if_t&lt;std::is_integral&lt;T&gt;::value, int&gt;&gt;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a><span class="co">std::enable_if_t&lt;std::is_integral&lt;T&gt;::value&gt;&gt;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a><span class="co">*/</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a>int main() {</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a>  double i = <span class="dv">1</span>;    <span class="co">// code does not compile if type of i is not integral</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a>  <span class="bu">std::</span>cout &lt;&lt; <span class="bu">std::</span>boolalpha;</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true"></a>  <span class="co">// 实例化的时候，enable_if发现不是int类型，就会报error: no type named ‘type’ in ‘struct std::enable_if&lt;false, bool&gt;,从而达到限制类型的效果。</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true"></a>  <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;i is even: &quot;</span> &lt;&lt; is_even(i) &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true"></a>  return <span class="dv">0</span>;</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="可变参数模板">可变参数模板</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="co">// 相当于一个递归基</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="kw">template</span>&lt;typename T&gt;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>ostream &amp;print(ostream &amp;os, const T &amp;t)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>{</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>    return os &lt;&lt; t; <span class="co">// no separator after the last element in the pack</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>}</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a>template &lt;typename T, typename... Args&gt;</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a>ostream &amp;print(ostream &amp;os, const T &amp;t, const Args&amp;... rest)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a>{</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a>    os &lt;&lt; t &lt;&lt; <span class="st">&quot;, &quot;</span>;           <span class="co">// print the first argument</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>    return print(os, rest...); <span class="co">// recursive call; print the other arguments</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a>}</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a>int main() {</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a>    print(<span class="bu">std::</span>cout,<span class="st">&quot;abc&quot;</span>,<span class="dv">123</span>,<span class="dv">456</span>);</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true"></a>}</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true"></a><span class="co">//C++17的更方便的写法</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true"></a>template &lt;typename ...Args&gt;</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true"></a>    constexpr void print(Args&amp;&amp; ...args) {</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true"></a>        <span class="co">// 包扩展，效果是对每个参数都调用前边的语句</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true"></a>        ((<span class="bu">std::</span>cout &lt;&lt; args &lt;&lt; <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>), ...);</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true"></a>        <span class="co">//或者  (..., (std::cout &lt;&lt; args &lt;&lt; &#39;\n&#39;));</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true"></a>    }</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true"></a></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true"></a><span class="co">// 其他包扩展的例子</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true"></a>template &lt;<span class="kw">typename</span>... Args&gt;</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true"></a>ostream &amp;errorMsg(ostream &amp;os, const Args&amp;... rest)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true"></a>{</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true"></a>    <span class="co">// print(os, debug_rep(a1), debug_rep(a2), ..., debug_rep(an)</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true"></a>    return print(os, debug_rep(rest)...);</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true"></a>}</span></code></pre></div>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

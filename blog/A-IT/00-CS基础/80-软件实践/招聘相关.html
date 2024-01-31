@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/00-CS基础/80-软件实践/招聘相关</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#程序面试重点">程序面试重点</a></li>
+<li><a href="#后端面试考察题">后端面试考察题</a></li>
+<li><a href="#服务器开发职位描述">服务器开发职位描述</a></li>
+<li><a href="#入职手册">入职手册</a>
+<ul>
+<li><a href="#工作环境">工作环境</a></li>
+<li><a href="#团队成员">团队成员</a></li>
+<li><a href="#项目工程结构">项目工程结构</a></li>
+<li><a href="#工作流程">工作流程</a></li>
+<li><a href="#工作阶段性测试">工作阶段性测试</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="程序面试重点">程序面试重点</h2>
+<p>面试考察点<br />
+一、 针对笔试题，进行询问，观察应聘者的反应，了解应聘者的技术能力。<br />
+二、 技术能力、沟通能力、热爱游戏这三项，至少要有两项较强。<br />
+三、 对于加班的看法，是否能接受周一至周五早十晚九，周六有时会加班的工作强度。<br />
+四、 询问实际工作经历，判断与简历是否匹配，是否有虚报。<br />
+五、 （客户端）针对C++前后端通吃的应聘者，需询问主观意向，服务器倾向严重者不通过。</p>
+<p>评判重点<br />
+对于以下几点重点考察，一票否决：<br />
+一、 对工作强度无法接受；<br />
+二、 性格内向，交流不顺畅；<br />
+三、 无法清楚表达自己的意思，逻辑思维不清楚清晰；<br />
+四、 技术灵性弱，仅能完成日常工作，没有成长空间；<br />
+五、 实际工作经历与简历偏差较大者，例如写参与了N个项目，但实际上都是待了很短时间或者未参与实际开发；<br />
+六、 针对C++前后端通吃的应聘者，但主观偏向C++服务器端者。</p>
+<p>备注<br />
+一、 原则上为2名初试官同时进行，如面试官不足也可单独进行。<br />
+二、 大家的时间都很宝贵，面试时间绝对不要超过30分钟，对于明显不符合标准的10分钟就可以结束面试。<br />
+三、 无需回答或询问薪资福利问题，如果应试者类似问题，统一答复为复试官和HR会做解答。<br />
+四、 对于游戏开发经验（不是工作经验）超过五年的，应该直接通过初试，参加复试。</p>
+<h2 id="后端面试考察题">后端面试考察题</h2>
+<pre><code>算法
+
+    排序算法最时间低复杂度
+    求二叉树的节点数总个数
+    hash结构，冲突解决算法
+网络
+    tcp/udp区别
+    TCP三次握手、四次挥手过程
+    tcp通过什么机制保证它的可靠传输
+    抓包工具用过什么，linux抓包用什么工具
+
+
+
+mysql
+    索引类型
+
+
+linux
+    grep递归查找
+    sed awk
+    shell脚本是否用过，之前用shell脚本实现过什么任务
+    如何查看服务器运行状态
+
+
+其他编程语言使用
+
+
+职业规划是什么
+住哪里
+上份工作薪资
+期望薪资</code></pre>
+<h2 id="服务器开发职位描述">服务器开发职位描述</h2>
+<p>岗位职责：<br />
+1.负责公司游戏业务的管理后台、运营后台、数据分析等后台的开发和维护；<br />
+2.负责运维运营相关自动化工具的开发与维护；<br />
+3.研究新技术，开发相关的新功能；</p>
+<p>任职要求：<br />
+1.本科学历，计算机相关专业毕业，3年以上开发经验；<br />
+2.扎实的计算机基础，熟悉常用数据结构、算法、网络基础、操作系统知识等；<br />
+3.熟练掌握PHP、larveral等主流开发框架；<br />
+4.熟悉mysql、mongodb、redis等使用及调优；<br />
+5.熟练使用各种shell命令，熟悉在linux下开发<br />
+6.热爱技术，认真踏实，喜欢钻研；<br />
+7.有大中型网站建设，高并发、大数据处理能力等经验的优先；</p>
+<p>加分项：<br />
+1.维护个人技术博客、github开源项目等；<br />
+2.具有游戏行业后台开发经验；</p>
+<h2 id="入职手册">入职手册</h2>
+<p>注意事项：对新人的教学工作应流程化，能用书面的就别用口头的，或书面配合以简单的口头传达</p>
+<h3 id="工作环境">工作环境</h3>
+<p>办公软件 通讯软件 项目所使用的软件</p>
+<h3 id="团队成员">团队成员</h3>
+<p>按职能把团队成员分好组并简单介绍成员负责什么</p>
+<h3 id="项目工程结构">项目工程结构</h3>
+<p>哪些文件都是做什么的</p>
+<h3 id="工作流程">工作流程</h3>
+<p>需求来源<br />
+编写文档<br />
+沟通制作<br />
+测试功能<br />
+问题追踪</p>
+<h3 id="工作阶段性测试">工作阶段性测试</h3>
+<ul>
+<li><p>抗压测试<br />
+不推卸责任<br />
+响应时间<br />
+主动担负责任<br />
+解决问题方法</p></li>
+<li><p>工作项目测试(按天验收)<br />
+熟悉工作环境<br />
+了解工作团体<br />
+熟悉工作流程<br />
+编写小功能</p>
+<h3 id="成长计划">成长计划</h3>
+<p>一月<br />
+三月<br />
+半年<br />
+一年<br />
+两年<br />
+三年</p></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

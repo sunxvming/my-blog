@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/php/代码片段</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#php-ssh2">php ssh2</a></li>
+<li><a href="#文件锁">文件锁</a></li>
+<li><a href="#crul运用">crul运用</a></li>
+<li><a href="#生成数字签名">生成数字签名</a></li>
+<li><a href="#验证数字签名">验证数字签名</a></li>
+<li><a href="#php通过header函数下载文件">php通过header函数下载文件</a></li>
+<li><a href="#查看邮件是否已被阅读">查看邮件是否已被阅读</a></li>
+<li><a href="#查找页面上的所有链接">查找页面上的所有链接</a></li>
+<li><a href="#从服务器上下载保存一个远程图片">从服务器上下载&amp;保存一个远程图片</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h3 id="php-ssh2">php ssh2</h3>
+<p>下载 php extension ssh2 并进行配置</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">$connection</span> = <span class="fu">ssh2_connect</span><span class="ot">(</span><span class="st">&quot;hangge.oicp.net&quot;</span><span class="ot">,</span><span class="dv">8022</span><span class="ot">);</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">if</span><span class="ot">(</span><span class="fu">ssh2_auth_password</span><span class="ot">(</span><span class="kw">$connection</span><span class="ot">,</span><span class="st">&quot;root&quot;</span><span class="ot">,</span><span class="st">&quot;yuhang&quot;</span><span class="ot">))</span>{</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    <span class="kw">echo</span> <span class="st">&quot;Successfull&quot;</span><span class="ot">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>}<span class="kw">else</span>{</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    <span class="kw">die</span><span class="ot">(</span><span class="st">&quot;Failed&quot;</span><span class="ot">);</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="kw">$tcmd</span> = <span class="st">&#39;/usr/bin/etherwake -D &quot;1c:6f:65:20:70:d4&quot;&#39;</span><span class="ot">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="kw">$stream</span> = <span class="fu">ssh2_exec</span><span class="ot">(</span><span class="kw">$connection</span><span class="ot">,</span><span class="kw">$tcmd</span><span class="ot">);</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a><span class="fu">stream_set_blocking</span><span class="ot">(</span><span class="kw">$stream</span><span class="ot">,</span><span class="kw">true</span><span class="ot">);</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a><span class="kw">echo</span> <span class="fu">stream_get_contents</span><span class="ot">(</span><span class="kw">$stream</span><span class="ot">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">$connection</span> = <span class="fu">ssh2_connect</span><span class="ot">(</span><span class="st">&#39;10.1.10.81&#39;</span><span class="ot">,</span> <span class="dv">22</span><span class="ot">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">if</span> <span class="ot">(</span>!<span class="kw">$connection</span><span class="ot">)</span> {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>        <span class="kw">exit</span><span class="ot">();</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>}</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">if</span> <span class="ot">(</span>!<span class="fu">ssh2_auth_password</span><span class="ot">(</span><span class="kw">$connection</span><span class="ot">,</span> <span class="st">&#39;root&#39;</span><span class="ot">,</span> <span class="st">&#39;123456&#39;</span><span class="ot">))</span> {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>        <span class="kw">exit</span><span class="ot">();</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>}</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="kw">$cmd</span> = <span class="st">&quot;mysqldump worktime &gt; /data/worktime.sql&quot;</span><span class="ot">;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="kw">$stream</span> = <span class="fu">ssh2_exec</span><span class="ot">(</span><span class="kw">$connection</span><span class="ot">,</span> <span class="kw">$cmd</span><span class="ot">);</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="fu">stream_set_blocking</span><span class="ot">(</span><span class="kw">$stream</span><span class="ot">,</span> <span class="kw">true</span><span class="ot">);</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a> </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a><span class="fu">stream_get_contents</span><span class="ot">(</span><span class="kw">$stream</span><span class="ot">);</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a><span class="fu">ssh2_scp_recv</span><span class="ot">(</span><span class="kw">$connection</span><span class="ot">,</span> <span class="st">&quot;/data/worktime.sql&quot;</span><span class="ot">,</span> <span class="st">&quot;/home/worktime.sql&quot;</span><span class="ot">);</span></span></code></pre></div>
+<h3 id="文件锁">文件锁</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">$fp</span> = <span class="fu">fopen</span><span class="ot">(</span><span class="st">&#39;a.lock&#39;</span><span class="ot">,</span><span class="st">&#39;r&#39;</span><span class="ot">);</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="kw">$try</span> = <span class="dv">10</span><span class="ot">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="kw">do</span>{</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>    <span class="kw">$lock</span> = <span class="fu">flock</span><span class="ot">(</span><span class="kw">$fp</span><span class="ot">,</span> <span class="kw">LOCK_EX</span><span class="ot">);</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>    <span class="kw">if</span><span class="ot">(</span>!<span class="kw">$lock</span><span class="ot">)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>        <span class="fu">usleep</span><span class="ot">(</span><span class="dv">50000</span><span class="ot">);</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>}<span class="kw">while</span><span class="ot">(</span>!<span class="kw">$lock</span> &amp;&amp; --<span class="kw">try</span> &gt;<span class="dv">0</span><span class="ot">);</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a><span class="kw">if</span><span class="ot">(</span><span class="kw">$lock</span><span class="ot">)</span>{</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>    <span class="co">//执行要做的逻辑</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>    <span class="co">//执行完后</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>    <span class="fu">flock</span><span class="ot">(</span><span class="kw">$pf</span><span class="ot">,</span><span class="kw">LOCK_UN</span><span class="ot">);</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>    <span class="fu">fclose</span><span class="ot">(</span><span class="kw">$fp</span><span class="ot">);</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>}<span class="kw">else</span>{</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>    <span class="fu">fclose</span><span class="ot">(</span><span class="kw">$fp</span><span class="ot">);</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a>    <span class="kw">die</span><span class="ot">(</span><span class="st">&#39;系统繁忙，稍后再试&#39;</span><span class="ot">);</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">&lt;?php</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="kw">class</span> Locker</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>{</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a> <span class="kw">private</span> <span class="kw">static</span> <span class="kw">$_lockFp</span> = <span class="kw">array</span><span class="ot">();</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a> <span class="kw">public</span> <span class="kw">static</span> <span class="kw">function</span> startLock<span class="ot">(</span><span class="kw">$lockFileName</span><span class="ot">)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a> {</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>  self::<span class="kw">$_lockFp</span><span class="ot">[</span><span class="kw">$lockFileName</span><span class="ot">]</span> = <span class="kw">$fp</span> = <span class="fu">fopen</span><span class="ot">(</span><span class="kw">ROOT</span> . <span class="st">&#39;/data/lock/&#39;</span>.<span class="kw">$lockFileName</span><span class="ot">,</span> <span class="st">&#39;r&#39;</span><span class="ot">);</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>  <span class="kw">if</span><span class="ot">(</span>!<span class="kw">$fp</span><span class="ot">)</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>   <span class="kw">return</span> <span class="kw">FALSE</span><span class="ot">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>  <span class="kw">$try</span> = <span class="dv">10</span><span class="ot">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>  <span class="kw">$lock</span> = <span class="kw">false</span><span class="ot">;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a>  <span class="kw">do</span> </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a>  {</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a>   <span class="kw">$lock</span> = <span class="fu">flock</span><span class="ot">(</span><span class="kw">$fp</span><span class="ot">,</span> <span class="kw">LOCK_EX</span><span class="ot">);</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>   <span class="kw">if</span><span class="ot">(</span>!<span class="kw">$lock</span><span class="ot">)</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a>    <span class="fu">usleep</span><span class="ot">(</span><span class="dv">50000</span><span class="ot">);</span> <span class="co">// 0.05秒</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true"></a>  }<span class="kw">while</span><span class="ot">(</span>!<span class="kw">$lock</span> &amp;&amp; --<span class="kw">$try</span> &gt; <span class="dv">0</span><span class="ot">);</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a>  <span class="kw">return</span> <span class="kw">$lock</span><span class="ot">;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true"></a> }</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true"></a> <span class="kw">public</span> <span class="kw">static</span> <span class="kw">function</span> endLock<span class="ot">(</span><span class="kw">$lockFileName</span><span class="ot">)</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true"></a> {</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true"></a>  <span class="kw">if</span><span class="ot">(</span><span class="kw">isset</span><span class="ot">(</span>self::<span class="kw">$_lockFp</span><span class="ot">[</span><span class="kw">$lockFileName</span><span class="ot">]))</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true"></a>  {</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true"></a>   <span class="er">@</span><span class="fu">flock</span><span class="ot">(</span>self::<span class="kw">$_lockFp</span><span class="ot">[</span><span class="kw">$lockFileName</span><span class="ot">],</span> <span class="kw">LOCK_UN</span><span class="ot">);</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true"></a>   <span class="er">@</span><span class="fu">fclose</span><span class="ot">(</span>self::<span class="kw">$_lockFp</span><span class="ot">[</span><span class="kw">$lockFileName</span><span class="ot">]);</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true"></a>  }</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true"></a> }</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="crul运用">crul运用</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">function</span> GetCurl<span class="ot">(</span><span class="kw">$url</span><span class="ot">)</span> {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>    <span class="kw">$curl</span> = <span class="fu">curl_init</span><span class="ot">();</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>    <span class="fu">curl_setopt</span><span class="ot">(</span><span class="kw">$curl</span><span class="ot">,</span> <span class="kw">CURLOPT_RETURNTRANSFER</span><span class="ot">,</span> <span class="dv">1</span><span class="ot">);</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    <span class="fu">curl_setopt</span><span class="ot">(</span><span class="kw">$curl</span><span class="ot">,</span> <span class="kw">CURLOPT_URL</span><span class="ot">,</span> <span class="kw">$url</span><span class="ot">);</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    <span class="fu">curl_setopt</span><span class="ot">(</span><span class="kw">$curl</span><span class="ot">,</span> <span class="kw">CURLOPT_USERAGENT</span><span class="ot">,</span> <span class="kw">$_SERVER</span><span class="ot">[</span><span class="st">&#39;HTTP_USER_AGENT&#39;</span><span class="ot">]);</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    <span class="kw">$resp</span> = <span class="fu">curl_exec</span><span class="ot">(</span><span class="kw">$curl</span><span class="ot">);</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>    <span class="fu">curl_close</span><span class="ot">(</span><span class="kw">$curl</span><span class="ot">);</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>    <span class="kw">return</span> <span class="kw">$resp</span><span class="ot">;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>}</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a><span class="kw">echo</span><span class="ot">(</span>GetCurl<span class="ot">(</span><span class="st">&#39;http://e.wesambo.com/index.php?c=index&amp;a=getip&#39;</span><span class="ot">));</span></span></code></pre></div>
+<h3 id="生成数字签名">生成数字签名</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">&lt;?php</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="co">//error_reporting(0);</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="kw">$m</span> = <span class="kw">$_GET</span><span class="ot">[</span><span class="st">&#39;m&#39;</span><span class="ot">];</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="kw">$t</span> = <span class="kw">$_GET</span><span class="ot">[</span><span class="st">&#39;t&#39;</span><span class="ot">];</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a><span class="kw">if</span> <span class="ot">(</span><span class="fu">md5</span><span class="ot">(</span><span class="st">&#39;yy_zz_fancy3d&#39;</span><span class="ot">)</span> != <span class="kw">$m</span><span class="ot">)</span> {</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>    <span class="kw">echo</span> <span class="st">&#39;&#39;</span><span class="ot">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>    <span class="co">//exit();</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>}</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a> </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a><span class="kw">if</span> <span class="ot">(</span><span class="fu">strlen</span><span class="ot">(</span><span class="kw">$t</span><span class="ot">)</span> &lt; <span class="dv">8</span><span class="ot">)</span> {</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>    <span class="kw">$t</span> = <span class="fu">sprintf</span><span class="ot">(</span><span class="st">&#39;%08s&#39;</span><span class="ot">,</span><span class="kw">$t</span><span class="ot">);</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a>}</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a> </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true"></a><span class="kw">$prikey</span> = <span class="kw">&lt;&lt;&lt;EOD</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true"></a><span class="st">-----BEGIN RSA PRIVATE KEY-----</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true"></a><span class="st">MIICXAIBAAKBgQCW9ZXCaUo7MPKF8mnJahuocseVaHlFIJmvWbjtT58gisfx3y5Z</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true"></a><span class="st">d3q+A8BGcuy5KcWY+zQ6AKjcEGTasHzo7gshUMQDyaFnruJTDC7AjnH91pMX2H/g</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true"></a><span class="st">jH+1Y2TZPZXyRHZBoHUzR2Z8ubLXU3T5zjZCnm+vKFatPI+L/+6TzqLXIQIDAQAB</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true"></a><span class="st">AoGAesPz66vWy3ZN9PKkZ0Fchsv5VZ8l6DrP4ROVWaDD5yIV4rS+q9GHx1mjl2dE</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true"></a><span class="st">7nxzDqtT2MvKh1TpwBOBMajM8SZD4Hx4nTzvrUod/6qdppTC2uTIXBYxJqGemaUt</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true"></a><span class="st">yJ1OBetwpD6MKR1d1JzIdm4PgV3mfZc9Sub5Phhiwgwl4AECQQDIALoXFue69sbT</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true"></a><span class="st">6K8X0jK9EM92AwcIc7nLAIsDF+cvsfJzb3YVT1/1cwkWGd36dd10AeFPWmG1hnUw</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true"></a><span class="st">7Pxmp5AhAkEAwTmlgWhpklx7LwCDWJQFA/lH2nGCgHtMqn/BSEaTeq36UHGgedqh</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true"></a><span class="st">lYrgReQVJK6j5jpamCk/iE2JD6AWdT5nAQJBAKfiFFL1YydJprSSiQdR5k1WIw9I</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true"></a><span class="st">k0rA+aAxoH7EPceHc6D6WwCgVEhQe7wVkoN/FJkgSuS1VXdumkirZWM2HIECQFs9</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true"></a><span class="st">PzuF9CPaa4hcM6lF68Bem2E4rCjDEAaKYNgiC02ojUQjA2XGqPoWI6Sc+KbjmB0E</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true"></a><span class="st">fPbQs2FHS2sHatNd7gECQFPWDR10stjyRJjuG8loOxtNcZq1m3KnsdnnPDQiAc6K</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true"></a><span class="st">R20c0rz6Nr5KFwjzFo/SmW2BYtbEtIXyMah6KcVA2vA=</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true"></a><span class="st">-----END RSA PRIVATE KEY-----</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true"></a><span class="kw">EOD;</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true"></a> </span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true"></a><span class="kw">$priv_key_id</span> = <span class="fu">openssl_get_privatekey</span><span class="ot">(</span><span class="kw">$prikey</span><span class="ot">);</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true"></a> </span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true"></a><span class="kw">$sign</span><span class="ot">;</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true"></a> </span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true"></a><span class="kw">$ret</span> = <span class="fu">openssl_sign</span><span class="ot">(</span><span class="kw">$t</span><span class="ot">,</span><span class="kw">$sign</span><span class="ot">,</span><span class="kw">$prikey</span><span class="ot">,</span><span class="kw">OPENSSL_ALGO_SHA1</span><span class="ot">);</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true"></a> </span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true"></a><span class="kw">echo</span> <span class="fu">base64_encode</span><span class="ot">(</span><span class="kw">$sign</span><span class="ot">);</span></span></code></pre></div>
+<h3 id="验证数字签名">验证数字签名</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="kw">&lt;?php</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="kw">$data</span> = <span class="st">&quot;00012345&quot;</span><span class="ot">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a><span class="kw">$private_key</span> = <span class="kw">&lt;&lt;&lt;EOD</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a><span class="st">-----BEGIN RSA PRIVATE KEY-----</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a><span class="st">MIICXAIBAAKBgQCW9ZXCaUo7MPKF8mnJahuocseVaHlFIJmvWbjtT58gisfx3y5Z</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a><span class="st">d3q+A8BGcuy5KcWY+zQ6AKjcEGTasHzo7gshUMQDyaFnruJTDC7AjnH91pMX2H/g</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a><span class="st">jH+1Y2TZPZXyRHZBoHUzR2Z8ubLXU3T5zjZCnm+vKFatPI+L/+6TzqLXIQIDAQAB</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a><span class="st">AoGAesPz66vWy3ZN9PKkZ0Fchsv5VZ8l6DrP4ROVWaDD5yIV4rS+q9GHx1mjl2dE</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a><span class="st">7nxzDqtT2MvKh1TpwBOBMajM8SZD4Hx4nTzvrUod/6qdppTC2uTIXBYxJqGemaUt</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a><span class="st">yJ1OBetwpD6MKR1d1JzIdm4PgV3mfZc9Sub5Phhiwgwl4AECQQDIALoXFue69sbT</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true"></a><span class="st">6K8X0jK9EM92AwcIc7nLAIsDF+cvsfJzb3YVT1/1cwkWGd36dd10AeFPWmG1hnUw</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true"></a><span class="st">7Pxmp5AhAkEAwTmlgWhpklx7LwCDWJQFA/lH2nGCgHtMqn/BSEaTeq36UHGgedqh</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true"></a><span class="st">lYrgReQVJK6j5jpamCk/iE2JD6AWdT5nAQJBAKfiFFL1YydJprSSiQdR5k1WIw9I</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true"></a><span class="st">k0rA+aAxoH7EPceHc6D6WwCgVEhQe7wVkoN/FJkgSuS1VXdumkirZWM2HIECQFs9</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true"></a><span class="st">PzuF9CPaa4hcM6lF68Bem2E4rCjDEAaKYNgiC02ojUQjA2XGqPoWI6Sc+KbjmB0E</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true"></a><span class="st">fPbQs2FHS2sHatNd7gECQFPWDR10stjyRJjuG8loOxtNcZq1m3KnsdnnPDQiAc6K</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true"></a><span class="st">R20c0rz6Nr5KFwjzFo/SmW2BYtbEtIXyMah6KcVA2vA=</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true"></a><span class="st">-----END RSA PRIVATE KEY-----</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true"></a><span class="kw">EOD;</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true"></a><span class="kw">$public_key</span> = <span class="kw">&lt;&lt;&lt;EOD</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true"></a><span class="st">-----BEGIN PUBLIC KEY-----</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true"></a><span class="st">MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCW9ZXCaUo7MPKF8mnJahuocseV</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true"></a><span class="st">aHlFIJmvWbjtT58gisfx3y5Zd3q+A8BGcuy5KcWY+zQ6AKjcEGTasHzo7gshUMQD</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true"></a><span class="st">yaFnruJTDC7AjnH91pMX2H/gjH+1Y2TZPZXyRHZBoHUzR2Z8ubLXU3T5zjZCnm+v</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true"></a><span class="st">KFatPI+L/+6TzqLXIQIDAQAB</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true"></a><span class="st">-----END PUBLIC KEY-----</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true"></a><span class="kw">EOD;</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true"></a> </span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true"></a><span class="kw">$binary_signature</span> = <span class="st">&quot;&quot;</span><span class="ot">;</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true"></a> </span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true"></a> </span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true"></a><span class="fu">openssl_sign</span><span class="ot">(</span><span class="kw">$data</span><span class="ot">,</span> <span class="kw">$binary_signature</span><span class="ot">,</span> <span class="kw">$private_key</span><span class="ot">,</span> <span class="kw">OPENSSL_ALGO_SHA1</span><span class="ot">);</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true"></a> </span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true"></a><span class="co">// Check signature</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true"></a><span class="kw">$ok</span> = <span class="fu">openssl_verify</span><span class="ot">(</span><span class="kw">$data</span><span class="ot">,</span> <span class="kw">$binary_signature</span><span class="ot">,</span> <span class="kw">$public_key</span><span class="ot">,</span> <span class="kw">OPENSSL_ALGO_SHA1</span><span class="ot">);</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true"></a><span class="kw">echo</span> <span class="st">&quot;check #1: &quot;</span><span class="ot">;</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true"></a><span class="kw">if</span> <span class="ot">(</span><span class="kw">$ok</span> == <span class="dv">1</span><span class="ot">)</span> {</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true"></a>    <span class="kw">echo</span> <span class="st">&quot;signature ok (as it should be)</span><span class="kw">\n</span><span class="st">&quot;</span><span class="ot">;</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true"></a>} <span class="kw">elseif</span> <span class="ot">(</span><span class="kw">$ok</span> == <span class="dv">0</span><span class="ot">)</span> {</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true"></a>    <span class="kw">echo</span> <span class="st">&quot;bad (there&#39;s something wrong)</span><span class="kw">\n</span><span class="st">&quot;</span><span class="ot">;</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true"></a>} <span class="kw">else</span> {</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true"></a>    <span class="kw">echo</span> <span class="st">&quot;ugly, error checking signature</span><span class="kw">\n</span><span class="st">&quot;</span><span class="ot">;</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="php通过header函数下载文件">php通过header函数下载文件</h3>
+<p>般来说, 我们可以通过直接让URL指向一个位于Document Root下面的文件, 来引导用户下载文件.<br />
+但是, 这样做, 就没办法做一些统计, 权限检查, 等等的工作. 于是, 很多时候, 我们采用让PHP来做转发, 为用户提供文件下载.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="kw">&lt;?php</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>    <span class="kw">$file</span> = <span class="st">&quot;/tmp/dummy.tar.gz&quot;</span><span class="ot">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    <span class="fu">header</span><span class="ot">(</span><span class="st">&quot;Content-type: application/octet-stream&quot;</span><span class="ot">);</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>    <span class="fu">header</span><span class="ot">(</span><span class="st">&#39;Content-Disposition: attachment; filename=&quot;&#39;</span> . <span class="fu">basename</span><span class="ot">(</span><span class="kw">$file</span><span class="ot">)</span> . <span class="st">&#39;&quot;&#39;</span><span class="ot">);</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>    <span class="fu">header</span><span class="ot">(</span><span class="st">&quot;Content-Length: &quot;</span>. <span class="fu">filesize</span><span class="ot">(</span><span class="kw">$file</span><span class="ot">));</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>    <span class="fu">readfile</span><span class="ot">(</span><span class="kw">$file</span><span class="ot">);</span></span></code></pre></div>
+<h3 id="查看邮件是否已被阅读">查看邮件是否已被阅读</h3>
+<p>高明之处在于在图片中隐藏东西</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="kw">&lt;?php</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="fu">error_reporting</span><span class="ot">(</span><span class="dv">0</span><span class="ot">);</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="co">//Get IP</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="kw">if</span> <span class="ot">(</span>!<span class="kw">empty</span><span class="ot">(</span><span class="kw">$_SERVER</span><span class="ot">[</span><span class="st">&#39;HTTP_CLIENT_IP&#39;</span><span class="ot">]))</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>{</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>  <span class="kw">$ip</span>=<span class="kw">$_SERVER</span><span class="ot">[</span><span class="st">&#39;HTTP_CLIENT_IP&#39;</span><span class="ot">];</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>}</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a><span class="kw">elseif</span> <span class="ot">(</span>!<span class="kw">empty</span><span class="ot">(</span><span class="kw">$_SERVER</span><span class="ot">[</span><span class="st">&#39;HTTP_X_FORWARDED_FOR&#39;</span><span class="ot">]))</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a>{</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a>  <span class="kw">$ip</span>=<span class="kw">$_SERVER</span><span class="ot">[</span><span class="st">&#39;HTTP_X_FORWARDED_FOR&#39;</span><span class="ot">];</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a>}</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a><span class="kw">else</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>{</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a>  <span class="kw">$ip</span>=<span class="kw">$_SERVER</span><span class="ot">[</span><span class="st">&#39;REMOTE_ADDR&#39;</span><span class="ot">];</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a>}</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true"></a><span class="co">//Time</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true"></a><span class="kw">$actual_time</span> = <span class="fu">time</span><span class="ot">();</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true"></a><span class="kw">$actual_day</span> = <span class="fu">date</span><span class="ot">(</span><span class="st">&#39;Y.m.d&#39;</span><span class="ot">,</span> <span class="kw">$actual_time</span><span class="ot">);</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true"></a><span class="kw">$actual_day_chart</span> = <span class="fu">date</span><span class="ot">(</span><span class="st">&#39;d/m/y&#39;</span><span class="ot">,</span> <span class="kw">$actual_time</span><span class="ot">);</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true"></a><span class="kw">$actual_hour</span> = <span class="fu">date</span><span class="ot">(</span><span class="st">&#39;H:i:s&#39;</span><span class="ot">,</span> <span class="kw">$actual_time</span><span class="ot">);</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true"></a><span class="co">//GET Browser</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true"></a><span class="kw">$browser</span> = <span class="kw">$_SERVER</span><span class="ot">[</span><span class="st">&#39;HTTP_USER_AGENT&#39;</span><span class="ot">];</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true"></a><span class="co">//LOG</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true"></a><span class="kw">$myFile</span> = <span class="st">&quot;log.txt&quot;</span><span class="ot">;</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true"></a><span class="kw">$fh</span> = <span class="fu">fopen</span><span class="ot">(</span><span class="kw">$myFile</span><span class="ot">,</span> <span class="st">&#39;a+&#39;</span><span class="ot">);</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true"></a><span class="kw">$stringData</span> = <span class="kw">$actual_day</span> . <span class="st">&#39; &#39;</span> . <span class="kw">$actual_hour</span> . <span class="st">&#39; &#39;</span> . <span class="kw">$ip</span> . <span class="st">&#39; &#39;</span> . <span class="kw">$browser</span> . <span class="st">&#39; &#39;</span> . <span class="st">&quot;</span><span class="kw">\r\n</span><span class="st">&quot;</span><span class="ot">;</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true"></a><span class="fu">fwrite</span><span class="ot">(</span><span class="kw">$fh</span><span class="ot">,</span> <span class="kw">$stringData</span><span class="ot">);</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true"></a><span class="fu">fclose</span><span class="ot">(</span><span class="kw">$fh</span><span class="ot">);</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true"></a></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true"></a></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true"></a><span class="co">// Set the content type header - in this case image/jpeg</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true"></a><span class="fu">header</span><span class="ot">(</span><span class="st">&#39;Content-Type: image/jpeg&#39;</span><span class="ot">);</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true"></a><span class="kw">$newimage</span> = <span class="fu">ImageCreate</span><span class="ot">(</span><span class="dv">1</span><span class="ot">,</span><span class="dv">1</span><span class="ot">);</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true"></a><span class="kw">$grigio</span> = <span class="fu">ImageColorAllocate</span><span class="ot">(</span><span class="kw">$newimage</span><span class="ot">,</span><span class="dv">255</span><span class="ot">,</span><span class="dv">0</span><span class="ot">,</span><span class="dv">0</span><span class="ot">);</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true"></a><span class="fu">ImageJPEG</span><span class="ot">(</span><span class="kw">$newimage</span><span class="ot">);</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true"></a><span class="fu">ImageDestroy</span><span class="ot">(</span><span class="kw">$newimage</span><span class="ot">);</span></span></code></pre></div>
+<h3 id="查找页面上的所有链接">查找页面上的所有链接</h3>
+<p>高明之处在于用dom来找</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="kw">&lt;?php</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="kw">$html</span> = <span class="fu">file_get_contents</span><span class="ot">(</span><span class="st">&#39;http://www.zhihu.com&#39;</span><span class="ot">);</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a><span class="kw">$dom</span> = <span class="kw">new</span> <span class="kw">DOMDocument</span><span class="ot">();</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a><span class="er">@</span><span class="kw">$dom</span>-&gt;loadHTML<span class="ot">(</span><span class="kw">$html</span><span class="ot">);</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a><span class="co">// grab all the on the page</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a><span class="kw">$xpath</span> = <span class="kw">new</span> <span class="kw">DOMXPath</span><span class="ot">(</span><span class="kw">$dom</span><span class="ot">);</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a><span class="kw">$hrefs</span> = <span class="kw">$xpath</span>-&gt;evaluate<span class="ot">(</span><span class="st">&quot;/html/body//a&quot;</span><span class="ot">);</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a><span class="kw">for</span> <span class="ot">(</span><span class="kw">$i</span> = <span class="dv">0</span><span class="ot">;</span> <span class="kw">$i</span> &lt; <span class="kw">$hrefs</span>-&gt;length<span class="ot">;</span> <span class="kw">$i</span>++<span class="ot">)</span> {</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a>       <span class="kw">$href</span> = <span class="kw">$hrefs</span>-&gt;item<span class="ot">(</span><span class="kw">$i</span><span class="ot">);</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a>       <span class="kw">$url</span> = <span class="kw">$href</span>-&gt;getAttribute<span class="ot">(</span><span class="st">&#39;href&#39;</span><span class="ot">);</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true"></a>       <span class="kw">echo</span> <span class="kw">$url</span>.<span class="st">&#39;&lt;br /&gt;&#39;</span><span class="ot">;</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="从服务器上下载保存一个远程图片">从服务器上下载&amp;保存一个远程图片</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">$image</span> = <span class="fu">file_get_contents</span><span class="ot">(</span><span class="st">&#39;http://www.url.com/image.jpg&#39;</span><span class="ot">);</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="fu">file_put_contents</span><span class="ot">(</span><span class="st">&#39;/images/image.jpg&#39;</span><span class="ot">,</span> <span class="kw">$image</span><span class="ot">);</span> <span class="co">//Where to save the image</span></span></code></pre></div>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

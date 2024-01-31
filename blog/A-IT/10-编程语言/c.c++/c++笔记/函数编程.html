@@ -1,0 +1,559 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/函数编程</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#for_each">for_each</a></li>
+<li><a href="#映射map">映射（Map）</a></li>
+<li><a href="#过滤filter">过滤（Filter）</a></li>
+<li><a href="#对容器的计算">对容器的计算</a></li>
+<li><a href="#递归recursion">递归（Recursion）</a></li>
+<li><a href="#高阶函数">高阶函数</a></li>
+<li><a href="#柯里化">柯里化</a></li>
+<li><a href="#惰性计算">惰性计算</a></li>
+<li><a href="#js中的函数编程">js中的函数编程</a>
+<ul>
+<li><a href="#every">every</a></li>
+<li><a href="#some">some</a></li>
+<li><a href="#foreach">forEach</a></li>
+<li><a href="#map">map</a></li>
+<li><a href="#filter">filter</a></li>
+<li><a href="#reduce">reduce</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>特点：<br />
+- 强调将计算过程视(功能的实现)用多个不同功能的函数组合而成，其中函数一般逻辑计较固定，简单，易懂，是对常用逻辑的抽象。<br />
+- 在过程式编程中，逻辑往往藏在循环的深处，理解过程较长，而函数编程通过常用的函数而大大简化逻辑<br />
+- 避免修改状态和可变数据，从而减少副作用<br />
+- 强调不修改现有数据，而是创建新的数据。使用不可变性可以降低错误发生的可能性。</p>
+<p>在 C++ 里，算法的地位非常高，甚至有一个专门的“算法库”。早期，它是<strong>泛型编程的示范和应用</strong>，而在 C++ 引入 lambda 表达式后，它又成了<strong>函数式编程的具体实践</strong>，所以，学习掌握算法能够很好地训练你的<strong>编程思维</strong>，帮你开辟出面向对象之外的新天地</p>
+<h2 id="for_each">for_each</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>vector&lt;<span class="dt">int</span>&gt; v = {<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">7</span>,<span class="dv">10</span>};   <span class="co">// vector容器</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="cf">for</span>(<span class="at">const</span> <span class="kw">auto</span>&amp; x : v) {        <span class="co">// range for循环</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    cout &lt;&lt; x &lt;&lt; <span class="st">&quot;,&quot;</span>;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="kw">auto</span> print = [](<span class="at">const</span> <span class="kw">auto</span>&amp; x)  <span class="co">// 定义一个lambda表达式</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>{</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    cout &lt;&lt; x &lt;&lt; <span class="st">&quot;,&quot;</span>;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>};</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>for_each(cbegin(v), cend(v), print);<span class="co">// for_each算法</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>for_each(                      <span class="co">// for_each算法，内部定义lambda表达式</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>    cbegin(v), cend(v),        <span class="co">// 获取常量迭代器</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>    [](<span class="at">const</span> <span class="kw">auto</span>&amp; x)          <span class="co">// 匿名lambda表达式</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>    {</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>        cout &lt;&lt; x &lt;&lt; <span class="st">&quot;,&quot;</span>;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>    }</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>);</span></code></pre></div>
+<p>初看上去 for_each 算法显得有些累赘，既要指定容器的范围，又要写 lambda 表达式，没有 range-for 那么简单明了。<br />
+对于很简单的 for 循环来说，确实是如此，我也不建议你对这么简单的事情用 for_each 算法。<br />
+但更多的时候，for 循环体里会做很多事情，会由 if-else、break、continue 等语句组成很复杂的逻辑。<br />
+但是for_each 把逻辑拆成两个：一个遍历容器元素，另一个操纵容器元素，而且名字的含义更明确，代码也有更好的封装。</p>
+<h2 id="映射map">映射（Map）</h2>
+<p>在函数范式中，你可以使用<code>std::transform</code>函数来实现映射操作，将一个容器中的每个元素映射为另一个容器中的元素。例如，将一个整数数组的每个元素加倍：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>    <span class="bu">std::</span>vector&lt;<span class="dt">int</span>&gt; numbers = {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>};</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>    <span class="bu">std::</span>vector&lt;<span class="dt">int</span>&gt; doubled_numbers;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>    <span class="bu">std::</span>transform(numbers.begin(), numbers.end(), <span class="bu">std::</span>back_inserter(doubled_numbers),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>                   [](<span class="dt">int</span> num) { <span class="cf">return</span> num * <span class="dv">2</span>; });</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="dt">int</span> num : doubled_numbers) {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; num &lt;&lt; <span class="st">&quot; &quot;</span>;</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>    }</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="过滤filter">过滤（Filter）</h2>
+<p>使用<code>std::copy_if</code>函数来实现过滤操作，从一个容器中复制满足特定条件的元素到另一个容器。例如，从一个整数数组中过滤出偶数：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>    <span class="bu">std::</span>vector&lt;<span class="dt">int</span>&gt; numbers = {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>};</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>    <span class="bu">std::</span>vector&lt;<span class="dt">int</span>&gt; even_numbers;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>    <span class="bu">std::</span>copy_if(numbers.begin(), numbers.end(), <span class="bu">std::</span>back_inserter(even_numbers),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>                 [](<span class="dt">int</span> num) { <span class="cf">return</span> num % <span class="dv">2</span> == <span class="dv">0</span>; });</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="dt">int</span> num : even_numbers) {</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; num &lt;&lt; <span class="st">&quot; &quot;</span>;</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>    }</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="对容器的计算">对容器的计算</h2>
+<p>对容器中的数据进行计算</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>int n2 = <span class="dv">0</span>;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="cf">for</span>(auto x : v) { </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>    if (x == <span class="dv">1</span>) {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>        n2++;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>    }</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>}</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a><span class="co">//统计等于 1 的元素个数</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>vector&lt;<span class="dt">int</span>&gt; v = {<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">7</span>,<span class="dv">5</span>}; </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>auto n1 = <span class="bu">std::</span>count( </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>    begin(v), end(v), <span class="dv">1</span> </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a>);</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a><span class="co">//配合lambda效果更好</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>auto n = <span class="bu">std::</span>count_if( </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a>    begin(v), end(v),</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true"></a>    [](auto x) { </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a>        return x &gt; <span class="dv">2</span>;</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true"></a>    }</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true"></a>);</span></code></pre></div>
+<h2 id="递归recursion">递归（Recursion）</h2>
+<p>递归是函数范式中常见的方法，它可以用来解决许多问题，例如计算阶乘：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="dt">int</span> factorial(<span class="dt">int</span> n) {</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    <span class="cf">if</span> (n == <span class="dv">0</span> || n == <span class="dv">1</span>) {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span>;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    } <span class="cf">else</span> {</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>        <span class="cf">return</span> n * factorial(n - <span class="dv">1</span>);</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>    }</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>}</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>    <span class="dt">int</span> n = <span class="dv">5</span>;</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Factorial of &quot;</span> &lt;&lt; n &lt;&lt; <span class="st">&quot; is: &quot;</span> &lt;&lt; factorial(n) &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a>}</span></code></pre></div>
+<p>递归结构处理,用于处理树形结构等递归定义的数据</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="kw">struct</span> TreeNode {</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>    <span class="dt">int</span> value;</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>    <span class="bu">std::</span>vector&lt;TreeNode&gt; children;</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>};</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a><span class="dt">int</span> sum_tree(<span class="at">const</span> TreeNode&amp; node) {</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>    <span class="dt">int</span> sum = node.value;</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="at">const</span> TreeNode&amp; child : node.children) {</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>        sum += sum_tree(child);</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>    }</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>    <span class="cf">return</span> sum;</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>}</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true"></a>    TreeNode root{<span class="dv">1</span>, {{<span class="dv">2</span>, {}}, {<span class="dv">3</span>, {{<span class="dv">4</span>, {}}, {<span class="dv">5</span>, {}}}}}};</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Sum of tree nodes: &quot;</span> &lt;&lt; sum_tree(root) &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="高阶函数">高阶函数</h2>
+<p>高阶函数（Higher-order Function）是指能够接受一个或多个函数作为参数，并/或返回一个函数作为结果的函数。换句话说，它可以将函数作为数据来操作和传递，就像操作其他数据类型一样。高阶函数是函数式编程的一个重要概念，它可以让代码更具有抽象性、模块化和灵活性。</p>
+<p>在高阶函数中，函数被视为一等公民（First-Class Citizens），这意味着它们可以像其他数据类型一样被传递、赋值、储存在变量中，并且可以作为参数传递给其他函数。</p>
+<p>高阶函数的使用可以提高代码的可读性、可维护性和重用性，因为它们鼓励将逻辑分解为更小的可组合部分，从而形成更简洁、模块化的代码。</p>
+<p>常见用法</p>
+<p><strong>1.函数作为参数</strong><br />
+在高阶函数中，你可以将一个函数作为参数传递给另一个函数。这使得你能够将一些通用的逻辑传递给一个更具体的函数，从而实现更大程度的抽象和可重用性。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;functional&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="dt">void</span> apply_twice(<span class="bu">std::</span>function&lt;<span class="dt">int</span>(<span class="dt">int</span>)&gt; func, <span class="dt">int</span> num) {</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; func(func(num)) &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>}</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a><span class="dt">int</span> add_one(<span class="dt">int</span> x) {</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a>    <span class="cf">return</span> x + <span class="dv">1</span>;</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a>}</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true"></a>    apply_twice(add_one, <span class="dv">2</span>); <span class="co">// Output: 4 (2 + 1 = 3, 3 + 1 = 4)</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>2.函数作为返回值</strong><br />
+高阶函数也可以返回一个函数，这使得你能够动态地创建函数，根据不同的场景返回不同的计算逻辑。</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;functional&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a><span class="bu">std::</span>function&lt;<span class="dt">int</span>(<span class="dt">int</span>)&gt; multiplier(<span class="dt">int</span> factor) {</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>    <span class="cf">return</span> [=](<span class="dt">int</span> x) { <span class="cf">return</span> x * factor; };</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>}</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>    <span class="kw">auto</span> double_value = multiplier(<span class="dv">2</span>);</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; double_value(<span class="dv">5</span>) &lt;&lt; <span class="bu">std::</span>endl; <span class="co">// Output: 10 (5 * 2)</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>3.函数组合</strong><br />
+高阶函数可以用来将多个函数组合成一个新的函数，从而实现更复杂的操作。</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;functional&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="bu">std::</span>function&lt;<span class="dt">int</span>(<span class="dt">int</span>)&gt; compose(<span class="bu">std::</span>function&lt;<span class="dt">int</span>(<span class="dt">int</span>)&gt; f, <span class="bu">std::</span>function&lt;<span class="dt">int</span>(<span class="dt">int</span>)&gt; g) {</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>    <span class="cf">return</span> [=](<span class="dt">int</span> x) { <span class="cf">return</span> f(g(x)); };</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>}</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a><span class="dt">int</span> add_one(<span class="dt">int</span> x) {</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a>    <span class="cf">return</span> x + <span class="dv">1</span>;</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a>}</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a><span class="dt">int</span> multiply_by_two(<span class="dt">int</span> x) {</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>    <span class="cf">return</span> x * <span class="dv">2</span>;</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a>}</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a>    <span class="kw">auto</span> add_then_double = compose(multiply_by_two, add_one);</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; add_then_double(<span class="dv">5</span>) &lt;&lt; <span class="bu">std::</span>endl; <span class="co">// Output: 12 (5 + 1 = 6, 6 * 2 = 12)</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="柯里化">柯里化</h2>
+<p>柯里化（Currying）是函数式编程中的一个概念，它指的是<strong>将一个接受多个参数的函数转化为一系列接受单个参数的函数</strong>。这样做的好处之一是可以创建更高阶、更灵活的函数。柯里化的核心思想是将多参数函数转化为一系列单参数函数，每个单参数函数都返回一个新的函数，直到所有参数都被传递完毕，然后执行最终的计算。<br />
+柯里化的优点在于它可以使函数的参数传递变得更加灵活和模块化。通过将一个函数拆分为多个步骤，可以更容易地进行部分参数应用，复用函数逻辑，以及创建更高阶的函数组合。</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;functional&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a><span class="dt">int</span> add(<span class="dt">int</span> a, <span class="dt">int</span> b) {</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>    <span class="cf">return</span> a + b;</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>}</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a><span class="bu">std::</span>function&lt;<span class="dt">int</span>(<span class="dt">int</span>)&gt; curried_add(<span class="dt">int</span> a) {</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>    <span class="cf">return</span> [=](<span class="dt">int</span> b) { <span class="cf">return</span> add(a, b); };</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a>}</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a>    <span class="kw">auto</span> add_five = curried_add(<span class="dv">5</span>);</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Result: &quot;</span> &lt;&lt; add_five(<span class="dv">3</span>) &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="惰性计算">惰性计算</h2>
+<p>惰性计算（Lazy Evaluation）是一种编程策略，它在需要计算某个值时才执行实际的计算，而不是立即计算。这种延迟计算的方式可以优化性能和资源使用，因为它避免了不必要的计算，节省了时间和内存。惰性计算通常在函数式编程中广泛使用，但也可以在其他编程范式中应用。</p>
+<p>惰性计算的核心思想是<strong>推迟计算</strong>，直到真正需要计算结果的时候才进行。这可以通过使用闭包、函数、类等方式来实现。在惰性计算中，一些计算步骤可能会被跳过，直到结果被请求。<br />
+<strong>总结一下</strong>：<br />
+惰性计算可以分成两个阶段：<br />
+- 生成阶段：通过组合函数对象、闭包、Lambda等，生成一个高价函数<br />
+- 计算阶段：执行之前生成的高价函数</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;functional&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a><span class="bu">std::</span>function&lt;<span class="dt">int</span>(<span class="dt">int</span>)&gt; lazy_fibonacci(<span class="dt">int</span> n) {</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>    <span class="cf">if</span> (n == <span class="dv">0</span>) {</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>        <span class="cf">return</span> [=]() { <span class="cf">return</span> <span class="dv">0</span>; };</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>    } <span class="cf">else</span> <span class="cf">if</span> (n == <span class="dv">1</span>) {</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>        <span class="cf">return</span> [=]() { <span class="cf">return</span> <span class="dv">1</span>; };</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>    } <span class="cf">else</span> {</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>        <span class="bu">std::</span>function&lt;<span class="dt">int</span>()&gt; prev = lazy_fibonacci(n - <span class="dv">1</span>);</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a>        <span class="bu">std::</span>function&lt;<span class="dt">int</span>()&gt; prev_prev = lazy_fibonacci(n - <span class="dv">2</span>);</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a>        <span class="cf">return</span> [=]() { <span class="cf">return</span> prev() + prev_prev(); };</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true"></a>    }</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true"></a>}</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true"></a>    <span class="dt">int</span> n = <span class="dv">5</span>;</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true"></a>    <span class="bu">std::</span>function&lt;<span class="dt">int</span>()&gt; fibonacci = lazy_fibonacci(n);</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Fibonacci(&quot;</span> &lt;&lt; n &lt;&lt; <span class="st">&quot;): &quot;</span> &lt;&lt; fibonacci() &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true"></a></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="js中的函数编程">js中的函数编程</h2>
+<h4 id="every">every</h4>
+<p>测试数组的所有元素是否都通过了指定函数的测试。</p>
+<h4 id="some">some</h4>
+<p>测试数组中的某些元素是否通过了指定函数的测试。</p>
+<h4 id="foreach">forEach</h4>
+<p>令数组的每一项都执行指定的函数。</p>
+<h4 id="map">map</h4>
+<p>返回一个由原数组中每个元素调用某个指定方法得到的返回值所组成的新数组，返回每一个处理结果。</p>
+<h4 id="filter">filter</h4>
+<p>利用所有通过指定函数处理的元素创建一个新的数组并返回。</p>
+<h4 id="reduce">reduce</h4>
+<p>接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终缩减为一个值。</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="kw">let</span> colors <span class="op">=</span> [<span class="st">&#39;red&#39;</span><span class="op">,</span> <span class="st">&#39;blue&#39;</span><span class="op">,</span> <span class="st">&#39;green&#39;</span><span class="op">,</span> <span class="st">&#39;green&#39;</span>]<span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(colors<span class="op">.</span><span class="fu">indexOf</span>(<span class="st">&#39;green&#39;</span>))<span class="op">;</span> <span class="co">// 2</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(colors<span class="op">.</span><span class="fu">lastIndexOf</span>(<span class="st">&#39;green&#39;</span>))<span class="op">;</span> <span class="co">// 3</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(colors<span class="op">.</span><span class="fu">every</span>(<span class="kw">function</span> (color) {</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>    <span class="cf">return</span> color<span class="op">.</span><span class="at">length</span> <span class="op">&gt;=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>}))<span class="op">;</span> <span class="co">// true，判断是否所有的元素长度均大于等于 3</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(colors<span class="op">.</span><span class="fu">some</span>(<span class="kw">function</span> (color) {</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>    <span class="cf">return</span> color<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a>}))<span class="op">;</span> <span class="co">// true，判断是否有至少一个元素长度大于 4</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a>colors<span class="op">.</span><span class="fu">forEach</span>(<span class="kw">function</span> (color) {</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a>    <span class="cf">if</span> (color <span class="op">===</span> <span class="st">&#39;green&#39;</span>) {</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(color)<span class="op">;</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true"></a>    }</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true"></a>})<span class="op">;</span> <span class="co">// green green</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(colors<span class="op">.</span><span class="fu">map</span>(<span class="kw">function</span> (color) {</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true"></a>    <span class="cf">if</span> (color <span class="op">===</span> <span class="st">&#39;green&#39;</span>) {</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true"></a>        <span class="cf">return</span> color<span class="op">;</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true"></a>    }</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true"></a>}))<span class="op">;</span> <span class="co">// 输出数组：[undefined, undefined, &quot;green&quot;, &quot;green&quot;]</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(colors<span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span> (color) {</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true"></a>    <span class="cf">if</span> (color <span class="op">===</span> <span class="st">&#39;green&#39;</span>) {</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true"></a>        <span class="cf">return</span> color<span class="op">;</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true"></a>    }</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true"></a>}))<span class="op">;</span> <span class="co">// 输出数组：[&quot;green&quot;, &quot;green&quot;]</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(colors<span class="op">.</span><span class="fu">reduce</span>(<span class="kw">function</span> (color<span class="op">,</span> nextColor) {</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true"></a>    <span class="cf">return</span> color <span class="op">+</span> <span class="st">&#39;,&#39;</span> <span class="op">+</span> nextColor<span class="op">;</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true"></a>}))<span class="op">;</span> <span class="co">// 输出字符串： red,blue,green,green</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(colors<span class="op">.</span><span class="fu">reduceRight</span>(<span class="kw">function</span> (color<span class="op">,</span> nextColor) {</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true"></a>    <span class="cf">return</span> color <span class="op">+</span> <span class="st">&#39;,&#39;</span> <span class="op">+</span> nextColor<span class="op">;</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true"></a>}))<span class="op">;</span> <span class="co">//输出字符串： green,green,blue,red</span></span></code></pre></div>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/区块链/智能合约/webassembly/wasm</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#历史篇为什么会有-webassembly-这样一门技术">02 | 历史篇：为什么会有 WebAssembly 这样一门技术？</a>
+<ul>
+<li><a href="#慢的原因">慢的原因？</a></li>
+</ul></li>
+<li><a href="#webassembly-是一门新的编程语言吗">03 | WebAssembly 是一门新的编程语言吗？</a>
+<ul>
+<li><a href="#常见的计算模型">常见的计算模型</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="历史篇为什么会有-webassembly-这样一门技术">02 | 历史篇：为什么会有 WebAssembly 这样一门技术？</h2>
+<ol>
+<li>为了构建更高性能的 Web 应用</li>
+</ol>
+<h3 id="慢的原因">慢的原因？</h3>
+<p>1.Web应用规模越来越大<br />
+现代的大多数网页，都会使用较新的 JavaScript 语法标准进行开发，然后在发布时使用诸<br />
+如 Babel 等工具，将这些新的 JavaScript 语法转换为对应的 ES5 旧版本语法，来兼容旧<br />
+版本浏览器。但这样做，产生的各类 Polyfill 代码，会极大地增加整个 Web 应用的体积。</p>
+<p>2.JavaScript 的弱类型之殇<br />
+变量具体类型的推导过程，会被推迟到代码的实际运行时再进行。会带来额外的运行时性能开销。<br />
+以x + y为例，+号两边的类型可以是多种的，当引擎执行时就得具体的来判断两边是什么类型，<br />
+然后在再决定用什么方式来操作。</p>
+<ol>
+<li>将其它语言的代码移植的web端</li>
+</ol>
+<h2 id="webassembly-是一门新的编程语言吗">03 | WebAssembly 是一门新的编程语言吗？</h2>
+<p>Wasm 是一种基于堆栈机模型设计的 V-ISA 指令集<br />
+”Wasm 被设计成为一种编程语言的可移植编译目标“<br />
+其中的这些虚拟指令无法被真实的物理 CPU 硬件直接执行</p>
+<h3 id="常见的计算模型">常见的计算模型</h3>
+<ul>
+<li>累加器机模型<br />
+缺点：内部只有一个累加器寄存器可用于暂存数据，因此在指令的执行过程<br />
+中，可能会频繁请求机器的线性内存，从而导致一定的性能损耗。<br />
+优点：指令最多只能有一个操作数，指令较为精简</li>
+<li>堆栈机<br />
+简单且易于实现，对应生成的指令代码长短大小适中<br />
+无法直接对位于栈底的数据进行操作，因此在某些情况下，机器会使用额外的指令来进<br />
+行栈数据的交换过程，从而损失了一定的执行效率<br />
+</li>
+<li>寄存器机<br />
+使用多个寄存器作为数据的存储和交换容器。<br />
+指令的长度增加<br />
+过于灵活的数据操作，也意味着寄存器的分配和使用规则变得复杂<br />
+众多的数据暂存容器，给予了寄存器机更大的优化空间</li>
+</ul>
+<p>ISA（Instruction Set Architecture，指令集架构） 指应用在实际物理架构上的指令集<br />
+V-ISA 指应用于虚拟架构体系的指令集</p>
+<p>04 | WebAssembly 模块的基本组成结构到底有多简单？</p>
+<p>单体 Section<br />
+Type Section<br />
+Start Section<br />
+Global Section<br />
+Custom Section</p>
+<p>互补 Section</p>
+<p>Import Section 和 Export Section</p>
+<p>Import Section<br />
+定义了所有从外界宿主环境导入到模块对象中的资<br />
+源，这些资源将会在模块的内部被使用<br />
+目的是：是希望能够在 Wasm 模块之间，以及 Wasm 模块与宿主环境之间共享代码和数据</p>
+<p>Function Section 和 Code Section</p>
+<p>Table Section 和 Element Section</p>
+<p>Memory Section 和 Data Section</p>
+<p>05 | 二进制编码：WebAssembly 微观世界的基本数据规则是什么？</p>
+<p>06 | WAT：如何让一个 WebAssembly 二进制模块的内容易于解读？<br />
+wat是Wasm的文本表示<br />
+S表达式（S-Expression）是一种用于表达树形结构化数据的记号方式<br />
+S- 表达式被用于 Lisp 语言，表达其源代码以及所使用到的字面量数据<br />
+对一个 “S- 表达式” 的求值会从最内层的括号表达式开始，从内到外，最后计算出整个表达式的值</p>
+<p>WAT 与 WAST<br />
+“.wast” 为后缀的文本文件通常表示着 “.wat” 的一个超集<br />
+.wast文件中可能会包含有一些，基于 WAT 可读文本格式代码标准扩展而来的其他语法结<br />
+构。比如一些与“断言”和“测试”有关的代码，而这部分语法结构并不属于 Wasm 标准<br />
+的一部分。</p>
+<p>07 | WASI：你听说过 WebAssembly 操作系统接口吗？<br />
+WASI（WebAssembly System Interface，Wasm 操作系统接口）</p>
+<p>08 | API：在 WebAssembly MVP 标准下你能做到哪些事？</p>
+<p>09 | WebAssembly 能够为 Web 前端框架赋能吗？</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/书籍/More-Effective-C++</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#一基础议题">一、基础议题</a></li>
+<li><a href="#二运算符">二、运算符</a></li>
+<li><a href="#三异常">三、异常</a></li>
+<li><a href="#四效率">四、效率</a></li>
+<li><a href="#五技巧">五、技巧</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>一、基础议题<br />
+1. 区分指针和引用<br />
+2. 优先考虑C++风格的类型转换<br />
+3. 决不要把多态用于数组<br />
+4. 避免不必要的默认构造函数</p>
+<p>二、运算符<br />
+5. 小心用户自定义的转换函数<br />
+6. 区分自增运算符和自减运算符的前缀形式与后缀形式<br />
+7. 不要重载"&amp;&amp;"、"||"和","<br />
+8. 理解new和delete在不同情形下的含义</p>
+<p>三、异常<br />
+9. 使用析构函数防止资源泄漏<br />
+10. 防止构造函数里的资源泄漏<br />
+11. 阻止异常传递到析构函数以外<br />
+12. 理解抛出异常与传递参数或者调用虚函数之间的不同<br />
+13. 通过引用捕获异常<br />
+14. 审慎地使用异常规格<br />
+15. 理解异常处理所付出的代价</p>
+<p>四、效率<br />
+16. 记住80-20准则<br />
+17. 考虑使用延迟计算<br />
+18. 分期摊还预期的计算开销<br />
+19. 了解临时对象的来源<br />
+20. 协助编译器实现返回值优化<br />
+21. 通过函数重载避免隐式类型转换<br />
+22. 考虑使用op=来取代单独的op运算符<br />
+23. 考虑使用其他等价的程序库<br />
+24. 理解虚函数、多重继承、虚基类以及RTTI所带来的开销</p>
+<p>五、技巧<br />
+25. 使构造函数和非成员函数具有虚函数的行为<br />
+26. 限制类对象的个数<br />
+27. 要求或禁止对象分配在堆上<br />
+28. 智能(smart)指针<br />
+29. 引用计数<br />
+30. 代理类<br />
+31. 基于多个对象的虚函数</p>
+<p>六、杂项<br />
+32. 在将来时态下开发程序<br />
+33. 将非尾端类设计为抽象类<br />
+34. 理解如何在同一程序中混合使用C<br />
+35. 让自己熟悉C++语言标准</p>
+<h4 id="一基础议题">一、基础议题</h4>
+<p><strong>1. 区分指针和引用</strong><br />
+引用必须指向一个对象，而不是空值，下面是一个危险的例子：<br />
+<code>char* pc = 0;  //设置指针为空值 char&amp; rc = *pc;//让引用指向空值，很危险！！！</code></p>
+<p>下面的情况下使用指针：<br />
++ 存在不指向任何对象的可能<br />
++ 需要能够在不同的时刻指向不同的对象<br />
+- 还有一点，指针是兼容C的，而引用为C++专用<br />
+其他情况应该使用引用<br />
+- 如果不允许指代null和不会改变所指代的对象的时候，就应该使用引用。</p>
+<p><strong>2. 优先考虑C++风格的类型转换</strong><br />
+C++风格的类型转换比C风格的强制类型转换更佳，而且更好查找，这会使用用工具分析代码更方<br />
+便。<br />
+- <code>static_cast&lt;type&gt;(expression)</code> 常用的类型转换<br />
+- <code>const_cast&lt;type&gt;(expression)</code> 为去除const特性的类型转换<br />
+- <code>dynamic_cast&lt;type&gt;(expression)</code> 操纵继承体系的类型转换<br />
+- <code>reinterpret_cast&lt;type&gt;(expression)</code> 最常见的用法是用于在函数指针之间进行类型转换，几乎是不可移植的，这个转换应该尽量不要用</p>
+<p><strong>3. 决不要把多态用于数组</strong><br />
+将多态运用于数组时，数组的遍历行为都将产生错误，编译器无法遍历派生类的数组。</p>
+<pre><code>class BST{...}
+class BalancedBST : public BST{...}
+
+void printBSTArray(const BST array[]){
+    for(auto i : array){
+        std::cout &lt;&lt; *i;
+    }
+}
+
+BalancedBST bBSTArray[10];
+printBSTArray(bBSTArray);</code></pre>
+<p>这种情况下编译器是毫无警告的，而对象在传递过程中是按照<strong>声明的大小</strong>来传递的，所以每一个元素的间隔是sizeof(BST)此时指针就指向了错误的地方</p>
+<p><strong>4. 避免不必要的默认构造函数</strong><br />
+基本准则：凡可以“合理地从无到有生成对象”的类，都应该包含默认构造函数，而“必须有某些外来信息才能生成对象”的类，则不必拥有默认构造函数。<br />
+但如果类缺乏一个默认构造函数，当你使用这个类时便会有某些限制。比如不能直接创建对象，必须带参数。</p>
+<h4 id="二运算符">二、运算符</h4>
+<p><strong>5. 小心用户自定义的转换函数</strong><br />
+隐式的转换会增加阅读代码的成本<br />
+任何时候，都应该把单个参数的构造函数声明为<strong>explicit​</strong>，除非你自己明确的想要这个<strong>隐式的转换</strong>，但是这样的隐式转换几乎总是不好的。相对于隐式的转换，宁愿使用一个显式的转换！<br />
+而且到某某类型的类型转换更难以使用，往往使用一个c_str()、asDouble()(复数类)类似的函数是更好的选择。<br />
+允许编译器进行隐式类型转换往往弊大于利的，所以除非确实需要，不要提供类型转换函数。</p>
+<p><strong>8. 理解new和delete在不同情形下的含义</strong></p>
+<p>两种new: new 操作符（new operator）和new操作（operator new）的区别</p>
+<pre><code>string *ps = new string(&quot;Memory Management&quot;); //使用的是new操作符，这个操作符像sizeof一样是内置的，无法改变
+    
+void* operator new(size_t size); // new操作，可以重写这个函数来改变如何分配内存</code></pre>
+<p>一般不会直接调用operator new，但是可以像调用其他函数一样调用他：</p>
+<pre><code>void* rawMemory = operator new(sizeof(String));</code></pre>
+<p>placement new : placement new 是有一些已经被分配但是没有被处理的内存，需要在这个内存里面构造一个对象，使用placement new 可以实现这个需求，实现方法：</p>
+<pre><code>class Widget{
+    public:
+        Widget(int widgetSize);
+    ....
+};
+
+Widget* constructWidgetInBuffer(void *buffer, int widgetSize){
+    return new(buffer) Widget(widgetSize);
+}</code></pre>
+<p>这样就返回一个指针，指向一个Widget对象，对象在传递给函数的buffer里面分配</p>
+<p>同样的道理：</p>
+<pre><code>delete buffer; //指的是先调用buffer的析构函数，然后再释放内存
+operator delete(buffer); //指的是只释放内存，但是不调用析构函数</code></pre>
+<p>而placement new 出来的内存，就不应该直接使用delete操作符，因为delete操作符使用operator delete来释放内存，但是包含对象的内存最初不是被operator new分配的，而应该显示调用析构函数来消除构造函数的影响</p>
+<p>new[]和delete[]就相当于对每一个数组元素调用构造和析构函数</p>
+<h4 id="三异常">三、异常</h4>
+<p><strong>10. 防止构造函数里的资源泄漏</strong></p>
+<p>这一条主要是防止在构造函数中出现异常导致资源泄露：</p>
+<pre><code>BookEntry::BookEntry(){
+    theImage     = new Image(imageFileName);
+    theAudioClip = new AudioClip(audioClipFileName);
+}
+BookEntry::~BookEntry(){
+    delete theImage;
+}</code></pre>
+<p>如果在构造函数new AudioClip里面出现异常的话，那么~BookEntry析构函数就不会执行，那么NewImage就永远不会被删除，而且因为new BookEntry失败，导致delete BookEntry也无法释放theImage，那么只能在构造函数里面使用异常来避免这个问题</p>
+<pre><code>BookEntry::BookEntry(){
+    try{
+        theImage     = new Image(imageFileName);
+        theAudioClip = new AudioClip(audioClipFileName);
+    }
+    catch(...){
+        delete theImage;
+        delete theAudioClip;
+        //上面一段代码和析构函数里面的一样，所以可以直接封装成一个成员函数cleanup：
+        cleanup();
+        throw;
+    }
+}</code></pre>
+<p>更好的做法是将theImage和theAudioClip做成成员来进行封装：</p>
+<pre><code>class BookEntry{
+public:......
+private:
+    const auto_ptr&lt;Image&gt; theImage;
+    const auto_ptr&lt;AudioClip&gt; theAudioClip;
+}</code></pre>
+<p><strong>11. 阻止异常传递到析构函数以外</strong><br />
+析构函数有两种可能被运行：一是对象的正常析构、二是异常传递过程中的栈解开。因此析构函数<br />
+应该永远考虑在异常传递时被调用的情况。而如果析构函数内部抛出异常未被处理，当控制权离开<br />
+析构函数的时候，碰巧另外一个异常也处于活动状态，被会导致C++立刻调用terminate函数，终<br />
+止程序的运行，记住是立刻调用terminate而不进行栈解开。<br />
+所以就像Effective C++和More Effective C++中反复提到的一样：​析构函数永远不应该抛出异常​！</p>
+<p><strong>12. 理解“抛出异常”，“传递参数”和“调用虚函数”之间的不同</strong></p>
+<p>传递参数的函数：</p>
+<pre><code>void f1(Widget w);</code></pre>
+<p>catch子句：</p>
+<pre><code>catch(widget w)... </code></pre>
+<p>上面两行代码的相同点：传递函数参数与异常的途径可以是传值、传递引用或者传递指针</p>
+<p>上面两行代码的不同点：系统所需要完成操作的过程是完全不同的。调用函数时程序的控制权还会返回到函数的调用处，但是抛出一个异常时，控制权永远都不会回到抛出异常的地方<br />
+三种捕获异常的方法：</p>
+<pre><code>catch(Widget w);
+catch(Widget&amp; w);
+catch(const Widget&amp; w);</code></pre>
+<p>一个被抛出的对象可以通过普通的引用捕获，它不需要通过指向const对象的引用捕获，但是在函数调用中不允许传递一个临时对象到一个非const引用类型的参数里面<br />
+同时异常抛出的时候实际上是抛出对象创建的临时对象的拷贝，</p>
+<p>另外一个区别就是在try语句块里面，抛出的异常不会进行类型转换（除了继承类和基类之间的类型转换，和类型化指针转变成无类型指针的变换），例如：</p>
+<pre><code>void f(int value){
+    try{
+        throw value; //value可以是int也可以是double等其他类型的值
+    }
+    catch(double d){
+        ....         //这里只处理double类型的异常，如果遇到int或者其他类型的异常则不予理会
+    }
+}</code></pre>
+<p>最后一个区别就是，异常catch的时候是按照顺序来的，即如果两个catch并且存在的话，会优先进入到第一个catch里面，但是函数则是匹配最优的</p>
+<p><strong>13. 通过引用捕获异常</strong></p>
+<p>使用指针方式捕获异常：不需要拷贝对象，是最快的,但是，程序员很容易忘记写static，如果忘记写static的话，会导致异常在抛出后，因为离开了作用域而失效：</p>
+<pre><code>void someFunction(){
+    static exception ex;
+    throw &amp;ex;
+}
+void doSomething(){
+    try{
+        someFunction();
+    }
+    catch(exception *ex){...}
+}</code></pre>
+<p>创建堆对象抛出异常：new exception 不会出现异常失效的问题，但是会出现在捕捉以后是否应该删除他们接受的指针，在哪一个层级删除指针的问题<br />
+通过值捕获异常：不会出现上述问题，但是会在被抛出时系统将异常对象拷贝两次，而且会出现派生类和基类的slicing problem，即派生类的异常对象被作为基类异常对象捕获时，会把派生类的一部分切掉，例如：</p>
+<pre><code>class exception{
+public:
+    virtual const char *what() throw();
+};
+class runtime_error : public exception{...};
+void someFunction(){
+    if(true){
+        throw runtime_error();
+    }
+}
+void doSomething(){
+    try{
+        someFunction();
+    }
+    catch(exception ex){
+        cerr &lt;&lt; ex.what(); //这个时候调用的就是基类的what而不是runtime_error里面的what了，而这个并不是我们想要的
+    }
+}</code></pre>
+<p>通过引用捕获异常：可以避免上面所有的问题，异常对象也只会被拷贝一次：</p>
+<pre><code>void someFunction(){...} //和上面一样
+void doSomething(){
+    try{...}             //和上面一样
+    catch(exception&amp; ex){
+        cerr &lt;&lt; ex.what(); //这个时候就是调用的runtime_error而不是基类的exception::what()了，其他和上面其实是一样的
+    }
+}</code></pre>
+<p><strong>15. 理解异常处理所付出的代价</strong><br />
+1. <strong>运行时开销：</strong> 异常处理的运行时开销主要包括异常抛出和捕获的成本。抛出异常涉及创建异常对象和执行堆栈展开（stack unwinding），以确定处理异常的适当位置。捕获异常涉及执行异常处理程序（catch块）以及在执行catch块之后重新开始正常程序流程。这些操作都需要额外的处理时间。<br />
+2. <strong>内存开销：</strong> 异常处理需要一些额外的内存来存储异常对象的信息，包括异常类型、位置等。这些信息在异常抛出时被创建，然后在异常捕获后被销毁。因此，异常处理可能会导致额外的内存开销。<br />
+3. <strong>代码大小：</strong> 异常处理代码可能会导致生成的可执行文件变得更大，因为它需要包括异常处理和堆栈展开的相关代码。这可能会增加可执行文件的大小。<br />
+4. <strong>性能影响：</strong> 异常处理可能会对程序的性能产生一定影响，特别是在异常频繁抛出和捕获的情况下。这可能会导致程序的执行速度变慢。<br />
+5. <strong>复杂性：</strong> 使用异常处理机制可以使程序的控制流变得复杂，因为异常可以跨越多个函数调用。这可能会增加代码的理解和维护难度。</p>
+<p>由于上述开销，通常建议在 C++ 中谨慎使用异常处理机制。异常应该用于处理真正的异常情况，而不应该被用作普通的程序控制流。在性能敏感的应用程序中，可能需要考虑替代的错误处理机制，如返回错误码或使用断言来处理不应该发生的情况。在许多情况下，良好的设计和预防性编程实践可以帮助减少异常处理的需要。</p>
+<p><strong>栈展开</strong><br />
+堆栈展开（Stack Unwinding）是指在C++中处理异常时，系统会撤销函数调用的过程，以便恢复到异常抛出点之前的状态。这个过程通常发生在异常被抛出后，寻找匹配的异常处理程序（<code>catch</code> 块）之前。<br />
+其实也可以叫做栈回退栈开解，可以这样想想，之前的栈是堆在一起的，现在需要把它展开平铺，以得到之前栈的位置。</p>
+<p>堆栈展开的操作包括以下步骤：<br />
+1. <strong>寻找匹配的异常处理程序：</strong> 当异常被抛出时，C++运行时系统会在当前函数及其调用链中寻找匹配的 <code>catch</code> 块，以确定如何处理异常。如果找到匹配的 <code>catch</code> 块，控制流将转移到该块。<br />
+2. <strong>执行析构函数：</strong> 在堆栈展开期间，系统会调用局部对象（在异常抛出点之后的堆栈帧中声明的对象）的析构函数，以确保资源被正确释放。这是为了避免资源泄漏。<br />
+3. <strong>撤销函数调用：</strong> 堆栈展开会撤销当前函数调用及其所有嵌套的函数调用，直到达到异常处理程序。这包括在调用链中的每个函数，系统会撤销它们的局部对象和栈帧。<br />
+4. <strong>转移控制：</strong> 一旦找到匹配的异常处理程序，控制流将被转移到该处理程序，以执行与异常相关的操作。这可能包括记录错误、处理异常情况或采取其他适当的措施。<br />
+5. <strong>继续正常流程：</strong> 一旦异常处理程序执行完毕，控制流将继续正常的程序流程，以继续执行后续的指令。</p>
+<p>对于C++来说，有两个常见的运行时环境：<br />
+1. <strong>编译时（Compile Time）：</strong> 在编译时，C++源代码被转换为机器码或可执行文件。在这个阶段，编译器进行了大部分的工作，包括代码优化和生成二进制文件。这些二进制文件包含程序的机器码以及静态变量的初始化值，但不包括动态分配的内存、函数调用堆栈、异常处理等运行时信息。<br />
+2. <strong>运行时（Runtime）：</strong> 在运行时，程序的可执行文件被加载到计算机内存中并开始执行。在这个阶段，程序进入了运行时环境，程序的代码和数据在内存中运行。运行时包括变量的值、函数调用栈、堆上的动态内存分配、异常处理、多线程管理等。</p>
+<p>尽管C++是一种编译型语言，但它仍然有运行时环境。C++程序在运行时需要一些运行时支持来执行各种操作，包括内存管理、异常处理、线程管理等。这部分运行时支持通常包含在C++标准库中，以及操作系统提供的运行时支持。<br />
+所以，虽然C++程序在编译时生成了二进制代码，但在实际执行时仍然需要运行时环境来管理程序的运行。这是因为程序的行为不仅仅受静态编译产生的代码所控制，还受到运行时环境的影响。</p>
+<h4 id="四效率">四、效率</h4>
+<p><strong>16. 记住80-20准则</strong><br />
+分别有20%的代码耗用了80%的程序资源，运行时间，内存，磁盘，有80%的维护投入到20%的代码上<br />
+用profiler工具来对程序进行分析</p>
+<p><strong>17. 考虑使用延迟计算</strong></p>
+<p>一个延迟计算的例子：</p>
+<pre><code>class String{....}
+String s1 = &quot;Hello&quot;;
+String s2 = s1;  //在正常的情况下，这一句需要调用new操作符分配堆内存，然后调用strcpy将s1内的数据拷贝到s2里面。但是我们此时s2并没有被使用，所以我们不需要s2，这个时候如果让s2和s1共享一个值，就可以减小这些开销</code></pre>
+<p>使用延迟计算进行读操作和写操作：</p>
+<pre><code>String s = &quot;Homer&#39;s Iliad&quot;;
+cout &lt;&lt; s[3];
+s[3] = &#39;x&#39;;</code></pre>
+<p>首先调用operator[] 用来读取string的部分值，但是第二次调用该函数式为了完成写操作。读取效率较高，写入因为需要拷贝，所以效率较低，这个时候可以推迟作出是读操作还是写操作的决定。</p>
+<p>延迟策略进行数据库操作：有点类似之前写web 的时候，把数据放在内存和数据库两份，更新的时候只更新内存，然后隔一段时间（或者等到使用的时候）去更新数据库。<br />
+在effective c++里面，则是更加专业的将这个操作封装成了一个类，然后把是否更新数据库弄成一个flag。以及使用了mutable关键字，来修改数据</p>
+<p>延迟表达式：</p>
+<pre><code>Matrix&lt;int&gt; m1(1000, 1000), m2(1000, 1000);
+m3 = m1 + m2;</code></pre>
+<p>因为矩阵的加法计算量太大<code>（1000*1000）</code>次计算，所以可以先用表达式表示m3是m1和m2的和，然后真正需要计算出值的时候再真的进行计算（甚至计算的时候也只计算<code>m3[3][2]</code>这样某一个位置的值）</p>
+<p><strong>18. 分期摊还预期的计算开销（提前计算法）</strong><br />
+例如对于max， min函数，如果被频繁调用的话，就可以专门将min和max缓存城一个m_min成员或者mmax成员，这样就在每次调用的时候直接返回就行了，不需要每次调用的时候就重新计算，这个方法叫做cache</p>
+<p>prefetching是另一种方法，例如从磁盘读取数据的时候，一次读取一整块或者整个扇区的数据，因为一次读取一大块要比不同时间读取几个小块要快</p>
+<p><strong>20. 协助编译器实现返回值优化</strong></p>
+<p>一个返回一整个对象的函数，效率是很低的，因为需要调用对象的析构和构造函数。但是有时候编译器会帮助优化我们的实现：</p>
+<pre><code>    inline const Rational operator*(const Rational&amp; lhs, const Rational&amp; rhs{
+        return Rational(lhs.numerator() * rhs.numerator(), lhs.denominator() * rhs.denominator());
+    }</code></pre>
+<p>上面这个操作实在是太骚了，初看起来好像是会创建一个Rational的临时对象，但是实际上编译器会把这个临时对象给优化掉，所以就免除了析构和构造的开销，而inline还可以减少函数的调用开销</p>
+<p><strong>21. 通过函数重载避免隐式类型转换</strong></p>
+<p>改代码之前：</p>
+<pre><code>class UPInt{
+    public:
+    UPInt();
+    UPInt(int value);
+}
+const UPInt operator+(const UPInt&amp; lhs, const UPInt&amp; rhs);
+upi3 = upi1 + upi2;
+upi3 = 10 + upi1;  // 会产生隐式类型转换，转换过程中会出现临时对象
+upi3 = upi1 + 10;</code></pre>
+<p>改代码之后：</p>
+<pre><code>const UPInt operator+(const UPInt&amp; lhs, const UPInt&amp; rhs);
+const UPInt operator+(const UPInt&amp; lhs, int rhs);
+const UPInt operator+(int lhs, const UPInt&amp; rhs);</code></pre>
+<h4 id="五技巧">五、技巧</h4>
+<p><strong>27. 要求或禁止对象分配在堆上</strong><br />
+<strong>提供自定义的 <code>operator new</code> 和 <code>operator delete</code>：</strong> 您可以为类提供自定义的 <code>operator new</code> 和 <code>operator delete</code> 运算符重载，以控制对象的内存分配和释放。在 <code>operator new</code> 中，您可以检查并禁止堆上分配对象。</p>
+<pre><code>class MyClass {
+public:
+    void* operator new(size_t size) {
+        // 在这里实现自定义的内存分配逻辑，如果不允许在堆上分配，则返回 nullptr 或抛出异常
+        return nullptr;
+    }
+
+    void operator delete(void* ptr) {
+        // 在这里实现自定义的内存释放逻辑
+        // 这里通常不会禁止释放，而是处理正确的释放操作
+    }
+};</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

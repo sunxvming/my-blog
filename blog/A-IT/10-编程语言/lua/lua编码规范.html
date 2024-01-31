@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/lua/lua编码规范</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#一程序的版式">一、程序的版式</a>
+<ul>
+<li><a href="#空行">1.空行</a></li>
+<li><a href="#使用缩进">4.使用缩进</a></li>
+</ul></li>
+<li><a href="#二命名规则">二、命名规则</a>
+<ul>
+<li><a href="#共性规则">1.共性规则</a></li>
+<li><a href="#常量">3.常量</a></li>
+</ul></li>
+<li><a href="#三编码技巧">三、编码技巧</a>
+<ul>
+<li><a href="#警惕临时变量">1.警惕临时变量</a></li>
+<li><a href="#这种table传参会生成临时的table">2.这种table传参会生成临时的table</a></li>
+<li><a href="#警惕循环语句中table的重复创建">3.警惕循环语句中table的重复创建</a></li>
+<li><a href="#函数的优化思考">4.函数的优化思考</a></li>
+<li><a href="#提交代码的检查">5.提交代码的检查</a></li>
+<li><a href="#应该尽量使用local变量而非global变量">6.应该尽量使用local变量而非global变量。</a></li>
+<li><a href="#善用do-end">7.善用do end</a></li>
+<li><a href="#lua-成语">8.Lua 成语</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>Code is read much more often than it is written.</p>
+<h3 id="一程序的版式">一、程序的版式</h3>
+<h4 id="空行">1.空行</h4>
+<ul>
+<li><p>函数与函数之间都要加空行；</p></li>
+<li><p>函数内部代码概念与逻辑之间，逻辑段落小节之间，都应该加空行；</p></li>
+<li><p>注释行之前。</p>
+<h4 id="空格">2.空格</h4>
+<p>需加空格：<br />
+关键字，运算符号，逗号","后<br />
+注释后，如： -- xxxx<br />
+不加空格：</p></li>
+<li><p>函数名之后不要留空格，紧跟左括号"("；</p></li>
+<li><p>左括号"(" 向后紧跟，紧跟处不留空格；</p></li>
+<li><p>右括号")"、逗号","、分号";"，向前紧跟，紧跟处不留空格；</p></li>
+<li><p>字符串连接符".."前后不加空格；</p></li>
+<li><p>"["，"]"这类操作符前后不加空格；</p>
+<h4 id="长行拆分">3.长行拆分</h4>
+<p>长表达式要在低优先级操作符处拆分成新行，操作符放在新行之首（以便突出操作符）。</p></li>
+</ul>
+<pre><code>-- 良好的风格
+if veryLongerVariable1 &gt;= veryLongerVariable2
+ and veryLongerVariable3 &lt;= veryLongerVariable5
+ and veryLongerVariable4 &lt;= veryLongerVariable6 then
+ doo()
+end</code></pre>
+<h4 id="使用缩进">4.使用缩进</h4>
+<h3 id="二命名规则">二、命名规则</h3>
+<h4 id="共性规则">1.共性规则</h4>
+<ul>
+<li><p>命名应当直观且可拼读，可望文知意；</p></li>
+<li><p>"min-length &amp;&amp; max-information"原则；</p></li>
+<li><p>采用英文单词或单词组合，英文单词不要复杂，但用词需准确，切忌使用汉语拼音命名；</p></li>
+<li><p>切勿为了避免命名过长而随意截取单词，以丢失可读性；</p>
+<h4 id="变量命名">2.变量命名</h4>
+<p>使用 "名词" 或是 "形容词+名词" 命名；<br />
+使用小驼峰法命名；<br />
+为了可读性，尽量避免变量名中出现标号，如value1， value2；<br />
+不要出现仅靠部分字母大小写区分的相似的变量；<br />
+除非是局部变量功能等价全局变量，不然局部变量不要与已有的全局变量同名；</p></li>
+</ul>
+<pre><code>local data          -- 良好的风格
+local oldData      -- 良好的风格
+local newData      -- 良好的风格
+local pairs = pairs -- 良好的风格
+local posx,posX    -- 不良的风格
+local btn1,btn2    -- 不良的风格
+local TABLE = {}    -- 不良的风格
+local uILabel      -- 不良的风格</code></pre>
+<p><code>i,k,v,t,_</code>常做临时变量(t 代表table, _ 代表哑变量)</p>
+<h4 id="常量">3.常量</h4>
+<p>单词均大写，单词用下划线("_")分割；</p>
+<h3 id="三编码技巧">三、编码技巧</h3>
+<h4 id="警惕临时变量">1.警惕临时变量</h4>
+<p>字符串的连接 ..<br />
+由于字符串的管理机制，字符串在使用..连接时，会产生新的对象。由于lua在VM内对相同的string永远只保留一份唯一copy。<br />
+这样，所有字符串比较就可以简化为地址比较。这也是lua的table工作很快的原因之一。这种string管理的策略，跟 java 等一样，所以跟<br />
+java一样，应该尽量避免在循环内不断的连接字符串<br />
+-- 这样会生成21份string的copy，但实际上我们只需要最后那一份<br />
+local description ＝ ""<br />
+for i = 1,20 do<br />
+description = description.."xxx"<br />
+end<br />
+如果是轻量级的简单连接还是可以使用的，因为影响不大，但要是大量的类似拼接，推荐使用string.format</p>
+<h4 id="这种table传参会生成临时的table">2.这种table传参会生成临时的table</h4>
+<p>函数传参数</p>
+<pre><code>function func({x,y})
+ ...
+end</code></pre>
+<pre><code>function func(x,y)
+ ...
+end</code></pre>
+<p>这些临时构造的对象往往要到 gc 的时候才被回收，过于频繁的gc有时候正是效率瓶颈。</p>
+<h4 id="警惕循环语句中table的重复创建">3.警惕循环语句中table的重复创建</h4>
+<p>比如：</p>
+<pre><code>for i = 1, 100 do
+ local t = {a = &#39;aa&#39;, b = &#39;bb&#39;}
+ ...
+end</code></pre>
+<p>在每次循环中lua底层都会生成一张临时表，等到gc的时候才会清理掉。<br />
+把循环中的table提取到外层可以避免这种情况，比如：</p>
+<pre><code>local t = {}
+for i = 1, 100 do
+ t.a = &#39;aa&#39;
+ t.b = &#39;bb&#39;
+ ...
+end</code></pre>
+<h4 id="函数的优化思考">4.函数的优化思考</h4>
+<p>开销大的函数，调用次数低的话，可以不做优化；<br />
+开销较小的函数，但调用频率很高，则从如何降低调用频率以及减少函数的开销两个角度去思考优化；</p>
+<h4 id="提交代码的检查">5.提交代码的检查</h4>
+<p>提交代码前，在svn commit中验证提交的代码，去掉或注释掉无关的代码，保证提交的代码无误；</p>
+<h4 id="应该尽量使用local变量而非global变量">6.应该尽量使用local变量而非global变量。</h4>
+<p>global 变量实际上是放在一张全局的table里的。global变量实际上是利用一个string(变量名作 key)去访问这个table。<br />
+被多次读取的 global 变量，都应该提取出来放到local变量中，以提高效率。</p>
+<h4 id="善用do-end">7.善用do end</h4>
+<pre><code>local v
+do
+  local x = u2*v3-u3*v2
+  local y = u3*v1-u1*v3
+  local z = u1*v2-u2*v1
+  v = {x,y,z}
+end</code></pre>
+<pre><code>local count
+do
+  local x = 0
+  count = function() x = x + 1; return x end
+end</code></pre>
+<h4 id="lua-成语">8.Lua 成语</h4>
+<p>and and or may be used for terser code:</p>
+<pre><code>x = x or &quot;idunno&quot;
+print(x == &quot;yes&quot; and &quot;YES!&quot; or x)</code></pre>
+<p>Clone a small table t (warning: this has a system dependent limit on table size; it was just over 2000 on one system):</p>
+<pre><code>u = {unpack(t)}</code></pre>
+<p>Determine if a table t is empty</p>
+<pre><code>if next(t) == nil then ...</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/B-学科/数理化/离散数学/离散数学</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#抽象代数">抽象代数</a></li>
+<li><a href="#群论">群论</a></li>
+<li><a href="#环论">环论</a>
+<ul>
+<li><a href="#环ring">环(ring)</a></li>
+<li><a href="#交换环commutative-ring">交换环(commutative ring)</a></li>
+<li><a href="#整环integral-domain">整环(integral domain)</a></li>
+</ul></li>
+<li><a href="#域">域</a></li>
+<li><a href="#向量空间">向量空间</a></li>
+<li><a href="#模">模</a></li>
+<li><a href="#格">格</a></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>集合<br />
+关系<br />
+函数<br />
+代数系统</p>
+<h2 id="抽象代数">抽象代数</h2>
+<p>抽象代数主要研究对象是代数结构，包括群、环、域、向量空间。<br />
+代数主要研究的是<strong>运算规则</strong>。一门代数， 其实都是从某种具体的运算体系中抽象出一些基本规则，建立一个公理体系，然后在这基础上进行研究。一个集合再加上一套运算规则，就构成一个代数结构<a href="想想计算机的数据结构：数据+操作">1</a>。</p>
+<p>抽象代数将初等代数的一些概念延伸。<br />
+1. 数 –&gt; 集合<br />
+2. + –&gt; 二元运算<br />
+加减乘除都叫二元运算(二元指的是两个操作数)<br />
+3. 0/1 –&gt; 单位元<br />
+0和1被抽象成单位元(identity elements)，0为加法单位元，1为乘法单位元。单位元是集合的一个特殊元素(跟二元运算有关)，满足单位元与其他元素相结合时，不改变该元素，即满足a ∗ e = a 与 e ∗ a = a。<br />
+4. 负数 –&gt; 逆元素<br />
+负数推广到逆元素(inverse element)，对于加法，a的逆元素是-a；对于乘法，a的逆元素是倒数1/a。直观地说，逆元可以撤销操作，如加了一个数a，再加上该数的逆元-a(相当于撤消操作)，结果还是一样。<br />
+5. 结合律<br />
+结合律(Associative property)是某些二元运算的性质，有些二元运算没有结合律(如减法、除法、八元数)。<br />
+6. 交换律<br />
+交换律(Commutative property)，改变二元运算符两边的元素不影响结果。并不是所有二次元运算都满足交换律(如矩阵的乘法)</p>
+<h2 id="群论">群论</h2>
+<p>群 = 集合+运算<br />
+我们可以认为一个群代表了“某一类”变换。比如下面这个群：<br />
+A={-270，-180，-90，0，90，180，270}, Q=（A,<em>）。群里的元素旋转角度，a</em>b代表先旋转a度，再旋转b度。<br />
+群的定义：封结幺逆</p>
+<ul>
+<li>封闭性：两个群元相乘后仍然是群元<br />
+我们可以认为一个群代表了“某一类”变换，这些变换的叠加(群乘法 )也属于“同一类”。</li>
+<li>结合律<br />
+结合律可以理解为连续操作的唯一性。<br />
+如果以 {剪刀, 石头, 布} 构成一个集合，并且按照胜负规则定义所谓的乘法：<br />
+剪刀·石头=石头·剪刀=石头；<br />
+石头·布=布·石头=布；<br />
+布·剪刀=剪刀·布=剪刀<br />
+那么我们可以验证这个“乘法”不满足结合律，比如：<br />
+石头·(布·剪刀)=石头·剪刀=石头，而：<br />
+(石头·布)·剪刀=布·剪刀=剪刀<br />
+这样的乘法本身就是“畸形”的，因为它无法定义唯一的“连续操作”。</li>
+<li>幺元存在性<br />
+幺元很好理解，就是“什么都不做”的变换。即乘以幺元后元素不变。</li>
+<li>逆元存在性<br />
+逆元也很好理解，就是“做了又反悔”的变换。即乘以后得到了幺元。<br />
+逆元存在性意味着允许群元“悔棋”，否则构不成群，只能构成半群，因为每个群元都找不到自己的另一半。</li>
+</ul>
+<p>代数结构(R, *)，二元运算根据封闭性、单位元、逆元、结合律、交换律，可以归纳成不同的群。从最不严格到严格(依次添加限制条件)，其关系图如下：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/7543e67e-87cb-4b7f-8c23-d5254492d547.jpg" /></p>
+<ul>
+<li>原群(magma)<br />
+是一种基本的代数结构，只要满足两元素作二元运算得到新元素仍属于该集合，即封闭性。</li>
+<li>半群(Semigroup)<br />
+满足结合律(associative property)的代数结构。<code>V=&lt;S，* &gt;</code>，其中二元运算*是可结合的，即<code>(a*b)*c=a*(b*c)</code>，则称V是半群。</li>
+<li>幺半群(monoid)<br />
+在半群的基础上，还需要满足有一个单位元</li>
+<li>群(group)<br />
+在幺半群基础上再加上逆元，如整数集合，二次元运算为加法就是一个群(封闭性是显然的，加法满足结合律，单位元为0，逆元取相反数-a。</li>
+<li>阿贝尔群(交换群)(Abelian Group)<br />
+在群的基础上，还需满足交换律。如整数集合和加法运算，(Z,+)，是一个阿贝尔群。</li>
+</ul>
+<h2 id="环论">环论</h2>
+<p>环在交换群基础上，进一步限制条件。环、交换环、域间的关系如下：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/2532cbb6-f2b7-4675-9b94-170621af3d09.jpg" /></p>
+<h3 id="环ring">环(ring)</h3>
+<p>在阿贝尔群(也叫交换群)的基础上，添加一种二元运算·(虽叫乘法，但不同于初等代数的乘法)。一个代数结构是环(R, +, ·)。需要满足环公理(ring axioms)，如(Z,+, ⋅)。环公理如下<br />
+1. (R, +)是交换群<br />
+2. (R, ·)是幺半群<br />
+3. 乘法对加法满足分配律</p>
+<h3 id="交换环commutative-ring">交换环(commutative ring)</h3>
+<p>交换环(commutative ring)在环的基础上，二元运算乘法还满足交换律。</p>
+<h3 id="整环integral-domain">整环(integral domain)</h3>
+<p>在交换环的基础上，并满足没有零因子(如此，集合内任意两个元素乘积均不等于0)</p>
+<h2 id="域">域</h2>
+<p>域(Field)在交换环的基础上，还增加了二元运算除法，要求元素(除零以外)可以作除法运算，即每个非零的元素都要有乘法逆元。由此可见，域是一种可以进行<strong>加减乘除</strong>(除0以外)的代数结构，是数域与四则运算的推广。整数集合，不存在乘法逆元(1/3不是整数)，所以<strong>整数集合不是域</strong>。有理数、实数、复数可以形成域，分别叫有理数域、实数域、复数域。</p>
+<h2 id="向量空间">向量空间</h2>
+<p>向量空间(vector space)是一些向量的集合。其他例子，还包括坐标空间(Coordinate spaces)、复数、函数空间(Function spaces)、线性方程组(linear equations)。</p>
+<h2 id="模">模</h2>
+<p>模(module)是对向量空间的推广，将标量需为域(向量空间)推广到任意环(模)。</p>
+<h2 id="格">格</h2>
+<p>格(lattice)是任意两个元素都有上确界和下确界的偏序集合。</p>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="http://sparkandshine.net/algebraic-structure-primer-group-ring-field-vector-space/#13_8211gt">代数结构入门：群、环、域、向量空间</a></li>
+<li><a href="http://www.ccthere.com/thread/3038887">明日枯荷包:数学闲话</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

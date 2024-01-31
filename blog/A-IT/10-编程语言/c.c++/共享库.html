@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/共享库</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#共享库格式">共享库格式</a>
+<ul>
+<li><a href="#windows-pe-文件格式">Windows PE 文件格式</a></li>
+</ul></li>
+<li><a href="#windows下共享库">windows下共享库</a>
+<ul>
+<li><a href="#win下动态链接库静态库import库区别">win下动态链接库、静态库、import库区别</a></li>
+<li><a href="#dumpbin查看库文件">dumpbin查看库文件</a></li>
+</ul></li>
+<li><a href="#linux下共享库">Linux下共享库</a>
+<ul>
+<li><a href="#编译静态库">编译静态库</a></li>
+<li><a href="#使用静态库">使用静态库</a></li>
+<li><a href="#编译动态库">编译动态库</a></li>
+<li><a href="#使用动态库">使用动态库</a></li>
+<li><a href="#动态库找不到的问题">动态库找不到的问题</a></li>
+<li><a href="#显示调用cc动态链接库">显示调用C/C++动态链接库</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="共享库格式">共享库格式</h2>
+<h3 id="windows-pe-文件格式">Windows PE 文件格式</h3>
+<p>Windows PE 文件格式是指在 Windows 操作系统中可执行文件的格式，它采用可移植可执行（PE）文件格式。PE 文件是 Windows 下的一种可执行文件格式，包括可执行文件（.exe）、动态链接库（.dll）等。一个 PE 文件由各种节（Sections）组成，每个节都有特定的功能和用途。以下是一些常见的 PE 文件格式中的节及其含义：</p>
+<p>PE 文件格式可能包含多个节，以下是一些常见的节及其可能的含义：<br />
+1. <strong>.text</strong>：包含程序的代码段。<br />
+2. <strong>.data</strong>：包含程序运行时使用的全局和静态变量的初始化数据。<br />
+3. <strong>.rdata</strong>：包含只读数据，如常量、字符串等。<br />
+4. <strong>.bss</strong>：包含未初始化的全局和静态变量（全局变量和静态变量的零初始化段）。<br />
+5. <strong>.edata</strong>：包含导出表，记录了程序内部的一些函数或符号，可以被其他程序或模块引用。<br />
+6. <strong>.idata</strong>：包含导入表，用于存储程序所需依赖的外部函数的引用信息。<br />
+7. <strong>.rsrc</strong>：包含资源数据，如图标、位图、字符串等。<br />
+8. <strong>.reloc</strong>：包含重定位表，记录了需要在加载时进行地址重定位的信息。<br />
+9. <strong>.tls</strong>：包含线程本地存储（Thread Local Storage）相关信息，用于多线程程序的线程本地数据存储。<br />
+10. <strong>.debug</strong>：包含调试信息，如符号表、源代码行号等。<br />
+11. <strong>.pdata</strong>：包含函数执行时异常处理相关的信息，如函数的异常处理程序。<br />
+12. <strong>.xdata</strong>：包含运行时异常处理的相关信息。<br />
+13. <strong>.arch</strong>：包含指定 CPU 架构信息的节。</p>
+<h2 id="windows下共享库">windows下共享库</h2>
+<h3 id="win下动态链接库静态库import库区别">win下动态链接库、静态库、import库区别</h3>
+<p><strong>动态链接库</strong>(Dynamic Linked Library)：<br />
+Windows为应用程序提供了丰富的函数调用，这些函数调用都包含在动态链接库中。其中有3个最重要的DLL，<br />
+- Kernel32.dll，它包含用于管理内存、进程和线程的各个函数；<br />
+- User32.dll，它包含用于执行用户界面任务(如窗口的创建和消息的传送)的各个函数；<br />
+- GDI32.dll，它包含用于画图和显示文本的各个函数。</p>
+<p><strong>静态库</strong>(Static Library)：<br />
+函数和数据被编译进一个二进制文件(通常扩展名为.LIB)。在使用静态库的情况下，在编译链接可执行文件时，链接器从库中复制这些函数和数据并把它们和应用程序的其它模块组合起来创建最终的可执行文件(.EXE文件)。</p>
+<p><strong>导入库</strong>(Import Library)：<br />
+在使用动态链接库的时候，往往提供两个文件：一个引入库和一个DLL。<strong>引入库</strong>包含被DLL导出的函数和变量的符号名，<strong>DLL</strong>包含实际的函数和数据。在编译链接可执行文件时，只需要链接引入库，DLL中的函数代码和数据并不复制到可执行文件中，在运行的时候，再去加载DLL，访问DLL中导出的函数。</p>
+<p>在Windows平台下，动态链接库（DLL）、静态库（静态链接库，LIB）和导入库（Import Library）有不同的作用和特点：<br />
+1. <strong>静态库（LIB）：</strong><br />
+- <strong>静态库</strong>是在链接时被整合到程序中的库。它包含了编译后的代码和数据，被直接链接到程序中。每个使用该静态库的程序都会有一份该库的副本。<br />
+- <code>.lib</code> 文件是编译器用来链接到你的程序中的。将静态库链接到程序中意味着编译后的可执行文件会变大，但程序运行时不需要外部的库文件。<br />
+- 使用静态库的优势在于依赖明确，不依赖于外部的 DLL 文件，但会增加程序的大小。</p>
+<ol>
+<li><strong>动态链接库（DLL）：</strong>
+<ul>
+<li><strong>动态链接库</strong>是一种在运行时被加载的库。它包含可被程序动态加载的代码和数据。多个程序可以共享一个动态链接库，这有助于减小可执行文件的大小，并且当动态链接库更新时，不需要重新编译依赖它的程序。</li>
+<li><code>.dll</code> 文件包含了编译后的代码，运行时通过操作系统的动态链接器加载，并且在内存中共享。</li>
+<li>使用动态链接库的优势在于节省内存，因为它可以在多个程序之间共享，但需要确保 DLL 的可用性和版本管理。</li>
+</ul></li>
+<li><strong>导入库（Import Library）：</strong>
+<ul>
+<li><strong>导入库</strong>是针对动态链接库的一种特殊类型的库文件，它是编译器用来在链接时定位和解析动态链接库中函数的符号的。</li>
+<li><code>.lib</code> 文件通常被称为导入库，它不包含实际的代码，而是包含了动态链接库中函数的符号信息以及程序运行时所需的元数据。</li>
+<li>当你编译一个程序并使用动态链接库时，通常需要导入库文件来告诉编译器在链接时如何定位动态链接库中的函数。</li>
+</ul></li>
+</ol>
+<h3 id="dumpbin查看库文件">dumpbin查看库文件</h3>
+<p>下面是打印的例子：<br />
+如果库里面各个程序段都很全，那说明它是一个动态库或静态库。<br />
+如果是导入库，里面会有多个<code>.idata</code>节,它用于存储导入表（Import Table）信息。导入表是一个数据结构，用于描述程序需要从其他模块（通常是 DLL 文件）中导入的函数或符号。</p>
+<p>结论：一般成对出现的库(.dll .lib都有)为动态链接库，仅有一个.lib的库为静态库</p>
+<pre><code>######## 动态库 ########
+C:\Users\sunxv\Desktop\0\depends22_x64&gt;dumpbin OpenThreads.dll
+
+Dump of file OpenThreads.dll
+
+File Type: DLL
+  Summary
+        1000 .data
+        1000 .pdata
+        4000 .rdata
+        1000 .reloc
+        1000 .rsrc
+        3000 .text
+
+######## 导入库 ########
+C:\Users\sunxv\Desktop\0\depends22_x64&gt;dumpbin OpenThreads.lib
+
+Dump of file OpenThreads.lib
+
+File Type: LIBRARY
+  Summary
+          CF .debug$S
+          14 .idata$2
+          14 .idata$3
+           8 .idata$4
+           8 .idata$5
+          10 .idata$6
+
+######## 静态库 ########
+C:\Users\sunxv\Desktop\0\depends22_x64&gt;dumpbin mysqlclient.lib
+
+Dump of file mysqlclient.lib
+
+File Type: LIBRARY
+
+  Summary
+           8 .CRT$XCU
+        8EF8 .bss
+      117079 .data
+          30 .debug$F
+      58BC90 .debug$S
+        7580 .debug$T
+        4FD6 .drectve
+       116D7 .rdata
+        2623 .rdata$r
+           C .sxdata
+       78390 .text
+          18 .text$yc
+          54 .xdata$x</code></pre>
+<h2 id="linux下共享库">Linux下共享库</h2>
+<h3 id="编译静态库">编译静态库</h3>
+<p>将源文件打包为静态链接库的过程很简单，只需经历以下 2 个步骤：<br />
+1) 将所有指定的源文件，都编译成相应的目标文件：<br />
+2) 然后使用 ar 压缩指令，将生成的目标文件打包成静态链接库，其基本格式如下：</p>
+<pre class="shell"><code>ar rcs 静态链接库名称 目标文件1 目标文件2 ...</code></pre>
+<p>例子：</p>
+<pre class="shell"><code>gcc -c sub.c add.c div.c
+ar rcs libmymath.a add.o sub.o div.o</code></pre>
+<h3 id="使用静态库">使用静态库</h3>
+<p>GCC 编译器生成可执行文件时，默认情况下会优先使用动态链接库实现链接操作，除非当前系统环境中没有程序文件所需要的动态链接库，GCC 编译器才会选择相应的静态链接库。如果两种都没有（或者 GCC 编译器未找到），则链接失败。</p>
+<p>方式一：</p>
+<pre class="shell"><code>gcc -static main.o libmymath.a</code></pre>
+<p>其中，-static 选项<strong>强制</strong> GCC 编译器使用静态链接库。</p>
+<p>方式二：</p>
+<pre class="shell"><code>gcc main.o -static -L /root/demo/ -lmymath</code></pre>
+<p>其中，-L（大写的 L）选项用于向 GCC 编译器指明静态链接库的存储位置<br />
+-l（小写的 L）选项用于指明所需静态链接库的名称，libmymath.a要写出 -lmymath</p>
+<p>当以<strong>第一种写法完</strong>成链接操作时，GCC 编译器只会在当前目录中（这里为 demo 目录）查找 libmymath.a 静态链接库；反之，如果使用 -l（小写的 L）选项指明了要查找的静态库的文件名，则 GCC 编译器会按照如下顺序，依次到指定目录中查找所需库文件：<br />
+1. 如果 gcc 指令使用 -L 选项指定了查找路径，则 GCC 编译器会优先选择去该路径下查找所需要的库文件；<br />
+2. 再到 Linux 系统中 LIBRARY_PATH 环境变量指定的路径中搜索需要的库文件；<br />
+3. 最后到 GCC 编译器默认的搜索路径（比如 /lib、/lib64、/usr/lib、/usr/lib64、/usr/local/lib、/usr/local/lib64 等，不同系统环境略有差异）中查找。</p>
+<p>如果使用第一种方法完成链接操作，但 GCC 编译器提示找不到所需库文件，表明所用库文件并未存储在当前路径下，解决方案就是手动找到库文件并将其移至当前路径，然后重新执行链接操作。</p>
+<p>反之，如果使用的是<strong>第二种方法</strong>，也遇到了 GCC 编译器提示未找到所需库文件，表明库文件的存储路径不对，解决方案有以下 3 种：<br />
+- 手动找到该库文件，并在 gcc 指令中用 -L 选项明确指明其存储路径。比如 libmymath.a 静态库文件存储在 /usr 目录下，则完成链接操作的 gcc 指令应为<code>gcc -static main.c -L/usr -lmymath -o main.exe</code>；<br />
+- 将库文件的存储路径添加到 LIBRARY_PATH 环境变量中。仍以库文件存储在 /usr 目录下，则通过执行<code>export LIBRARY_PATH=$LIBRARY_PATH:/usr</code>指令，即可将 /usr 目录添加到该环境变量中（此方式仅在当前命令行窗口中有效）；<br />
+- 将库文件移动到 GCC 编译器默认的搜索路径中。</p>
+<h3 id="编译动态库">编译动态库</h3>
+<p>so文件的源文件中不需要有main函数，即使有也不会被执行<br />
+编译的时候gcc需要加<code>-fPIC</code>选项，这可以使gcc产生与位置无关的代码。<br />
+链接的时候gcc使用<code>-shared</code>选项，指示生成一个共享库文件。</p>
+<p>共享库文件名要以lib开头，扩展名为.so。按照命名惯例，每个共享库有三个文件名：real name、soname和linker name。<br />
+- <strong>真实名（Real Name）</strong>：共享库的实际文件名，包含完整的共享库版本号。<br />
+- <strong>共享库名（SONAME）</strong>：共享库的标识名，只包含主版本号，用于表示库的 API 兼容性，主版本号一致即可保证库函数的接口一致。<br />
+- <strong>链接器名（Linker Name）</strong>：一个符号链接，指向真实名或SONAME，用于方便链接器查找库。</p>
+<pre><code># 基础使用
+gcc -fPIC -c a.c
+gcc -fPIC -c b.c
+gcc -shared -Wl -o libmyab.so a.o b.o
+
+# 一步到位使用
+gcc -fpic -shared 源文件名... -o 动态链接库名
+
+# 加soname的使用
+gcc -shared -Wl -soname libmyab.so.1 -o libmyab.so.1.0.1 a.o b.o</code></pre>
+<p>编译动态库的makefile例子：</p>
+<pre><code>.SUFFIXES:.c .o
+
+CC=gcc
+SRCS=test.c
+
+EXEC=libtest.so
+
+OBJS=$(SRCS:.c=.o)
+
+start:$(OBJS)
+    $(CC) -shared -o $(EXEC) $(OBJS)
+
+.c.o:
+    $(CC) -g -fPIC -o $@ -c $&lt;
+
+clean:
+    rm -f $(OBJS)</code></pre>
+<h3 id="使用动态库">使用动态库</h3>
+<p>例子：</p>
+<pre><code>gcc main.c  libmymath.so -o main.exe
+gcc main.o  -L /root/demo/ -lmymath</code></pre>
+<ol>
+<li>为了让linux能找到so文件的位置，需要在.bash_profile中添加<code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.</code> 或者将so文件放入linux的系统目录<code>/usr/lib/</code></li>
+<li>在c文件中使用so文件，首先需要 <code>#inluce</code>相关头文件。</li>
+<li>gcc连接时添加 <code>–L</code> 参数指明so文件存放路径, <code>-l</code> 参数指明so文件名</li>
+<li>为了使我们编写的so文件同时可以被C或者C++调用，我们需要修改一下函数申明部分增加带有<code>__cplusplus</code>的预编译指令，<code>extern "C"{}</code></li>
+</ol>
+<h3 id="动态库找不到的问题">动态库找不到的问题</h3>
+<p>在linux系统下报如下的错误是因为公司库没找到：</p>
+<pre><code>error while loading shared libraries: libmysqlpp.so.3: cannot open shared object file: No such file or directory</code></pre>
+<p>事实上，当 GCC 编译器运行可执行文件时，会按照如下的路径顺序搜索所需的动态库文件：<br />
+1. 如果在生成可执行文件时，用户使用了<code>-Wl,-rpath=dir</code>（其中 dir 表示要查找的具体路径，如果查找路径有多个，中间用 : 冒号分隔）选项指定动态库的搜索路径，则运行该文件时 GCC 会首先到指定的路径中查找所需的库文件；<br />
+2. GCC 编译器会前往 LD_LIBRARY_PATH 环境变量指明的路径中查找所需的动态库文件；<br />
+3. GCC 编译器会前往 /ect/ld.so.conf 文件中指定的搜索路径查找动态库文件；<br />
+4. GCC 编译器会前往默认的搜索路径中（例如 /lib、/lib64、/usr/lib、/usr/lib64 等）中查找所需的动态库文件。</p>
+<blockquote>
+<p>注意，可执行文件的当前存储路径，并不在默认的搜索路径范围内，因此即便将动态库文件和可执行文件放在同一目录下，GCC 编译器也可能提示“找不到动态库”。</p>
+</blockquote>
+<p><strong>解决办法如下：</strong><br />
+0、最粗暴的方法，把缺失的动态库复制到可执行程序的目录，程序可能可能会在当前目录下查找动态库。但也不一定。或者把动态库复制到将系统库目录下（例如 /usr/lib、/usr/lib64、/lib、/lib64）</p>
+<p>1、如果共享库文件安装到了 <code>/lib</code>或 <code>/usr/lib</code> 目录下, 那么需执行一下 <code>ldconfig</code> 命令<br />
+<code>ldconfig</code>命令的用途, 主要是在默认搜寻目录( <code>/lib</code> 和 <code>/usr/lib</code> )以及动态库配置文件<code>/etc/ld.so.conf</code>内所列的目录下, 搜索出可共享的动态链接库(格式如lib<em>.so</em>), 进而创建出动态装入程序(<code>ld.so</code>)所需的连接和缓存文件. 缓存文件默认为<code>/etc/ld.so.cache</code>, 此文件保存已排好序的动态链接库名字列表,目的是来提高共享库的查找速度.</p>
+<p>如果不执行 ldconfig 或者没有 /etc/ld.so.cache 文件，系统将不会更新共享库的缓存，这可能导致一些问题，包括但不限于：<br />
+<strong>性能问题</strong>：<br />
+缓存的目的是提高共享库的查找速度。如果没有更新缓存，系统在运行时可能会花费更多时间来查找和加载共享库，从而导致性能下降。<br />
+<strong>共享库不可用</strong>：<br />
+如果新安装了共享库但没有运行 ldconfig，系统可能无法找到或加载新安装的库。这可能导致应用程序无法启动或者出现运行时错误，因为它们无法找到所需的库。</p>
+<p>2、如果共享库文件安装到了 <code>/usr/local/lib</code> (很多开源的共享库都会安装到该目录下)或其它"非/lib或/usr/lib"目录下, 那么在执行 ldconfig命令前, 还要把新共享库目录加入到共享库配置文件<code>/etc/ld.so.conf</code>中, 如下:</p>
+<pre><code># cat /etc/ld.so.conf
+include ld.so.conf.d/*.conf
+# echo &quot;/usr/local/lib&quot; &gt;&gt; /etc/ld.so.conf  
+# ldconfig</code></pre>
+<p>3、如果共享库文件安装到了其它"非/lib或/usr/lib" 目录下, 但是又不想在<code>/etc/ld.so.conf</code>中加路径(或者是没有权限加路径). 那可以<code>export</code>一个全局变量 <code>LD_LIBRARY_PATH</code> , 然后运行程序的时候就会去这个目录中找共享库。也可以在 <code>.bashrc</code> 或 <code>.bash_profile</code> 或shell里加入如下类似语句:</p>
+<pre><code>export LD_LIBRARY_PATH=/usr/local/mysql/lib:$LD_LIBRARY_PATH   </code></pre>
+<p>一般来讲这只是一种临时的解决方案, 在没有权限或临时需要的时候使用.</p>
+<h3 id="显示调用cc动态链接库">显示调用C/C++动态链接库</h3>
+<p>总的来讲，动态链接库的调用方式有 2 种，分别是：<br />
+- 隐式调用（静态调用）：将动态链接库和其它源程序文件（或者目标文件）一起参与链接；<br />
+- 显式调用（动态调用）：手动调用动态链接库中包含的资源，同时用完后要手动将资源释放。</p>
+<p>显式调用动态链接库的过程，类似于使用 malloc() 和 free()（C++ 中使用 new 和 delete）管理动态内存空间，需要时就申请，不需要时就将占用的资源释放。由此可见，显式调用动态链接库对内存的使用更加合理。</p>
+<p>使用步骤：<br />
+1、引入<code>&lt;dlfcn.h&gt;</code> 头文件</p>
+<p>2、打开该库文件</p>
+<pre><code>void *dlopen (const char *filename, int flag);</code></pre>
+<p>其中，filename 参数用于表明目标库文件的存储位置和库名；flag 参数的值有 2 种：<br />
+1.RTLD_NOW：将库文件中所有的资源都载入内存；<br />
+2.RTLD_LAZY：暂时不降库文件中的资源载入内存，使用时才载入。</p>
+<blockquote>
+<p>值得一提的是，对于 filename 参数，如果用户提供的是以 / 开头，即以绝对路径表示的文件名，则函数会前往该路径下查找库文件；反之，如果用户仅提供文件名，则该函数会依次前往 LD_LIBRARY_PATH 环境变量指定的目录、/etc/ld.so.cache 文件中指定的目录、/usr/lib、/usr/lib64、/lib、/lib64 等默认搜索路径中查找。</p>
+</blockquote>
+<p>3、借助 <code>dlsym()</code> 函数可以获得指定函数在内存中的位置</p>
+<pre><code>void *dlsym(void *handle, char *symbol);</code></pre>
+<p>4、和dlopen() 相对地，借助 dlclose() 函数可以关闭已打开的动态链接库。</p>
+<p>5、借助 dlerror() 函数，我们可以获得最近一次 dlopen()、dlsym() 或者 dlclose() 函数操作失败的错误信息</p>
+<p>6、编译时加上 -ldl，可执行程序需要 libdl.so 动态库的支持</p>
+<pre><code>gcc main.c -ldl -o main.exe</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

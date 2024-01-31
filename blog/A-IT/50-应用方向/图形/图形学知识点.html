@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/图形/图形学知识点</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#坐标系">坐标系</a>
+<ul>
+<li><a href="#世界坐标world-coordinate">世界坐标（World Coordinate）：</a></li>
+<li><a href="#本地坐标local-coordinate">本地坐标（Local Coordinate）：</a></li>
+</ul></li>
+<li><a href="#相机模型">相机模型</a>
+<ul>
+<li><a href="#光照模型">光照模型</a></li>
+</ul></li>
+<li><a href="#材质纹理贴图">材质、纹理、贴图</a>
+<ul>
+<li><a href="#材质material">1. 材质（Material）：</a></li>
+<li><a href="#纹理texture">2. 纹理（Texture）：</a></li>
+<li><a href="#贴图texture-mapping">3. 贴图（Texture Mapping）：</a></li>
+</ul></li>
+<li><a href="#烘焙贴图">烘焙贴图</a></li>
+<li><a href="#uvw-展开">UVW 展开</a></li>
+<li><a href="#法线normals">法线（Normals）</a>
+<ul>
+<li><a href="#作用">作用：</a></li>
+<li><a href="#类型">类型：</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="坐标系">坐标系</h2>
+<h3 id="世界坐标world-coordinate">世界坐标（World Coordinate）：</h3>
+<ul>
+<li><p><strong>定义</strong>：世界坐标是指相对于整个场景或世界空间的坐标系统。它是一个全局坐标系，用于描述场景中所有对象的位置、方向和大小。世界坐标通常是相对于场景的原点来定义的。</p></li>
+<li><p><strong>特点</strong>：世界坐标是一个绝对的坐标系，不随着对象的移动或旋转而改变。它提供了一个固定的全局框架，用于定位场景中的所有对象。</p></li>
+</ul>
+<h3 id="本地坐标local-coordinate">本地坐标（Local Coordinate）：</h3>
+<ul>
+<li><p><strong>定义</strong>：本地坐标是相对于对象本身的局部坐标系。每个对象都有自己的本地坐标系，这个坐标系与对象的位置、方向和旋转紧密相关。</p></li>
+<li><p><strong>特点</strong>：本地坐标是相对于对象自身而言的，它描述了对象内部的位置和方向关系。在本地坐标系中，对象的原点通常是对象的中心或基准点，并且坐标轴可能会随着对象的旋转而改变方向。</p></li>
+</ul>
+<h2 id="相机模型">相机模型</h2>
+<p>FOV的全称是Field of View (视场角），它表示相机或者人眼可以接收或者显示的影像的角度范围。由于相机的成像原理，一般都会有视场角的限制。<br />
+FOV就是相机视锥体的两端的夹角，焦距大概是镜头到“传感器”的距离。<br />
+实际的相机，传感器在镜头后面，为了简化，可以假设镜头在传感器的前面，相对镜头镜像。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231219170133.png" alt="image.png" /></p>
+<p>基本上确定了fov就可以确定摄像机捕捉的视野的范围。</p>
+<h3 id="光照模型">光照模型</h3>
+<p>OpenGL的光照使用了简化的模型并基于对现实的估计来进行模拟。<br />
+经典的光照模型有Lambert模型，Phong模型，Blinn-Phong模型，全局光照模型<br />
+冯氏光照模型的主要结构由3个元素组成：环境(Ambient)、漫反射(Diffuse)和镜面(Specular)光照<br />
+* 环境光照(Ambient Lighting)：即使在黑暗的情况下，世界上也仍然有一些光亮(月亮、一个来自远处的光)，所以物体永远不会是完全黑暗的。我们使用环境光照来模拟这种情况，也就是无论如何永远都给物体一些颜色。<br />
+* 漫反射光照(Diffuse Lighting)：模拟一个发光物对物体的方向性影响(Directional Impact)。它是冯氏光照模型最显著的组成部分。面向光源的一面比其他面会更亮。<br />
+* 镜面光照(Specular Lighting)：模拟有光泽物体上面出现的亮点。镜面光照的颜色，相比于物体的颜色更倾向于光的颜色。</p>
+<h2 id="材质纹理贴图">材质、纹理、贴图</h2>
+<p>在图形学中，材质（Material）、纹理（Texture）、贴图（Texture Mapping）是三个相关但不同的概念，它们在渲染和表现物体外观时具有不同的作用：</p>
+<h3 id="材质material">1. 材质（Material）：</h3>
+<ul>
+<li><strong>定义物体的外观属性</strong>：材质描述了物体的外观属性，如颜色、光泽、反射率、折射率等。它决定了物体如何对光线作出反应，从而影响物体在渲染中的呈现效果。比如，金属材质可能具有高光泽和较高的反射率，而木材材质可能具有较低的光泽和吸收光的特性。</li>
+</ul>
+<h3 id="纹理texture">2. 纹理（Texture）：</h3>
+<ul>
+<li><strong>描述物体表面的图案或细节</strong>：纹理是应用在物体表面的图像或图案，用于增加物体的视觉细节和真实感。它可以包括各种图案、颜色、图像等信息，例如木纹、砖块、图案、图片等，以提供更加真实和丰富的视觉效果。</li>
+</ul>
+<h3 id="贴图texture-mapping">3. 贴图（Texture Mapping）：</h3>
+<ul>
+<li><strong>将纹理映射到物体表面</strong>：贴图是将纹理映射到物体表面的过程。通过贴图技术，纹理可以按照一定规则或投影方式映射到模型的表面上，使得物体表面呈现出纹理所描述的图案或细节。这种映射可以是从简单的平铺到复杂的投影映射，以便适应不同形状和表面的物体。</li>
+</ul>
+<h2 id="烘焙贴图">烘焙贴图</h2>
+<p>烘焙贴图（Baked Texture）是一种在计算机图形学中常用的技术，用于将场景中的光照、阴影和其他视觉效果转化为纹理贴图。<br />
+贴图烘焙简单地说就是一种把max光照信息渲染成贴图的方式，而后把这个烘焙后的贴图再贴回到场景中去的技术。这样的话光照信息变成了贴图，不需要CPU再去费时的计算了，只要算普通的贴图就可以了，所以速度极快，将这种贴图控制在模型上，可以得到一种假的但很真实的效果。</p>
+<p>这个过程主要涉及以下步骤：<br />
+1. 渲染场景<br />
+- 首先，通过渲染引擎在场景中放置物体并设置相应的光照，模拟光线的传播和交互。</p>
+<ol>
+<li>计算光照信息
+<ul>
+<li>在渲染期间，计算机会捕捉场景中的光照信息，包括直接光照、间接光照、阴影等。</li>
+</ul></li>
+<li>把信息转化为贴图
+<ul>
+<li>将捕捉到的光照信息转化为纹理贴图，即烘焙贴图。这些纹理贴图包含了场景中每个点的光照、阴影、反射等信息。</li>
+</ul></li>
+<li>应用到模型表面
+<ul>
+<li>将烘焙贴图应用到相应的模型表面上，以模拟场景中的光照效果。这使得渲染过程中无需再次计算光照，而是直接使用预先捕捉到的信息，加快了渲染速度。</li>
+</ul></li>
+</ol>
+<p><strong>应用和优点：</strong><br />
+烘焙贴图常见于实时渲染和游戏开发中。它能够提供高质量的光照效果，同时减轻了实时渲染的压力，因为光照等信息在预处理阶段已经被捕捉并存储为纹理，避免了在实时渲染过程中的复杂计算。</p>
+<p>烘焙贴图也有一些限制，例如静态性（不适用于动态变化的场景）、占用存储空间等，因此需要根据场景需求和性能考虑使用。</p>
+<p><strong>贴图种类：</strong><br />
+烘焙的贴图有：法线贴图，OCC或ao贴图，转换贴图，高光贴图，固色贴图等。<br />
+1、什么是贴图？<br />
+贴图（texture）是一张不大的二维图像，它呈现了某个表面的最终信息。它被指定到线框多边形的表面，给予模型最终的外观。贴图的制作技巧是创建游戏真实度方面的关键因素。</p>
+<p>2、贴图格式及大小<br />
+一般情况下，贴图将实现在图像处理软件中制作完成，纹理一般会包含很多信息和图层，也将随后被储存成PSD格式，当制作完成后，文件合并成一个图层，被存储为JPG格式，在游戏制作中，普遍被存储为TGA格式。这是因为这些文件格式包含一个ALPHA通道，可以实现其他的纹理效果。<br />
+贴图的尺寸一般是正方形，2的N次方，256，512。。。由于游戏是实时渲染，像三维空间中的多边形数量一样，贴图大小也将需要处理的时间，贴图越大，处理时间就越长，因此，一般最多使用1024、2048大小的贴图。</p>
+<p>3、指定贴图<br />
+为了制作准确的贴图，设计师需要执行一个叫做UVW展开的操作，以方便后期贴图的制作与修改。</p>
+<p>4、次世代游戏贴图的组成<br />
+次世代铁头是由：法线贴图、AO贴图、固有色贴图、高光贴图、凹凸贴图、透明贴图及自发光贴图的组合而成的一整套贴图。</p>
+<p>（1）法线贴图：记录凹凸信息的贴图<br />
+生成方法：通过3dmax 把同一个模型的高低版本对在一起，把高模细节通过烘焙的方法将生成法线贴图记录下来。</p>
+<p>（2）AO贴图：环境光遮蔽贴图，AO－Ambient Occlusion，“环境吸收”或者“环境光吸收”。 AO不需要任何灯光照明，它以独特的计算方式吸收“环境光”（同时吸收未被阻挡的“光线”和被阻挡光线所产生的“阴影”），从而模拟全局照明的结果，它主要是通过改善阴影来现实更好的图像细节，尤其在场景物体很多从而到处阻挡着光线导致间接照明不足时，AO的作用会更加明显。 AO可以解决或改善漏光、飘和阴影不实等问题，解决或改善场景中缝隙、褶皱与墙角、角线以及细小物体等的表现不清晰问题，综合改善细节尤其是暗部阴影，增强空间的层次感、真实感，同时加强和改善画面明暗对比，增强画面的艺术性。</p>
+<p>（3）固有色贴图：通常情况下，我们把白色阳光下物体呈现出来的色彩效果总和成为固有色。固有色是指物体固有的属性在常态光源下呈现出来的色彩。</p>
+<p>（4）高光贴图：就是光滑物体弧面上的亮点，而平面上则是一片光。与光源和摄像机的位置有关。但通常为一个小白点。<br />
+制作过程：高光的绘制一般把固有色贴图进行去色处理，再进行修整和调节。注意高光贴图不能出现纯黑和纯白。</p>
+<p>（5）透明贴图<br />
+透明贴图是将不需要显示的部分现实出的颜色是当前对话框的背景色，类似于遮罩。</p>
+<h2 id="uvw-展开">UVW 展开</h2>
+<p>UVW 展开是计算机图形学中用于纹理贴图映射的一种技术。在3D模型制作中，UVW 展开是将三维模型表面上的顶点（Vertex）和面（Face）映射到二维纹理贴图坐标上的过程。</p>
+<ol>
+<li><strong>UVW 的含义</strong>：</li>
+</ol>
+<ul>
+<li><strong>UVW 是三维坐标的映射</strong>：在三维空间中，顶点的坐标通常用 X、Y 和 Z 表示。而在纹理坐标空间中，对应于三维坐标的是 U、V 和 W。通常，W 坐标用于体积贴图（Volumetric Textures）。</li>
+</ul>
+<ol>
+<li><strong>UVW 展开</strong>：</li>
+</ol>
+<ul>
+<li><strong>将三维表面映射到二维平面</strong>：UVW 展开是将三维模型的表面展开到二维的纹理坐标空间上。通过将模型的表面分解为连续的三角形或多边形，然后将这些三角形或多边形展开到平面上，并分配纹理坐标（UV 坐标）以确定纹理如何映射到表面。</li>
+</ul>
+<ol>
+<li><strong>UV 坐标</strong>：</li>
+</ol>
+<ul>
+<li><strong>确定纹理在模型表面的位置</strong>：UV 坐标是二维的纹理坐标，它们决定了纹理贴图如何在模型表面上显示。UV 坐标定义了模型的每个顶点在纹理贴图上的位置，使得纹理能够正确地映射到模型的表面。</li>
+</ul>
+<ol>
+<li><strong>应用</strong>：</li>
+</ol>
+<ul>
+<li><strong>用于纹理映射和绘制</strong>：UVW 展开技术允许纹理贴图准确地映射到模型的表面，使得绘制的纹理能够按照设计者的意图正确地展示在模型上。</li>
+</ul>
+<p>UVW 展开在建模、纹理绘制和渲染过程中都是非常重要的步骤，它决定了纹理如何映射到模型表面，直接影响着最终呈现的质量和视觉效果。</p>
+<h2 id="法线normals">法线（Normals）</h2>
+<p>法线（Normals）在计算机图形学中是描述表面方向的重要概念。它们是指与表面垂直的矢量或向量，垂直于表面的方向。法线通常被用来表示几何形状的方向和朝向。</p>
+<h3 id="作用">作用：</h3>
+<ol>
+<li><p><strong>光照和渲染</strong>：法线在光照和渲染过程中起着关键作用。它们定义了表面的朝向和方向，决定了光线如何与表面相交、折射或反射。光线与法线的角度决定了表面的明暗和阴影。</p></li>
+<li><p><strong>平滑表面</strong>：法线也用于创建平滑表面的外观。在多边形网格中，每个顶点周围的法线可以平均计算，使得相邻多边形之间的过渡更加平滑。</p></li>
+<li><p><strong>几何计算</strong>：法线也用于进行几何计算，如碰撞检测、表面交互等。它们可以用于检测物体之间的碰撞，或者计算视图矩阵以确定物体的可见性。</p></li>
+</ol>
+<h3 id="类型">类型：</h3>
+<ul>
+<li><strong>顶点法线（Vertex Normals）</strong>：针对每个顶点计算的法线，通常用于光滑的曲面。</li>
+<li><strong>面法线（Face Normals）</strong>：针对每个多边形面计算的法线，通常用于多边形网格。</li>
+<li><strong>法线贴图（Normal Maps）</strong>：存储在纹理贴图中的法线信息，用于模拟表面细节和凹凸。</li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

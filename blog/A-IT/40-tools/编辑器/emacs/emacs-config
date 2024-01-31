@@ -1,0 +1,1974 @@
+;;load path
+;;====================
+(cond
+ ((string-equal system-type "windows-nt") ; Microsoft Windows
+  (progn
+    (defconst my-emacs-home "C:/emacs-24.5/share/emacs" "my load path")
+    (defconst my-site-lisp-path (concat my-emacs-home "/site-lisp/") "my lisp")
+    (defconst my-emacs-tool-path (concat my-emacs-home "/bin/") "my emacs tools")
+    (defconst const-cscope-program (concat my-emacs-tool-path "cscope.exe") "")
+    ;;(defconst const-cscope-program  "C:/cygwin/bin/cscope.exe" "")
+    (defconst const-svn-program "C:/Program Files/TortoiseSVN/bin/svn.exe" "")
+    (defconst const-mysql-program "C:/Program Files/MySQL/MySQL Server 5.6/bin/mysql.exe" "mysql")
+    (defconst const-sdcv-program  "sdcv.exe" "sdcv")
+    (setq w3m-command (concat my-emacs-tool-path "w3m.exe"))))
+
+ ((or (string-equal system-type "darwin")   ; Mac OS X
+      (string-equal) system-type "gnu/linux") ; linux
+  (progn
+    (defconst my-emacs-home "/Applications/Emacs.app/" "my emacs home")
+    (defconst my-site-lisp-path (concat my-emacs-home "Contents/Resources/site-lisp/") "my lisp")
+    (defconst my-emacs-tool-path (concat my-emacs-home "Contents/Resources/bin/") "my emacs tools")
+    (defconst const-svn-program  "/usr/local/bin/svn" "svn")
+    (defconst const-mysql-program  "/usr/local/bin/mysql" "mysql")
+    (defconst const-cscope-program  "/opt/local/bin/cscope" "sccope")
+    (defconst const-sdcv-program  "sdcv" "sdcv")
+    (setq w3m-command "/opt/local/bin/w3m"))))
+
+(add-to-list 'load-path (concat my-site-lisp-path "/color-theme-6.6.0"))
+(add-to-list 'load-path (concat my-site-lisp-path "/doxymacs-1.8.0"))
+;;(add-to-list 'load-path (concat my-site-lisp-path "/ecb-2.40"))
+(add-to-list 'load-path (concat my-site-lisp-path "/session-2.3"))
+(add-to-list 'load-path (concat my-site-lisp-path "/xcscope"))
+(add-to-list 'load-path (concat my-site-lisp-path "/w3m"))
+(add-to-list 'load-path (concat my-site-lisp-path "/elib"))
+;;(add-to-list 'load-path (concat my-site-lisp-path "/jdee-2.4.1/lisp"))
+(add-to-list 'load-path (concat my-site-lisp-path "/apel"))
+(add-to-list 'load-path (concat my-site-lisp-path "/flim"))
+(add-to-list 'load-path (concat my-site-lisp-path "/auctex-11.87"))
+(add-to-list 'load-path (concat my-site-lisp-path "/expand-region-0.10.0"))
+(add-to-list 'load-path (concat my-site-lisp-path "/helm-pydoc"))
+(add-to-list 'load-path (concat my-site-lisp-path "/multiple-cursors"))
+(add-to-list 'load-path (concat my-site-lisp-path "/powerline"))
+
+
+(add-to-list 'load-path  "~/.emacs.d/elpa")
+(add-to-list 'load-path  "~/.emacs.d/elpa/yasnippet-0.8.0")
+(add-to-list 'load-path "~/.emacs.d/elpa/auto-complete-20160107.1608")
+(add-to-list 'load-path "~/.emacs.d/elpa/popup-20140207.1702")
+(add-to-list 'load-path "~/.emacs.d/elpa/fuzzy-0.1")
+;;(add-to-list 'load-path "~/.emacs.d/elpa/auto-complete-clang-async-20130526.814")
+(add-to-list 'load-path "~/.emacs.d/elpa/company-20140614.2104")
+(add-to-list 'load-path "~/.emacs.d/elpa/helm-gtags-20150617.1931")
+(add-to-list 'load-path "~/.emacs.d/elpa/eshell-z-20150725.2027")
+(add-to-list 'load-path "~/.emacs.d/elpa/powershell-20150428.1421")
+(add-to-list 'load-path "~/.emacs.d/elpa/ascii-3.1")
+(add-to-list 'load-path "~/.emacs.d/elpa/sr-speedbar-0.1.8")
+;;(add-to-list 'load-path "~/.emacs.d/elpa/find-by-pinyin-dired-20150202.1816")
+;;(add-to-list 'load-path "~/.emacs.d/elpa/projectile-20160130.2057")
+;;(add-to-list 'load-path "~/.emacs.d/elpa/paredit-22")
+(add-to-list 'load-path "~/.emacs.d/elpa/bm-20151223.803")
+(add-to-list 'load-path "~/.emacs.d/elpa/lua-mode-20151025.2030")
+(add-to-list 'load-path "~/.emacs.d/elpa/jdee-20160304.2136")
+
+;;====================
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ac-clang-executable "clang")
+ '(ac-ispell-requires 3)
+ '(ace-isearch-use-jump nil)
+ '(appt-disp-window-function (quote appt-disp-window))
+ '(appt-display-duration 300)
+ '(appt-msg-window t)
+ '(baidu-life-api-key "21e61aefe1a51bcd8d8024d1363ecc39")
+ '(bsh-classpath (quote ("./")))
+ '(bsh-jar "/usr/bin/bsh.jar")
+ '(bsh-startup-timeout 3)
+ '(bsh-vm "")
+ '(cscope-program const-cscope-program)
+ '(custom-safe-themes
+   (quote
+    ("c70799e6420521bdd782842cd38ed9d18ba221ca294098f786e2c4ca4b2e9521" "784d5ee4d33befba6a21702ead67f98346770be7cc17ab64952ae3866a403743" "013e87003e1e965d8ad78ee5b8927e743f940c7679959149bbee9a15bd286689" default)))
+ '(ecb-options-version "2.40")
+ '(elpy-rpc-python-command "python")
+ '(google-translate-default-source-language "en")
+ '(google-translate-default-target-language "zh-CN")
+ '(google-translate-enable-ido-completion t)
+ '(google-translate-show-phonetic nil)
+ '(helm-google-suggest-search-url "http://93.123.23.25/search?ie=utf-8&oe=utf-8&q=")
+ '(initial-major-mode (quote text-mode))
+ '(ispell-alternate-dictionary "~/.emacs.d/dict/words")
+ '(ispell-grep-command "grep")
+ '(ispell-program-name (concat my-emacs-tool-path "ispell"))
+ '(jdee-global-classpath
+   (quote
+    ("C:/work/yttl/workspace/" ".")))
+ '(jdee-jdk-registry
+   (quote
+    (("1.8" . "C:\\Program Files\\Java\\jdk1.8.0_65")
+     )))
+ '(jdee-sourcepath
+   (quote
+    ("c:/work/yttl/workspace/world/src/"
+     "c:/work/yttl/workspace/core/src/"
+     "c:/work/yttl/workspace/bridge/src/"
+     "c:/work/yttl/workspace/center/src/"
+     "C:/Program Files/Java/jdk1.8.0_65/src/" 
+     ".")
+    
+    ))
+ '(lf-lua-find-project-root-path "")
+ '(lua-indent-level 4)
+ '(lua-indent-string-contents t)
+ '(mf-max-height 980)
+ '(mk-proj-use-ido-selection t)
+ '(openwith-associations
+   (quote
+    (("\\.pdf\\'" "acroread"
+      (file))
+     ("\\.mp3\\'" "xmms"
+      (file))
+     ("\\.\\(?:mpe?g\\|avi\\|wmv\\)\\'" "mplayer"
+      ("-idx" file))
+     ("\\.\\(?:jp?g\\|png\\)\\'" "display"
+      (file))
+     ("\\.xlsx\\'" "Microsoft Excel 2010"
+      (file))
+     ("\\.exe\\'" "cmd"
+      (file)))))
+ '(openwith-mode t)
+ '(projectile-indexing-method (quote native))
+ '(python-indent-offset 4)
+ '(scroll-restore-commands
+   (quote
+    (handle-select-window handle-switch-frame scroll-up scroll-down scroll-up-command scroll-down-command scroll-bar-toolkit-scroll mwheel-scroll scroll-other-window scroll-other-window-down scroll-bar-scroll-up scroll-bar-scroll-down scroll-bar-drag lua-show-file-function)))
+ '(scroll-restore-mode t)
+ '(session-use-package t nil (session))
+ '(speedbar-show-unknown-files t)
+ '(sql-mysql-program const-mysql-program)
+ '(sr-speedbar-max-width 50)
+ '(sr-speedbar-right-side nil)
+ '(sr-speedbar-skip-other-window-p t)
+ '(sr-speedbar-width-x 30)
+ '(svn-program const-svn-program)
+ '(tooltip-hide-delay 120)
+ '(undo-tree-auto-save-history nil)
+ '(vc-checkin-hook nil)
+ '(vc-checkout-hook nil)
+ '(vc-command-messages nil)
+ '(vc-svn-program const-svn-program))
+
+;; cygwin
+;;====================
+(cond ((string-equal system-type "windows-nt") ; Microsoft Windows
+       (progn
+         (setenv "CYGWIN" "nodosfilewarning")
+         (setenv "GTAGSGLOBAL" "c:/emacs-24.5/share/emacs/bin/gnuwin32/global")
+         (setenv "GTAGSLIBPATH" "c:/emacs-24.5/share/emacs/bin/gnuwin32/global")
+         (setenv "PYTHONPATH" "C:/Python27/DLLs;C:/Python27/Lib;C:/Python27/Lib/site-packages;")
+         (setenv "JAVA_HOME" "C:/Program Files/Java/jdk1.8.0_65")
+         (setenv "PATH" (concat "c:/emacs-24.5/share/emacs/bin/gnuwin32;" (getenv "PATH")))
+         (setenv "PATH" (concat "c:/cygwin/bin;" (getenv "PATH")))
+         (setenv "PATH" (concat "C:/Lua;" (getenv "PATH")))
+         (setenv "PATH" (concat "C:/Python27;" (getenv "PATH")))
+         (setenv "PATH" (concat "d:/home/work/pwrd/yttl/mytools;" (getenv "PATH")))
+         (setenv "PATH" (concat "C:/emacs-24.5/share/emacs/bin/;" (getenv "PATH")))
+         (setenv "PATH" (concat (concat (getenv "PATH") ";")
+                                (concat my-emacs-home "bin/;")
+                                (concat my-emacs-tool-path ";")
+                                (concat my-emacs-tool-path "clang/;")
+                                (concat my-emacs-tool-path "ack/;")
+                                (concat my-emacs-tool-path "dlls/;")
+                                (concat my-emacs-tool-path "gnuwin32/;")
+                                (concat my-emacs-tool-path "gtags/;")
+                                (concat my-emacs-tool-path "unix-utils-bin/;")))
+         (setenv "ISPELLDICTDIR" "~/.emacs.d/ispelldict/")
+         (setq explicit-shell-file-name "bash.exe")
+         (setq explicit-sh-args '("-login" "-i"))
+         (setq exec-path (cons "c:/cygwin/bin/" exec-path))))
+      ((or
+        (string-equal system-type "darwin") ; Mac OS X
+        (string-equal)
+        system-type
+        "gnu/linux")                    ; linux
+       (progn
+         (add-to-list 'exec-path "/opt/local/bin/")
+         (setenv "PATH" (concat
+                         "/Applications/Emacs.app/Contents/MacOS/bin:/usr/local/bin:/sbin:/opt/local/bin:"
+                         (getenv "PATH")))
+         (setenv "PATH" (concat (concat (getenv "PATH") ":")
+                                (concat my-emacs-home "bin/:")
+                                (concat my-emacs-tool-path ":")
+                                (concat my-emacs-tool-path "clang/:")
+                                (concat my-emacs-tool-path "ack/:")
+                                (concat my-emacs-tool-path "dlls/:")
+                                (concat my-emacs-tool-path "gnuwin32/:")
+                                (concat my-emacs-tool-path "gtags/:")
+                                (concat my-emacs-tool-path "unix-utils-bin/:")))
+         (setq explicit-shell-file-name "bash"))))
+
+(require 'cygwin-mount)
+(cygwin-mount-activate)
+
+(add-hook 'comint-output-filter-functions
+    'shell-strip-ctrl-m nil t)
+
+(add-hook 'comint-output-filter-functions
+    'comint-watch-for-password-prompt nil t)
+
+;; For subprocesses invoked via the shell
+;; (e.g., "shell -c command")
+(setq shell-file-name explicit-shell-file-name)
+(require 'shell)
+
+(defun shell-symbian ()
+  "10Jan02, sailor. Invoke a bash shell for Symbian"
+  (interactive)
+  (let ((bufname "*shell-symbian*")
+        (bufobject))
+
+    (setq bufobject (get-buffer bufname))
+
+    (cond
+     ((and bufobject (get-buffer-process bufobject))
+      (pop-to-buffer bufname))
+     (t
+      (progn
+        (set-buffer
+         (apply 'make-comint-in-buffer
+                "shell"
+                bufname
+                explicit-shell-file-name
+                nil
+                '("--rcfile" "c:/documents/config/.symbianrc" "-i")))
+        (shell-mode)
+        (pop-to-buffer (current-buffer)))))))
+
+;;When the "clear" command is entered into the bash shell, it is expected to clear the entire shell buffer. However, this does not work for bash shell under Gnu Emacs. The following lisp statements solve the problem.
+
+;;Notice that the following statements also intercepts the "man" command entered by the user and execute it outside the shell.
+(add-hook 'shell-mode-hook 'n-shell-mode-hook)
+(defun n-shell-mode-hook ()
+  "12Jan2002 - sailor, shell mode customizations."
+  (local-set-key '[up] 'comint-previous-input)
+  (local-set-key '[down] 'comint-next-input)
+  (local-set-key '[(shift tab)] 'comint-next-matching-input-from-input)
+  (setq comint-input-sender 'n-shell-simple-send))
+
+(defun n-shell-simple-send (proc command)
+  "17Jan02 - sailor. Various commands pre-processing before sending to shell."
+  (cond
+   ;; Checking for clear command and execute it.
+   ((string-match "^[ \t]*clear[ \t]*$" command)
+    (comint-send-string proc "\n")
+    (erase-buffer))
+
+   ;; Checking for man command and execute it.
+   ((string-match "^[ \t]*man[ \t]*" command)
+    (comint-send-string proc "\n")
+    (setq command (replace-regexp-in-string "^[ \t]*man[ \t]*" "" command))
+    (setq command (replace-regexp-in-string "[ \t]+$" "" command))
+    ;;(message (format "command %s command" command))
+    (funcall 'man command))
+
+   ;; Send other commands to the default handler.
+   (t
+    (comint-simple-send proc command))))
+
+;;====================
+(require 'ntcmd)
+
+;;====================
+(require 'artist)
+
+;;====================
+(load "graphviz-dot-mode")
+
+;;====================
+(require 'file-search)
+
+;; ;yasnippet
+;; ;;====================
+(require 'yasnippet)
+(yas/global-mode 1)
+(yas/minor-mode-on)
+(global-set-key (kbd "C-:") 'yas-expand)
+
+;;gtags
+;;====================
+;; (require 'gtags)
+;; (autoload 'gtags-mode "gtags" "" t)
+
+;;auto-complete
+;;====================
+(require 'auto-complete)
+(require 'auto-complete-config)
+(require 'auto-complete-etags)
+;;(require 'auto-complete-clang)
+(require 'auto-complete-clang-objc)
+;;echo "" | g++ -v -x c++ -E -
+
+(ac-config-default)
+(auto-complete-mode 1)
+;; (set-default 'ac-sources
+;;              '(;;ac-source-semantic
+;;                ;;ac-source-yasnippet
+;;                ac-source-abbrev
+;;                ;;ac-source-words-in-buffer
+;;                ;;ac-source-functions
+;;                ;;ac-source-symbols
+;;                ;;ac-source-variables
+;;                ;;ac-source-gtags
+;;                ;;ac-source-etags
+;;                ;;ac-source-files-in-current-dir
+;;                ))
+
+
+(defun ac-cc-mode-setup ()
+  (setq ac-sources '(
+                     ;;ac-source-semantic
+                     ;;ac-source-gtags
+                     ac-source-etags
+                     ac-source-abbrev
+                     ac-source-words-in-buffer
+                     ;;ac-source-clang
+                     )))
+
+(add-hook 'c-mode-hook 'ac-cc-mode-setup)
+(add-hook 'c++-mode-hook 'ac-cc-mode-setup)
+
+(setq ac-modes (append ac-modes '(objc-mode)))
+(defun ac-objc-mode-setup ()
+  (setq ac-sources '(
+                     ac-source-etags
+                     ;;ac-source-gtags
+                     ac-source-abbrev
+                     ac-source-words-in-buffer
+                     ac-source-clang)))
+
+(add-hook 'objc-mode-hook 'ac-objc-mode-setup)
+
+;;jde-mode
+;; (setq ac-modes (append ac-modes '(jde-mode)))
+;; (defun ac-jde-mode-setup ()
+;;   (setq ac-sources '(
+;;                      ac-source-etags
+;;                      ac-source-gtags
+;;                      ac-source-abbrev
+;;                      ac-source-words-in-buffer
+;;                      ac-source-clang
+;;                      )))
+
+;; (add-hook 'jde-mode-hook 'ac-jde-mode-setup)
+
+(load-file "~/.emacs.d/wzt-proj-yttl.el")
+(wzt-yttl-ac-winname-setup)
+;;for lua
+(defun ac-lua-mode-setup ()
+  (setq ac-sources (append '(ac-source-etags
+                             ac-source-abbrev
+                             ac-source-words-in-buffer)
+                           ac-sources)))
+
+(add-hook 'lua-mode-hook 'ac-lua-mode-setup)
+
+(global-auto-complete-mode t)
+(setq ac-auto-start 3)
+
+;; you have to visit TAGS file created by etags program.  To
+;; visit TAGS file, use M-x visit-tags-table.  Or if you want to choose
+;; another tag file rather than that currently in use, use M-x
+;; select-tags-table.
+
+;;====================
+(require 'session)
+(add-hook 'after-init-hook 'session-initialize)
+                                        ;(load "desktop")
+                                        ;(desktop-save-mode)
+                                        ;(setq desktop-restore-frames t)
+                                        ;(setq desktop-restore-in-current-display t)
+                                        ;(setq desktop-restore-forces-onscreen nil)
+
+;;====================
+(require 'doxymacs)
+(require 'xml-parse)
+(add-hook 'c-mode-common-hook 'doxymacs-mode)
+
+;;====================
+;; (require 'ecb-autoloads)
+;; (setq stack-trace-on-error t)
+;; (setq ecb-activate t)
+;; (setq ecb-auto-activate t
+;;       ecb-tip-of-the-day nil)
+
+;; (global-set-key [M-left] 'windmove-left)
+;; (global-set-key [M-right] 'windmove-right)
+;; (global-set-key [M-up] 'windmove-up)
+;; (global-set-key [M-down] 'windmove-down)
+
+(setq gdb-many-windows t)
+(load-library "multi-gud.el")
+(load-library "multi-gdb-ui.el")
+
+;;xscope
+;;====================
+(require 'xcscope)
+(setq cscope:menu t)
+(setq cscope-do-not-update-database t)
+
+;;====================
+;;(require 'cedet)
+
+;; (setq semanticdb-default-save-directory "~/.emacs.d/semanticdb")
+;; (setq semantic-default-submodes '(global-semanticdb-minor-mode
+;;                                   ;;global-semantic-highlight-func-mode
+;;                                   global-semantic-stickyfunc-mode
+;;                                   ;;global-semantic-decoration-mode
+;;                                   ;;global-semantic-show-unmatched-syntax-mode
+;;                                   ;;global-semantic-show-parser-state-mode
+;;                                   ;;global-semantic-idle-scheduler-mode
+;;                                   ;;global-semantic-idle-summary-mode
+;;                                   ;;global-semantic-idle-completions-mode
+;;                                   ))
+
+(require 'semantic-c nil 'noerror)
+;; C-h v semantic-dependency-system-include-path : defines the system include path
+;; C-h v semantic-c-dependency-system-include-path:system include path used by the C language.
+
+;; (defun add-include-dir-to-auto-complete-and-semantic()
+;;   (interactive)
+;;   (let (proj-root keep-dir shell-result shell-result-dir-list project-dir-list)
+;;     (setq proj-root (projectile-project-root))
+;;     (setq keep-dir (car (projectile-parse-dirconfig-file)))
+;;     (dolist (onedir keep-dir)
+;;       (setq onedir (concat proj-root onedir))
+;;       (setq shell-result (shell-command-to-string (concat "find " onedir " -iname \"*.h\" ")))
+;;       (setq shell-result-dir-list (split-string shell-result))
+;;       (mapc (lambda (dir)
+;;               (if (or (null dir)
+;;                       (not (file-exists-p dir)))
+;;                   (message (format "%s ERROR." dir))
+;;                 (add-to-list 'project-dir-list (file-name-directory dir)))
+;;               )
+;;             shell-result-dir-list))
+
+;;     (delete-dups project-dir-list)
+
+;;     ;;add system dirs to auto-complete
+;;     (mapc (lambda (dir)
+;;             (add-to-list 'ac-clang-flags (concat "-I" dir)))
+;;           system-and-vendor-lib-include-dirs)
+
+;;     ;;add project dirs to auto-complete
+;;     (mapc (lambda (dir)
+;;             (add-to-list 'ac-clang-flags (concat "-I" dir)))
+;;           project-dir-list)
+
+;;     ;;handle semantic, first clear old dirs
+;;     (semantic-reset-system-include 'c++-mode)
+;;     (semantic-reset-system-include 'c-mode)
+
+;;     ;; ;;add system dirs to semantic
+;;     (mapc (lambda (dir)
+;;             (semantic-add-system-include dir 'c++-mode)
+;;             (semantic-add-system-include dir 'c-mode))
+;;           system-and-vendor-lib-include-dirs)
+
+;;     ;; ;;add project dirs to semantic
+;;     (mapc (lambda (dir)
+;;             (semantic-add-system-include dir 'c++-mode)
+;;             (semantic-add-system-include dir 'c-mode))
+;;           project-dir-list)
+;;     ;;(setq semantic-c-dependency-system-include-path project-dir-list)
+;;     ;;(setq semantic-default-c-path project-dir-list)
+
+;;     (setq tags-table-list (list (projectile-project-root)))
+;;     )
+;;   )
+
+
+;; (global-set-key [f9] 'semantic-ia-fast-jump)
+;; (global-set-key "\C-ccJ"
+;;                 (lambda ()
+;;                   (interactive)
+;;                   (if (ring-empty-p (oref semantic-mru-bookmark-ring ring))
+;;                       (error "Semantic Bookmark ring is currently empty"))
+;;                   (let* ((ring (oref semantic-mru-bookmark-ring ring))
+;;                          (alist (semantic-mrub-ring-to-assoc-list ring))
+;;                          (first (cdr (car alist))))
+;;                     (if (semantic-equivalent-tag-p (oref first tag)
+;;                                                    (semantic-current-tag))
+;;                         (setq first (cdr (car (cdr alist)))))
+;;                     (semantic-mrub-switch-tags first))))
+
+(semantic-mode 1)
+
+;;BOOKMARK
+;;====================
+(require 'eassist)
+
+(defun my-c-mode-common-hook ()
+  (define-key c-mode-base-map (kbd "M-o") 'eassist-switch-h-cpp)
+  (define-key c-mode-base-map (kbd "\C-c \C-m") 'eassist-list-methods))
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+
+;;(define-key c-mode-base-map [M-f8] 'eassist-switch-h-cpp)
+(setq eassist-header-switches
+      '(("h" . ("cpp" "cxx" "c++" "CC" "cc" "C" "c" "mm" "m"))
+        ("hh" . ("cc" "CC" "cpp" "cxx" "c++" "C"))
+        ("hpp" . ("cpp" "cxx" "c++" "cc" "CC" "C"))
+        ("hxx" . ("cxx" "cpp" "c++" "cc" "CC" "C"))
+        ("h++" . ("c++" "cpp" "cxx" "cc" "CC" "C"))
+        ("H" . ("C" "CC" "cc" "cpp" "cxx" "c++" "mm" "m"))
+        ("HH" . ("CC" "cc" "C" "cpp" "cxx" "c++"))
+        ("cpp" . ("hpp" "hxx" "h++" "HH" "hh" "H" "h"))
+        ("cxx" . ("hxx" "hpp" "h++" "HH" "hh" "H" "h"))
+        ("c++" . ("h++" "hpp" "hxx" "HH" "hh" "H" "h"))
+        ("CC" . ("HH" "hh" "hpp" "hxx" "h++" "H" "h"))
+        ("cc" . ("hh" "HH" "hpp" "hxx" "h++" "H" "h"))
+        ("C" . ("hpp" "hxx" "h++" "HH" "hh" "H" "h"))
+        ("c" . ("h"))
+        ("m" . ("h"))
+        ("mm" . ("h"))))
+
+
+;;====================
+(tool-bar-mode nil)
+
+;;====================
+(ido-mode t)
+(setq visible-bell t)
+(setq inhibit-startup-message t)
+(setq gnus-inhibit-startup-message t)
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(setq font-lock-maximum-decoration t)
+(setq font-lock-global-modes '(not  text-mode))
+(setq font-lock-verbose t)
+(setq font-lock-maximum-size '((t . 1048576) (vm-mode . 5250000)))
+
+(setq mouse-yank-at-point t)
+(setq kill-ring-max 20)
+
+(setq-default indent-tabs-mode nil)
+
+(setq default-tab-width 4)
+
+(setq sentence-end "\\([ÈöÜÊãÂöó∏ãÂööÅöÜÊãÂööÅÊë®ñ]\\|ÈöÜÊÜ∏ÖÈöÜÊÜ∏Ö\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
+
+(setq sentence-end-double-space nil)
+
+(setq enable-recursive-minibuffers t)
+
+(setq scroll-margin 3  scroll-conservatively 10000)
+
+(setq default-major-mode 'text-mode)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+(setq show-paren-style 'parenthesis)
+;;(setq show-paren-style 'expression)
+
+(setq mouse-avoidance-mode 'animate)
+
+;;(setq frame-title-format "emacs@%b")
+
+(setq uniquify-buffer-name-style 'forward)
+
+(setq auto-image-file-mode t)
+
+(setq global-font-lock-mode t)
+
+(setq-default kill-whole-line t)
+
+(add-hook 'comint-output-filter-functions
+      'comint-watch-for-password-prompt)
+
+(put 'scroll-left 'disabled nil)
+(put 'scroll-right 'disabled nil)
+(put 'set-goal-column 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(put 'LaTeX-hide-environment 'disabled nil)
+
+(setq x-select-enable-clipboard t)
+
+(setq mouse-yank-at-point t)
+
+(setq user-mail-address "wanglili103894@pwrd.com")
+
+(setq require-final-newline t)
+
+(setq-default transient-mark-mode t)
+
+(setq track-eol t)
+
+(setq Man-notify-method 'pushy)
+
+(setq next-line-add-newlines nil)
+
+(global-set-key [home] 'beginning-of-buffer)
+(global-set-key [end] 'end-of-buffer)
+
+(global-set-key (kbd "C-,") 'scroll-left)
+(global-set-key (kbd "C-.") 'scroll-right)
+
+(global-set-key [f1] 'manual-entry)
+(global-set-key [C-f1] 'info )
+
+(global-set-key [f3] 'repeat-complex-command)
+
+(global-set-key [f4] 'other-window)
+
+(defun du-onekey-compile ()
+  "Save buffers and start compile"
+  (interactive)
+  (save-some-buffers t)
+  (switch-to-buffer-other-window "*compilation*")
+  (compile compile-command))
+(global-set-key [C-f5] 'compile)
+(global-set-key [f5] 'du-onekey-compile)
+
+(global-set-key [f6] 'gdb)
+
+(global-set-key [C-f7] 'previous-error)
+(global-set-key [f7] 'next-error)
+
+(defun open-eshell-other-buffer ()
+  "Open eshell in other buffer"
+  (interactive)
+  (split-window-vertically)
+  (eshell))
+(global-set-key [(f8)] 'open-eshell-other-buffer)
+(global-set-key [C-f8] 'eshell)
+
+(setq dired-recursive-copies 'top)
+(setq dired-recursive-deletes 'top)
+(global-set-key [C-f9] 'dired)
+
+(global-set-key [f10] 'undo)
+
+(global-set-key [C-f11] 'calendar)
+
+(global-set-key [C-f12] 'list-bookmarks)
+
+(setq time-stamp-active t)
+(setq time-stamp-warn-inactive t)
+(setq time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S wangll")
+
+(global-set-key (kbd "M-g") 'goto-line)
+
+(global-set-key (kbd "C-SPC") 'nil)
+
+(global-set-key (kbd "M-<SPC>") 'set-mark-command)
+
+(setq compile-command "make")
+
+(add-hook 'c-mode-hook
+'(lambda ()
+(c-set-style "k&r")))
+
+(add-hook 'c++-mode-hook
+          '(lambda()
+             (c-set-style "stroustrup")))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(bm-face ((t (:background "gainsboro" :foreground "White"))))
+ '(bm-fringe-persistent-face ((t (:background "DarkOrange1" :foreground "White"))))
+ '(bm-persistent-face ((t (:background "DarkOrange1" :foreground "White"))))
+ '(fringe ((t (:background "White"))))
+ '(highlight-indent-guides-even-face ((t (:background "gainsboro"))))
+ '(highlight-indent-guides-odd-face ((t (:background "ivory3"))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "dark"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "blue"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "green"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "orange"))))
+ '(rainbow-delimiters-unmatched-face ((t (:foreground "red")))))
+
+                                        ; shell-mode
+(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on t)
+
+(when (fboundp 'shell)
+  (progn
+    (defun xah-rename-shell-hook ()
+      (rename-buffer "shell" t))
+    (add-hook 'shell-mode-hook 'xah-rename-shell-hook)))
+
+
+;; pymacs
+;;====================
+(require 'pymacs)
+(autoload 'pymacs-apply "pymacs")
+(autoload 'pymacs-call "pymacs")
+(autoload 'pymacs-eval "pymacs" nil t)
+(autoload 'pymacs-exec "pymacs" nil t)
+(autoload 'pymacs-load "pymacs" nil t)
+(autoload 'pymacs-autoload "pymacs")
+
+;;; org-mode
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(setq org-startup-indented t)
+
+;; linum
+(require 'linum)
+(global-linum-mode 1)
+
+(tool-bar-mode -1)
+
+;;(require 'sr-speedbar)
+;; (require 'speedbar-extension)
+;;(global-set-key [f9] 'sr-speedbar-toggle)
+;;(global-set-key (kbd "C-c b b") 'sr-speedbar-select-window)
+
+;;
+(show-paren-mode 1)
+
+(global-unset-key "\C-xf")
+
+;;2013-2-16
+(setq w32-get-true-file-attributes nil)
+
+;;2013-3-20
+(require 'bm)
+(global-set-key (kbd "<M-f2>") 'bm-toggle)
+(global-set-key (kbd "<f2>")   'bm-next)
+(global-set-key (kbd "<S-f2>") 'bm-previous)
+(global-set-key (kbd "\C-cbs") 'bm-show-all)
+(global-set-key (kbd "\C-cbr") 'bm-remove-all-all-buffers)
+
+(setq-default bm-buffer-persistence t)
+(setq bm-restore-repository-on-load t)
+
+(add-hook' after-init-hook 'bm-repository-load)
+(add-hook 'find-file-hooks 'bm-buffer-restore)
+(add-hook 'kill-buffer-hook 'bm-buffer-save)
+(add-hook 'kill-emacs-hook '(lambda nil
+                              (bm-buffer-save-all)
+                              (bm-repository-save)))
+
+(add-hook 'after-save-hook 'bm-buffer-save)
+(add-hook 'after-revert-hook 'bm-buffer-restore)
+
+
+;;anything
+(require 'anything-match-plugin)
+(require 'anything-config)
+
+;;2013-2-27
+(require 'bookmark)
+;; (when (not (file-exists-p bookmark-default-file))
+;;   (bookmark-save))
+;; (bookmark-load bookmark-default-file t t)
+
+;; (defvar *leisureread-my-book-path* "~/misc/book.txt")
+;; (defvar *leisureread-bookmark-name* "leisureread")
+;; (defvar *leisureread-window-height* 1)
+
+;; (defun leisureread-initialize-bookmark-if-necessary ()
+;;   ;; if no previous bookmark, create it at first line
+;;   (when (or (null bookmark-alist)
+;;             (null (assoc *leisureread-bookmark-name* bookmark-alist)))
+;;     (find-file *leisureread-my-book-path*)
+;;     (bookmark-set *leisureread-bookmark-name*)
+;;     (bury-buffer))
+;;   ;; if not opened book.txt yet, open it and keep it open
+;;   (when (not (get-file-buffer *leisureread-my-book-path*))
+;;     (save-excursion
+;;       (find-file *leisureread-my-book-path*)
+;;       (bookmark-jump *leisureread-bookmark-name*)
+;;       (bury-buffer))))
+
+;; (defun leisureread-line-prefix ()
+;;   (concat comment-start "+"))
+
+;; (defun leisureread-decorate-lines (text)
+;;   (let ((lines (split-string text "\n")))
+;;     (let ((decorated-lines
+;;            (mapcar (lambda (line) (concat (leisureread-line-prefix) line))
+;;                    lines)))
+;;       (reduce (lambda (acc next) (concat acc "\n" next))
+;;               decorated-lines))))
+
+
+;; (defun leisureread-on-leisure-line-p ()
+;;   (let ((text (buffer-substring-no-properties
+;;                (line-beginning-position)
+;;                (line-end-position))))
+;;     (start-with-p text (leisureread-line-prefix))))
+
+;; (defun start-with-p (big small)
+;;   (and (>= (length big) (length small))
+;;        (string= small (substring big 0 (length small)))))
+
+;; (defun leisureread-clear-line ()
+;;   (interactive)
+;;   (while (leisureread-on-leisure-line-p)
+;;     (kill-whole-line)))
+
+;; (defun leisureread-insert-next-line ()
+;;   (interactive)
+;;   (leisureread-insert-line 'forward-line))
+
+;; (defun leisureread-insert-previous-line ()
+;;   (interactive)
+;;   (leisureread-insert-line 'previous-line))
+
+;; (defun leisureread-insert-line (func)
+;;   (leisureread-initialize-bookmark-if-necessary)
+;;   (move-beginning-of-line nil)
+;;   (let ((text ""))
+;;     (while (<= (length text) 1)
+;;       (save-excursion
+;;         (set-buffer (get-file-buffer *leisureread-my-book-path*))
+;;         (funcall func)
+;;         (setq text (buffer-substring-no-properties
+;;                     (line-beginning-position)
+;;                     (line-end-position *leisureread-window-height*)))
+;;         (bookmark-set *leisureread-bookmark-name*)
+;;         (bury-buffer)))
+;;     (save-excursion
+;;       (leisureread-clear-line)
+;;       (insert (leisureread-decorate-lines text))
+;;       (newline))))
+
+
+;; (global-set-key (kbd "C-.") 'leisureread-insert-next-line)
+;; (global-set-key (kbd "C-,") 'leisureread-insert-previous-line)
+;; (global-set-key (kbd "C-'") 'leisureread-clear-line)
+
+;;show buffer path/name on title.
+(setq frame-title-format
+      '((:eval (funcall (lambda () (if buffer-file-name
+                                       buffer-file-name
+                                     (buffer-name)))))))
+
+
+;;(set-default-font "Courier New-14")
+(set-default-font "-outline-Courier New-normal-normal-normal-mono-18-*-*-*-c-*-iso8859-1")
+
+;;2013-9-27
+(setq auto-mode-alist
+      (cons '("\\.mm$" . objc-mode) auto-mode-alist))
+
+;;2013-10-20
+(setq todo-file-do "~/.emacs.d/todo/do")
+(setq todo-file-done "~/.emacs.d/todo/done")
+(setq todo-file-top "~/.emacs.d/todo/top")
+
+;;lua
+;;====================
+;;(require 'lua2-mode)
+(require 'lua-block)
+(lua-block-mode t)
+(setq lua-block-highlight-toggle t)
+
+;;(add-hook 'lua-mode-hook 'hs-minor-mode)
+
+;;w3m
+;;====================
+(autoload 'w3m "w3m" "Interface for w3m on Emacs." t)
+(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+(autoload 'w3m-search "w3m-search" "Search words using emacs-w3m." t)
+
+(require 'w3m-load)
+(require 'w3m-lnum)
+(add-hook 'w3m-mode-hook 'w3m-lnum-mode)
+
+;;need root
+;;(require 'mime-w3m)
+(setq w3m-display-inline-image t)
+(setq browse-url-browser-function 'w3m-browse-url)
+(setq w3m-use-toolbar t)
+(setq w3m-use-cookies t)
+(setq w3m-use-tab-menubar t)
+(setq w3m-command-arguments '("-cookie" "-F"))
+(setq w3m-tab-width 4)
+(setq w3m-home-page "http://sg.search.yahoo.com/")
+(setq w3m-default-display-inline-images t)
+(setq w3m-default-toggle-inline-images t)
+(setq w3m-view-this-url-new-session-in-background t)
+(add-hook 'w3m-fontify-after-hook 'remove-w3m-output-garbages)
+
+(defun remove-w3m-output-garbages ()
+  ""
+  (interactive)
+  (let ((buffer-read-only))
+
+    (setf (point) (point-min))
+    (while (re-search-forward "[\200-\240]" nil t)
+      (replace-match " "))
+    (set-buffer-multibyte t))
+  (set-buffer-modified-p nil))
+
+;;====================
+(require 'sdcv-mode)
+(global-set-key (kbd "C-c d") 'sdcv-search)
+(require 'emacs-rc-sdcv)
+
+;;;php
+(require 'php-mode)
+
+;;; dired
+(add-hook 'dired-mode-hook
+ (lambda ()
+  (define-key dired-mode-map (kbd "^")
+    (lambda () (interactive) (find-alternate-file "..")))
+  ; was dired-up-directory
+ ))
+(put 'dired-find-alternate-file 'disabled nil)
+
+(require 'buffer-move)
+(global-set-key (kbd "<C-up>")     'buf-move-up)
+(global-set-key (kbd "<C-down>")   'buf-move-down)
+(global-set-key (kbd "<C-left>")   'buf-move-left)
+(global-set-key (kbd "<C-right>")  'buf-move-right)
+
+
+;;====================
+(require 'xfrp_find_replace_pairs)
+
+;;====================
+(require 'google-translate)
+(global-set-key "\C-ct" 'google-translate-at-point)
+(global-set-key "\C-cT" 'google-translate-query-translate)
+
+;;====================
+(defun my-revert-all-buffer-file-be-edited()
+  (interactive)
+  (let ((revert-count 0))
+    (mapcar (lambda (buf)
+              (setq buffile (buffer-file-name buf))
+              (if (and (stringp buffile)
+                       (file-exists-p buffile))
+                  (progn
+                    (if (not (verify-visited-file-modtime buf))
+                        (progn (message (format "File: %s be edited, revert it!\n" buffile))
+                               (set-buffer buf)
+                               (revert-buffer nil t)
+                               (setq revert-count (+ 1 revert-count)))))))
+            (buffer-list))
+    (message (format "Check Buffer Done! Revert buffer: %d\n" revert-count))))
+
+(global-set-key (kbd "C-c r b") 'my-revert-all-buffer-file-be-edited)
+
+;;====================
+(require 'dired+)
+
+;;====================
+(require 'ediff-trees)
+(global-set-key (kbd "M-N") 'ediff-trees-examine-next)
+(global-set-key (kbd "M-P") 'ediff-trees-examine-previous)
+(global-set-key (kbd "C-s-SPC") 'ediff-trees-examine-next-regexp)
+(global-set-key (kbd "C-S-s-SPC") 'ediff-trees-examine-previous-regexp)
+
+;; coding
+;;====================
+(cond
+ ((string-equal system-type "windows-nt") ; Microsoft Windows
+  (progn
+    ;;(set-language-environment 'Chinese-GB)
+    (set-language-environment 'utf-8)
+    (set-keyboard-coding-system 'utf-8)
+    (set-clipboard-coding-system 'utf-8)
+    (set-terminal-coding-system 'utf-8)
+    (set-buffer-file-coding-system 'utf-8)
+    (set-default-coding-systems 'utf-8)
+    (set-selection-coding-system 'utf-8)
+    (modify-coding-system-alist 'process "*" 'utf-8)
+    (setq-default pathname-coding-system 'utf-8)
+    (set-file-name-coding-system 'utf-8)
+    (setq default-terminal-coding-system 'utf-8)
+    (setq ansi-color-for-comint-mode t)
+    (set-w32-system-coding-system 'utf-8)
+    (set-selection-coding-system 'utf-8)
+    ;;In windows, if uncomment, shell command raise error
+    ;;(setq default-process-coding-system '(utf-8 . utf-8))
+    ;;(add-to-list 'process-coding-system-alist '("bash" . utf-8-emacs))
+    ))
+ ((or (string-equal system-type "darwin")   ; Mac OS X
+      (string-equal system-type "gnu/linux")) ; linux
+  (progn
+    ;;(set-language-environment 'Chinese-GB)
+    (set-language-environment 'utf-8)
+    (set-keyboard-coding-system 'utf-8-unix)
+    (set-clipboard-coding-system 'utf-8-unix)
+    (set-terminal-coding-system 'utf-8-unix)
+    (set-buffer-file-coding-system 'utf-8-unix)
+    (set-default-coding-systems 'utf-8-unix)
+    (set-selection-coding-system 'utf-8-unix)
+    (modify-coding-system-alist 'process "*" 'utf-8-unix)
+    (setq-default pathname-coding-system 'utf-8-unix)
+    (set-file-name-coding-system 'utf-8-unix)
+    (setq default-terminal-coding-system 'utf-8-unix)
+    (setq ansi-color-for-comint-mode t)
+    (set-selection-coding-system 'utf-8)
+    (setq default-process-coding-system '(utf-8 . utf-8))
+    (add-to-list 'process-coding-system-alist '("bash" . utf-8-emacs)))))
+
+;;close scroll
+(scroll-bar-mode -1)
+
+(require 'rainbow-delimiters)
+(global-rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+
+;;package
+;;====================
+(package-initialize)
+(setq package-archives '(("popkit" . "http://elpa.popkit.org/packages/")
+                         ;;("gnu"   . "http://elpa.zilongshanren.com/gnu/")
+                         ;;("melpa" . "http://elpa.zilongshanren.com/melpa/")
+                         ;; ("ELPA" . "http://tromey.com/elpa/")
+                         ;; ("GNU" . "http://elpa.gnu.org/packages/")
+                         ;; ("MARMALADE" . "http://marmalade-repo.org/packages/")
+                         ;;("MELPA" . "http://melpa.milkbox.net/packages/")
+                         ))
+
+(setq url-http-attempt-keepalives nil)
+
+;;flyspell
+;;====================
+;; (defun flyspell-emacs-popup-textual (event poss word)
+;;       "A textual flyspell popup menu."
+;;       (require 'popup)
+;;       (let* ((corrects (if flyspell-sort-corrections
+;;                            (sort (car (cdr (cdr poss))) 'string<)
+;;                          (car (cdr (cdr poss)))))
+;;              (cor-menu (if (consp corrects)
+;;                            (mapcar (lambda (correct)
+;;                                      (list correct correct))
+;;                                    corrects)
+;;                          '()))
+;;              (affix (car (cdr (cdr (cdr poss)))))
+;;              show-affix-info
+;;              (base-menu  (let ((save (if (and (consp affix) show-affix-info)
+;;                                          (list
+;;                                           (list (concat "Save affix: " (car affix))
+;;                                                 'save)
+;;                                           '("Accept (session)" session)
+;;                                           '("Accept (buffer)" buffer))
+;;                                        '(("Save word" save)
+;;                                          ("Accept (session)" session)
+;;                                          ("Accept (buffer)" buffer)))))
+;;                            (if (consp cor-menu)
+;;                                (append cor-menu (cons "" save))
+;;                              save)))
+;;              (menu (mapcar
+;;                     (lambda (arg) (if (consp arg) (car arg) arg))
+;;                     base-menu)))
+;;         (cadr (assoc (popup-menu* menu :scroll-bar t) base-menu))))
+
+;; (eval-after-load "flyspell"
+;;       '(progn
+;;          (fset 'flyspell-emacs-popup 'flyspell-emacs-popup-textual)))
+
+;; (require 'flyspell)
+;; (dolist (hook '(text-mode-hook))
+;;       (add-hook hook (lambda () (flyspell-mode 1))))
+
+;; (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+;;   (add-hook hook (lambda () (flyspell-mode -1))))
+
+;; (dolist (hook '(c++-mode-hook lua-mode-hook shell-mode-hook))
+;;   (add-hook hook (lambda ()
+;;                    (flyspell-prog-mode)
+;;                    )))
+
+
+;; ;; as printing messages for every word (when checking the entire buffer) causes an enormous slowdown.
+;; (setq flyspell-issue-message-flag nil)
+
+;; ;; easy spell check
+(global-set-key (kbd "<f5>") 'ispell-word)
+(global-set-key (kbd "C-c C-p") 'flyspell-buffer)
+(global-set-key (kbd "C-c C-n") 'ispell-complete-word)
+
+;; (defun flyspell-check-next-highlighted-word ()
+;;   "Custom function to spell check next highlighted word"
+;;   (interactive)
+;;   (flyspell-goto-next-error)
+;;   (ispell-word)
+;;   )
+
+;; (global-set-key (kbd "M-<f5>") 'flyspell-check-next-highlighted-word)
+;; (global-set-key (kbd "C-<f5>") 'flyspell-check-previous-highlighted-word)
+
+;;ac-ispell
+;;====================
+(require 'ac-ispell)
+
+(eval-after-load "auto-complete"
+  '(progn
+      (ac-ispell-setup)))
+
+(add-hook 'text-mode-hook 'ac-ispell-ac-setup)
+(dolist (hook '(text-mode-hook))
+  (add-hook hook 'ac-ispell-ac-setup))
+
+;;auctex
+;;====================
+(load "auctex.el" nil t t)
+(load "preview-latex.el" nil t t)
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+(setq preview-scale-function 1.3)
+(setq LaTeX-math-menu-unicode t)
+(setq TeX-insert-braces nil)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+
+;;doxymacs-luadoc
+;;====================
+(require 'doxymacs-luadoc)
+
+;;smex
+;;====================
+(require 'smex) ; Not needed if you use package.el
+(smex-initialize) ; Can be omitted. This might cause a (minimal) delay
+                  ; when Smex is auto-initialized on its first run.
+
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+;;helm
+;;====================
+(require 'helm)
+;;(require 'helm-config)
+(require 'helm-buffers)
+;;(setq helm-ff-auto-update-initial-value t)
+;;(helm-mode 1)
+
+(require 'helm-files)
+
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-c <SPC>") 'helm-all-mark-rings)
+(global-set-key (kbd "C-x C-b") 'helm-mini)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-x c b") 'helm-resume)
+
+;;(define-key helm-find-files-map (kbd "<tab>") 'helm-execute-persistent-action)
+
+;;'helm-select-action
+;;projectile-global-mode
+;; ;;====================
+(require 'projectile)
+(require 'helm-projectile)
+(projectile-global-mode)
+(setq projectile-require-project-root t)
+(setq projectile-switch-project-action 'projectile-dired)
+(setq projectile-enable-caching t)
+
+;; (require 'persp-mode)
+;; (require 'persp-projectile)
+;; (define-key projectile-mode-map (kbd "s-s") 'projectile-persp-switch-project)
+;; (persp-mode t)
+
+;; -/log
+;; -/tmp
+;; -/vendor
+;; -/public/uploads
+;; This would ignore the folders only at the root of the project. Projectile also supports relative pathname ignores:
+
+;; -tmp
+;; -*.rb
+;; -*.yml
+;; -models
+;; You can also ignore everything except certain subdirectories. This is useful when selecting the directories to keep is easier than selecting the directories to ignore, although you can do both. To select directories to keep, that means everything else will be ignored.
+
+;; Example:
+
+;; +/src/foo
+;; +/tests/foo
+
+;;persp-mode Must local end of all require.
+;;====================
+;; (require 'persp-mode)
+;; (require 'persp-projectile)
+
+;; (persp-mode t)
+
+;;max windows
+;;====================
+;;(w32-send-sys-command 61488)
+
+;;expand-region
+;;====================
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
+;;
+(require 'helm-pydoc)
+
+(global-set-key (kbd "C-x C-m") 'smex)
+(global-set-key (kbd "C-c C-m") 'smex)
+
+(global-set-key (kbd "C-x C-k") 'kill-region)
+(global-set-key (kbd "C-c C-k") 'kill-region)
+
+;;highlight
+;;====================
+;; (require 'highlight-tail)
+;; (highlight-tail-mode)
+;; (setq highlight-tail-colors '(("black" . 0)
+;;                               ("#bc2525" . 25)
+;;                               ("black" . 66)))
+
+;; (setq highlight-tail-steps 1
+;;       highlight-tail-timer 3)
+
+;; (setq highlight-tail-posterior-type 'const)
+
+;;multiple-cursors
+;;====================
+(require 'multiple-cursors)
+
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+;;powerline
+;;====================
+;;(require 'powerline)
+;;(powerline-default-theme)
+;;(powerline-nano-theme)
+;;(powerline-center-theme)
+;;(add-hook 'desktop-after-read-hook 'powerline-reset)
+
+;;easy-kill
+;;====================
+(require 'easy-kill)
+(global-set-key [remap kill-ring-save] 'easy-kill)
+(global-set-key [remap mark-sexp] 'easy-mark)
+
+;;dired-sort-menu
+;;====================
+(require 'ls-lisp)
+(require 'dired-sort-menu+)
+
+(add-hook 'dired-mode-hook
+          (
+           lambda ()
+                  (interactive)
+                  (make-local-variable  'dired-sort-map)
+                  (setq dired-sort-map (make-sparse-keymap))
+                  (define-key dired-mode-map "s" dired-sort-map)
+                  (define-key dired-sort-map "s"
+                    '(lambda () "sort by size"
+                       (interactive) (dired-sort-other (concat dired-listing-switches "s"))))
+                  (define-key dired-sort-map "x"
+                    '(lambda () "sort by extension"
+                       (interactive) (dired-sort-other (concat dired-listing-switches "x"))))
+                  (define-key dired-sort-map "t"
+                    '(lambda () "sort by time"
+                       (interactive) (dired-sort-other (concat dired-listing-switches "t"))))
+                  (define-key dired-sort-map "n"
+                    '(lambda () "sort by name"
+                       (interactive) (dired-sort-other (concat dired-listing-switches ""))))
+
+                  (define-key dired-sort-map "r" 'dired-sort-menu-toggle-reverse)
+                  ;; Mnemonic *c*asefold:
+                  (define-key dired-sort-map "c" 'dired-sort-menu-toggle-ignore-case)
+                  ;; Mnemonic Files at *b*ottom:
+                  (define-key dired-sort-map "b" 'dired-sort-menu-toggle-dirs-first)))
+
+;;cn-weather
+;;====================
+(require 'cn-weather)
+
+;;ace-jump-mode
+;;====================
+;;
+;; ace jump mode major function
+;;
+(add-to-list 'load-path "~/.emacs.d/elpa/ace-jump-mode-20140207.530/ace-jump-mode.el/in/")
+(require 'ace-pinyin)
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+;; you can select the key you prefer to
+(define-key global-map (kbd "C-c j") 'ace-jump-mode)
+
+
+
+;;
+;; enable a more powerful jump back function from ace jump mode
+;;
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+;;auto-complete-clang-async
+;;====================
+;; (require 'auto-complete-clang-async)
+
+;; (defun ac-cc-mode-setup ()
+;;   (setq ac-clang-complete-executable "~/.emacs.d/clang-complete")
+;;   (setq ac-sources '(ac-source-clang-async))
+;;   (ac-clang-launch-completion-process)
+;; )
+
+;; (defun my-ac-config ()
+;;   (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
+;;   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
+;;   (global-auto-complete-mode t))
+
+;; (my-ac-config)
+
+;;undo-tree
+;;====================
+(require 'undo-tree)
+(global-undo-tree-mode)
+(setq max-lisp-eval-depth (- max-specpdl-size 1))
+
+;;status
+(which-function-mode t)
+
+;;mouse speed
+(setq mouse-wheel-progressive-speed nil)
+(setq parens-require-spaces nil)
+
+;;dsvn
+(autoload 'svn-status "dsvn" "Run `svn status'." t)
+(autoload 'svn-update "dsvn" "Run `svn update'." t)
+(require 'vc-svn)
+(require 'psvn)
+
+;;lua-debuger
+(require 'lua-debuger)
+
+;;
+(require 'centered-window-mode)
+
+(require 'indent-guide)
+;; (indent-guide-global-mode)
+
+(require 'jump-to-line)
+(global-set-key (kbd "C-c C-j") 'jump-to-line) ; Jump
+(global-set-key (kbd "C-c C-b")   'jtl-back)     ; Back
+
+(require 'helm-bm)
+(global-set-key (kbd "C-c b") 'helm-bm)
+
+(add-to-list 'load-path "~/.emacs.d/elpa/anzu-20140905.1752")
+(require 'anzu)
+(global-anzu-mode +1)
+(global-set-key (kbd "M-%") 'anzu-query-replace)
+(global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
+
+;;glsl-mode
+(autoload 'glsl-mode "glsl-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.geom\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.vsh\\'" .  glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.fsh\\'" .  glsl-mode))
+
+;;jde
+;;====================
+(require 'jdee)
+;; (load "jde")
+;; (autoload 'jde-mode "jde" "JDE mode" t)
+;; (setq auto-mode-alist
+;;       (append '(("\\.java\\'" . jde-mode)) auto-mode-alist))
+
+;;jtags
+;;====================
+(add-to-list 'load-path "/.emacs.d/elpa/jtags-20111208.1022")
+(autoload 'jtags-mode "jtags" "Toggle jtags mode." t)
+(add-hook 'jde-mode-hook 'jtags-mode)
+
+;;malabar
+;;(add-to-list 'load-path ".emacs.d/elpa/malabar-mode-20140903.1347")
+;; (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
+;;                                   global-semanticdb-minor-mode
+;;                                   global-semantic-idle-summary-mode
+;;                                   global-semantic-mru-bookmark-mode))
+;; (semantic-mode 1)
+;; (require 'malabar-mode)
+;; ;; ;;(setq malabar-groovy-lib-dir "/path/to/malabar/lib")
+;; (add-to-list 'auto-mode-alist '("\\.java\\'" . malabar-mode))
+
+;;java-auto-complete
+;;====================
+(add-to-list 'ac-modes 'jde-mode)
+(add-to-list 'ac-modes 'java-mode)
+;; (add-to-list 'load-path (concat my-site-lisp-path "/auto-java-complete"))
+;; (require 'ajc-java-complete-config)
+;; (require 'ajc-java-complete)
+;; (add-hook 'jade-mode-hook 'ajc-java-complete-mode)
+;; (add-hook 'java-mode-hook 'ajc-java-complete-mode)
+
+(defun ac-jde-mode-setup ()
+  (setq ac-sources '(
+                     ac-source-etags
+                     ;;ac-source-gtags
+                     ac-source-abbrev
+                     ac-source-words-in-buffer
+                     ;;ac-source-clang
+                     )))
+
+(add-hook 'jde-mode-hook 'ac-jde-mode-setup)
+
+;;mysql
+;;====================
+(setq sql-connection-alist
+      '(
+        (mysql-localhost
+         (sql-product 'mysql)
+         (sql-server "localhost")
+         (sql-user "root")
+         (sql-password "root")
+         (sql-database "yt_dev")
+         (sql-port 3306))
+        ))
+
+(defun sql-connect-preset (name)
+  "Connect to a predefined SQL connection listed in `sql-connection-alist'"
+  (eval `(let ,(cdr (assoc name sql-connection-alist))
+           (flet ((sql-get-login (&rest what)))
+             (sql-product-interactive sql-product)))))
+
+(defun sql-switch-mysql-server()
+  (interactive)
+  (if (not (null (get-buffer "*SQL: mysql-localhost*")))
+      (kill-buffer "*SQL: mysql-localhost*"))
+
+  (if (not (null (get-buffer "*SQL: mysql-nogame*")))
+      (kill-buffer "*SQL: mysql-nogame*"))
+
+  (sql-connect-preset 'mysql-server)
+  (sql-rename-buffer "mysql-server"))
+
+(defun sql-switch-mysql-localhost()
+  (interactive)
+  (if (not (null (get-buffer "*SQL: mysql-server*")))
+      (kill-buffer "*SQL: mysql-server*"))
+
+  (if (not (null (get-buffer "*SQL: mysql-nogame*")))
+      (kill-buffer "*SQL: mysql-nogame*"))
+
+  (sql-connect-preset 'mysql-localhost)
+  (sql-rename-buffer "mysql-localhost"))
+
+(defun sql-switch-mysql-nogame()
+  (interactive)
+  (if (not (null (get-buffer "*SQL: mysql-server*")))
+      (kill-buffer "*SQL: mysql-server*"))
+
+  (if (not (null (get-buffer "*SQL: mysql-localhost*")))
+      (kill-buffer "*SQL: mysql-localhost*"))
+
+  (sql-connect-preset 'mysql-nogame)
+  (sql-rename-buffer "mysql-nogame"))
+
+;;sql
+(eval-after-load "sql"
+  '(load-library "sql-indent"))
+
+;;(setq-default semantic-idle-scheduler-idle-time 432000)
+
+;;====================
+;;(require 'evil)
+;;(evil-mode 1)
+
+(define-derived-mode cheetah-mode html-mode "Cheetah"
+  (make-face 'cheetah-variable-face)
+  (font-lock-add-keywords
+   nil
+   '(
+     ("\\(#\\(from\\|else\\|include\\|extends\\|set\\|def\\|import\\|for\\|if\\|end\\)+\\)\\>" 1 font-lock-type-face)
+     ("\\(#\\(from\\|for\\|end\\)\\).*\\<\\(for\\|import\\|def\\|if\\|in\\)\\>" 3 font-lock-type-face)
+     ("\\(##.*\\)\n" 1 font-lock-comment-face)
+     ("\\(\\$\\(?:\\sw\\|}\\|{\\|\\s_\\)+\\)" 1 font-lock-variable-name-face)))
+  (font-lock-mode 1))
+(setq auto-mode-alist (cons '( "\\.tmpl\\'" . cheetah-mode ) auto-mode-alist ))
+
+;;;js function
+(defvar anything-js-show-file-function
+  '((name . "JS Function")
+    (headline  ".*function.*(.*)")))
+
+(defun js-show-file-function ()
+  (interactive)
+  ;; Set to 500 so it is displayed even if all methods are not narrowed down.
+  (let ((anything-candidate-number-limit 500))
+    (anything-other-buffer '(anything-js-show-file-function)
+                           "*JS Function*")))
+
+(defun js-function-mode-hook ()
+  ""
+  (local-set-key (kbd "\C-c \C-m") 'js-show-file-function))
+
+(add-hook 'js-mode-hook 'js-function-mode-hook)
+
+;;eww
+;;====================
+(with-eval-after-load 'eww
+  (custom-set-variables
+  '(eww-search-prefix "http://www.baidu.com/s?wd="))
+  (define-key eww-mode-map (kbd "i") 'eww)
+  (define-key eww-mode-map (kbd "m") 'eww-lnum-follow)
+  (define-key eww-mode-map (kbd "z") 'eww-lnum-universal))
+
+;;eww-lnum
+;;====================
+;; (require 'eww-lnum)
+;; (eval-after-load "eww"
+;;   '(progn (define-key eww-mode-map "f" 'eww-lnum-follow)
+;;           (define-key eww-mode-map "F" 'eww-lnum-universal)))
+
+;;shell-command
+;(require 'shell-command)
+
+;;appt
+;;====================
+(require 'appt)
+(setq diary-file "~/diary")
+(setq appt-message-warning-time 0) ; 0 minute time before warning
+(appt-activate 1)
+(appt-add "9:50" "signup,rtx")
+(appt-add "9:55" "signup,rtx")
+(appt-add "21:30" "")
+(appt-add "21:40" "")
+(appt-add "21:50" "")
+(appt-add "22:00" "sigup for all")
+(appt-add "23:00" "sigup for all")
+(appt-add "23:20" "sigup for all")
+(appt-add "23:25" "sigup for all")
+
+(defun appt-display-hook ()
+  (cond
+   ((string-equal system-type "windows-nt")
+    (w32-shell-execute "open" "iexplore.exe" "http://web.oa.wanmei.com/Pages/index.htm"))))
+
+;;
+;;====================
+(defun xah-open-in-external-app ()
+  "Open the current file or dired marked files in external app.
+The app is chosen from your OS's preference.
+
+URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
+Version 2015-01-26"
+  (interactive)
+  (let* (
+         (Êï∫Üfile-list
+          (if (string-equal major-mode "dired-mode")
+              (dired-get-marked-files)
+            (list (buffer-file-name))))
+         (Êï∫Üdo-it-p (if (<= (length Êï∫Üfile-list) 5)
+                       t
+                     (y-or-n-p "Open more than 5 files? "))))
+
+    (when Êï∫Üdo-it-p
+      (cond
+       ((string-equal system-type "windows-nt")
+        (mapc
+         (lambda (fPath)
+           (w32-shell-execute "open" (replace-regexp-in-string "/" "\\" fPath t t))) Êï∫Üfile-list))
+       ((string-equal system-type "darwin")
+        (mapc
+         (lambda (fPath) (shell-command (format "open \"%s\"" fPath)))  Êï∫Üfile-list))
+       ((string-equal system-type "gnu/linux")
+        (mapc
+         (lambda (fPath) (let ((process-connection-type nil)) (start-process "" nil "xdg-open" fPath))) Êï∫Üfile-list))))))
+
+
+(defun xah-open-in-desktop ()
+  "Show current file in desktop (OS's file manager).
+URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
+Version 2015-06-12"
+  (interactive)
+  (cond
+   ((string-equal system-type "windows-nt")
+    (w32-shell-execute "explore" (replace-regexp-in-string "/" "\\" default-directory t t)))
+   ((string-equal system-type "darwin") (shell-command "open ."))
+   ((string-equal system-type "gnu/linux")
+    (let ((process-connection-type nil)) (start-process "" nil "xdg-open" "."))
+    ;; (shell-command "xdg-open .") ;; 2013-02-10 this sometimes froze emacs till the folder is closed. ‚Åñ with nautilus
+    )))
+
+(define-key dired-mode-map (kbd "&") 'xah-open-in-desktop)
+(define-key dired-mode-map (kbd "C-c C-o") 'xah-open-in-external-app)
+
+;;====================
+(setq default-directory "~/work/" )
+
+;;====================
+(require 'unicad)
+
+;;====================
+(setq backup-directory-alist '(("." . "~/.saves")))
+(setq make-backup-files t               ; backup of a file the first time it is saved.
+      backup-by-copying t               ; don't clobber symlinks
+      version-control t                 ; version numbers for backup files
+      delete-old-versions t             ; delete excess backup files silently
+      delete-by-moving-to-trash t
+      kept-old-versions 6               ; oldest versions to keep when a new numbered backup is made (default: 2)
+      kept-new-versions 9               ; newest versions to keep when a new numbered backup is made (default: 2)
+      auto-save-default nil               ; auto-save every buffer that visits a file
+      auto-save-timeout 1              ; number of seconds idle time before auto-save (default: 30)
+      auto-save-interval 1            ; number of keystrokes between auto-saves (default: 300)
+      vc-make-backup-files t)
+
+;;====================
+(require 'browse-kill-ring)
+(require 'browse-kill-ring+)
+
+(defun konix/kill-ring-insert ()
+           (interactive)
+           (let ((to_insert (completing-read "Yank : "
+                                            (delete-duplicates kill-ring :test #'equal))))
+            (when (and to_insert (region-active-p))
+              ;; the currently highlighted section is to be replaced by the yank
+              (delete-region (region-beginning) (region-end)))
+            (insert to_insert)))
+
+(global-set-key  (kbd "C-c C-y") 'konix/kill-ring-insert)
+(global-set-key  (kbd "C-c y") 'konix/kill-ring-insert)
+
+
+
+;;====================
+;;(require 'powershell)
+
+;;====================
+;;(require 'eshell-z)
+
+;;  ~ $ z -h
+;;  usage: z [-chlrtx] [regex1 regex2 ... regexn]
+;;
+;;      -c, --current        estrict matches to subdirectories of the current directory
+;;      -h, --help           show a brief help message
+;;      -l, --list           list only
+;;      -r, --rank           match by rank only
+;;      -t, --time           match by recent access only
+;;      -x, --delete         remove the current directory from the datafile
+;;
+;;  examples:
+;;
+;;      z foo         cd to most frecent dir matching foo
+;;      z foo bar     cd to most frecent dir matching foo, then bar
+;;      z -r foo      cd to highest ranked dir matching foo
+;;      z -t foo      cd to most recently accessed dir matching foo
+;;      z -l foo      list all dirs matching foo (by frecency)
+;;
+;;; Setup:
+;;
+;; To use this package, add following code to your init.el or .emacs
+;;
+;;   (require 'eshell-z)
+(put 'erase-buffer 'disabled nil)
+
+;;ace-window
+(require 'ace-window)
+(global-set-key (kbd "C-c o") 'ace-window)
+(setq aw-keys '(?a ?s ?d ?e ?g ?h ?j ?k ?l))
+
+(require 'diff-hl)
+(global-diff-hl-mode)
+(add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+(add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
+
+;; `diff-hl-diff-goto-hunk'  C-x v =
+;; `diff-hl-revert-hunk'     C-x v n
+;; `diff-hl-previous-hunk'   C-x v [
+;; `diff-hl-next-hunk'       C-x v ]
+
+
+;;
+(winner-mode t)
+(global-set-key (kbd "C-x 4 u") 'winner-undo)
+(global-set-key (kbd "C-x 4 r") 'winner-redo)
+
+;;all
+(require 'all)
+
+;;vlf
+(require 'vlf)
+
+;;
+(require 'tiny)
+;; m10
+;; m5 10
+;; m5,10
+;; m5 10*xx
+;; m5 10*xx%x
+;; m5 10*xx|0x%x
+;; m25+x?a%c
+;; m25+x?A%c
+;; m97,122(string x)
+;; m97,122stringxx
+;; m97,120stringxupcasex
+;; m97,120stringxupcasex)x
+;; m\n;; 10|%(+ x x) and %(* x x) and %s
+;; m10*2+3x
+;; m\n;; 10expx
+;; m5\n;; 20expx%014.2f
+;; m7|%(expt 2 x)
+;; m, 7|0x%02x
+;; m10|%0.2f
+;; m1\n14|*** TODO http://emacsrocks.com/e%02d.html
+;;m1\n14|string%d
+
+;; helm from https://github.com/emacs-helm/helm
+;;(require 'helm)
+
+;; Locate the helm-swoop folder to your path
+;; (add-to-list 'load-path "~/.emacs.d/elisp/helm-swoop")
+(require 'helm-swoop)
+
+;; Change the keybinds to whatever you like :)
+(global-set-key (kbd "M-i") 'helm-swoop)
+(global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
+(global-set-key (kbd "C-c M-i") 'helm-multi-swoop)
+(global-set-key (kbd "C-x M-i") 'helm-multi-swoop-all)
+
+;; When doing isearch, hand the word over to helm-swoop
+(define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
+;; From helm-swoop to helm-multi-swoop-all
+(define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
+;; When doing evil-search, hand the word over to helm-swoop
+;; (define-key evil-motion-state-map (kbd "M-i") 'helm-swoop-from-evil-search)
+
+;; Instead of helm-multi-swoop-all, you can also use helm-multi-swoop-current-mode
+(define-key helm-swoop-map (kbd "M-m") 'helm-multi-swoop-current-mode-from-helm-swoop)
+
+;; Move up and down like isearch
+(define-key helm-swoop-map (kbd "C-r") 'helm-previous-line)
+(define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
+(define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
+(define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)
+
+;; Save buffer when helm-multi-swoop-edit complete
+(setq helm-multi-swoop-edit-save t)
+
+;; If this value is t, split window inside the current window
+(setq helm-swoop-split-with-multiple-windows nil)
+
+;; Split direcion. 'split-window-vertically or 'split-window-horizontally
+(setq helm-swoop-split-direction 'split-window-vertically)
+
+;; If nil, you can slightly boost invoke speed in exchange for text color
+(setq helm-swoop-speed-or-color nil)
+
+;; ;; Go to the opposite side of line from the end or beginning of line
+(setq helm-swoop-move-to-line-cycle t)
+
+;; Optional face for line numbers
+;; Face name is `helm-swoop-line-number-face`
+(setq helm-swoop-use-line-number-face t)
+
+
+;;====================
+(require 'ascii)
+(autoload 'ascii-on        "ascii" "Turn on ASCII code display."   t)
+(autoload 'ascii-off       "ascii" "Turn off ASCII code display."  t)
+(autoload 'ascii-display   "ascii" "Toggle ASCII code display."    t)
+(autoload 'ascii-customize "ascii" "Customize ASCII code display." t)
+
+;;====================
+(require 'move-text)
+(move-text-default-bindings)
+
+;;====================
+;;(setq debug-on-error t)
+
+;;====================
+(require 'protobuf-mode)
+(defconst my-protobuf-style
+  '((c-basic-offset . 4)
+    (indent-tabs-mode . nil)))
+
+(add-hook 'protobuf-mode-hook
+          (lambda () (c-add-style "my-style" my-protobuf-style t)))
+
+;;====================
+(require 'pick-backup)
+
+;;====================
+(require 'rect-mark)
+
+;;====================-
+(require 'ascii-art-to-unicode)
+
+;;====================
+(require 'cal-china-x)
+
+;;====================
+(require 'stripe-buffer)
+
+;;====================
+(require 'aggressive-indent)
+(add-to-list 'aggressive-indent-excluded-modes 'html-mode)
+(add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+(add-hook 'css-mode-hook #'aggressive-indent-mode)
+
+;;====================
+(require 'openwith)
+(openwith-mode t)
+
+;;====================
+(require 'goto-chg)
+(global-set-key (kbd "C-{") 'goto-last-change)
+(global-set-key (kbd "C-}") 'goto-last-change-reverse)
+
+;;====================
+(require 'lua-mode)
+
+
+;;====================
+(require 'highlight-indent-guides)
+;;(add-hook 'lua-mode-hook 'highlight-indent-guides-mode)
+;;(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+
+
+
+;;====================
+(require 'baidu-life)
+
+;;====================
+;;(require 'hungry-delete)
+
+;;====================
+(require 'find-by-pinyin-dired)
+
+;;====================
+;; (require 'anaconda-mode)
+;; (add-hook 'python-mode-hook 'anaconda-mode)
+
+;;====================
+;;(require 'py-autopep8)
+;;(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+
+;;(elpy-enable)
+;; pip elpy
+;; pip rope
+;; pip jedi
+
+
+;;====================
+;;return last buffer
+(global-set-key (kbd "<backtab>") #'(lambda ()
+                                      (interactive)
+                                      (switch-to-buffer (other-buffer (current-buffer) 1))))
+
+;;====================
+;; (global-set-key (kbd ",")
+;;                 #'(lambda ()
+;;                     (interactive)
+;;                     (insert ", ")))
+
+
+;;====================
+;; (require 'persistent-scratch)
+;; (persistent-scratch-autosave-mode)
+;; (persistent-scratch-restore)
+;; (add-hook 'kill-emacs-hook 'persistent-scratch-save)
+
+;;====================
+(require 'scratch-pop)
+(global-set-key (kbd "C-1") 'scratch-pop)
+
+;;====================
+(require 'on-screen)
+(on-screen-global-mode +1)
+
+;;maxframe-settings
+;;====================
+(require 'maxframe)
+(add-hook 'window-setup-hook 'maximize-frame t)
+
+;;====================
+(setq inferior-lisp-program "C:/sbcl/sbcl.exe")
+(require 'slime)
+(require 'slime-autoloads)
+(slime-setup)
+(slime-setup '(slime-fancy))
+
+;;====================
+(require 'elisp-slime-nav) ;; optional if installed via package.el
+(dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+  (add-hook hook 'turn-on-elisp-slime-nav-mode))
+
+
+;;====================
+;;This must put end of requiring.
+(load-file "~/.emacs.d/wzt-init.el")
+
+;;====================
+(require 'ace-mc)
+(global-set-key (kbd "M-s j") 'ace-mc-add-multiple-cursors)
+
+;;====================
+(require 'swap-regions)
+(global-set-key "\C-c\C-t" #'swap-regions)
+;;(swap-regions-mode)
+
+;;====================-
+(require 'alert)
+
+;;====================
+(global-set-key (kbd "C-x p") 'previous-buffer)
+(global-set-key (kbd "C-x C-p") 'previous-buffer)
+(global-set-key (kbd "C-x C-n") 'next-buffer)
+
+;;====================
+(require 'embrace)
+(global-set-key (kbd "C-,") 'embrace-commander)
+
+;;====================
+(require 'elisp-format)
+(add-hook 'emacs-lisp-mode-hook '(lambda()
+                                   (local-unset-key "\C-i")
+                                   (local-set-key (kbd "C-i") 'elisp-format-region)))
+
+;;====================-
+(require 'powershell)
+(require 'powershell-mode)
+
+;;====================-
+(require 'csharp-mode)
+
+;;====================
+(require 'cursor-in-brackets)
+(global-cursor-in-brackets-mode 1)
+
+(datetime-format 'atom (current-time))  ;=> "2015-01-12 02:01:11+09:00"
+;; (datetime-format 'atom 0) ;=> "1970-01-01 09:01:00+09:00"
+;; (datetime-format 'atom 0 :timezone "UTC") ;=> "1970-01-01 00:01:00+00:00"
+;; (datetime-format 'atom "2015-01-12 02:01:11") ;=> "2015-01-12 02:01:11+09:00"
+;; (datetime-format 'atom "2015-01-12 02:01:11" :timezone "Europe/Moscow") ;=> "2015-01-12 01:01:11+03:00"
+;; (datetime-format 'atom-utc "2015-01-12 02:01:11") ;=> "2015-01-11 17:01:11Z"
+;; (datetime-format 'atom nil :timezone "America/New_York") ;=> "2016-05-18 13:05:41-04:00"
+
+;;====================
+(require 'iedit)
+
+;;====================
+(setq jdee-server-dir "~/.emacs.d/jar/")
+
+;;====================
+(require 'wttrin)
+(setq wttrin-default-cities '("china"
+                              "beijing"))
+
+;;====================
+(require 'company-lua)
+
+;;====================
+(require 'savehist)
+(add-to-list 'savehist-additional-variables 'helm-dired-history-variable)
+(savehist-mode 1)
+(eval-after-load 'dired
+  '(progn (require 'helm-dired-history)
+          (define-key dired-mode-map "," 'helm-dired-history-view)))

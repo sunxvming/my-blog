@@ -1,0 +1,549 @@
+所用unity版本5.6.6f2
+
+gs中的一帧还没更新完，就把zone和里面的东西清理掉了，会有各种空指针错误，因为清除完场景中的各种东西后gs的update还要继续执行
+
+
+注意：
+点按钮执行事件的时候要防止重复执行多次，客户端能防止的话就防止，若不能的话就服务器端进行多点的判断
+
+
+
+世界线和副本线有多个，每个是一个进程
+一条线中有多个zone            --> 场景中的主要逻辑 0.战斗 1.同步消息 2.技能 3.buff 4.AI   战斗中有些是客户端先行的
+一个zone中有各种entity
+
+服务端的zone主要逻辑是计算
+客户端的主要是显示
+
+
+游戏中功能的层次：(按使用频率，影响范围，难度来划分)
+需求       --> 具体的功能模块，涉及范围仅是这个功能的
+通用功能   --> 会被上层使用的如:道具，背包，战斗，技能，游戏同步，属性，要求扩展性和通用行强
+基础功能   --> 游戏框架:游戏主循环，网络，数据库，orm，事件，脚本系统 要求特别稳定
+
+
+
+根据客户端和服务器端的功能，再进行整理
+
+
+
+----注意点-----------------
+if ( _now( ) - self.starttime ) % MPTIME == 0 then   不要这样写，因为并不是每一毫秒或每一秒都调用的
+
+
+--------------------------------
+本地测试cs的http接口时要用自己的ip地址，不能是127.0.0.1，还要加端口号
+
+
+测试小跨服需要1.配好小跨服的ip地址，弄成呢个0.0.0.0就行，2.打个   /opentime的命令，
+
+
+==================net.lua====================
+Net.connect() --> Net.connectex() --> safeconn()
+--> pcall( _connect, a1, Net.onConn, Net.onClose, timeout  )
+--> Net.onConn() --> Net.onHead() --> Net.onBody() --> Net.onData() --> Net.delayCall() --> _callin()
+
+
+
+
+
+
+
+
+
+============全服团购逻辑==========================
+每个商业活动都去实现规定的接口，方便扩展和理解
+团购点击购买时：
+groupbuy.lua            GetComactReWard()
+comact/comact.lua       GetComactReWard()  根据商业活动的id判断活动类型进而调用相应的具体的活动的文件的getReward
+comact/comact_groupbuy  comact_groupbuy.getReWard  扣钱给道具，设置团购的数据表
+						bigTime --> onUpdateCGB 或 comact_groupbuy.begin --> comact_groupbuy.sys --> syncgroupbuy --> groupNet.GroupBuyInfo()
+
+
+cs携带自己服上的数据向团购服请求需要的数据，调用groupserver/groupbuy.lua 中的GroupBuyInfo方法，方法逻辑：查询团购服上的数据并返回cs，cs然后再设置cs上数据库中的数据
+解决问题：
+1.用一个中心服在不知道所有游戏服的情况下统计所有游戏服的信息
+2.非常多的客户端请求全服数据的压力（压力都分散都cs服上了）
+
+
+
+
+
+
+
+########################################################################################
+
+ui显示逻辑
+ui.lua
+	UIManager:GetInstance():Show(name, b, ...)
+UIManager.lua
+	UIManager.Show --> UIManager.ShowUI
+	loader:OnFinish --> _G[name]:new(resHandle);
+UIOwner.lua
+	UIOwner.new(self, reshandle)
+
+
+c#层
+	GUIManager.cs
+		new LoaderManager.Instance.GetPrefab(resHandle.res) --> new GUIComponent(gameObject.transform);
+
+
+
+
+
+
+
+1.登录流程
+	client向cs连接，请求登录
+	cs验证登录信息后向gs Newtoken，gs上创建zone和role然后返回信息
+	client根据返回的gs信息连接对应的gs
+	client连接gs时 LoginToken 再验证下token，然后进场景
+
+
+
+想-->意图-->做
+
+action的update方法是判断状态是否可以进入下一个状态了，即更新状态
+
+
+zonerole--> ZoneAI -->  Motion
+				   -->  aiaction
+
+ZoneAI
+	handleSkill  0.Motion.handleOperate从上个状态是否可以切换到下一个状态  1.设置motion 2. 条件达到 ZoneAI.doMotion
+		aiaction:move( path )  1.设置  AIActionKind info的state  2.role:move();
+
+	think
+		1.AIAction.update(self, e)  --> 具体的更新逻辑，没更新完返回false，更新完才进行domotion，如技能没放完就不切换domotion
+		2.self:doMotion()   --> 切换到某个状态,
+
+
+
+
+gs清理人
+1.cs端根据客户端连接net的onClose 向clearclient中插入记录
+2.cs端定时清理过期的clearclinet记录，并deltoken
+3.断线重连的要把clearclient的时间标记置为nil
+
+cs_client.lua     clearClient  用于清除人
+cs_login.lua      disconnTimer
+
+
+断线重连
+client
+login.lua   Login.login0  是连接cs并验证的逻辑，
+	onConn  请求验证的Login.CS( ).Login0{ Info = info }
+		验证成功后  第一次登陆转到选人界面
+		如果是断线重连的话    Login.doreallogin( selpid, res.user ) --> selectRole{ pid = selpid, newinfo = newinfo } 直接就选好人进
+	onClose 中 	断开后进行重连   delayf( 2, function( ) Login.login0( LoginInfo ) end )
+
+
+
+cs连接gs------------------------
+gs_net.lua
+1.设置监听网络
+2.连接cs
+	连接成功后向cs发 cs_gserver.lua  net.RegGServer{ GSID = toint(os.info.gsid), Listen = os.info.gslisten }
+3.cs中的gserver表添加gs服务器，向gs发事件CallGS(GSID).RegSuc{ServerInfo=getServerInfo{gsid = gsid, info = {}, step='gs'}}
+4.GS.CS = function( ) return _from end
+
+
+
+
+客户端场景加载逻辑----------------------
+
+groupmanager.lua
+	EnterGroup()
+	1.new一个具体的group，2. showGroup  3.通过loader加载场景  加载完后调用OnLoaded() 4.OnIdle 每帧调
+zonegroup.lua
+
+
+
+
+
+==启动流程=========================================================
+Update()
+	CoroutineManager.Instance.StartCoroutine (Prepare ()) 开启一个下载manifest的coroutine
+	复制mainifest和ab
+	LoadLocal()    从本地加载manifest
+	CheckLocal()   删除本地存在，但manifest中loaded=false的
+下一帧的Update()
+	先从远程读取mainifest到lines
+	files = manifest.Merge(lines) 删除需要热更的(hash不一致的)  返回需要下载的文件 (新增的 && 热更的)
+	DLoadingManager dmanager.DownBack(files)     所有的任务放在DLoadingManager的filehs字段中
+		前n个下载 JobManager.Instance.AddJob(Job.DownLoad(name));
+		onfinish后掉用DLoadingManager::OnDownLoad  --> 再加下载任务JobManager.Instance.AddJob(Job.DownLoad(name))
+
+		JobManager  里面有JobWorker的Queue，每帧会Update，然后newjobworker
+		JobWorker  (new一个就是一个的进程，这个进程会JobManager.Instance.FetchJob()，取出一个job然后todo)
+		Job  Job.DownLoad(name)创建一个下载类型的job
+
+
+最小包的走下载manifest的
+1.ResourceManifest.ParseString(lines)
+2.files = manifest.Repair()  返回要下载的ab列表
+dmanager.DownBack(files)  这个方法为增加下载任务的
+
+
+
+===资源是如何加载的=================================
+
+
+
+
+
+
+
+
+
+
+
+===外观=============================
+RoleAva:GenData
+	生成所有res的table
+
+RoleAva:Load( )
+	和旧的node比较 旧的没有 或旧的和新的不一样就加载 loader:Load( res )
+	旧的有则卸载旧的  handles.wing:Dispose( )
+
+
+坐骑缓存
+	无马-->有马
+		新马 == 旧马
+			ridenode.active=true
+			noderole.SetParent = noderide
+		新马 != 旧马
+			oldnoderide = nil
+			_SceneNode.new(handles.ride, "ride")
+			noderole.SetParent = noderide
+	有马-->无马
+		ridenode.active=false
+		noderole.SetParent = root
+
+
+
+
+===跨服========================
+1.跨服启动，相互连接
+ccs
+	1.起服listen    处理PROXY2CCS，CS2CCS               launch_ccs.lua
+
+proxy
+	1.csListen      处理CS2PROXY  转发CS2CCS、CS2CGS     launch_proxy.lua
+	2.connectCcs()  处理CCS2PROXY 转发CCS2CS             launch_proxy.lua
+	3.onCcsConn
+		CallCcs( ).RegisterProxy  -->
+		CallCss( ).CcsOn              告诉cs proxy已经连上ccs
+		CallCgs( net.cgsid ).CsOn{ Ids = ids }    告诉我上边的cs
+		CallCcs( )?.CsOn{ Ids = ids, Ips = ips, Serids = sids }
+
+cgs
+	1.起服listen    处理PROXY2CGS、CS2CGS               cgs_net.lua
+	2.connectCcs()   cgs_net.lua
+		CallCcs( )?.RegisterCgs
+	3.ccs_client.lua
+		CallCgs( Id ).RegisterSuc{ }
+
+
+
+
+proxy通过连接cgs达到所有proxy和cgs都是相联通的
+	1.proxy连ccs通过ccs得知所有已连接ccs的cgs，然后去连 CallProxy(Id)?.AllCgs{Cgs=cgs}
+	2.cgs连接ccs后 CallProxys( ).NewCgs告诉proxy又有新的cgs了
+
+
+
+
+进跨服
+	CgameMgr.getIns( pa, check, cgs, gs )
+		CallGs( cgs ).NewGame{}   type=CS2CGS  是call的proxy
+
+
+
+
+
+
+
+==net的用法====================================
+listen
+	Net.listen
+		Net.onListen
+			net:receive( 8, Net.onHead, Net.recbigtime )
+			Net.callout( net )
+				Net.onHead( net, data )
+					net:receive( len, Net.onBody, Net.recshorttime )
+						pcall( Net.onData, net, kind, param, rpcindex, data )   真正的处理逻辑在这里
+							Net.onData( net, kind, param, rpcindex, data )
+								Net.delayCall( net, rpcindex, data )
+									Net.callin
+										_callin( net, data )    引擎的方法，会执行data中的事件
+
+
+send
+	Net.stdCallOut
+		Net.send( net, Net.COMMON, param, data, rpc )
+			Net.sendex( net, ( data ) )   存在Net.cache中
+				Net.commit( )    事件结束时一次性发
+
+
+
+connect
+
+_G._callout(remote,func) 作用为设置某个对象可呼出，
+	形如：table.rpc{xx=xx}，就是设置下table的metatable的 __index方法，内容为func( remote, rpc, args, data )
+
+
+========================================
+
+
+
+
+
+服务器查看报错
+grep fatal *
+grep stack traceback  *
+
+
+
+
+
+
+--属性------------------------------------
+["table:0x00390594"] = {  -- table:0x00390594
+  lastChange = true,
+  pid = 600001,
+  dirty = false,
+  origiProp = {  -- table:0x00390224
+    [1] = {  -- table:0x003baccc
+      [1] = {  -- table:0x003bad0c
+        att = 50,
+        bossDmg = 0,
+        criDmgResist = 0,
+        hp = 0,
+        criRate = 0,
+        speed = 6,
+        dodgeRate = 0,
+        plDef = 0,
+        plMaxHp = 0,
+        def = 140,
+        cri = 5,
+        pvpDmgResist = 0,
+        hitRate = 0,
+        bossDmgResist = 0,
+        hit = 8,
+        plAtt = 0,
+        criDef = 5,
+        equipAttr = 0,
+        criDmg = 0,
+        buffResist = 0,
+        buffRate = 0,
+        subDef = 28,
+        dodge = 6,
+        subDmg = 0,
+        force = 0,
+        plSubDef = 0,
+        maxHp = 500,
+        pvpDmg = 0,
+        criDefRate = 0,
+        addHarm = 0,
+        [".meta"] = nil,
+      },
+      [2] = {  -- table:0x00195434
+        att = 0,
+        bossDmg = 0,
+        criDmgResist = 0,
+        hp = 0,
+        criRate = 0,
+        speed = 0,
+        dodgeRate = 0,
+        plDef = 0,
+        plMaxHp = 0,
+        def = 0,
+        cri = 0,
+        pvpDmgResist = 0,
+        hitRate = 0,
+        bossDmgResist = 0,
+        hit = 0,
+        plAtt = 0,
+        criDef = 0,
+        equipAttr = 0,
+        criDmg = 0,
+        buffResist = 0,
+        buffRate = 0,
+        subDef = 0,
+        dodge = 0,
+        subDmg = 0,
+        force = 0,
+        plSubDef = 0,
+        maxHp = 0,
+        pvpDmg = 0,
+        criDefRate = 0,
+        addHarm = 0,
+        [".meta"] = nil,
+      },
+      [".meta"] = nil,
+    },
+    [2] = {  -- table:0x0019548c
+      [1] = {  -- table:0x001954cc
+        att = 0,
+        bossDmg = 0,
+        criDmgResist = 0,
+        hp = 0,
+        criRate = 0,
+        speed = 0,
+        dodgeRate = 0,
+        plDef = 0,
+        plMaxHp = 0,
+        def = 0,
+        cri = 0,
+        pvpDmgResist = 0,
+        hitRate = 0,
+        bossDmgResist = 0,
+        hit = 0,
+        plAtt = 0,
+        criDef = 0,
+        equipAttr = 0,
+        criDmg = 0,
+        buffResist = 0,
+        buffRate = 0,
+        subDef = 0,
+        dodge = 0,
+        subDmg = 0,
+        force = 0,
+        plSubDef = 0,
+        maxHp = 0,
+        pvpDmg = 0,
+        criDefRate = 0,
+        addHarm = 0,
+        [".meta"] = nil,
+      },
+      [2] = {  -- table:0x01111834
+        att = 0,
+        bossDmg = 0,
+        criDmgResist = 0,
+        hp = 0,
+        criRate = 0,
+        speed = 0,
+        dodgeRate = 0,
+        plDef = 0,
+        plMaxHp = 0,
+        def = 0,
+        cri = 0,
+        pvpDmgResist = 0,
+        hitRate = 0,
+        bossDmgResist = 0,
+        hit = 0,
+        plAtt = 0,
+        criDef = 0,
+        equipAttr = 0,
+        criDmg = 0,
+        buffResist = 0,
+        buffRate = 0,
+        subDef = 0,
+        dodge = 0,
+        subDmg = 0,
+        force = 0,
+        plSubDef = 0,
+        maxHp = 0,
+        pvpDmg = 0,
+        criDefRate = 0,
+        addHarm = 0,
+        [".meta"] = nil,
+      },
+      [".meta"] = nil,
+    },
+    [".meta"] = nil,
+  },
+  _className = "AttrSys",
+  broadProp = {  -- table:0x003905d4
+    hp = 500,
+    speed = 6,
+    plMaxHp = 0,
+    maxHp = 500,
+    [".meta"] = nil,
+  },
+  prop = {  -- table:0x003901cc
+    att = 50,
+    bossDmg = 0,
+    criDmgResist = 0,
+    hp = 0,
+    criRate = 0,
+    speed = 0,
+    dodgeRate = 0,
+    hit = 8,
+    plMaxHp = 0,
+    criDefRate = 0,
+    cri = 5,
+    plDef = 0,
+    hitRate = 0,
+    criDmg = 0,
+    pvpDmgResist = 0,
+    plAtt = 0,
+    criDef = 5,
+    equipAttr = 0,
+    bossDmgResist = 0,
+    buffResist = 0,
+    dodge = 6,
+    subDef = 28,
+    plSubDef = 0,
+    subDmg = 0,
+    force = 308,
+    buffRate = 0,
+    maxHp = 0,
+    pvpDmg = 0,
+    def = 140,
+    addHarm = 0,
+    [".meta"] = nil,
+  },
+  [".meta"] = nil,
+},
+
+
+
+
+
+
+导lua=================================================
+
+类的结构
+ ["table: 0x2fd9d1f8"] = {  -- table: 0x2fd9d1f8
+  __newindex = function: 0x2fd9d3e0,
+  _typeid = 12,
+  new = function: 0x2fd9d228,
+  _typename = "_Camera",
+  __index = function: 0x2fd9d370,     __index 方法有几个upvalue，导出的方法存在这个里面
+  [".meta"] = nil,
+},
+
+
+对象的结构
+["table: 0x37da2de0"] = {  -- table: 0x37da2de0
+  ["userdata: 0x3a86a1f0"] = {  -- table: 0x3a869f68
+    [1] = {  -- table: 0x37da5198           --存lua上挂的属性
+      aa = "aa",
+      [".meta"] = nil,
+    },
+    [2] = {  -- table: 0x37da51c8
+      [".meta"] = {  -- table: 0x2fd820f8
+        __mode = "k",
+        [".meta"] = nil,
+      },
+    },
+    [3] = {  -- table: 0x37da51f8            --存对象和方法的引用
+      [".meta"] = nil,
+    },
+    [4] = {  -- table: 0x37da5258
+      [".meta"] = nil,
+    },
+    [".meta"] = nil,
+  },
+  [".meta"] = {  -- table: 0x2fd9d1f8
+    __newindex = function: 0x2fd9d3e0,
+    _typeid = 12,
+    new = function: 0x2fd9d228,
+    _typename = "_Camera",
+    __index = function: 0x2fd9d370,
+    [".meta"] = nil,
+  },
+},
+

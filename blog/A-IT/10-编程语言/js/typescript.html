@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/js/typescript</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#类型系统">类型系统</a></li>
+<li><a href="#面向对象">面向对象</a>
+<ul>
+<li><a href="#箭头函数">箭头函数</a></li>
+</ul></li>
+<li><a href="#模块模块导入导出">模块，模块导入导出</a></li>
+<li><a href="#异步编程">异步编程</a>
+<ul>
+<li><a href="#promise">Promise</a></li>
+<li><a href="#async-await">async await</a></li>
+</ul></li>
+<li><a href="#构建工具">构建工具</a></li>
+<li><a href="#类和接口的区别">类和接口的区别</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="类型系统">类型系统</h2>
+<h2 id="面向对象">面向对象</h2>
+<h3 id="箭头函数">箭头函数</h3>
+<p>箭头函数通常用于匿名函数、回调函数、事件处理器等情况，以确保函数内部的 this 与外部作用域保持一致。然而，当需要访问对象的属性时，应该谨慎使用箭头函数，因为它可能导致与预期不一致的结果。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>const person <span class="op">=</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>  name<span class="op">:</span> <span class="st">&quot;John&quot;</span><span class="op">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>  sayHello<span class="op">:</span> <span class="kw">function</span>() {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Hello, my name is </span><span class="sc">${</span>this<span class="op">.</span><span class="at">name</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>  }</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>person<span class="op">.</span><span class="fu">sayHello</span>()<span class="op">;</span> <span class="co">// 输出 &quot;Hello, my name is John&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>const person <span class="op">=</span> {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>  name<span class="op">:</span> <span class="st">&quot;John&quot;</span><span class="op">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  sayHello<span class="op">:</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Hello, my name is </span><span class="sc">${</span>this<span class="op">.</span><span class="at">name</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>  }</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>person<span class="op">.</span><span class="fu">sayHello</span>()<span class="op">;</span> <span class="co">// 输出 &quot;Hello, my name is undefined&quot;,  因为外部作用域中没有this变量</span></span></code></pre></div>
+<h2 id="模块模块导入导出">模块，模块导入导出</h2>
+<p>export default<br />
+只能有一个默认导出，import使用时不用加括号</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co">// 导出函数：</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="co">// myFunction.ts</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>export default <span class="kw">function</span> <span class="fu">myFunction</span>() {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;This is my function&#39;</span>)<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>}</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a><span class="co">// 在其他模块中：</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a><span class="co">// main.ts</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a><span class="im">import</span> myFunction from <span class="st">&#39;./myFunction&#39;</span><span class="op">;</span>  <span class="co">// import的时候不用加括号</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a><span class="fu">myFunction</span>()<span class="op">;</span> <span class="co">// 调用默认导出的函数</span></span></code></pre></div>
+<h2 id="异步编程">异步编程</h2>
+<h3 id="promise">Promise</h3>
+<p>Promise 是用于处理异步操作的一种机制，它可以帮助您更容易地处理异步任务，避免了回调地狱（callback hell）的问题</p>
+<p><strong>基本使用</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>const myPromise <span class="op">=</span> <span class="kw">new</span> <span class="bu">Promise</span>((resolve<span class="op">,</span> reject) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>  <span class="co">// 异步操作，例如网络请求或文件读取</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>  <span class="fu">setTimeout</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    const data <span class="op">=</span> <span class="st">&#39;Promise resolved data&#39;</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>    <span class="fu">resolve</span>(data)<span class="op">;</span> <span class="co">// 异步操作成功时调用 resolve</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    <span class="co">// 或者在失败时调用 reject</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>  }<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>})<span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>myPromise</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>  <span class="op">.</span><span class="fu">then</span>((result) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Promise resolved with result:&#39;</span><span class="op">,</span> result)<span class="op">;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a>  })</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a>  <span class="op">.</span><span class="fu">catch</span>((error) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="st">&#39;Promise rejected with error:&#39;</span><span class="op">,</span> error)<span class="op">;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a>  })<span class="op">;</span></span></code></pre></div>
+<p><strong>链式使用</strong><br />
+您可以通过链式调用 then 方法来处理多个异步操作。每个 then 方法返回一个新的 Promise，可以继续在其上进行操作。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>myPromise</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>  <span class="op">.</span><span class="fu">then</span>((result) <span class="kw">=&gt;</span> {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Step 1:&#39;</span><span class="op">,</span> result)<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    return <span class="st">&#39;Step 2 data&#39;</span><span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>  })</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>  <span class="op">.</span><span class="fu">then</span>((result) <span class="kw">=&gt;</span> {</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Step 2:&#39;</span><span class="op">,</span> result)<span class="op">;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>  })</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>  <span class="op">.</span><span class="fu">catch</span>((error) <span class="kw">=&gt;</span> {</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="st">&#39;Promise rejected with error:&#39;</span><span class="op">,</span> error)<span class="op">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>  })<span class="op">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a><span class="co">//output:</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a><span class="co">// Step 1: Promise resolved data</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a><span class="co">// Step 2: Step 2 data</span></span></code></pre></div>
+<p><strong>Promise.all</strong><br />
+允许您同时处理多个 Promise，只有当所有 Promise 都成功时才会触发成功回调，如果有一个失败，则触发失败回调。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>const promise1 <span class="op">=</span> <span class="bu">Promise</span><span class="op">.</span><span class="fu">resolve</span>(<span class="st">&#39;Promise 1 data&#39;</span>)<span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>const promise2 <span class="op">=</span> <span class="bu">Promise</span><span class="op">.</span><span class="fu">resolve</span>(<span class="st">&#39;Promise 2 data&#39;</span>)<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>const promise3 <span class="op">=</span> <span class="bu">Promise</span><span class="op">.</span><span class="fu">reject</span>(<span class="st">&#39;Promise 3 error&#39;</span>)<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="bu">Promise</span><span class="op">.</span><span class="fu">all</span>([promise1<span class="op">,</span> promise2<span class="op">,</span> promise3])</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>  <span class="op">.</span><span class="fu">then</span>((results) <span class="kw">=&gt;</span> {</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;All promises resolved:&#39;</span><span class="op">,</span> results)<span class="op">;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>  })</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>  <span class="op">.</span><span class="fu">catch</span>((error) <span class="kw">=&gt;</span> {</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="st">&#39;At least one promise rejected:&#39;</span><span class="op">,</span> error)<span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>  })<span class="op">;</span></span></code></pre></div>
+<p><strong>Promise.race</strong><br />
+允许您等待多个 Promise 中的第一个完成的结果，无论成功还是失败。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>const promise1 <span class="op">=</span> <span class="kw">new</span> <span class="bu">Promise</span>((resolve) <span class="kw">=&gt;</span> <span class="fu">setTimeout</span>(() <span class="kw">=&gt;</span> <span class="fu">resolve</span>(<span class="st">&#39;Promise 1&#39;</span>)<span class="op">,</span> <span class="dv">1000</span>))<span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>const promise2 <span class="op">=</span> <span class="kw">new</span> <span class="bu">Promise</span>((resolve) <span class="kw">=&gt;</span> <span class="fu">setTimeout</span>(() <span class="kw">=&gt;</span> <span class="fu">resolve</span>(<span class="st">&#39;Promise 2&#39;</span>)<span class="op">,</span> <span class="dv">500</span>))<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="bu">Promise</span><span class="op">.</span><span class="fu">race</span>([promise1<span class="op">,</span> promise2])</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>  <span class="op">.</span><span class="fu">then</span>((result) <span class="kw">=&gt;</span> {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;First promise resolved:&#39;</span><span class="op">,</span> result)<span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>  })</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>  <span class="op">.</span><span class="fu">catch</span>((error) <span class="kw">=&gt;</span> {</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="st">&#39;All promises rejected:&#39;</span><span class="op">,</span> error)<span class="op">;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a>  })<span class="op">;</span></span></code></pre></div>
+<h3 id="async-await">async await</h3>
+<p><code>async</code> 和 <code>await</code> 是用于处理异步操作的语法糖，它们使异步代码更具可读性和可维护性。<br />
+它使异步代码更加清晰和易于理解，避免了回调地狱，并使错误处理更加方便。是现代 JavaScript 和 TypeScript 中处理异步操作的推荐方法。</p>
+<p><strong>async</strong> 是 Promise 的语法糖：async 函数本质上是一个返回 Promise 对象的函数。当函数被声明为 async 时，它会自动将函数的返回值包装在一个 Promise 中，使其具有 Promise 的行为，可以通过 await 等待异步操作的结果。</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>async <span class="kw">function</span> <span class="fu">fetchData</span>() {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>  <span class="co">// 异步操作</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>  return <span class="st">&#39;Data&#39;</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>}</span></code></pre></div>
+<p>上述代码中的 fetchData 函数会隐式地返回一个 Promise，因此您可以使用 await 来等待其结果。</p>
+<p><strong>await</strong> 是 Promise 的语法糖：await 关键字用于等待一个 Promise 被 resolved，并将 Promise 的结果解析为值。它可以替代传统的 Promise .then() 调用，使异步代码更具可读性。</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>async <span class="kw">function</span> <span class="fu">fetchData</span>() {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>  const result <span class="op">=</span> await <span class="fu">someAsyncFunction</span>()<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>  return result<span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>}</span></code></pre></div>
+<p>调用异步函数时，可以像调用普通函数一样使用 await 来等待异步操作的返回值。<br />
+await针对所跟不同表达式的处理方式：<br />
+- Promise 对象：await 会暂停执行，等待 Promise 对象 resolve，然后恢复 async 函数的执行并返回解析值。<br />
+- 非 Promise 对象：直接返回对应的值。</p>
+<p><strong>基本使用</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>async <span class="kw">function</span> <span class="fu">fetchData</span>() {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>  try {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>    const response <span class="op">=</span> await <span class="fu">fetch</span>(<span class="st">&#39;https://api.example.com/data&#39;</span>)<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>    <span class="co">// 在这里可以使用 response 数据，而不用回调函数</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>    const data <span class="op">=</span> await response<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>    return data<span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>  } <span class="fu">catch</span> (error) {    <span class="co">//如果 await 的 Promise 被 rejected，它将抛出一个异常,这里需要捕获</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="st">&#39;An error occurred:&#39;</span><span class="op">,</span> error)<span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>    throw error<span class="op">;</span> <span class="co">// 可选：重新抛出异常以供上层处理</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a>  }</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>并行执行多个异步操作</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>async <span class="kw">function</span> <span class="fu">fetchAllData</span>() {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>  const promise1 <span class="op">=</span> <span class="fu">fetchData</span>(<span class="st">&#39;https://api.example.com/data1&#39;</span>)<span class="op">;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>  const promise2 <span class="op">=</span> <span class="fu">fetchData</span>(<span class="st">&#39;https://api.example.com/data2&#39;</span>)<span class="op">;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>  const [data1<span class="op">,</span> data2] <span class="op">=</span> await <span class="bu">Promise</span><span class="op">.</span><span class="fu">all</span>([promise1<span class="op">,</span> promise2])<span class="op">;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Data 1:&#39;</span><span class="op">,</span> data1)<span class="op">;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Data 2:&#39;</span><span class="op">,</span> data2)<span class="op">;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>使用箭头函数</strong>：</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>const fetchData <span class="op">=</span> <span class="fu">async</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>  try {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>    const response <span class="op">=</span> await <span class="fu">fetch</span>(<span class="st">&#39;https://api.example.com/data&#39;</span>)<span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>    const data <span class="op">=</span> await response<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>    return data<span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>  } <span class="fu">catch</span> (error) {</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="st">&#39;An error occurred:&#39;</span><span class="op">,</span> error)<span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>    throw error<span class="op">;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a>  }</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a>}<span class="op">;</span></span></code></pre></div>
+<h2 id="构建工具">构建工具</h2>
+<h2 id="类和接口的区别">类和接口的区别</h2>
+<p>在 TypeScript 中，类（<code>class</code>）和接口（<code>interface</code>）都用于定义对象的结构和行为，但它们有一些重要的区别：</p>
+<ol>
+<li><strong>目的不同</strong>：
+<ul>
+<li>类（<code>class</code>）：类主要用于创建对象的构造函数，并包含对象的属性和方法。类用于创建实际的对象实例，可以实例化（<code>new</code>）并使用。</li>
+<li>接口（<code>interface</code>）：接口主要用于定义对象的形状（结构）和契约（约定），但它们不创建实际的对象。接口用于描述对象应该具有的属性和方法，以便在编译时进行类型检查。</li>
+</ul></li>
+<li><strong>实例化</strong>：
+<ul>
+<li>类可以被实例化，而接口不能。类的实例是真正的对象，可以在运行时创建和操作。</li>
+<li>接口在运行时不会生成任何 JavaScript 代码，它们只用于编译时类型检查。</li>
+</ul></li>
+<li><strong>继承</strong>：
+<ul>
+<li>类可以相互继承，一个类可以继承另一个类的属性和方法，从而创建更复杂的类。</li>
+<li>接口可以相互继承，一个接口可以继承另一个接口，从而扩展接口的结构。</li>
+</ul></li>
+<li><strong>多重继承</strong>：
+<ul>
+<li>类支持单一继承，一个类只能继承自一个父类。</li>
+<li>接口支持多重继承，一个类可以实现多个接口，从而获得多个接口定义的属性和方法。</li>
+</ul></li>
+<li><strong>属性实现</strong>：
+<ul>
+<li>类中的属性可以有具体的实现（赋予初始值），而接口中的属性只是声明，不包含实际的实现。</li>
+<li>接口中的属性通常没有初始值，因为接口只定义了对象的形状。</li>
+</ul></li>
+<li><strong>构造函数</strong>：
+<ul>
+<li>类可以定义构造函数，用于初始化对象的属性。</li>
+<li>接口不能定义构造函数，因为它们不创建对象。</li>
+</ul></li>
+<li><strong>访问修饰符</strong>：
+<ul>
+<li>类可以使用访问修饰符（如 <code>public</code>、<code>private</code>、<code>protected</code>）来控制属性和方法的可访问性。</li>
+<li>接口中的属性和方法默认为 <code>public</code>，不能包含访问修饰符。</li>
+</ul></li>
+<li><strong>实例方法</strong>：
+<ul>
+<li>类中的方法可以包含实际的实现逻辑，可以操作对象的属性和状态。</li>
+<li>接口中的方法只是声明，不包含实际的实现，需要在实现接口的类中提供方法的具体实现。</li>
+</ul></li>
+</ol>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

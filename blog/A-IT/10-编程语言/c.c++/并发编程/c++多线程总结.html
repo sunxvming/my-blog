@@ -1,0 +1,1034 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/并发编程/c++多线程总结</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#多线程相关知识点">多线程相关知识点</a>
+<ul>
+<li><a href="#async">async</a></li>
+<li><a href="#call_once">call_once</a></li>
+<li><a href="#线程局部存储thread-local-storage">线程局部存储(thread local storage)</a></li>
+<li><a href="#虚假唤醒">虚假唤醒</a></li>
+<li><a href="#mutex和spinlock">mutex和spinlock</a></li>
+<li><a href="#多线程相关的头文件">多线程相关的头文件</a></li>
+</ul></li>
+<li><a href="#一.thread">一.thread</a>
+<ul>
+<li><a href="#stdthread">std::thread</a></li>
+<li><a href="#创建线程">创建线程</a></li>
+<li><a href="#stdthis_thread">std::this_thread</a></li>
+<li><a href="#成员函数">成员函数</a></li>
+<li><a href="#thread中有异常时join">thread中有异常时join</a></li>
+</ul></li>
+<li><a href="#二.mutex">二.mutex</a>
+<ul>
+<li><a href="#mutex-系列类四种">Mutex 系列类(四种)</a>
+<ul>
+<li><a href="#stdmutex最基本的-mutex-类">1.std::mutex，最基本的 Mutex 类。</a></li>
+<li><a href="#stdrecursive_mutex递归-mutex-类">2.std::recursive_mutex，递归 Mutex 类</a></li>
+<li><a href="#stdtime_mutex定时-mutex-类">3.std::time_mutex，定时 Mutex 类</a></li>
+<li><a href="#stdrecursive_timed_mutex定时递归-mutex-类">4.std::recursive_timed_mutex，定时递归 Mutex 类。</a></li>
+<li><a href="#shared_mutex读写锁">5.shared_mutex(读写锁)</a></li>
+</ul></li>
+<li><a href="#lock-类两种">Lock 类（两种）</a></li>
+<li><a href="#函数">函数</a></li>
+</ul></li>
+<li><a href="#三.future">三.future</a>
+<ul>
+<li><a href="#stdfuture">std::future</a>
+<ul>
+<li><a href="#future相关方法">future相关方法</a></li>
+</ul></li>
+<li><a href="#promise">promise</a></li>
+<li><a href="#packaged_task">packaged_task </a></li>
+</ul></li>
+<li><a href="#四.condition_variable">四.condition_variable</a>
+<ul>
+<li><a href="#stdcondition_variablewait">std::condition_variable::wait() </a>
+<ul>
+<li><a href="#unconditional">1.unconditional     </a></li>
+<li><a href="#predicate">2.predicate   </a></li>
+</ul></li>
+<li><a href="#stdcondition_variablewait_for">std::condition_variable::wait_for() </a></li>
+<li><a href="#stdcondition_variablewait_until">std::condition_variable::wait_until</a></li>
+<li><a href="#stdcondition_variablenotify_one">std::condition_variable::notify_one()</a></li>
+<li><a href="#stdcondition_variablenotify_all">std::condition_variable::notify_all() </a></li>
+</ul></li>
+<li><a href="#五.atomic">五.atomic</a></li>
+<li><a href="#六.信号量">六.信号量</a></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="多线程相关知识点">多线程相关知识点</h2>
+<h3 id="async">async</h3>
+<p>但还是基于那个原则，我建议你<strong>不要直接使用 thread 这个“原始”的线程概念</strong>(因为抽象层次太低了)，最好把它隐藏到底层，因为<strong>看不到的线程才是好线程</strong>。</p>
+<p>具体的做法是调用函数 <code>async()</code>，它的含义是<strong>异步运行一个任务</strong>，隐含的动作是启动一个线程去执行，但不绝对保证立即启动（也可以在第一个参数传递 launch::async，要求立即启动线程）。<br />
+大多数 thread 能做的事情也可以用 async() 来实现，但不会看到明显的线程：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>auto task = [](auto x) <span class="co">// 在线程里运行的lambda表达式</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>{</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    this_thread::sleep_for( x * <span class="dv">1</span><span class="bu">ms</span>); <span class="co">// 线程睡眠</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    cout &lt;&lt; <span class="st">&quot;sleep for &quot;</span> &lt;&lt; x &lt;&lt; endl;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    return x;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>};</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>auto f = <span class="bu">std::</span>async(task, <span class="dv">10</span>); <span class="co">// 启动一个异步任务</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>f.wait(); <span class="co">// 等待任务完成</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="ot">assert</span>(f.valid()); <span class="co">// 确实已经完成了任务</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>cout &lt;&lt; f.get() &lt;&lt; endl; <span class="co">// 获取任务的执行结果</span></span></code></pre></div>
+<p>其实，这还是函数式编程的思路，在更高的抽象级别上去看待问题，异步并发多个任务，让<strong>底层去自动管理线程</strong>，要比我们自己手动控制更好（比如内部使用线程池或者其他机制）。<br />
+<code>async()</code> 会返回一个 <code>future</code> 变量，可以认为是代表了执行结果的“期货”，如果任务有返回值，就可以用成员函数 get() 获取。<br />
+不过要特别注意，get() 只能调一次，再次获取结果会发生错误，抛出异常   <code>std::future_error</code>。<br />
+另外，这里还有一个很隐蔽的“坑”，如果你<strong>不显式获取 async() 的返回值</strong>（即 future 对象），它就会同步阻塞直至任务完成（由于临时对象的析构函数），于是“async”就变成了“sync”。<br />
+所以，即使我们不关心返回值，也总要用 auto 来配合 async()，避免同步阻塞</p>
+<h3 id="call_once">call_once</h3>
+<p>程序免不了要初始化数据，这在多线程里却是一个不大不小的麻烦。因为线程并发，如果没有某种同步手段来控制，会导致初始化函数多次运行。<br />
+C++ 提供了“仅调用一次”的功能，可以很轻松地解决这个问题</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>static once_flag flag;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>auto f = []()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>{</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>    cout &lt;&lt; <span class="st">&quot;tid=&quot;</span> &lt;&lt;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>        this_thread::get_id() &lt;&lt; endl;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>    <span class="bu">std::</span>call_once(flag,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>        [](){</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>            cout &lt;&lt; <span class="st">&quot;only once&quot;</span> &lt;&lt; endl;</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>        }</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>    );</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>};</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>thread t1(f);</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>thread t2(f);</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>t1.join();</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>t2.join();</span></code></pre></div>
+<h3 id="线程局部存储thread-local-storage">线程局部存储(thread local storage)</h3>
+<p>这个功能在 C++ 里由关键字 <code>thread_local</code> 实现，它是一个和 static、extern 同级的变量存储说明，有 thread_local 标记的变量在每个线程里都会有一个独立的副本，是“线程独占”的，所以就不会有竞争读写的问题。   <br />
+linux下的有<code>__thread</code>关键字</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>thread_local int n = <span class="dv">0</span>;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>auto f = [&amp;](int x)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>{</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>    n += x;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>    cout &lt;&lt; n;    <span class="co">//在程序执行后，我们可以看到，两个线程分别输出了 10 和 20，互不干扰。</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>    cout &lt;&lt; <span class="st">&quot;, tid=&quot;</span> &lt;&lt;</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>        this_thread::get_id() &lt;&lt; endl;</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>};</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>thread t1(f, <span class="dv">10</span>);</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>thread t2(f, <span class="dv">20</span>);</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a>t1.join();</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a>t2.join();</span></code></pre></div>
+<p>和 call_once() 一样，thread_local 也很容易使用。但它的应用场合不是那么显而易见的，这要求你对线程的共享数据有清楚的认识，区分出独占的那部分，消除多线程对变量的并发访问</p>
+<h3 id="虚假唤醒">虚假唤醒</h3>
+<p>在不同的语言，甚至不同的操作系统上，条件锁都会产生虚假唤醒（spurious wakeup）现象。所有语言的条件锁库都推荐用户把wait()放进循环里：</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>while (!cond) {   <span class="co">//目的是非真的时候继续等待</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    lock.wait();</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>}</span></code></pre></div>
+<p>在多核处理器下，pthread_cond_signal可能会激活多于一个线程（阻塞在条件变量上的线程）。结果是，当一个线程调用pthread_cond_signal()后，多个调用pthread_cond_wait()或pthread_cond_timedwait()的线程返回。这种效应成为”虚假唤醒”(spurious wakeup)。<br />
+虽然虚假唤醒在pthread_cond_wait函数中可以解决，为了发生概率很低的情况而降低边缘条件（fringe condition）效率是不值得的，纠正这个问题会降低对所有基于它的所有更高级的同步操作的并发度。所以pthread_cond_wait的实现上没有去解它。</p>
+<p><strong>一个队列的例子：</strong><br />
+当一个队列（或者缓冲区）在多线程环境下被共享时，虚假唤醒可能会发生。考虑一个生产者-消费者的场景，其中多个生产者线程向队列中添加数据，多个消费者线程从队列中取出数据。使用条件变量来同步生产者和消费者线程时，虚假唤醒可能会导致消费者在队列为空时被唤醒，尽管队列仍然为空。为了避免这种情况，消费者线程在等待条件变量前会<strong>检查队列是否为空</strong>，如果为空则继续等待，直到有数据可供消费。这样可以确保在唤醒时真正有数据可供消费。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;pthread.h&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;queue&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;unistd.h&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a><span class="dt">pthread_mutex_t</span> mutex = PTHREAD_MUTEX_INITIALIZER;</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a><span class="dt">pthread_cond_t</span> cond = PTHREAD_COND_INITIALIZER;</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a><span class="bu">std::</span>queue&lt;<span class="dt">int</span>&gt; dataQueue;</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a><span class="dt">void</span>* producer(<span class="dt">void</span>* arg) {</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">5</span>; ++i) {</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>        pthread_mutex_lock(&amp;mutex);</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>        dataQueue.push(i);</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>        pthread_cond_signal(&amp;cond); <span class="co">// 唤醒等待的消费者</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a>        pthread_mutex_unlock(&amp;mutex);</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a>        usleep(<span class="dv">500000</span>); <span class="co">// 模拟生产速度</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true"></a>    }</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true"></a>    <span class="cf">return</span> <span class="kw">nullptr</span>;</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true"></a>}</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true"></a><span class="dt">void</span>* consumer(<span class="dt">void</span>* arg) {</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true"></a>    <span class="cf">while</span> (<span class="kw">true</span>) {</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true"></a>        pthread_mutex_lock(&amp;mutex);</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true"></a>        <span class="cf">while</span> (dataQueue.empty()) {</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true"></a>            pthread_cond_wait(&amp;cond, &amp;mutex); <span class="co">// 等待条件变量，释放锁并等待唤醒</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true"></a>        }</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true"></a>        <span class="dt">int</span> data = dataQueue.front();</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true"></a>        dataQueue.pop();</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true"></a>        pthread_mutex_unlock(&amp;mutex);</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Consumer: Processed data &quot;</span> &lt;&lt; data &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true"></a>        usleep(<span class="dv">1000000</span>); <span class="co">// 模拟消费速度</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true"></a>    }</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true"></a>    <span class="cf">return</span> <span class="kw">nullptr</span>;</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true"></a>}</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true"></a>    <span class="dt">pthread_t</span> producerThread, consumerThread1, consumerThread2;</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true"></a>    pthread_create(&amp;producerThread, <span class="kw">nullptr</span>, producer, <span class="kw">nullptr</span>);</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true"></a>    pthread_create(&amp;consumerThread1, <span class="kw">nullptr</span>, consumer, <span class="kw">nullptr</span>);</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true"></a>    pthread_create(&amp;consumerThread2, <span class="kw">nullptr</span>, consumer, <span class="kw">nullptr</span>);</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true"></a></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true"></a>    pthread_join(producerThread, <span class="kw">nullptr</span>);</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true"></a>    pthread_join(consumerThread1, <span class="kw">nullptr</span>);</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true"></a>    pthread_join(consumerThread2, <span class="kw">nullptr</span>);</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true"></a></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="mutex和spinlock">mutex和spinlock</h3>
+<p>mutex和spinlock都是用于多进程多线程编程中用于实现临界区互斥访问的同步机制，只是在<strong>lock失败的时候</strong>处理方式有所不同。<br />
+- <strong>Mutex（互斥锁）</strong>：互斥锁是一种阻塞式的同步机制。当线程尝试获取锁时，如果锁已经被其他线程占用，该线程会进入阻塞状态，直到锁被释放。互斥锁的实现涉及操作系统的系统调用，可以确保资源不被多个线程同时访问。<br />
+- <strong>Spinlock（自旋锁）</strong>：自旋锁是一种忙等待的同步机制。当线程尝试获取锁时，如果锁已经被其他线程占用，该线程会一直循环等待，不会阻塞。自旋锁的实现通常使用原子操作来确保只有一个线程能够成功获取锁。</p>
+<ul>
+<li>mutex：一旦上锁失败就会进入sleep，让其他thread运行，这就需要内核将thread切换到sleep状态，如果mutex又在很短的时间内被释放掉了，那么又需要将此thread再次唤醒，这需要消耗许多CPU指令和时间，这种消耗还不如让thread去轮讯。</li>
+<li>spinlock: 如果其他占用锁的thread解锁的时间很长的话，这种spinlock进行轮讯的方式将会浪费很多CPU资源。</li>
+</ul>
+<h3 id="多线程相关的头文件">多线程相关的头文件</h3>
+<pre><code>&lt;atomic&gt;：该头文主要声明了两个类, std::atomic 和 std::atomic_flag，另外还声明了一套 C 风格的原子类型和与 C 兼容的原子操作的函数。
+&lt;thread&gt;：该头文件主要声明了 std::thread 类，另外 std::this_thread 命名空间也在该头文件中。
+&lt;mutex&gt;：该头文件主要声明了与互斥量(mutex)相关的类，包括 std::mutex 系列类，std::lock_guard, std::unique_lock, 以及其他的类型和函数。
+&lt;condition_variable&gt;：该头文件主要声明了与条件变量相关的类，包括 std::condition_variable 和 std::condition_variable_any。
+&lt;future&gt;：该头文件主要声明了 std::promise, std::package_task 两个 Provider 类，
+以及 std::future 和 std::shared_future 两个 Future 类，另外还有一些与之相关的类型和函数，std::async() 函数就声明在此头文件中。</code></pre>
+<h2 id="一.thread">一.thread</h2>
+<h3 id="stdthread">std::thread</h3>
+<p>拷贝构造函数(被禁用)，thread 不可被拷贝构造。<br />
+拷贝赋值操作被禁用，thread 不可被拷贝。</p>
+<h3 id="创建线程">创建线程</h3>
+<ul>
+<li>函数</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="dt">void</span> do_some_work();</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="bu">std::</span>thread my_thread(do_some_work);</span></code></pre></div>
+<ul>
+<li>函数对象</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="kw">class</span> background_task</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>{</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>  <span class="dt">void</span> <span class="kw">operator</span>()() <span class="at">const</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>  {</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>    do_something();</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>    do_something_else();</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>  }</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>};</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a>background_task f;</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a><span class="bu">std::</span>thread my_thread(f);</span></code></pre></div>
+<ul>
+<li>lambda表达式</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="bu">std::</span>thread my_thread([]{</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>  do_something();</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>  do_something_else();</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>});</span></code></pre></div>
+<p>启动了线程，你需要明确是要等待线程结束，还是让其自主运行如果std::thread对象销毁之前还没有做出决定，程序就会终止，std::thread的析构函数会调用std::terminate()</p>
+<h3 id="stdthis_thread">std::this_thread</h3>
+<p>std::this_thread::yield<br />
+std::this_thread::get_id<br />
+std::this_thread::sleep_for<br />
+std::this_thread::sleep_for(std::chrono::seconds(5));<br />
+std::this_thread::sleep_until</p>
+<h3 id="成员函数">成员函数</h3>
+<ul>
+<li>get_id() 获取线程 ID。</li>
+<li>joinable() 检查线程是否可被 join。</li>
+<li>join() Join 线程。</li>
+<li>detach() Detach 线程</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="dt">void</span> myFunction(<span class="dt">int</span> value) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>    <span class="co">// 线程要执行的代码</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>    <span class="co">// ...</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>}</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>    <span class="dt">int</span> myValue = <span class="dv">42</span>;</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>    <span class="bu">std::</span>thread myThread(myFunction, myValue); <span class="co">// 创建线程并传递参数</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>    <span class="co">// ...</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a>    </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a>    myThread.join(); <span class="co">// 等待线程结束</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="thread中有异常时join">thread中有异常时join</h3>
+<p>异常环境下join，假设主线程在一个函数f()里面创建thread object,接着f()又调用其它函数g(),那么确保在g()以任何方式下退出主线程都能join子线程。如：若g()通过异常退出，那么f()需要捕捉异常后join.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="pp">#include</span><span class="im">&lt;iostream&gt;</span><span class="pp">  </span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="pp">#include</span><span class="im">&lt;boost/thread.hpp&gt;</span><span class="pp">  </span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a><span class="dt">void</span> do_something(<span class="dt">int</span>&amp; i){  </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>    i++;  </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>}  </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a><span class="kw">class</span> func{  </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>    <span class="kw">public</span>:  </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>        func(<span class="dt">int</span>&amp; i):<span class="va">i_</span>(i){}  </span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>        <span class="dt">void</span> <span class="kw">operator</span>() (){  </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>            <span class="cf">for</span>(<span class="dt">int</span> j=<span class="dv">0</span>;j&lt;<span class="dv">100</span>;j++)  </span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a>                do_something(<span class="va">i_</span>);  </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a>        }  </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a>    <span class="kw">public</span>:  </span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true"></a>        <span class="dt">int</span>&amp; <span class="va">i_</span>;  </span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true"></a>};  </span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true"></a><span class="dt">void</span> do_something_in_current_thread(){}  </span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true"></a><span class="dt">void</span> f(){  </span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true"></a>    <span class="dt">int</span> local=<span class="dv">0</span>;  </span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true"></a>    func my_func(local);  </span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true"></a>    <span class="ex">boost::</span>thread t(my_func);  </span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true"></a>    <span class="cf">try</span>{  </span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true"></a>        do_something_in_current_thread();  </span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true"></a>    }  </span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true"></a>    <span class="cf">catch</span>(...){  </span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true"></a>        t.join();<span class="co">//确保在异常条件下join子线程  </span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true"></a>        <span class="cf">throw</span>;  </span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true"></a>    }  </span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true"></a>    t.join();  </span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true"></a>}  </span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true"></a><span class="dt">int</span> main(){  </span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true"></a>    f();  </span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;  </span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true"></a>}</span></code></pre></div>
+<p>上面的方法看起来笨重，有个解决办法是采用RAII(资源获取即初始化)，将一个thread object通过栈对象A管理，在栈对象A析构时调用thread::join.按照局部对象析构是构造的逆序，栈对象A析构完成后再析构thread object。如下：</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;thread&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a><span class="kw">class</span> thread_guard {</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>    <span class="kw">explicit</span> thread_guard(<span class="bu">std::</span>thread&amp; t) : <span class="va">thread_</span>(t) {}</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>    ~thread_guard() {</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a>        <span class="cf">if</span> (<span class="va">thread_</span>.joinable()) {</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a>            <span class="va">thread_</span>.join();</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a>        }</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true"></a>    }</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true"></a>    <span class="co">// 禁止拷贝和移动</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true"></a>    thread_guard(<span class="at">const</span> thread_guard&amp;) = <span class="kw">delete</span>;</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true"></a>    thread_guard&amp; <span class="kw">operator</span>=(<span class="at">const</span> thread_guard&amp;) = <span class="kw">delete</span>;</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true"></a>    <span class="bu">std::</span>thread&amp; <span class="va">thread_</span>;</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true"></a>};</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true"></a><span class="dt">void</span> worker_function() {</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true"></a>    <span class="bu">std::</span>this_thread<span class="bu">::</span>sleep_for(<span class="bu">std::</span>chrono<span class="bu">::</span>seconds(<span class="dv">2</span>));</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Worker thread completed.&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true"></a>}</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true"></a></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true"></a>    <span class="bu">std::</span>thread worker_thread(worker_function);</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true"></a>    thread_guard guard(worker_thread);</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true"></a></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true"></a>    <span class="co">// 主线程继续执行其他操作</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Main thread.&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true"></a></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true"></a>    <span class="co">// worker_thread 在 thread_guard 的析构函数中自动 join</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true"></a></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="二.mutex">二.mutex</h2>
+<h3 id="mutex-系列类四种">Mutex 系列类(四种)</h3>
+<h4 id="stdmutex最基本的-mutex-类">1.std::mutex，最基本的 Mutex 类。</h4>
+<p>std::mutex不允许拷贝构造，也不允许 move 拷贝</p>
+<p>lock()<br />
+调用后3种情况：1.mutex没被锁，得锁 2.mutex被别的线程锁住，阻塞 3.mutex被当前线程锁住，死锁</p>
+<p>try_lock()<br />
+调用后3种情况：1.mutex没被锁，得锁 2.mutex被别的线程锁住，返回 false 3.mutex被当前线程锁住，死锁</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="bu">std::</span>mutex myMutex;</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a><span class="dt">int</span> sharedValue = <span class="dv">0</span>;</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a><span class="dt">void</span> incrementSharedValue() {</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a>    myMutex.lock(); <span class="co">// 锁定互斥锁</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a>    sharedValue++;</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true"></a>    myMutex.unlock(); <span class="co">// 解锁互斥锁</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true"></a>}</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true"></a>    <span class="bu">std::</span>thread t1(incrementSharedValue);</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true"></a>    <span class="bu">std::</span>thread t2(incrementSharedValue);</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true"></a>    t1.join();</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true"></a>    t2.join();</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Shared value: &quot;</span> &lt;&lt; sharedValue &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true"></a>}</span></code></pre></div>
+<h4 id="stdrecursive_mutex递归-mutex-类">2.std::recursive_mutex，递归 Mutex 类</h4>
+<p>允许同一个线程对互斥量多次上锁（即递归上锁）<br />
+std::recursive_mutex 释放互斥量时需要调用与该锁层次深度相同次数的 unlock()，可理解为 lock() 次和 unlock() 次数相同</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;thread&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;mutex&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a><span class="kw">class</span> Logger {</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a>    <span class="dt">void</span> log(<span class="at">const</span> <span class="bu">std::</span>string&amp; message) {</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a>        <span class="bu">std::</span>lock_guard&lt;<span class="bu">std::</span>recursive_mutex&gt; lock(<span class="va">mutex_</span>);</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; getTimeStamp() &lt;&lt; <span class="st">&quot; [Thread &quot;</span> &lt;&lt; <span class="bu">std::</span>this_thread<span class="bu">::</span>get_id() &lt;&lt; <span class="st">&quot;] &quot;</span> &lt;&lt; message &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a>    }</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a>    <span class="dt">void</span> logWithPrefix(<span class="at">const</span> <span class="bu">std::</span>string&amp; prefix, <span class="at">const</span> <span class="bu">std::</span>string&amp; message) {</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a>        <span class="bu">std::</span>lock_guard&lt;<span class="bu">std::</span>recursive_mutex&gt; lock(<span class="va">mutex_</span>);</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true"></a>        log(prefix + <span class="st">&quot;: &quot;</span> + message);  <span class="co">// 不用怕死锁了</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true"></a>    }</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true"></a>    <span class="bu">std::</span>string getTimeStamp() {</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true"></a>        <span class="co">// 获取时间戳</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true"></a>        <span class="cf">return</span> <span class="st">&quot;[timestamp]&quot;</span>;</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true"></a>    }</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true"></a>    <span class="bu">std::</span>recursive_mutex <span class="va">mutex_</span>;</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true"></a>};</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true"></a></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true"></a>    Logger logger;</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true"></a>    <span class="bu">std::</span>thread t1([&amp;logger] {</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true"></a>        logger.log(<span class="st">&quot;This is a log message from thread 1.&quot;</span>);</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true"></a>        logger.logWithPrefix(<span class="st">&quot;INFO&quot;</span>, <span class="st">&quot;This is an information message from thread 1.&quot;</span>);</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true"></a>    });</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true"></a></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true"></a>    <span class="bu">std::</span>thread t2([&amp;logger] {</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true"></a>        logger.log(<span class="st">&quot;This is a log message from thread 2.&quot;</span>);</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true"></a>        logger.logWithPrefix(<span class="st">&quot;WARNING&quot;</span>, <span class="st">&quot;This is a warning message from thread 2.&quot;</span>);</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true"></a>    });</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true"></a></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true"></a>    t1.join();</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true"></a>    t2.join();</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true"></a></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true"></a>}</span></code></pre></div>
+<h4 id="stdtime_mutex定时-mutex-类">3.std::time_mutex，定时 Mutex 类</h4>
+<p>std::time_mutex比 std::mutex 多了两个成员函数，try_lock_for()，try_lock_until()。</p>
+<ul>
+<li>try_lock_for <br />
+<code>try_lock_for</code> 方法会等待一段指定的时间，如果在这段时间内获取到了锁，则返回 <code>true</code>，表示成功获取锁。如果超过指定时间还没有获取到锁，则返回 <code>false</code>，表示未成功获取锁。</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="bu">std::</span>timed_mutex myTimedMutex;</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="cf">if</span> (myTimedMutex.try_lock_for(<span class="bu">std::</span>chrono<span class="bu">::</span>seconds(<span class="dv">2</span>))) {</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a>    <span class="co">// 成功获取锁，执行操作</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>    myTimedMutex.unlock();</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a>} <span class="cf">else</span> {</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>    <span class="co">// 未成功获取锁，在等待时间内没有获取到</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a>}</span></code></pre></div>
+<ul>
+<li>try_lock_until <br />
+<code>try_lock_until</code> 方法会等待直到指定的时间点，如果在这个时间点之前获取到了锁，则返回 <code>true</code>，表示成功获取锁。如果直到指定时间点仍然没有获取到锁，则返回 <code>false</code>，表示未成功获取锁。</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="bu">std::</span>timed_mutex myTimedMutex;</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="kw">auto</span> timeout = <span class="bu">std::</span>chrono<span class="bu">::</span>steady_clock<span class="bu">::</span>now() + <span class="bu">std::</span>chrono<span class="bu">::</span>seconds(<span class="dv">2</span>);</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a><span class="cf">if</span> (myTimedMutex.try_lock_until(timeout)) {</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a>    <span class="co">// 成功获取锁，执行操作</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a>    myTimedMutex.unlock();</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true"></a>} <span class="cf">else</span> {</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true"></a>    <span class="co">// 未成功获取锁，在指定时间点之前没有获取到</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true"></a>}</span></code></pre></div>
+<h4 id="stdrecursive_timed_mutex定时递归-mutex-类">4.std::recursive_timed_mutex，定时递归 Mutex 类。</h4>
+<p>std::time_mutex和std::recursive_mutex结合</p>
+<h4 id="shared_mutex读写锁">5.shared_mutex(读写锁)</h4>
+<p>C++11 标准库引入了类似于 pthread_rwlock 的读写锁的概念，称为 std::shared_mutex。std::shared_mutex 允许多个线程同时共享读访问，并在需要时独占写访问。这种锁的设计能够提高并发性，允许多个线程并发地读取数据，但在写入数据时仍然保持独占访问。</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;thread&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;shared_mutex&gt;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a><span class="bu">std::</span>shared_mutex rwLock;</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a><span class="dt">int</span> data = <span class="dv">0</span>;</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true"></a><span class="dt">void</span> reader() {</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true"></a>    <span class="bu">std::</span>shared_lock&lt;<span class="bu">std::</span>shared_mutex&gt; lock(rwLock);</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Reader: Data is &quot;</span> &lt;&lt; data &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true"></a>}</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true"></a><span class="dt">void</span> writer() {</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true"></a>    <span class="bu">std::</span>unique_lock&lt;<span class="bu">std::</span>shared_mutex&gt; lock(rwLock);</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true"></a>    data++;</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Writer: Data is updated to &quot;</span> &lt;&lt; data &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true"></a>}</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true"></a>    <span class="bu">std::</span>thread readers[<span class="dv">3</span>];</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true"></a>    <span class="bu">std::</span>thread writers[<span class="dv">2</span>];</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true"></a></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">3</span>; ++i) {</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true"></a>        readers[i] = <span class="bu">std::</span>thread(reader);</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true"></a>    }</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true"></a></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">2</span>; ++i) {</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true"></a>        writers[i] = <span class="bu">std::</span>thread(writer);</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true"></a>    }</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true"></a></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">3</span>; ++i) {</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true"></a>        readers[i].join();</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true"></a>    }</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true"></a></span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">2</span>; ++i) {</span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true"></a>        writers[i].join();</span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true"></a>    }</span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true"></a></span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="lock-类两种">Lock 类（两种）</h3>
+<p>lock_guard和unique_lock的区别</p>
+<ol>
+<li><strong>锁的灵活性</strong>：
+<ul>
+<li><code>std::lock_guard</code>：是一个简单的互斥锁管理类，只提供了锁定和解锁的功能。一旦创建了 <code>std::lock_guard</code> 对象，它会在构造函数中锁定互斥锁，在析构函数中解锁互斥锁。由于其在构造函数和析构函数中自动处理锁的生命周期，因此没有手动的锁定和解锁操作。</li>
+<li><code>std::unique_lock</code>：提供了更大的灵活性。除了自动锁定和解锁外，<code>std::unique_lock</code> 还可以在构造函数中选择是否锁定互斥锁，并在适当的时候使用 <code>lock()</code> 和 <code>unlock()</code> 方法手动控制锁的范围。此外，<code>std::unique_lock</code> 还可以在构造函数中指定锁的延迟和适当的策略，如 <code>std::defer_lock</code>（延迟锁定）和 <code>std::adopt_lock</code>（假定已锁定）等。</li>
+</ul></li>
+<li><strong>锁定状态的改变</strong>：
+<ul>
+<li><code>std::lock_guard</code>：一旦创建，会立即锁定互斥锁，无法手动解锁，只有在对象生命周期结束时才会解锁互斥锁。</li>
+<li><code>std::unique_lock</code>：可以在对象生命周期内多次锁定和解锁互斥锁，根据需要更灵活地控制锁定状态。可以在不同的作用域中锁定和解锁，从而降低锁定的范围。</li>
+</ul></li>
+<li><strong>性能</strong>：
+<ul>
+<li><code>std::lock_guard</code>：由于其自动锁定和解锁的特性，在大多数情况下更轻量级，性能上可能更好。</li>
+<li><code>std::unique_lock</code>：由于其灵活性和更多的功能，可能在某些情况下稍微比 <code>std::lock_guard</code> 更重，因此在性能敏感的场景中，需要考虑其性能开销。</li>
+</ul></li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;mutex&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;thread&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;chrono&gt;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a> </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a>struct Box {</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a>    explicit Box(int num) : num_things{num} {}</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true"></a> </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true"></a>    int num_things;</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true"></a>    <span class="bu">std::</span>mutex m;</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true"></a>};</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true"></a> </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true"></a>void transfer(Box &amp;from, Box &amp;to, int num)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true"></a>{</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true"></a>    <span class="co">// 仍未实际取锁</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true"></a>    <span class="bu">std::</span>unique_lock&lt;<span class="bu">std::</span>mutex&gt; lock1(from.m, <span class="bu">std::</span>defer_lock);</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true"></a>    <span class="bu">std::</span>unique_lock&lt;<span class="bu">std::</span>mutex&gt; lock2(to.m, <span class="bu">std::</span>defer_lock);</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true"></a> </span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true"></a>    <span class="co">// 锁两个 unique_lock 而不死锁</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true"></a>    <span class="bu">std::</span>lock(lock1, lock2);</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true"></a> </span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true"></a>    from.num_things -= num;</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true"></a>    to.num_things += num;</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true"></a> </span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true"></a>    <span class="co">// &#39;from.m&#39; 与 &#39;to.m&#39; 互斥解锁于 &#39;unique_lock&#39; 析构函数</span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true"></a>}</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true"></a> </span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true"></a>int main()</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true"></a>{</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true"></a>    Box acc1(<span class="dv">100</span>);</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true"></a>    Box acc2(<span class="dv">50</span>);</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true"></a> </span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true"></a>    <span class="bu">std::</span>thread t1(transfer, <span class="bu">std::</span>ref(acc1), <span class="bu">std::</span>ref(acc2), <span class="dv">10</span>);</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true"></a>    <span class="bu">std::</span>thread t2(transfer, <span class="bu">std::</span>ref(acc2), <span class="bu">std::</span>ref(acc1), <span class="dv">5</span>);</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true"></a> </span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true"></a>    t1.join();</span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true"></a>    t2.join();</span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="函数">函数</h3>
+<ul>
+<li>std::call_once，如果多个线程需要同时调用某个函数，call_once可以保证多个线程对该函数只调用一次。</li>
+<li>std::try_lock，尝试同时对<strong>多个互斥量</strong>上锁。</li>
+<li>std::lock，可以同时对多个互斥量上锁。</li>
+</ul>
+<h2 id="三.future">三.future</h2>
+<p>Futures 会将处于等待状态的操作包裹起来放到队列中，这些操作的状态随时可以查询，当然它们的结果（或是异常）也能够在操作完成后被获取。</p>
+<h3 id="stdfuture">std::future</h3>
+<p>std::future 可以用来获取<strong>异步任务的结果</strong>，因此可以把它当成一种简单的线程间同步的手段。<br />
+std::future 通常由某个 Provider 创建，你可以把 Provider 想象成一个<strong>异步任务的提供者</strong></p>
+<p>Provider 在某个线程中设置共享状态的值，与该共享状态相关联的 std::future 对象调用 get（通常在另外一个线程中）获取该值<br />
+一个有效(valid)的 std::future 对象通常由以下三种 Provider 创建，并和某个共享状态相关联<br />
+* std::async() <br />
+* std::promise::get_future()<br />
+* std::packaged_task::get_future()</p>
+<h4 id="future相关方法">future相关方法</h4>
+<pre><code>* std::future&lt;T&gt;::get()
+* std::future::valid    Checks if the future refers to a shared state.
+* std::future::wait()   等待与当前std::future 对象相关联的共享状态的标志变为 ready，如没有ready则阻塞
+* std::future::wait_for()
+* std::future::wait_until()</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="co">// a non-optimized way of checking for prime numbers:</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a><span class="dt">bool</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a>is_prime(int x)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true"></a>{</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true"></a>    for (int i = <span class="dv">2</span>; i &lt; x; ++i)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true"></a>        if (x % i == <span class="dv">0</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true"></a>            return false;</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true"></a>    return true;</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true"></a>}</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true"></a><span class="dt">int</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true"></a>main()</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true"></a>{</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true"></a>    <span class="co">// call function asynchronously:</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true"></a>    <span class="bu">std::</span>future &lt; bool &gt; fut = <span class="bu">std::</span>async(is_prime, <span class="dv">444444443</span>);</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true"></a></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true"></a>    <span class="co">// do something while waiting for function to set future:</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;checking, please wait&quot;</span>;</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true"></a>    <span class="bu">std::</span>chrono<span class="bu">::</span>milliseconds span(<span class="dv">100</span>);</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true"></a>    while (fut.wait_for(span) == <span class="bu">std::</span>future_status<span class="bu">::</span>timeout)</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="ch">&#39;.&#39;</span>;</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true"></a></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true"></a>    bool x = fut.get();         <span class="co">// retrieve return value， 没有值时会被阻塞</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true"></a></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;</span><span class="sc">\n</span><span class="st">444444443 &quot;</span> &lt;&lt; (x ? <span class="st">&quot;is&quot;</span> : <span class="st">&quot;is not&quot;</span>) &lt;&lt; <span class="st">&quot; prime.</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true"></a></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="promise">promise</h3>
+<p>和Future配对，作为一种future的Provider,表示对future的承诺。<br />
+Promise的使用是很简单的：首先是创建Promise，然后从它“提取”出一个Future,最后在适当的时候<strong>向Promise填充</strong>一个值或者是异常。<br />
+promise 对象可以保存某一类型 T 的值，该值可被 future 对象读取（可能在另外一个线程中），因此 promise 也提供了一种<strong>线程同步</strong>的手段。<br />
+可以通过 get_future 来获取与该 promise 对象相关联的 future 对象</p>
+<p>通过promise的set_value许诺，然后通过future获取期值</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a>void print_int(<span class="bu">std::</span>future&lt;<span class="dt">int</span>&gt;&amp; fut) {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a>    int x = fut.get();     <span class="co">// 获取共享状态的值,没有的时候会被阻塞</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;value: &quot;</span> &lt;&lt; x &lt;&lt; <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>; <span class="co">// 打印 value: 10.</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a>}</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true"></a>int main ()</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true"></a>{</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true"></a>    <span class="bu">std::</span>promise&lt;<span class="dt">int</span>&gt; prom;   <span class="co">// 生成一个 std::promise&lt;int&gt; 对象.</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true"></a>    <span class="bu">std::</span>future&lt;<span class="dt">int</span>&gt; fut = prom.get_future(); <span class="co">// 和 future 关联.</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true"></a>    <span class="bu">std::</span>thread t(print_int, <span class="bu">std::</span>ref(fut)); <span class="co">// 将 future 交给另外一个线程t.</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true"></a>    prom.set_value(<span class="dv">10</span>); <span class="co">// promise用来设置共享状态的值，future用来获取共享状态的值</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true"></a>    t.join();</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="packaged_task">packaged_task </h3>
+<p>即异步等待一个<strong>任务</strong>完成，并获取其结果<br />
+std::packaged_task包装一个<strong>可调用的对象</strong>，并且允许异步获取该可调用对象产生的结果<br />
+可以通过 std::packged_task::get_future 来获取与共享状态相关联的 std::future 对象</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a><span class="co">// count down taking a second for each value:</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a>int countdown (int from, int to) {</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a>    for (int i=from; i!=to; --i) {</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; i &lt;&lt; <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>;</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true"></a>        <span class="bu">std::</span>this_thread<span class="bu">::</span>sleep_for(<span class="bu">std::</span>chrono<span class="bu">::</span>seconds(<span class="dv">1</span>));</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true"></a>    }</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Finished!</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true"></a>    return from - to;</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true"></a>}</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true"></a>int main ()</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true"></a>{</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true"></a>    <span class="co">// 设置 packaged_task</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true"></a>    <span class="bu">std::</span>packaged_task&lt;<span class="dt">int</span>(<span class="dt">int</span>,<span class="dt">int</span>)&gt; task(countdown);</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true"></a>    <span class="co">// 获得与 packaged_task 共享状态相关联的 future 对象.</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true"></a>    <span class="bu">std::</span>future&lt;<span class="dt">int</span>&gt; ret = task.get_future();</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true"></a>    <span class="co">//创建一个新线程完成计数任务.</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true"></a>    <span class="bu">std::</span>thread th(<span class="bu">std::</span>move(task), <span class="dv">10</span>, <span class="dv">0</span>);</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true"></a></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true"></a>    int value = ret.get();   <span class="co">// 等待任务完成并获取结果.</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;The countdown lasted for &quot;</span> &lt;&lt; value &lt;&lt; <span class="st">&quot; seconds.</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true"></a></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true"></a>    th.join();</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="四.condition_variable">四.condition_variable</h2>
+<p>std::condition_variable_any的wait函数能够接受不论什么 lockable參数<br />
+std::condition_variable  仅仅能接受 std::unique_lock<std::mutex>类型的參数</p>
+<h3 id="stdcondition_variablewait">std::condition_variable::wait() </h3>
+<h4 id="unconditional">1.unconditional     </h4>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a>void wait (unique_lock&lt;mutex&gt;&amp; lck);</span></code></pre></div>
+<p>在线程被阻塞时，该函数会自动调用 lck.unlock() 释放锁，使得其他被阻塞在锁竞争上的线程得以继续执行。另外，一旦当前线程获得通知(notified，通常是另外某个线程调用 <code>notify_*</code> 唤醒了当前线程)，wait() 函数也是自动调用 lck.lock()，使得 lck 的状态和 wait 函数被调用时相同。</p>
+<h4 id="predicate">2.predicate   </h4>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a>template &lt;class Predicate&gt;</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true"></a>  void wait (unique_lock&lt;mutex&gt;&amp; lck, Predicate pred);</span></code></pre></div>
+<p>在第二种情况下（即设置了 Predicate），只有当 pred 条件为 false 时调用 wait() 才会阻塞当前线程，true的时候不阻塞，直接返回。并且在收到其他线程的通知后只有当 pred 为 true 时才会被解除阻塞</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="bu">std::</span>mutex mtx;</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a><span class="bu">std::</span>condition_variable cv;</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true"></a><span class="dt">bool</span> ready = <span class="kw">false</span>;</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true"></a><span class="dt">void</span> worker_thread() {</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true"></a>    <span class="bu">std::</span>this_thread<span class="bu">::</span>sleep_for(<span class="bu">std::</span>chrono<span class="bu">::</span>seconds(<span class="dv">2</span>));</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true"></a>    <span class="bu">std::</span>unique_lock&lt;<span class="bu">std::</span>mutex&gt; lck(mtx);</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true"></a>    ready = <span class="kw">true</span>;</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true"></a>    cv.notify_one();</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true"></a>}</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true"></a>    <span class="bu">std::</span>thread worker(worker_thread);</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true"></a></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true"></a>    <span class="bu">std::</span>unique_lock&lt;<span class="bu">std::</span>mutex&gt; lck(mtx);</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true"></a>    cv.wait(lck, []{ <span class="cf">return</span> ready; }); <span class="co">// 等待条件变量满足</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true"></a></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Worker thread finished.&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true"></a></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true"></a>    worker.join();</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true"></a></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="stdcondition_variablewait_for">std::condition_variable::wait_for() </h3>
+<p>wait_for 可以指定一个时间段，在当前线程收到通知或者指定的时间 rel_time 超时之前，该线程都会处于阻塞状态。而一旦超时或者收到了其他线程的通知，wait_for 返回，剩下的处理步骤和 wait() 类似</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="bu">std::</span>mutex mtx;</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true"></a><span class="bu">std::</span>condition_variable cv;</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true"></a><span class="dt">bool</span> ready = <span class="kw">false</span>;</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true"></a><span class="dt">void</span> worker_thread() {</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true"></a>    <span class="bu">std::</span>this_thread<span class="bu">::</span>sleep_for(<span class="bu">std::</span>chrono<span class="bu">::</span>seconds(<span class="dv">2</span>));</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true"></a>    <span class="bu">std::</span>unique_lock&lt;<span class="bu">std::</span>mutex&gt; lck(mtx);</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true"></a>    ready = <span class="kw">true</span>;</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true"></a>    cv.notify_one();</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true"></a>}</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true"></a></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true"></a>    <span class="bu">std::</span>thread worker(worker_thread);</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true"></a></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true"></a>    <span class="bu">std::</span>unique_lock&lt;<span class="bu">std::</span>mutex&gt; lck(mtx);</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true"></a>    <span class="bu">std::</span>cv_status status = cv.wait_for(lck, <span class="bu">std::</span>chrono<span class="bu">::</span>seconds(<span class="dv">3</span>));</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true"></a></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true"></a>    <span class="cf">if</span> (status == <span class="bu">std::</span>cv_status<span class="bu">::</span>no_timeout) {</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Worker thread finished.&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true"></a>    } <span class="cf">else</span> {</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Timeout occurred.&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true"></a>    }</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true"></a></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true"></a>    worker.join();</span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true"></a></span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="stdcondition_variablewait_until">std::condition_variable::wait_until</h3>
+<p>wait_until 可以指定一个时间点,效果和wait_for类似 </p>
+<h3 id="stdcondition_variablenotify_one">std::condition_variable::notify_one()</h3>
+<p>唤醒某个等待(wait)线程。如果当前没有等待线程，则该函数什么也不做，如果同时存在多个等待线程，则唤醒某个线程是不确定的(unspecified)。</p>
+<h3 id="stdcondition_variablenotify_all">std::condition_variable::notify_all() </h3>
+<p>唤醒所有的等待(wait)线程。如果当前没有等待线程，则该函数什么也不做。</p>
+<h2 id="五.atomic">五.atomic</h2>
+<p>所谓原子（atomic），在多线程领域里的意思就是不可分的。操作要么完成，要么未完成，不能被任何外部操作打断，总是有一个确定的、完整的状态。所以也就不会存在竞争读写的问题，不需要使用互斥量来同步，成本也就更低。<br />
+目前，C++ 只能让一些最基本的类型原子化，<br />
+和普通变量的区别是，<strong>原子变量禁用了拷贝构造函数</strong>，所以在初始化的时候不能用“=”的赋值形式，只能用圆括号或者花括号。<br />
+最基本的用法是把原子变量当作线程安全的<strong>全局计数器或者标志位</strong>，这也算是“初心”吧。<br />
+但它还有一个更重要的应用领域，就是实现高效的无锁数据结构（lock-free）。<br />
+但我强烈不建议你自己尝试去写无锁数据结构，因为无锁编程的难度比使用互斥量更高，可能会掉到各种难以察觉的“坑”（例如 ABA）里，最好还是用现成的库。<br />
+遗憾的是，标准库在这方面帮不了你，虽然网上可以找到不少开源的无锁数据结构，但经过实际检验的不多，我个人觉得你可以考虑 boost.lock_free。</p>
+<p>锁是一种<strong>悲观的策略</strong>。它总是假设每一次的临界区操作会产生冲突，因此，必须对每次操作都小心翼翼。如果有多个线程同时需要访问临界区资源，就宁可牺牲性能让线程进行等待，所以说锁会阻塞线程执行。而无锁是一种<strong>乐观的策略</strong>，它会假设对资源的访问时没有冲突的。既然没有冲突，自然不需要等待，所以所有的线程都可以在不停顿的状态下执行。无锁的策略使用<strong>CAS</strong>（compare and swap）比较交换技术来鉴别线程冲突，一旦检测到冲突产生，就<strong>重试当前操作</strong>直到没有冲突为止。<br />
+对CAS的理解，CAS是一种无锁算法，CAS有3个操作数，内存值V，旧的预期值A，要修改的新值B。当且仅当预期值A和内存值V相同时，将内存值V修改为B，否则什么都不做。</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="co">//AtomicInteger.conpareAndSet(int expect, indt update)</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true"></a><span class="kw">public</span> <span class="dt">final</span> <span class="dt">boolean</span> <span class="fu">compareAndSet</span>(<span class="dt">int</span> expect, <span class="dt">int</span> update) {</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true"></a>        <span class="kw">return</span> unsafe.<span class="fu">compareAndSwapInt</span>(<span class="kw">this</span>, valueOffset, expect, update);</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true"></a>}</span></code></pre></div>
+<p>第一个参数expect为期望值，如果期望值跟内存值还是一致，进行update赋值，如果期望值不一致，证明数据被修改过，返回fasle，取消赋值。</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true"></a>static atomic_flag flag {<span class="kw">false</span>};</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true"></a>static atomic_int n;</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true"></a>auto f = [&amp;]()</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true"></a>{</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true"></a>    auto value = flag.test_and_set();</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true"></a></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true"></a>    if (value) {</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true"></a>        cout &lt;&lt; <span class="st">&quot;flag has been set.&quot;</span> &lt;&lt; endl;</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true"></a>    } else {</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true"></a>        cout &lt;&lt; <span class="st">&quot;set flag by &quot;</span> &lt;&lt;</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true"></a>            this_thread::get_id() &lt;&lt; endl;</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true"></a>    }</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true"></a></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true"></a>    n += <span class="dv">100</span>;</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true"></a></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true"></a>    this_thread::sleep_for(n.load() * <span class="dv">10</span><span class="bu">ms</span>);</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true"></a>    cout &lt;&lt; n &lt;&lt; endl;</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true"></a>};</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true"></a></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true"></a>thread t1(f);</span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true"></a>thread t2(f);</span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true"></a></span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true"></a>t1.join();</span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true"></a>t2.join();</span></code></pre></div>
+<h2 id="六.信号量">六.信号量</h2>
+<p>c++11中有互斥和条件变量<strong>但是并没有信号量</strong>，但是利用互斥和条件变量很容易就能实现信号量。<br />
+信号量是一个整数 count，提供两个原子(atom，不可分割)操作：P 操作和 V 操作，或是说 wait 和 signal 操作。<br />
+* P操作 (wait操作)：count 减1；如果 count &lt; 0 那么挂起执行线程；<br />
+* V操作 (signal操作)：count 加1；如果 count &lt;= 0(说明有其他的线程在等待) 那么唤醒一个执行线程；  </p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a>class semaphore</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true"></a>{</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true"></a>    semaphore(int value = <span class="dv">1</span>) :count(value) {}</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true"></a>    void wait()</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true"></a>    {</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true"></a>        unique_lock&lt;mutex&gt; lck(mtk);</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true"></a>        if (--count &lt; <span class="dv">0</span>)    <span class="co">//资源不足挂起线程</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true"></a>            cv.wait(lck);</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true"></a>    }</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true"></a></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true"></a>    void signal()</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true"></a>    {</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true"></a>        unique_lock&lt;mutex&gt; lck(mtk);</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true"></a>        if (++count &lt;= <span class="dv">0</span>)   <span class="co">//有线程挂起，唤醒一个, 说明有其他的线程在等待</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true"></a>            cv.notify_one();</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true"></a>    }</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true"></a></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true"></a>    int count;</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true"></a>    mutex mtk;</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true"></a>    condition_variable cv;</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true"></a>};</span></code></pre></div>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://github.com/xiaoweiChen/CPP-Concurrency-In-Action-2ed-2019">Cpp-Concurrency-in-Action github第二版翻译</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

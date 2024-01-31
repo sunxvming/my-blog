@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/极客时间-罗剑锋的C++实战笔记</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#开篇词-把c从神坛上拉下来这次咱这么学">开篇词 | 把C++从“神坛”上拉下来，这次咱这么学</a></li>
+<li><a href="#课前准备-搭建实验环境">课前准备 | 搭建实验环境</a></li>
+<li><a href="#重新认识c生命周期和编程范式">01 | 重新认识C++：生命周期和编程范式</a>
+<ul>
+<li><a href="#c-程序的生命周期">C++ 程序的生命周期</a></li>
+<li><a href="#c-语言的编程范式paradigm">C++ 语言的编程范式(Paradigm)</a></li>
+</ul></li>
+<li><a href="#编码阶段能做什么秀出好的code-style">02 | 编码阶段能做什么：秀出好的code style</a></li>
+<li><a href="#预处理阶段能做什么宏定义和条件编译">03 | 预处理阶段能做什么：宏定义和条件编译</a>
+<ul>
+<li><a href="#包含文件include">包含文件（<code>#include</code>）</a></li>
+<li><a href="#条件编译">条件编译</a></li>
+</ul></li>
+<li><a href="#编译阶段能做什么属性和静态断言">04 | 编译阶段能做什么：属性和静态断言</a>
+<ul>
+<li><a href="#属性attribute">属性（attribute）</a></li>
+<li><a href="#静态断言static_assert">静态断言（static_assert）</a></li>
+</ul></li>
+<li><a href="#面向对象编程怎样才能写出一个好的类">05 | 面向对象编程：怎样才能写出一个“好”的类？</a>
+<ul>
+<li><a href="#常用技巧">常用技巧</a></li>
+</ul></li>
+<li><a href="#autodecltype为什么要有自动类型推导">06 | auto/decltype：为什么要有自动类型推导？</a>
+<ul>
+<li><a href="#auto">auto</a></li>
+<li><a href="#decltype">decltype</a></li>
+</ul></li>
+<li><a href="#constvolatilemutable常量变量究竟是怎么回事">07 | const/volatile/mutable：常量/变量究竟是怎么回事？</a></li>
+<li><a href="#smart_ptr智能指针到底智能在哪里">08 | smart_ptr：智能指针到底“智能”在哪里？</a></li>
+<li><a href="#exception怎样才能用好异常">09 | exception：怎样才能用好异常？</a></li>
+<li><a href="#lambda函数式编程带来了什么">10 | lambda：函数式编程带来了什么？</a></li>
+<li><a href="#一枝独秀的字符串c也能处理文本">11 | 一枝独秀的字符串：C++也能处理文本？</a>
+<ul>
+<li><a href="#字面量后缀">1. 字面量后缀</a></li>
+<li><a href="#原始字符串">2. 原始字符串</a></li>
+<li><a href="#字符串转换函数">3. 字符串转换函数</a></li>
+<li><a href="#字符串视图类">4. 字符串视图类</a></li>
+<li><a href="#正则表达式">5. 正则表达式</a></li>
+</ul></li>
+<li><a href="#三分天下的容器恰当选择事半功倍">12 | 三分天下的容器：恰当选择，事半功倍</a></li>
+<li><a href="#五花八门的算法不要再手写for循环了">13 | 五花八门的算法：不要再手写for循环了</a></li>
+<li><a href="#十面埋伏的并发多线程真的很难吗">14 | 十面埋伏的并发：多线程真的很难吗？</a></li>
+<li><a href="#序列化简单通用的数据交换格式有哪些">15 | 序列化：简单通用的数据交换格式有哪些？</a></li>
+<li><a href="#网络通信我不想写原生socket">16 | 网络通信：我不想写原生Socket</a>
+<ul>
+<li><a href="#libcurl高可移植功能丰富的通信库">libcurl：高可移植、功能丰富的通信库</a></li>
+<li><a href="#cpr更现代更易用的通信库">cpr：更现代、更易用的通信库</a></li>
+</ul></li>
+<li><a href="#脚本语言搭建高性能的混合系统">17 | 脚本语言：搭建高性能的混合系统</a>
+<ul>
+<li><a href="#python">Python</a></li>
+<li><a href="#lua">lua</a></li>
+</ul></li>
+<li><a href="#性能分析找出程序的瓶颈">18 | 性能分析：找出程序的瓶颈</a>
+<ul>
+<li><a href="#pstack">pstack</a></li>
+<li><a href="#perf">perf</a></li>
+<li><a href="#源码级工具">源码级工具</a></li>
+</ul></li>
+<li><a href="#设计模式上c与设计模式有啥关系">19 | 设计模式（上）：C++与设计模式有啥关系？</a>
+<ul>
+<li><a href="#学习理解设计原则才能用好多范式的-c">学习、理解设计原则，才能用好多范式的 C++</a></li>
+</ul></li>
+<li><a href="#设计模式下c是怎么应用设计模式的">20 | 设计模式（下）：C++是怎么应用设计模式的？</a></li>
+<li><a href="#轻松话题一-4本值得一读再读的经典好书">轻松话题（一） | 4本值得一读再读的经典好书</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p><a href="https://github.com/chronolaw/cpp_study">github</a></p>
+<h2 id="开篇词-把c从神坛上拉下来这次咱这么学">开篇词 | 把C++从“神坛”上拉下来，这次咱这么学</h2>
+<ul>
+<li>有两种写程序的方式：一种是把代码写得非常复杂，以至于“看不出明显的错误”；另一种是把代码写得非常简单，以至于“明显看不出错误”。</li>
+<li>“把正确的代码改快速”，要比“把快速的代码改正确”，容易得太多。</li>
+</ul>
+<h2 id="课前准备-搭建实验环境">课前准备 | 搭建实验环境</h2>
+<p>Linux 也是版本众多，最常见的是 RedHat 系的 CentOS 和 Debian 系的 Ubuntu。<br />
+这两个被很多企业广泛采用，但 CentOS 通常比较“稳定”，更新较慢，CentOS 7 的Gcc版本是 4.8，对 C++ 标准的支持很不完善，极大地限制了C++ 能力的发挥。<br />
+而Ubuntu 16.04的 GCC版本是 5.4，完美支持 C++11/14。<br />
+当然，你要是愿意安装更新的 18.04、20.04 也没有问题，它们里面的 GCC 版本更高，支持 C++17，只不过有点“功能过剩”。<br />
+Ubuntu的版本基本上是和年份一致的，如20版的是20年的。</p>
+<h2 id="重新认识c生命周期和编程范式">01 | 重新认识C++：生命周期和编程范式</h2>
+<h3 id="c-程序的生命周期">C++ 程序的生命周期</h3>
+<p>一个 C++ 程序从“诞生”到“消亡”，要经历这么几个阶段：编码（Coding）、预处理（Pre-processing）、编译（Compiling）和运行（Running）。<br />
+“预处理”的目的是文字替换，用到的就是我们熟悉的各种预处理指令，比如 <code>#include</code>、<code>#define</code>、<code>#if</code> 等，实现“预处理编程”。<br />
+不过，你要注意的是，它们都以符号“<code>#</code>”开头，虽然是 C++ 程序的一部分，但严格来说<strong>不属于 C++ 语言的范畴</strong>，因为它走的是预处理器。</p>
+<p>在编译的过程中，编译器还会根据 C++ 语言规则检查程序的语法、语义是否正确，发现错误就会产生“编译失败”。这就是最基本的 C++“静态检查”。<br />
+在处理源码时，由于编译器是依据 C++ 语法检查各种类型、函数的定义，所以，在这个阶段，我们就能够<strong>以编译器为目标进行编程</strong>，有意识地控制编译器的行为。这里有个新名词，叫“模板元编程”。不过，“模板元编程”比较复杂，不太好理解，属于比较高级的用法.</p>
+<p>还有，别忘了软件工程里的“蝴蝶效应”“混沌理论”，大概意思是：一个 Bug 在越早的阶段发现并解决，它的价值就越高；一个 Bug 在越晚的阶段发现并解决，它的成本就越高。所以，依据这个生命周期模型，我们应该在“编码”“预处理”“编译”这前面三个阶段多下功夫，消灭 Bug，优化代码，尽量不要让 Bug 在“运行”阶段才暴露出来，也就是所谓的“把问题扼杀在萌芽期”。</p>
+<h3 id="c-语言的编程范式paradigm">C++ 语言的编程范式(Paradigm)</h3>
+<p>“编程范式”是一种“方法论”，就是<strong>指导你编写代码的一些思路、规则、习惯、定式和常用语</strong>。<br />
+C++（11/14 以后）支持“面向过程”“面向对象”“泛型”“模板元”“函数式”这五种主要的编程范式</p>
+<p>说得具体一点，就是要认识、理解这些范式的优势和劣势，在程序里适当混用，取长补短才是“王道”。<br />
+说到这儿，你肯定很关心，该选择哪种编程范式呢？<br />
+拿我自己来说，我的出发点是“尽量让周围的人都能看懂代码”，所以常用的范式是“过程+ 对象 + 泛型”，再加上少量的“函数式”，慎用“模板元”。</p>
+<p>如果是开发直接面对用户的普通应用（Application），那么你可以再研究一下“泛型”和“函数式”，就基本可以解决 90% 的开发问题了；如果是开发面向程序员的库（Library），那么你就有必要深入了解“泛型”和“模板元”，优化库的接口和运行效率。</p>
+<h2 id="编码阶段能做什么秀出好的code-style">02 | 编码阶段能做什么：秀出好的code style</h2>
+<ul>
+<li><p>空格与空行<br />
+不同逻辑段的代码用空格隔开，加上了适当的空格和空行后，代码就显得错落有致，舒缓得当</p></li>
+<li><p>起个好名字<br />
+一些已经在程序员之间形成了普遍共识的变量名，比如用于循环的i/j/k、用于计数的 count、表示指针的 p/ptr、表示缓冲区的 buf/buffer、表示变化量的delta、表示总和的 sum。<br />
+全局变量前缀：“g_”前缀（global）  成员变量加“m_”前缀（member）<br />
+变量 / 函数的名字长度与它的作用域成正比</p></li>
+<li><p>代码风格检查工具<br />
+cpplint是Google开发的一个C++代码风格检查工具，用python编写的，如果是遵循google code style的，可以使用cpplint作为代码规范的一个检查工具。<br />
+空格、折行这类的可以用IDE带的格式化代码的工具。</p></li>
+</ul>
+<h2 id="预处理阶段能做什么宏定义和条件编译">03 | 预处理阶段能做什么：宏定义和条件编译</h2>
+<p>一般来说，预处理指令不应该受C++ 代码缩进层次的影响，不管是在函数、类里，还是在 if、for 等语句里，永远是顶格写。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">if __linux__ // 预处理检查宏是否存在</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="pp"># </span><span class="er">   define HAS_LINUX 1 // 宏定义，有缩进</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="pp">#</span><span class="er">endif // 预处理条件语句结束</span></span></code></pre></div>
+<h3 id="包含文件include">包含文件（<code>#include</code>）</h3>
+<p><code>#include</code>，它的作用是“包含文件”。注意，不是“包含头文件”，而是可以包含<strong>任意的文件</strong>。<br />
+除了最常用的包含头文件，你还可以利用“#include”的特点玩些“小花样”，编写一些代码片段，存进<code>*.inc</code>文件里，然后有选择地加载，用得好的话，可以实现“源码级别的抽象”<br />
+比如说，有一个用于数值计算的大数组，里面有成百上千个数，放在文件里占了很多地方，<br />
+特别“碍眼”：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>static <span class="dt">uint32_t</span> calc_table[] = { <span class="co">// 非常大的一个数组，有几十行</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="bn">0x00000000</span>, <span class="bn">0x77073096</span>, <span class="bn">0xee0e612c</span>, <span class="bn">0x990951ba</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="bn">0x076dc419</span>, <span class="bn">0x706af48f</span>, <span class="bn">0xe963a535</span>, <span class="bn">0x9e6495a3</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="bn">0x0edb8832</span>, <span class="bn">0x79dcb8a4</span>, <span class="bn">0xe0d5e91e</span>, <span class="bn">0x97d2d988</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="bn">0x09b64c2b</span>, <span class="bn">0x7eb17cbd</span>, <span class="bn">0xe7b82d07</span>, <span class="bn">0x90bf1d91</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>...</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>};</span></code></pre></div>
+<p>可以用来代替</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>static <span class="dt">uint32_t</span> calc_table[] = {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &quot;calc_values.inc&quot; // 非常大的一个数组，细节被隐藏</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>};</span></code></pre></div>
+<h3 id="条件编译">条件编译</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">ifdef __cplusplus // 定义了这个宏就是在用C++编译</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    extern <span class="st">&quot;C&quot;</span> { <span class="co">// 函数按照C的方式去处理</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="pp">#endif</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    void a_c_function(int a);</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="pp">#</span><span class="er">ifdef __cplusplus // 检查是否是C++编译</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    } <span class="co">// extern &quot;C&quot; 结束</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a><span class="pp">#endif</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a><span class="co">//判断c++的版本</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a><span class="pp">#</span><span class="er">if __cplusplus &gt;= 201402 // 检查C++标准的版本号</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>    cout &lt;&lt; <span class="st">&quot;c++14 or later&quot;</span> &lt;&lt; endl; <span class="co">// 201402就是C++14</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a><span class="pp">#</span><span class="er">elif __cplusplus &gt;= 201103 // 检查C++标准的版本号</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a>    cout &lt;&lt; <span class="st">&quot;c++11 or before&quot;</span> &lt;&lt; endl; <span class="co">// 201103是C++11</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a><span class="pp">#</span><span class="er">else // __cplusplus &lt; 201103 // 199711是C++98</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a><span class="pp"># </span><span class="er">error &quot;c++ is too old&quot; // 太低则预处理报错</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a><span class="pp">#</span><span class="er">endif // __cplusplus &gt;= 201402 // 预处理语句结束</span></span></code></pre></div>
+<h2 id="编译阶段能做什么属性和静态断言">04 | 编译阶段能做什么：属性和静态断言</h2>
+<p>和预处理阶段一样，在这里你也可以“面向编译器编程”，用一些指令或者关键字让编译器按照你的想法去做一些事情。</p>
+<h3 id="属性attribute">属性（attribute）</h3>
+<p>虽然编译器非常聪明，但因为 C++ 语言实在是太复杂了，偶尔它也会“自作聪明”或者“冒傻气”。如果有这么一个东西，让程序员来手动指示编译器这里该如何做、那里该如何做，就有可能会生成更高效的代码。<br />
+在 C++11 之前，标准里没有规定这样的东西，但 GCC、VC 等编译器发现这样做确实很有用，于是就实现出了自己“编译指令”，在 GCC 里是<code>__ attribute __</code>，在 VC 里是<code>__declspec</code>。不过因为它们不是标准，所以名字显得有点“怪异”。<br />
+到了 C++11，标准委员会终于认识到了<strong>编译指令</strong>的好处，于是就把“民间”用法升级为“官方版本”，起了个正式的名字叫“属性”。你可以把它理解为给变量、函数、类等“贴”上一个编译阶段的“标签”，方便编译器识别处理。</p>
+<p>C++11:noreturn 、carries_dependency<br />
+C++14：deprecated</p>
+<p>目前的 C++17 和 C++20 又增加了五六个新属性，比如 fallthrough、likely，但我觉得，标准委员会的态度还是太“保守”了，在实际的开发中，这些真的是不够用。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co">// 编译的时候用到这个函数的地方会报警告</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>[[<span class="at">deprecated</span>(<span class="st">&quot;deadline:2020-12-31&quot;</span>)]] <span class="co">// C++14 or later</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>int old_func();</span></code></pre></div>
+<p>好在“属性”也支持<strong>非标准扩展</strong>，允许以类似名字空间的方式使用编译器自己的一些“非官方”属性，比如，GCC 的属性都在“gnu::”里。下面我就列出几个比较有用的：<br />
+* deprecated：与 C++14 相同，但可以用在 C++11 里。<br />
+* unused：用于变量、类型、函数等，表示虽然暂时不用，但最好保留着，因为将来可能会用。<br />
+* constructor：函数会在 main() 函数之前执行，效果有点像是全局对象的构造函数。<br />
+* destructor：函数会在 main() 函数结束之后执行，有点像是全局对象的析构函数。<br />
+* always_inline：要求编译器强制内联函数，作用比 inline 关键字更强。<br />
+* hot：标记“热点”函数，要求编译器更积极地优化。</p>
+<p>在没有这个属性的时候，如果有暂时用不到的变量，我们只能用<code>(void) var;</code>的方式假装用一下，来“骗”过编译器，属于“不得已而为之”的做法。<br />
+那么现在，我们就可以用“unused”属性来清楚地告诉编译器：这个变量我暂时不用，请不要过度紧张，不要发出警告来烦我：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>[[<span class="ex">gnu::unused</span>]] <span class="co">// 声明下面的变量暂不使用，不是错误</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>int nouse;</span></code></pre></div>
+<h3 id="静态断言static_assert">静态断言（static_assert）</h3>
+<p>属性”像是给编译器的一个“提示”“告知”，无法进行计算，还算不上是编程，而“静态断言”，就有点<strong>编译阶段写程序</strong>的味道了。<br />
+assert 虽然是一个宏，但在预处理阶段不生效，而是在运行阶段才起作用，所以又叫“动态断言”。<br />
+static_assert 可以在编译阶段定义各种前置条件，充分利用 C++ <strong>静态类型语言的优势</strong>，让编译器执行各种检查，避免把隐患带到运行阶段。在编译阶段计算常数和类型，如果断言失败就会导致编译错误。它也是<strong>迈向模板元编程</strong>的第一步。<br />
+static_assert 运行在编译阶段，只能看到编译时的<strong>常数</strong>和<strong>类型</strong>，看不到运行时的变量、指针、内存数据等，所以不要简单地把 assert 的习惯搬过来用。</p>
+<p>注意点：在用“静态断言”的时候，你就要在脑子里时刻“绷紧一根弦”，把自己代入编译器的角色，像编译器那样去思考，看看断言的表达式是不是能够在编译阶段算出结果。<br />
+比如：<br />
+比如说，这节课刚开始时的斐波拉契数列计算函数，可以用静态断言来保证模板参数必须大于等于零：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="kw">template</span>&lt;int N&gt;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>struct fib</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>{</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>    static_assert(N &gt;= <span class="dv">0</span>, <span class="st">&quot;N &gt;= 0&quot;</span>);</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>    static const int value =</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>        fib&lt;N - <span class="dv">1</span>&gt;::value + fib&lt;N - <span class="dv">2</span>&gt;::value;</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>};</span></code></pre></div>
+<p>不过这句话说起来容易做起来难，计算数字还好说，在泛型编程的时候，怎么检查模板类型呢？比如说，断言是整数而不是浮点数、断言是指针而不是引用、断言类型可拷贝可移动……<br />
+这些检查条件表面上看好像是“不言自明”的，但要把它们用 C++ 语言给精确地表述出来，可就没那么简单了。所以，想要更好地发挥静态断言的威力，还要配合标准库里的<code>type_traits</code>，它提供了对应这些概念的各种编译期“函数”。</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co">// 假设T是一个模板参数，即template&lt;typename T&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="kw">static_assert</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    is_integral&lt;T&gt;::value, <span class="st">&quot;int&quot;</span>);</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a><span class="kw">static_assert</span>(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>    is_pointer&lt;T&gt;::value, <span class="st">&quot;ptr&quot;</span>);</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a><span class="kw">static_assert</span>(</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>    is_default_constructible&lt;T&gt;::value, <span class="st">&quot;constructible&quot;</span>);</span></code></pre></div>
+<h2 id="面向对象编程怎样才能写出一个好的类">05 | 面向对象编程：怎样才能写出一个“好”的类？</h2>
+<p>面向对象编程的基本出发点是<strong>对现实世界的模拟</strong>，把问题中的实体抽象出来，封装为程序里的类和对象，<br />
+“面向对象编程”的关键点是“抽象”和“封装”，<strong>而“继承”“多态”并不是核心</strong>，只能算是附加品。<br />
+所以，我建议你在设计类的时候尽量少用继承和虚函数。<br />
+特别的，如果完全没有继承关系，就可以让对象不必承受“父辈的重担”（父类成员、虚表等额外开销），轻装前行，更小更快。没有隐含的重用代码也会降低耦合度，让类更独立，更容易理解。</p>
+<p>如果非要用继承不可，那么我觉得一定要控制继承的层次,如果继承深度超过三层，就说明有点“过度设计”了。<br />
+在设计类接口的时候，我们也要让类尽量简单、“短小精悍”，只负责单一的功能。<br />
+如果很多功能混在了一起，出现了“万能类”“意大利面条类”（有时候也叫 God Class），就要应用设计模式、重构等知识，把大类拆分成多个各负其责的小类。</p>
+<p>我还看到过很多人有一种不好的习惯，就是喜欢在类内部定义一些嵌套类，美其名曰“高内聚”。但恰恰相反，这些<strong>内部类反而与上级类形成了强耦合关系</strong>，也是另一种形式的“万能类”。<br />
+其实，这本来是名字空间该做的事情，用类来实现就有点“越权”了。正确的做法应该是，定义一个新的名字空间，把内部类都“提”到外面，降低原来类的耦合度和复杂度。<br />
+编码准则：<br />
+1. 用<code>final</code>显式地禁用继承<br />
+2. 只使用 public 继承<br />
+3. <code>default</code>  明确使用默认的    <code>delete</code> 明确禁用某个函数<br />
+4. 用<code>explicit</code>防止意外的隐式类型转换</p>
+<h3 id="常用技巧">常用技巧</h3>
+<ul>
+<li>委托构造（delegating constructor）。<br />
+在 C++11 里，你就可以使用“委托构造”的新特性，一个构造函数直接调用另一个构造函数，把构造工作“委托”出去，既简单又高效</li>
+<li>成员变量初始化（In-class member initializer）。<br />
+在 C++11 里，你可以在类里声明变量的同时给它赋值，实现初始化，这样不但简单清晰，也消除了隐患（列表初始化可能会被漏掉）</li>
+<li>类型别名（Type Alias）<br />
+在写类的时候，我们经常会用到很多外部类型，比如标准库里的 string、vector，还有其他的第三方库和自定义类型。这些名字通常都很长（特别是带上名字空间、模板参数），书写起来很不方便，这个时候我们就可以在类里面用 using 给它们起别名，不仅简化了名字，同时还能增强可读性。</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>using <span class="dt">uint_t</span> = unsigned int; <span class="co">// using别名</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>typedef unsigned int <span class="dt">uint_t</span>； <span class="co">// 等价的typedef</span></span></code></pre></div>
+<h2 id="autodecltype为什么要有自动类型推导">06 | auto/decltype：为什么要有自动类型推导？</h2>
+<h3 id="auto">auto</h3>
+<p>因为 C++ 是一种静态强类型的语言，任何变量都要有一个确定的类型，否则就不能用。<br />
+在“自动类型推导”出现之前，我们写代码时只能“手动推导”，也就是说，在声明变量的时候，必须要明确地给出类型。<br />
+对于比如 int、double这类的变量类型还好说，但在泛型编程的时候，类型特别的长，这就迫使我们去和编译器“斗智斗勇”，只有写对了类型，编译器才会“放行”（编译通过）<br />
+除了简化代码，auto 还避免了对类型的<strong>硬编码</strong>，也就是说变量类型不是“写死”的，而是能够“自动”适应表达式的类型。比如，你把 map 改为 unordered_map，那么后面<br />
+的代码都不用动。这个效果和类型别名有点像，但你不需要写出 typedef 或者 using，全由 auto“代劳”<br />
+另外，“自动类型推导”，是<strong>编译阶段</strong>的特殊指令，指示编译器去计算类型。<br />
+注意点：<br />
+* auto 的“自动推导”能力只能用在“初始化”的场合。<br />
+* 类里不能使用auto推导类型<br />
+* auto 总是推导出<strong>值类型</strong>，绝不会是“引用”；<br />
+* auto 可以附加上 <code>const、volatile、*、&amp;</code> 这样的类型修饰符，得到新的类型。</p>
+<p>范围for循环一般都用auto，为了保证效率，最好使用“const auto&amp;”或者“auto&amp;<br />
+在 C++14 里，auto 还新增了一个应用场合，就是能够推导函数返回值，这样在写复杂函数的时候，比如返回一个 pair、容器或者迭代器，就会很省事。</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>auto get_a_set() <span class="co">// auto作为函数返回值的占位符</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>{</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>    <span class="bu">std::</span>set&lt;<span class="dt">int</span>&gt; s = {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>};</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>    return s;</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="decltype">decltype</h3>
+<p>auto 只能用于<strong>初始化</strong>，decltype 不仅能够推导出值类型，<strong>还能够推导出引用类型</strong>，也就是表达式的“原始类型”。</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>int x = <span class="dv">0</span>; <span class="co">// 整型变量</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="kw">decltype</span>(x) x1;</span></code></pre></div>
+<p>decltype有个缺点，就是写起来略麻烦，特别在用于初始化的时候，<strong>表达式</strong>要重复两次（左边的类型计算，右边的初始化），把简化代码的优势完全给抵消了。<br />
+所以，C++14 就又增加了一个“decltype(auto)”的形式，既可以精确推导类型，又能像auto 一样方便使用。</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>int x = <span class="dv">0</span>; <span class="co">// 整型变量</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="kw">decltype</span>(<span class="kw">auto</span>) x1 = (x); <span class="co">// 推导为int&amp;，因为(expr)是引用类型</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="kw">decltype</span>(<span class="kw">auto</span>) x2 = &amp;x; <span class="co">// 推导为int*</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a><span class="kw">decltype</span>(<span class="kw">auto</span>) x3 = x1; <span class="co">// 推导为int&amp;</span></span></code></pre></div>
+<p>再来看 decltype 怎么用最合适。<br />
+它是 auto 的高级形式，更侧重于编译阶段的类型计算，所以<strong>常用在泛型编程里</strong>，获取各种类型，配合 typedef 或者 using 会更加方便。当你感觉“这里我需要一个特殊类型”的时候，选它就对了。<br />
+比如说，定义函数指针在 C++ 里一直是个比较头疼的问题，因为传统的写法实在是太怪异了。但现在就简单了，你只要手里有一个函数，就可以用 decltype 很容易得到指针类型。</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="co">// UNIX信号函数的原型，看着就让人晕</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>void (*signal(int signo, void (*func)(<span class="dt">int</span>)))(<span class="dt">int</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a><span class="co">// 使用decltype可以轻松得到函数指针类型</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a>using <span class="dt">sig_func_ptr_t</span> = decltype(&amp;signal) ;</span></code></pre></div>
+<p>在定义类的时候，因为 auto 被禁用了，所以这也是 decltype 可以“显身手”的地方。它可以搭配别名任意定义类型，再应用到成员变量、成员函数上，变通地实现 auto 的功能。</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>class DemoClass final</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>{</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>    public:</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>        using <span class="dt">set_type</span> = <span class="bu">std::</span>set&lt;<span class="dt">int</span>&gt;; <span class="co">// 集合类型别名</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a>    private:</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>        <span class="dt">set_type</span> <span class="va">m_set</span>; <span class="co">// 使用别名定义成员变量</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a>        <span class="co">// 使用decltype计算表达式的类型，定义别名</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a>        using <span class="dt">iter_type</span> = decltype(<span class="va">m_set</span>.begin());</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a>        <span class="dt">iter_type</span> <span class="va">m_pos</span>; <span class="co">// 类型别名定义成员变量 </span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a>};</span></code></pre></div>
+<h2 id="constvolatilemutable常量变量究竟是怎么回事">07 | const/volatile/mutable：常量/变量究竟是怎么回事？</h2>
+<p>const 常量虽然不是“真正的常数”，但在大多数情况下，它都可以被认为是常数，在运行期间不会改变。编译器看到 const 定义，就会采取一些优化手段，比如把所有 const 常量出现的地方都替换成原始值。</p>
+<p>关键字 mutable<br />
+效果是：允许 const 成员函数改写 mutable 成员变量</p>
+<p>在我看来，，mutable 像是 C++ <strong>给 const 对象打的一个“补丁”</strong>，让它部分可变。因为对象与普通的 int、double 不同，内部会有很多成员变量来表示状态，但因为“封装”特性，外界只能看到一部分状态，判断对象是否 const 应该由这些<strong>外部可观测的状态特征</strong>来决定。<br />
+比如说，对象内部用到了一个 mutex 来保证线程安全，或者有一个缓冲区来暂存数据，再或者有一个原子变量做引用计数……这些属于内部的私有实现细节，外面看不到，变与不变不会改变外界看到的常量性。这时，如果 const 成员函数不允许修改它们，就有点说不过去了。<br />
+所以，对于这些<strong>有特殊作用的成员变量</strong>，你可以给它加上 mutable 修饰，解除 const 的限制，让任何成员函数都可以操作它。</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>class DemoClass final</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>{</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>    private:</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a>    mutable <span class="dt">mutex_type</span> <span class="va">m_mutex</span>; <span class="co">// mutable成员变量</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>    public:</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a>    void save_data() const <span class="co">// const成员函数</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>    {</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a>        <span class="co">// do someting with m_mutex</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a>    }</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true"></a>};</span></code></pre></div>
+<h2 id="smart_ptr智能指针到底智能在哪里">08 | smart_ptr：智能指针到底“智能”在哪里？</h2>
+<h2 id="exception怎样才能用好异常">09 | exception：怎样才能用好异常？</h2>
+<h2 id="lambda函数式编程带来了什么">10 | lambda：函数式编程带来了什么？</h2>
+<h2 id="一枝独秀的字符串c也能处理文本">11 | 一枝独秀的字符串：C++也能处理文本？</h2>
+<p>只有语言、标准库“双剑合璧”，才能算是真正的 C++。<br />
+看一下官方发布的标准文档吧（C++14），全文有 1300 多页，而语言特性只有 400 出头，不足三分之一，其余的篇幅全是在讲<strong>标准库</strong>，可见它的份量有多重。</p>
+<p>字符串是“文本”，里面的字符之间是强关系，顺序不能随便调换，否则就失去了意义，通常应该视为一个整体来处理。而容器是“集合”，里面的元素之间没有任何关系，可以随意增删改，对容器更多地是操作里面的单个元素。</p>
+<p>但有的时候，我们也确实需要存储字符的容器，比如<strong>字节序列</strong>、<strong>数据缓冲区</strong>，这该怎么办呢？<br />
+这个时候，我建议你最好改用 <code>vector&lt;char&gt;</code>，它的含义十分“纯粹”，只存储字符，没有 string 那些不必要的成本，用起来也就更灵活一些。</p>
+<h3 id="字面量后缀">1. 字面量后缀</h3>
+<p>C++11 为方便使用字符串，新增了一个字面量的后缀“s”，明确地表示它是 string 字符串类型，而不是 C 字符串，这就可以利用 auto 来自动类型推导，而且在其他用到字符串的地方，也可以省去声明临时字符串变量的麻烦，效率也会更高</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a>using namespace <span class="bu">std::</span>literals<span class="bu">::</span>string_literals; <span class="co">//必须打开名字空间</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>auto str = <span class="st">&quot;std string&quot;</span><span class="bu">s</span>; <span class="co">// 后缀s，表示是标准字符串，直接类型推导</span></span></code></pre></div>
+<h3 id="原始字符串">2. 原始字符串</h3>
+<p>使用原始字符串不会对字符串里的内容做任何转义，完全保持了“原始风貌”，即使里面有再多的特殊字符都不怕</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>auto str = <span class="st">R&quot;(\r\n\t\&quot;)&quot;</span>; <span class="co">// 原始字符串：\r\n\t\&quot;</span></span></code></pre></div>
+<h3 id="字符串转换函数">3. 字符串转换函数</h3>
+<p>stoi()、stol()、stoll() 等把字符串转换成整数；<br />
+stof()、stod() 等把字符串转换成浮点数；<br />
+to_string() 把整数、浮点数转换成字符串</p>
+<h3 id="字符串视图类">4. 字符串视图类</h3>
+<p><code>string_view</code>是c++17标准库提供的一个类，它提供一个字符串的视图，即可以通过这个类以各种方法“观测”字符串，但不允许修改字符串。<br />
+它内部只保存<strong>一个指针和长度</strong>，无论是拷贝，还是修改，都非常廉价,构造和求substr都是O(1)的复杂度<br />
+std的string的构造不可避免的会设计内存分配和拷贝。而string_view只是一个字符串的视图，<strong>构造函数可以避免拷贝</strong>，做到O(1)复杂度。<br />
+因为string_view并不拷贝内存，所以要特别注意它所指向的<strong>字符串的生命周期</strong>。string_view指向的字符串，不能再string_view死亡之前被回收。</p>
+<h3 id="正则表达式">5. 正则表达式</h3>
+<p>C++ 正则表达式主要有两个类。<br />
+regex：表示一个正则表达式，是 basic_regex 的特化形式；<br />
+smatch：表示正则表达式的匹配结果，是 match_results 的特化形式。<br />
+C++ 正则匹配有三个算法，注意它们都是“只读”的，不会变动原字符串。<br />
+regex_match()：完全匹配一个字符串；<br />
+regex_search()：在字符串里查找一个正则匹配；<br />
+regex_replace()：正则查找再做替换。会返回修改后的新字符串</p>
+<p>在写正则的时候，记得最好要用“<strong>原始字符串</strong>”，不然转义符绝对会把你折腾得够呛。</p>
+<p>在使用 regex 的时候，还要注意正则表达式的成本。因为正则串只有在运行时才会处理，检查语法、编译成正则对象的代价很高，所以尽量不要反复创建正则对象，能重用就重用。在使用循环的时候更要特别注意，一定要把正则提到循环体外。</p>
+<h2 id="三分天下的容器恰当选择事半功倍">12 | 三分天下的容器：恰当选择，事半功倍</h2>
+<h2 id="五花八门的算法不要再手写for循环了">13 | 五花八门的算法：不要再手写for循环了</h2>
+<h2 id="十面埋伏的并发多线程真的很难吗">14 | 十面埋伏的并发：多线程真的很难吗？</h2>
+<h2 id="序列化简单通用的数据交换格式有哪些">15 | 序列化：简单通用的数据交换格式有哪些？</h2>
+<p>序列化，就是把内存里“活的对象”转换成静止的字节序列，便于存储和网络传输；而反序列化则是反向操作，从静止的字节序列重新构建出内存里可用的对象<br />
+* JSON<br />
+JSON 格式注重的是方便易用，在性能上没有太大的优势，所以一般选择<br />
+JSON 来交换数据，通常都不会太在意性能（不然肯定会改换其他格式了），还是自己用着顺手最重要。<br />
+这里介绍的json类库为：JSON for Modern C++<br />
+* MessagePack<br />
+它也是一种轻量级的数据交换格式，与 JSON 的不同之处在于它不是纯文本，而是<strong>二进制</strong>。所以 MessagePack 就比 JSON 更小巧，处理起来更快，不过也就没有 JSON 那么直观、易读、好修改了。<br />
+MessagePack 支持几乎所有的编程语言，你可以在官网上找到它的 C++ 实现。我常用的是官方库 msgpack-c，</p>
+<ul>
+<li>JSON 是纯文本，容易阅读，方便编辑，适用性最广； </li>
+<li>MessagePack 是二进制，小巧高效，在开源界接受程度比较高； </li>
+<li>ProtoBuffer 是工业级的数据格式，注重安全和性能，多用在大公司的商业产品里。</li>
+</ul>
+<p>问：为什么要有序列化和反序列化，直接 memcpy 内存数据行不行呢？<br />
+直接memcpy,同一种语言不同机器，或者不同语言可能存在<strong>兼容问题</strong>(变量内存存储布局、编码可能不同)，而Json是一种标准，由Json库处理编码问题(比如大小端)，且不同语言间统一</p>
+<h2 id="网络通信我不想写原生socket">16 | 网络通信：我不想写原生Socket</h2>
+<h3 id="libcurl高可移植功能丰富的通信库">libcurl：高可移植、功能丰富的通信库</h3>
+<p>libcurl 使用纯 C 语言开发，兼容性、可移植性非常好，基于 C 接口可以很容易写出各种语言的封装，所以 Python、PHP 等语言都有 libcurl 相关的库。</p>
+<p>libcurl 的接口可以粗略地分成两大类：easy 系列和 multi 系列。其中，easy 系列是同步调用，比较简单；multi 系列是异步的多线程调用，比较复杂。通常情况下，我们用 easy系列就足够了。<br />
+使用 libcurl 发送HTTP请求的基本步骤有 4 个：<br />
+1. 使用 curl_easy_init() 创建一个句柄，类型是 <code>CURL*</code>。<br />
+2. 使用 curl_easy_setopt() 设置请求的各种参数，比如请求方法、URL、header/body 数据、超时、<strong>回调函数</strong>等。<br />
+3. 使用 curl_easy_perform() 发送数据，返回的数据会由回调函数处理。 <br />
+4. 使用 curl_easy_cleanup() 清理句柄相关的资源，结束会话</p>
+<p>因为 libcurl 是 C 语言实现的，所以回调函数必须是<strong>函数指针</strong>。不过，C++11 允许你写lambda 表达式，这利用了一个特别规定：<strong>无捕获的 lambda 表达式可以显式转换成一个函数指针</strong>。</p>
+<h3 id="cpr更现代更易用的通信库">cpr：更现代、更易用的通信库</h3>
+<p>cpr 是对 libcurl 的一个 C++11 封装，使用了很多现代 C++ 的高级特性，对外的接口模了 Python 的 requests 库，非常简单易用。</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="kw">auto</span> response = cpr::Get(cpr::Url{<span class="st">&quot;https://api.example.com/data&quot;</span>});</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a><span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Response status: &quot;</span> &lt;&lt; response.status_code &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a><span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Response body: &quot;</span> &lt;&lt; response.text &lt;&lt; <span class="bu">std::</span>endl;</span></code></pre></div>
+<h2 id="脚本语言搭建高性能的混合系统">17 | 脚本语言：搭建高性能的混合系统</h2>
+<h3 id="python">Python</h3>
+<p>Python 本身就有 C 接口，可以用 C 语言编写扩展模块，把一些低效耗时的功能改用 C 实现，有的时候，会把整体性能提升几倍甚至几十倍。<br />
+使用纯 C 语言写扩展模块非常麻烦，那么，能不能利用 C++ 的那些高级特性来简化这部分的工作呢？<br />
+pybind11 借鉴了“前辈”Boost.Python，能够在 C++ 和 Python 之间自由转换，任意翻译两者的语言要素，比如把 C++ 的 vector 转换为 Python 的列表，把 Python 的元组转换为 C++ 的 tuple，既可以在 C++ 里用 Python 脚本，也可以在 Python 里调用 C++的函数、类。</p>
+<h3 id="lua">lua</h3>
+<p>标准的 Lua使用解释器运行，速度虽然很快，但和 C/C++ 比起来还是有差距的。所以，你还可以选择另一个兼容的项目：LuaJIT <br />
+它使用了 JIT（Just in time）技术，能够把 Lua 代码即时编译成机器码，速度几乎可以媲美原生 C/C++ 代码。<br />
+不过，LuaJIT 也有一个问题，它是一个个人项目，更新比较慢，最新的 2.1.0-beta3 已经是三年前的事情了。所以，我推荐你改用它的一个非官方分支：<a href="https://github.com/openresty/luajit2">OpenResty-LuaJIT</a> 。它由 OpenResty 负责维护，非常活跃，修复了很多小错误。</p>
+<p>使用 <strong>LuaBridge</strong> 可以导出 C++ 的函数、类，但直接用 LuaJIT 的 ffi 库更好；<br />
+使用 LuaBridge 也可以很容易地执行 Lua 脚本、调用 Lua 函数，让 Lua 跑在 C++里。</p>
+<h2 id="性能分析找出程序的瓶颈">18 | 性能分析：找出程序的瓶颈</h2>
+<p>性能分析的关键就是<strong>测量</strong>，用数据说话。没有实际数据的支撑，优化根本无从谈起，即使做了，也只能是漫无目的的“不成熟优化”，即使成功了，也只是“瞎猫碰上死耗子”而已。<br />
+性能分析的范围非常广，可以从 CPU 利用率、内存占用率、网络吞吐量、系统延迟等许多维度来评估。</p>
+<h3 id="pstack">pstack</h3>
+<p>pstack 可以打印出进程的调用栈信息，有点像是给正在运行的进程拍了个快照，你能看到某个时刻的进程里调用的函数和关系，对进程的运行有个初步的印象。<br />
+不过，pstack 显示的只是进程的一个“静态截面”，信息量还是有点少，而 strace 可以显示出进程的正在运行的系统调用，实时查看进程与系统内核交换了哪些信息：</p>
+<h3 id="perf">perf</h3>
+<p>perf 可以说是 pstack 和 strace 的“高级版”，它按照固定的频率去“采样”，相当于连续执行多次的 pstack，然后再统计函数的调用次数，算出百分比。只要采样的频率足够大，把这些“瞬时截面”组合在一起，就可以得到进程运行时的可信数据，比较全面地描述出 CPU 使用情况。<br />
+我常用的 perf 命令是“perf top -K -p xxx”，按 CPU 使用率排序，只看用户空间的调用，这样很容易就能找出最耗费 CPU 的函数。</p>
+<h3 id="源码级工具">源码级工具</h3>
+<p>top、pstack、strace 和 perf 属于<strong>非侵入</strong>式的分析工具，不需要修改源码，就可以在软件的外部观察、收集数据。它们虽然方便易用，但毕竟是“隔岸观火”，还是不能非常细致地分析软件，效果不是太理想。<br />
+所以，我们还需要有<strong>侵入</strong>式的分析工具，在源码里<strong>埋点</strong>，直接写特别的性能分析代码。这样针对性更强，能够有目的地对系统的某个模块做精细化分析，拿到更准确、更详细的数据。<br />
+其实，这种做法你并不陌生，比如计时器、计数器、关键节点打印日志，等等，只是通常并没有上升到性能分析的高度，手法比较“原始”。<br />
+在这里，我要推荐一个专业的源码级性能分析工具：<strong>Google Performance Tools</strong>，一般简称为 gperftools。它是一个 C++ 工具集，里面包含了几个专门的性能分析工具（还有一个高效的内存分配器 tcmalloc），分析效果直观、友好、易理解，被广泛地应用于很多系统，经过了充分的实际验证。<br />
+gperftools 的性能分析工具有 CPUProfiler 和 HeapProfiler 两种，用来分析 CPU 和内存。不过，如果你听从我的建议，总是使用智能指针、标准容器，不使用 new/delete，就完全可以不用关心 HeapProfiler。<br />
+CPUProfiler 的原理和 perf 差不多，也是按频率采样，默认是每秒 100 次（100Hz），也就是每 10 毫秒采样一次程序的函数调用情况。<br />
+它的用法也比较简单，只需要在源码里添加三个函数：<br />
+* ProfilerStart()，开始性能分析，把数据存入指定的文件里；<br />
+* ProfilerRegisterThread()，允许对线程做性能分析；<br />
+* ProfilerStop()，停止性能分析。</p>
+<p>所以，你只要把想做性能分析的代码“夹”在这三个函数之间就行，运行起来后，gperftools 就会自动产生分析数据。</p>
+<h2 id="设计模式上c与设计模式有啥关系">19 | 设计模式（上）：C++与设计模式有啥关系？</h2>
+<p>设计模式系统地描述了一些软件开发中的常见问题、应用场景和对应的解决方案，给出了专家级别的设计思路和指导原则。<br />
+按照设计模式去创建面向对象的系统，就像是由专家来“手把手”教你，不能说绝对是“最优解”，但至少是“次优解”。<br />
+而且，在应用设计模式的过程中，你还可以从中亲身体会这些经过实际证明的成功经验，潜移默化地影响你自己思考问题的方式，从长远来看，学习和应用设计模式能够提高你的面向对象设计水平。</p>
+<p>经典的《设计模式》一书里面介绍了 23 个模式，并依据设计目的把它们分成了三大类：1.创建型模式、2.结构型模式和3.行为模式。<br />
+这三类模式分别对应了开发面向对象系统的三个关键问题：如何创建对象、如何组合对象，以及如何处理对象之间的动态通信和职责分配。解决了这三大问题，软件系统的“架子”也就基本上搭出来了。</p>
+<h3 id="学习理解设计原则才能用好多范式的-c">学习、理解设计原则，才能用好多范式的 C++</h3>
+<p>最常用有 5 个原则，也就是常说的“SOLID”。<br />
+1. SRP，单一职责（Single ResponsibilityPrinciple）； 更常见的说法就是“高内聚低耦合”<br />
+2. OCP，开闭（Open Closed Principle）； “对扩展开放，对修改关闭”<br />
+3. LSP，里氏替换（Liskov Substitution Principle）；<br />
+4. ISP，接口隔离（Interface-Segregation Principle）；<br />
+5. DIP，依赖反转，有的时候也叫依赖倒置（Dependency Inversion Principle）</p>
+<h2 id="设计模式下c是怎么应用设计模式的">20 | 设计模式（下）：C++是怎么应用设计模式的？</h2>
+<h2 id="轻松话题一-4本值得一读再读的经典好书">轻松话题（一） | 4本值得一读再读的经典好书</h2>
+<ul>
+<li>设计模式：可复用面向对象软件的基础</li>
+<li>C++标准库(第2版)   译者: 侯捷</li>
+<li>C++ 语言的设计与演化</li>
+<li>C++ Primer</li>
+</ul>
+<p>个人认为，C++ 最大的优点是与 C 兼容，最大的缺点也是与 C 兼容。<br />
+一方面，它是 C 之外唯一成熟可靠的系统级编程语言（目前 Rust 还没有达到可以和C++“叫板”的程度），大部分用 C 的地方都能用 C++ 替代，这就让它拥有了广阔的应用天地。而面向对象、泛型等编程范式，又比 C 能够更好地组织代码，提高抽象层次，管理复杂的软件项目。<br />
+但另一方面，为了保持与 C 兼容，C++ 的改革和发展也被“束缚了手脚”，做出任何新设计时，都要考虑是否会对 C 代码造成潜在的破坏。这就使得很多 C++ 新特性要么是“一拖再拖”，要么是“半成品”，要么是“古里古怪”，最后导致 C++ 变得有些不伦不类，丢掉了编程语言本应该的简洁、纯粹。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

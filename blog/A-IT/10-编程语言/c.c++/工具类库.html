@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/工具类库</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#测试调试类">测试、调试类</a></li>
+<li><a href="#数据库">数据库</a></li>
+<li><a href="#日志类">日志类</a></li>
+<li><a href="#命令行参数">命令行参数</a></li>
+<li><a href="#加解密">加解密</a></li>
+<li><a href="#通用游戏服务器">通用游戏服务器</a></li>
+<li><a href="#网络库通信">网络库通信</a></li>
+<li><a href="#工具类">工具类</a></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="测试调试类">测试、调试类</h2>
+<ul>
+<li><p><a href="https://github.com/p-ranav/pprint">pprint</a> 打印各种类型的值</p></li>
+<li><p>[[gtest]]</p>
+<h2 id="数据序列化">数据序列化</h2></li>
+<li><p>[[protobuf]]</p></li>
+<li><p>json</p>
+<ul>
+<li>cjson</li>
+<li><a href="https://github.com/nlohmann/json">JSON for Modern C++</a></li>
+<li>JSON Spirit</li>
+</ul></li>
+</ul>
+<h2 id="数据库">数据库</h2>
+<ul>
+<li>rocksdb</li>
+<li>FastoNoSQL 查看数据的图形化界面</li>
+<li>[[hiredis]],Redis的C客户端库函数</li>
+<li>[[mysql]]</li>
+<li>[[mysql++]]</li>
+</ul>
+<h2 id="日志类">日志类</h2>
+<p><a href="https://github.com/gabime/spdlog">spdlog</a></p>
+<h2 id="命令行参数">命令行参数</h2>
+<ul>
+<li>[[命令行参数处理#linux下getopt()方法]]</li>
+<li>[[命令行参数处理#CLI11]]</li>
+</ul>
+<h2 id="加解密">加解密</h2>
+<ul>
+<li>[[Crypto++]] 强大的密码学库，使用C++语言编写著名的密码学算法库还有OpenSSL,OpenSSL采用C语言作为开发语言</li>
+<li><a href="https://github.com/andrivet/ADVobfuscator">ADVobfuscator</a> 代码混淆库</li>
+</ul>
+<h2 id="通用游戏服务器">通用游戏服务器</h2>
+<ul>
+<li><p><a href="https://github.com/ylmbtm/GameProject3">GameProject3</a><br />
+游戏服务器框架，网络层分别用SocketAPI、Boost Asio、Libuv三种方式实现， 框架内使用共享内存，无锁队列，对象池，内存池来提高服务器性能。还包含一个不断完善的Unity 3D客户端，客户端含大量完整资源，坐骑，宠物，伙伴，装备, 这些均己实现上阵和穿戴, 并可进入副本战斗，多人玩法也己实现, 持续开发中。</p></li>
+<li><p><a href="https://github.com/ylmbtm/LuaServerFrame">LuaServerFrame</a><br />
+将GameProject3的框架改为使用lua作为开发语言</p></li>
+<li><p><a href="https://github.com/jwcpp/jwEngine">jwEngine</a><br />
+A cross-platform C++&lt;-&gt;lua server quick solution</p></li>
+<li><p><a href="https://github.com/yamakiller/magicNetXX">magicNetXX</a><br />
+c++ Actor lua 协程调度 模型，基础调通没时间写了有空继续</p></li>
+</ul>
+<h2 id="网络库通信">网络库通信</h2>
+<ul>
+<li><a href="https://github.com/caozhiyi/CppNet">CppNet</a>Cross platform network library with C++11</li>
+<li><a href="https://github.com/yedf/handy">handy网络库--简洁易用的C++11网络库</a></li>
+<li><a href="https://github.com/yhirose/cpp-httplib">cpp-httplib</a></li>
+<li>[[grpc]]</li>
+<li>[[websocket++]]</li>
+<li>[[ZeroMQ]]</li>
+</ul>
+<h2 id="工具类">工具类</h2>
+<ul>
+<li>[[使用NTP协议获取网络时间戳]]</li>
+</ul>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://en.cppreference.com/w/cpp/links/libs">A list of open source C++ libraries - cppreference.com</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

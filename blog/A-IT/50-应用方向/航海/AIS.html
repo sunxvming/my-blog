@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/航海/AIS</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#协议格式">协议格式</a></li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>自动识别系统（Automatic Identification System，AIS），是安装在船舶上的一套自动追踪系统<br />
+由AIS所发出的讯息包括独特的识别码、船名、位置、航向、船速，并显示在AIS的萤幕或电子海图上。<br />
+国际海事组织中《国际海上人命安全公约》（SOLAS）要求航行于国际水域，总吨位在300以上之船舶，以及所有不论吨位大小的客船，均应安装AIS。<br />
+AIS的主要目的是允许船舶查看其所在地区的海上交通，并被该交通看到。<br />
+AIS的最初目的仅仅是避免碰撞，但此后已经开发并继续开发许多其他应用程序。AIS目前用于：<br />
+避 碰、渔船队监测和控制、海事安全、导航辅助</p>
+<p>AIS 收发器通过收发器内置的 VHF 发射器定期自动广播信息，例如其位置、速度和导航状态。这些信息来自船舶的导航传感器，通常是其全球导航卫星系统（GNSS）接收器和陀螺罗盘。</p>
+<h2 id="协议格式">协议格式</h2>
+<p>!AIVDM（从其他船只接收数据）<br />
+!AIVDO（自有船只的信息）</p>
+<p>AIS协议定义了数据传输的格式，以下是AIS消息的基本格式：</p>
+<ol>
+<li>起始位（Start Bit）：用于指示消息的开始，固定为二进制0。</li>
+<li>消息类型（Message Type）：指示消息的类型，占6个比特位，共有27种不同类型的消息。</li>
+<li>MMSI（Maritime Mobile Service Identity）：船舶的唯一标识号码，占30个比特位。</li>
+<li>航行状态（Navigational Status）：指示船舶的航行状态，占4个比特位。</li>
+<li>转向率（Rate of Turn）：指示船舶的转向率，占8个比特位。</li>
+<li>速度（Speed Over Ground）：船舶的地速，以节为单位，占10个比特位。</li>
+<li>精度（Position Accuracy）：指示船舶位置的精确度，占1个比特位。</li>
+<li>经度（Longitude）：船舶的经度信息，占28个比特位。</li>
+<li>纬度（Latitude）：船舶的纬度信息，占27个比特位。</li>
+<li>航向（Course Over Ground）：船舶的航向，以度为单位，占12个比特位。</li>
+<li>时间戳（Timestamp）：指示数据的时间戳信息，占6个比特位。</li>
+<li>特定信息（Specific Information）：根据消息类型的不同，可能包含特定的附加信息。</li>
+<li>停止位（Stop Bit）：用于指示消息的结束，固定为二进制1。</li>
+</ol>
+<p>AIVDM消息中的MessageType字段表示AIS消息的类型。每个AIS消息类型都有一个唯一的MessageType值，用于标识消息类型。以下是一些常见的AIS消息类型及其对应的MessageType值：<br />
+1. Position Report (Class A): MessageType 1, 2, 3 - 船舶位置报告（A类）<br />
+2. Position Report (Class B): MessageType 18, 19 - 船舶位置报告（B类）<br />
+3. Static and Voyage Related Data: MessageType 5, 24 - 静态和航行相关数据<br />
+4. Aids to Navigation: MessageType 21 - 航标辅助信息<br />
+5. Safety Related Message: MessageType 6 - 安全相关消息<br />
+6. Binary Addressed Message: MessageType 8, 9 - 二进制寻址消息<br />
+7. Binary Broadcast Message: MessageType 7 - 二进制广播消息<br />
+8. Standard SAR Aircraft Position Report: MessageType 4 - 标准搜救飞机位置报告<br />
+9. Base Station Report: MessageType 21 - 基站报告</p>
+<p>A类消息通常由较大的商船或船舶发送，发送频率更高，提供更详细的船只信息。而B类消息主要由小型船只、渔船等非商业船只发送</p>
+<pre><code>$GNGLL
+$GNGLL,&lt;纬度&gt;,&lt;纬度方向&gt;,&lt;经度&gt;,&lt;经度方向&gt;,&lt;UTC时间&gt;,&lt;状态&gt;,&lt;校验和&gt;*&lt;校验和&gt;\r\n</code></pre>
+<p>各字段的含义如下：<br />
+- <code>&lt;纬度&gt;</code>：纬度值，格式为十进制度分（DDMM.MMMM）。<br />
+- <code>&lt;纬度方向&gt;</code>：纬度的方向，可以是<code>N</code>（北半球）或<code>S</code>（南半球）。<br />
+- <code>&lt;经度&gt;</code>：经度值，格式为十进制度分（DDDMM.MMMM）。<br />
+- <code>&lt;经度方向&gt;</code>：经度的方向，可以是<code>E</code>（东经）或<code>W</code>（西经）。<br />
+- <code>&lt;UTC时间&gt;</code>：协调世界时（UTC）时间，格式为HHMMSS.SSS。<br />
+- <code>&lt;状态&gt;</code>：定位状态，表示GPS定位的质量和状态。<br />
+- <code>&lt;校验和&gt;</code>：校验和，用于数据完整性验证。</p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Automatic_identification_system">Automatic identification system - Wikipedia</a></li>
+<li><a href="https://www.zhihu.com/question/21633927">船舶定位AIS数据源是从哪来的？ - 知乎</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

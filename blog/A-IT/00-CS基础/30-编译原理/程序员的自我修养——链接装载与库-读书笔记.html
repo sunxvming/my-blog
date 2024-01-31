@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/00-CS基础/30-编译原理/程序员的自我修养——链接装载与库-读书笔记</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#第一部分简介">第一部分：简介</a>
+<ul>
+<li><a href="#第1章温故而知新">第1章、温故而知新</a></li>
+</ul></li>
+<li><a href="#第二部分静态链接">第二部分：静态链接</a>
+<ul>
+<li><a href="#第2章编译和链接">第2章、编译和链接</a></li>
+<li><a href="#第3章目标文件里有什么">第3章、目标文件里有什么</a></li>
+<li><a href="#第4章静态链接">第4章、静态链接</a></li>
+<li><a href="#第5章windows-pecoff">第5章、Windows PE/COFF</a></li>
+</ul></li>
+<li><a href="#第三部分装载与动态链接">第三部分：装载与动态链接</a>
+<ul>
+<li><a href="#第6章可执行文件的装载与进程">第6章、可执行文件的装载与进程</a></li>
+<li><a href="#第7章动态链接">第7章、动态链接</a></li>
+<li><a href="#第8章linux共享库的组织">第8章、Linux共享库的组织</a></li>
+<li><a href="#第9章windows下的动态链接">第9章、Windows下的动态链接</a></li>
+</ul></li>
+<li><a href="#第四部分库与运行库">第四部分：库与运行库</a>
+<ul>
+<li><a href="#第10章内存">第10章、内存</a></li>
+<li><a href="#第11章运行库">第11章、运行库</a></li>
+<li><a href="#第12章系统调用与api">第12章、系统调用与API</a></li>
+<li><a href="#第13章运行库与实现">第13章、运行库与实现</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h3 id="第一部分简介">第一部分：简介</h3>
+<h4 id="第1章温故而知新">第1章、温故而知新</h4>
+<p>主要介绍一些操作系统的基本知识，简述了设备驱动、操作系统、虚拟空间、物理空间、页映射、线程等基本概念。</p>
+<ul>
+<li>虚拟地址<br />
+物理地址对应于物理内存，是实际存在的。虚拟地址是不存在的地址空间，每个进程有自己独立的虚拟空间，然后通过某些映射方式，将虚拟地址转化为实际的物理地址。<br />
+虚拟地址主要为了解决使用物理地址时，地址空间不隔离，内存使用效率低，运行地址不确定等问题。对于程序来说，它永远从 0x00000000 开始的连续地址，不需要考虑重定位。</li>
+</ul>
+<h3 id="第二部分静态链接">第二部分：静态链接</h3>
+<h4 id="第2章编译和链接">第2章、编译和链接</h4>
+<p>使用gcc编译程序生成目标文件中，经历了四个过程：预处理、编译、汇编、链接</p>
+<ul>
+<li>预编译：处理源代码文件中以“#”开头的与编译指令（生成 .i 文件）</li>
+<li>编译：对预处理后的文件进行词法分析、语法分析、语义分析及优化，产生相应的汇编代码文件（生成 .s 文件）<br />
+（gcc把预编译和编译合成一个步骤，使用cc1程序完成，改程序位于 /usr/lib/gcc/x86_64-linux-gnu/4.7/ 中）</li>
+<li>汇编：将汇编代码转成机器可执行的指令，每一个汇编语句几乎对应着一条机器指令（使用汇编器 as 完成，生成 .o 目标文件）</li>
+<li>链接：链接需要用到的其他文件，生成最终可执行文件（使用ld程序，生成 .out 文件）（其过程包括地址和空间分配、符号决议、重定位）</li>
+</ul>
+<h4 id="第3章目标文件里有什么">第3章、目标文件里有什么</h4>
+<p>可执行文件格式：PE（windows下的Portable Executable）、ELF（linux下的 Executable Linkable Format），都是COFF（Common file firmat）格式的变种</p>
+<p>动态链接库（DLL，Dynamic Linking Library，windows下的.dll和linux下的.so）和静态链接文库（Static Linking Library，windows下的的.lib和linux下的.a）文件已 ELF 格式存储。</p>
+<p>linux下可用 file 指令查看文件格式<br />
+ELF文件结构：代码段、数据段、BSS段、文件头、段表、重定位表、字符串表、符号表、调试表</p>
+<h4 id="第4章静态链接">第4章、静态链接</h4>
+<p>空间与地址分配、符号解析和重定位</p>
+<h4 id="第5章windows-pecoff">第5章、Windows PE/COFF</h4>
+<p>因为基于Linux开发，windows相关的暂时跳过</p>
+<h3 id="第三部分装载与动态链接">第三部分：装载与动态链接</h3>
+<h4 id="第6章可执行文件的装载与进程">第6章、可执行文件的装载与进程</h4>
+<p>操作系统装载程序到内存：覆盖装入和页映射</p>
+<h4 id="第7章动态链接">第7章、动态链接</h4>
+<p>静态链接会浪费内存和磁盘空间、模块更新困难</p>
+<p>静态链接是链接时重定位，动态链接是装载时重定位</p>
+<p>地址无关代码（PIC）：解决共享对象指令中对绝对地址的重定位问题</p>
+<p>延迟绑定（PLT）：当函数第一次被调用时才进行绑定</p>
+<p>ldd：查看程序依赖库<br />
+readelf：查看ELF结构相关信息<br />
+objdump：打印对象信息</p>
+<h4 id="第8章linux共享库的组织">第8章、Linux共享库的组织</h4>
+<p>共享库版本命名：libname.so.x.y.z（主版本号x（重大升级，不兼容其他版本），次版本号y（增量升级），发布版本号z（修正、改进））</p>
+<p>SO-NAME：只保留主版本号的共享库名</p>
+<p>链接名：即libname.so.x.y.z中的name</p>
+<p>LD_LIBRARY_PATH：改变某程序的共享库查找路径<br />
+LD_PRELOAD：指定预先装载的一些共享库或目标文件<br />
+LD_DEBUG：打开动态链接器的调试功能</p>
+<h4 id="第9章windows下的动态链接">第9章、Windows下的动态链接</h4>
+<p>跳过</p>
+<h3 id="第四部分库与运行库">第四部分：库与运行库</h3>
+<h4 id="第10章内存">第10章、内存</h4>
+<p>调用惯例：约定的函数调用方式</p>
+<h4 id="第11章运行库">第11章、运行库</h4>
+<p>程序运行步骤：操作系统创建进程，把控制权交给程序入口（一般是运行库中某个入口函数）；入口函数对运行库和运行环境进行初始化，包括堆、I/O、线程、全局变量构造等；入口函数完成初始化后，调用main函数，执行程序主体部分；main函数执行完毕后，返回入口函数，进行清理工作，包括全局变量析构、堆销毁、关闭I/O等，然后进行系统调用结束进程</p>
+<p>线程私有存储空间：栈、线程局部存储、寄存器</p>
+<p>CRT（C语言运行库）：启动与退出、标准函数、I/O、堆、语言实现、调试</p>
+<h4 id="第12章系统调用与api">第12章、系统调用与API</h4>
+<p>系统调用：应用程序与操作系统内核之间的接口</p>
+<h4 id="第13章运行库与实现">第13章、运行库与实现</h4>
+<p>主要讲 Mini CRT的实现</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

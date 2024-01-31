@@ -1,0 +1,637 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/12.STL</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#stl容器">STL容器</a>
+<ul>
+<li><a href="#容器的通用特性">容器的通用特性</a></li>
+<li><a href="#顺序容器">顺序容器</a></li>
+<li><a href="#有序关联容器">有序关联容器</a></li>
+<li><a href="#无序关联容器">无序关联容器</a></li>
+</ul></li>
+<li><a href="#stl迭代器iterator">STL迭代器iterator</a>
+<ul>
+<li><a href="#迭代器的功能分类">迭代器的功能分类</a></li>
+<li><a href="#迭代器的辅助函数">迭代器的辅助函数</a></li>
+<li><a href="#底层实现">底层实现</a></li>
+</ul></li>
+<li><a href="#stl算法">STL算法</a>
+<ul>
+<li><a href="#手写循环的替代品-for_each">手写循环的替代品 for_each</a></li>
+<li><a href="#排序">排序</a></li>
+<li><a href="#查找算法">查找算法</a></li>
+</ul></li>
+<li><a href="#stl中大小和相等的概念">STL中“大”、“小”和“相等”的概念</a></li>
+<li><a href="#stl-vector可变长的动态数组">STL vector（可变长的动态数组）</a></li>
+<li><a href="#stl-list双向链表">STL list（双向链表）</a></li>
+<li><a href="#stl-deque双向队列详解">STL deque（双向队列详解）</a></li>
+<li><a href="#函数对象详解">函数对象详解</a></li>
+<li><a href="#stl关联容器">STL关联容器</a></li>
+<li><a href="#pair类模板">pair类模板</a></li>
+<li><a href="#multiset">multiset</a></li>
+<li><a href="#set">set</a></li>
+<li><a href="#multimap">multimap</a>
+<ul>
+<li><a href="#stl-map">STL map</a></li>
+</ul></li>
+<li><a href="#c容器适配器简介">C++容器适配器简介</a>
+<ul>
+<li><a href="#stack">stack</a></li>
+<li><a href="#queue">queue</a></li>
+<li><a href="#priority_queue">priority_queue</a></li>
+<li><a href="#stl算法分类">STL算法分类</a></li>
+<li><a href="#c-bitset类">C++ bitset类</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>STL 是一些常用数据结构和算法的模板的集合</p>
+<h2 id="stl容器">STL容器</h2>
+<p>容器，就是能够“容纳”“存放”元素的一些数据结构。</p>
+<h3 id="容器的通用特性">容器的通用特性</h3>
+<p>你必须要知道所有容器都具有的一个基本特性：它保存元素采用的是“值”（value）语义，也就是说，容器里存储的是元素的拷贝、副本，而不是引用。</p>
+<p>容器（container）中可以存放基本类型的变量，也可以存放对象。对象或基本类型的变量被插入容器中时，实际插入的是对象或变量的一个复制品<br />
+但是不能放引用，因为：<br />
+The component type of containers like vectors must be <a href="https://en.cppreference.com/w/cpp/named_req/CopyAssignable"><em>assignable</em></a>. References are not assignable (you can only initialize them once when they are declared, and you cannot make them reference something else later).<br />
+Other non-assignable types are also not allowed as components of containers, e.g. <code>vector&lt;const int&gt;</code> is not allowed.</p>
+<p>从这个基本特性可以得出一个推论，容器操作元素的很大一块成本就是<strong>值的拷贝</strong>。<br />
+<strong>解决办法：</strong><br />
+1. 一个解决办法是，尽量为元素实现移动构造和移动赋值函数，在加入容器的时候使用<br />
+std::move() 来“转移”，减少元素复制的成本：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>Point p; <span class="co">// 一个拷贝成本很高的对象</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>v.push_back(p); <span class="co">// 存储对象，拷贝构造，成本很高</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>v.push_back(<span class="bu">std::</span>move(p)); <span class="co">// 定义转移构造后就可以转移存储，降低成本</span></span></code></pre></div>
+<p>2. 使用emplace 操作函数，它可以“就地”构造元素，免去了构造后再拷贝、转移的成本，不但高效，而且用起来也很方便</p>
+<p>3. 当然，你可能还会想到在容器里存放元素的指针，来间接保存元素，但我不建议采用这种方案。<br />
+虽然指针的开销很低，但因为它是“间接”持有，就不能利用容器自动销毁元素的特性了，你必须要自己手动管理元素的生命周期，麻烦而且非常容易出错，有内存泄漏的隐患。如果真的有这种需求，可以考虑使用智能指针 unique_ptr/shared_ptr，让它们帮你自动管理元素。<br />
+一般情况下，shared_ptr 是一个更好的选择，它的共享语义与容器的值语义基本一致。使用 <code>unique_ptr</code> 就要当心，它不能被拷贝，只能被转移，用起来就比较“微妙”。</p>
+<p><strong>容器分类</strong><br />
+常见的一种分类是依据元素的访问方式，分成顺序容器、有序容器和无序容器三大类别。<br />
+除了以上容器外，STL 还在两类容器的基础上屏蔽一部分功能，<strong>突出或增加另一部分功能</strong>，实现了三种<strong>容器适配器</strong>：<br />
+栈 stack、队列 queue、优先级队列 priority_queue。<br />
+容器适配器 stack、queue 和 priority_queue 没有迭代器。</p>
+<h3 id="顺序容器">顺序容器</h3>
+<p>它们之所以被称为顺序容器，是因为将元素插入容器时，指定在什么位置（尾部、头部或中间某处）插入，元素就会位于什么位置。</p>
+<p>连续存储的数组：<br />
+* array<br />
+array 是静态数组，大小在初始化的时候就固定<br />
+* vector<br />
+* deque<br />
+它可以在两端高效地插入删除元素<br />
+指针结构的链表：<br />
+* list<br />
+list 是双向链表，可以向前或者向后遍历，但查找效率比较低<br />
+* forward_list<br />
+forward_list，顾名思义，是单向链表，只能向前遍历，查找效率就更低了。</p>
+<p>链表结构比起数组结构还有一个缺点，就是存储成本略高，因为必须要为每个元素附加一个或者两个的指针，指向链表的前后节点。<br />
+当 vector 的容量到达上限的时候（capacity），它会再分配一块两倍大小的新内存，然后把旧元素拷贝或者移动过去。这个操作的成本是非常大的，所以，你在使用 vector 的时候最好能够“预估”容量，使用 <code>reserve</code> 提前分配足够的空间，减少动态扩容的拷贝代价。<br />
+vector 的做法太“激进”，而 deque、list 的的扩容策略就“保守”多了，只会按照固定的“步长”（例如 N 个字节、一个节点）去增加容量。但在短时间内插入大量数据的时候就会频繁分配内存，效果反而不如 vector 一次分配来得好。</p>
+<h3 id="有序关联容器">有序关联容器</h3>
+<p>顺序容器的特点是，元素的次序是由它插入的次序而决定的，访问元素也就按照最初插入的顺序。而有序容器则不同，它的元素在插入容器后就被按照某种规则自动排序，所以是“有序”的。<br />
+C++ 的有序容器使用的是树结构，通常是红黑树——有着最好查找性能的二叉树。<br />
+* set/multiset<br />
+* map/multimap<br />
+在定义容器的时候必须要指定 key 的比较函数,解决这个问题有两种办法: 一个是重载<code>&lt;</code>，另一个是自定义模板参数。</p>
+<h3 id="无序关联容器">无序关联容器</h3>
+<p>内部是散列表<br />
+unordered_set/unordered_multiset、unordered_map/unordered_multimap。</p>
+<p>无序容器对 key的要求：<br />
+一是可以计算 <strong>hash值</strong>，二是能够执行<strong>相等比较</strong>操作。<br />
+第一个是因为散列表的要求，只有计算 hash 值才能放入散列表，<br />
+第二个则是因为 hash 值<strong>可能会冲突</strong>，所以当 hash 值相同时，就要比较真正的 key 值。</p>
+<p>如果只想要单纯的集合、字典，没有排序需求，就应该用<strong>无序容器</strong>，没有比较排序的成本，它的速度就会非常快。 </p>
+<p>使用这些容器的小技巧，就是多利用<strong>类型别名</strong>，而不要“写死”容器定义。因为容器的大部分接口是相同的，所以只要变动别名定义，就能够随意改换不同的容器，对于开发、测试都非常方便。</p>
+<p>STL 中的许多算法（即函数模板），如排序、查找等算法，在执行过程中会对容器中的元素进行比较。这些算法在比较元素是否相等时通常用运算符进行，比较大小通常用&lt;运算符进行，因此，被放入容器的对象所属的类<strong>最好重载等于和小于运算符</strong>，以使得两个对象用进行比较是有定义的。</p>
+<h2 id="stl迭代器iterator">STL迭代器iterator</h2>
+<p>算法操作容器，但实际上它看到的并不是容器，而是指向起始位置和结束位置的迭代器，算法只能通过迭代器去“间接”访问容器以及元素，算法的能力是由迭代器决定的。</p>
+<p><strong>这种间接的方式有什么好处呢？</strong><br />
+这就是泛型编程的理念，与面向对象正好相反，<strong>分离了数据和操作</strong>。算法可以不关心容器的内部结构，以一致的方式去操作元素，适用范围更广，用起来也更灵活。</p>
+<p>可以把迭代器简单地理解为另一种形式的<strong>智能指针</strong>，只是它强调的是<strong>对数据的访问，而不是生命周期管理</strong>。</p>
+<p>要访问顺序容器和关联容器中的元素，需要通过“迭代器（iterator）”进行。迭代器是一个<strong>变量</strong>，相当于容器和操纵容器的算法之间的<strong>中介</strong>。迭代器可以指向容器中的某个元素，通过迭代器就可以<br />
+1.读写它指向的元素,<br />
+2.通过递减或递增来改变指向。<br />
+从这一点上看，迭代器和指针类似。<br />
+<code>iterator</code> <code>const_iterator</code>  <code>reverse_iterator</code> <code>const_reverse_iterator</code>  <code>move_iterator</code></p>
+<h3 id="迭代器的功能分类">迭代器的功能分类</h3>
+<p>1. 正向迭代器(不支持大于小于比较)<br />
+2. 双向迭代器(不支持大于小于比较)<br />
+3. 随机访问迭代器(可以比较，可以随机访问)</p>
+<h3 id="迭代器的辅助函数">迭代器的辅助函数</h3>
+<ul>
+<li>advance(p, n)：使迭代器 p 向前或向后移动 n 个元素。</li>
+<li>distance(p, q)：计算两个迭代器之间的距离，如果调用时 p 已经指向 q 的后面，则这个函数会陷入死循环。</li>
+<li>iter_swap(p, q)：用于交换两个迭代器 p、q 指向的值。</li>
+</ul>
+<h3 id="底层实现">底层实现</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">template</span> &lt;<span class="kw">typename</span> T&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">class</span> ArrayIterator {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>    ArrayIterator(T* ptr) : current(ptr) {}</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>    T&amp; <span class="kw">operator</span>*() {</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>        <span class="cf">return</span> *current;</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>    }</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>    ArrayIterator&amp; <span class="kw">operator</span>++() {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>        ++current;</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>        <span class="cf">return</span> *<span class="kw">this</span>;</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>    }</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>    <span class="dt">bool</span> <span class="kw">operator</span>!=(<span class="at">const</span> ArrayIterator&amp; other) <span class="at">const</span> {</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>        <span class="cf">return</span> current != other.current;</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>    }</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a>    T* current;</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a>};</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true"></a><span class="kw">template</span> &lt;<span class="kw">typename</span> T&gt;</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true"></a><span class="kw">class</span> Array {</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true"></a>    Array(T* data, <span class="dt">size_t</span> size) : data(data), size(size) {}</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true"></a>    ArrayIterator&lt;T&gt; begin() {</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true"></a>        <span class="cf">return</span> ArrayIterator&lt;T&gt;(data);</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true"></a>    }</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true"></a>    ArrayIterator&lt;T&gt; end() {</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true"></a>        <span class="cf">return</span> ArrayIterator&lt;T&gt;(data + size);</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true"></a>    }</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true"></a>    T* data;</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true"></a>    <span class="dt">size_t</span> size;</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true"></a>};</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true"></a>    <span class="dt">int</span> arr[] = {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>};</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true"></a>    Array&lt;<span class="dt">int</span>&gt; myArray(arr, <span class="dv">5</span>);</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="dt">int</span> value : myArray) {</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; value &lt;&lt; <span class="st">&quot; &quot;</span>;</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true"></a>    }</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="stl算法">STL算法</h2>
+<p>虽然算法是 STL（标准库前身）的三大要件之一（容器、算法、迭代器），也是 C++ 标准库里一个非常重要的部分，但它却没有像容器那样被大众广泛接受。</p>
+<p>在 C++ 里，算法的地位非常高，甚至有一个专门的“算法库”。早期，它是<strong>泛型编程的示范和应用</strong>，而在 C++ 引入 lambda 表达式后，它又成了<strong>函数式编程的具体实践</strong>，所以，学习掌握算法能够很好地训练你的<strong>编程思维</strong>，帮你开辟出面向对象之外的新天地</p>
+<p>C++ 里的算法，指的是<strong>工作在容器上的一些泛型函数</strong>，会对容器内的元素实施的各种操作。<br />
+不过要是“说白了”，算法其实并不神秘，因为所有的算法本质上都是 for 或者 while，通过循环遍历来逐个处理容器里的元素。</p>
+<p>STL 提供能在各种容器中通用的算法，如插入、删除、查找、排序等。算法就是<strong>函数模板</strong>。<br />
+<strong>算法通过迭代器来操纵容器中的元素</strong></p>
+<p>STL 中的大部分常用算法都在头文件 algorithm 中定义。此外，头文件 numeric 中也有一些算法。<br />
+有的算法会改变其所作用的容器。例如：<br />
+* copy：将一个容器的内容复制到另一个容器。<br />
+* remove：在容器中删除一个元素。<br />
+* random_shuffle：随机打乱容器中的元素。<br />
+* fill：用某个值填充容器。<br />
+有的算法不会改变其所作用的容器。例如：<br />
+* find：在容器中查找元素。<br />
+* count_if：统计容器中符合某种条件的元素的个数。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co">//统计等于 1 的元素个数</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>vector&lt;<span class="dt">int</span>&gt; v = {<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">7</span>,<span class="dv">5</span>}; </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>auto n1 = <span class="bu">std::</span>count( </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>    begin(v), end(v), <span class="dv">1</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>);</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>int n2 = <span class="dv">0</span>;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a><span class="cf">for</span>(auto x : v) { </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>    if (x == <span class="dv">1</span>) {</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>        n2++;</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>    }</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>}</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a><span class="co">//配合lambda效果更好</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>auto n = <span class="bu">std::</span>count_if( </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>    begin(v), end(v),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a>    [](auto x) { </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a>        return x &gt; <span class="dv">2</span>;</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a>    }</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a>);</span></code></pre></div>
+<p>这是追求<strong>更高层次上</strong>的抽象和封装，也是函数式编程的基本理念。</p>
+<h3 id="手写循环的替代品-for_each">手写循环的替代品 for_each</h3>
+<p>它能够促使我们更多地以“函数式编程”来思考，使用 lambda 来封装逻辑，得到更干净、更安全的代码。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>vector&lt;<span class="dt">int</span>&gt; v = {<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">7</span>,<span class="dv">10</span>};   <span class="co">// vector容器</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="cf">for</span>(<span class="at">const</span> <span class="kw">auto</span>&amp; x : v) {        <span class="co">// range for循环</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>    cout &lt;&lt; x &lt;&lt; <span class="st">&quot;,&quot;</span>;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>}</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="kw">auto</span> print = [](<span class="at">const</span> <span class="kw">auto</span>&amp; x)  <span class="co">// 定义一个lambda表达式</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>{</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>    cout &lt;&lt; x &lt;&lt; <span class="st">&quot;,&quot;</span>;</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>};</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>for_each(cbegin(v), cend(v), print);<span class="co">// for_each算法</span></span></code></pre></div>
+<h3 id="排序">排序</h3>
+<p>很多时候，用sort排序做的成本比较高，比如 TopN、中位数、最大最小值等，我们只关心一部分数据，如果你用 sort()，就相当于“杀鸡用牛刀”，是一种浪费。<br />
+1. 要求排序后仍然保持元素的相对顺序，应该用 stable_sort，它是稳定的；<br />
+2. 选出前几名（TopN），应该用 partial_sort；<br />
+3. 选出前几名，但不要求再排出名次（BestN），应该用 nth_element；<br />
+4. 中位数（Median）、百分位数（Percentile），还是用 nth_element；<br />
+5. 按照某种规则把元素划分成两组，用 partition；<br />
+6. 第一名和最后一名，用 minmax_element</p>
+<p>如果是 list 容器，应该调用<strong>成员函数 sort()</strong>，它对链表结构做了特别的优化。<br />
+有序容器set/map 本身就已经排好序了，直接对迭代器做运算就可以得到结果。<br />
+而对无序容器，则不要调用排序算法，原因你应该不难想到（散列表结构的特殊性质，导致迭代器不满足要求、元素无法交换位置）。</p>
+<h3 id="查找算法">查找算法</h3>
+<ul>
+<li>binary_search    它只返回一个 bool 值，告知元素是否存在，用在在有序序列中</li>
+<li>lower_bound      在有序序列中返回第一个“大于或等于”值的迭代器，判断是否找到：一个是迭代器是否有效，另一个是迭代器的值是不是要找的值。</li>
+<li>upper_bound，  返回的是第一个“大于”值的迭代器。begin &lt; x &lt;= lower_bound &lt; upper_bound &lt; end</li>
+<li>find   find_if  查找算法，找到第一个出现的位置</li>
+<li>search</li>
+</ul>
+<p>对于有序容器 set/map，就不需要调用这三个算法了，它们有等价的<strong>成员函数</strong> find/lower_bound/upper_bound，效果是一样的。</p>
+<p>因为标准算法的名字实在是太普通、太常见了，所以建议你一定要显式写出“std::”名字空间限定，这样看起来更加醒目，也避免了无意的名字冲突。</p>
+<h2 id="stl中大小和相等的概念">STL中“大”、“小”和“相等”的概念</h2>
+<p>在 STL 中，默认情况下，<strong>比较大小是通过&lt;运算符进行的</strong>，和&gt;运算符无关<br />
+y比x大意味着<code>x&lt;y</code>为真，而不是<code>y&gt;x</code>为真。<code>y&gt;x</code>的结果如何并不重要，甚至<code>y&gt;x</code>是没定义的都没有关系。<br />
+综上所述，使用 STL 中的关联容器和许多算法时，往往需要对<code>&lt;</code>运算符进行适当的重载，使得这些容器和算法可以用&lt;运算符对所操作的元素进行比较。</p>
+<h2 id="stl-vector可变长的动态数组">STL vector（可变长的动态数组）</h2>
+<h2 id="stl-list双向链表">STL list（双向链表）</h2>
+<p>STL 中的算法 sort 可以用来对 vector 和 deque 排序，它需要随机访问迭代器的支持。因为 list <strong>不支持随机访问迭代器</strong>，所以不能用算法 sort 对 list 容器排序。因此，list 容器引入了 <code>sort</code> <strong>成员函数</strong>以完成排序。</p>
+<h2 id="stl-deque双向队列详解">STL deque（双向队列详解）</h2>
+<p>deque 也是顺序容器的一种，同时也是一个可变长数组。所有适用于 vector 的操作都适用于 deque。<br />
+优点:<strong>头尾增删元素都具有较好的性能</strong></p>
+<h2 id="函数对象详解">函数对象详解</h2>
+<p>如果一个类将<code>()</code>运算符重载为成员函数，这个类就称为<strong>函数对象类</strong>，这个类的对象就是<strong>函数对象</strong>。函数对象其实就是重载了<code>()</code>的对象，是一个<strong>更加面向对象的函数指针</strong>，它可以用很多面相对象的很多特性。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>class CAverage</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>{</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    double <span class="kw">operator</span>()(int a1, int a2, int a3)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    { <span class="co">//重载()运算符</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>        return (<span class="dt">double</span>)(a1 + a2 + a3) / <span class="dv">3</span>;</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>    }</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>};</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>int main()</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>{</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>    CAverage average; <span class="co">//能够求三个整数平均数的函数对象</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>    cout &lt;&lt; average(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>); <span class="co">//等价于 cout &lt;&lt; average.operator(3, 2, 3);</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="stl关联容器">STL关联容器</h2>
+<p>关联容器内部的元素都是排好序的，有以下四种。<br />
+* set：排好序的集合，不允许有相同元素。<br />
+* multiset：排好序的集合，允许有相同元素。<br />
+* map：每个元素都分为关键字和值两部分，容器中的元素是按关键字排序的。不允许有多个元素的关键字相同。<br />
+* multimap：和 map 类似，差别在于元素的关键字可以相同。<br />
+不能<strong>修改</strong> set 或 multiset 容器中元素的值。因为元素被修改后，容器并不会自动重新调整顺序，于是容器的有序性就会被破坏，再在其上进行查找等操作就会得到错误的结果。因此，如果要修改 set 或 multiset 容器中某个元素的值，<br />
+正确的做法是<strong>先删除该元素，再插入新元素</strong>。<br />
+同理，也不能修改 map 和 multimap 容器中元素的<strong>关键字</strong>。<br />
+使用关联容器的目的也就在于快速查找。当一个元素被插入关联容器时，该元素会和已有的元素进行比较，最终被插入一个合适的位置。<br />
+关联容器一般是用<code>平衡二叉树</code>实现的。</p>
+<h2 id="pair类模板">pair类模板</h2>
+<p>在学习关联容器之前，首先要了解 STL 中的 <code>pair</code> 类模板，因为关联容器的一些成员函数的返回值是 <code>pair</code> 对象<br />
+STL 中还有一个函数模板 <code>make_pair</code>，其功能是生成一个 pair 模板类对象</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>pair&lt;<span class="dt">int</span>,<span class="dt">double</span>&gt; p1;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>pair&lt;string,<span class="dt">int</span>&gt; p2(<span class="st">&quot;this&quot;</span>,<span class="dv">20</span>);</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>pair&lt;<span class="dt">int</span>,<span class="dt">int</span>&gt; p3(pair&lt;<span class="dt">char</span>,<span class="dt">char</span>&gt;(<span class="ch">&#39;a&#39;</span>,<span class="ch">&#39;b&#39;</span>));</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>pair&lt;<span class="dt">int</span>,string&gt; p4 = make_pair(<span class="dv">200</span>,<span class="st">&quot;hello&quot;</span>);</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="dt">int</span> firstValue = p4.first; </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a><span class="dt">int</span> secondValue = p4.second;</span></code></pre></div>
+<h2 id="multiset">multiset</h2>
+<p>multiset 是关联容器的一种，是排序好的集合（元素已经进行了排序），并且允许有相同的元素。</p>
+<p><strong><code>&lt;</code>运算符必须经过适当重载，才可以向 <code>multiset &lt;A&gt;</code>容器中插人元素</strong>。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;set&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>using namespace std;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>class A{};</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>int main(){</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>    multiset &lt;A&gt; a;</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>    a.insert( A() ); <span class="co">//编译出错，因为不能用“&lt;”运算符比较两个A对象</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>}</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a>typedef multiset&lt;A&gt; MSET1; <span class="co">//用“&lt;”运算符比较大小</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a>MSET1::iterator pp = m1.find(<span class="dv">19</span>);</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a>if (pp != m1.end())</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true"></a>{</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true"></a>    cout &lt;&lt; <span class="st">&quot;found&quot;</span> &lt;&lt; endl; <span class="co">//本行会被执行，输出 found</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true"></a>    cout &lt;&lt; *m1.lower_bound(<span class="dv">22</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true"></a>    &lt;&lt; <span class="st">&quot;,&quot;</span> &lt;&lt; *m1.upper_bound(<span class="dv">22</span>) &lt;&lt; endl; <span class="co">//输出 22,33</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true"></a>}</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true"></a>pp = m1.erase(m1.lower_bound(<span class="dv">22</span>), m1.upper_bound(<span class="dv">22</span>));</span></code></pre></div>
+<h2 id="set">set</h2>
+<p>set 是关联容器的一种，是排序好的集合（元素已经进行了排序）。set 和 multiset 类似，它和 multiset 的差别在于 set 中不能有重复的元素。multiset 的成员函数 set 中也都有。<br />
+由于不能有重复元素，所以 set 中插入单个元素的 insert 成员函数与 multiset 中的有所不同，其原型如下：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>pair&lt;iterator, bool&gt; insert(const T &amp; val);</span></code></pre></div>
+<p>如果 set 的 insert 成员函数的返回值是 pair 模板类对象 x，如果 x.second 为 true，则说明插入成功，此时 x.first 就是指向被插入元素的迭代器；<br />
+如果 x.second 为 false，则说明要插入的元素<strong>已在容器中</strong>，此时 x.first 就是指向原有那个元素的迭代器。</p>
+<h2 id="multimap">multimap</h2>
+<p>multimap 是关联容器的一种，multimap 的每个元素都分为关键字和值两部分，容器中的元素是按关键字排序的，并且允许有多个元素的关键字相同。</p>
+<h3 id="stl-map">STL map</h3>
+<p>不允许有多个元素的关键字相同。</p>
+<h2 id="c容器适配器简介">C++容器适配器简介</h2>
+<p>STL 中的容器适配器有 stack、queue、priority_queue 三种。它们都是在顺序容器的基础上实现的，屏蔽了顺序容器的一部分功能，突出或增加了另外一些功能。<br />
+容器适配器是<strong>没有迭代器</strong>的，因此 STL 中的各种排序、查找、变序等算法都不适用于容器适配器。</p>
+<h3 id="stack">stack</h3>
+<p>stack的定义如下：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>template &lt; class T, class Cont == deque &lt;T&gt; &gt;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>class stack{</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>    ...</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>};</span></code></pre></div>
+<p>第二个参数表明，在默认情况下，stack 就是用 deque 实现的。当然，也可以指定用 vector 或 list 实现。</p>
+<h3 id="queue">queue</h3>
+<p>queue 的定义如下：</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>template &lt; class T, class Cont = deque&lt;T&gt; &gt;</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>class queue{</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>    ...</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>};</span></code></pre></div>
+<h3 id="priority_queue">priority_queue</h3>
+<p>priority_queue 是“优先队列”。它和普通队列的区别在于，优先队列的队头元素总是<strong>最大的</strong>——即执行 pop 操作时，删除的总是最大的元素；执行 top 操作时，返回的是最大元素的引用。<br />
+priority_queue 可以用 vector 和 deque 实现，默认情况下用 vector 实现。<br />
+priority_queue实现是<strong>二叉堆</strong>，特别适用于“不停地在一堆元素中取走最大的元素”</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;queue&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;iostream&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>using namespace std;</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>int main()</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>{</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>    priority_queue&lt;<span class="dt">double</span>&gt; pq1;</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>    pq1.push(<span class="fl">3.2</span>); pq1.push(<span class="fl">9.8</span>); pq1.push(<span class="fl">9.8</span>); pq1.push(<span class="fl">5.4</span>);</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>    while(!pq1.empty()) {</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>        cout &lt;&lt; pq1.top() &lt;&lt; <span class="st">&quot; &quot;</span>;</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>        pq1.pop();</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a>    } <span class="co">//上面输出 9.8 9.8 5.4 3.2</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a>    cout &lt;&lt; endl;</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a>    priority_queue&lt;<span class="dt">double</span>,vector&lt;<span class="dt">double</span>&gt;,greater&lt;<span class="dt">double</span>&gt; &gt; pq2;</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true"></a>    pq2.push(<span class="fl">3.2</span>); pq2.push(<span class="fl">9.8</span>); pq2.push(<span class="fl">9.8</span>); pq2.push(<span class="fl">5.4</span>);</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true"></a>    while(!pq2.empty()) {</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true"></a>        cout &lt;&lt; pq2.top() &lt;&lt; <span class="st">&quot; &quot;</span>;</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true"></a>        pq2.pop();</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true"></a>    }</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true"></a>    <span class="co">//上面输出 3.2 5.4 9.8 9.8</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="stl算法分类">STL算法分类</h3>
+<p>在 STL 中，算法就是<strong>函数模板</strong>。STL 中的算法大多数是用来对容器进行操作的，如排序、 查找等。大部分算法都是在头文件 <code>&lt;algorithm&gt;</code> 中定义的，还有些算法用于数值处理，定义在头文件 <code>&lt;numeric&gt;</code> 中。<br />
+大多数重载的算法都有两个版本，其中一个用<code>==</code>判断元素是否相等，或用<code>&lt;</code>比较大小；<br />
+而另一个版本多出来一个类型参数 <code>Pred</code> 以及函数形参 <code>Pred op</code>，该版本通过表达式op(x, y)的返回值是 true 还是 false 来判断 x 是否“等于”y 或者“小于”y。比如下面有两个版本的 min_element：</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>iterate min_element(iterate first, iterate last);</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>iterate min_element(iterate first, iterate last, Pred op);</span></code></pre></div>
+<p>min_element 返回区间中最小的元素。第一个版本用&lt;比较大小，而第二个版本用自定义的比较器 op 来比较大小，op(x, y) 的值为 true，则说明 x 比 y 小。</p>
+<h3 id="c-bitset类">C++ bitset类</h3>
+<p>bitset 模板类由若干个位（bit）组成，它提供一些成员函数，使程序员不必通过位运算就能很方便地访问、修改其中的任意一位。</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>template &lt;<span class="dt">size_t</span> N&gt;</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>class bitset</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a>{</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a>    ...</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a>};</span></code></pre></div>
+<p>size_t 可看作 unsigned int。将 bitset 实例化时，N 必须是一个整型常数。例如：</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>bitset &lt;<span class="dv">40</span>&gt; bst;</span></code></pre></div>
+<p>则 bst 是一个由 40 个位组成的对象，用 bitset 的成员函数可以方便地访问其中任意一位。bitset 中的位从 0 开始编号，第 0 位是最右边的位。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

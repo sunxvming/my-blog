@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/web前端/VUE/Vue开发入门看这篇文章就够了</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#我们所说的前端框架与库的区别">我们所说的前端框架与库的区别？</a>
+<ul>
+<li><a href="#library">Library</a></li>
+<li><a href="#framework">Framework</a></li>
+<li><a href="#主要区别">主要区别</a></li>
+</ul></li>
+<li><a href="#mvvm的介绍">MVVM的介绍</a>
+<ul>
+<li><a href="#mvc">MVC</a></li>
+<li><a href="#mvvm组成">MVVM组成</a></li>
+<li><a href="#优势对比">优势对比</a></li>
+<li><a href="#vue中的mvvm">Vue中的MVVM</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="我们所说的前端框架与库的区别">我们所说的前端框架与库的区别？</h2>
+<p>在于代码控制权的区别</p>
+<h3 id="library">Library</h3>
+<p>库，本质上是一些函数的集合。每次调用函数，实现一个特定的功能，接着把<code>控制权</code>交给使用者</p>
+<ul>
+<li>代表：jQuery</li>
+<li>jQuery这个库的核心：DOM操作，即：封装DOM操作，简化DOM操作</li>
+</ul>
+<h3 id="framework">Framework</h3>
+<p>框架，是一套完整的解决方案，使用框架的时候，需要把你的代码放到框架合适的地方，框架会在合适的时机调用你的代码<br />
+* 框架规定了自己的编程方式，是一套完整的解决方案<br />
+* 使用框架的时候，由框架控制一切，我们只需要按照规则写代码</p>
+<h3 id="主要区别">主要区别</h3>
+<ul>
+<li>You call Library, Framework calls you</li>
+<li>核心点：谁起到主导作用（控制反转）
+<ul>
+<li>框架中控制整个流程的是框架</li>
+<li>使用库，由开发人员决定如何调用库中提供的方法</li>
+</ul></li>
+<li>好莱坞原则：Don’t call us, we’ll call you.</li>
+<li>框架的侵入性很高（从头到尾）</li>
+</ul>
+<h2 id="mvvm的介绍">MVVM的介绍</h2>
+<p>当业务复杂后分化分层是一种需求的必然结果</p>
+<p>web中的分化出的层次<br />
+界面<br />
+数据<br />
+事件<br />
+业务</p>
+<p>MVC的一般流程是这样的：View（界面）触发事件--&gt;Controller（业务）处理了业务，然后触发了数据更新--&gt;不知道谁更新了Model的数据--&gt;Model（带着数据）回到了View--&gt;View更新数据</p>
+<p>Model-View-ViewModel（MVVM）<br />
+而View和ViewModel间是直接交互，用数据“绑定”的形式让数据更新的事件不需要开发人员手动去编写特殊用例，而是自动地双向同步。数据绑定你可以认为是Observer模式或者是Publish/Subscribe模式，原理都是为了用一种统一的集中的方式实现频繁需要被实现的数据更新问题。</p>
+<p>实际上，现在Web MVVM主要并不是用在了Web或者Wap上，而是移动App上。</p>
+<h3 id="mvc">MVC</h3>
+<ul>
+<li>M: Model 数据模型（专门用来操作数据，数据的CRUD）</li>
+<li>V：View 视图（对于前端来说，就是页面）</li>
+<li>C：Controller 控制器（是视图和数据模型沟通的桥梁，用于处理业务逻辑）</li>
+</ul>
+<h3 id="mvvm组成">MVVM组成</h3>
+<ul>
+<li>MVVM =&gt; M / V / VM</li>
+<li>M：model数据模型</li>
+<li>V：view视图</li>
+<li>VM：ViewModel 视图模型</li>
+</ul>
+<h3 id="优势对比">优势对比</h3>
+<ul>
+<li>MVC模式，将应用程序划分为三大部分，实现了职责分离</li>
+<li>在前端中经常要通过 JS代码 来进行一些逻辑操作，最终还要把这些逻辑操作的结果现在页面中。也就是需要频繁的操作DOM</li>
+<li>MVVM通过<code>数据双向绑定</code>让数据自动地双向同步
+<ul>
+<li>V（修改数据） -&gt; M</li>
+<li>M（修改数据） -&gt; V</li>
+<li>数据是核心</li>
+</ul></li>
+<li>Vue这种MVVM模式的框架，不推荐开发人员手动操作DOM</li>
+</ul>
+<h3 id="vue中的mvvm">Vue中的MVVM</h3>
+<p>虽然没有完全遵循 MVVM 模型，Vue 的设计无疑受到了它的启发。因此在文档中经常会使用 vm (ViewModel 的简称) 这个变量名表示 Vue 实例</p>
+<p>学习Vue要转化思想<br />
+不要在想着怎么操作DOM，而是想着如何操作数据！！！</p>
+<p><a href="https://blog.fundebug.com/2019/06/03/vue-development-tutorial/">Vue开发入门看这篇文章就够了</a><br />
+<a href="https://zhuanlan.zhihu.com/p/267875652">Webpack 究竟解决了什么问题？</a></p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/1.从C到C++</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#void的使用">void的使用</a></li>
+<li><a href="#c输入输出cin和cout">C++输入输出（cin和cout）</a></li>
+<li><a href="#c-new和delete运算符简介">C++ new和delete运算符简介</a></li>
+<li><a href="#c函数的默认参数">C++函数的默认参数</a></li>
+<li><a href="#c函数重载详解">C++函数重载详解</a></li>
+<li><a href="#c函数重载过程中的二义性和类型转换">C++函数重载过程中的二义性和类型转换</a></li>
+<li><a href="#变量检测增强">变量检测增强</a></li>
+<li><a href="#c中的布尔类型">C++中的布尔类型</a></li>
+<li><a href="#三目运算符的增强">三目运算符的增强</a></li>
+<li><a href="#struct类型的加强">struct类型的加强</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h3 id="void的使用">void的使用</h3>
+<p>如果函数没有返回值，那么应声明为void类型<br />
+在C语言中，凡不加返回值类型限定的函数，就会被编译器作为<strong>返回整型值</strong>处理。但是许多程序员却误以为其为void类型。例如：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>add ( <span class="dt">int</span> a, <span class="dt">int</span> b )</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>{</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>  <span class="cf">return</span> a + b;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span>* argv[])</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>{</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>  printf ( <span class="st">&quot;2 + 3 = %d&quot;</span>, add ( <span class="dv">2</span>, <span class="dv">3</span>) );</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>}</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="co">//程序运行的结果为输出：2 + 3 = 5</span></span></code></pre></div>
+<p>这说明不加返回值说明的函数的确为int函数<br />
+林锐博士《高质量C/C++编程》中提到：“C++语言有很严格的类型安全检查，不允许上述情况（指函数不加类型声明）发生”。<br />
+如果函数没有返回值，一定要声明为void类型。这既是程序良好可读性的需要，也是编程规范性的要求。<br />
+另外，加上void类型声明后，也可以发挥<strong>代码的"自注释"作用</strong>。代码的“自注释”即代码能自己注释自己。<br />
+如果函数的参数可以是任意类型指针，那么应声明其参数为<code>void *</code>。</p>
+<h3 id="c输入输出cin和cout">C++输入输出（cin和cout）</h3>
+<p>cout 和 cin 都是 C++ 的<strong>内置对象</strong>，而不是关键字。cout 和 cin 就分别是 <strong>ostream</strong> 和 <strong>istream</strong> 类的对象，只不过它们是由标准库的开发者提前创建好的，可以直接拿来使用。这种在 C++ 中提前创建好的对象称为<strong>内置对象</strong>。<br />
+推荐大家使用 cin、cout，它们比C语言中的 scanf、printf 更加灵活易用</p>
+<h3 id="c-new和delete运算符简介">C++ new和delete运算符简介</h3>
+<p>在C++中，建议使用 new 和 delete 来管理内存，它们可以使用C++的一些新特性，最明显的是可以自动调用构造函数和析构函数.<br />
+c11中增加了智能指针，可以用它来代替new和delete。<br />
+在栈上的对象创建的时候调用构造函数和出作用域的时候调析构函数。<br />
+原理：编译器通过对程序的语法结构、作用域规则以及生成的中间代码的分析，确定了每个对象的作用域范围和何时出作用域，从而在适当的位置自动生成析构函数的调用代码。</p>
+<h3 id="c函数的默认参数">C++函数的默认参数</h3>
+<p>C++规定，默认参数只能放在形参列表的最后，而且一旦为某个形参指定了默认值，那么它后面的所有形参都必须有默认值。<br />
+在以后设计类时你将发现，通过使用默认参数，可以减少要定义的构造函数、方法以及方法重载的数量。</p>
+<p>到底在声明中还是定义中指定默认参数?<br />
+<strong>放到头文件中就行</strong><br />
+C++ 规定，在给定的作用域中只能<strong>指定一次默认参数</strong><br />
+编译器使用的是<strong>当前作用域</strong>中的默认参数。站在编译器的角度看，它不管当前作用域中是函数声明还是函数定义，只要有默认参数就可以使用。<br />
+不过有一点需要注意，在给定的作用域中一个形参只能被赋予一次默认参数</p>
+<h3 id="c函数重载详解">C++函数重载详解</h3>
+<p>参数列表又叫<strong>参数签名</strong>，包括参数的类型、参数的个数和参数的顺序，只要有一个不同就叫做参数列表不同。<br />
+重载的结果是<strong>让一个函数名拥有了多种用途</strong>，使得命名更加方便，调用更加灵活<br />
+在使用重载函数时，同名函数的功能应当相同或相近，不要用同一函数名去实现完全不相干的功能，虽然程序也能运行，但可读性不好，使人觉得莫名其妙。</p>
+<p>重载决议<br />
+C++代码在编译时会根据参数列表对函数进行重命名，例如void Swap(int a, int b)会被重命名为_Swap_int_int，void Swap(float x, float y)会被重命名为_Swap_float_float。当发生函数调用时，编译器会根据传入的实参去逐个匹配，以选择对应的函数，如果匹配失败，编译器就会报错，这叫做<strong>重载决议（Overload Resolution）</strong>。<br />
+不同的编译器有不同的重命名方式，这里仅仅举例说明，实际情况可能并非如此。<br />
+从这个角度讲，<strong>函数重载仅仅是语法层面的</strong>，<strong>本质上它们还是不同的函数，占用不同的内存，入口地址也不一样</strong>。</p>
+<h3 id="c函数重载过程中的二义性和类型转换">C++函数重载过程中的二义性和类型转换</h3>
+<p>函数调用时编译器会根据传入的实参的个数、类型、顺序等信息去匹配要调用的函数，这在大部分情况下都能够精确匹配。<br />
+但当实参的类型和形参的类型不一致时情况就会变得稍微复杂，例如函数形参的类型是int，调用函数时却将short类型的数据交给了它，编译器就需要先将short类型转换为int类型才能匹配成功。 但是<strong>类型转换会为重载决议造成困惑</strong>，不知道该确定哪一个函数，于是会造成编译错误。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>using namespace std;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="co">//1号函数</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="dt">void</span> func(<span class="dt">char</span> ch){</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>    cout&lt;&lt;<span class="st">&quot;#1&quot;</span>&lt;&lt;endl;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>}</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="co">//3号函数</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="dt">void</span> func(<span class="dt">long</span> m){</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>    cout&lt;&lt;<span class="st">&quot;#3&quot;</span>&lt;&lt;endl;</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>}</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="co">//4号函数</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="dt">void</span> func(<span class="dt">double</span> f){</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>    cout&lt;&lt;<span class="st">&quot;#4&quot;</span>&lt;&lt;endl;</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>}</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a><span class="dt">int</span> main(){</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>    <span class="dt">short</span> s = <span class="dv">99</span>;</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>    <span class="dt">float</span> f = <span class="fl">84.6</span>;</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a> </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>    func(<span class="ch">&#39;a&#39;</span>);</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>    func(s);</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a>    func(<span class="dv">49</span>);</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a>    func(f);</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a>}</span></code></pre></div>
+<p>这段代码在编译时发生了错误，大概的意思是：func(s)和func(49)这两个函数发生调用错误，它们可以匹配三个重载函数中的任何一个，编译器不知道如何抉择。</p>
+<h3 id="变量检测增强">变量检测增强</h3>
+<p>在C语言中，重复定义多个同名的全局变量是合法的<br />
+在C++中，不允许定义多个同名的全局变量<br />
+C语言中多个同名的全局变量最终会被链接到全局数据区的同一个地址空间上</p>
+<pre><code>int g_var;
+int g_var = 1;</code></pre>
+<p>C++直接拒绝这种二义性的做法。</p>
+<h3 id="c中的布尔类型">C++中的布尔类型</h3>
+<p>C++在C语言的基本类型系统之上增加了bool<br />
+C++中的bool可取的值只有true和false<br />
+C++编译器会在赋值时将非0值转换为true，0值转换为false</p>
+<h3 id="三目运算符的增强">三目运算符的增强</h3>
+<ul>
+<li>lvalue 是“locator value”的缩写，可意为存储在内存中、有明确存储地址（可寻址）的数据</li>
+<li>rvalue 译为 "read value"，指的是那些可以提供数据值的数据（不一定可以寻址，例如存储于寄存器中的数据）</li>
+</ul>
+<p>通常情况下，判断某个表达式是左值还是右值，最常用的有以下 2 种方法：<br />
+* 可位于赋值号（=）左侧的表达式就是左值；反之，只能位于赋值号右侧的表达式就是右值<br />
+* 有名称的、可以获取到存储地址的表达式即为左值；反之则是右值。</p>
+<p>三目运算C语言返回变量的值,C++语言是返回变量本身<br />
+C语言中的三目运算符返回的是变量值，不能做为左值使用,C++可以做<strong>左值</strong><br />
+三目运算符可能返回的值中如果有一个是<strong>常量值</strong>，则不能作为左值使用<br />
+左值 能被放在 = 做值 称为左值，当左值的条件， <strong>这段内存空间可以被写</strong>。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>(a &lt; b ? a : b ) = <span class="dv">30</span>;<span class="co">// c++做的手脚 *((a &lt; b ? &amp;a : &amp;b ))=30</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>(a &lt; b ? <span class="dv">1</span> : b ) 有常量了就不能做左值了</span></code></pre></div>
+<h3 id="struct类型的加强">struct类型的加强</h3>
+<p>C语言的struct定义了一组变量的集合，C编译器并不认为这是一种新的类型<br />
+C++中的struct是一个新类型的定义声明<br />
+在C中定义一个结构体类型要用typedef:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">typedef</span> <span class="kw">struct</span> Student</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>{</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a> <span class="dt">int</span> a;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>}Stu;</span></code></pre></div>
+<p>于是在声明变量的时候就可：<code>Stu stu1;</code> 如果没有typedef就必须用<code>struct Student stu1;</code>来声明</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

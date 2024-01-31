@@ -1,0 +1,2 @@
+- [力扣（LeetCode）官网 - 全球极客挚爱的技术成长平台](https://leetcode.cn/)
+- [大家都是如何刷 LeetCode 的？ - 知乎](https://www.zhihu.com/question/280279208/answer/510354868)

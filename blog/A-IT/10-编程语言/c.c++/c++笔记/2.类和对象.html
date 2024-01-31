@@ -1,0 +1,694 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/2.类和对象</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#类的定义和对象的创建">类的定义和对象的创建</a></li>
+<li><a href="#类的成员变量和成员函数">类的成员变量和成员函数</a></li>
+<li><a href="#类成员的访问权限以及类的封装">类成员的访问权限以及类的封装</a></li>
+<li><a href="#对象的内存模型">对象的内存模型</a></li>
+<li><a href="#函数编译原理和成员函数的实现">函数编译原理和成员函数的实现</a></li>
+<li><a href="#this指针">this指针</a></li>
+<li><a href="#static静态成员函数">static静态成员函数</a></li>
+<li><a href="#static静态成员变量">static静态成员变量</a></li>
+<li><a href="#构造函数">构造函数</a></li>
+<li><a href="#默认初始化和值初始化">默认初始化和值初始化</a></li>
+<li><a href="#构造函数初始化列表">构造函数初始化列表</a></li>
+<li><a href="#析构函数">析构函数</a>
+<ul>
+<li><a href="#析构函数的执行时机">析构函数的执行时机</a></li>
+</ul></li>
+<li><a href="#new-和-new">new 和 new</a></li>
+<li><a href="#delete-和-delete">delete 和 delete</a></li>
+<li><a href="#全局静态全局对象">全局静态全局对象</a></li>
+<li><a href="#成员对象和封闭类">成员对象和封闭类</a>
+<ul>
+<li><a href="#成员对象的初始化">成员对象的初始化</a></li>
+<li><a href="#成员对象的消亡">成员对象的消亡</a></li>
+</ul></li>
+<li><a href="#const成员变量和成员函数常成员函数">const成员变量和成员函数（常成员函数）</a></li>
+<li><a href="#const对象常对象">const对象（常对象）</a></li>
+<li><a href="#友元函数和友元类-friend关键字">友元函数和友元类（ friend关键字）</a>
+<ul>
+<li><a href="#友元函数">友元函数</a></li>
+<li><a href="#友元类">友元类</a></li>
+<li><a href="#注意点">注意点</a></li>
+</ul></li>
+<li><a href="#类其实也是一种作用域">类其实也是一种作用域</a></li>
+<li><a href="#内部类嵌套类">内部类(嵌套类)</a></li>
+<li><a href="#class和struct到底有什么区别">class和struct到底有什么区别</a></li>
+<li><a href="#c-stringc字符串">C++ string，C++字符串</a></li>
+<li><a href="#c-string的内部究竟是什么样的">C++ string的内部究竟是什么样的？</a></li>
+<li><a href="#c-stl-中的-stdstring-类以字符-0结尾么">C++ STL 中的 std：string 类以字符 <code>\0</code>结尾么</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="类的定义和对象的创建">类的定义和对象的创建</h2>
+<p>类只是一个模板（Template），<strong>编译后不占用内存空间</strong>，只有在<strong>创建对象以后</strong>才会给成员变量分配内存。<br />
+使用 new 在堆上创建出来的对象是<strong>匿名的</strong>，没法直接使用，必须要用一个指针指向它，再借助指针来访问它的成员变量或成员函数。<br />
+用new要自己delete释放，用不好很危险，用好了功能强大，因为他可以赋值给全局的变量，一下子<strong>从局部变量变成全局变量</strong>，还能把对象作为函数返回值。<br />
+另外使用多态的时候也要用到new和指针<br />
+在一般开发里，常规定义(栈空间)与指针定义(堆空间)的区别不是很大。<strong>一般都是建议能不使用指针对象的时候不要使用</strong>。</p>
+<h2 id="类的成员变量和成员函数">类的成员变量和成员函数</h2>
+<p>在类体中定义的成员函数会自动成为<strong>内联函数</strong>，在类体外定义的不会。若内联函数变了，引用它的文件得重新编译，若不是内联的，只有函数签名改变了，引用此对象的c++文件才需要需重新编译</p>
+<h2 id="类成员的访问权限以及类的封装">类成员的访问权限以及类的封装</h2>
+<p>public：类内、类外、继承可见<br />
+protected：类内、继承可见<br />
+private：类内可见</p>
+<p>成员变量大都以<code>m_</code>开头，这是约定成俗的写法。<br />
+以m_开头 1. 既可以一眼看出这是成员变量，2. 又可以和成员函数中的形参名字区分开</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">//以 setname() 为例，如果将成员变量m_name的名字修改为name，那么 setname() 的形参就不能再叫name了，得换成诸如name1、_name这样没有明显含义的名字，否则name=name;这样的语句就是给形参name赋值，而不是给成员变量name赋值。</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>void Student::setname(char *name){</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    m_name = name;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>}</span></code></pre></div>
+<p>根据C++软件设计规范，实际项目开发中的<strong>成员变量以及只在类内部使用的成员函数</strong>都建议声明为 private，而只将允许通过对象调用的成员函数声明为 public。</p>
+<h2 id="对象的内存模型">对象的内存模型</h2>
+<p>对象所占用的存储空间的大小等于各<strong>成员变量</strong>所占用的存储空间的大小之和（如果不考虑成员变量对齐问题的话）。<br />
+对象的大小只受<strong>成员变量的影响</strong>，和成员函数没有关系。成员函数放在代码区。<br />
+和结构体非常类似，对象也会有内存对齐的问题</p>
+<h2 id="函数编译原理和成员函数的实现">函数编译原理和成员函数的实现</h2>
+<p>C++和C语言的编译方式不同。C语言中的函数在编译时名字不变，或者只是简单的加一个下划线</p>
+<p>而C++中的函数在编译时会根据它所在的1.命名空间、2.所属的类、3.参数列表（也叫参数签名）等信息进行重新命名，形成一个<strong>新的函数名</strong>。这个新的函数名只有编译器知道，对用户是不可见的。对函数重命名的过程叫做<strong>名字编码（Name Mangling）</strong>。</p>
+<p>Name Mangling 的算法是可逆的，既可以通过现有函数名计算出新函数名，也可以通过新函数名逆向推演出原有函数名。<br />
+Name Mangling 可以<strong>确保新函数名的唯一性</strong>，只要函数所在的命名空间、所属的类、包含的参数列表等有一个不同，最后产生的新函数名也不同。<br />
+<strong>成员函数最终被编译成与对象无关的全局函数</strong>，如果函数体中没有成员变量，那问题就很简单，不用对函数做任何处理，直接调用即可。<br />
+C++规定，编译成员函数时要<strong>额外添加一个参数，把当前对象的指针传递进去</strong>，通过指针来访问成员变量。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>void Demo::display(){</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    cout&lt;&lt;a&lt;&lt;endl;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    cout&lt;&lt;b&lt;&lt;endl;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>}</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="co">// 那么编译后的代码类似于：</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>void new_function_name(Demo * const this){   <span class="co">//this只能指向当前对象</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>    <span class="co">//通过指针this来访问a、b</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>    cout&lt;&lt;this-&gt;a&lt;&lt;endl;</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>    cout&lt;&lt;this-&gt;b&lt;&lt;endl;</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>}</span></code></pre></div>
+<p>这样通过传递对象指针就完成了<strong>成员函数</strong>和<strong>成员变量</strong>的关联。这<strong>与我们从表明上看到的刚好相反</strong>，通过对象调用成员函数时，不是通过对象找函数，而是<strong>通过函数找对象</strong>。<br />
+最后需要提醒的是，<code>Demo * const this</code>中的 const 表示指针本身不能被修改，p 只能指向当前对象，而不是被指的对象不能修改。</p>
+<h2 id="this指针">this指针</h2>
+<ul>
+<li>this 实际上是成员函数的一个<strong>形参</strong>，在调用成员函数时将对象的地址作为实参传递给 this。不过 this 这个形参是<strong>隐式的</strong>，它并不出现在代码中，而是在编译阶段由编译器默默地将它添加到参数列表中。这个额外的参数，它是<strong>成员函数和成员变量关联的桥梁</strong>。</li>
+<li>this 是 <strong>const 指针</strong>，它的值是不能被修改的，一切企图修改该指针的操作，如赋值、递增、递减等都是不允许的</li>
+<li>this 只能在成员函数内部使用，用在其他地方没有意义，也是非法的。</li>
+<li>只有当对象被创建后 this 才有意义，因此不能在 static 成员函数中使用。</li>
+</ul>
+<h2 id="static静态成员函数">static静态成员函数</h2>
+<p>普通成员函数有 this 指针，可以访问类中的任意成员；而<strong>静态成员函数没有 this 指针</strong>，只能访问静态成员（包括静态成员变量和静态成员函数）。<br />
+静态成员函数的主要目的是访问静态成员,静态成员函数可以通过类来调用（一般都是这样做），也可以通过对象来调用.</p>
+<h2 id="static静态成员变量">static静态成员变量</h2>
+<p>1) 一个类中可以有一个或多个静态成员变量，所有的对象都共享这些静态成员变量，都可以引用它。<br />
+2) static 成员变量和普通 static 变量一样，都在内存分区中的<strong>全局数据区</strong>分配内存，<strong>到程序结束时才释放</strong>。这就意味着，static 成员变量不随对象的创建而分配内存，也不随对象的销毁而释放内存。<br />
+static成员变量的内存既<strong>不是在声明类时分配</strong>，也<strong>不是在创建对象时分配</strong>，而是在<strong>类外初始化时分配</strong>。反过来说，没有在类外初始化的 static 成员变量不能使用。<br />
+3) 静态成员变量<strong>必须初始化</strong>，而且只能在类体外进行。例如： <code>int Student::m_total = 10;</code><br />
+初始化时可以赋初值，也可以不赋值。如果不赋值，那么会被默认初始化为 0。全局数据区的变量都有默认的初始值 0，而动态数据区（堆区、栈区）变量的默认值是不确定的，一般认为是垃圾值。<br />
+4) 静态成员变量既可以通过<strong>对象名</strong>访问，也可以通过<strong>类名</strong>访问，但要遵循 private、protected 和 public 关键字的访问权限限制。当通过对象名访问时，对于不同的对象，访问的是同一份内存。</p>
+<h2 id="构造函数">构造函数</h2>
+<p><strong>什么是默认构造函数</strong>？<br />
+默认构造函数是可以不用实参进行调用的构造函数，它包括了以下两种情况：<br />
+- 没有带明显形参的构造函数。<br />
+- 提供了默认实参的构造函数。</p>
+<p><strong>编译器帮我们写的默认构造函数，称为“合成的默认构造函数”。</strong></p>
+<p>构造函数在实际开发中会大量使用，它往往用来做一些初始化工作，例如对成员变量赋值、预先打开文件等。<br />
+构造函数没有返回值，因为没有变量来接收返回值，即使有也毫无用处，这意味着：<br />
+* 不管是声明还是定义，函数名前面都不能出现返回值类型，即使是 void 也不允许；<br />
+* 函数体中不能有 return 语句。</p>
+<p>一个类必须有构造函数，要么用户自己定义，要么编译器自动生成。<strong>一旦用户自己定义了构造函数，编译器都不再自动生成。</strong></p>
+<p><strong>构造函数的重载</strong>:<br />
+如果有多个重载的构造函数，那么创建对象时提供的<strong>实参必须和其中的一个构造函数匹配</strong>；反过来说，创建对象时只有一个构造函数会被调用。<br />
+<strong>调用没有参数的构造函数也可以省略括号</strong><br />
+在栈上创建对象可以写作<code>Student stu()或Student stu</code>，在堆上创建对象可以写作<code>Student *pstu = new Student()</code>或<code>Student *pstu = new Student</code>，它们都会调用构造函数 Student(), 不同的是加<code>()</code>会进行值初始化，不加会默认初始化。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>string *ps1=new string;  <span class="co">//默认初始化为空string</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>string *ps=new string(); <span class="co">//值初始化为空string</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>int *pi1=new int;        <span class="co">//默认初始化；*pi1的值未定义</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>int *pi2=new int();      <span class="co">//值初始化为0；*pi2的值为0</span></span></code></pre></div>
+<h2 id="默认初始化和值初始化">默认初始化和值初始化</h2>
+<ol>
+<li><p><strong>默认初始化（Default Initialization）：</strong> 默认初始化是指在不提供显式初始值的情况下，对象的成员变量将被初始化为一些未知的值，这些值可能是垃圾值、旧数据或者其他未定义的值。默认初始化不会自动为对象的成员变量赋予有意义的初始状态，这可能导致不稳定的行为。默认初始化适用于自动变量（栈上的对象）和未显式初始化的类成员变量。<br />
+<code>int x; // 默认初始化，x的值是不确定的</code></p></li>
+<li><p><strong>值初始化（Value Initialization）：</strong> 值初始化是一种初始化方式，它会将对象的成员变量初始化为<strong>特定的默认值</strong>，这可以是零值、空值或者类类型的默认构造函数产生的值。值初始化可以用以下方式实现：</p>
+<ul>
+<li>对于基本数据类型（如整数、浮点数等），值初始化会将其设置为零值。</li>
+<li>对于指针类型，值初始化会将其设置为nullptr（C++11起）。</li>
+<li>对于类类型，值初始化会调用类的默认构造函数，注意：<strong>默认构造函数不会把内置类型或复合类型初始化成0值</strong>。</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="dt">int</span> y = <span class="dt">int</span>(); <span class="co">// 值初始化，y的值是0</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="dt">double</span> z = <span class="dt">double</span>(); <span class="co">// 值初始化，z的值是0.0</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="dt">int</span>* p = <span class="dt">int</span>(); <span class="co">// 值初始化，p的值是nullptr</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>std::string str = std::string(); <span class="co">// 值初始化，调用std::string的默认构造函数</span></span></code></pre></div>
+<p>1. 数组初始化时初始值数量小于维度，剩下的元素会进行值初始化；</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>{ int array[<span class="dv">10</span>] = {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}; } </span></code></pre></div>
+<p>2. 当我们不使用初始值定义一个局部静态变量；</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>{ static int n; } <span class="co">//n值初始化为0</span></span></code></pre></div>
+<p>3. 形如T()的表达式显示地请求值初始化；</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>{ </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>     std::string *pia1 = new int[<span class="dv">10</span>](); <span class="co">//动态分配10个值初始化为0的int</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>     std::string *pia2 = new int[<span class="dv">10</span>]; <span class="co">//动态分配10个未初始化的int</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>}</span></code></pre></div></li>
+</ol>
+<p>总结起来，区别在于默认初始化只分配内存而不对其进行初始化，而值初始化会将对象初始化为一些特定的默认值，这些值可能是零、空或者通过类的默认构造函数产生的值。在编写代码时，建议总是显式初始化对象，以避免不确定行为。</p>
+<p>理论上： <code>A *pa1 = new A;</code> 和 <code>A *pa2 = new A();</code> 之间是有差别的，前一个应该不会调用默认构造函数而后一个会。<br />
+但是在 GCC 和 VS2010 的实验中发现，这 2 个写法是完全没有区别的，默认的构造函数都被调用了。</p>
+<h2 id="构造函数初始化列表">构造函数初始化列表</h2>
+<p>成员变量的初始化顺序与初始化列表中列出的变量的顺序无关，它只与成员变量在类中<strong>声明的顺序</strong>有关。<br />
+初始化 <code>const</code> 成员变量的唯一方法就是使用初始化列表，因为const初始化必须有其引用对象,只能初始化，不能复制。</p>
+<h2 id="析构函数">析构函数</h2>
+<p>销毁对象时系统也会自动调用一个函数来进行清理工作，例如释放分配的内存、关闭打开的文件等，这个函数就是析构函数。<br />
+析构函数没有参数，不能被重载，因此一个类只能有一个析构函数。如果用户没有定义，编译器会自动生成一个默认的析构函数</p>
+<p>它们与C语言中 malloc()、free() 最大的一个不同之处在于：用 new 分配内存时会<strong>调用构造函数</strong>，用 delete 释放内存时会<strong>调用析构函数</strong>。</p>
+<h3 id="析构函数的执行时机">析构函数的执行时机</h3>
+<p>1. 在所有函数之外创建的对象是全局对象，它和全局变量类似，位于内存分区中的全局数据区，程序在结束执行时会调用这些对象的析构函数。<br />
+2. 在函数内部创建的对象是局部对象，它和局部变量类似，位于栈区，函数执行结束时会调用这些对象的析构函数。<br />
+3. new 创建的对象位于堆区，通过 delete 删除时才会调用析构函数；如果没有 delete，析构函数就不会被执行。</p>
+<h2 id="new-和-new">new 和 new</h2>
+<ul>
+<li><code>new</code> 运算符用于动态分配单个对象的内存，并调用对象的构造函数来初始化对象。</li>
+<li><code>new[]</code> 运算符用于动态分配数组的内存，并调用每个数组元素的构造函数来初始化元素。</li>
+<li><code>delete[]</code> 运算符用于释放由 <code>new[]</code> 分配的数组的内存，并调用每个数组元素的析构函数来执行元素的清理工作。<br />
+例子：</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>MyClass *objArr = <span class="kw">new</span> MyClass[<span class="dv">5</span>]; <span class="co">// 分配数组的内存并调用每个元素的构造函数</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="kw">delete</span>[] objArr; <span class="co">// 释放内存并调用每个元素的析构函数</span></span></code></pre></div>
+<p><code>new[]</code>时数组的大小会被编译器记录在某个地方，所以编译器能够在<code>delete[]</code>直接查询出来某个数组的大小</p>
+<p><strong>对象指针数组</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>CTest* pArray[<span class="dv">2</span>] = { new CTest(<span class="dv">4</span>), new CTest(<span class="dv">1</span>,<span class="dv">2</span>) };</span></code></pre></div>
+<h2 id="delete-和-delete">delete 和 delete</h2>
+<ol>
+<li><strong><code>delete</code> 运算符：</strong> 当使用 <code>delete</code> 运算符删除一个动态分配的单个对象时，它会调用该对象的析构函数然后释放内存。没有数组维度的寻找，因为你只是删除了一个对象。</li>
+<li><strong><code>delete []</code> 运算符：</strong> 当使用 <code>delete []</code> 运算符删除一个动态分配的数组时，情况会稍微复杂一些。这是因为编译器需要知道要删除的是一个数组，以便可以正确地调用数组中每个元素的析构函数。但是，由于C++中并没有提供一种内建的方法来存储数组的大小，编译器必须从某个地方获取这个信息。<br />
+为了解决这个问题，通常的做法是在动态分配数组的时候，将数组的大小保存在内存块之前（通常是作为额外的信息）。这样，在执行 <code>delete []</code> 时，编译器可以从该信息中获得数组的大小，然后依次调用每个元素的析构函数，最后释放整个内存块。<br />
+由于这种需要寻找数组维度的额外步骤，<code>delete []</code> 运算符相对于 <code>delete</code> 运算符来说，可能会稍微慢一些。这就是为什么在某些情况下，使用 <code>delete</code> 运算符删除单个对象可能会更有效率。</li>
+<li><strong><code>delete []</code> 单个对象：</strong> 关于这一点，C++标准并没有定义 <code>delete []</code> 用于单个对象的行为，而且这在很多编译器上都是未定义行为。这意味着使用 <code>delete []</code> 来删除单个对象可能会导致不确定的结果，甚至程序崩溃。正确的做法是，对于单个对象，应该使用普通的 <code>delete</code> 运算符。</li>
+</ol>
+<p><strong>数组和多态行为的天生不兼容性：</strong><br />
+永远不要把数组和多态扯到一起，他们天生是不兼容的。当你对一个指向派生类的基类指针进行<br />
+delete [] pbase; 操作时，它是不会有正确的语意的。<br />
+这是由于 delete [] 实际上会使用 vec_delete() 类似的函数调用代替，而在 vec_delete() 的参<br />
+数中已经传递了元素的大小，在 vec_delete 中的迭代删除时，会在删除一个指针之后将指针向<br />
+后移动 item_size 个位置，如果 DerivedClass 的 size 比 BaseClass 要大的话（通常都是如<br />
+此），指针就已经指向了一个未知的区域了（如果 Derived 与 Base 大小相同，那碰巧不会发生<br />
+错误， delete [] 可以正确的执行）。</p>
+<p>例子：</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a><span class="kw">class</span> Base {</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>    <span class="kw">virtual</span> ~Base() {</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Base destructor called&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>    }</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>};</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a><span class="kw">class</span> Derived : <span class="kw">public</span> Base {</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a>    ~Derived() <span class="kw">override</span> {</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Derived destructor called&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a>    }</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a>};</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true"></a>    Base *array = <span class="kw">new</span> Derived[<span class="dv">3</span>];</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true"></a>    <span class="kw">delete</span>[] array; <span class="co">// 错误：可能会导致未定义行为</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="全局静态全局对象">全局静态全局对象</h2>
+<p>静态初始化是指在程序启动时，全局对象或静态对象的构造函数在main函数之前就已经被调用。而动态初始化是在对象首次使用时才调用构造函数。<br />
+使用静态初始化的全局对象在不同编译单元（源文件）中可能会引发静态初始化顺序的问题，这可能导致不可预测的行为，因为C++标准并没有明确定义不同编译单元中全局对象的初始化顺序。<br />
+Google C++编程规范以及像Lippman这样的C++专家建议避免使用需要静态初始化的全局对象，原因包括：<br />
+1. <strong>不确定的初始化顺序：</strong> C++标准没有对全局对象初始化顺序做出明确规定，因此不同编译器、不同平台上的初始化顺序可能会不同，导致不稳定的行为。<br />
+2. <strong>复杂性和维护问题：</strong> 全局对象的静态初始化可能会引入复杂性，特别是在大型项目中。难以确定对象之间的初始化顺序可能会导致难以调试和维护的问题。<br />
+3. <strong>性能开销：</strong> 全局对象的静态初始化可能会增加程序启动时间，因为需要在main函数执行之前就调用构造函数。</p>
+<p>为了避免这些问题，一些最佳实践包括：<br />
+- 避免使用全局对象，尤其是在不同编译单元中。<br />
+- 将对象的生命周期限制在需要的作用域内，避免过早或过晚的初始化。<br />
+- 使用局部静态对象（函数内的静态对象），因为它们会在第一次使用时进行动态初始化，避免了全局静态对象的问题。</p>
+<p><strong>局部静态对象的例子</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a><span class="kw">class</span> Logger {</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>    <span class="at">static</span> Logger&amp; getInstance() {</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>        <span class="at">static</span> Logger instance; <span class="co">// 局部静态对象，在第一次使用时构造</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>        <span class="cf">return</span> instance;</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>    }</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>    <span class="dt">void</span> log(<span class="at">const</span> <span class="bu">std::</span>string&amp; message) {</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Log: &quot;</span> &lt;&lt; message &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a>    }</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true"></a>    Logger() {</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Logger instance created.&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true"></a>    }</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true"></a>    ~Logger() {</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Logger instance destroyed.&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true"></a>    }</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true"></a>};</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true"></a>    Logger&amp; logger = Logger::getInstance();</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true"></a>    logger.log(<span class="st">&quot;This is a log message.&quot;</span>);</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true"></a>    <span class="co">// 在 main 结束时，Logger 实例会被销毁</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="成员对象和封闭类">成员对象和封闭类</h2>
+<h3 id="成员对象的初始化">成员对象的初始化</h3>
+<p>一个类的成员变量如果是另一个类的对象，就称之为<strong>成员对象</strong>。包含成员对象的类叫<strong>封闭类（enclosed class）</strong>。<br />
+生成封闭类对象的语句一定要让编译器能够弄明白其成员对象是如何初始化的，否则就会编译错误</p>
+<h3 id="成员对象的消亡">成员对象的消亡</h3>
+<p>封闭类对象生成时，<strong>先执行所有成员对象的构造函数，然后才执行封闭类自己的构造函数</strong>。成员对象构造函数的执行次序和成员对象在类<strong>定义中的次序一致.</strong><br />
+当封闭类对象消亡时，先执行封闭类的析构函数，然后再执行成员对象的析构函数，成员对象析构函数的执行次序和构造函数的执行次序相反，即<strong>先构造的后析构</strong>，这是 C++ 处理此类次序问题的一般规律。</p>
+<h2 id="const成员变量和成员函数常成员函数">const成员变量和成员函数（常成员函数）</h2>
+<ul>
+<li>初始化 const 成员变量只有一种方法，就是通过构造函数的<strong>初始化列表</strong></li>
+<li>const 成员函数可以使用类中的所有成员变量，但是不能修改它们的值，这种措施主要还是为了保护数据而设置的。比如：我们通常将 get 函数设置为const成员函数,这是一种保险的做法，同时也使得语义更加明显。</li>
+<li>必须在成员函数的<strong>声明和定义</strong>处同时加上 const 关键字。<code>char *getname() const</code>和<code>char *getname()</code>是两个不同的函数原型，如果只在一个地方加 const 会导致<strong>声明和定义</strong>处的函数原型<strong>冲突</strong>。</li>
+<li>函数开头的 const 用来修饰函数的返回值，表示返回值是 const 类型，也就是不能被修改，例如<code>const char * getname()</code>。</li>
+<li>函数头部的结尾加上 const 表示常成员函数，<strong>此时的const是修饰的this指针</strong>，这种函数只能读取成员变量的值，而不能修改成员变量的值，例如<code>char * getname() const</code>。</li>
+</ul>
+<h2 id="const对象常对象">const对象（常对象）</h2>
+<p>const 也可以用来修饰对象，称为常对象。一旦将对象定义为常对象之后，就<strong>只能调用类的const成员</strong>（包括 const 成员变量和 const 成员函数）了。<br />
+语法：</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>const  class  object(params);</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>class const object(params);</span></code></pre></div>
+<p>当然你也可以定义 const 指针：</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>const class *p = new class(params);</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>class const *p = new class(params);</span></code></pre></div>
+<h2 id="友元函数和友元类-friend关键字">友元函数和友元类（ friend关键字）</h2>
+<h3 id="友元函数">友元函数</h3>
+<ul>
+<li>借助友元（friend），可以使得其他类中的<strong>成员函数</strong>以及<strong>全局函数</strong>访问当前类的 <strong>private</strong> 成员。</li>
+<li>友元函数不同于类的成员函数(没有this指针)，在友元函数中不能直接访问类的成员，<strong>必须要借助对象</strong></li>
+</ul>
+<p>1) 将非成员函数声明为友元函数。</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="co">//非成员函数</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a><span class="dt">void</span> show(Student *pstu){</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>    cout&lt;&lt;pstu-&gt;m_name&lt;&lt;<span class="st">&quot;的年龄是 &quot;</span>&lt;&lt;pstu-&gt;m_age&lt;&lt;<span class="st">&quot;，成绩是 &quot;</span>&lt;&lt;pstu-&gt;m_score&lt;&lt;endl;</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>}</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>class Student{</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a>public:</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a>    Student(<span class="dt">char</span> *name, <span class="dt">int</span> age, <span class="dt">float</span> score);</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a>public:</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a>    friend <span class="dt">void</span> show(Student *pstu);  <span class="co">//将show()声明为友元函数</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a>private:</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a>    <span class="dt">char</span> *m_name;</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a>    <span class="dt">int</span> m_age;</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true"></a>    <span class="dt">float</span> m_score;</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true"></a>};</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true"></a>Student::Student(<span class="dt">char</span> *name, <span class="dt">int</span> age, <span class="dt">float</span> score): m_name(name), m_age(age), m_score(score){ }</span></code></pre></div>
+<p>2) 将其他类的成员函数声明为友元函数</p>
+<h3 id="友元类">友元类</h3>
+<p>不仅可以将一个函数<strong>声明</strong>为一个类的“朋友”，还可以将整个类声明为另一个类的“朋友”，这就是友元类。<br />
+友元类中的所有成员函数都是另外一个类的友元函数。</p>
+<h3 id="注意点">注意点</h3>
+<ul>
+<li>非对称性。友元的关系是<strong>单向的</strong>而不是双向的。如果声明了类 B 是类 A 的友元类，不等于类 A 是类 B 的友元类，类 A 中的成员函数不能访问类 B 中的 private 成员。</li>
+<li>非传递性。友元的关系<strong>不能传递</strong>。如果类 B 是类 A 的友元类，类 C 是类 B 的友元类，不等于类 C 是类 A 的友元类。</li>
+<li>除非有必要，一般<strong>不建议把整个类声明为友元类</strong>，而只将某些成员函数声明为友元函数，这样更安全一些。</li>
+</ul>
+<h2 id="类其实也是一种作用域">类其实也是一种作用域</h2>
+<p>类其实也是一种作用域，每个类都会定义它自己的作用域。<br />
+* 在类的作用域之外，普通的成员只能通过对象（可以是对象本身，也可以是对象指针或对象引用）来访问，<br />
+* 静态成员既可以通过对象访问，又可以通过类访问，<br />
+* 在类中用typedef 定义的类型只能通过类来访问,类在这里就相当于作用域。<br />
+* 函数的返回值类型出现在函数名之前，当成员函数定义在类的外部时，<strong>返回值类型中使用的名字都位于类的作用域之外</strong></p>
+<h2 id="内部类嵌套类">内部类(嵌套类)</h2>
+<p>类的本质是一个命名空间<br />
+如果一个类定义在另一个类的内部，这个内部类就叫做内部类，也称为<strong>嵌套类</strong>。注意此时这个内部类是一个独立的类，它不属于外部类，<strong>只是包含在外部类的命名空间中。</strong><br />
+内部类可以访问外部类的私有成员，但外部类不能直接访问内部类的私有成员。<br />
+注意内部类可以直接访问外部类中的static、枚举成员，不需要外部类的对象/类名。<br />
+内部类和友元类很像很像。只是内部类比友元类多了一点权限：可以不加类名的访问外部类中的static、枚举成员。其他的都和友元类一样。</p>
+<p>内部类的一个常见应用场景是实现一些辅助类或数据结构，这些类在外部类内部具有紧密关联，但不需要在外部类之外使用。内部类有助于代码的模块化和封装。</p>
+<p>内部类的使用场景包括：<br />
+1. <strong>封装性：</strong> 内部类可以更好地实现封装，因为它可以访问外部类的私有成员，同时将相关功能组织在一起。<br />
+2. <strong>实现细节隐藏：</strong> 内部类可以用于隐藏外部类的某些实现细节，从而提供更清晰的接口。<br />
+3. <strong>代码组织：</strong> 内部类可以将一些相关的类组织在一起，提高代码的可读性和可维护性。</p>
+<p><strong>在创建内部类对象</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>class A</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>{</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>public:</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a>       class B{<span class="dt">int</span> o;};</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>};</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, _TCHAR* argv[])</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>{</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a>   A::B*b=new A::B();</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a>   <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true"></a>}</span></code></pre></div>
+<p>sizeof(外部类)=外部类，和内部类没有任何关系。内部类仅是多了外部类的命名空间</p>
+<p><strong>内部类可以先在外部类中声明，然后在外部类外定义</strong></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a>class A</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>{</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a>    private: <span class="dt">static</span> <span class="dt">int</span> i;</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a>    public: class B;</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a>};</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a><span class="co">//定义</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true"></a>class A::B{</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true"></a>    public:<span class="dt">void</span> foo(){cout&lt;&lt;i&lt;&lt;endl;}   <span class="co">//!!!这里也不需要加A::i.</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true"></a>};</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true"></a><span class="dt">int</span> A::i=<span class="dv">3</span>;</span></code></pre></div>
+<h2 id="class和struct到底有什么区别">class和struct到底有什么区别</h2>
+<ul>
+<li>使用 class 时，类中的成员默认都是 private 属性的；而使用 struct 时，结构体中的成员默认都是 public 属性的。</li>
+<li>class 继承默认是 private 继承，而 struct 继承默认是 public 继承</li>
+<li>class 可以用在模板定义中，而 struct 不能。想必这也在预料中，C++保留struct关键字主要是为了兼容C语言，但是在C语言中是不存在模板的，所以没有必要再模板中支持strcut声明模板形参。  <code>template &lt;struct T&gt;</code>这种声明是错的。</li>
+</ul>
+<p>C++ 没有抛弃C语言中的struct关键字，其意义就在于给C语言程序开发人员有一个归属感，并且能让C++编译器兼容以前用C语言开发出来的项目。<br />
+在编写C++代码时，建议使用 class 来定义类，而使用 struct 来定义结构体</p>
+<h2 id="c-stringc字符串">C++ string，C++字符串</h2>
+<ul>
+<li>转换为C风格的字符串,返回该字符串的 const 指针<code>（const char*）</code></li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>string path = <span class="st">&quot;D:</span><span class="sc">\\</span><span class="st">demo.txt&quot;</span>;</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>FILE *fp = fopen(path.c_str(), <span class="st">&quot;rt&quot;</span>);</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a>const char* c;</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a>string s=<span class="st">&quot;1234&quot;</span>;</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true"></a>c = s.c_str();</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true"></a>cout&lt;&lt;c&lt;&lt;endl; <span class="co">//输出：1234</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true"></a>s=<span class="st">&quot;abcd&quot;</span>;</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true"></a>cout&lt;&lt;c&lt;&lt;endl; <span class="co">//输出：abcd</span></span></code></pre></div>
+<p>上面如果继续用c指针的话，导致的错误将是不可想象的。就如：1234变为abcd<br />
+其实上面的<code>c = s.c_str();</code> 不是一个好习惯。<strong>既然c指针指向的内容容易失效</strong>，我们就应该把数据复制出来,这就要用到strcpy等函数（推荐）。</p>
+<pre><code>char* c=new char[20];
+string s=&quot;1234&quot;;
+strcpy(c,s.c_str());
+cout&lt;&lt;c&lt;&lt;endl; //输出：1234
+s=&quot;abcd&quot;;
+cout&lt;&lt;c&lt;&lt;endl; //输出：1234</code></pre>
+<p>data():与c_str()类似，但是返回的数组不<strong>以空字符终止</strong>.</p>
+<ul>
+<li>访问字符串中的字符</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a>string s = <span class="st">&quot;1234567890&quot;</span>;</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a><span class="cf">for</span>(int i=<span class="dv">0</span>,len=s.length(); i&lt;len; i++){</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a>    cout&lt;&lt;s[i]&lt;&lt;<span class="st">&quot; &quot;</span>;</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a>}</span></code></pre></div>
+<ul>
+<li><p>字符串的拼接<br />
+使用+或+=运算符来直接拼接字符串,再也不需要使用C语言中的 strcat()、strcpy()、malloc() 等函数来拼接字符串了，再也不用担心空间不够会溢出了</p></li>
+<li><p>插入字符串<br />
+insert() 函数的第<strong>一个参数</strong>有越界的可能，如果越界，则会产生运行时异常</p></li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="co">//string&amp; insert (size_t pos, const string&amp; str);</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a>string s1, s2, s3;</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a>s1 = s2 = <span class="st">&quot;1234567890&quot;</span>;</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true"></a>s3 = <span class="st">&quot;aaa&quot;</span>;</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true"></a>s1.insert(<span class="dv">5</span>, s3)</span></code></pre></div>
+<ul>
+<li>删除字符串<br />
+如果不指明 len 的话，那么直接删除从 pos 到字符串结束处的所有字符（此时 len = str.length - pos）</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="co">//string&amp; erase (size_t pos = 0, size_t len = npos);</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a>string s1, s2, s3;</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a>s1 = s2 = s3 = <span class="st">&quot;1234567890&quot;</span>;</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a>s2.erase(<span class="dv">5</span>);</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a>s3.erase(<span class="dv">5</span>, <span class="dv">3</span>);</span></code></pre></div>
+<ul>
+<li>提取子字符串</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a><span class="co">// string substr (size_t pos = 0, size_t len = npos) const;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a>string s1 = <span class="st">&quot;first second third&quot;</span>;</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a>string s2;</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true"></a>s2 = s1.substr(<span class="dv">6</span>, <span class="dv">6</span>);</span></code></pre></div>
+<ul>
+<li>字符串查找</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a>size_t find (const string&amp; str, size_t pos = <span class="dv">0</span>) const;</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a>size_t find (const char* s, size_t pos = <span class="dv">0</span>) const;</span></code></pre></div>
+<p>rfind() 和 find() 很类似，不同的是 find() 函数从第二个参数开始往后查找，而 rfind() 函数则最多查找到第二个参数处<br />
+find_first_of() 函数用于查找子字符串和字符串共同具有的字符在字符串中首次出现的位置</p>
+<h2 id="c-string的内部究竟是什么样的">C++ string的内部究竟是什么样的？</h2>
+<p>在C语言中，有两种方式表示字符串：<br />
+* 一种是用字符数组来容纳字符串，例如<code>char str[10] = "abc"</code>，这样的字符串是可读写的；<br />
+* 一种是使用字符串常量，例如<code>char *str = "abc"</code>，这样的字符串只能读，不能写。</p>
+<p>C++ string 对象知道自己在内存中的<strong>开始位置</strong>、<strong>包含的字符序列</strong>以及<strong>字符序列长度</strong>；当内存空间不足时，string 还会自动调整，让内存空间增长到足以容纳下所有字符序列的大小。<br />
+ <br />
+C++ string 的这种做法，极大地减少了C语言编程中三种最常见且最具破坏性的错误：<br />
+* 数组越界；<br />
+* 通过未被初始化或者被赋以错误值的指针来访问数组元紊；<br />
+* 释放了数组所占内存，但是仍然保留了“悬空”指针。</p>
+<p>C++ 标准没有定义 string 类的内存布局，各个编译器厂商可以提供不同的实现，但必须保证 string 的行为一致。采用这种做法是为了获得<strong>足够的灵活性</strong>。</p>
+<p>C++ 标准没有定义在哪种确切的情况下应该为 string 对象分配内存空间来存储字符序列。string 内存分配规则明确规定：允许但不要求以引用计数（reference counting）的方式实现。但无论是否采用引用计数，其语义都必须一致。</p>
+<p>C++ 的这种做法和C语言不同，在C语言中，<strong>每个字符型数组都占据各自的物理存储区</strong>。在 C++ 中，独立的几个 string 对象可以占据也可以不占据各自特定的物理存储区，但是，如果采用<strong>引用计数避免了保存同一数据的拷贝副本</strong>，那么各个独立的对象（在处理上）必须看起来并表现得就像独占地拥有各自的存储区一样<br />
+<strong>只有当字符串被修改的时候才创建各自的拷贝</strong>，这种实现方式称为<strong>写时复制</strong>（copy-on-write）策略。当字符串只是作为值参数（value parameter）或在其他只读情形下使用，这种方法能够节省时间和空间。</p>
+<p>不论一个库的实现是不是采用引用计数，它对 string 类的使用者来说都应该是透明的。遗憾的是，情况并不总是这样。<strong>在多线程程序中，几乎不可能安全地使用引用计数来实现</strong>。</p>
+<h2 id="c-stl-中的-stdstring-类以字符-0结尾么">C++ STL 中的 std：string 类以字符 <code>\0</code>结尾么</h2>
+<p>无规定，但是我认为内部没有理由不以零结尾或不预留结尾零的位置<br />
+原因在于<code>c_str()</code>这个函数的调用<br />
+这个函数会返回c风格的字符串，是以零结尾的。如果内部不以零结尾或不预留结尾零的位置，那么这个函数的实现会比较低效率，因为意味着要重新分配更大的缓冲区来盛放数据。因此（或还有其他原因），主流实现都会以零结尾或预留结尾零的位置。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

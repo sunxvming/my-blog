@@ -1,0 +1,747 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/40-tools/编辑器/vscode/vscode</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#vscode账号">vscode账号</a></li>
+<li><a href="#设置硬件加速">设置硬件加速</a>
+<ul>
+<li><a href="#vscode-全局搜索ctrlshiftf无效">vscode 全局搜索ctrl+shift+f无效</a></li>
+<li><a href="#智能提示快捷键ctrlspace被输入法占用">智能提示快捷键<code>ctrl+space</code>被输入法占用</a></li>
+</ul></li>
+<li><a href="#快捷键">快捷键</a></li>
+<li><a href="#设置">设置</a></li>
+<li><a href="#插件">插件</a></li>
+<li><a href="#python">python</a></li>
+<li><a href="#vim插件">vim插件</a></li>
+<li><a href="#c工程配置文件">c++工程配置文件</a></li>
+<li><a href="#设置-1">设置</a></li>
+<li><a href="#字体设置">字体设置</a></li>
+<li><a href="#清除终端">清除终端</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="vscode账号">vscode账号</h2>
+<p>用的是microsoft登录，登录的账号是gmail</p>
+<h2 id="设置硬件加速">设置硬件加速</h2>
+<ol>
+<li><p>系统 &gt;屏幕 &gt; 显示卡 &gt; 选择vscode，设置成高性能</p></li>
+<li><p>设置中搜索gpu，然后开启gpu</p>
+<h2 id="常见问题">常见问题</h2></li>
+</ol>
+<h3 id="vscode-全局搜索ctrlshiftf无效">vscode 全局搜索ctrl+shift+f无效</h3>
+<p>是因为和搜狗输入法的简繁切换快捷键冲突了，关掉就好了，也有人是网易云音乐快捷键问题</p>
+<h3 id="智能提示快捷键ctrlspace被输入法占用">智能提示快捷键<code>ctrl+space</code>被输入法占用</h3>
+<p><code>ctrl+space</code>是windows系统自带的切换输入法的快捷键，在：设置&gt;时间和语言&gt;输入&gt;高级键盘设置&gt;输入语言热键 中可以进行修改。</p>
+<p>可以把智能提示弹出框设置为<code>alt+/</code></p>
+<p>设置<code>tab</code>键来上下切换智能提示</p>
+<pre><code>[
+    {
+        &quot;key&quot;: &quot;tab&quot;,
+        &quot;command&quot;: &quot;acceptSelectedSuggestion&quot;,
+        &quot;when&quot;: &quot;suggestWidgetVisible &amp;&amp; textInputFocus&quot;
+    },
+    {
+        &quot;key&quot;: &quot;shift+tab&quot;,
+        &quot;command&quot;: &quot;acceptSelectedSuggestion&quot;,
+        &quot;when&quot;: &quot;suggestWidgetVisible &amp;&amp; textInputFocus&quot;
+    },
+    {
+        &quot;key&quot;: &quot;tab&quot;,
+        &quot;command&quot;: &quot;selectNextSuggestion&quot;,
+        &quot;when&quot;: &quot;editorTextFocus &amp;&amp; suggestWidgetMultipleSuggestions &amp;&amp; suggestWidgetVisible&quot;
+    },
+        {
+        &quot;key&quot;: &quot;shift+tab&quot;,
+        &quot;command&quot;: &quot;selectPrevSuggestion&quot;,
+        &quot;when&quot;: &quot;editorTextFocus &amp;&amp; suggestWidgetMultipleSuggestions &amp;&amp; suggestWidgetVisible&quot;
+    }
+]</code></pre>
+<h2 id="快捷键">快捷键</h2>
+<p>打开的命令面板了，输入 <code>shortcuts</code> 可查看快捷键</p>
+<p>快捷键设置<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/a4506184-9100-4a13-93c2-d8607d1bccbd.png" /><br />
+右上角的红圈可以打开json的配置</p>
+<table>
+<thead>
+<tr class="header">
+<th>类别</th>
+<th>快键键</th>
+<th>功能</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>常用操作</td>
+<td>ctrl + f ctrl + shift + f</td>
+<td>查找</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ctrl + h ctrl + shift + h</td>
+<td>替换</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>"ctrl + `"</td>
+<td>显示console</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>F1 或 ctrl + shift + P</td>
+<td>打开的命令面板了</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ctrl + F4</td>
+<td>关闭标签</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ctrl + N</td>
+<td>新建</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ctrl + Tab</td>
+<td>切换选项卡</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>esc</td>
+<td>关闭搜索栏</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ctrl + .</td>
+<td>显示代码操作</td>
+<td>若不好使，可能是被输入法中的热键占用了</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>alt + Z</td>
+<td>行过长的时候自动折行</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>shift + alt + F</td>
+<td>代码格式化</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>alt + /</td>
+<td>代码提示</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>alt + shift + /</td>
+<td>copilot代码提示</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ctrl + L</td>
+<td>clear终端</td>
+<td>需要自己设置</td>
+</tr>
+<tr class="odd">
+<td>删除</td>
+<td>ctrl + Backspace</td>
+<td>删除左边的单词</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ctrl + Delete</td>
+<td>删除右边的单词</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ctrl + shift + k</td>
+<td>删除当前行</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ctrl + KJ</td>
+<td>删至行首</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ctrl + KK</td>
+<td>删至行尾</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>光标/移动</td>
+<td>ctrl + shift + enter</td>
+<td>光标插入上一行</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ctrl + enter</td>
+<td>光标插入下一行</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ctrl + ←/→</td>
+<td>按单词向左/右移动光标</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>alt + ←/→</td>
+<td>移到上/下一个光标处</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ctrl + shift + \</td>
+<td>按括号移动光标</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ctrl + ↑/↓</td>
+<td>向上/下移动当前行</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>alt + ↑/↓</td>
+<td>行上/下移</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>alt + 滚轮</td>
+<td>快速的滚动</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>shift + 滚轮</td>
+<td>左右滚动</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>home/end</td>
+<td>移动到行首/尾</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ctrl + home/end</td>
+<td>移动到文档首/尾</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>PgUp/PgDn</td>
+<td>上下翻页</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ctrl + PgUp/PgDn</td>
+<td>切换tab</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>选中操作</td>
+<td>shift + ↑/↓</td>
+<td>按行选中</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>shift + ←/→</td>
+<td>进行逐字选择</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>shif + ctrl + ←/→</td>
+<td>进行逐词选择</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ctrl + shift + alt + ↑/↓ 或 鼠标中键</td>
+<td>列选择快捷键</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>double click</td>
+<td>选单词</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>triple click</td>
+<td>选行</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ctrl + w ctrl + shift + w</td>
+<td>扩展选区的范围</td>
+<td>ExpandRegion插件</td>
+</tr>
+<tr class="even">
+<td>编辑</td>
+<td>ctrl + shift + U/L</td>
+<td>转大/小写，需要自己设置</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ctrl + /</td>
+<td>增加/去除注释</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ctrl + [/]</td>
+<td>减少/增加缩进</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ctrl + shift + [/]</td>
+<td>折叠/展开代码块</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>c++ 相关</td>
+<td>alt + o</td>
+<td>头文件源文件切换</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>vim相关</td>
+<td>jj + shift + o</td>
+<td>光标插入上一行</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>jj + o</td>
+<td>光标插入下一行</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ctrl + d</td>
+<td>向下翻页</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ctrl + u</td>
+<td>向上翻页</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Shift + []</td>
+<td> 是以「代码块」为单位跳行</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a/i/o shift + a/i/o</td>
+<td>换成插入模式</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>15gg</td>
+<td>跳到15行</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>bookmark</td>
+<td>ctrl + alt + k</td>
+<td>打书签</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ctrl + alt + J</td>
+<td>上一个书签</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ctrl + alt + L</td>
+<td>下一个书签</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="设置">设置</h2>
+<p>保存时去掉尾部空格<br />
+tab替换四个空格<br />
+VSCode 打开文件始终在新标签页打开</p>
+<pre><code>&quot;workbench.editor.enablePreview&quot;: false,</code></pre>
+<p>设置vscode命令行其缓冲区中保留的最大行数<br />
+settings中搜索 <code>Scrollback</code></p>
+<p>【主题】<br />
+sublime mariana 浅黑色的主题<br />
+Tiny Light 一款还原Hbuilder“绿柔”主题的vs code主题</p>
+<h2 id="插件">插件</h2>
+<ul>
+<li><p>Alignment 按等号对齐 alt + =</p></li>
+<li><p>Markdown 似乎是自带的</p></li>
+<li><p>ExpandRegion 扩展选区的 ctrl + w ctrl + shift + w</p></li>
+<li><p>Clipboard-history Ctrl+Shift+V 复制的历史记录</p></li>
+<li><p>Peacock<br />
+可以设置窗口为不同的颜色，方便区分不同项目<br />
+使用此插件后，会在打开的每个项目内创建 .vscode/setting.json文件，<br />
+这样不同项目才会生效</p></li>
+<li><p>Bracket Pair Colorizer 彩色括号</p></li>
+<li><p>Indent Rainbow 彩虹缩进</p></li>
+<li><p>Project Manager</p>
+<ul>
+<li>管理多个工程的并且还可以根据tag来进行类别的划分</li>
+</ul></li>
+<li><p>GitLens</p>
+<ul>
+<li>显示当前代码的最后提交历史</li>
+</ul></li>
+<li><p>Bookmarks</p></li>
+</ul>
+<h2 id="python">python</h2>
+<p>安装python插件，在插件中搜索python，安装星最多的。<br />
+按照插件中的说明，设置python的开发环境。</p>
+<p>jupyter插件，可以直接在vscode启动jupyter</p>
+<h2 id="vim插件">vim插件</h2>
+<p>【设置打开文件的时候我insert mode】<br />
+"vim.startInInsertMode": true</p>
+<p>【vim不覆盖vscode快捷键】<br />
+文件 --&gt; 首选项 --&gt; 设置 -- &gt;扩展 --&gt; vim --&gt; vim.useCtrlkeys 取消勾选</p>
+<p>【使用windows剪切板】<br />
+文件 --&gt; 首选项 --&gt; 设置 -- &gt;扩展 --&gt; vim --&gt; vim.useSystemClipboard</p>
+<p>【插入模式下键位修改】<br />
+文件-&gt;首选项-&gt;设置-&gt;文本编辑器，向下拉找到“在setting.json中编辑”<br />
+添加到配置的底部</p>
+<pre><code>    &quot;vim.insertModeKeyBindings&quot;: [
+        {
+            &quot;before&quot;: [&quot;j&quot;, &quot;j&quot;],
+            &quot;after&quot;: [&quot;&lt;Esc&gt;&quot;]
+        }
+    ]</code></pre>
+<p>【设置vim的某些快捷键不生效】</p>
+<pre><code>    &quot;vim.handleKeys&quot;: {
+        &quot;&lt;C-h&gt;&quot;: false,
+        &quot;&lt;C-f&gt;&quot;: false,
+        &quot;&lt;C-a&gt;&quot;: false,
+        &quot;&lt;C-c&gt;&quot;: false,
+        &quot;&lt;C-v&gt;&quot;: false,
+        &quot;&lt;Esc&gt;&quot;: false,
+    }</code></pre>
+<h2 id="c工程配置文件">c++工程配置文件</h2>
+<p>配置文件位置：.vscode<br />
+c++的配置：c_cpp_properties.json<br />
+文档：https://code.visualstudio.com/docs/cpp/config-mingw</p>
+<pre><code>{
+    &quot;configurations&quot;: [
+        {
+            &quot;name&quot;: &quot;Linux&quot;,
+            &quot;includePath&quot;: [
+                &quot;${workspaceFolder}/**&quot;,
+                &quot;${workspaceFolder}/../llvm-6.0.0.src/include/**&quot;,
+                &quot;${workspaceFolder}/../eosio.cdt/libraries/**&quot;
+            ],
+            &quot;defines&quot;: [
+                &quot;_DEBUG&quot;,
+                &quot;UNICODE&quot;,
+                &quot;_UNICODE&quot;,
+                &quot;WAVM_API=&quot;
+            ],
+            &quot;compilerPath&quot;: &quot;C:/mingw-w64/mingw32/bin/g++.exe&quot;,
+            &quot;cStandard&quot;: &quot;c11&quot;,
+            &quot;cppStandard&quot;: &quot;c++17&quot;,
+            &quot;intelliSenseMode&quot;: &quot;gcc-x64&quot;
+        }
+    ],
+    &quot;version&quot;: 4
+}</code></pre>
+<h2 id="设置-1">设置</h2>
+<p>快捷键</p>
+<pre><code>// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        &quot;key&quot;: &quot;alt+oem_2&quot;,
+        &quot;command&quot;: &quot;editor.action.triggerSuggest&quot;,
+        &quot;when&quot;: &quot;editorHasCompletionItemProvider &amp;&amp; textInputFocus &amp;&amp; !editorReadonly&quot;
+    },
+    {
+        &quot;key&quot;: &quot;ctrl+space&quot;,
+        &quot;command&quot;: &quot;-editor.action.triggerSuggest&quot;,
+        &quot;when&quot;: &quot;editorHasCompletionItemProvider &amp;&amp; textInputFocus &amp;&amp; !editorReadonly&quot;
+    },
+
+    {
+        &quot;key&quot;: &quot;tab&quot;,
+        &quot;command&quot;: &quot;acceptSelectedSuggestion&quot;,
+        &quot;when&quot;: &quot;suggestWidgetVisible &amp;&amp; textInputFocus&quot;
+    },
+    {
+        &quot;key&quot;: &quot;shift+tab&quot;,
+        &quot;command&quot;: &quot;acceptSelectedSuggestion&quot;,
+        &quot;when&quot;: &quot;suggestWidgetVisible &amp;&amp; textInputFocus&quot;
+    },
+    {
+        &quot;key&quot;: &quot;tab&quot;,
+        &quot;command&quot;: &quot;selectNextSuggestion&quot;,
+        &quot;when&quot;: &quot;editorTextFocus &amp;&amp; suggestWidgetMultipleSuggestions &amp;&amp; suggestWidgetVisible&quot;
+    },
+        {
+        &quot;key&quot;: &quot;shift+tab&quot;,
+        &quot;command&quot;: &quot;selectPrevSuggestion&quot;,
+        &quot;when&quot;: &quot;editorTextFocus &amp;&amp; suggestWidgetMultipleSuggestions &amp;&amp; suggestWidgetVisible&quot;
+    }
+
+
+]</code></pre>
+<p>全局设置</p>
+<pre><code>{
+    &quot;workbench.editorAssociations&quot;: {
+        &quot;*.ipynb&quot;: &quot;jupyter.notebook.ipynb&quot;
+    },
+    &quot;workbench.colorTheme&quot;: &quot;Tiny Light&quot;,
+    &quot;window.zoomLevel&quot;: 1,
+    &quot;vim.useSystemClipboard&quot;: true,
+    &quot;vim.useCtrlKeys&quot;: false,
+    &quot;editor.codeActionsOnSave&quot;: null,
+
+    &quot;vim.insertModeKeyBindings&quot;: [
+        {
+            &quot;before&quot;: [&quot;j&quot;, &quot;j&quot;],
+            &quot;after&quot;: [&quot;&lt;Esc&gt;&quot;]
+        }
+    ],
+    &quot;vim.handleKeys&quot;: {
+        &quot;&lt;C-h&gt;&quot;: false,
+        &quot;&lt;C-f&gt;&quot;: false,
+        &quot;&lt;C-a&gt;&quot;: false,
+        &quot;&lt;C-c&gt;&quot;: false,
+        &quot;&lt;C-v&gt;&quot;: false
+    },
+    &quot;workbench.editor.enablePreview&quot;: false
+
+}</code></pre>
+<h2 id="字体设置">字体设置</h2>
+<p>Consolas, 'Courier New', monospace</p>
+<h2 id="清除终端">清除终端</h2>
+<p>设置 - &gt; keyboard Shortcuts -&gt; 搜索 "workbench.action.terminal.clear" ，然后设置快捷键 ctrl + L，和linux保持一致。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

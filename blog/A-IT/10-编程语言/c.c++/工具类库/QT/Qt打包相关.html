@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/工具类库/QT/Qt打包相关</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#windeployqt的使用">windeployqt的使用</a></li>
+<li><a href="#在其他电脑上无法运行的问题">在其他电脑上无法运行的问题</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="windeployqt的使用">windeployqt的使用</h2>
+<p>开发的Qt程序在运行时会依赖QT本身的一些动态库，QT自带了windeployqt.exe工具可以实现自动将所需的QT依赖库拷贝过来</p>
+<p>以下是实现这个功能的bat脚本</p>
+<pre><code>echo off
+echo Setting up environment for Qt usage...
+set PATH=D:\program\Qt\Qt5.12.12\5.12.12\mingw73_64\bin;%PATH%      rem 此行目录为QT的安装目录，需要自行调整
+echo bat与exe放在同一个目录
+for /f &quot;delims=&quot; %%A in (&#39;dir /b *.exe&#39;) do windeployqt %%A
+echo pause</code></pre>
+<p><strong>存在的问题</strong><br />
+1. windeployqt可能并不会把所有的qt依赖库都复制进来，此时需要手动复制<br />
+2. 非Qt依赖库也不会复制进来，需手动复制</p>
+<p><strong>如何找到缺失的dll库</strong><br />
+在配置好了的依赖库的环境变量的情况下是不会报dll缺失的错误的，此时可以把环境变量先改为不生效，以验证缺失哪些动态库</p>
+<h2 id="在其他电脑上无法运行的问题">在其他电脑上无法运行的问题</h2>
+<p>现象：<br />
+运行程序时，在其他电脑中一闪而过，没有任何报错和打印输出</p>
+<p>解决：<br />
+使用gdb调试程序，在这里会多一些程序的运行信息，并且可以用bt来打印错误堆栈<br />
+得到如下报错</p>
+<pre><code>Starting program: C:\Users\HANLU\Desktop\videoPlayer\VideoPlayer.exe
+[New Thread 1524.0x536c]
+[New Thread 1524.0x2f64]
+[New Thread 1524.0x50ec]
+[New Thread 1524.0x5128]
+warning: qt.qpa.plugin: Could not find the Qt platform plugin &quot;windows&quot; in &quot;&quot;
+warning: This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
+
+gdb: unknown target exception 0xc0000602 at 0x7ffade16d8b2
+
+Thread 1 received signal ?, Unknown signal.
+0x00007ffade16d8b2 in RaiseFailFastException () from C:\WINDOWS\System32\KernelBase.dll
+(gdb) bt
+#0  0x00007ffade16d8b2 in RaiseFailFastException () from C:\WINDOWS\System32\KernelBase.dll
+#1  0x000000006b78f464 in qt_message_fatal (context=..., message=...) at global\qlogging.cpp:1898
+#2  0x000000006b78fe5f in QMessageLogger::fatal (this=this@entry=0xc0f790,
+    msg=msg@entry=0x183d27c &lt;QSurfaceFormat::setDefaultFormat(QSurfaceFormat const&amp;)::__PRETTY_FUNCTION__+1948&gt; &quot;%s&quot;)
+    at global\qlogging.cpp:888
+#3  0x00000000014023ff in init_platform (pluginNamesWithArguments=..., platformPluginPath=..., platformThemeName=...,
+    argc=@0xc0fd90: 1, argv=argv@entry=0x1ffec410) at kernel\qguiapplication.cpp:1219
+#4  0x0000000001402f65 in QGuiApplicationPrivate::createPlatformIntegration (this=0x1ffec4c0)
+    at kernel\qguiapplication.cpp:1392
+#5  0x0000000001403109 in QGuiApplicationPrivate::createEventDispatcher (this=&lt;optimized out&gt;)
+    at kernel\qguiapplication.cpp:1409
+#6  0x000000001312b9c2 in QApplicationPrivate::createEventDispatcher (this=0xc0f180) at kernel\qapplication.cpp:185
+#7  0x000000006b91f8ba in QCoreApplicationPrivate::init (this=this@entry=0x1ffec4c0)
+    at kernel\qcoreapplication.cpp:858
+#8  0x000000000140558e in QGuiApplicationPrivate::init (this=0x1ffec4c0) at kernel\qguiapplication.cpp:1438
+#9  0x000000001312c958 in QApplicationPrivate::init (this=0x1ffec4c0) at kernel\qapplication.cpp:558
+#10 0x000000001312ca07 in QApplication::QApplication (this=0xc0fd60, argc=@0xc0fd90: 1, arg</code></pre>
+<p>最终发现是少了<code>platforms/qwindowsd.dll</code>这个dll插件，这是因为在复制程序的dll依赖时没有用windeployqt去复制导致上面的插件没有复制过来</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

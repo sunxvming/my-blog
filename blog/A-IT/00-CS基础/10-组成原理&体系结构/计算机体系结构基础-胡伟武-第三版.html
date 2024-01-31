@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/00-CS基础/10-组成原理&amp;体系结构/计算机体系结构基础-胡伟武-第三版</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#目录">目录</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>《计算机体系结构基础》（第三版）<a href="https://github.com/foxsen/archbase">github地址</a></p>
+<p>“计算机体系结构” 是研究怎么造计算机而不是怎么用计算机的学科。</p>
+<p>计算机专业有几门 “当家” 的核心课程是关于 “如何造计算机” 的, 硬件方面以计算机组成原理和计算机体系结构为主, 软件方面以操作系统和编译原理为主。<br />
+计算机体系结构就是研究怎么做 CPU 的核心课程。</p>
+<p>计算机体系结构 (Computer Architecture) 是描述计算机各组成部分及其相互关系的一组规则和方法, 是程序员所看到的计算机属性。 计算机体系结构的主要研究内容包括指令系统结构(Instruction Set Architecture, 简称 ISA) 和计算机组织结构 (Computer Organization)。</p>
+<p>冯·诺依曼结构最核心的思想是什么?<br />
+实际上, 冯·诺依曼结构就是数据和程序都存在存储器中, CPU 从内存中取指令和数据进行运算, 并且把结果也放在内存中。 概括起来就是存储程序和指令驱动执行。</p>
+<h2 id="目录">目录</h2>
+<pre><code>第一部分 引言
+第 1 章 引言 …………………………… 2
+1. 1 计算机体系结构的研究内容……… 2
+1. 1. 1 一以贯之 ………………… 2
+1. 1. 2 什么是计算机 …………… 5
+1. 1. 3 计算机的基本组成 ……… 6
+1. 2 衡量计算机的指标………………… 9
+1. 2. 1 计算机的性能 …………… 9
+1. 2. 2 计算机的价格 …………… 11
+1. 2. 3 计算机的功耗 …………… 12
+1. 3 计算机体系结构的发展 ………… 13
+1. 3. 1 摩尔定律和工艺的发展 ……………………… 15
+1. 3. 2 计算机应用和体系结构 ……………………… 19
+1. 3. 3 计算机体系结构发展 …… 20
+1. 4 体系结构设计的基本原则 ……… 22
+1. 4. 1 平衡性 …………………… 22
+1. 4. 2 局部性 …………………… 24
+1. 4. 3 并行性 …………………… 24
+1. 4. 4 虚拟化 …………………… 25
+1. 5 本章小结 ………………………… 26
+
+
+第二部分 指令系统结构
+第 2 章 指令系统 …………………… 30
+2. 1 指令系统简介 …………………… 30
+2. 2 指令系统设计原则 ……………… 30
+2. 3 指令系统发展历程 ……………… 32
+2. 3. 1 指令内容的演变 ………… 32
+2. 3. 2 存储管理的演变 ………… 34
+2. 3. 3 运行级别的演变 ………… 36
+2. 4 指令系统组成 …………………… 37
+2. 4. 1 地址空间 ………………… 37
+2. 4. 2 操作数 …………………… 39
+2. 4. 3 指令操作和编码 ………… 41
+2. 5 RISC 指令集比较 ………………… 43
+2. 5. 1 指令格式比较 …………… 43
+2. 5. 2 寻址方式比较 …………… 44
+2. 5. 3 公共指令功能 …………… 44
+2. 5. 4 不同指令系统的特色 …… 46
+2. 6 C 语言的机器表示 ……………… 47
+2. 6. 1 过程调用 ………………… 48
+2. 6. 2 流程控制语句 …………… 49
+2. 7 本章小结 ………………………… 52
+
+
+第 3 章 特权指令系统……………… 53
+3. 1 特权指令系统简介 ……………… 53
+3. 2 异常与中断 ……………………… 56
+3. 2. 1 异常分类 ………………… 56
+3. 2. 2 异常处理 ………………… 58
+3. 2. 3 中断 ……………………… 60
+3. 3 存储管理 ………………………… 62
+3. 3. 1 存储管理的原理 ………… 63
+3. 3. 2 TLB 的结构和使用 ……… 64
+3. 3. 3 TLB 地址翻译相关异常的处理 ……………… 70
+3. 4 本章小结 ………………………… 73
+
+
+第 4 章 软硬件协同 ………………… 75
+4. 1 应用程序二进制接口 …………… 75
+4. 1. 1 寄存器约定 ……………… 76
+4. 1. 2 函数调用约定 …………… 78
+4. 1. 3 进程虚拟地址空间 ……… 82
+4. 1. 4 栈帧布局 ………………… 84
+4. 2 六种常见的上下文切换场景 …… 87
+4. 2. 1 函数调用 ………………… 87
+4. 2. 2 异常和中断 ……………… 88
+4. 2. 3 系统调用 ………………… 89
+4. 2. 4 进程 ……………………… 91
+4. 2. 5 线程 ……………………… 92
+4. 2. 6 虚拟机 …………………… 93
+4. 2. 7 六种上下文切换场景的对比 ……………………… 94
+4. 3 同步机制 ………………………… 94
+4. 3. 1 基于互斥的同步机制 …… 95
+4. 3. 2 非阻塞的同步机制 ……… 96
+4. 4 本章小结 ………………………… 97
+
+
+第三部分 计算机硬件结构
+第 5 章 计算机组成原理和结构 ………………………… 100
+5. 1 冯·诺依曼结构 ………………… 100
+5. 2 计算机的组成部件 ……………… 101
+5. 2. 1 运算器 ………………… 101
+5. 2. 2 控制器 ………………… 103
+5. 2. 3 存储器 ………………… 105
+5. 2. 4 输入/ 输出设备 ………… 110
+5. 3 计算机系统硬件结构发展 ……… 113
+5. 3. 1 CPU-GPU-北桥-南桥四片结构 ……………… 113
+5. 3. 2 CPU-北桥-南桥三片结构 ……………… 114
+5. 3. 3 CPU-弱北桥-南桥三片结构 ……………… 114
+5. 3. 4 CPU-南桥两片结构 …… 115
+5. 3. 5 SoC 单片结构 ………… 116
+5. 4 处理器和 IO 设备间的通信 …… 116
+5. 4. 1 IO 寄存器寻址 ………… 117
+5. 4. 2 处理器和 IO 设备之间的同步 …………………… 117
+5. 4. 3 存储器和 IO 设备之间的数据传送 ……………… 119
+5. 4. 4 龙芯 3A3000+7A1000桥片系统中的 CPU、GPU、 DC 通信 ………… 120
+5. 5 本章小结 ………………………… 122
+
+
+第 6 章 计算机总线接口技术…… 124
+6. 1 总线概述 ………………………… 125
+6. 2 总线分类 ………………………… 125
+6. 3 片上总线 ………………………… 126
+6. 4 内存总线 ………………………… 132
+6. 5 系统总线 ………………………… 139
+6. 5. 1 HyperTransport 总线 …… 140
+6. 5. 2 HT 包格式 ……………… 143
+6. 6 设备总线 ………………………… 145
+6. 6. 1 PCIE 总线 ……………… 145
+6. 6. 2 PCIE 包格式 …………… 146
+6. 7 本章小结 ………………………… 147
+
+
+第 7 章 计算机系统启动过程分析 ………………………… 149
+7. 1 处理器核初始化 ………………… 149
+7. 1. 1 处理器复位 …………… 150
+7. 1. 2 调试接口初始化 ……… 152
+7. 1. 3 TLB 初始化 …………… 156
+7. 1. 4 Cache 初始化…………… 157
+7. 2 总线接口初始化 ………………… 160
+7. 2. 1 内存初始化 …………… 160
+7. 2. 2 IO 总线初始化 ………… 161
+7. 3 设备的探测及驱动加载 ………… 162
+7. 4 多核启动过程 …………………… 167
+7. 4. 1 初始化时的多核协同 … 167
+7. 4. 2 操作系统启动时的多核唤醒 ……………… 168
+7. 4. 3 核间同步与通信 ……… 169
+7. 5 本章小结 ………………………… 170
+
+
+第四部分 CPU 微结构
+第 8 章 运算器设计 ……………… 172
+8. 1 二进制与逻辑电路 ……………… 172
+8. 1. 1 计算机中数的表示 …… 172
+8. 1. 2 MOS 晶体管工作原理 … 178
+8. 1. 3 CMOS 逻辑电路 ……… 180
+8. 2 简单运算器设计 ………………… 188
+8. 2. 1 定点补码加法器 ……… 188
+8. 2. 2 减法运算实现 ………… 193
+8. 2. 3 比较运算实现 ………… 194
+8. 2. 4 移位器 ………………… 194
+8. 3 定点补码乘法器 ………………… 195
+8. 3. 1 补码乘法器 …………… 196
+8. 3. 2 Booth 乘法器 …………… 198
+8. 3. 3 华莱士树 ……………… 202
+8. 4 本章小结 ………………………… 206
+
+
+第 9 章 指令流水线 ……………… 208
+9. 1 单周期处理器 …………………… 208
+9. 2 流水线处理器 …………………… 210
+9. 3 指令相关和流水线冲突 ………… 213
+9. 3. 1 数据相关引发的冲突及解决办法 ……………… 214
+9. 3. 2 控制相关引发的冲突及解决办法 ……………… 216
+9. 3. 3 结构相关引发的冲突及解决办法 ……………… 219
+9. 4 流水线与异常处理 ……………… 219
+9. 5 提高流水线效率的技术 ………… 220
+9. 5. 1 多发射数据通路 ……… 220
+9. 5. 2 动态调度 ……………… 221
+9. 5. 3 转移预测 ……………… 225
+9. 5. 4 高速缓存 ……………… 229
+9. 6 本章小结 ………………………… 231
+
+
+第五部分 并行处理结构
+第 10 章 并行编程基础…………… 236
+10. 1 程序的并行行为 ……………… 236
+10. 1. 1 指令级并行性 ……… 236
+10. 1. 2 数据级并行性 ……… 237
+10. 1. 3 任务级并行性 ……… 237
+10. 2 并行编程模型 ………………… 238
+10. 2. 1 单任务数据并行模型 … 238
+10. 2. 2 多任务共享存储编程模型 …………… 238
+10. 2. 3 多任务消息传递编程模型 …………… 239
+10. 2. 4 共享存储与消息传递编程模型的编程复杂度 ………… 239
+10. 3 典型并行编程环境 …………… 242
+10. 3. 1 数据并行 SIMD 编程 … 242
+10. 3. 2 POSIX 编程标准 …… 244
+10. 3. 3 OpenMP 标准………… 247
+10. 3. 4 MPI 消息传递编程接口 ………………… 253
+10. 4 本章小结 ……………………… 259
+
+
+第 11 章 多核处理结构 ………… 260
+11. 1 多核处理器的发展演化 ……… 260
+11. 2 多核处理器的访存结构 ……… 263
+11. 2. 1 通用多核处理器的片上 Cache 结构 …… 263
+11. 2. 2 存储一致性模型 …… 265
+11. 2. 3 Cache 一致性协议…… 267
+11. 3 多核处理器的互连结构 ……… 272
+11. 4 多核处理器的同步机制 ……… 278
+11. 5 典型多核处理器 ……………… 282
+11. 5. 1 龙芯 3A5000 处理器 … 282
+11. 5. 2 Intel SandyBridge 架构… 284
+11. 5. 3 IBM Cell 处理器 …… 286
+11. 5. 4 NVIDIA GPU ……… 287
+11. 5. 5 Tile64 处理器 ……… 289
+11. 6 本章小结 ……………………… 289
+
+
+第六部分 系统评价与性能分析
+第 12 章 计算机系统评价和性能分析 ………………… 294
+12. 1 计算机系统性能评价指标 …… 294
+12. 1. 1 计算机系统常用性能评价指标 …………… 295
+12. 1. 2 并行系统的性能评价指标 ………………… 299
+12. 2 测试程序集 …………………… 300
+12. 2. 1 微基准测试程序 …… 301
+12. 2. 2 SPEC CPU 基准测试程序 ………………… 310
+12. 2. 3 并行系统基准测试程序 ………………… 316
+12. 2. 4 其他常见的基准测试程序集 ……………… 319
+12. 3 性能分析方法 ………………… 320
+12. 3. 1 分析建模的方法 …… 322
+12. 3. 2 模拟建模的方法和模拟器 ……………… 322
+12. 3. 3 性能测量的方法 …… 325
+12. 4 性能测试和分析实例 ………… 334
+12. 4. 1 SPEC CPU 基准测试程序的分值对比 …… 335
+12. 4. 2 微结构相关统计数据 ………………… 338
+12. 4. 3 基础性能参数 ……… 344
+12. 5 本章小结 ……………………… 348
+
+
+总结: 什么是计算机体系结构…… 350
+参考文献 ……………………………… 359</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/40-tools/qemu</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#安装启动">安装启动</a></li>
+<li><a href="#遇到问题">遇到问题</a>
+<ul>
+<li><a href="#安装系统时退出">安装系统时退出</a></li>
+<li><a href="#运行虚拟机时运行太慢发现cpu只有1核">运行虚拟机时运行太慢，发现cpu只有1核</a></li>
+<li><a href="#本地宿主机ssh无法到虚拟机">本地宿主机ssh无法到虚拟机</a></li>
+</ul></li>
+<li><a href="#虚拟机和宿主机互连且可连网">虚拟机和宿主机互连且可连网</a>
+<ul>
+<li><a href="#tap-windows-adapter-v9">TAP-Windows Adapter V9</a></li>
+<li><a href="#配置步骤">配置步骤</a></li>
+</ul></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="安装启动">安装启动</h2>
+<p>创建虚拟磁盘</p>
+<pre><code>qemu-img create -f raw d:/program/qvm/kylin_arm64.img 50G</code></pre>
+<p>安装麒麟系统</p>
+<pre><code>qemu-system-aarch64.exe -m 20G -cpu cortex-a72 --accel tcg,thread=multi -M virt -bios d:\soft\QEMU_EFI.fd -rtc base=localtime -display sdl -device VGA -device nec-usb-xhci -device usb-tablet -device usb-kbd -drive if=virtio,file=d:\program\qvm\kylin_arm64.img,id=hd0,format=raw,media=disk -drive if=none,file=d:\soft\Kylin-Desktop-V10-Phytium-aarch64.iso,id=cdrom,media=cdrom -device virtio-scsi-device -device scsi-cd,drive=cdrom</code></pre>
+<p>启动脚本启动虚拟机</p>
+<pre><code>qemu-system-aarch64 -m 12G -cpu cortex-a72  --accel tcg,thread=multi -M virt -bios d:\soft\QEMU_EFI.fd -rtc base=localtime -display gtk -device VGA -device nec-usb-xhci -device usb-tablet -device usb-kbd -drive if=virtio,file=d:\program\qvm\kylin_arm64.img,id=hd0,format=raw,media=disk -net nic,model=virtio -net tap,ifname=tap0</code></pre>
+<h2 id="遇到问题">遇到问题</h2>
+<h3 id="安装系统时退出">安装系统时退出</h3>
+<p>下载了1.最新的qemu、1.QEMU_EFI.fd、3.麒麟系统，在进行安装时显示了qemu的窗口，窗口上显示<code>guest has not initialized the display</code>的错误，几秒后窗口便消失，程序退出。在用mobaXterm打开本地的terminal执行安装系统的命令时也是产生上述的现象，并在terminal中多输出了一个<code>Segmentation fault</code>。<br />
+起初以为仅仅是显示的错误而已，于是便在网上查询相关的解决方案，试了好多都不成功。于是有以下的猜想：<br />
+1. 麒麟系统镜像有问题<br />
+2. QEMU_EFI.fd有问题<br />
+3. 我自己电脑win11系统的问题</p>
+<p>于是把安装时的镜像参数换成一个假的镜像，但是依然报错，先排除了镜像的问题。下班后也查到原因。<br />
+回家后在自己的dell的win10系统的电脑上安装了最新qemu、QEMU_EFI.fd、麒麟系统，安装系统的时还是一样的问题，猜想是不是qemu版本的问题，于是又下载了一个一年前的qemu版本，运行时直接报dll缺失的问题，于是又换了一个几个月前的版本，运行时便没有上述问题了。结论是有些软件最新版本可能会有问题，旧的版本也可能会有问题，就看你如何选择什么样的版本了。</p>
+<h3 id="运行虚拟机时运行太慢发现cpu只有1核">运行虚拟机时运行太慢，发现cpu只有1核</h3>
+<p>这个慢指两方面：1、安装系统时，可能得俩小时以上 2、启动系统时，可能得好几分钟才能启动好。<br />
+在用<code>-smp 8,sockets=4,cores=2</code>参数指定多核后运行系统后qemu便退出运行。但是换成<code>-smp 1</code>后便可以运行。<br />
+经过查询发现在x86的系统用qemu运行arm架构的虚拟机，使用 <code>-smp</code> 参数设置虚拟机的多核配置只适用于相同架构的虚拟机，而在不同的架构下不能启用硬件虚拟加速，只能用<code>--accel tcg,thread=multi</code>参数进行软件的加速，速度会比硬件加速的慢。<br />
+于是就不折腾这个加速的东西了，命令行连接虚拟机的话速度也不会太慢的。</p>
+<h3 id="本地宿主机ssh无法到虚拟机">本地宿主机ssh无法到虚拟机</h3>
+<p>检查步骤：<br />
+1. 防火墙。宿主机和虚拟机的防火墙都要关掉，麒麟系统虚拟机在图形化界面设置里面也有防火墙的设置，也需要关掉。windows的系统防火墙也需要关掉。不然双方都ping不通<br />
+2. ssh服务器是否安装、启动、运行、监听22端口<br />
+3. ssh的配置，是否允许密码登录、是否允许root运行登录等设置</p>
+<h2 id="虚拟机和宿主机互连且可连网">虚拟机和宿主机互连且可连网</h2>
+<h3 id="tap-windows-adapter-v9">TAP-Windows Adapter V9</h3>
+<p>TAP-Windows Adapter V9 是一种网络适配器，通常与虚拟私人网络（Virtual Private Network，VPN）软件相关联。它是由OpenVPN项目开发的一种虚拟网络适配器驱动程序。</p>
+<p>TAP-Windows Adapter V9 允许 VPN 软件在 Windows 操作系统上创建虚拟网络接口，以便在建立 VPN 连接时通过该接口进行网络通信。这样可以实现对网络流量的加密和隧道化，以增加网络安全性和保护用户的隐私。</p>
+<p>当您安装某些 VPN 软件时，例如 OpenVPN 或 NordVPN，它们通常会为其 VPN 连接创建一个虚拟网络适配器。TAP-Windows Adapter V9 就是用于实现这种功能的虚拟网络适配器。</p>
+<h3 id="配置步骤">配置步骤</h3>
+<ol>
+<li>创建TAP-Windows Adapter V9网卡，命名为tap0</li>
+<li>把连网的网卡共享给tap0，</li>
+<li><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230713112235.png" title="fig:" alt="image.png" /></li>
+<li>设置共享后tap0的网卡会被设置成如下的ip</li>
+<li><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230713112452.png" title="fig:" alt="image.png" /></li>
+<li>可以看到宿主机共享了网络后，tap0网卡的IP地址变为了192.168.137.1,这个地址即是虚拟机系统中网络的网关地址，掩码即是虚拟机系统中网络的子网掩码。</li>
+<li>运行虚拟机，查看虚拟机的ip为192.168.137.xxx，和tap0在一个网段当中，说明在一个网络里面</li>
+</ol>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://www.cnblogs.com/mylibs/p/kylin-arm64-with-qemu-on-windows.html">Windows上使用QEMU创建银河麒麟ARM64虚拟机完全手册 - 程语有云 - 博客园</a></li>
+<li><a href="https://blog.csdn.net/qq_37823156/article/details/129354546">Win10桥接网卡使得qemu虚拟机能和宿主机互相通讯且能正常访问网络</a></li>
+<li><a href="https://blog.csdn.net/EmptyStupid/article/details/127949231">使用Qemu在Windows上模拟arm平台并安装国产化操作系统</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

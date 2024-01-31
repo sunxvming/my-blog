@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/机器学习/深度学习框架</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#整体评价">整体评价</a></li>
+<li><a href="#新手推荐">新手推荐</a></li>
+<li><a href="#opencv-vs-pytorch">OpenCV vs PyTorch</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="整体评价">整体评价</h2>
+<ul>
+<li>集成度和代码简洁度：Keras&gt;PyTorch&gt;TensorFlow</li>
+<li>代码可读性：Pytorch&gt;Keras&gt;TensorFlow</li>
+</ul>
+<h2 id="新手推荐">新手推荐</h2>
+<ul>
+<li><p>Keras，TensorFlow的封装，类似于 sklearn，易上手，容易使用，适合新手入门深度学习；</p></li>
+<li><p>PyTorch，最强大，相对更灵活；</p></li>
+<li><p>TensorFlow，出来的早，业界使用多。但是，再见</p></li>
+<li><p>TensorFlow 是由 Google Brain 团队开发的一个开源的机器学习框架</p></li>
+<li><p>Keras 是一个用 Python 编写的高级神经网络 API，它可以运行于 TensorFlow、Microsoft Cognitive Toolkit、Theano 和 MXNet 等深度学习框架之上。Keras 的设计理念是用户友好、模块化和可扩展性强，旨在使深度学习的建模过程变得更加简单、快速和灵活。</p></li>
+<li><p>PyTorch 是一个由 Facebook 开发的开源机器学习框架，它是一个动态图计算框架，允许用户使用 Python 语言定义计算图并执行计算，同时也支持静态图计算。</p></li>
+</ul>
+<h2 id="opencv-vs-pytorch">OpenCV vs PyTorch</h2>
+<p>OpenCV 和 PyTorch 是两种非常不同的计算机视觉工具。下面是它们的简要对比：</p>
+<ul>
+<li><ol>
+<li>功能：OpenCV 是一个计算机视觉库，用于处理图像和视频数据，提供了大量的图像处理功能，如图像识别、物体检测、图像分割等。而 PyTorch 是一个深度学习框架，用于构建和训练神经网络。</li>
+</ol></li>
+<li><ol>
+<li>编程语言：OpenCV 主要使用 C++ 和 Python 编程语言，而 PyTorch 主要使用 Python 编程语言。</li>
+</ol></li>
+<li><ol>
+<li>应用领域：OpenCV 主要应用于计算机视觉领域，包括图像处理、视频处理、机器视觉等；而 PyTorch 主要应用于深度学习领域，包括图像识别、自然语言处理、语音识别等。</li>
+</ol></li>
+<li><ol>
+<li>应用场景：OpenCV 主要用于实时应用场景，如实时视频处理、人脸识别等；而 PyTorch 主要用于离线场景，如训练模型、数据分析等。</li>
+</ol></li>
+<li><ol>
+<li>学习曲线：OpenCV 的学习曲线相对较低，因为它提供了大量的文档和示例代码，可以快速入门；而 PyTorch 的学习曲线较陡峭，需要对深度学习原理和神经网络模型有一定的理解。</li>
+</ol></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

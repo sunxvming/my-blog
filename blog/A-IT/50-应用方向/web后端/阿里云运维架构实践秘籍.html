@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/web后端/阿里云运维架构实践秘籍</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#绪言-云计算带来的技术变革">绪言 云计算带来的技术变革</a></li>
+<li><a href="#第一篇-云端选型篇">第一篇 云端选型篇</a>
+<ul>
+<li><a href="#云厂商">云厂商</a></li>
+<li><a href="#阿里云产品概要">阿里云产品概要</a></li>
+<li><a href="#云产品的82选择原则">2.2 云产品的8/2选择原则</a></li>
+</ul></li>
+<li><a href="#系统技术选型">系统技术选型</a>
+<ul>
+<li><a href="#云端网络的三种选型策略">4.1 云端网络的三种选型策略</a></li>
+<li><a href="#入网请求选型的四种方法">入网请求选型的四种方法</a></li>
+<li><a href="#云端web服务器的五点选型考虑">4.2 云端Web服务器的五点选型考虑</a></li>
+<li><a href="#云端负载均衡选型的五个方面">4.3 云端负载均衡选型的五个方面</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<blockquote>
+<p>驻云科技 乔锐杰</p>
+</blockquote>
+<p>中国最早的云计算厂商阿里云于2009年成立，至今，云计算在中国大地上已经走过10多个年头，它作为互联网的基础设施，也已经在不知不觉中非常深刻地影响着整个社会、整个世界，并且这种影响还在不断发酵。上云这个词在2013年和2014年可能还是新鲜词汇，但今天还没有使用云计算的企业反而更像是稀有品种。</p>
+<h3 id="绪言-云计算带来的技术变革">绪言 云计算带来的技术变革</h3>
+<p>在云上，我们可能再也接触不到物理服务器。相关软件的安装配置、调优、高可用等都会由云平台来完成。未来的技术方向是我们如何更好地使用、实践这些云产品及云技术。</p>
+<p><strong>运维自动化</strong>一般有以下几个阶段：<br />
+❑ 人工阶段。日常运维全部靠人工来做。<br />
+❑ 脚本及工具阶段。<br />
+❑ 平台化阶段。用平台界面智能化操作来完成日常运维命令或执行脚本/工具，以进一步提升效率。<br />
+❑ 智能化阶段。智能运维，如自动扩容、故障自愈等，进一步减少人为参与，进一步提升运维效率。</p>
+<h2 id="第一篇-云端选型篇">第一篇 云端选型篇</h2>
+<p>用VMware等虚拟化技术虚拟出来的<strong>VPS</strong>（Virtual Private Server，虚拟专有服务器）。<br />
+从技术角度来看，云主机是分布式的，所以在稳定性、资源隔离、数据安全性等方面都能得到保障，而<strong>VPS是单机版</strong>。<br />
+因为分布式的云平台一般采用三份数据冗余，所以某台物理机硬件有问题根本不会造成用户数据丢失。</p>
+<h3 id="云厂商">云厂商</h3>
+<p><strong>亚马逊</strong>2018年的市场占有率为30.4%!，依然占据无法动摇的主导地位，相信业内人员对亚马逊在云计算领域的地位也是能感同身受的。</p>
+<p><strong>阿里巴巴</strong>在电商领域拥有海量用户、海量数据、高访问量/高并发的业务场景，也拥有一流的技术实力。<br />
+特别是2014年阿里巴巴收购了万网，致使阿里云拥有了一键便捷式的域名备案服务。这方面的优势是国内其他云服务提供商甚至亚马逊都无法相媲美的。</p>
+<p><strong>腾讯</strong>作为游戏开发商，在游戏领域有着强大的渠道、丰富的经验。比如腾讯游戏在运维领域累积的“蓝鲸”运维自动化平台，就无缝对接了腾讯云。相比国内阿里云及其他云平台，这是腾讯云的优势和特点。</p>
+<p><strong>华为</strong>是全球领先的信息与通信解决方案供应商。华为的优势在于通信硬件设备，优势与特点主要在于<strong>企业级私有化解决方案</strong>。在安全、大数据等云资源服务上，相比阿里云、腾讯云，华为云还存在一定的差距。</p>
+<p><strong>百度云</strong>的优势在于人工智能相关服务上</p>
+<p><strong>Ucloud</strong>、<strong>青云</strong>也曾在国内云市场小有名气。相比阿里云、腾讯云这样的大云厂商，Ucloud、青云通过云产品功能细化以及服务质量提升来吸引客户。其中，Ucloud服务包括如下几项：1）在工单响应方面，Ucloud跟客户单独建立聊天群，里面有客服、技术人员，所以客户的问题每次都能得到快速响应及解决。2）Ucloud具有独有的服务器托管服务。而当时阿里云、腾讯云不能提供这项业务。</p>
+<p>在海外的业务部署上，建议优先选择亚马逊。在国内互联网业务部署上，建议优先选择阿里云。在私有云、私有化输出方面，建议尝试使用华为云，毕竟华为是做硬件出身的。如若在游戏、运维等细分领域有更深的需求，建议尝试使用腾讯云。若对云产品功能特性、存储或者其他细分领域有需求，建议使用Ucloud、七牛云等云厂商的产品。</p>
+<p>不同云平台的技术特性代表不同的技术方案，最终选择哪家云厂商还是取决于<strong>业务需求</strong>。</p>
+<h3 id="阿里云产品概要">阿里云产品概要</h3>
+<p>ECS、RDS、SLB、OSS这是阿里云4款打江山的<strong>核心产品</strong>，简称“阿里云四大件”。</p>
+<p>因为OSS的使用有个大门槛，就是需要<strong>通过API</strong>对文件进行增删查改。</p>
+<p>比如，在Linux运维中可以通过“Crontab+OSS工具”实现文件的异地备份，这种运维方式在很大程度上替代了传统“<strong>备份服务器</strong>”的角色。当然OSS在图片、转码等领域甚至可以结合CDN来使用，应用场景也较多。</p>
+<p>❑ Memcache、Redis相关缓存产品。真正需要引入缓存时，侧面说明企业业务是中大型的。在传统中小型企业应用中，业务代码大多就跑几台Tomcat、PHP就行了。</p>
+<h3 id="云产品的82选择原则">2.2 云产品的8/2选择原则</h3>
+<p>“使用RDS就不用你考虑安装配置、调优、备份、扩展等问题，拿来就用，为什么还要自己去折腾搭建！”</p>
+<p>但使用云产品时，我们也不用关心冷备、热备方面的问题了，因为这一切云产品都默认帮你实现了，你只需要“傻瓜式”地操作即可，哪里不会点哪里。</p>
+<p>RDS最主要的规格<strong>性能参数</strong>是：“最大连接数：4000; IOPS:8000”。<br />
+阿里云的很多云产品，如SLB、RDS、CDN等，其核心都是<strong>基于开源技术进行了封装</strong>并做了相应优化，然后形成对应的云产品。</p>
+<h2 id="系统技术选型">系统技术选型</h2>
+<p>其核心内容包含<strong>云端网络</strong>、<strong>云端Web服务器</strong>、<strong>云端负载均衡</strong>、<strong>云端存储</strong>、<strong>云端缓存</strong>、<strong>云端数据库</strong>6个大类，基本覆盖了云端千万级运维架构常见的运维技术。</p>
+<h3 id="云端网络的三种选型策略">4.1 云端网络的三种选型策略</h3>
+<p>金融云网络也是基于VPC(Virtual Private Cloud（虚拟专用云）)的专有网络，只不过在此基础上加入了很多安全规则及限制保障更高的安全性需求。</p>
+<p>经典网络采用三层（网络层，即IP层）隔离，所有的经典网络类型实例都建立在一个共用的基础网络上。VPC采用二层隔离（数据链路层），相对经典网络而言，VPC具有更高的安全性和灵活性。</p>
+<p>经典网络的内网IP是以10开头的随机IP，且内网IP只能随机分配，不能自定义。而在VPC网络中，每个客户都是独立的网络环境。<strong>客户可以自定义网络的IP段、网络架构等</strong>。</p>
+<p>经典网络绑定公网的ECS（Linux系统），系统中网卡是两个网卡。eth0是内网网卡，eth1是公网网卡。<strong>如果没有绑定公网，则经典网络仅有一个内网eth0</strong>。</p>
+<p>而VPC网络，即使绑定了弹性IP的ECS网卡也只有一个eth0，即不管有没有绑定弹性IP, VPC网络的ECS仅有一个eth0网卡（绑定弹性IP的时候，公网数据是通过阿里云内部NAT的方式流转到ECS的eth0网卡上的）。</p>
+<p>经典网络客户和客户之间的数据通过安全组三层隔离。如果需要互通，安全组配置互访规则即可。</p>
+<p>通过VPN（拨号VPN，如openVPN; Ipsec VPN，如StrongSwanVPN）或者专线，我们能将<strong>云端网络和线下办公网络或者数据中心实现内网互通</strong>，这是VPC企业级最佳实践方案。</p>
+<p>经典网络：方便快捷，不需要设置VPC、vSwitch、网络规划等。它是随机内网，开通即用。一般适合部署个人应用、个人站点等。<br />
+VPC网络：企业默认的网络架构选择，网段划分、网络隔离及相关网络功能都是企业级网络所必需的。</p>
+<h3 id="入网请求选型的四种方法">入网请求选型的四种方法</h3>
+<p>在云端对ECS实现入网请求的功能，可以通过以下4种方法实现。</p>
+<p>❑ DNAT：通过端口映射能直接将公网的请求流量映射到ECS的内网端口上。值得注意的是，在云端我们可以通过Iptables或者<strong>NAT网关</strong>实现DNAT的端口映射。</p>
+<p>1）负载均衡类：DNAT端口映射的基本原理就是负载均衡，即DNAT和四层负载均衡的本质是一样的，在内核层修改访问者的目标IP和目标端口。负载均衡类，一般都是多台机器同时对外提供服务</p>
+<p>其次，在很多场景中，给服务器开公网带宽只是为了让服务器能够远程SSH连接而已。我见到过这样的场景，一个客户有二三十台服务器，为每台服务器开个公网IP，目的就是方便远程，但这样使用的合理性、安全规范性有很大隐患。如果仅仅只是远程使用，在没有使用堡垒机的情况下，可以用SLB四层转发SSH的请求到一台ECS上（或者直接绑定EIP，这台机器类似跳板机，跟堡垒机的原理差不多），然后将这台机器与后端服务器的“SSH key”打通，这样登录目标服务器就都是一键式</p>
+<p><strong>对于服务器需要去公网请求第三方服务及接口的需求</strong>，采用NAT网关的SNAT功能即可，根本不需要单独给ECS绑定公网。<br />
+最后，给ECS绑定公网存在很大安全隐患，这等同于给黑客开了一道能触达ECS的门，方便通过端口扫描、漏洞嗅探实现入侵。</p>
+<p>直接绑定公网一般适用于在服务器上部署了FTP等功能，由于服务协议的关系等，没办法直接通过SLB负载均衡的方式把服务暴露给公网。</p>
+<p>实践中，不建议用户自己搭建SNAT，<strong>自己搭建的SNAT容易存在单点故障</strong>。比如有个客户有一百多台机器部署的服务，有很多服务器都需要公网请求第三方接口。有一次重启SNAT那台机器后，Iptables的防火墙规则没有启动，导致线下业务大面积受损。</p>
+<p>所以在云端，应优先使用对应云产品（NAT网关）来解决我们对SNAT的需求，以有效避免单点故障等方面的问题。</p>
+<p>比如，5Mbps的带宽峰值是指<strong>出口带宽峰值</strong>，并不是入口带宽峰值，相反，<strong>入口流量峰值是不受限制的</strong></p>
+<p>所以，有些客户担心DDoS攻击会产生额外的流量费用。其实这无须担心，DDoS产生的瞬时几十GB的流量都是入口流量，是不收费的。在这种流量攻击中，唯一可能产生费用的就是CC攻击，就是类似刷网页，<strong>导致我们的出口流量增加</strong>，从而产生额外的流量费用。</p>
+<h3 id="云端web服务器的五点选型考虑">4.2 云端Web服务器的五点选型考虑</h3>
+<p>❑ Web1.0：本质是联合，以静态、单向阅读为主，如早期的新浪、搜狐门户网站。内容一般由站长更新维护，缺乏用户分享互动。而这时候的Web服务一般偏向静态内容的展示</p>
+<p>❑ Web2.0：本质就是互动，它让网民更多地参与信息产品的创造、传播和分享，如天涯论坛、微博都是Web2.0典型的应用。而这时候的Web服务一般偏向复杂的动态内容的应用（如PHP、JSP），不仅仅是单纯的静态内容了。</p>
+<p>Nginx官网表示，Nginx保持10000个没有活动的连接，而这些连接只占用2.5MB内存。而在3万并发连接下，开启10个Nginx线程消耗的内存不到200MB。因此，类似<strong>DOS这样的攻击对Nginx来说基本上是没有任何作用的</strong></p>
+<p>在以前的版本中，Nginx只支持<strong>七层的负载均衡</strong>。后来从1.9.0版本开始，Nginx也支持<strong>四层的负载均衡</strong>。这意味着，Nginx能对MySQL、Redis等服务做负载均衡了。这一功能的出现使之前优秀的七层/四层负载均衡HAProxy受到极大挑战。因为Nginx不仅能作为七层/四层方面的负载均衡，在Web服务器、静态缓存、丰富的第三方插件等其他方面的功能也很优秀，这让用户选择HAProxy的可能性降低。</p>
+<p>Nginx源代码采用C语言开发，这将使我们的二次开发变得非常复杂。为了方便开发人员，<strong>OpenResty</strong> 整合了Nginx和Lua的框架，它帮我们实现用Lua的规范开发实现各种业务，并且厘清各个模块的编译顺序。而同时<strong>OpenResty在开源WAF上使用得非常广泛</strong>，中小型应用出于成本考虑，觉得使用云端WAF产品偏贵，用OpenResty也是一个不错的方案</p>
+<p>通过OpenResty在七层WAF中的运用可知，Nginx+Lua主要实现七层复杂逻辑控制，主要针对七层HTTP头、IP访问判断、SQL注入判断等。</p>
+<p>云诀窍<br />
+OpenResty是云端开源WAF的最佳实践。</p>
+<h3 id="云端负载均衡选型的五个方面">4.3 云端负载均衡选型的五个方面</h3>
+<p>负载均衡既是<strong>分布式架构的基础</strong>也是其核心，负载均衡的使用可以实现会话同步，消除服务器单独故障；也可以进行请求流量分流，提升冗余，保证服务器的稳定性。</p>
+<p>在开源的软件负载均衡中，应用最为广泛的为LVS、Nginx、HAProxy，甚至阿里云的SLB也是<strong>基于LVS及Nginx的</strong>。</p>
+<p>云端实践中不支持在ECS中部署使用LVS。因为LVS基于虚拟VIP，阿里云当前底层限制，经典网络和VPC专有云网络都不支持虚拟VIP的功能。</p>
+<p>❑ 应用范围比较广，因为LVS工作在二层/三层/四层最底层，所以它几乎可以对所有应用做负载均衡，包括HTTP、数据库、在线聊天室等，并且LVS的3种工作模式、10种调度算法使其在负载均衡端有更灵活的策略选择。</p>
+<p>❑ 云端ECS不支持LVS的部署，所以对二层/三层/四层负载均衡需求，只能使用云产品SLB的四层负载均衡功能替代，或者自行部署Nginx/HAProxy。</p>
+<p>4）Nginx现在作为Web反向加速静态缓存越来越成熟，Nginx也可作为静态网页和图片服务器。基本上CDN在底层静态缓存服务器的选择，如今Nginx是一个成熟的解决方案。</p>
+<p>Nginx的缺点如下。<br />
+1）对后端服务器的健康检查，只支持通过端口来监测，不支持通过URL来监测。这就会导致，在七层的健康监测中，很多情况下端口是正常的，但应用URL访问异常，Nginx却不能识别，反而主动剔除这个有问题的服务器，最终导致客户端继续访问有异常的服务器。</p>
+<p>ip_hash在实践中虽然解决了会话保持的问题。其实并不能在七层中做到很好的流量均衡，比如我们驻云上海办公网络（有200人办公）去请求Nginx，如果Nginx配置了ip_hash参数，这200人的请求都会被Nginx转发到后端的某一台服务器上，并不能很好地进行流量负载均衡。Nginx可以通过第三方模块向客户端植入Cookie达到会话保持的目的，它解决了ip_hash的缺陷，但是这种方式需要重新编译Nginx增加nginx-sticky-module模块。</p>
+<p>1）HAProxy是一款专注在七层/四层的软负载均衡软件，但相比于Nginx少了相应的Web服务器、静态缓存、丰富的第三方插件等功能。</p>
+<p>同时在健康检查中，支持通过获取指定的URL来检测后端服务器的状态。以下是对应配置参数的说明。</p>
+<p>但其实本质上，如今Nginx在四层负载均衡上的性能和稳定性已不比HAProxy差。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

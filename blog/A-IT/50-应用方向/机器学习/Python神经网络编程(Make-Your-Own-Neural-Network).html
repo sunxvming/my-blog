@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/机器学习/Python神经网络编程(Make-Your-Own-Neural-Network)</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#一神经网络如何工作">一、神经网络如何工作</a>
+<ul>
+<li><a href="#尺有所短寸有所长">1.1 尺有所短，寸有所长</a></li>
+<li><a href="#一台简单的预测机">1.2 一台简单的预测机</a></li>
+<li><a href="#分类器与预测器并无太大差别">1.3 分类器与预测器并无太大差别</a></li>
+<li><a href="#训练简单的分类器">1.4 训练简单的分类器</a></li>
+<li><a href="#有时候一个分类器不足以求解问题">1.5 有时候一个分类器不足以求解问题</a></li>
+<li><a href="#神经元大自然的计算机器">1.6 神经元——大自然的计算机器</a></li>
+<li><a href="#在神经网络中追踪信号">1.7 在神经网络中追踪信号</a></li>
+<li><a href="#凭心而论矩阵乘法大有用途">1.8 凭心而论，矩阵乘法大有用途</a></li>
+<li><a href="#使用矩阵乘法的三层神经网络示例">1.9 使用矩阵乘法的三层神经网络示例</a></li>
+<li><a href="#学习来自多个节点的权重">1.10 学习来自多个节点的权重</a></li>
+<li><a href="#多个输出节点反向传播误差">1.11 多个输出节点反向传播误差</a></li>
+<li><a href="#反向传播误差到更多层中">1.12 反向传播误差到更多层中</a></li>
+<li><a href="#使用矩阵乘法进行反向传播误差">1.13 使用矩阵乘法进行反向传播误差</a></li>
+<li><a href="#我们实际上如何更新权重">1.14 我们实际上如何更新权重</a></li>
+</ul></li>
+<li><a href="#二使用python进行diy">二、使用Python进行DIY</a>
+<ul>
+<li><a href="#使用python制作神经网络">2.4 使用Python制作神经网络</a></li>
+<li><a href="#手写数字的数据集mnist">2.5 手写数字的数据集MNIST</a>
+<ul>
+<li><a href="#一些改进调整学习率">一些改进：调整学习率</a></li>
+<li><a href="#一些改进多次运行">一些改进：多次运行</a></li>
+<li><a href="#改变网络形状">改变网络形状</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#三趣味盎然">三、趣味盎然</a>
+<ul>
+<li><a href="#自己的手写数字">3.1 自己的手写数字</a></li>
+<li><a href="#神经网络大脑内部">3.2 神经网络大脑内部</a></li>
+<li><a href="#创建新的训练数据旋转图像">3.3 创建新的训练数据：旋转图像</a></li>
+</ul></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="一神经网络如何工作">一、神经网络如何工作</h2>
+<h3 id="尺有所短寸有所长">1.1 尺有所短，寸有所长</h3>
+<p>有些任务，对传统的计算机而言很容易，对人类而言却很难。例如，对数百万个数字进行乘法运算。<br />
+另一方面，有些任务对传统的计算机而言很难，对人类而言却很容易。例如，从一群人的照片中识别出面孔</p>
+<h3 id="一台简单的预测机">1.2 一台简单的预测机</h3>
+<p>简单机器接受了一个输入，并做出应有的预测，输出结果，所以我们将其称为预测器。我们根据结果与已知真实示例进行比较所得到的误差，调整内部参数，使预测更加精确</p>
+<p>所有有用的计算机系统都有一个输入和一个输出，并在输入和输出之间进行某种类型的计算。神经网络也是如此。<br />
+当我们不能精确知道一些事情如何运作时，我们可以尝试使用模型来估计其运作方式，在模型中，包括了我们可以调整的参数。如果我们不知道如何将千米转换为英里，那么我们可以使用线性函数作为模型，并使用可调节的梯度值作为参数。<br />
+改进这些模型的一种好方法是，基于模型和已知真实示例之间的比较，得到模型偏移的误差值，调整参数。</p>
+<h3 id="分类器与预测器并无太大差别">1.3 分类器与预测器并无太大差别</h3>
+<p>也是根据真实示例来动态的调整分类边界的参数，核心是分类器斜率和真实值的误差。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201155317.png" alt="image.png" /></p>
+<h3 id="训练简单的分类器">1.4 训练简单的分类器</h3>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201155712.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>看着这幅图，我们似乎并没有做到让直线以我们所希望的方式倾斜。这条直线没有整齐地划分出瓢虫和毛虫。<br />
+好了，我们理解了先前的诉求。改进直线，以得出各个所需的y 值。这种想法有什么错误呢？如果我们继续这样操作，使用各个训练数据样本进行改进，那么我们所得到的是，<strong>最终改进的直线与最后一次训练样本非常匹配</strong>。实际上，最终改进的直线<strong>不会顾及所有先前的训练样本</strong>，而是抛弃了所有先前训练样本的学习结果，只是对最近的一个实例进行了学习。<br />
+如何解决这个问题呢？<br />
+其实很简单！在机器学习中，这是一个重要的思路。我们应该<strong>进行适度改进</strong>（moderate）。也就是说，我们不要使改进过于激烈。我们采用ΔA几分之一的一个变化值，而不是采用整个ΔA，充满激情地跳跃到每一个新的A值。使用这种方法，我们小心谨慎地向训练样本所指示的方向移动，<strong>保持先前训练迭代周期中所得到的值的一部分</strong>。在先前相对简单的千米转换为英里的预测器中，我们就已经观察到这种有节制的调整，我们小心翼翼地调整参数C，使其只是实际误差值的几分之几。</p>
+<p>这种自我节制的调整，还带来了一个非常强大、行之有效的“副作用”。当训练数据本身不能确信为完全正确并且包含在现实世界测量中普遍出现的<strong>错误</strong>或<strong>噪声</strong>这两种情况时，<strong>有节制的调整可以抑制这些错误或噪声的影响</strong>。这种方法使得错误或噪声得到了调解和缓和。<br />
+好吧，让我们重新使用这种方法。但是这一次，在改进公式中，我们将添加一个调节系数：<br />
+ΔA= L（E / x ）<br />
+调节系数通常被称为学习率（learning rate），在此，我们称之为L。我们就挑L = 0.5作为一个合理的系数开始学习过程。简单说来，这就意味着我们只更新原更新值的一半。</p>
+<p>最终学习到的结果如下所示：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201160250.png" alt="image.png" /></p>
+<ul>
+<li>我们使用简单的数学，理解了线性分类器输出误差值和可调节斜率参数之间的关系。也就是说，我们知道了在何种程度上调整斜率，可以消除输出误差值。</li>
+<li>使用朴素的调整方法会出现一个问题，即改进后的模型只与最后一次训练样本最匹配，“有效地”忽略了所有以前的训练样本。解决这个问题的一种好方法是使用学习率，调节改进速率，这样单一的训练样本就不能主导整个学习过程。</li>
+<li>来自真实世界的训练样本可能充满噪声或包含错误。适度更新有助于限制这些错误样本的影响。</li>
+</ul>
+<h3 id="有时候一个分类器不足以求解问题">1.5 有时候一个分类器不足以求解问题</h3>
+<p>我们将使用一个简单而鲜明的实例，来说明线性分类器的局限性。我们为什么要说明线性分类器的局限性，而不直接跳转到讨论神经网络呢？原因就是，神经网络的一个重要的设计特征来源于对这个局限性的理解</p>
+<p>单个的线性分类器能处理AND、OR，但是不能处理XOR<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201160802.png" alt="image.png" /></p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201161008.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<ul>
+<li>如果数据本身不是由单一线性过程支配，那么一个简单的线性分类器不能对数据进行划分。例如，由逻辑XOR运算符支配的数据说明了这一点。</li>
+<li>但是解决方案很容易，你只需要使用多个线性分类器来划分由单一直线无法分离的数据</li>
+</ul>
+<h3 id="神经元大自然的计算机器">1.6 神经元——大自然的计算机器</h3>
+<p>单个神经元，跟感知机类似<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201162526.png" alt="image.png" /></p>
+<p>多个神经元按层次组合<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201162844.png" alt="image.png" /></p>
+<p>这看起来很酷的体系架构，哪一部分能够执行学习功能呢？针对训练样本，我们应该如何调整做出反应呢？有没有和先前线性分类器中的斜率类似的参数供我们调整呢？<br />
+最明显的一点就是调整节点之间的<strong>连接强度</strong>。在一个节点内，我们可以调整输入的总和或S阈值函数的形状，但是比起简单地调整节点之间的连接强度，调整S阀值函数的形状要相对复杂。</p>
+<p>你可能有充分的理由来挑战这种设计，质问为什么必须把前后层的每一个神经元与所有其他层的神经元互相连接，并且你甚至可以提出各种创造性的方式将这些神经元连接起来。我们不采用创造性的方式将神经元连接起来，原因有两点：<br />
+- 第一是这种一致的完全连接形式事实上可以相对容易地编码成计算机指令<br />
+- 第二是神经网络的学习过程将会弱化这些实际上不需要的连接（也就是这些连接的权重将趋近于0），因此对于解决特定任务所需最小数量的连接冗余几个连接，也无伤大雅。这意味着，随着神经网络学习过程的进行，神经网络通过调整优化网络内部的链接权重改进输出，一些权重可能会变为零或接近于零。零或几乎为零的权重意味着这些链接对网络的贡献为零，因为没有传递信号。零权重意味着信号乘以零，结果得到零，因此这个链接实际上是被断开了。</p>
+<p>关键点：<br />
+- 虽然比起现代计算机，生物大脑看起来存储空间少得多，运行速度比较慢，但是生物大脑却可以执行复杂的任务，如飞行、寻找食物、学习语言和逃避天敌。<br />
+- 相比于传统的计算机系统，生物大脑对损坏和不完善信号具有难以置信的弹性。<br />
+- 由互相连接的神经元组成的生物大脑是人工神经网络的灵感来源。</p>
+<h3 id="在神经网络中追踪信号">1.7 在神经网络中追踪信号</h3>
+<p>即如何通过输入计算出网络的输出：输出 = S激活函数(sum(输入 x 权重))<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201163330.png" alt="image.png" /><br />
+从一个非常简化的网络得到两个输出值，这个工作量相对较小。对于一个相对较大的网络，我不希望使用手工进行计算！好在计算机在进行大量计算方面表现非常出色，并且不知疲倦和厌烦。</p>
+<h3 id="凭心而论矩阵乘法大有用途">1.8 凭心而论，矩阵乘法大有用途</h3>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201163830.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>使用矩阵非常简洁地表示：<code>X = W •I</code><br />
+此处，W 是权重矩阵，I 是输入矩阵，X 是组合调节后的信号</p>
+<ul>
+<li>通过神经网络向前馈送信号所需的大量运算可以表示为矩阵乘法。</li>
+<li>不管神经网络的规模如何，将输入输出表达为矩阵乘法，使得我们可以更简洁地进行书写。</li>
+<li>更重要的是，一些计算机编程语言理解矩阵计算，并认识到潜在的计算方法的相似性。这允许计算机高速高效地进行这些计算。</li>
+</ul>
+<h3 id="使用矩阵乘法的三层神经网络示例">1.9 使用矩阵乘法的三层神经网络示例</h3>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201164209.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201164227.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="学习来自多个节点的权重">1.10 学习来自多个节点的权重</h3>
+<p>如果有两个节点，我们如何使用输出误差值呢？<br />
+一种思想就是在所有造成误差的节点中平分误差<br />
+另一种思想是不等分误差。与前一种思想相反，我们为较大链接权重的连接分配更多的误差。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201164743.png" alt="image.png" /></p>
+<p>你可以观察到，我们在两件事情上使用了权重。<br />
+第一件事情，在神经网络中，我们使用权重，将信号从输入<strong>向前传播</strong>到输出层。此前，我们就是在大量地做这个工作。<br />
+第二件事情，我们使用权重，将误差从输出向后传播到网络中。我们称这种方法为<strong>反向传播</strong></p>
+<h3 id="多个输出节点反向传播误差">1.11 多个输出节点反向传播误差</h3>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201164943.png" alt="image.png" /><br />
+我们拥有多个节点这一事实并没有改变任何事情。对于第二个输出节点，我们只是简单地重复第一个节点所做的事情。为什么如此简单呢？这是由于进入输出节点的链接不依赖于到另一个输出节点的链接，因此事情就变得非常简单，在两组的链接之间也<strong>不存在依赖关系</strong>。</p>
+<h3 id="反向传播误差到更多层中">1.12 反向传播误差到更多层中</h3>
+<p>神经网络通过调整链接权重进行学习。这种方法由误差引导，误差就是训练数据所给出正确答案和实际输出之间的差值。简单地说，在输出节点处的误差等于所需值与实际值之间的差值。</p>
+<p>然而，与内部节点相关联的误差并不显而易见。一种方法是按照链路权重的比例来<strong>分割</strong>输出层的误差，然后在每个内部节点处<strong>重组</strong>这些误差</p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201165415.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201165429.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="使用矩阵乘法进行反向传播误差">1.13 使用矩阵乘法进行反向传播误差</h3>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201170833.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>观察上面的表达式。你可以观察到，最重要的事情是输出误差与链接权重Wij 的乘法。较大的权重就意味着携带较多的输出误差给隐藏层。<br />
+这是非常重要的一点。这些分数的分母是一种归一化因子。如果我们忽略了这个因子，那么我们仅仅失去后馈误差的大小。也就是说，我们使用简单得多的e1 * w1,1 来代替e1 * w1,1 / ( w1,1 + w2,1 )。</p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201170850.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>简化之后的矩阵刚好是权重矩阵的<strong>逆矩阵</strong>。</p>
+<p>反向传播误差可以表示为矩阵乘法。<br />
+无论网络规模大小，这使我们能够简洁地表达反向传播误差，同时也允许理解矩阵计算的计算机语言更高效、更快速地完成工作。<br />
+这意味着前向馈送信号和反向传播误差都可以使用矩阵计算而变得高效。</p>
+<h3 id="我们实际上如何更新权重">1.14 我们实际上如何更新权重</h3>
+<p>各层的<strong>误差</strong>都已经求出来了，下一步就是根据误差更新权重了。<br />
+但是，这些节点都不是简单的线性分类器。这些稍微复杂的节点，对加权后的信号进行求和，并应用了S阈值函数，复合之后的函数大致为：S激活函数(sum(输入 x 权重))， 现在的目标是求出权重的改变值和改变方向，也就是关于权重的导数。</p>
+<p>数学太复杂了，因此我们不能使用微妙的代数直接计算出的权重。能够表示所有的权重如何生成神经网络输出的数学表达式过于复杂，难以求解。太多的权重组合，我们难以逐个测试，以找到一种最好的组合。</p>
+<p>梯度下降法给我们带来一种能力，即我们不必完全理解复杂的函数，从数学上对函数进行求解，就可以找到最小值。如果函数非常困难，我们不能用代数轻松找到最小值，我们就可以使用这个方法来代替代数方法。当然，由于我们采用步进的方式接近答案，一点一点地改进所在的位置，因此这可能无法给出精确解。但是，这比得不到答案要好。总之，我们可以使用更小的步子朝着实际的最小值方向迈进，优化答案，直到我们对于所得到的精度感到满意为止。</p>
+<p>当函数梯度变得较小时<strong>调节步长</strong>的这种思想，函数梯度是在何种程度上接近最小值的良好指标。</p>
+<ul>
+<li>梯度下降法是求解函数最小值的一种很好的办法，当函数非常复杂困难，并且不能轻易使用数学代数求解函数时，这种方法却发挥了很好的作用。</li>
+<li>更重要的是，当函数有很多参数，一些其他方法不切实际，或者会得出错误答案，这种方法依然可以适用。</li>
+<li>这种方法也具有弹性，可以容忍不完善的数据，如果我们不能完美地描述函数，或我们偶尔意外地走错了一步，也不会错得离谱。</li>
+</ul>
+<p>要使用梯度下降的方法，现在我们需要计算出误差函数相对于权重的斜率。</p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204101403.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>梯度公式如下：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204134316.png" alt="image.png" /><br />
+最后计算的梯度的结果如下，是通过微积分的公式计算得到的。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204134340.png" alt="image.png" /></p>
+<ul>
+<li><p>神经网络的误差是内部链接权重的函数。</p></li>
+<li><p>改进神经网络，意味着通过改变权重减少这种误差。</p></li>
+<li><p>直接选择合适的权重太难了。另一种方法是，通过误差函数的梯度下降，采取小步长，迭代地改进权重。所迈出的每一步的方向都是在当前位置向下斜率最大的方向，这就是所谓的梯度下降。</p></li>
+<li><p>使用微积分可以很容易地计算出误差斜率</p>
+<h3 id="权重更新成功范例">1.15 权重更新成功范例</h3>
+<h3 id="准备数据">1.16 准备数据</h3></li>
+<li><p>如果输入、输出和初始权重数据的准备与网络设计和实际求解的问题不匹配，那么神经网络并不能很好地工作。</p></li>
+<li><p>一个常见的问题是饱和。在这个时候，大信号（这有时候是由大权重带来的）导致了应用在信号上的激活函数的斜率变得非常平缓。这降低了神经网络学习到更好权重的能力。</p></li>
+<li><p>另一个问题是零值信号或零值权重。这也可以使网络丧失学习更好权重的能力。</p></li>
+<li><p>内部链接的权重应该是随机的，值较小，但要避免零值。如果节点的传入链接较多，有一些人会使用相对复杂的规则，如减小这些权重的大小。</p></li>
+<li><p>输入应该调整到较小值，但不能为零。一个常见的范围为0.01～0.99，或-1.0～1.0，使用哪个范围，取决于是否匹配了问题。</p></li>
+<li><p>输出应该在激活函数能够生成的值的范围内。逻辑S函数是不可能生成小于等于0或大于等于1的值。将训练目标值设置在有效的范围之外，将会驱使产生越来越大的权重，导致网络饱和。一个合适的范围为0.01～0.99。</p></li>
+</ul>
+<h2 id="二使用python进行diy">二、使用Python进行DIY</h2>
+<h3 id="使用python制作神经网络">2.4 使用Python制作神经网络</h3>
+<p>让我们勾勒神经网络类的大概样子。我们知道，它应该至少有3个函数：<br />
+- 初始化函数——设定输入层节点、隐藏层节点和输出层节点的数量。<br />
+- 训练——学习给定训练集样本后，优化权重。<br />
+- 查询——给定输入，从输出节点给出答案。</p>
+<h3 id="手写数字的数据集mnist">2.5 手写数字的数据集MNIST</h3>
+<h4 id="一些改进调整学习率">一些改进：调整学习率</h4>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204153704.png" alt="image.png" /><br />
+上图表明，学习率在0.1和0.3之间可能会有较好的表现，因此，尝试0.2的学习率，得到0.9537的性能得分。比起0.1或0.3，这个表现确实好了一些。我们可以绘制图表，对所发生的事情得到一种较好的认识，在其他情况下，你也应该考虑这种方法——和一串数字相比，图表有助于更好地理解！</p>
+<h4 id="一些改进多次运行">一些改进：多次运行</h4>
+<p>有些人把训练一次称为一个世代。因此，具有10个世代的训练，意味着使用整个训练数据集运行程序10次。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204153857.png" alt="image.png" /></p>
+<p>就像调整学习率一样，让我们使用几个不同的世代进行实验并绘图，以可视化这些效果。直觉告诉我们，所做的训练越多，所得到的性能越好。有人可能会注意到，太多的训练实际上会<strong>过犹不及</strong>，这是由于网络<strong>过度拟合</strong>训练数据，因此网络在先前没有见到过的新数据上表现不佳。不仅是神经网络，在各种类型的机器学习中，这种过度拟合也是需要注意的。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204154103.png" alt="image.png" /><br />
+在更多世代的情况下，减小学习率确实能够得到更好的性能。<strong>学习率要和世代相匹配</strong></p>
+<p>直观上，如果你打算使用更长的时间（多个世代）探索梯度下降，那么你可以承受采用较短的步长（学习率），并且在总体上可以找到更好的路径，这是有道理的。确实，对于MNIST学习任务，我们的神经网络的甜蜜点看起来是5个世代。请再次记住，我们在使用一种相当不科学的方式来进行实验。要正确、科学地做到这一点，就必须为每个学习率和世代组合进行多次实验，尽量减少在梯度下降过程中随机性的影响。</p>
+<h4 id="改变网络形状">改变网络形状</h4>
+<p>改变中间隐藏层节点的数目和隐藏层的层数。</p>
+<p>如果隐藏层节点太少，比如说3个，那么你可以想象，这不可能有足够的空间让网络学习任何知识，并将所有输入转换为正确的输出。<br />
+如果有10 000个隐藏层节点，会发生什么情况呢？虽然我们不会缺少学习容量，但是由于目前有太多的路径供学习选择，因此可能难以训练网络。这也许需要使用10 000个世代来训练这样的网络。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204155100.png" alt="image.png" /><br />
+随着增加隐藏层节点的数量，结果有所改善，但是不显著。由于增加一个隐藏层节点意味着增加了到前后层的每个节点的新网络链接，这一切都会产生额外较多的计算，因此训练网络所用的时间也显著增加了！因此，必须在可容忍的运行时间内选择某个数目的隐藏层节点。</p>
+<h2 id="三趣味盎然">三、趣味盎然</h2>
+<h3 id="自己的手写数字">3.1 自己的手写数字</h3>
+<h3 id="神经网络大脑内部">3.2 神经网络大脑内部</h3>
+<p>我们已经知道如何通过网络传播信号，使用链接权重调节信号，在应用激活函数之前在节点处重新组合信号。除了使用的是逆激活函数以外，所有这一切操作也都适用于反向传播信号。如果y = f(x ) 是正向激活函数，那么这个函数的逆就是x = g(y )。使用简单的代数，求出逻辑函数的逆，也并非难事<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204161629.png" alt="image.png" /></p>
+<p>来看看如果我们使用标签“0”进行反向查询，会发生什么情况。也就是说，我们向输出节点展示了一些值，除了使用值0.99展示给第一个节点表示标签“0”，其余节点都展示了0.01。换句话说，也就是数组[0.99, 0.01,0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01,0.01]。<br />
+下图显示了输入节点弹出的图像。<br />
+我们注意到最主要的特征是，图像中的圆形。我们是在询问神经网络——对于答案“0”，<strong>最理想的问题是什么</strong>，因此，这个图像是有道理的。</p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204161810.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="创建新的训练数据旋转图像">3.3 创建新的训练数据：旋转图像</h3>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://github.com/makeyourownneuralnetwork/makeyourownneuralnetwork">Code for the Make Your Own Neural Network book</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

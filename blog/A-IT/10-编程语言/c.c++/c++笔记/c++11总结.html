@@ -1,0 +1,1138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/c++11总结</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#更强大">更强大</a>
+<ul>
+<li><a href="#lambda表达式新的范式">Lambda表达式，新的范式</a>
+<ul>
+<li><a href="#泛型的-lambda14">泛型的 lambda(14)</a></li>
+<li><a href="#底层实现">底层实现</a>
+<ul>
+<li><a href="#捕获this指针或成员变量">捕获this指针或成员变量</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#编译阶段增强属性和静态断言">编译阶段增强：属性和静态断言</a>
+<ul>
+<li><a href="#属性attribute">属性（attribute）</a></li>
+<li><a href="#静态断言static_assert">静态断言（static_assert）</a></li>
+</ul></li>
+<li><a href="#模板元编程">模板元编程</a>
+<ul>
+<li><a href="#make_index_sequence">make_index_sequence</a></li>
+<li><a href="#constexpr-if">constexpr if</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#更安全">更安全</a>
+<ul>
+<li><a href="#智能指针">智能指针</a>
+<ul>
+<li><a href="#unique_ptr">unique_ptr</a></li>
+<li><a href="#shared_ptr">shared_ptr</a></li>
+<li><a href="#weak_ptr">weak_ptr</a></li>
+</ul></li>
+<li><a href="#新增关键字finaldeleteexplicitoverridenullptr">新增关键字final、delete、explicit、override、nullptr</a></li>
+<li><a href="#enum-class">enum class</a>
+<ul>
+<li><a href="#enum由来">enum由来</a></li>
+<li><a href="#c惯用法之enum-class"> C++惯用法之enum class</a></li>
+<li><a href="#enum的基础类型">enum的基础类型</a></li>
+</ul></li>
+<li><a href="#stdoptional17">std::optional(17)</a></li>
+</ul></li>
+<li><a href="#更高效">更高效</a>
+<ul>
+<li><a href="#移动语义">移动语义</a>
+<ul>
+<li><a href="#右值引用">右值引用</a></li>
+<li><a href="#移动语义是什么">移动语义是什么</a></li>
+<li><a href="#移动构造移动赋值函数">移动构造/移动赋值函数</a></li>
+<li><a href="#move函数将左值强制转换为右值">move()函数：将左值强制转换为右值</a></li>
+</ul></li>
+<li><a href="#emplace">emplace</a>
+<ul>
+<li><a href="#用法">用法</a></li>
+</ul></li>
+<li><a href="#完美转发">完美转发</a></li>
+<li><a href="#constexpr验证是否为常量表达式">constexpr：验证是否为常量表达式</a></li>
+<li><a href="#constexpr和const的区别详解">constexpr和const的区别详解</a>
+<ul>
+<li><a href="#map-的特殊情况">map 的特殊情况</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#更方便">更方便</a>
+<ul>
+<li><a href="#成员变量类内初始化">成员变量类内初始化</a>
+<ul>
+<li><a href="#统一初始化列表初始化">统一初始化(列表初始化)</a></li>
+</ul></li>
+<li><a href="#委托构造">委托构造</a></li>
+<li><a href="#构造函数继承">构造函数继承</a></li>
+<li><a href="#类型别名type-alias">类型别名（Type Alias）</a></li>
+<li><a href="#autodecltype">auto、decltype</a></li>
+<li><a href="#stdtie">std::tie</a></li>
+<li><a href="#stdvariant17">std::variant(17)</a></li>
+<li><a href="#string_view17">string_view(17)</a></li>
+<li><a href="#ifswitch-初始化语句">if/switch 初始化语句</a></li>
+<li><a href="#结构化绑定">结构化绑定</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>c++17<br />
+std::invoke  std::apply<br />
+* apply<br />
+Invoke the Callable object f with a tuple of arguments.</p>
+<p>c++20 <br />
+模组（Modules）<br />
+协程（Coroutines）<br />
+标准库 Concepts 的概念<br />
+范围（range）<br />
+constexpr支持：new/ delete、dynamic_cast、try/ catch、虚拟<br />
+constexpr 向量和字符串<br />
+计时：日历、时区支持<br />
+std::format<br />
+std::span<br />
+std::jthread</p>
+<h1 id="更强大">更强大</h1>
+<h2 id="lambda表达式新的范式">Lambda表达式，新的范式</h2>
+<p>在 C/C++ 里，所有的函数都是全局的，没有生存周期的概念（static、名字空间的作用很弱，只是简单限制了应用范围，避免名字冲突）<br />
+而且函数也都是<strong>平级的</strong>，不能在函数里再定义函数，也就是不允许定义嵌套函数、函数套函数<br />
+所以，在面向过程编程范式里，<strong>函数</strong>和<strong>变量</strong>虽然是程序里最关键的两个组成部分，但却因为没有值、没有作用域而不能一致地处理。函数只能是函数，变量只能是变量。<br />
+因为 lambda 表达式是一个变量，所以，我们就可以“按需分配”，随时随地在调用点“就地”定义函数，限制它的作用域和生命周期，实现函数的局部化。<br />
+而且，因为 lambda 表达式和变量一样是“一等公民”，用起来也就更灵活自由，能对它做各种运算，生成新的函数。这就像是数学里的复合函数那样，把多个简单功能的小lambda 表达式组合，变成一个复杂的大 lambda 表达式。</p>
+<p>C++ 里的 lambda 表达式除了可以像普通函数那样被调用，还有一个普通函数所不具备的特殊本领，就是可以<strong>捕获外部变量</strong>，在内部的代码里直接操作。<br />
+看到这里，如果你用过 JavaScript，那么一定会有种眼熟的感觉。没错，lambda 表达式就是在其他语言中大名鼎鼎的“闭包”（closure），这让它真正超越了函数和函数对象。不过在c++中闭包的作用不大，因为有比较强的面向对象编程。</p>
+<p>在 lambda 表达式赋值的时需用auto关键字，在 C++ 里，每个 lambda 表达式都会有一个独特的类型，而这个类型只有编译器才知道，我们是无法直接写出来的，所以必须用 auto。<br />
+可以使用 auto 自动推导类型存储 lambda 表达式，但 C++ 鼓励尽量就地匿名使用，缩小作用域；</p>
+<h3 id="泛型的-lambda14">泛型的 lambda(14)</h3>
+<p>在 C++14 里，lambda 表达式又多了一项新本领，可以实现“泛型化”，相当于<strong>简化了的模板函数</strong>，具体语法还是利用了“多才多艺”的 <code>auto</code>。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>auto f = [](const auto&amp; x) <span class="co">// 参数使用auto声明，泛型化</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>{</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    return x + x;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>};</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>cout &lt;&lt; f(<span class="dv">3</span>) &lt;&lt; endl;     <span class="co">// 参数类型是int</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>cout &lt;&lt; f(<span class="fl">0.618</span>) &lt;&lt; endl; <span class="co">// 参数类型是double</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>string str = <span class="st">&quot;matrix&quot;</span>;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>cout &lt;&lt; f(str) &lt;&lt; endl;   <span class="co">// 参数类型是string</span></span></code></pre></div>
+<h3 id="底层实现">底层实现</h3>
+<p>实现方式为函数对象，一个lambda就是一个可调用对象。<br />
+底层上，lambda 表达式被编译器转化为一个临时的、匿名的类类型对象，这个对象重载了 operator() 运算符，从而使得这个对象可以像函数一样被调用。这个对象通常称为闭包（Closure），它包含了 lambda 表达式的捕获变量、参数和函数体。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">class</span> LambdaClosure {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    LambdaClosure(<span class="dt">int</span> captured_value, <span class="at">const</span> <span class="dt">int</span>&amp; captured_reference)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>        : captured_value(captured_value), captured_reference(captured_reference) {}</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>    <span class="dt">int</span> <span class="kw">operator</span>()(<span class="dt">int</span> x, <span class="dt">int</span> y) <span class="at">const</span> {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>        <span class="cf">return</span> x + y + captured_value + captured_reference;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>    }</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>    <span class="dt">int</span> captured_value;</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>    <span class="at">const</span> <span class="dt">int</span>&amp; captured_reference;</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>};</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>    <span class="dt">int</span> captured_value = <span class="dv">10</span>;</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>    <span class="dt">int</span> captured_reference = <span class="dv">15</span>;</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>    <span class="kw">auto</span> lambda_captured = [captured_value, &amp;captured_reference](<span class="dt">int</span> x, <span class="dt">int</span> y) -&gt; <span class="dt">int</span> {</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>        <span class="cf">return</span> x + y + captured_value + captured_reference;</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a>    };</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a>    <span class="dt">int</span> result_lambda = lambda_captured(<span class="dv">3</span>, <span class="dv">5</span>); <span class="co">// 调用 lambda 表达式</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a>    <span class="dt">int</span> result_closure = LambdaClosure(captured_value, captured_reference)(<span class="dv">3</span>, <span class="dv">5</span>); <span class="co">// 调用转化后的类的 operator() 方法</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Result from lambda: &quot;</span> &lt;&lt; result_lambda &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Result from closure: &quot;</span> &lt;&lt; result_closure &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true"></a>}</span></code></pre></div>
+<p>主要作用：<br />
+1.将函数变成first class。<br />
+2.做回调函数。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp"># </span><span class="er">[capture](parameters)-&gt;return-type{body}</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>[外部变量访问方式说明符(=|&amp;)] (参数表) -&gt; 返回值类型</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>{</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>   语句块</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>}</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>[](int x, int y) -&gt; int { int z = x + y; return z + x; }</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>[]        <span class="co">// 沒有定义任何变量。使用未定义变量会引发错误。</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>[x, &amp;y]   <span class="co">// x以传值方式传入（默认），y以引用方式传入。</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>[&amp;]       <span class="co">// 全部引用捕获</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>[=]       <span class="co">// 全部值捕获</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>[&amp;, x]    <span class="co">// x显式值捕获</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>[=, &amp;z]   <span class="co">// z显式引用捕获</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>[<span class="kw">this</span>]    <span class="co">// 捕获对象的this指针</span></span></code></pre></div>
+<p>注意点：<br />
+捕获引用时必须要注意<strong>外部变量的生命周期</strong>，防止变量失效</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>int main()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>{</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>    int x = <span class="dv">100</span>,y=<span class="dv">200</span>,z=<span class="dv">300</span>;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    auto ff = [=,&amp;y,&amp;z](int n) {  <span class="co">// x是值传递，y和z是引用传递</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>        cout &lt;&lt;x &lt;&lt; endl;</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>        y++; z++;</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>        return n*n;</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>    };</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>    cout &lt;&lt; ff(<span class="dv">15</span>) &lt;&lt; endl;</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>    cout &lt;&lt; y &lt;&lt; <span class="st">&quot;,&quot;</span> &lt;&lt; z &lt;&lt; endl;</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>}</span></code></pre></div>
+<h4 id="捕获this指针或成员变量">捕获this指针或成员变量</h4>
+<p>this 指针是一种特殊情况，它不能被直接值捕获。this 指针只能隐式引用捕获<br />
+捕获this指针也可以使用 <code>[this]， [=]或者 [&amp;]</code>。在上述任何情况下，类内数据成员(包括 private)的访问方式与常规方法一样。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>class Example</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>{</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    Example() : <span class="va">m_var</span>(<span class="dv">10</span>) {}</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    void func()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    {</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>        [=]()</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>        { <span class="bu">std::</span>cout &lt;&lt; <span class="va">m_var</span> &lt;&lt; <span class="bu">std::</span>endl; }(); <span class="co">//立即调用</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>    }</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>    int <span class="va">m_var</span>;</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>};</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>int main()</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a>{</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a>    Example e;</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true"></a>    e.func();</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="编译阶段增强属性和静态断言">编译阶段增强：属性和静态断言</h2>
+<p>和预处理阶段一样，在这里你也可以“面向编译器编程”，用一些指令或者关键字让编译器按照你的想法去做一些事情。</p>
+<h3 id="属性attribute">属性（attribute）</h3>
+<p>虽然编译器非常聪明，但因为 C++ 语言实在是太复杂了，偶尔它也会“自作聪明”或者“冒傻气”。如果有这么一个东西，让程序员来手动指示编译器这里该如何做、那里该如何做，就有可能会生成更高效的代码。<br />
+在 C++11 之前，标准里没有规定这样的东西，但 GCC、VC 等编译器发现这样做确实很有用，于是就实现出了自己“编译指令”，在 GCC 里是<code>__ attribute __</code>，在 VC 里是<code>__declspec</code>。不过因为它们不是标准，所以名字显得有点“怪异”。<br />
+到了 C++11，标准委员会终于认识到了<strong>编译指令</strong>的好处，于是就把“民间”用法升级为“官方版本”，起了个正式的名字叫“属性”。你可以把它理解为给变量、函数、类等“贴”上一个编译阶段的“标签”，方便编译器识别处理。</p>
+<p>C++11:noreturn 、carries_dependency<br />
+C++14：deprecated</p>
+<p>目前的 C++17 和 C++20 又增加了五六个新属性，比如 fallthrough、likely，但我觉得，标准委员会的态度还是太“保守”了，在实际的开发中，这些真的是不够用。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co">// 编译的时候用到这个函数的地方会报警告</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>[[<span class="at">deprecated</span>(<span class="st">&quot;deadline:2020-12-31&quot;</span>)]] <span class="co">// C++14 or later</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>int old_func();</span></code></pre></div>
+<p>好在“属性”也支持<strong>非标准扩展</strong>，允许以类似名字空间的方式使用编译器自己的一些“非官方”属性，比如，GCC 的属性都在“gnu::”里。下面我就列出几个比较有用的：<br />
+* deprecated：与 C++14 相同，但可以用在 C++11 里。<br />
+* unused：用于变量、类型、函数等，表示虽然暂时不用，但最好保留着，因为将来可能会用。<br />
+* constructor：函数会在 main() 函数之前执行，效果有点像是全局对象的构造函数。<br />
+* destructor：函数会在 main() 函数结束之后执行，有点像是全局对象的析构函数。<br />
+* always_inline：要求编译器强制内联函数，作用比 inline 关键字更强。<br />
+* hot：标记“热点”函数，要求编译器更积极地优化。</p>
+<p>在没有这个属性的时候，如果有暂时用不到的变量，我们只能用<code>(void) var;</code>的方式假装用一下，来“骗”过编译器，属于“不得已而为之”的做法。<br />
+那么现在，我们就可以用“unused”属性来清楚地告诉编译器：这个变量我暂时不用，请不要过度紧张，不要发出警告来烦我：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>[[<span class="ex">gnu::unused</span>]] <span class="co">// 声明下面的变量暂不使用，不是错误</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>int nouse;</span></code></pre></div>
+<h3 id="静态断言static_assert">静态断言（static_assert）</h3>
+<p>属性”像是给编译器的一个“提示”“告知”，无法进行计算，还算不上是编程，而“静态断言”，就有点<strong>编译阶段写程序</strong>的味道了。<br />
+assert 虽然是一个宏，但在预处理阶段不生效，而是在运行阶段才起作用，所以又叫“动态断言”。<br />
+static_assert 可以在编译阶段定义各种前置条件，充分利用 C++ <strong>静态类型语言的优势</strong>，让编译器执行各种检查，避免把隐患带到运行阶段。在编译阶段计算常数和类型，如果断言失败就会导致编译错误。它也是<strong>迈向模板元编程</strong>的第一步。<br />
+static_assert 运行在编译阶段，只能看到编译时的<strong>常数</strong>和<strong>类型</strong>，看不到运行时的变量、指针、内存数据等，所以不要简单地把 assert 的习惯搬过来用。</p>
+<p>注意点：在用“静态断言”的时候，你就要在脑子里时刻“绷紧一根弦”，把自己代入编译器的角色，像编译器那样去思考，看看断言的表达式是不是能够在编译阶段算出结果。<br />
+比如：<br />
+比如说，这节课刚开始时的斐波拉契数列计算函数，可以用静态断言来保证模板参数必须大于等于零：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="kw">template</span>&lt;int N&gt;</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>struct fib</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>{</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>    static_assert(N &gt;= <span class="dv">0</span>, <span class="st">&quot;N &gt;= 0&quot;</span>);</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>    static const int value =</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>        fib&lt;N - <span class="dv">1</span>&gt;::value + fib&lt;N - <span class="dv">2</span>&gt;::value;</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>};</span></code></pre></div>
+<p>不过这句话说起来容易做起来难，计算数字还好说，在泛型编程的时候，怎么检查模板类型呢？比如说，断言是整数而不是浮点数、断言是指针而不是引用、断言类型可拷贝可移动……<br />
+这些检查条件表面上看好像是“不言自明”的，但要把它们用 C++ 语言给精确地表述出来，可就没那么简单了。所以，想要更好地发挥静态断言的威力，还要配合标准库里的<code>type_traits</code>，它提供了对应这些概念的各种编译期“函数”。</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="co">// 假设T是一个模板参数，即template&lt;typename T&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="kw">static_assert</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>    is_integral&lt;T&gt;::value, <span class="st">&quot;int&quot;</span>);</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="kw">static_assert</span>(</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>    is_pointer&lt;T&gt;::value, <span class="st">&quot;ptr&quot;</span>);</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a><span class="kw">static_assert</span>(</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>    is_default_constructible&lt;T&gt;::value, <span class="st">&quot;constructible&quot;</span>);</span></code></pre></div>
+<h2 id="模板元编程">模板元编程</h2>
+<h3 id="make_index_sequence">make_index_sequence</h3>
+<p> 实现编译期的整数序列，如下例make_index_sequence&lt;3&gt;()会使fun函数的模板参数: int... N 推演为：0，1，2序列 ：</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;iostream&gt; </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;tuple&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>using namespace std;</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a> </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a><span class="kw">template</span>&lt;<span class="dt">int</span>... N&gt;</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a><span class="kw">decltype</span>(<span class="kw">auto</span>) fun(index_sequence&lt;N...&gt; is) {</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>    return make_tuple(N...);</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>}</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a> </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a>int main() {</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a> </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a>    auto t = fun(make_index_sequence&lt;<span class="dv">3</span>&gt;());</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a>    cout &lt;&lt; <span class="bu">std::</span>get&lt;<span class="dv">0</span>&gt;(t) &lt;&lt; endl;</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a>    cout &lt;&lt; <span class="bu">std::</span>get&lt;<span class="dv">1</span>&gt;(t) &lt;&lt; endl;</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a>    cout &lt;&lt; <span class="bu">std::</span>get&lt;<span class="dv">2</span>&gt;(t) &lt;&lt; endl;</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="constexpr-if">constexpr if</h3>
+<p>用于泛型编程中的条件判断</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>template &lt;int N, int... Ns&gt;</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>auto sum()</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>{</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>    if constexpr (<span class="dv">0</span> == sizeof...(Ns))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>        return N;</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>    else</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>        return N + sum&lt;Ns...&gt;();</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>}</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a><span class="co">// 调用</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a>sum&lt;<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>&gt;(); <span class="co">// returns 6</span></span></code></pre></div>
+<h1 id="更安全">更安全</h1>
+<h2 id="智能指针">智能指针</h2>
+<p>要确保用 new 动态分配的内存空间在程序的各条执行路径都能被释放是一件麻烦的事情。C++ 11 模板库的 <code>&lt;memory&gt;</code> 头文件中定义的智能指针，即 shared_ptr 模板，就是用来部分解决这个问题的。<br />
+<strong>托管 p 的 shared_ptr 对象在消亡时会自动执行delete p</strong>。而且，该 shared_ptr 对象能像指针 p —样使用，即假设托管 p 的 shared_ptr 对象叫作 ptr，那么 <code>*ptr</code> 就是 p 指向的对象。</p>
+<p>只有指向<strong>动态分配</strong>的对象的指针才能交给 shared_ptr 对象托管。将指向普通局部变量、全局变量的指针交给 shared_ptr 托管，编译时不会有问题，但程序运行时会出错，具体如下：<br />
+1. <strong>局部变量：</strong> 局部变量在函数内部声明，其生命周期仅限于函数的执行。一旦函数执行结束，局部变量将被销毁，但 <code>shared_ptr</code> 通常会在更长的时间范围内保持活动，因为它们在引用计数为零时才会释放所管理的内存。如果将 <code>shared_ptr</code> 指向局部变量，可能会导致在变量超出作用域后继续访问已释放的内存。<br />
+2. <strong>全局变量：</strong> 全局变量在整个程序的生命周期内存在。由于它们的生命周期超过了引用计数的范围，<code>shared_ptr</code> 不适合用于管理全局变量的内存。全局变量的生命周期通常在程序的开始和结束之间，而 <code>shared_ptr</code> 在对象不再需要时释放内存，这两种生命周期的匹配不适合。</p>
+<p><strong>注意</strong><br />
+1. 不能用下面的方式使得两个 shared_ptr 对象托管同一个指针，这样可能会出现double free</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>A* p = new A(<span class="dv">10</span>);</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>shared_ptr &lt;A&gt; sp1(p), sp2(p);</span></code></pre></div>
+<p>2. 不要轻易的使用<code>get()</code>获得raw pointer，然后操作它</p>
+<p>C++ 里也是有垃圾回收的，不过不是 Java、Go 那种严格意义上的垃圾回收，而是广义上的垃圾回收，这就是构造 / 析构函数和 RAII 惯用法（Resource Acquisition Is Initialization）。</p>
+<p>我们可以应用代理模式，把裸指针包装起来，在构造函数里初始化，在析构函数里释放。这样当对象失效销毁时，C++ 就会自动调用析构函数，完成内存释放、资源回收等清理工作。<br />
+智能指针就是代替你来干这些“脏活累活”的。它完全实践了 RAII，包装了裸指针，而且因为重载了 <code>*</code> 和 <code>-&gt;</code> 操作符，用起来和原始指针一模一样</p>
+<h3 id="unique_ptr">unique_ptr</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>unique_ptr&lt;string&gt; ptr2(new string(<span class="st">&quot;hello&quot;</span>)); <span class="co">// string智能指针</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a><span class="ot">assert</span>(*ptr2 == <span class="st">&quot;hello&quot;</span>); <span class="co">// 可以使用*取内容</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a><span class="ot">assert</span>(ptr2-&gt;size() == <span class="dv">5</span>); <span class="co">// 可以使用-&gt;调用成员函数</span></span></code></pre></div>
+<p>unique_ptr 虽然名字叫指针，用起来也很像，但它实际上并不是指针，而是一个对象。所以，不要企图对它调用 delete，它会自动管理初始化时的指针，在离开作用域时析构释放内存。<br />
+另外，它也<strong>没有定义</strong>加减运算，不能随意移动指针地址，这就完全避免了指针越界等危险操作</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>ptr1++; <span class="co">// 导致编译错误</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>ptr2 += <span class="dv">2</span>; <span class="co">// 导致编译错误</span></span></code></pre></div>
+<p><strong>易犯错误</strong>：不初始化，而是声明后直接使用</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>unique_ptr&lt;<span class="dt">int</span>&gt; ptr3; <span class="co">// 未初始化智能指针</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>*ptr3 = <span class="dv">42</span> ; <span class="co">// 错误！操作了空指针</span></span></code></pre></div>
+<p>为了避免这种低级错误，你可以调用工厂函数 <code>make_unique()</code>，强制创建智能指针的时候必须初始化。同时还可以利用自动类型推导的 auto，少写一些代码：</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a>auto ptr3 = make_unique&lt;<span class="dt">int</span>&gt;(<span class="dv">42</span>); <span class="co">// 工厂函数创建智能指针</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="ot">assert</span>(ptr3 &amp;&amp; *ptr3 == <span class="dv">42</span>);</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a>auto ptr4 = make_unique&lt;string&gt;(<span class="st">&quot;god of war&quot;</span>); <span class="co">// 工厂函数创建智能指针</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a><span class="ot">assert</span>(!ptr4-&gt;empty());</span></code></pre></div>
+<p>make_unique() 要求 C++14,你可以自己实现一个：</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="kw">template</span>&lt;class T, class... Args&gt; <span class="co">// 可变参数模板</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a><span class="bu">std::</span>unique_ptr&lt;T&gt; <span class="co">// 返回智能指针</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>my_make_unique(Args&amp;&amp;... args) <span class="co">// 可变参数模板的入口参数</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a>{</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a>    return <span class="bu">std::</span>unique_ptr&lt;T&gt;( <span class="co">// 构造智能指针</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a>        new T(<span class="bu">std::</span>forward&lt;Args&gt;(args)...)); <span class="co">// 完美转发</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true"></a>}</span></code></pre></div>
+<p>unique_ptr不允许共享，任何时候只能有一个“人”持有它。故<strong>禁止了拷贝和赋值</strong>，所以，在向另一个 unique_ptr 赋值的时候，要特别留意，必须用<code>std::move()</code> 函数显式地声明所有权转移。<br />
+不能拷贝unique_ptr的规则有一个例外：我们可以拷贝或赋值一个将要被销毁的unique_ptr。上面的my_make_unique就是return了一个unique_ptr</p>
+<h3 id="shared_ptr">shared_ptr</h3>
+<p>shared_ptr它的所有权是可以被安全共享的，也就是说支持拷贝赋值，允许被多个“人”同时持有，就像原始指针一样</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a>auto ptr1 = make_shared&lt;<span class="dt">int</span>&gt;(<span class="dv">42</span>);       <span class="co">// 工厂函数创建智能指针</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a><span class="ot">assert</span>(ptr1 &amp;&amp; ptr1.unique() );         <span class="co">// 此时智能指针有效且唯一</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a>auto ptr2 = ptr1;                            <span class="co">// 直接拷贝赋值，不需要使用move()</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a><span class="ot">assert</span>(ptr1 &amp;&amp; ptr2);                        <span class="co">// 此时两个智能指针均有效</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a><span class="ot">assert</span>(ptr1 == ptr2);                        <span class="co">// shared_ptr可以直接比较</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a><span class="co">// 两个智能指针均不唯一，且引用计数为2</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true"></a><span class="ot">assert</span>(!ptr1.unique() &amp;&amp; ptr1.use_count() == <span class="dv">2</span>);</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true"></a><span class="ot">assert</span>(!ptr2.unique() &amp;&amp; ptr2.use_count() == <span class="dv">2</span>);</span></code></pre></div>
+<p>shared_ptr 支持安全共享的秘密在于内部使用了“<strong>引用计数</strong>”,当引用计数减少到0才真正的释放。<br />
+因为 shared_ptr 具有完整的<strong>值语义（即可以拷贝赋值）</strong>，所以，它可以在任何场合替代原始指针，而不用再担心资源回收的问题，比如用于容器存储指针、用于函数安全返回动态创建的对象，等等<br />
+注意点：<br />
+- shared_ptr 有少量的管理成本，也会引发一些难以排查的错误，所以不要过度使用。 <br />
+- 因为我们把指针交给了 shared_ptr 去自动管理，但在运行阶段，引用计数的变动是很复杂的，很难知道它真正释放资源的时机。你要特别小心对象的析构函数，不要有非常复杂、严重阻塞的操作。一旦 shared_ptr 在某个不确定时间点析构释放资源，就会阻塞整个进程或者线程，“整个世界都会静止不动”<br />
+- shared_ptr 的引用计数也导致了一个新的问题，就是“循环引用”，这在把 shared_ptr作为类成员的时候最容易出现，典型的例子就是链表节点。</p>
+<h3 id="weak_ptr">weak_ptr</h3>
+<p>它专门为<strong>打破循环引用</strong>而设计，<strong>只观察指针</strong>，不会增加和减少引用计数，但在需要的时候，可以调用成员函数 <code>lock()</code>，升级到shared_ptr。<br />
+C++11标准虽然将 weak_ptr 定位为智能指针的一种，但该类型指针通常不单独使用,因为连<code>*</code>、 <code>-&gt;</code>都没重载），只能和 shared_ptr 类型指针搭配使用。甚至于，我们可以将 weak_ptr 类型指针视为 shared_ptr 指针的一种辅助工具，借助 weak_ptr 类型指针， 我们可以获取 shared_ptr 指针的一些状态信息，比如有多少指向相同的 shared_ptr 指针、shared_ptr 指针指向的堆内存是否已经被释放等等。</p>
+<p><code>weak_ptr&lt;T&gt;</code> 模板类中没有重载 <code>*</code> 和 <code>-&gt;</code> 运算符，这也就意味着，weak_ptr 类型指针只能访问所指的堆内存，而无法修改它。</p>
+<p>成员方法：</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="kw">operator</span>=()   <span class="co">//重载 = 赋值运算符，是的 weak_ptr 指针可以直接被 weak_ptr 或者 shared_ptr 类型指针赋值。</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a>swap(x)      <span class="co">// 其中 x 表示一个同类型的 weak_ptr 类型指针，该函数可以互换 2 个同类型 weak_ptr 指针的内容。</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a>reset()    <span class="co">// 将当前 weak_ptr 指针置为空指针。</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a>use_count()  <span class="co">//查看指向和当前 weak_ptr 指针相同的 shared_ptr 指针的数量。</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true"></a>expired()  <span class="co">// 判断当前 weak_ptr 指针为否过期（指针为空，或者指向的堆内存已经被释放）。</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true"></a>lock()     <span class="co">// 如果当前 weak_ptr 已经过期，则该函数会返回一个空的 shared_ptr 指针；反之，该函数返回一个和当前 weak_ptr 指向相同的 shared_ptr 指针。</span></span></code></pre></div>
+<p><strong>循环引用</strong><br />
+在把 shared_ptr作为类成员的时候最容易出现，典型的例子就是链表节点</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a>class Node final</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a>{</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true"></a>    using <span class="dt">this_type</span> = Node;</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true"></a>    using <span class="dt">shared_type</span> = <span class="bu">std::</span>shared_ptr&lt;<span class="dt">this_type</span>&gt;;</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true"></a>    <span class="dt">shared_type</span> next; <span class="co">// 使用智能指针来指向下一个节点</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true"></a>};</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true"></a>auto n1 = make_shared&lt;Node&gt;(); <span class="co">// 工厂函数创建智能指针</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true"></a>auto n2 = make_shared&lt;Node&gt;(); <span class="co">// 工厂函数创建智能指针</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true"></a><span class="ot">assert</span>(n1.use_count() == <span class="dv">1</span>); <span class="co">// 引用计数为1</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true"></a><span class="ot">assert</span>(n2.use_count() == <span class="dv">1</span>);</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true"></a>n1-&gt;next = n2; <span class="co">// 两个节点互指，形成了循环引用</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true"></a>n2-&gt;next = n1;</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true"></a><span class="ot">assert</span>(n1.use_count() == <span class="dv">2</span>); <span class="co">// 引用计数为2</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true"></a><span class="ot">assert</span>(n2.use_count() == <span class="dv">2</span>); </span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true"></a><span class="co">// 出作用域析构时n1减1，n2减1，但因彼此都相互引用，所以无法减到0</span></span></code></pre></div>
+<p>改正方式</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a>class Node final</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a>{</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a>    using <span class="dt">this_type</span> = Node;</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a>    <span class="co">// 注意这里，别名改用weak_ptr</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true"></a>    using <span class="dt">shared_type</span> = <span class="bu">std::</span>weak_ptr&lt;<span class="dt">this_type</span>&gt;;</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true"></a>    <span class="dt">shared_type</span> next; <span class="co">// 因为用了别名，所以代码不需要改动</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true"></a>};</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true"></a>auto n1 = make_shared&lt;Node&gt;(); <span class="co">// 工厂函数创建智能指针</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true"></a>auto n2 = make_shared&lt;Node&gt;(); <span class="co">// 工厂函数创建智能指针</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true"></a>n1-&gt;next = n2; <span class="co">// 两个节点互指，形成了循环引用</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true"></a>n2-&gt;next = n1;</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true"></a><span class="ot">assert</span>(n1.use_count() == <span class="dv">1</span>); <span class="co">// 因为使用了weak_ptr，引用计数为1</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true"></a><span class="ot">assert</span>(n2.use_count() == <span class="dv">1</span>); <span class="co">// 打破循环引用，不会导致内存泄漏</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true"></a>if (!n1-&gt;next.expired()) { <span class="co">// 检查指针是否有效</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true"></a>    auto ptr = n1-&gt;next.lock();   <span class="co">// lock()获取shared_ptr</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true"></a>    assert(ptr == n2);</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="新增关键字finaldeleteexplicitoverridenullptr">新增关键字final、delete、explicit、override、nullptr</h2>
+<p><strong>final</strong><br />
+final 用于修饰类、函数或虚函数，表示它们不能被继承、重写或覆盖。<br />
+修饰类：标记一个类为最终类，禁止其他类继承它。<br />
+修饰虚函数：表示该虚函数在派生类中不能被重写。</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a><span class="kw">class</span> Base <span class="kw">final</span> { <span class="co">// 声明 Base 类为最终类</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a>    <span class="kw">virtual</span> <span class="dt">void</span> foo() <span class="at">const</span> <span class="kw">final</span>; <span class="co">// foo() 不能在派生类中重写</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a>};</span></code></pre></div>
+<p><strong>delete</strong><br />
+delete 用于修饰特殊成员函数（如构造函数、析构函数和赋值运算符等），表示禁用默认生成的该成员函数。<br />
+用于禁用某个函数，通常是为了阻止不应该被调用的操作。</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a><span class="kw">class</span> NoCopy {</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true"></a>    NoCopy() = <span class="cf">default</span>;</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true"></a>    NoCopy(<span class="at">const</span> NoCopy&amp;) = <span class="kw">delete</span>; <span class="co">// 禁用拷贝构造函数</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true"></a>};</span></code></pre></div>
+<p><strong>explicit</strong><br />
+explicit 用于修饰类的单参数构造函数，表示禁止编译器进行隐式类型转换。用于避免不意料的类型转换，提高代码的明确性和可读性。</p>
+<ul>
+<li>explicit 修饰构造函数时，可以防止隐式转换和复制初始化</li>
+<li>explicit 修饰转换函数时，可以防止隐式转换</li>
+</ul>
+<pre><code>class MyClass {
+public:
+    explicit MyClass(int value) : memberValue(value) {}
+private:
+    int memberValue;
+};</code></pre>
+<p><strong>override</strong><br />
+override 用于修饰派生类中的虚函数，显式声明该函数是对基类虚函数的重写。<br />
+用于帮助编译器检测是否真正覆盖了基类的虚函数。</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="kw">class</span> Base {</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true"></a>    <span class="kw">virtual</span> <span class="dt">void</span> foo();</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true"></a>};</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true"></a><span class="kw">class</span> Derived : <span class="kw">public</span> Base {</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true"></a>    <span class="dt">void</span> foo() <span class="kw">override</span>; <span class="co">// 显式声明 foo() 是对基类虚函数的重写</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true"></a>};</span></code></pre></div>
+<p>这些关键字在 C++ 中用于表达特定的语义和约束，能够帮助程序员在代码中传达更多的意图并避免潜在的错误。</p>
+<h2 id="enum-class">enum class</h2>
+<h3 id="enum由来">enum由来</h3>
+<p>在enum没出现之前，enum的功能则需要需要一系列的#define来完成，而enum则完成了这一系列#define的“打包收集”，即：</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a>enum Color {black, white, red};</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true"></a><span class="pp">#define black 0</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true"></a><span class="pp">#define white 1</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true"></a><span class="pp">#define red 2</span></span></code></pre></div>
+<p>也正是如此，对于两个不一样的枚举体，它们即使枚举体的名字不同，里面的内容也不能重名，重名编译器就懵逼了。</p>
+<h3 id="c惯用法之enum-class"> C++惯用法之enum class</h3>
+<p>在Effective modern C++中Item 10: Prefer scoped enums to unscoped enum，调到要用有范围的enum class代替无范围的enum。</p>
+<p>例如：</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a>enum Shape {circle,retangle};</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true"></a>auto circle = <span class="dv">10</span>;  <span class="co">// error</span></span></code></pre></div>
+<p>上述错误是因为两个circle在同一范围。<br />
+对于enum等价于</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true"></a><span class="pp">#define circle 0</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true"></a><span class="pp">#define retangle 1</span></span></code></pre></div>
+<p>因此后面再去定义circle就会出错。</p>
+<p>所以不管枚举名是否一样,里面的成员只要有一致的,就会出问题。例如：</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a>enum A {a,b};</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true"></a>enum B {c,a};</span></code></pre></div>
+<p>a出现两次,在enum B的a处报错。</p>
+<p>根据前面我们知道,enum名在范围方面没有什么作用,因此我们想到了namespace,如下例子:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true"></a><span class="co">// 在创建枚举时，将它们放在名称空间中，以便可以使用有意义的名称访问它们:</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true"></a>namespace EntityType {enum Enum {</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true"></a>        Ground = <span class="dv">0</span>,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true"></a>        Human,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true"></a>        Aerial,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true"></a>        Total</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true"></a>    };</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true"></a>}</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true"></a></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true"></a></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true"></a>void foo(EntityType::Enum entityType)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true"></a>{</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true"></a>    if (entityType == EntityType::Ground) {</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true"></a>        <span class="co">/*code*/</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true"></a>    }</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true"></a>}</span></code></pre></div>
+<p>但是不断的使用命名空间,势必太繁琐,因此在c++11后,引入enum class。它解决了为enum成员定义类型、类型安全、约束等问题。回到上述例子：</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"></a><span class="co">// enum class</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a>enum class EntityType {</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true"></a>    Ground = <span class="dv">0</span>,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true"></a>    Human,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true"></a>    Aerial,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true"></a>    Total</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true"></a>};</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true"></a></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true"></a>void foo(EntityType entityType)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true"></a>{</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true"></a>    if (entityType == EntityType::Ground) {</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true"></a>        <span class="co">/*code*/</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true"></a>    }</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="enum的基础类型">enum的基础类型</h3>
+<p>枚举通常用某种整数类型表示，这个类型被称为枚举的<strong>基础类型</strong>。基础类型默认是int，也可以显式的指定：</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;iostream&gt;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;string&gt;</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true"></a>enum class Color:int {red,green,blue};</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true"></a>enum class Font:char {normal,bold};</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true"></a>int main()</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true"></a>{</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true"></a>    Color c;</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true"></a>    <span class="bu">std::</span>cout&lt;&lt;<span class="kw">sizeof</span>(c)&lt;&lt;<span class="bu">std::</span>endl;  <span class="co">//输出为  4</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true"></a></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true"></a>    Font f;</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true"></a>    <span class="bu">std::</span>cout&lt;&lt;<span class="kw">sizeof</span>(f)&lt;&lt;<span class="bu">std::</span>endl;  <span class="co">//输出为  1</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="stdoptional17">std::optional(17)</h2>
+<p>类似rust Result&lt;T, E&gt;<br />
+场景：如果有这样一个函数，通过返回值来判断计算结果是否有效，如果结果有效，才能使用结果</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true"></a>bool div_int(int a, int b, int &amp;result) {</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true"></a>    if (b == <span class="dv">0</span>) {</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true"></a>        return false;</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true"></a>    }</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true"></a>    result = a / b;</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true"></a>    return true;</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true"></a>}</span></code></pre></div>
+<p>这样的使用方式很不方便，需要两个变量来描述结果。这种场景下应该使用c++17中的std::optional。</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true"></a><span class="co">//div_int可以通过optional优化：optional中，结果是否有效和结果都保存在其中</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true"></a><span class="bu">std::</span>optional&lt;<span class="dt">int</span>&gt; div_int(int a, int b) {</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true"></a>    if (b != <span class="dv">0</span>) {</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true"></a>        return <span class="bu">std::</span>make_optional&lt;<span class="dt">int</span>&gt;(a / b);</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true"></a>    }</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true"></a>    return {};</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true"></a>}</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true"></a></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true"></a></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true"></a>TEST_F(optional) {</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true"></a>    auto ret = div_int(<span class="dv">2</span>, <span class="dv">1</span>);</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true"></a>    ASSERT(ret);</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true"></a>    ASSERT_EQ(<span class="dv">2</span>, ret.value()); <span class="co">// 如果ret为true, 直接从ret中获取结果</span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true"></a></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true"></a></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true"></a>    auto ret2 = div_int(<span class="dv">2</span>, <span class="dv">0</span>);</span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true"></a>    ASSERT(!ret2); <span class="co">// 结果无效</span></span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true"></a></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true"></a>    <span class="co">// 如果ret2为false，获取访问value将会 抛出异常</span></span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true"></a>    try {</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true"></a>        ret2.value();</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true"></a>    } catch (<span class="bu">std::</span>exception e) {</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; e.what() &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true"></a>    }</span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true"></a>}</span></code></pre></div>
+<h1 id="更高效">更高效</h1>
+<h2 id="移动语义">移动语义</h2>
+<h3 id="右值引用">右值引用</h3>
+<p>引入右值引用的主要目的是<strong>提高程序运行的效率</strong>。有些对象在复制时需要进行深拷贝，深拷贝往往非常耗时。合理使用右值引用可以避免没有必要的深复制操作。</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true"></a>class A{};</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true"></a>A &amp; rl = A(); <span class="co">//错误，无名临时变量 A() 是右值，因此不能初始化左值引用 r1</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true"></a>A &amp;&amp; r2 = A(); <span class="co">//正确，因 r2 是右值引用</span></span></code></pre></div>
+<ul>
+<li>lvalue 是“locator value”的缩写，可意为存储在内存中、有明确存储地址（可寻址）的数据</li>
+<li>rvalue 译为 "read value"，指的是那些可以提供数据值的数据（不一定可以寻址，例如存储于寄存器中的数据）</li>
+</ul>
+<p>通常情况下，判断某个表达式是左值还是右值，最常用的有以下 2 种方法：<br />
+* 可位于赋值号（=）左侧的表达式就是左值；反之，只能位于赋值号右侧的表达式就是右值<br />
+* 有名称的、可以获取到存储地址的表达式即为左值；反之则是右值。</p>
+<ul>
+<li>使用右值的目的一般都是使用移动语义</li>
+<li>和声明左值引用一样，右值引用也必须<strong>立即进行初始化操作</strong>，且只能使用右值进行初始化</li>
+<li>虽然 C++98/03 标准不支持为右值建立非常量左值引用，但允许使用<strong>常量左值引用操作右值</strong>。</li>
+<li>和常量左值引用不同的是，右值引用还可以<strong>对右值进行修改</strong>。</li>
+<li>右值引用本身并不会为右值创建临时变量，但它可以影响右值的生命周期，使其在引用的作用域内保持有效。这是C++中移动语义和临时值优化的重要特性。</li>
+</ul>
+<h3 id="移动语义是什么">移动语义是什么</h3>
+<p>所谓移动语义，指的就是以移动而非深拷贝的方式初始化<strong>含有指针成员(动态分配内存)的类对象</strong>。简单的理解，移动语义指的就是将其他对象（通常是临时对象）拥有的内存资源“移为已用”。</p>
+<p>我们知道，非 const 右值引用只能操作右值，程序执行结果中产生的临时对象（例如函数返回值、lambda 表达式等）既无名称也无法获取其存储地址，所以属于右值。<br />
+当类中<strong>同时包含拷贝构造函数和移动构造函数时</strong>，如果使用临时对象初始化当前类的对象，编译器会优先调用移动构造函数来完成此操作。只有当类中没有合适的移动构造函数时，编译器才会退而求其次，调用拷贝构造函数。</p>
+<p>在实际开发中，通常在类中自定义移动构造函数的同时，会再为其自定义一个适当的拷贝构造函数，由此当用户利用右值初始化类对象时，会调用移动构造函数；使用左值（非右值）初始化类对象时，会调用拷贝构造函数。</p>
+<p><strong>只有移动没有拷贝的例子</strong>：<br />
+1. std::unique_ptr&lt;&gt;<br />
+2. std::mutex</p>
+<h3 id="移动构造移动赋值函数">移动构造/移动赋值函数</h3>
+<p>移动构造和移动赋值是c++实现<strong>零拷贝的利器</strong>。对于一个简单的用户类，在<strong>满足一定条件</strong>时，编译器会提供<strong>默认</strong>的移动构造和移动赋值实现：默认实现会对类成员变量递归地进行移动构造和移动赋值。如果用户类内包含STL容器这种本身有移动实现的成员变量，又不包含非RAII的资源管理，那么默认移动逻辑是完全够用的。</p>
+<p>但是，启用<strong>默认移动构造</strong>函数必须满足以下<strong>全部条件</strong>：<br />
+1.  没有声明拷贝赋值函数。<br />
+2.  没有声明拷贝构造函数。<br />
+3.  没有声明移动赋值函数。<br />
+4.  移动构造函数没有隐式声明为delete（<a href="https://en.cppreference.com/w/cpp/language/move_constructor#Deleted_implicitly-declared_move_constructor">参考这里</a>，简单类一般不需要考虑）。<br />
+5.  <strong>没有声明析构函数。</strong></p>
+<p>同时，启用<strong>默认移动赋值</strong>函数必须满足以下<strong>全部条件</strong>：<br />
+1.  没有声明拷贝赋值函数。<br />
+2.  没有声明拷贝构造函数。<br />
+3.  没有声明移动构造函数。<br />
+4.  移动赋值函数没有隐式声明为delete（<a href="https://en.cppreference.com/w/cpp/language/move_assignment#Deleted_implicitly-declared_move_assignment_operator">参考这里</a>，简单类一般不需要考虑）。<br />
+5.  <strong>没有声明析构函数。</strong></p>
+<p>关于第5点其实也很容易理解。因为析构函数不可省略的场景往往涉及资源的手动分配和释放，这时候移动构造和移动赋值一般需要进行诸如交接所有权的额外逻辑。所以在用户类已声明析构函数时，编译器不提供默认的移动逻辑以降低非预期行为的可能性。</p>
+<h3 id="move函数将左值强制转换为右值">move()函数：将左值强制转换为右值</h3>
+<p>move 本意为 "移动"，但该函数<strong>并不能移动</strong>任何数据，它的功能很简单，就是将某个<strong>左值强制转化为右值</strong>。</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true"></a><span class="bu">std::</span>vector&lt;<span class="dt">int</span>&gt; v1;</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true"></a>v1.push_back(<span class="dv">1</span>);</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true"></a>v1.push_back(<span class="dv">2</span>);</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true"></a><span class="co">// Move the contents of v1 to v2 using move semantics</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true"></a><span class="bu">std::</span>vector&lt;<span class="dt">int</span>&gt; v2 = <span class="bu">std::</span>move(v1);</span></code></pre></div>
+<h2 id="emplace">emplace</h2>
+<p>C++ 中的容器 emplace 系列函数，如 emplace_back、emplace 等，允许你直接在容器中构造元素，而不需要进行显式的拷贝或移动操作。这些函数能够减少拷贝或移动的开销，因为它们直接在容器内部构造元素，而不需要创建临时对象。</p>
+<h4 id="用法">用法</h4>
+<div class="sourceCode" id="cb37"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true"></a>struct Foo {</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true"></a>    Foo(int n, double x);</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true"></a>};</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true"></a><span class="bu">std::</span>vector v;</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true"></a>v.emplace_back(<span class="dv">42</span>, <span class="fl">3.1416</span>);     <span class="co">// 没有临时变量产生</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true"></a>v.insert(someIterator, Foo(<span class="dv">42</span>, <span class="fl">3.1416</span>)); <span class="co">// 需要产生一个临时变量</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true"></a>v.insert(someIterator, {<span class="dv">42</span>, <span class="fl">3.1416</span>});    <span class="co">// 需要产生一个临时变量</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true"></a></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true"></a><span class="bu">std::</span>map&lt;<span class="dt">int</span>, <span class="bu">std::</span>string&gt; myMap;</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true"></a>myMap.emplace(<span class="dv">1</span>, <span class="st">&quot;one&quot;</span>);  <span class="co">// 构造一个键值对并插入</span></span></code></pre></div>
+<p>做到这一点主要 使用了 C++11 的两个新特性 变参模板变参模板 和 完美转发完美转发。<br />
+<strong>变参模板</strong>使得 emplace 可以接受任意参数，这样就可以适用于任意对象的构建。<br />
+<strong>完美转发</strong>使得接收下来的参数 能够原样的传递给对象的构造函数</p>
+<h2 id="完美转发">完美转发</h2>
+<p>完美转发，它指的是<strong>函数模板</strong>可以将自己的参数“完美”地转发给<strong>内部调用的其它函数</strong>。所谓完美，即不仅能准确地转发参数的值，还能保证被转发参数的左、右值属性不变。<br />
+C++11 标准中规定，通常情况下右值引用形式的参数只能接收右值，不能接收左值。但对于<strong>函数模板</strong>中使用右值引用语法定义的参数来说，它不再遵守这一规定，既可以接收右值，也可以接收左值（此时的右值引用又被称为<strong>万能引用</strong>）。<br />
+在实现完美转发时，只要函数模板的参数类型为 <code>T&amp;&amp;</code>，则 C++ 可以自行准确地判定出实际传入的实参是左值还是右值。</p>
+<p>通过将函数模板的形参类型设置为 <code>T&amp;&amp;</code>，我们可以很好地解决接收左、右值的问题。但除此之外，还需要解决一个问题，即无论传入的形参是左值还是右值，<strong>对于函数模板内部来说</strong>，<strong>形参既有名称又能寻址</strong>，因此它都是<strong>左值</strong>。那么如何才能将函数模板接收到的形参连同其左、右值属性，一起传递给被调用的函数呢？</p>
+<p>总的来说，在定义模板函数时，我们采用<strong>右值引用的语法</strong>格式定义参数类型，由此该函数既可以接收外界传入的左值，也可以接收右值；<br />
+其次，还需要使用 C++11 标准库提供的 <code>forword()</code> 模板函数修饰被调用函数中需要维持左、右值属性的参数。由此即可轻松实现函数模板中参数的完美转发。</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true"></a>template &lt;typename T&gt;</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true"></a>void function(T&amp;&amp; t) {</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true"></a>    otherdef(forward&lt;T&gt;(t));</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="constexpr验证是否为常量表达式">constexpr：验证是否为常量表达式</h2>
+<p>所谓常量表达式，指的就是由多个（≥1）常量组成的表达式。常量表达式一旦确定，其值将无法修改。<br />
+我们知道，C++ 程序的执行过程大致要经历编译、链接、运行这 3 个阶段。值得一提的是，常量表达式和非常量表达式的计算时机不同，非常量表达式只能在程序运行阶段计算出结果；而常量表达式的计算往往发生在程序的编译阶段，这可以极大提高程序的执行效率，因为表达式只需要在编译阶段计算一次，节省了每次程序运行时都需要计算一次的时间。<br />
+对于用 C++ 编写的程序，性能往往是永恒的追求。那么在实际开发中，如何才能判定一个表达式是否为常量表达式，进而获得在编译阶段即可执行的“特权”呢？除了人为判定外，C++11 标准还提供有 constexpr 关键字。<br />
+constexpr 关键字的功能是使指定的常量表达式获得在程序编译阶段计算出结果的能力，而不必等到程序运行阶段。C++ 11 标准中，constexpr 可用于修饰普通变量、函数（包括模板函数）以及类的构造函数。</p>
+<blockquote>
+<p> 注意，获得在编译阶段计算出结果的能力，并不代表 constexpr 修饰的表达式一定会在程序编译阶段被执行，具体的计算时机还是编译器说了算。</p>
+</blockquote>
+<h2 id="constexpr和const的区别详解">constexpr和const的区别详解</h2>
+<p>在C++ 98之前const是有两种语义的：1.只读 2.常量<br />
+C++ 11标准中，为了解决 const 关键字的双重语义问题，保留了 const 表示“只读”的语义，而将“常量”的语义划分给了新添加的 constexpr 关键字。因此 C++11 标准中，建议将 const 和 constexpr 的功能区分开，即凡是表达“只读”语义的场景都使用 const，表达“常量”语义的场景都使用 constexpr。<br />
+只读”和“常量”之间并没有必然的联系</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true"></a>int main()</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true"></a>{</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true"></a>    int a = <span class="dv">10</span>;</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true"></a>    const int &amp; con_b = a;</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true"></a>    cout &lt;&lt; con_b &lt;&lt; endl;</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true"></a>    a = <span class="dv">20</span>;</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true"></a>    cout &lt;&lt; con_b &lt;&lt; endl;</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true"></a>}</span></code></pre></div>
+<p>程序中用 const 修饰了 con_b 变量，表示该变量“只读”，即无法通过变量自身去修改自己的值。但这并不意味着 con_b 的值不能借助其它变量间接改变，通过改变 a 的值就可以使 con_b 的值发生变化。<br />
+总的来说在 C++ 11 标准中，const 用于为修饰的变量添加“只读”属性；而 constexpr 关键字则用于指明其后是一个常量（或者常量表达式），编译器在编译程序时可以顺带将其结果计算出来，而无需等到程序运行阶段，这样的优化极大地提高了程序的执行效率。</p>
+<h4 id="map-的特殊情况">map 的特殊情况</h4>
+<p>无法区分哪个参数用来构造 key 哪些用来构造 value, 比如key可能需要两个参数构造，value只需要一个参数构造</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true"></a>map&lt;string, complex&gt; scp;</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true"></a>scp.emplace(“hello”, <span class="dv">1</span>, <span class="dv">2</span>);</span></code></pre></div>
+<p>解决：用tuple组合起来已进行区分</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true"></a>map&lt;string, complex&lt;<span class="dt">double</span>&gt;&gt; scp;</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true"></a>scp.emplace(piecewise_construct,</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true"></a>    forward_as_tuple(<span class="st">&quot;hello&quot;</span>),</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true"></a>    forward_as_tuple(<span class="dv">1</span>, <span class="dv">2</span>));</span></code></pre></div>
+<p>所以对于 map 来说你虽然避免了临时变量的构造，但是你却需要构建两个 tuple 。 这种 traedoff 是否值得需要代码编写者自己考虑，从方便性和代码优雅性上来说：</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true"></a>scp.insert({<span class="st">&quot;world&quot;</span>, {<span class="dv">1</span>, <span class="dv">2</span>}});</span></code></pre></div>
+<h1 id="更方便">更方便</h1>
+<h2 id="成员变量类内初始化">成员变量类内初始化</h2>
+<p>这种初始化方式可以在类的构造函数中省略对成员变量的初始化操作，而让<strong>编译器</strong>自动在构造对象时进行初始化。<br />
+成员变量类内初始化是在编译器生成构造函数的过程中工作的。具体来说，编译器会将成员变量的初始化代码合并到构造函数中，以确保对象在创建时被正确初始化。<br />
+<strong>构造函数生成</strong>： 当编译器处理类的定义时，它会自动生成默认构造函数（如果没有显式定义构造函数）。对于有成员变量类内初始化的情况，编译器会将成员变量的初始值合并到默认构造函数中。</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true"></a><span class="kw">class</span> MyClass {</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true"></a>    <span class="co">// 成员变量类内初始化</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true"></a>    <span class="dt">int</span> value1 = <span class="dv">0</span>;</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true"></a>    <span class="dt">double</span> value2 = <span class="fl">3.14</span>;</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true"></a>    <span class="bu">std::</span>string text = <span class="st">&quot;Hello&quot;</span>;</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true"></a></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true"></a>    <span class="co">// 构造函数</span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true"></a>    MyClass() {</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Constructor called&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true"></a>    }</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true"></a>};</span></code></pre></div>
+<h3 id="统一初始化列表初始化">统一初始化(列表初始化)</h3>
+<p>在C++11以前，初始化存在一系列问题，包括：<br />
+4种初始化方式：X t1 = v;、X t2(v);、X t3 = { v };、X t4 = X(v);；</p>
+<p>C++ 11努力创造一个统一的初始化方式。其语法是使用{}和std::initializer_list<br />
+列表初始化分为两类：直接初始化与拷贝初始化。</p>
+<p>原理<br />
+针对形如"{ 1, 2, 3 }"的参数列表,系统会首先自动调用参数初始化(value initialization)，将其转换成一个std::initializer_list<br />
+使用std::initializer_list对象来初始化std::vector类的构造函数</p>
+<p>一些例子：</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true"></a><span class="dt">int</span> x = <span class="dv">10</span>; <span class="co">// 使用传统初始化方式</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true"></a><span class="dt">int</span> y{<span class="dv">20</span>};  <span class="co">// 使用统一初始化语法</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true"></a><span class="kw">struct</span> Point {</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true"></a>    <span class="dt">int</span> x;</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true"></a>    <span class="dt">int</span> y;</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true"></a>};</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true"></a></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true"></a>Point p = {<span class="dv">2</span>, <span class="dv">3</span>}; <span class="co">// 聚合类型初始化</span></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true"></a>Point q{<span class="dv">4</span>, <span class="dv">5</span>};    <span class="co">// 统一初始化语法</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true"></a></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true"></a><span class="bu">std::</span>vector&lt;<span class="dt">int</span>&gt; nums = {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}; <span class="co">// 使用统一初始化初始化容器</span></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true"></a><span class="bu">std::</span>vector&lt;<span class="dt">int</span>&gt; nums{<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}; <span class="co">// 使用统一初始化初始化容器</span></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true"></a></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true"></a><span class="bu">std::</span>string str{<span class="st">&quot;Hello, World!&quot;</span>};  <span class="co">// 使用统一初始化初始化字符串</span></span></code></pre></div>
+<h2 id="委托构造">委托构造</h2>
+<p>在 C++11 里，你就可以使用“委托构造”的新特性，一个构造函数直接调用另一个构造函数，把构造工作“委托”出去，既简单又高效</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true"></a><span class="kw">class</span> MyClass {</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true"></a>    <span class="co">// 委托构造函数,调用本类的两个参数的构造函数</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true"></a>    MyClass() : MyClass(<span class="dv">0</span>, <span class="dv">0</span>) {</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Default constructor&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true"></a>    }</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true"></a>    <span class="co">// 委托构造函数,调用本类的两个参数的构造函数</span></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true"></a>    MyClass(<span class="dt">int</span> value) : MyClass(value, <span class="dv">0</span>) {</span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Single-argument constructor&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true"></a>    }</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true"></a></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true"></a>    MyClass(<span class="dt">int</span> value1, <span class="dt">int</span> value2) : memberValue1(value1), memberValue2(value2) {</span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Two-argument constructor&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true"></a>    }</span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true"></a></span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true"></a>    <span class="dt">void</span> PrintValues() {</span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Values: &quot;</span> &lt;&lt; memberValue1 &lt;&lt; <span class="st">&quot;, &quot;</span> &lt;&lt; memberValue2 &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true"></a>    }</span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true"></a></span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true"></a>    <span class="dt">int</span> memberValue1;</span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true"></a>    <span class="dt">int</span> memberValue2;</span>
+<span id="cb45-25"><a href="#cb45-25" aria-hidden="true"></a>};</span></code></pre></div>
+<h2 id="构造函数继承">构造函数继承</h2>
+<p>书写多个派生类构造函数<strong>只为传递参数完成基类初始化</strong>，这种方式无疑给开发人员带来麻烦，降低了编码效率。从 C++11 开始，推出了继承构造函数（Inheriting Constructor），使用 using 来声明继承基类的构造函数，我们可以这样书写。</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true"></a>class Base {</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true"></a>public:</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true"></a>    Base(<span class="dt">int</span> value) : baseValue(value) {}</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true"></a>    <span class="dt">void</span> showValue() {</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true"></a>        std::cout &lt;&lt; <span class="st">&quot;Base value: &quot;</span> &lt;&lt; baseValue &lt;&lt; std::endl;</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true"></a>    }</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true"></a>private:</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true"></a>    <span class="dt">int</span> baseValue;</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true"></a>};</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true"></a></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true"></a>class Derived : public Base {</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true"></a>public:</span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true"></a>    using Base::Base; <span class="co">// 继承基类的构造函数</span></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true"></a>    <span class="dt">void</span> showDerivedValue() {</span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true"></a>        std::cout &lt;&lt; <span class="st">&quot;Derived value: &quot;</span> &lt;&lt; baseValue * <span class="dv">2</span> &lt;&lt; std::endl;</span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true"></a>    }</span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true"></a>};</span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true"></a></span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true"></a>    Derived derivedObj(<span class="dv">5</span>);</span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true"></a>    derivedObj.showValue();         <span class="co">// 调用基类的成员函数</span></span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true"></a>    derivedObj.showDerivedValue();  <span class="co">// 调用派生类的成员函数</span></span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true"></a></span>
+<span id="cb46-24"><a href="#cb46-24" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb46-25"><a href="#cb46-25" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="类型别名type-alias">类型别名（Type Alias）</h2>
+<p>在写类的时候，我们经常会用到很多外部类型，比如标准库里的 string、vector，还有其他的第三方库和自定义类型。这些名字通常都很长（特别是带上名字空间、模板参数），书写起来很不方便，这个时候我们就可以在类里面用 using 给它们起别名，不仅简化了名字，同时还能增强可读性。</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true"></a>using <span class="dt">uint_t</span> = unsigned int; <span class="co">// using别名</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true"></a>typedef unsigned int <span class="dt">uint_t</span>； <span class="co">// 等价的typedef</span></span></code></pre></div>
+<h2 id="autodecltype">auto、decltype</h2>
+<p>变量的类型名特别长，使用 auto 就会很方便<br />
+有时我们希望从<strong>变量或表达式</strong>推断出要定义的变量类型,decltype 关键字可以用于求表达式的类型</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true"></a>int i;</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true"></a>double t;</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true"></a>struct A { double x; };</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true"></a>const A* a = new A();</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true"></a><span class="kw">decltype</span>(a) x1; <span class="co">//x1 是 A*</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true"></a><span class="kw">decltype</span>(i) x2; <span class="co">//x2 是 int</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true"></a><span class="kw">decltype</span>(a-&gt;x) x3; <span class="co">// x3 是 double</span></span></code></pre></div>
+<h2 id="stdtie">std::tie</h2>
+<p>1.创建包含变量引用的tuple 2.对tuple解构</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true"></a><span class="co">// std::tie 返回一个元组，其中包含了从输入参数中提取的元素的**引用**</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true"></a><span class="co">// std::tie 用于引入字典序比较到结构体</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true"></a>struct S {</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true"></a>    int n;</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true"></a>    <span class="bu">std::</span>string s;</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true"></a>    float d;</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true"></a>    bool <span class="kw">operator</span>&lt;(const S&amp; rhs) const {</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true"></a>        <span class="co">// 比较 n 与 rhs.n,</span></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true"></a>        <span class="co">// 而后为 s 与 rhs.s,</span></span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true"></a>        <span class="co">// 而后为 d 与 rhs.d</span></span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true"></a>        return <span class="bu">std::</span>tie(n, s, d) &lt; <span class="bu">std::</span>tie(rhs.n, rhs.s, rhs.d);</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true"></a>    }</span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true"></a>};</span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true"></a></span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true"></a><span class="co">// 通过tie将tuple中的元素解构至多个变量中  </span></span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true"></a>auto student = <span class="bu">std::</span>make_tuple(<span class="fl">3.8</span>, <span class="ch">&#39;A&#39;</span>, <span class="st">&quot;Lisa Simpson&quot;</span>);</span>
+<span id="cb49-17"><a href="#cb49-17" aria-hidden="true"></a>double gpa1;</span>
+<span id="cb49-18"><a href="#cb49-18" aria-hidden="true"></a>char grade1;</span>
+<span id="cb49-19"><a href="#cb49-19" aria-hidden="true"></a><span class="bu">std::</span>string name1;</span>
+<span id="cb49-20"><a href="#cb49-20" aria-hidden="true"></a><span class="bu">std::</span>tie(gpa1, grade1, name1) = student;</span></code></pre></div>
+<p>std::tie 可用于解包 std::pair ，因为 std::tuple 拥有从 pair 的转换赋值</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true"></a>bool result;</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true"></a><span class="bu">std::</span>tie(<span class="bu">std::</span>ignore, result) = set.insert(value);</span></code></pre></div>
+<p>实现原理</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true"></a><span class="kw">template</span> &lt;<span class="kw">typename</span>... Types&gt;</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true"></a><span class="bu">std::</span>tuple&lt;Types&amp;...&gt; tie(Types&amp;... args) {</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true"></a>    <span class="cf">return</span> <span class="bu">std::</span>tuple&lt;Types&amp;...&gt;(args...);</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true"></a>}</span></code></pre></div>
+<ol>
+<li><code>tie</code> 函数使用了变长模板参数（variadic templates），这使得它可以接受任意数量的输入参数。</li>
+<li>使用模板参数展开和递归技术，<code>std::tuple&lt;Types&amp;...&gt;(args...)</code> 构造了一个元组，其中的每个元素都是输入参数的引用。</li>
+<li>这种方式确保了返回的元组中的每个元素都绑定到了对应输入参数的引用。</li>
+</ol>
+<h2 id="stdvariant17">std::variant(17)</h2>
+<p>c++17中引入了std::variant。std::variant类似union</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true"></a>using IntFloatString = <span class="bu">std::</span>variant&lt;<span class="dt">int</span>, float, <span class="bu">std::</span>string&gt;; <span class="co">// 定义支持int、float、string三个类型，并取一个别名</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true"></a><span class="co">//初始化一个variant</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true"></a>TEST_F(InitVariant) {</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true"></a></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true"></a>    IntFloatString i = <span class="dv">10</span>;</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true"></a>    ASSERT_EQ(<span class="dv">10</span>, <span class="bu">std::</span>get&lt;<span class="dt">int</span>&gt;(i) );</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true"></a>    ASSERT_EQ(<span class="dv">10</span>, <span class="bu">std::</span>get&lt;<span class="dv">0</span>&gt;(i) );</span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; i.index(); <span class="co">// prints   0，  即第几个位置设置了值</span></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true"></a></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true"></a>    IntFloatString f = <span class="fl">20.0</span><span class="bu">f</span>;</span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true"></a>    ASSERT_EQ(<span class="fl">20.0</span><span class="bu">f</span>, <span class="bu">std::</span>get&lt;<span class="dt">float</span>&gt;(f) );</span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true"></a></span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true"></a>    IntFloatString s = <span class="st">&quot;hello world&quot;</span>;</span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true"></a>    ASSERT_EQ(<span class="st">&quot;hello world&quot;</span>, <span class="bu">std::</span>get&lt;<span class="bu">std::</span>string&gt;(s));</span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="string_view17">string_view(17)</h2>
+<div class="sourceCode" id="cb53"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true"></a><span class="co">//before</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true"></a><span class="dt">void</span> isKeyword(<span class="at">const</span> <span class="bu">std::</span>string &amp; lit){</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true"></a>    work();</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true"></a>}</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true"></a><span class="co">//after</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true"></a><span class="dt">void</span> isKeyword(<span class="bu">std::</span>string_view lit){</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true"></a>    work();</span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true"></a>}</span></code></pre></div>
+<p>string存在的问题:<br />
+1. 使用std::string的接口，字符串字面值、字符数组、字符串指针的传递仍要数据拷贝<br />
+2. substr O(n)复杂度</p>
+<p><code>string_view</code>是c++17标准库提供的一个类，它提供一个字符串的视图，即可以通过这个类以各种方法“观测”字符串，但<strong>不允许修改</strong>字符串。它内部只保存<strong>一个指针</strong>和<strong>长度</strong>，无论是拷贝，还是修改，都非常廉价<br />
+<strong>构造</strong>和<strong>求substr</strong>都是O(1)的复杂度。</p>
+<p>std的string的构造不可避免的会设计内存分配和拷贝。而string_view只是一个字符串的视图，构造函数可以避免拷贝，做到O(1)复杂度。</p>
+<p>更改视图的大小<br />
+类中提供了两个函数<code>remove_suffix</code>（从后面缩减大小）和<code>remove_prefix</code>（从前方缩减大小），可以缩减视图的大小。</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true"></a>string_view sv(<span class="st">&quot;123456789&quot;</span>);</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true"></a>sv.remove_suffix(<span class="dv">1</span>);    <span class="co">// 现在sv中为：12345678, sv的大小为8</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true"></a>sv.remove_prefix(<span class="dv">2</span>);    <span class="co">// 现在sv中为: 345678, sv的大小为6</span></span></code></pre></div>
+<p>当然他还提供了其他的一些string具有的方法，方便对原始的字符串进行操作。</p>
+<p><strong>注意点：</strong><br />
+1. 因为string_view并不拷贝内存，所以要特别注意它所指向的<strong>字符串的生命周期</strong>。string_view指向的字符串，不能再string_view死亡之前被回收。这跟悬挂指针(dangling pointer)或悬挂引用（dangling references）很像<br />
+比如：</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true"></a>string_view foo() {</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true"></a>    <span class="bu">std::</span>string s{<span class="st">&quot;hello world&quot;</span>};</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true"></a>    return string_view{s};</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>推荐的使用方式</strong>：仅仅<strong>作为函数参数</strong>，因为如果该参数仅仅在函数体内使用而不传递出去，这样使用是安全的。这样使用，函数的参数可以接收字符串字面值、字符数组、字符串指针、std::string，而不用拷贝</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true"></a><span class="dt">void</span> printLength(<span class="bu">std::</span>string_view sv) {</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Length of string: &quot;</span> &lt;&lt; sv.length() &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true"></a>}</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true"></a></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true"></a>    <span class="bu">std::</span>string s1 = <span class="st">&quot;Hello, world!&quot;</span>;</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true"></a>    <span class="dt">char</span> s2[] = <span class="st">&quot;C++ is great!&quot;</span>;</span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true"></a>    <span class="at">const</span> <span class="dt">char</span>* s3 = <span class="st">&quot;Programming is fun!&quot;</span>;</span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true"></a></span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true"></a>    <span class="co">// 传递不同类型的字符串给 printLength 函数</span></span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true"></a>    printLength(s1);  <span class="co">// 使用 std::string</span></span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true"></a>    printLength(s2);  <span class="co">// 使用字符数组</span></span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true"></a>    printLength(s3);  <span class="co">// 使用字符串指针</span></span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true"></a>    printLength(<span class="st">&quot;Short&quot;</span>);  <span class="co">// 使用字符串字面值</span></span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true"></a></span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="ifswitch-初始化语句">if/switch 初始化语句</h2>
+<div class="sourceCode" id="cb57"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true"></a><span class="co">//before</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true"></a><span class="kw">auto</span>*tmp = parseExpression();</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true"></a><span class="cf">if</span>(tmp!=<span class="kw">nullptr</span>){</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true"></a>    work();</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true"></a>}</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true"></a><span class="co">//after   </span></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true"></a> <span class="cf">if</span> (<span class="kw">auto</span>* tmp = parseExpression(); tmp != <span class="kw">nullptr</span>) {</span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true"></a>    work();</span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="结构化绑定">结构化绑定</h2>
+<div class="sourceCode" id="cb58"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true"></a><span class="bu">std::</span>tuple&lt;<span class="dt">int</span>,string&gt; nextToken(){</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true"></a>    <span class="cf">return</span> {<span class="dv">4</span>,<span class="st">&quot;fallthrough&quot;</span>};</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true"></a>}</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true"></a></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true"></a><span class="co">//before</span></span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true"></a>    <span class="kw">auto</span> token = nextToken();</span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true"></a>    <span class="bu">std::</span>cout&lt;&lt;<span class="bu">std::</span>get&lt;<span class="dt">int</span>&gt;(token)&lt;&lt;<span class="st">&quot;,&quot;</span>&lt;&lt;<span class="bu">std::</span>get&lt;<span class="bu">std::</span>string&gt;(token);</span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true"></a>}</span>
+<span id="cb58-11"><a href="#cb58-11" aria-hidden="true"></a><span class="co">//after</span></span>
+<span id="cb58-12"><a href="#cb58-12" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb58-13"><a href="#cb58-13" aria-hidden="true"></a>    <span class="kw">auto</span>[tokenType,lexeme] = nextToken();</span>
+<span id="cb58-14"><a href="#cb58-14" aria-hidden="true"></a>    <span class="bu">std::</span>cout&lt;&lt;tokenType&lt;&lt;<span class="st">&quot;,&quot;</span>&lt;&lt;lexeme;</span>
+<span id="cb58-15"><a href="#cb58-15" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb58-16"><a href="#cb58-16" aria-hidden="true"></a>}</span></code></pre></div>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

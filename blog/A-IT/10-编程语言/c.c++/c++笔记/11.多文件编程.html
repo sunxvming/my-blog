@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/11.多文件编程</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#如何防止头文件被重复引入">如何防止头文件被重复引入</a></li>
+<li><a href="#命名空间在多文件编程中的使用">命名空间在多文件编程中的使用</a></li>
+<li><a href="#带有命名空间的类的前置声明">带有命名空间的类的前置声明</a></li>
+<li><a href="#c-const常量如何在多文件编程中使用">C++ const常量如何在多文件编程中使用？</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="如何防止头文件被重复引入">如何防止头文件被重复引入</h2>
+<p>防止头文件被重复引入<br />
+* 1) 使用宏定义避免重复引入</p>
+<pre><code>#ifndef _NAME_H
+#define _NAME_H
+//头文件内容
+#endif</code></pre>
+<ul>
+<li><p>2) 使用#pragma once避免重复引入<br />
+几乎所有常见的编译器都支持<code>#pragma once</code> 指令</p></li>
+<li><p>3) 使用_Pragma操作符<br />
+C99 标准中新增加了一个和 <code>#pragma</code> 指令类似的 <code>_Pragma("once")</code>，其可以看做是 <code>#pragma</code> 的增强版，不仅可以实现 <code>#pragma</code> 所有的功能，更重要的是，<code>_Pragma</code> 还能和宏搭配使用。</p></li>
+</ul>
+<h2 id="命名空间在多文件编程中的使用">命名空间在多文件编程中的使用</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">//student_li.h</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="pp">#ifndef _STUDENT_LI_H</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="pp">#define _STUDENT_LI_H</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">namespace</span> Li {  <span class="co">//小李的变量定义</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>    <span class="kw">class</span> Student {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>        <span class="dt">void</span> display();</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>    };</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>}</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="pp">#endif</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="co">//student_li.cpp</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;student_li.h&quot;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a><span class="dt">void</span> Li::Student::display() {</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Li::display&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>}</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a><span class="co">//student_han.h</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a><span class="pp">#ifndef _STUDENT_HAN_H</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a><span class="pp">#define _STUDENT_HAN_H</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a><span class="kw">namespace</span> Han {     <span class="co">//小韩的变量定义</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a>    <span class="kw">class</span> Student {</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true"></a>        <span class="dt">void</span> display();</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true"></a>    };</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true"></a>}</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true"></a><span class="pp">#endif</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true"></a><span class="co">//student_han.cpp</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;student_han.h&quot;</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true"></a><span class="dt">void</span> Han::Student::display() {</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;han::display&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true"></a>}</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true"></a><span class="co">//main.cpp</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;student_han.h&quot;</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;student_li.h&quot;</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true"></a>    Li::Student stu1;</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true"></a>    stu1.display();</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true"></a>    Han::Student stu2;</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true"></a>    stu2.display();</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="带有命名空间的类的前置声明">带有命名空间的类的前置声明</h2>
+<p>SpaceA.h</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">pragma once</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>namespace TestA {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>    class SpaceA {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>        SpaceA();</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>        ~SpaceA();</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>        void print();</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>    };</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>}</span></code></pre></div>
+<p>SpaceB.h</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co">//在使用之前声明一下</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>namespace TestA {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>    class SpaceA;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>}</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>namespace TestB {</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>    class SpaceB {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>        SpaceB();</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>        ~SpaceB();</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>        void printB();</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a>    <span class="kw">private</span>:</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a>        TestA::SpaceA* a;<span class="co">//使用的时候，必须加上命名空间</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a>    };</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="c-const常量如何在多文件编程中使用">C++ const常量如何在多文件编程中使用？</h2>
+<p>1) 将const常量定义在.h头文件中</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co">//demo.h</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="pp">#ifndef _DEMO_H</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="pp">#define _DEMO_H</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="dt">const</span> <span class="dt">int</span> num = <span class="dv">10</span>;</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a><span class="pp">#endif</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a><span class="co">//main.cpp</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;demo.h&quot;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>    std::cout &lt;&lt; num &lt;&lt; std::endl;</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>}</span></code></pre></div>
+<p>2) 借助extern先声明再定义const常量</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co">//demo.h</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="pp">#ifndef _DEMO_H</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="pp">#define _DEMO_H</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="kw">extern</span> <span class="dt">const</span> <span class="dt">int</span> num;  <span class="co">//声明 const 常量</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="pp">#endif</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a><span class="co">//demo.cpp</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;demo.h&quot;</span><span class="pp">   </span><span class="co">//一定要引入该头文件</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a><span class="dt">const</span> <span class="dt">int</span> num =<span class="dv">10</span>;  <span class="co">//定义 .h 文件中声明的 num 常量</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a><span class="co">//main.cpp</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;demo.h&quot;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>    std::cout &lt;&lt; num &lt;&lt; std::endl;</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a>}</span></code></pre></div>
+<p>3) 借助extern直接定义const常量</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co">//demo.cpp</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="kw">extern</span> <span class="dt">const</span> <span class="dt">int</span> num =<span class="dv">10</span>;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="co">//main.cpp</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a><span class="kw">extern</span> <span class="dt">const</span> <span class="dt">int</span> num;</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>    std::cout &lt;&lt; num &lt;&lt; std::endl;</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a>}</span></code></pre></div>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

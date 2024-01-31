@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/game/rise/项目基础</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#开发环境配置">开发环境配置</a></li>
+<li><a href="#目录说明">目录说明</a></li>
+<li><a href="#基本概念">基本概念</a>
+<ul>
+<li><a href="#场景文件">场景文件</a></li>
+<li><a href="#游戏对象game-objects">游戏对象（Game Objects）</a></li>
+<li><a href="#组件components">组件（Components）</a></li>
+</ul></li>
+<li><a href="#unity运行过程">unity运行过程</a>
+<ul>
+<li><a href="#c语言">c#语言</a></li>
+<li><a href="#c语言托管环境">c#语言托管环境</a></li>
+<li><a href="#unity引擎架构">unity引擎架构</a></li>
+<li><a href="#c-脚本在unity的编译过程">C# 脚本在unity的编译过程</a></li>
+<li><a href="#unity的运行">unity的运行</a>
+<ul>
+<li><a href="#编辑与配置阶段">编辑与配置阶段：</a></li>
+<li><a href="#运行阶段">运行阶段：</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="开发环境配置">开发环境配置</h2>
+<ol>
+<li>下载Unity Hub，设置中添加Licenses，个人开发就添加个人版的Licenses</li>
+<li>下载Unity Editor, 版本为2022.3.16f1， 并在Unity Hub中添加Editor，当然也可以在Unity Hub中下载Editor</li>
+<li>在Unity Hub中添加游戏工程</li>
+<li>在Unity Editor的Project面板中，打开<code>Assets/Scenes</code>目录下的game.unity场景文件，此文件是游戏的入口文件</li>
+</ol>
+<h2 id="目录说明">目录说明</h2>
+<p><code>Assets\SceneScript</code>, 场景里面用到的脚本文件，比如：水特效的、例子特效的</p>
+<h2 id="基本概念">基本概念</h2>
+<h3 id="场景文件">场景文件</h3>
+<p><code>.unity</code>后缀，场景是游戏内容的承载体</p>
+<h3 id="游戏对象game-objects">游戏对象（Game Objects）</h3>
+<p>游戏对象（Game Objects）是构成游戏世界的基本元素之一。它们是组成场景的实体，可以代表角色、物体、相机、灯光等可见或不可见的元素。</p>
+<p>游戏对象本身并没有可见的形状或图像，它们是一种容器，可以包含各种组件（Components）来定义其行为、外观和功能。游戏对象是通过添加不同的组件来定义其属性和行为的，例如 Transform 组件控制位置、旋转和缩放，而 Mesh Renderer 组件控制渲染模型，Collider 组件用于碰撞检测等等。</p>
+<p>Unity 的游戏对象是一种通用的容器，可以根据不同的需求添加、移除和组合不同的组件，从而实现各种各样的游戏逻辑和功能。</p>
+<h3 id="组件components">组件（Components）</h3>
+<p>组件（Components）是附加到游戏对象（Game Objects）上的模块化功能单元，用于定义游戏对象的行为、特性和功能。通过将不同的组件附加到游戏对象上，可以为它们赋予各种不同的特性和行为。</p>
+<p>常用的 Unity 组件：</p>
+<ol>
+<li><strong>Transform 组件：</strong>
+<ul>
+<li>控制游戏对象的位置、旋转和缩放。</li>
+</ul></li>
+<li><strong>Renderer 组件：</strong>
+<ul>
+<li>包括 Mesh Renderer（用于渲染3D模型）、Sprite Renderer（用于渲染2D精灵）等，用于渲染游戏对象。</li>
+</ul></li>
+<li><strong>Collider 组件：</strong>
+<ul>
+<li>用于碰撞检测，包括 Box Collider、Sphere Collider、Mesh Collider 等。</li>
+</ul></li>
+<li><strong>Rigidbody 组件：</strong>
+<ul>
+<li>使游戏对象具有物理属性，可以通过物理引擎进行运动和碰撞计算。</li>
+</ul></li>
+<li><strong>Script 组件：</strong>
+<ul>
+<li>允许附加脚本（例如 C# 或者 UnityScript/JavaScript）到游戏对象，从而为其<strong>添加自定义的逻辑和行为</strong>。</li>
+</ul></li>
+<li><strong>Animator 组件：</strong>
+<ul>
+<li>用于控制角色和物体的动画，通常与动画控制器（Animator Controller）配合使用。</li>
+</ul></li>
+<li><strong>Audio Source 组件：</strong>
+<ul>
+<li>控制游戏对象的声音播放。</li>
+</ul></li>
+<li><strong>Particle System 组件：</strong>
+<ul>
+<li>用于创建粒子效果，例如火焰、爆炸、烟雾等特效。</li>
+</ul></li>
+<li><strong>Camera 组件：</strong>
+<ul>
+<li>定义游戏世界的视图和投影方式，控制场景的可视化。</li>
+</ul></li>
+<li><strong>Light 组件：</strong>
+<ul>
+<li><p>控制光源，包括 Directional Light（平行光）、Point Light（点光源）、Spotlight（聚光灯）等，用于场景的照明。</p>
+<h3 id="预制体prefab">预制体（prefab）</h3>
+<p><code>.prefab</code>后缀，是一种预制资源，它允许你保存游戏对象及其相关组件、属性和设置，并在项目中重复使用。</p></li>
+</ul></li>
+</ol>
+<p>将游戏对象转换为 Prefab：<br />
+1. 在场景中选择你想要转换为 Prefab 的游戏对象。<br />
+2. 将其拖拽到项目视图中（Project 视图）中，这样就在项目文件夹中创建了一个 Prefab。</p>
+<p><strong>使用 Prefab：</strong><br />
+一旦创建了 Prefab，你可以在项目中的任何地方使用它：<br />
+- 将 Prefab 拖拽到场景中创建一个新的实例。<br />
+- 在脚本中使用 Instantiate 方法动态地生成 Prefab 的实例。</p>
+<h2 id="unity运行过程">unity运行过程</h2>
+<h3 id="c语言">c#语言</h3>
+<ul>
+<li>C#是一种托管语言(在运行时依赖特定的运行时环境或虚拟机)，依赖于.NET Framework或.NET Core运行时环境。</li>
+<li>C#源代码需要通过编译器转换为中间语言（IL，Intermediate Language）或者通常称为“字节码”。这个中间语言被存储在扩展名为.dll（动态链接库）或者.exe（可执行文件）的文件中。</li>
+<li>C#编译出来的.dll和exe需要托管环境才能运行。而C++编译出来的.dll和.exe是直接编译成机器码，与特定的平台和编译器有关。</li>
+<li>中间代码最终在运行时通过.NET Framework或.NET Core的运行时环境（Common Language Runtime，CLR）被转换为机器码，然后才能被计算机执行。</li>
+</ul>
+<h3 id="c语言托管环境">c#语言托管环境</h3>
+<ul>
+<li><strong>.NET Framework</strong>，是最早引入的托管环境，它为Windows平台提供了强大的框架和类库，支持开发桌面应用、Web应用、服务端应用等</li>
+<li><strong>.NET Core</strong>，.NET Framework的跨平台版本，它可以在Windows、Linux和macOS等多种操作系统上运行。.NET Core更轻量、更快速，并且包含了一些现代化的特性。</li>
+<li><strong>Mono</strong>， 知名的开源托管环境，它允许在各种平台上运行C#代码，包括Windows、Linux、macOS等</li>
+</ul>
+<h3 id="unity引擎架构">unity引擎架构</h3>
+<p>Unity 游戏引擎是用 C++ 和 C# 以及一些其他语言开发的。主要的引擎代码和底层系统是用 C++ 编写的，而编辑器和一些高级功能是用 C# 编写的。</p>
+<ol>
+<li><strong>底层引擎：</strong>
+<ul>
+<li>Unity 的底层引擎和核心系统，包括了渲染引擎、物理引擎、资源管理、输入系统等，大部分是用 C++ 实现的。这些底层系统负责处理渲染、性能优化、内存管理等任务。</li>
+</ul></li>
+<li><strong>Mono（现在为IL2CPP）：</strong>
+<ul>
+<li>Unity 的脚本运行时是基于 Mono（现在逐渐过渡到 IL2CPP）的，它是一个用于在运行时执行 C# 代码的虚拟机。这个部分主要负责管理和执行 C# 脚本代码。</li>
+</ul></li>
+<li><strong>编辑器和高级功能：</strong>
+<ul>
+<li>Unity 编辑器和一些高级功能是用 C# 编写的。编辑器提供了可视化界面，允许开发者进行场景构建、资源管理、游戏对象设置等操作。</li>
+</ul></li>
+</ol>
+<p><strong>IL2CPP</strong> 首先将 C# 脚本代码编译成中间语言（Intermediate Language，IL），这是 .NET 平台通用的中间码。然后 IL2CPP 将 IL 代码转换为 C++ 代码，包括了类型信息、虚函数表等，最后将这些 C++ 代码编译为目标平台的本地机器码，如 x86、ARM 或者其他架构的机器码。</p>
+<p>IL2CPP 的工作流程使得游戏可以在不同平台上运行，而不必依赖于特定的 .NET 运行时，同时也提供了更好的性能和更高的代码安全性。</p>
+<h3 id="c-脚本在unity的编译过程">C# 脚本在unity的编译过程</h3>
+<ol>
+<li><strong>编写脚本</strong>，开发者将编写好的脚本保存到 Unity 项目中的特定目录下，例如 <code>Assets/Scripts</code> 文件夹</li>
+<li><strong>Unity 编辑器编译</strong>，Unity 编辑器会监测项目中的脚本文件变化，并在需要时触发 C# 编译器（通常是 Mono 或者 Roslyn）编译这些脚本。编译过程会生成对应的 DLL 文件，包含了编译后的 C# 代码</li>
+<li><strong>生成 Meta 文件：</strong>，每个脚本文件都有一个对应的 <code>.meta</code> 文件，用于存储该脚本在 Unity 中的设置、引用和相关信息。这个文件与脚本文件一同保存在项目中</li>
+<li><strong>加载 DLL 文件：</strong>，当 Unity 运行时，它会加载先前编译生成的 DLL 文件，这些文件包含了编译后的 C# 代码。</li>
+<li><strong>解析脚本组件：</strong>，Unity 会根据场景中游戏对象上所附加的脚本组件，查找并读取相应的 DLL 文件，并在需要时实例化相关的 C# 类和对象。</li>
+<li><strong>运行脚本：</strong>，当游戏运行时，Unity 会根据脚本组件的定义执行相应的 C# 代码逻辑。这些脚本可能包含着游戏对象的行为、控制、交互逻辑等等。</li>
+</ol>
+<p>编译后的文件放在：<code>Library\ScriptAssemblies</code>目录中， 下面是各个名字的含义：</p>
+<table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 17%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Phase</th>
+<th>Assembly name</th>
+<th>Script files</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Assembly-CSharp-firstpass</td>
+<td>Runtime scripts in folders called Standard Assets, Pro Standard Assets and Plugins.</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Assembly-CSharp-Editor-firstpass</td>
+<td>Editor scripts in folders called Editor that are anywhere inside top-level folders called Standard Assets, Pro Standard Assets and Plugins.</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Assembly-CSharp</td>
+<td>All other scripts that are not inside a folder called Editor.</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Assembly-CSharp-Editor</td>
+<td>All remaining scripts (those that are inside a folder called Editor).</td>
+</tr>
+</tbody>
+</table>
+<p>Unity 引擎在处理和管理项目时，会生成一些额外的目录和文件。<code>Library</code> 目录是其中一个，其中包含了项目的一些缓存和中间文件。在 <code>Library</code> 目录下，<code>ScriptAssemblies</code> 和 <code>UnityAssemblies</code> 目录都是与编译和脚本相关的。<br />
+1. <strong>ScriptAssemblies 目录：</strong><br />
+- <code>ScriptAssemblies</code> 目录存储了项目的脚本编译后的程序集文件。在 Unity 中，编译器将脚本编译成 IL（Intermediate Language），然后通过脚本后端（Scripting Backend）编译成特定平台的机器码。这些编译后的程序集文件（Assembly）被存储在 <code>ScriptAssemblies</code> 目录中。这些程序集文件包括了项目中的 C#、JavaScript 或 Boo 脚本编译后生成的代码。<br />
+2. <strong>UnityAssemblies 目录：</strong><br />
+- <code>UnityAssemblies</code> 目录包含了 Unity 引擎的一些核心程序集文件。这些程序集文件包含了 Unity 引擎的核心功能和库，它们是 Unity 运行时所需的一部分，用于支持游戏运行和项目的正常运行。这些程序集文件通常是 Unity 引擎的一部分，而不是用户自己编写的脚本。通常是预先编译好的<strong>本地机器码</strong></p>
+<h3 id="unity的运行">unity的运行</h3>
+<h4 id="编辑与配置阶段">编辑与配置阶段：</h4>
+<ol>
+<li><strong>创建项目与场景：</strong>
+<ul>
+<li>开发者使用 Unity 创建项目，包括添加场景、导入资源、编辑场景布局等。</li>
+</ul></li>
+<li><strong>设计与组织游戏对象：</strong>
+<ul>
+<li>在场景中创建游戏对象，并附加所需的组件、脚本、材质等，构建游戏世界。</li>
+</ul></li>
+<li><strong>设置配置与调试：</strong>
+<ul>
+<li>配置摄像机、光照、物理属性、碰撞器等，并在编辑器中进行调试、预览游戏效果。</li>
+</ul></li>
+</ol>
+<h4 id="运行阶段">运行阶段：</h4>
+<ol>
+<li><strong>编译 C# 脚本与资源：</strong>
+<ul>
+<li>Unity 编辑器检测并编译所有脚本和资源文件，生成对应的 DLL 和二进制文件。</li>
+</ul></li>
+<li><strong>启动游戏场景：</strong>
+<ul>
+<li>开发者选择启动的场景并在编辑器中点击运行按钮，Unity 开始加载所选场景。</li>
+</ul></li>
+<li><strong>加载资源与场景：</strong>
+<ul>
+<li>Unity 加载场景所需的资源文件（模型、纹理、声音等），初始化并构建场景中的游戏对象。</li>
+</ul></li>
+<li><strong>执行游戏逻辑与更新循环：</strong>
+<ul>
+<li>Unity 进入主循环，持续执行游戏逻辑和更新。
+<ul>
+<li><strong>输入处理：</strong> 处理玩家输入（键盘、鼠标、触摸等）。</li>
+<li><strong>物理更新：</strong> 更新物理引擎状态，处理碰撞、力学模拟等物理效果。</li>
+<li><strong>脚本执行：</strong> 执行场景中各游戏对象所附加的脚本，运行相应的逻辑。</li>
+<li><strong>渲染：</strong> 渲染引擎根据相机设置，将场景中的对象呈现到屏幕上。</li>
+</ul></li>
+</ul></li>
+<li><strong>循环更新直至结束：</strong>
+<ul>
+<li>游戏循环持续执行，直到游戏结束或者玩家退出。</li>
+</ul></li>
+<li><strong>游戏结束与清理：</strong>
+<ul>
+<li>游戏结束时，Unity 执行清理工作，释放资源并保存必要的数据。</li>
+</ul></li>
+</ol>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

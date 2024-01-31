@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/40-tools/编辑器/obsidian/vscode-editor/README</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#about-the-plugins">About the plugins</a></li>
+<li><a href="#basic-features">Basic features</a></li>
+<li><a href="#how-to-support-different-code-file">How to support different code file</a></li>
+<li><a href="#supported-shortcuts">Supported Shortcuts</a></li>
+<li><a href="#use-screenshot">Use screenshot</a></li>
+<li><a href="#supported-code-block-editing">Supported Code Block Editing</a></li>
+<li><a href="#supported-internal-links-quick-preview">Supported Internal links quick preview</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h1 align="center">Obsidian VSCode Editor</h1>
+<p align="center">
+    <img alt="Release version" src="https://img.shields.io/github/v/release/sunxvming/obsidian-vscode-editor?style=for-the-badge">
+    <img alt="Download count" src="https://img.shields.io/github/downloads/sunxvming/obsidian-vscode-editor/total?style=for-the-badge">
+</p>
+<p align="center">
+    <span>A third-party plug-in of Obsidian that provides viewing and editing functions for files in various code formats</span>
+    <br/>
+    <a href="/README_cn.md">简体中文</a>
+    ·
+    <a href="/README.md">English</a>
+</p>
+<h2 id="about-the-plugins">About the plugins</h2>
+<p>Obsidian by default does not support the viewing and editing of various code files, and Obsidian VSCode Editor was created to solve this problem.</p>
+<p>It is based on <a href="https://microsoft.github.io/monaco-editor/">Monaco Editor</a> (VSCode Editor kernel) development, support for viewing and editing of various code format files, including but not limited to: <code>C</code>, <code>C++</code>, <code>C#</code> , <code>CSS</code>, <code>Go</code>, <code>HTML</code>, <code>Java</code>, <code>JavaScript</code>, <code>JSON</code>, <code>Python</code>, <code>Ruby</code>, <code>Rust</code>, <code>Shell</code>, <code>XML</code>, <code>YAML</code>, <code>ini</code>, etc.</p>
+<p>You no longer have to open another editor just to view or edit a certain code file, everything is done in Obsidian.</p>
+<h2 id="basic-features">Basic features</h2>
+<ul>
+<li>It <strong>does not depend on</strong> any third-party network services and can be used even when not connected to the internet.</li>
+<li>Support for viewing and editing files in various code formats, just like editing code with VSCode.</li>
+<li>Supports customization of the editor's theme colors, including light and dark themes.</li>
+<li>Allows customization of the editor's font size, and provides a shortcut to adjust the font size using <code>Ctrl + mouse wheel</code>.</li>
+<li>Supports editing individual code blocks from any Markdown document.</li>
+<li>Supports Internal links quick preview.</li>
+<li>Supports automatic code wrapping, and toggles it with <code>alt + z</code>.</li>
+<li>Provides the option to show/hide line numbers.</li>
+<li>Offers the choice to display/hide indent guides.</li>
+<li>Allows toggling the display of the code minimap.</li>
+<li>Supports shortcut icon buttons or commands for creating new code files.</li>
+</ul>
+<h2 id="how-to-support-different-code-file">How to support different code file</h2>
+<p>The default support code file's extensions is <code>ts, js, py, css, c, cpp, go, rs, java, lua, php</code>. you can configure for which file extensions to support in the plugin's setting panel.<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231103094237.png" alt="image.png" /></p>
+<h2 id="supported-shortcuts">Supported Shortcuts</h2>
+<p>Most of the shortcuts are consistent with VS Code. Here are some of the supported shortcuts:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ctrl</td>
+<td><code>ctrl + c</code></td>
+<td>Copy</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + x</code></td>
+<td>Cut</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + v</code></td>
+<td>Paste</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + s</code></td>
+<td>Save</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + a</code></td>
+<td>Select All</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + f</code></td>
+<td>Find</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + h</code></td>
+<td>Replace</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + z</code></td>
+<td>Undo</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + y</code></td>
+<td>Redo</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + /</code></td>
+<td>Toggle Comment</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + d</code></td>
+<td>Duplicate Line</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + [</code></td>
+<td>Decrease Indent</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + ]</code></td>
+<td>Increase Indent</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + ↑</code></td>
+<td>Move Line Up</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + ↓</code></td>
+<td>Move Line Down</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + ←</code></td>
+<td>Move Cursor Left by Word</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + →</code></td>
+<td>Move Cursor Right by Word</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + Backspace</code></td>
+<td>Delete Word Left</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + Delete</code></td>
+<td>Delete Word Right</td>
+</tr>
+<tr class="even">
+<td>Ctrl + Shift</td>
+<td><code>ctrl + shift + z</code></td>
+<td>Redo</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + shift + k</code></td>
+<td>Delete Current Line</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + shift + [</code></td>
+<td>Fold Code Block</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + shift + ]</code></td>
+<td>Unfold Code Block</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + shift + enter</code></td>
+<td>Insert Line Above</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + enter</code></td>
+<td>Insert Line Below</td>
+</tr>
+<tr class="even">
+<td>Alt</td>
+<td><code>alt + z</code></td>
+<td>Toggle Word Wrap</td>
+</tr>
+</tbody>
+</table>
+<h2 id="use-screenshot">Use screenshot</h2>
+<ul>
+<li><p><strong>Light color theme</strong><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230921184929.png" alt="image.png" /></p></li>
+<li><p><strong>Dark color theme</strong><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230921184840.png" alt="image.png" /></p></li>
+<li><p><strong>Create code file</strong><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230921185107.png" alt="image.png" /></p></li>
+</ul>
+<h2 id="supported-code-block-editing">Supported Code Block Editing</h2>
+<p>This plugin also supports editing individual code blocks from any Markdown document in the editor.<br />
+You can just right click on any code block and click on "<strong>Edit Code Block in VSCode Editor Plugin</strong>".</p>
+<p>This will open a new modal with a Monaco Editor instance in which you can edit the code block, which will automatically sync back to the block in your document when you close the modal.</p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/GIF%202023-11-3%2010-25-01.gif" alt="" /><figcaption>GIF 2023-11-3 10-25-01.gif</figcaption>
+</figure>
+<h2 id="supported-internal-links-quick-preview">Supported Internal links quick preview</h2>
+<p>You can add a internal link to a code file in obsidian, and hovering the cursor over the link for <strong>quick preview</strong>.<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/GIF%202023-11-2%2019-48-55.gif" alt="GIF 2023-11-2 19-48-55.gif" /></p>
+<p>Code file will not appear in file prompt list when intert Internal links. You need open <code>Detect all file extensions</code> setting.<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231103095138.png" alt="image.png" /></p>
+<h2 id="installation">Installation</h2>
+<p><strong>Installation from Obsidian's community plugins</strong>:<br />
+1. Open Settings &gt; community plugins<br />
+2. Turn off 'Safe mode'<br />
+3. Click 'Browse' button to browse plugins<br />
+4. Search for 'VSCode Editor'<br />
+5. Click 'Install' button<br />
+6. Once installed, close the plugins browse window and go back community plugins window, and activate the newly installed plugin below installed plugins list</p>
+<p><strong>Manual installation</strong>:<br />
+1. Enter the latest version of making download page <a href="https://github.com/sunxvming/obsidian-vscode-editor/releases/latest">latest release</a><br />
+2. Download the <code>obsidian-vscode-editor-x.y.z.zip</code> file, where <code>x.y.z</code> is the version number<br />
+3. Extract obsidian-image-toolkit folder from the zip to your vault's plugins folder <code>&lt;vault&gt;/.obsidian/plugins/</code> (Note: <code>.obsidian</code> folder may be hidden, you need to show it firstly)<br />
+4. Open Settings &gt; community plugins, and reload and activate the plugin below installed plugins list</p>
+<h2 id="contact">Contact</h2>
+<p>If you've got any kind of feedback or questions, feel free to reach out via <a href="https://github.com/sunxvming/obsidian-vscode-editor/issues">GitHub issues</a>.</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

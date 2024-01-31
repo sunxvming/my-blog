@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/4.继承与派生</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#继承和派生简明教程">继承和派生简明教程</a></li>
+<li><a href="#三种继承方式">三种继承方式</a>
+<ul>
+<li><a href="#用using改变访问权限">用using改变访问权限</a></li>
+</ul></li>
+<li><a href="#c继承时的名字遮蔽问题">C++继承时的名字<strong>遮蔽</strong>问题</a></li>
+<li><a href="#类继承时的作用域嵌套破解c继承的一切秘密">类继承时的作用域嵌套，破解C++继承的一切秘密！</a></li>
+<li><a href="#继承时的对象内存模型">继承时的对象内存模型</a></li>
+<li><a href="#基类和派生类的构造函数">基类和派生类的构造函数</a>
+<ul>
+<li><a href="#构造函数的调用顺序">构造函数的调用顺序</a></li>
+<li><a href="#基类构造函数调用规则">基类构造函数调用规则</a></li>
+<li><a href="#c11构造函数继承">c++11构造函数继承</a></li>
+</ul></li>
+<li><a href="#基类和派生类的析构函数">基类和派生类的析构函数</a></li>
+<li><a href="#多继承">多继承</a>
+<ul>
+<li><a href="#多继承下的构造函数">多继承下的构造函数</a></li>
+<li><a href="#多继承的问题命名冲突">多继承的问题：命名冲突</a></li>
+</ul></li>
+<li><a href="#多继承时的对象内存模型">多继承时的对象内存模型</a></li>
+<li><a href="#通过指针访问成员变量">通过指针访问成员变量</a></li>
+<li><a href="#虚继承和虚基类详解">虚继承和虚基类详解</a>
+<ul>
+<li><a href="#虚继承virtual-inheritance">虚继承（Virtual Inheritance）</a></li>
+<li><a href="#虚基类成员的可见性">虚基类成员的可见性</a></li>
+</ul></li>
+<li><a href="#虚继承时的构造函数">虚继承时的构造函数</a></li>
+<li><a href="#虚继承下的内存模型">虚继承下的内存模型</a>
+<ul>
+<li><a href="#虚基类指针方式cfront解决方案">1.虚基类指针方式（cfront解决方案）</a></li>
+<li><a href="#虚基类表方式vc解决方案">2.虚基类表方式（VC解决方案）</a></li>
+</ul></li>
+<li><a href="#将派生类赋值给基类向上转型">将派生类赋值给基类（向上转型）</a>
+<ul>
+<li><a href="#将派生类对象赋值给基类对象">将派生类对象赋值给基类对象</a></li>
+<li><a href="#将派生类指针赋值给基类指针">将派生类指针赋值给基类指针</a></li>
+<li><a href="#将派生类引用赋值给基类引用">将派生类引用赋值给基类引用</a></li>
+</ul></li>
+<li><a href="#将派生类指针赋值给基类指针时到底发生了什么">将派生类指针赋值给基类指针时到底发生了什么？</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="继承和派生简明教程">继承和派生简明教程</h2>
+<p>派生（Derive）和继承（Inheritance）是一个概念，只是站的角度不同。继承是儿子接收父亲的产业，派生是父亲把产业传承给儿子<br />
+<strong>子类和父类</strong>通常放在一起称呼，<strong>基类和派生类</strong>通常放在一起称呼。</p>
+<h2 id="三种继承方式">三种继承方式</h2>
+<p><strong>继承方式默认为 private</strong>（成员变量和成员函数默认也是 private）<br />
+继承方式中的 public、protected、private 是用来指明基类成员在派生类中的<strong>最高访问权限的</strong><br />
+1) public继承方式<br />
+基类中所有 public 成员在派生类中为 public 属性；<br />
+基类中所有 protected 成员在派生类中为 protected 属性；<br />
+基类中所有 private 成员在派生类中<strong>不能使用</strong>。</p>
+<p>2) protected继承方式<br />
+基类中的所有 public 成员在派生类中为 protected 属性；<br />
+基类中的所有 protected 成员在派生类中为 protected 属性；<br />
+基类中的所有 private 成员在派生类中不能使用。</p>
+<p>3) private继承方式<br />
+基类中的所有 public 成员在派生类中均为 private 属性；<br />
+基类中的所有 protected 成员在派生类中均为 private 属性；<br />
+基类中的所有 private 成员在派生类中不能使用。</p>
+<p>其规律是：基类成员在派生类中的访问权限<strong>不得高于继承方式中指定的权限</strong>。</p>
+<p>我们这里说的是基类的 private 成员不能在派生类中使用，并没有说基类的 private 成员不能被继承。实际上，基类的 private 成员是能够被继承的，并且（成员变量）会占用派生类对象的内存，它只是在派生类中不可见，导致无法使用罢了。private 成员的这种特性，能够很好的对派生类隐藏基类的实现，<strong>以体现面向对象的封装性</strong>。<br />
+在派生类中访问基类 private 成员的<strong>唯一方法</strong>就是<strong>借助基类的非 private 成员函数</strong>，如果基类没有非 private 成员函数，那么该成员在派生类中将无法访问。</p>
+<p>由于 private 和 protected 继承方式会改变基类成员在派生类中的访问权限，导致继承关系复杂，所以实际开发中我们一般使用<code>public</code></p>
+<h3 id="用using改变访问权限">用using改变访问权限</h3>
+<p>使用 using 关键字可以<strong>改变基类成员在派生类中的访问权限</strong>，例如将 public 改为 private、将 protected 改为 public。提供一个<strong>细粒度的权限的修改</strong>。<br />
+但是不能改变 <strong>private</strong> 成员的访问权限，因为基类中 private 成员在派生类中是不可见的，根本不能使用。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">//派生类Student, 基类是People</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>class Student : public People {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>public:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    void learning();</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>public:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>    using People::m_name; <span class="co">//将protected改为public</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    using People::m_age; <span class="co">//将protected改为public</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>    float m_score;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>private:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>    using People::show; <span class="co">//将public改为private</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>};</span></code></pre></div>
+<h2 id="c继承时的名字遮蔽问题">C++继承时的名字<strong>遮蔽</strong>问题</h2>
+<p>三个概念：重载、复写、遮蔽<br />
+1. <strong>重载（Overloading）：</strong><br />
+- 重载是指在同一个作用域中可以定义多个同名的成员函数，但这些函数的参数列表必须不同<br />
+2. <strong>覆盖，重写（Overriding）：</strong><br />
+- 覆盖是子类对父类的虚函数重写<br />
+3. <strong>隐藏（Hiding）：</strong><br />
+- 不同作用域内的同名函数是会造成<strong>遮蔽</strong>，使得外层函数无效</p>
+<ul>
+<li>所谓遮蔽，就是在子类和父类<strong>成员重名</strong>,在派生类中使用该成员时，实际上使用的是派生类新增的成员，而不是从基类继承来的，<strong>就像作用域里的遮蔽一样</strong></li>
+<li>基类成员函数和派生类成员函数不构成重载，如果派生类有同名函数(<strong>不管它们的参数是否一样</strong>)，那么就会<strong>遮蔽</strong>基类中的所有同名函数。</li>
+</ul>
+<h2 id="类继承时的作用域嵌套破解c继承的一切秘密">类继承时的作用域嵌套，破解C++继承的一切秘密！</h2>
+<ul>
+<li>当存在继承关系时，派生类的作用域嵌套在基类的作用域之内，如果一个名字在派生类的作用域内无法找到，编译器会<strong>继续到外层</strong>的基类作用域中查找该名字的定义。</li>
+<li>只有<strong>一个作用域内的同名函数才具有重载关系</strong>，不同作用域内的同名函数是会造成<strong>遮蔽</strong>，使得外层函数无效。派生类和基类拥有不同的作用域，所以它们的同名函数不具有重载关系。</li>
+</ul>
+<h2 id="继承时的对象内存模型">继承时的对象内存模型</h2>
+<p>有继承关系时，派生类的内存模型可以看成是基类成员变量和新增成员变量的总和,而所有成员函数仍然存储在另外一个区域——<strong>代码区</strong>，由所有对象共享。<br />
+<strong>成员变量按照派生的层级依次排列，新增成员变量始终在最后</strong>,当基类的成员变量被遮蔽时，仍然会留在派生类对象的内存中<br />
+在派生类的对象模型中，会包含所有基类的成员变量。这种设计方案的优点是<strong>访问效率高</strong>，能够在派生类对象中直接访问基类变量，无需经过好几层间接计算。<br />
+A类的m_b 和 B类的m_c，被C类给遮蔽了。如果访问A类的m_b成员，得加上<strong>作用域符号  A::m_b</strong><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/55933d4c-c91c-4447-988e-12d204e5790f.png" /></p>
+<h2 id="基类和派生类的构造函数">基类和派生类的构造函数</h2>
+<p>在设计派生类时，<strong>对继承过来的成员变量的初始化工作也要由派生类的构造函数完成</strong>，但是大部分基类都有 private 属性的成员变量，它们在派生类中无法访问，更不能使用派生类的构造函数来初始化。<br />
+这种矛盾在C++继承中是普遍存在的，解决这个问题的思路是：<strong>在派生类的构造函数中调用基类的构造函数</strong>。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>Student::Student(char *name, int age, float score): People(name, age), <span class="va">m_score</span>(score){ }</span></code></pre></div>
+<p>派生类构造函数总是先调用<strong>基类</strong>构造函数再执行其他代码（包括参数初始化表以及函数体中的代码）</p>
+<h3 id="构造函数的调用顺序">构造函数的调用顺序</h3>
+<ul>
+<li>会先调用基类构造函数，再调用派生类构造函数</li>
+<li>派生类构造函数中<strong>只能调用直接基类</strong>的构造函数，不能调用间接基类的,这样做是为了<strong>防止构造函数的重复调用</strong></li>
+</ul>
+<h3 id="基类构造函数调用规则">基类构造函数调用规则</h3>
+<p>派生类创建对象时必须要调用基类的构造函数，要不然基类的成员变量的内容将不会被初始化。<br />
+<strong>定义派生类构造函数时最好指明基类构造函数</strong>；如果不指明，就调用基类的默认构造函数（不带参数的构造函数）；<br />
+如果没有默认构造函数，那么编译失败。</p>
+<h3 id="c11构造函数继承">c++11构造函数继承</h3>
+<p>书写多个派生类构造函数<strong>只为传递参数完成基类初始化</strong>，这种方式无疑给开发人员带来麻烦，降低了编码效率。从 C++11 开始，推出了继承构造函数（Inheriting Constructor），使用 using 来声明继承基类的构造函数，我们可以这样书写。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>class Base {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>public:</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>    Base(<span class="dt">int</span> value) : baseValue(value) {}</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>    <span class="dt">void</span> showValue() {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>        std::cout &lt;&lt; <span class="st">&quot;Base value: &quot;</span> &lt;&lt; baseValue &lt;&lt; std::endl;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>    }</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>private:</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>    <span class="dt">int</span> baseValue;</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>};</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>class Derived : public Base {</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>public:</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>    using Base::Base; <span class="co">// 继承基类的构造函数</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>    <span class="dt">void</span> showDerivedValue() {</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>        std::cout &lt;&lt; <span class="st">&quot;Derived value: &quot;</span> &lt;&lt; baseValue * <span class="dv">2</span> &lt;&lt; std::endl;</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>    }</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a>};</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a>    Derived derivedObj(<span class="dv">5</span>);</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true"></a>    derivedObj.showValue();         <span class="co">// 调用基类的成员函数</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true"></a>    derivedObj.showDerivedValue();  <span class="co">// 调用派生类的成员函数</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="基类和派生类的析构函数">基类和派生类的析构函数</h2>
+<ul>
+<li>与构造函数不同的是，在派生类的析构函数中<strong>不用显式地调用基类的析构函数</strong>，因为每个类只有一个析构函数，编译器知道如何选择，无需程序员干涉。所有析构函数都有编译器完成了。</li>
+<li>先执行派生类析构函数，再执行基类析构函数。</li>
+</ul>
+<h2 id="多继承">多继承</h2>
+<p>多继承容易让代码逻辑复杂、思路混乱，一直备受争议，中小型项目中较少使用，后来的 Java、C#、PHP 等干脆取消了多继承。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>class D: public A, private B, protected C{</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    <span class="co">//类D新增加的成员</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="多继承下的构造函数">多继承下的构造函数</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>D(形参列表): A(实参列表), B(实参列表), C(实参列表){</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>    <span class="co">//其他操作</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>}</span></code></pre></div>
+<p>基类构造函数的调用顺序和声明派生类时基类出现的顺序相同</p>
+<h3 id="多继承的问题命名冲突">多继承的问题：命名冲突</h3>
+<p>当两个或多个基类中有同名的成员时，如果直接访问该成员，就会产生命名冲突，编译器不知道使用哪个基类的成员。<br />
+这个时候需要在成员名字前面加上<strong>类名和域解析符<code>::</code></strong>，以显式地指明到底使用哪个类的成员，消除二义性。<br />
+而且会继承下来两份成员变量，占用内存比较大。</p>
+<h2 id="多继承时的对象内存模型">多继承时的对象内存模型</h2>
+<p>基类对象的排列顺序和继承时声明的顺序相同。<br />
+class C: public A, public B{ } 的示意图：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/4ee0fb3d-c2aa-44b8-a21b-dd52a7222f69.png" /></p>
+<h2 id="通过指针访问成员变量">通过指针访问成员变量</h2>
+<p>借助指针突破访问权限的限制，访问private、protected属性的成员变量<br />
+一旦知道了<strong>对象的起始地址</strong>，再加上<strong>偏移量</strong>就能够求得<strong>成员变量的地址</strong>，知道了成员变量的地址和类型，也就能够轻而易举地知道它的值。<br />
+当成员变量的访问权限为 private 时，我们也可以手动转换，只要能正确<strong>计算偏移</strong>即可，这样就突破了访问权限的限制。<br />
+C++ 的成员访问权限<strong>仅仅是语法层面上</strong>的，是指访问权限仅对取成员运算符<code>.</code>和<code>-&gt;</code>起作用，而无法防止直接通过指针来访问。你可以认为这是指针的强大，也可以认为是 C++ 语言设计的瑕疵。</p>
+<h2 id="虚继承和虚基类详解">虚继承和虚基类详解</h2>
+<p>多继承时很容易产生<strong>命名冲突</strong>，即使我们很小心地将所有类中的成员变量和成员函数都命名为不同的名字，命名冲突依然有可能发生，比如典型的是<strong>菱形继承</strong>:A 派生出类 B 和类 C，类 D 继承自类 B 和类 C<br />
+在一个派生类中保留<strong>间接基类的多份同名成员</strong>，虽然可以在不同的成员变量中分别存放不同的数据，但大多数情况下这是多余的：因为保留多份成员变量不仅<strong>占用较多的存储空间</strong>，还容易产生<strong>命名冲突</strong>(为了消除歧义，需要在成员变量前指明它具体来自哪个类和作用域符)。</p>
+<h3 id="虚继承virtual-inheritance">虚继承（Virtual Inheritance）</h3>
+<p>虚继承一般涉及三个类：1.虚基类 2.虚基类的派生类 3.虚基类的派生类的派生类<br />
+为了解决多继承时的命名冲突和冗余数据问题，C++ 提出了<strong>虚继承</strong>，使得在<strong>派生类</strong>中只保留一份<strong>间接基类</strong>的成员<br />
+虚继承的目的是<strong>让某个类做出声明，承诺愿意共享它的基类</strong>（很重要）。其中，这个被共享的基类就称为<strong>虚基类</strong>（Virtual Base Class）<br />
+虚派生只影响从指定了虚基类的派生类中<strong>进一步派生出来的类</strong>，它<strong>不影响派生类本身</strong>。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co">//间接基类A</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>class A{</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>protected:</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>    int m_a;</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>};</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a><span class="co">//直接基类B</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>class B: virtual public A{ <span class="co">//虚继承</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>protected:</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>    int m_b;</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>};</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a><span class="co">//直接基类C</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>class C: virtual public A{ <span class="co">//虚继承</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>protected:</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>    int m_c;</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>};</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a><span class="co">//派生类D</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a>class D: public B, public C{</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true"></a>public:</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true"></a>    void seta(int a){ m_a = a; } <span class="co">//正确</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true"></a>    void setb(int b){ m_b = b; } <span class="co">//正确</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true"></a>    void setc(int c){ m_c = c; } <span class="co">//正确</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true"></a>    void setd(int d){ m_d = d; } <span class="co">//正确</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true"></a>private:</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true"></a>    int m_d;</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true"></a>};</span></code></pre></div>
+<p>C++标准库中的 iostream 类就是一个虚继承的实际应用案例。iostream 从 istream 和 ostream 直接继承而来，而 istream 和 ostream 又都继承自一个共同的名为 base_ios(虚基类) 的类，是典型的菱形继承。此时 istream 和 ostream 必须采用<strong>虚继承</strong>，否则将导致 iostream 类中保留两份 base_ios 类的成员。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/bde45cfd-3bbd-432c-a4c6-a78d58a5e345.png" /></p>
+<h3 id="虚基类成员的可见性">虚基类成员的可见性</h3>
+<p>因为在虚继承的最终派生类中只保留了一份虚基类的成员，所以该成员可以被<strong>直接访问</strong>，不会产生二义性。<br />
+如果继承的层次再多一些，关系更复杂一些，程序员就很容易陷人迷魂阵，程序的编写、调试和维护工作都会变得更加困难，因此我不提倡在程序中使用多继承，只有在比较简单和不易出现二义性的情况或实在必要时才使用多继承，能用单一继承解决的问题就不要使用多继承。</p>
+<h2 id="虚继承时的构造函数">虚继承时的构造函数</h2>
+<p>在虚继承中，虚基类是由最终的<strong>派生类初始化</strong>。<br />
+例子：B C虚继承A，D多继承B C<br />
+C++规定必须由最终的派生类 D 来初始化虚基类 A，直接派生类 B 和 C 对 A 的构造函数的调用是无效的。</p>
+<p>虚继承时构造函数的执行顺序与普通继承时不同：在最终派生类的构造函数调用列表中，不管各个构造函数出现的顺序如何，编译器总是<strong>先调用虚基类的构造函数</strong>，再按照出现的顺序调用其他的构造函数</p>
+<h2 id="虚继承下的内存模型">虚继承下的内存模型</h2>
+<p>编译器在知道对象首地址的情况下，通过计算偏移来存取成员变量。对于普通继承，基类成员变量的偏移是固定的，不会随着继承层级的增加而改变，存取起来非常方便。</p>
+<p>而对于虚继承，恰恰和普通继承相反，大部分编译器会把基类成员变量放在<strong>派生类成员变量的后面</strong>，这样随着继承层级的增加，<strong>基类成员变量的偏移</strong>就会改变，就得通过其他方案来计算偏移量。</p>
+<p>虚继承时的派生类对象被分成了两部分：<br />
+* 偏移量不会随着继承层次的增加而改变，称为<strong>固定部分</strong>；<br />
+* 偏移量会随着继承层次的增加而改变(虚继承，基类成员变量放在派生类成员变量的后面)，称为<strong>共享部分</strong>。</p>
+<p>当要访问对象的成员变量时，需要知道对象的首地址和变量的偏移，对象的首地址很好获得，关键是变量的偏移。<br />
+对于固定部分，偏移是不变的，很好计算；<br />
+而对于共享部分，偏移会随着继承层次的增加而改变，这就需要设计一种方案，在<strong>偏移不断变化的过程中准确地计算偏移</strong>。<br />
+各个编译器正是在设计这一方案时出现了分歧，<strong>不同的编译器</strong>设计了不同的方案来计算<strong>共享部分的偏移</strong>。</p>
+<blockquote>
+<p> 对于虚继承，将派生类分为固定部分和共享部分，并把共享部分放在最后，几乎所有的编译器都在这一点上达成了共识。主要的<strong>分歧就是如何计算共享部分的偏移</strong>，可谓是百花齐放，没有统一标准。</p>
+</blockquote>
+<p><strong>共享部分放在最后原因？</strong></p>
+<ol>
+<li><strong>解决二义性问题：</strong> 在多重继承中，如果派生类通过多个路径继承同一个基类，就会导致二义性，因为同一份基类成员在派生类中存在多次。这使得编译器无法确定应该使用哪个基类成员。通过将共享部分放在派生类对象的最后，可以确保基类对象<strong>只有一份</strong>，从而消除了二义性问题。</li>
+<li><strong>减少空间浪费：</strong> 将共享部分放在派生类对象的最后可以减少内存空间的浪费。由于共享部分只有一份，它不会随着派生类的增加而重复，从而避免了重复存储相同的数据。这在多重继承场景中尤为重要，可以有效减少内存占用。</li>
+<li><strong>统一偏移计算：</strong> 将共享部分放在最后可以统一偏移计算的方法。无论派生类的层级有多深，每个派生类对象的固定部分始终位于相同的位置，而共享部分在固定部分的后面。这简化了偏移计算的逻辑，使得编译器可以更容易地计算访问基类成员的偏移。</li>
+</ol>
+<p>假设 A 是 B 的虚基类，B 又是 C 的虚基类，那么各个对象的内存模型如下图所示：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/bb3bd01f-9663-4470-8d36-5ad48aa451fa.png" /></p>
+<h3 id="虚基类指针方式cfront解决方案">1.虚基类指针方式（cfront解决方案）</h3>
+<p>早期的 cfront 编译器会在派生类对象中安插一些指针，每个指针指向一个虚基类的子对象，要存取继承来的成员变量，可以使用指针间接完成。<br />
+其<strong>实质</strong>是增加一个指向虚基类的指针作为虚派生类的一个成员。<br />
+1. A 是 B 的虚基类<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/7f6b4758-1f76-4b2a-9823-4f18c78e5322.jpg" /></p>
+<p>2. A 是 B 的虚基类，同时 B 也是 C 的虚基类<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/33ed9ae4-b52d-4c5a-9894-07e68dffbb92.jpg" /></p>
+<p>3. 假设 A、B、C、D 类的继承关系为<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/43c10959-4225-4a17-a2e7-6e5c04314513.jpg" /><br />
+内存模型为：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/af9003a9-853c-4fca-bef0-9b8d428ab4d4.jpg" /></p>
+<p>缺点:<br />
+* 随着虚继承层次的增加，访问顶层基类需要的间接转换会越来越多，效率越来越低。<br />
+* 当有多个虚基类时，派生类要为每个虚基类都安插一个指针，会增加对象的体积。</p>
+<h3 id="虚基类表方式vc解决方案">2.虚基类表方式（VC解决方案）</h3>
+<p>VC 引入了<strong>虚基类表</strong>，如果某个派生类有一个或多个虚基类，编译器就会在派生类对象中安插一个指针，指向<strong>虚基类表</strong>。虚基类表其实就是一个数组，数组中的元素存放的是各个虚基类的偏移。<br />
+其<strong>实质</strong>是增加一个指向虚基类的指针的数组(虚基类表)，然后派生类再指向这个虚基类表。<br />
+1. A 是 B 的虚基类<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/10a51de7-d47b-44c5-a658-b46ec4b1c85d.png" /><br />
+2. A 是 B 的虚基类，同时 B 又是 C 的虚基类<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/9e50e19f-de91-4eb5-a525-7e85ffc42966.png" /><br />
+3.  A、B、C、D 类的继承关系为<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/943ea53b-1ca5-4cb0-97e8-8f7eb224d51f.jpg" /><br />
+内存模型为：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/ce32bf55-47eb-44f1-93e2-e7d109356732.jpg" /></p>
+<h2 id="将派生类赋值给基类向上转型">将派生类赋值给基类（向上转型）</h2>
+<p>将派生类对象赋值给基类对象、将派生类指针赋值给基类指针、将派生类引用赋值给基类引用，为<strong>向上转型</strong>（Upcasting）。<br />
+相应地，将基类赋值给派生类称为<strong>向下转型</strong>（Downcasting）。<br />
+向上转型后通过基类的对象、指针、引用只能访问<strong>从基类继承过去的成员</strong>（包括成员变量和成员函数），不能访问派生类新增的成员。</p>
+<h3 id="将派生类对象赋值给基类对象">将派生类对象赋值给基类对象</h3>
+<p>赋值的本质是将现有的数据写入已分配好的内存中，对象的内存只包含了成员变量，所以对象之间的赋值是成员变量的赋值，<strong>成员函数不存在赋值问题</strong>。对象之间的赋值不会影响成员函数，也不会影响 this 指针。</p>
+<p>将派生类对象赋值给基类对象时，会<strong>舍弃派生类新增的成员</strong>，这种转换关系是<strong>不可逆</strong>的，只能用派生类对象给基类对象赋值，而不能用基类对象给派生类对象赋值。<br />
+理由很简单，<strong>基类不包含派生类的成员变量</strong>，无法对派生类的成员变量赋值。同理，同一基类的不同派生类对象之间也不能赋值。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0296d3de-c16c-4540-aaaf-b84d67f72cb5.png" /></p>
+<h3 id="将派生类指针赋值给基类指针">将派生类指针赋值给基类指针</h3>
+<p>与对象变量之间的赋值不同的是，对象指针之间的赋值<strong>并没有拷贝对象的成员</strong>，也没有修改对象本身的数据，<strong>仅仅是改变了指针的指向</strong>。通过基类指针只能使用<strong>派生类的成员变量</strong>，但不能使用派生类的成员函数<br />
+概括起来说就是：<br />
+编译器通过<strong>指针</strong>来访问成员变量，指针指向哪个对象就使用哪个对象的数据，但是<strong>不能访问派生类的成员变量</strong><br />
+编译器通过<strong>指针的类型</strong>来访问成员函数，指针属于哪个类的类型就使用哪个类的函数。</p>
+<h3 id="将派生类引用赋值给基类引用">将派生类引用赋值给基类引用</h3>
+<p>基类的引用也可以指向派生类的对象，并且它的表现和指针是类似的</p>
+<h2 id="将派生类指针赋值给基类指针时到底发生了什么">将派生类指针赋值给基类指针时到底发生了什么？</h2>
+<p>赋值就是将一个变量的值交给另外一个变量，这种想法虽然没错，但是有一点要注意，就是赋值以前编译器<strong>可能会对现有的值进行处理</strong>。例如将 double 类型的值赋给 int 类型的变量，编译器会直接抹掉小数部分，并转成int格式的内存模型<br />
+将派生类的指针赋值给基类的指针时也是类似的道理，编译器也可能会在赋值前进行处理。<br />
+继承关系：class D: public B, public C{}   class B: public A{}    <br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/b48a1e9f-0deb-4481-ab80-f9016a795eb7.png" /><br />
+下面的代码演示了将 pd 赋值给 pc 时编译器的调整过程：<br />
+<code>pc = (C*)( (int)pd + sizeof(B) );</code><br />
+首先要明确的一点是，对象的指针必须要指向对象的起始位置.如果父类地址不是从起始位置开始的，则需要加上相应的偏移值。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

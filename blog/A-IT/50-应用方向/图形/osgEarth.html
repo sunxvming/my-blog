@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/图形/osgEarth</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#编译">编译</a></li>
+<li><a href="#使用">使用</a></li>
+<li><a href="#运行问题">运行问题</a></li>
+<li><a href="#相关概念">相关概念</a>
+<ul>
+<li><a href="#crscoordinate-reference-system坐标参考系统">CRS（Coordinate Reference System）坐标参考系统：</a></li>
+<li><a href="#srsspatial-reference-system空间参考系统">SRS（Spatial Reference System）空间参考系统：</a></li>
+<li><a href="#区别">区别：</a></li>
+</ul></li>
+<li><a href="#其他类似的三维数字地球库">其他类似的三维数字地球库</a></li>
+<li><a href="#数字地图的公司">数字地图的公司</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="编译">编译</h2>
+<p>用vcpkg包管理来编译即可，很方便。</p>
+<ul>
+<li><a href="https://blog.csdn.net/Alexabc3000/article/details/118882997">osgEarth源码编译（Win10+VS2019+OSG3.6.5+osgEarth2.10.0）</a></li>
+</ul>
+<p>OsgEarth运行时报错：</p>
+<pre><code>Fontconfig error: Cannot load default config file: No such file: (null) </code></pre>
+<p>需要增加如下的环境变量<br />
+<code>FONTCONFIG_FILE</code></p>
+<pre><code>D:\program\vcpkg\installed\x64-windows\etc\fonts\fonts.conf</code></pre>
+<p>如何有两个屏幕，运行osgEarth例子的时候会闪退，换成一个屏幕就可以了</p>
+<h2 id="使用">使用</h2>
+<p><strong>创建osgViewer----&gt;创建MapNode---&gt;设置MapNode中的Map----&gt;设置Earth操作器----&gt;设置场景参数-----&gt;run</strong></p>
+<ul>
+<li>MapNode是继承自osg的Node，是osgEarth中地球节点，你所添加的影像，DEM，模型都包含在MapNode中，因为它们都加入到Map中，Map则类似二维中的Map可以添加各种图层。</li>
+<li>剩余的不管是模型节点Node，或者是标注Node，还是其他的都是可以直接添加到MapNode中或者另外的Group中。</li>
+<li>Earth操作器则和其他osg操作器一样，只不过专门为三维地球浏览定制，具体参数可以设置。</li>
+<li>场景参数则主要有自动地形裁剪，最小裁剪像素等其他优化场景的参数。</li>
+</ul>
+<h2 id="运行问题">运行问题</h2>
+<p>Cannot find proj.db" Error<br />
+需要设置环境变量<br />
+<code>PROJ_LIB</code>: <code>D:\program\vcpkg\packages\proj_x64-windows\share\proj</code></p>
+<h2 id="相关概念">相关概念</h2>
+<p>CRS（Coordinate Reference System）和 SRS（Spatial Reference System）都是用于描述和定义地理空间数据坐标系统的术语。它们在地理信息系统（GIS）和地理空间数据处理中经常被提及。</p>
+<h3 id="crscoordinate-reference-system坐标参考系统">CRS（Coordinate Reference System）坐标参考系统：</h3>
+<p>CRS 是用于描述地理空间数据坐标系统的概念。它定义了在地球表面上定位点位置的方式，以及如何将地理坐标（经度和纬度）转换为投影坐标（x、y、z 等）或其他坐标系统。CRS 包括了两种主要类型：</p>
+<ol>
+<li><p><strong>地理坐标参考系统（Geographic CRS）</strong>：用经度和纬度描述地球表面上（球面的）的点位置，常用的经纬度坐标系就属于地理 CRS 的一种。</p></li>
+<li><p><strong>投影坐标参考系统（Projected CRS）</strong>：基于地理 CRS，通过某种地图投影方法将球面地图投影到平面上，如 UTM（通用横轴墨卡托投影）等。这种投影方式将地球上的经纬度坐标转换为平面上的 x 和 y 坐标。</p></li>
+</ol>
+<h3 id="srsspatial-reference-system空间参考系统">SRS（Spatial Reference System）空间参考系统：</h3>
+<p>SRS 是地理空间数据的参考系统，它是 CRS 的一个更宽泛的概念。SRS 不仅涵盖了 CRS，还包括了其他地理空间数据处理中的参考系统，例如大地水准面（Datum）、坐标轴方向等。</p>
+<h3 id="区别">区别：</h3>
+<ul>
+<li><strong>范围不同</strong>：CRS 是描述地理坐标系统的概念，SRS 则更广泛，包括了 CRS 以及其他空间参考系统。</li>
+<li><strong>概念不同</strong>：CRS 关注地理坐标系统（如投影方式、地理坐标），而 SRS 是一个更泛化的术语，可以涵盖更多的空间参考相关的概念。</li>
+</ul>
+<p>在实际使用中，两者通常被交替使用，因为 CRS 是 SRS 的一个子集，描述了地理坐标系统的一部分。但需要注意的是，在特定的 GIS 应用程序或标准中，它们可能会有稍微不同的定义和用法。</p>
+<h2 id="其他类似的三维数字地球库">其他类似的三维数字地球库</h2>
+<ul>
+<li>CesiumJS：CesiumJS 是一个用于创建地理信息系统的JavaScript库，提供了基于WebGL的高性能三维地球和地图。它支持大规模数据可视化、地理空间分析等功能，并且在 Web 浏览器中运行。与osgEarth不同，CesiumJS是基于Web技术的。</li>
+</ul>
+<p><a href="https://github.com/sshuair/awesome-gis#data">github：Awesome GIS.</a></p>
+<h2 id="数字地图的公司">数字地图的公司</h2>
+<ul>
+<li><a href="http://www.freethtech.com/index.htm">三维地图北京东方地博科技发展有限公司</a>，北京的一家公司</li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

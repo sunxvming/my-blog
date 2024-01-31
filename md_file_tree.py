@@ -1,5 +1,20 @@
 # -*- coding: utf-8 -*-
 """
+脚本逻辑
+    1.获取脚本的执行目录
+    2.递归遍历当前目录和文件，记录文件路径和文件的层级，进行相应的缩进。并把目录和文件放到一个名为md_lines的list中
+    3.用上一步的md_lines生成index文件
+
+    4.如加上--full，代表将md文件中的标题TOC也作为内容和文件名合并，形成带文件链接和标题的index文件
+
+加TOC标题的逻辑
+    用正则匹配出标题以及确定标题的级别并拼接成相应的字符串
+
+新增逻辑
+    .md后缀的文件链接到对应的.html文件，而不是.md文件
+    其他非.md后缀文件保持原样
+
+
 Generate a file tree table of contents for a directory of markdown files
 
 run from command line:
@@ -8,6 +23,7 @@ run from command line:
 
 will generate a  markdown index of all markdown files in the current working
 directory and its sub folders and insert it into  a file `index.md`.
+
 If a previous index exists in the file it will be replaced,
 otherwise a new index will be created at the end of the file
 or a new file created.
@@ -39,8 +55,20 @@ HEADER1_UNDERLINE_RE = re.compile("^-+$")
 HEADER2_UNDERLINE_RE = re.compile("^=+$")
 
 # 不处理此目录下的markdown文件
-exclude_dir = ('css', 'template','imgs')
-exclude_file = ('index.md', 'README.md')
+exclude_dir = ('css', 'template')
+exclude_file = (
+                '.gitignore', 
+                '.nojekyll', 
+                'CNAME', 
+                'gen.sh',
+                'index.md', 
+                'index.html',
+                'makefile',
+                'md_file_tree.py',
+                'README.md', 
+                'README.html',
+                'about-me.md',
+                )
 
 
 
@@ -96,17 +124,19 @@ def get_headers(filename):
     return results
 
 
-def create_index(cwd, headings=False, wikilinks=False):
+def create_index(cwd, headings=False, wikilinks=False, htmllink=False):
     """ create markdown index of all markdown files in cwd and sub folders
 
     """
     base_len = len(cwd)
     base_level = cwd.count(os.sep)
     md_lines = []
-    md_exts = ['.markdown', '.mdown', '.mkdn', '.mkd', '.md']
+    md_exts = ['.md', '.txt', '.sh' ]
+    exclude_exts = ['.html']
     md_lines.append('<!-- filetree -->\n\n')
     for root, dirs, files in os.walk(cwd):
-        files = sorted([f for f in files if not f[0] == '.' and os.path.splitext(f)[-1] in md_exts and f not in exclude_file])
+        # files = sorted([f for f in files if not f[0] == '.' and os.path.splitext(f)[-1] in md_exts and f not in exclude_file])
+        files = sorted([f for f in files if not f[0] == '.' and os.path.splitext(f)[-1] not in exclude_exts and f not in exclude_file])
    
         dirs[:] = sorted([d for d in dirs if (not d[0] == '.' and d not in exclude_dir)])
   
@@ -121,21 +151,26 @@ def create_index(cwd, headings=False, wikilinks=False):
             rel_dir = '.{1}{0}'.format(os.sep, root[base_len:])
             for md_filename in files:
                 md_filename_without_ext = os.path.splitext(md_filename)[0]
+                file_ext = os.path.splitext(md_filename)[-1]
                 # 链接中的空格替换掉，不然markdown解析不了链接 比如：[Google C++ Style Guide](./Google C++ Style Guide)
                 md_filename = md_filename.replace(" ", "&#32;")
                 indent = '  ' * level
+                link_name = md_filename
+                if file_ext == '.md' and htmllink:
+                    link_name = md_filename_without_ext + ".html"
                 if wikilinks:
                     md_lines.append('{0} {3} [[{2}{4}]]\n'.format(indent,
                                                                   md_filename_without_ext,
                                                                   rel_dir,
                                                                   TOC_LIST_PREFIX,
-                                                                  md_filename_without_ext + ".html"))
+                                                                  link_name))
                 else:
+                    
                     md_lines.append('{0} {3} [{1}]({2}{4})\n'.format(indent,
                                                                      md_filename_without_ext,
                                                                      rel_dir,
                                                                      TOC_LIST_PREFIX,
-                                                                     md_filename_without_ext + ".html"))
+                                                                     link_name))
                 if headings:
                     results = get_headers(os.path.join(root, md_filename))
                     if len(results) > 0:
@@ -198,13 +233,18 @@ def main():
                         action='store_true',
                         help='use [[link]] instead of [link.md](./link.md)')
 
+    parser.add_argument('--html',
+                        action='store_true',
+                        help='gen html link')
+
+
     args = parser.parse_args()
 
     cwd = os.getcwd()
-    md_lines = create_index(cwd, headings=args.full, wikilinks=args.wikilinks)
+    md_lines = create_index(cwd, headings=args.full, wikilinks=args.wikilinks, htmllink=args.html)
 
-    md_out_fn = os.path.join(cwd, args.filename)
-    replace_index(md_out_fn, md_lines)
+    md_out_filename = os.path.join(cwd, args.filename)
+    replace_index(md_out_filename, md_lines)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/20-linux/VMware共享文件夹</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#vmware安装ubuntu21发生错误导致虚拟cpu进入关闭状态">VMware安装ubuntu21,"发生错误，导致虚拟cpu进入关闭状态"</a></li>
+<li><a href="#vmware设置centos7共享文件夹">VMware设置centos7共享文件夹</a>
+<ul>
+<li><a href="#步骤一vmware设置共享文件夹">步骤一：VMware设置共享文件夹</a></li>
+<li><a href="#步骤二手动挂载共享目录">步骤二：手动挂载共享目录</a></li>
+<li><a href="#步骤三自动挂载共享目录">步骤三：自动挂载共享目录</a></li>
+<li><a href="#步骤四卸载共享目录">步骤四：卸载共享目录</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h1 id="vmware安装ubuntu21发生错误导致虚拟cpu进入关闭状态">VMware安装ubuntu21,"发生错误，导致虚拟cpu进入关闭状态"</h1>
+<p>安装时发生如下错误：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/6046a3c1-2d16-47ed-9841-4e15c067bd4c.jpg" /></p>
+<p>最后发现可能是版本兼容的问题<br />
+安装的时候要选择自定义安装，在选择硬件兼容性的时候选择15.X。之前选的典型安装默认的是16.X，可能版本比较高，导致了错误的发生。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0889c72c-66f2-4efe-ba9c-86fb76e66f29.png" /></p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/2e7ce6c2-a25e-4a3e-8fb1-ab10ba512884.png" /></p>
+<h1 id="vmware设置centos7共享文件夹">VMware设置centos7共享文件夹</h1>
+<p>前言:VMware在设置centos6共享文件夹的时候，只需要安装vmware-tools，然后在vmware里面配置共享文件夹即可，但是对于centos7，设置完之后，并不能如愿的将我们共享的目录显示在/mnt/hgfs目录下，这里我们需要自己进行挂载，以下进行挂载讲解，共享文件夹设置需要先安装VMware-tools，至于怎么安装VMware-tools这里不再说明。</p>
+<h2 id="步骤一vmware设置共享文件夹">步骤一：VMware设置共享文件夹</h2>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/e072bfea-06a0-40ea-beeb-8d4da6af8e74.png" /><br />
+运行linux系统，如果以上步骤在linux系统开机的时候进行的则重启linux系统</p>
+<p>输入命令<code>vmware-hgfsclient</code>查看共享目录是否已经设置成功<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/5e9753a2-6c09-4954-acf2-e5eeff021352.png" /></p>
+<h2 id="步骤二手动挂载共享目录">步骤二：手动挂载共享目录</h2>
+<ol>
+<li>在mnt目录下创建hgfs目录<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/801c46a1-73ef-4520-bca6-4a939c963a70.png" /></li>
+<li>输入vmhgfs-fuse .host:/VMShare /mnt/hgfs进行手动挂载，其中VMShare是共享文件夹名，/mnt/hgfs是挂载目录名<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/9f4f6e05-f7e9-4906-ad98-5cf1f9ac509a.png" /><br />
+3.查看效果，我们在windows下，给D盘的VMware文件夹添加一个demo.txt的文件，然后在linux系统里面查看<br />
+到这里手动挂载已经成功，但是这种挂载每次关机就会失效，我们还得重新执行一次自定挂载命令</li>
+</ol>
+<h2 id="步骤三自动挂载共享目录">步骤三：自动挂载共享目录</h2>
+<p>用vim打开/etc/fstab文件，添加一行挂载信息<br />
+.host:/VMShare /mnt/hgfs fuse.vmhgfs-fuse allow_other,defaults 0 0<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/47821ddd-8611-41ef-8450-91357dfe1144.png" /><br />
+使用mount -a指令让刚刚写入的挂载信息立即生效</p>
+<h2 id="步骤四卸载共享目录">步骤四：卸载共享目录</h2>
+<ol>
+<li>使用umount /mnt/hgfs卸载刚刚挂载的目录</li>
+<li>永久卸载就直接把/etc/fstab文件里面相关挂载记录删除即可</li>
+</ol>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

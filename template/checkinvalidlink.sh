@@ -1,6 +1,6 @@
 #/bin/bash
 
-srcs=`find -name "*.mkd"`
+srcs=`find -name "*.md"`
 
 for s in ${srcs}
 do

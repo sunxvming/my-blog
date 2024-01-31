@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/8.异常处理</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#异常处理入门">异常处理入门</a></li>
+<li><a href="#c异常类型以及多级catch匹配">C++异常类型以及多级catch匹配</a>
+<ul>
+<li><a href="#多级-catch">多级 catch</a></li>
+<li><a href="#catch-在匹配过程中的类型转换">catch 在匹配过程中的类型转换</a></li>
+</ul></li>
+<li><a href="#throw抛出异常"> throw（抛出异常）</a>
+<ul>
+<li><a href="#一个动态数组的例子">一个动态数组的例子</a></li>
+<li><a href="#throw-用作异常规范">throw 用作异常规范</a></li>
+<li><a href="#请抛弃异常规范不要再使用它">请抛弃异常规范，不要再使用它</a></li>
+</ul></li>
+<li><a href="#exception类">exception类</a></li>
+<li><a href="#怎样才能用好异常">怎样才能用好异常？</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h3 id="异常处理入门">异常处理入门</h3>
+<p>程序的错误大致可以分为三种，分别是语法错误、逻辑错误和运行时错误：<br />
+1) 语法错误在编译和链接阶段就能发现<br />
+2) 逻辑错误是说我们编写的代码思路有问题，不能够达到最终的目标，这种错误可以通过调试来解决。<br />
+3) 运行时错误是指程序在运行期间发生的错误，例如除数为 0、内存分配失败、数组越界、文件不存在等。C++ 异常（Exception）机制就是为解决<strong>运行时错误</strong>而引入的。<br />
+异常可以发生在当前的 try 块中，也可以发生在 try 块所调用的某个函数中，或者是所调用的函数又调用了另外的一个函数，这个另外的函数中发生了异常。这些异常，都可以被 try 检测到。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;exception&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>using namespace std;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>void func(){</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>    throw <span class="st">&quot;Unknown Exception&quot;</span>; <span class="co">//抛出异常, 抛的类型要和接的类型一致</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    cout&lt;&lt;<span class="st">&quot;[1]This statement will not be executed.&quot;</span>&lt;&lt;endl;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>}</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>int main(){</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>    try{</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>        func();</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>        cout&lt;&lt;<span class="st">&quot;[2]This statement will not be executed.&quot;</span>&lt;&lt;endl;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>    }catch(const char* &amp;e){</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>        cout&lt;&lt;e&lt;&lt;endl;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>    }</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="c异常类型以及多级catch匹配">C++异常类型以及多级catch匹配</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>try{</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    <span class="co">// 可能抛出异常的语句</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>}catch(exceptionType variable){</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    <span class="co">// 处理异常的语句</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>}</span></code></pre></div>
+<p>exceptionType是异常类型，它指明了当前的 catch 可以处理什么类型的异常；variable是一个变量，用来接收异常信息。<br />
+当程序抛出异常时，会创建一份数据，这份数据包含了错误信息，程序员可以根据<strong>这些信息来判断到底出了什么问题，接下来怎么处理</strong>。<br />
+exceptionType variable和<strong>函数的形参非常类似</strong>，当异常发生后，会将异常数据传递给 variable 这个变量，这和<strong>函数传参的过程类似</strong>。<br />
+总起来说，catch 和真正的函数调用相比，多了一个<strong>在运行阶段将实参和形参匹配</strong>的过程,如果不匹配就会忽略掉的。</p>
+<p>C++ 语言本身以及标准库中的函数抛出的异常，都是 <strong>exception</strong> 类或其子类的异常。<br />
+另外需要注意的是，如果不希望 catch 处理异常数据，也可以将 variable 省略掉，也即写作：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>try{</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>    <span class="co">// 可能抛出异常的语句</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>}catch(exceptionType){</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>    <span class="co">// 处理异常的语句</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>}</span></code></pre></div>
+<h4 id="多级-catch">多级 catch</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>try{</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    <span class="co">//可能抛出异常的语句</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>}catch (exception_type_1 e){</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    <span class="co">//处理异常的语句</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>}catch (exception_type_2 e){</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    <span class="co">//处理异常的语句</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>}</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a><span class="co">//其他的catch</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>catch (exception_type_n e){</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>    <span class="co">//处理异常的语句</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>}</span></code></pre></div>
+<p>当异常发生时，程序会按照从上到下的顺序，将异常类型和 catch 所能接收的类型逐个匹配。一旦找到类型匹配的 catch 就停止检索，并将异常交给当前的 catch 处理。如果最终也没有找到匹配的 catch，就只能交给系统处理，<strong>终止程序的运行</strong>。</p>
+<h4 id="catch-在匹配过程中的类型转换">catch 在匹配过程中的类型转换</h4>
+<p>catch在匹配异常类型的过程中，也会进行<strong>类型转换</strong>，但是这种转换受到了更多的限制，仅能进行<br />
+* 向上转型<br />
+* const 转换<br />
+* 数组或函数指针转换</p>
+<h3 id="throw抛出异常"> throw（抛出异常）</h3>
+<p>异常必须显式地抛出，才能被检测和捕获到；如果<strong>没有显式的抛出</strong>，即使有异常也检测不到。<br />
+语法：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>throw exceptionData;</span></code></pre></div>
+<p>exceptionData 可以是 int、float、bool 等基本类型，也可以是指针、数组、字符串、结构体、类等聚合类型</p>
+<h4 id="一个动态数组的例子">一个动态数组的例子</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;cstdlib&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> std;</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="co">//自定义的异常类型</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a><span class="kw">class</span> OutOfRange{</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>    OutOfRange(): <span class="va">m_flag</span>(<span class="dv">1</span>){ };</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>    OutOfRange(<span class="dt">int</span> len, <span class="dt">int</span> index): <span class="va">m_len</span>(len), <span class="va">m_index</span>(index), <span class="va">m_flag</span>(<span class="dv">2</span>){ }</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>    <span class="dt">void</span> what() <span class="at">const</span>;  <span class="co">//获取具体的错误信息</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>    <span class="dt">int</span> <span class="va">m_flag</span>;   <span class="co">//不同的flag表示不同的错误</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>    <span class="dt">int</span> <span class="va">m_len</span>;    <span class="co">//当前数组的长度</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>    <span class="dt">int</span> <span class="va">m_index</span>;  <span class="co">//当前使用的数组下标</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a>};</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true"></a><span class="dt">void</span> OutOfRange::what() <span class="at">const</span> {</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true"></a>    <span class="cf">if</span>(<span class="va">m_flag</span> == <span class="dv">1</span>){</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true"></a>        cout&lt;&lt;<span class="st">&quot;Error: empty array, no elements to pop.&quot;</span>&lt;&lt;endl;</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true"></a>    }<span class="cf">else</span> <span class="cf">if</span>(<span class="va">m_flag</span> == <span class="dv">2</span>){</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true"></a>        cout&lt;&lt;<span class="st">&quot;Error: out of range( array length &quot;</span>&lt;&lt;<span class="va">m_len</span>&lt;&lt;<span class="st">&quot;, access index &quot;</span>&lt;&lt;<span class="va">m_index</span>&lt;&lt;<span class="st">&quot; )&quot;</span>&lt;&lt;endl;</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true"></a>    }<span class="cf">else</span>{</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true"></a>        cout&lt;&lt;<span class="st">&quot;Unknown exception.&quot;</span>&lt;&lt;endl;</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true"></a>    }</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true"></a>}</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true"></a><span class="co">//实现动态数组</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true"></a><span class="kw">class</span> Array{</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true"></a>    Array();</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true"></a>    ~Array(){ free(<span class="va">m_p</span>); };</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true"></a>    <span class="dt">int</span> <span class="kw">operator</span>[](<span class="dt">int</span> i) <span class="at">const</span>;  <span class="co">//获取数组元素</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true"></a>    <span class="dt">int</span> push(<span class="dt">int</span> ele);  <span class="co">//在末尾插入数组元素</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true"></a>    <span class="dt">int</span> pop();  <span class="co">//在末尾删除数组元素</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true"></a>    <span class="dt">int</span> length() <span class="at">const</span>{ <span class="cf">return</span> <span class="va">m_len</span>; };  <span class="co">//获取数组长度</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true"></a>    <span class="dt">int</span> <span class="va">m_len</span>;  <span class="co">//数组长度</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true"></a>    <span class="dt">int</span> <span class="va">m_capacity</span>;  <span class="co">//当前的内存能容纳多少个元素</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true"></a>    <span class="dt">int</span> *<span class="va">m_p</span>;  <span class="co">//内存指针</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true"></a>    <span class="at">static</span> <span class="at">const</span> <span class="dt">int</span> <span class="va">m_stepSize</span> = <span class="dv">50</span>;  <span class="co">//每次扩容的步长</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true"></a>};</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true"></a></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true"></a>Array::Array(){</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true"></a>    <span class="va">m_p</span> = (<span class="dt">int</span>*)malloc( <span class="kw">sizeof</span>(<span class="dt">int</span>) * <span class="va">m_stepSize</span> );</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true"></a>    <span class="va">m_capacity</span> = <span class="va">m_stepSize</span>;</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true"></a>    <span class="va">m_len</span> = <span class="dv">0</span>;</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true"></a>}</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true"></a><span class="dt">int</span> Array::<span class="kw">operator</span>[](<span class="dt">int</span> index) <span class="at">const</span> {</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true"></a>    <span class="cf">if</span>( index&lt;<span class="dv">0</span> || index&gt;=<span class="va">m_len</span> ){  <span class="co">//判断是否越界</span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true"></a>        <span class="cf">throw</span> OutOfRange(<span class="va">m_len</span>, index);  <span class="co">//抛出异常（创建一个匿名对象）</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true"></a>    }</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true"></a></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true"></a>    <span class="cf">return</span> *(<span class="va">m_p</span> + index);</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true"></a>}</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true"></a><span class="dt">int</span> Array::push(<span class="dt">int</span> ele){</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true"></a>    <span class="cf">if</span>(<span class="va">m_len</span> &gt;= <span class="va">m_capacity</span>){  <span class="co">//如果容量不足就扩容</span></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true"></a>        <span class="va">m_capacity</span> += <span class="va">m_stepSize</span>;</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true"></a>        <span class="va">m_p</span> = (<span class="dt">int</span>*)realloc( <span class="va">m_p</span>, <span class="kw">sizeof</span>(<span class="dt">int</span>) * <span class="va">m_capacity</span> );  <span class="co">//扩容</span></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true"></a>    }</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true"></a></span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true"></a>    *(<span class="va">m_p</span> + <span class="va">m_len</span>) = ele;</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true"></a>    <span class="va">m_len</span>++;</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true"></a>    <span class="cf">return</span> <span class="va">m_len</span>-<span class="dv">1</span>;</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true"></a>}</span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true"></a><span class="dt">int</span> Array::pop(){</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true"></a>    <span class="cf">if</span>(<span class="va">m_len</span> == <span class="dv">0</span>){</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true"></a>         <span class="cf">throw</span> OutOfRange();  <span class="co">//抛出异常（创建一个匿名对象）</span></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true"></a>    }</span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true"></a></span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true"></a>    <span class="va">m_len</span>--;</span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true"></a>    <span class="cf">return</span> *(<span class="va">m_p</span> + <span class="va">m_len</span>);</span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true"></a>}</span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true"></a></span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true"></a><span class="co">//打印数组元素</span></span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true"></a><span class="dt">void</span> printArray(Array &amp;arr){</span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true"></a>    <span class="dt">int</span> len = arr.length();</span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true"></a></span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true"></a>    <span class="co">//判断数组是否为空</span></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true"></a>    <span class="cf">if</span>(len == <span class="dv">0</span>){</span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true"></a>        cout&lt;&lt;<span class="st">&quot;Empty array! No elements to print.&quot;</span>&lt;&lt;endl;</span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true"></a>        <span class="cf">return</span>;</span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true"></a>    }</span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true"></a></span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true"></a>    <span class="cf">for</span>(<span class="dt">int</span> i=<span class="dv">0</span>; i&lt;len; i++){</span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true"></a>        <span class="cf">if</span>(i == len-<span class="dv">1</span>){</span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true"></a>            cout&lt;&lt;arr[i]&lt;&lt;endl;</span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true"></a>        }<span class="cf">else</span>{</span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true"></a>            cout&lt;&lt;arr[i]&lt;&lt;<span class="st">&quot;, &quot;</span>;</span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true"></a>        }</span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true"></a>    }</span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true"></a>}</span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true"></a></span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true"></a><span class="dt">int</span> main(){</span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true"></a>    Array nums;</span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true"></a>    <span class="co">//向数组中添加十个元素</span></span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true"></a>    <span class="cf">for</span>(<span class="dt">int</span> i=<span class="dv">0</span>; i&lt;<span class="dv">10</span>; i++){</span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true"></a>        nums.push(i);</span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true"></a>    }</span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true"></a>    printArray(nums);</span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true"></a></span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true"></a>    <span class="co">//尝试访问第20个元素</span></span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true"></a>    <span class="cf">try</span>{</span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true"></a>        cout&lt;&lt;nums[<span class="dv">20</span>]&lt;&lt;endl;</span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true"></a>    }<span class="cf">catch</span>(OutOfRange &amp;e){</span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true"></a>        e.what();</span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true"></a>    }</span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true"></a></span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true"></a>    <span class="co">//尝试弹出20个元素</span></span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true"></a>    <span class="cf">try</span>{</span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true"></a>        <span class="cf">for</span>(<span class="dt">int</span> i=<span class="dv">0</span>; i&lt;<span class="dv">20</span>; i++){</span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true"></a>            nums.pop();</span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true"></a>        }</span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true"></a>    }<span class="cf">catch</span>(OutOfRange &amp;e){</span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true"></a>        e.what();</span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true"></a>    }</span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true"></a></span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true"></a>    printArray(nums);</span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true"></a></span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true"></a>}</span></code></pre></div>
+<h4 id="throw-用作异常规范">throw 用作异常规范</h4>
+<p>throw 关键字除了可以用在函数体中抛出异常，还可以用在函数头和函数体之间，指明当前函数能够抛出的异常类型，这称为<strong>异常规范（Exception specification）</strong>，有些教程也称为<strong>异常指示符或异常列表</strong>。请看下面的例子：<br />
+<code>double func (char param) throw (int, char, exception);</code><br />
+只能抛出异常规范中的异常，如果抛出其他类型的异常，try 将无法捕获，只能终止程序<br />
+1. 虚函数中的异常规范<br />
+C++ 规定，派生类虚函数的异常规范必须与基类虚函数的异常规范一样严格，或者<strong>更严格</strong>。只有这样，当通过基类指针（或者引用）调用派生类虚函数时，才能保证<strong>不违背</strong>基类成员函数的异常规范。 不能说我父类只能抛int的，而子类int char float的什么都能抛，就没有起到规范的作用了。<br />
+2. 异常规范与函数定义和函数声明<br />
+C++ 规定，异常规范在函数声明和函数定义中必须<strong>同时指明，并且要严格保持一致</strong></p>
+<h4 id="请抛弃异常规范不要再使用它">请抛弃异常规范，不要再使用它</h4>
+<p>异常规范的初衷是好的，它希望让程序员看到函数的定义或声明后，立马就知道该函数会抛出什么类型的异常，这样程序员就可以使用 try-catch 来捕获了。如果没有异常规范，程序员必须阅读函数源码才能知道函数会抛出什么异常。<br />
+<strong>不过这有时候也不容易做到</strong><br />
+例如，func_outer() 函数可能不会引发异常，但它调用了另外一个函数 func_inner()，这个函数可能会引发异常。<br />
+再如，您编写的函数调用了老式的库函数，此时不会引发异常，但是库更新以后这个函数却引发了异常。<br />
+总之，异常规范的初衷实现起来有点困难，所以大家达成的一致意见是，最好不要使用异常规范。<br />
+异常规范是 C++98 新增的一项功能，但是后来的 C++11 已经将它<strong>抛弃</strong>了，不再建议使用。</p>
+<h3 id="exception类">exception类</h3>
+<p>C++语言本身或者标准库抛出的异常都是 exception 的子类，称为<strong>标准异常</strong>（Standard Exception）。<br />
+通过下面的语句来捕获所有的标准异常（有个兜底儿的异常）：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>try{</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>    <span class="co">//可能抛出异常的语句</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>}catch(exception &amp;e){</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>    <span class="co">//处理异常的语句</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>}</span></code></pre></div>
+<p>之所以使用引用，是<strong>为了提高效率</strong>。如果不使用引用，就要经历一次对象拷贝（要调用拷贝构造函数）的过程。</p>
+<p>exception 类的继承层次：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230809144418.png" alt="image.png" /></p>
+<h2 id="怎样才能用好异常">怎样才能用好异常？</h2>
+<p>异常只是 C++ 为了<strong>处理错误而提出的一种解决方案</strong>，当然也不会是唯一的一种。<br />
+在 C++ 之前，处理异常的基本手段是<strong>错误码</strong>。函数执行后，需要检查返回值或者全局的 errno，看是否正常，如果出错了，就执行另外一段代码处理错误.</p>
+<p>错误码缺点：<br />
+1. 这种做法很直观，但也有一个问题，那就是<strong>正常的业务逻辑代码与错误处理代码</strong>混在了一起，看起来很乱，你的思维要在两个本来不相关的流程里来回跳转。而且，有的时候，<strong>错误处理的逻辑要比正常业务逻辑复杂</strong>、麻烦得多，看了半天，你可能都会忘了它当初到底要干什么了，容易引起新的错误。<br />
+2. 错误码还有另一个更大的问题：它是可以被忽略的。也就是说，你完全可以不处理错误，“假装”程序运行正常，继续跑后面的代码，这就可能导致严重的安全隐患。</p>
+<p>用异常的好处：<br />
+1. 异常的处理流程是完全独立的，throw 抛出异常后就可以不用管了，错误处理代码都集中在专门的 catch 块里。这样就彻底分离了业务逻辑与错误逻辑，看起来更清楚。<br />
+2. 异常是绝对不能被忽略的，必须被处理。如果你有意或者无意不写 catch 捕获异常，那么它会一直向上传播出去，直至找到一个能够处理的 catch 块。如果实在没有，那就会导致程序立即停止运行，明白地提示你发生了错误，而不会“坚持带病工作”。<br />
+3. 异常可以用在错误码无法使用的场合，这也算是 C++ 的“私人原因”。因为它比 C 语言多了构造 / 析构函数、操作符重载等新特性，有的函数根本就没有返回值，或者返回值无法表示错误，而全局的 errno 实在是“太不优雅”了，与 C++ 的理念不符，所以也必须使用异常来报告错误。</p>
+<p>C++ 里对异常的定义非常宽松，任何类型都可以用 throw 抛出，也就是说，你可以直接把错误码（int）、或者错误消息（<code>char*</code>、<code>string</code>）抛出，catch 也能接住，然后处理。<br />
+但我建议你最好不要“图省事”，因为 C++ 已经为处理异常设计了一个配套的异常类型体系，定义在标准库的 <code>&lt;stdexcept&gt;</code> 头文件里。见上边：exception 类的继承层次</p>
+<p>异常也与上一讲的智能指针密切相关，如果你决定使用异常，为了确保出现异常的时候资源会正确释放，就<strong>必须禁用裸指针</strong>，改成智能指针，用 RAII 来管理内存。<br />
+由于异常出现和处理的时机都不好确定，当前的 C++ 也没有在语言层面提出更好的机制，所以，你还要在编码阶段写好文档和注释，说清楚哪些函数、什么情况下会抛出什么样的异常，应如何处理，加上一些“软约束”。<br />
+小结：<br />
+1. 异常是针对错误码的缺陷而设计的，它不能被忽略，而且可以“穿透”调用栈，逐层传播到其他地方去处理；<br />
+2. 使用 try-catch 机制处理异常，能够分离正常流程与错误处理流程，让代码更清晰； <br />
+3. throw 可以抛出任何类型作为异常，但最好使用标准库里定义的 exception 类； <br />
+4. 完全用或不用异常处理错误都不可取，而是应该合理分析，适度使用，降低异常的成本；<br />
+5. 关键字 noexcept 标记函数不抛出异常，可以让编译器做更好的优化。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/40-tools/编辑器/obsidian/vscode-editor/README_cn</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#关于插件">关于插件</a></li>
+<li><a href="#基本特性">基本特性</a></li>
+<li><a href="#如何支持不同的代码文件">如何支持不同的代码文件</a></li>
+<li><a href="#支持的快捷键">支持的快捷键</a></li>
+<li><a href="#使用截图">使用截图</a></li>
+<li><a href="#代码块编辑的支持">代码块编辑的支持</a></li>
+<li><a href="#内部链接快速预览的支持">内部链接快速预览的支持</a></li>
+<li><a href="#安装">安装</a></li>
+<li><a href="#联系和反馈">联系和反馈</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h1 align="center">Obsidian VSCode Editor</h1>
+<p align="center">
+    <img alt="Release version" src="https://img.shields.io/github/v/release/sunxvming/obsidian-vscode-editor?style=for-the-badge">
+    <img alt="Download count" src="https://img.shields.io/github/downloads/sunxvming/obsidian-vscode-editor/total?style=for-the-badge">
+</p>
+<p align="center">
+    <span>一款 Obsidian 的第三方插件，提供对各种代码格式文件的查看和编辑功能。</span>
+    <br/>
+    <a href="/README_cn.md">简体中文</a>
+    ·
+    <a href="/README.md">English</a>
+</p>
+<h2 id="关于插件">关于插件</h2>
+<p>Obsidian 默认不支持对各种代码文件的查看和编辑，而 Obsidian VSCode Editor 就是为了解决这个问题而生的。</p>
+<p>它基于 <a href="https://microsoft.github.io/monaco-editor/">Monaco Editor</a>（VSCode 的编辑器内核）开发，支持对各种代码格式文件的查看和编辑，包括但不限于：<code>C</code>、<code>C++</code>、<code>C#</code>、<code>CSS</code>、<code>Go</code>、<code>HTML</code>、<code>Java</code>、<code>JavaScript</code>、<code>JSON</code>、<code>Python</code>、<code>Ruby</code>、<code>Rust</code>、<code>Shell</code>、<code>XML</code>、<code>YAML</code>、<code>ini</code> 等。</p>
+<p>你再也不用为了查看或编辑某个代码文件而打开另一个编辑器了，一切都在 Obsidian 中完成。</p>
+<h2 id="基本特性">基本特性</h2>
+<ul>
+<li><strong>不依赖</strong>任何的第三方的网络服务，未联网也能使用</li>
+<li>支持对各种代码格式文件的查看和编辑，就想你在本地用VSCode编辑代码一样</li>
+<li>支持的编辑器主题：浅色主题、深色主题</li>
+<li>支持字体大小的设置，同时提供通过<code>ctrl+鼠标滚轮</code>来调整字体大小的快捷方式进行设置</li>
+<li>支持长代码行的自动折行，并通过<code>alt + z</code>来切换自动折行</li>
+<li>支持从Markdown文档中编辑单独的代码块</li>
+<li>支持内部链接的快速预览</li>
+<li>支持通快捷图标按钮或命令来创建新的代码文件</li>
+<li>支持对是否显示行号进行设置</li>
+<li>支持缩进参考线设置</li>
+<li>支持代码缩略图设置</li>
+</ul>
+<h2 id="如何支持不同的代码文件">如何支持不同的代码文件</h2>
+<p>默认支持的代码文件扩展名是 <code>ts, js, py, css, c, cpp, go, rs, java, lua, php</code>。你可以在插件的设置面板中配置要支持哪些文件扩展名<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231103103939.png" alt="image.png" /></p>
+<h2 id="支持的快捷键">支持的快捷键</h2>
+<p>大部分的快捷键和VS Code的快捷键保持一致，以下是一些支持的快捷键</p>
+<table>
+<thead>
+<tr class="header">
+<th>分类</th>
+<th>快捷键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ctrl</td>
+<td><code>ctrl + c</code></td>
+<td>复制</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + x</code></td>
+<td>剪切</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + v</code></td>
+<td>粘贴</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + s</code></td>
+<td>保存</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + a</code></td>
+<td>全选</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + f</code></td>
+<td>查找</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + h</code></td>
+<td>替换</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + z</code></td>
+<td>撤销</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + y</code></td>
+<td>重做</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + /</code></td>
+<td>增加/去除注释</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + d</code></td>
+<td>复制当前行</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + [</code></td>
+<td>减少缩进</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + ]</code></td>
+<td>增加缩进</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + ↑</code></td>
+<td>向上移动当前行</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + ↓</code></td>
+<td>向下移动当前行</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + ←</code></td>
+<td>按单词向左移动光标</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + →</code></td>
+<td>按单词向右移动光标</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + Backspace</code></td>
+<td>删除左边的单词</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + Delete</code></td>
+<td>删除右边的单词</td>
+</tr>
+<tr class="even">
+<td>Ctrl + Shift</td>
+<td><code>ctrl + shift + z</code></td>
+<td>重做</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + shift + k</code></td>
+<td>删除当前行</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + shift + [</code></td>
+<td>折叠代码块</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + shift + ]</code></td>
+<td>展开代码块</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ctrl + shift + enter</code></td>
+<td>在上方插入一行</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ctrl + enter</code></td>
+<td>在下方插入一行</td>
+</tr>
+<tr class="even">
+<td>Alt</td>
+<td><code>alt + z</code></td>
+<td>自动折行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="使用截图">使用截图</h2>
+<ul>
+<li><p><strong>亮色主题</strong><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230921184929.png" alt="image.png" /></p></li>
+<li><p><strong>暗色主题</strong><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230921184840.png" alt="image.png" /></p></li>
+<li><p><strong>创建代码文件</strong><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230921185107.png" alt="image.png" /></p></li>
+</ul>
+<h2 id="代码块编辑的支持">代码块编辑的支持</h2>
+<p>该插件还支持从编辑器中的任何Markdown文档中编辑单独的代码块。<br />
+只需<strong>右键单击</strong>任何代码块，然后单击“<strong>在VSCode Editor Plugin中编辑代码块</strong>”。</p>
+<p>这将打开一个新的代码编辑窗口，你可以在其中编辑代码块，然后在关闭窗口时，代码块将自动同步回到您的文档中。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/GIF%202023-11-3%2010-25-01.gif" alt="GIF 2023-11-3 10-25-01.gif" /></p>
+<h2 id="内部链接快速预览的支持">内部链接快速预览的支持</h2>
+<p>你可以在 Obsidian 中添加一个指向代码文件的内部链接，将鼠标悬停在链接上即可进行<strong>快速预览</strong>。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/GIF%202023-11-2%2019-48-55.gif" alt="GIF 2023-11-2 19-48-55.gif" /></p>
+<p>当插入内部链接时，默认代码文件不会出现在文件提示列表中。您需要开启“检测所有类型文件”的设置。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231103104141.png" alt="image.png" /></p>
+<h2 id="安装">安装</h2>
+<p><strong>从 Obsidian 的社区插件来安装</strong>:<br />
+1. 打开设置 &gt; 第三方插件<br />
+2. 关闭”安全模式“<br />
+3. 点击”浏览“按钮来查看第三方插件市场<br />
+4. 输入搜索：“VSCode Editor”<br />
+5. 点击“安装”按钮<br />
+6. 一旦安装成功，先关闭当前社区插件窗口，然后在已安装插件列表下激活刚安装的插件</p>
+<p><strong>手动安装</strong>:<br />
+1. 进入最新版本的github下载页面 <a href="https://github.com/sunxvming/obsidian-vscode-editor/releases/latest">latest release</a><br />
+2. 下载 <code>obsidian-vscode-editor-x.y.z.zip</code> 文件,其中 <code>x.y.z</code> 是版本号<br />
+3. 解压并提取 obsidian-vscode-editor 文件夹，然后放到你 Obsidian 库中的插件目录中 <code>&lt;库&gt;/.obsidian/plugins/</code> (注意: <code>.obsidian</code> 文件夹可能被隐藏了，你需要先将该文件夹展示出来)<br />
+4. 打开设置 &gt; 第三方插件，重新加载和激活该插件</p>
+<h2 id="联系和反馈">联系和反馈</h2>
+<p>如果你在使用该插件过程中，遇到各种问题、或有什么好的建议，欢迎在 <a href="https://github.com/sunxvming/obsidian-vscode-editor/issues">GitHub issues</a> 中提出。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

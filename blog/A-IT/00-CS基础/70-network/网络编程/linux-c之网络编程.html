@@ -1,0 +1,850 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/00-CS基础/70-network/网络编程/linux-c之网络编程</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#网络编程基础">网络编程基础</a>
+<ul>
+<li><a href="#bind函数">bind函数</a></li>
+<li><a href="#网络字节序">网络字节序</a></li>
+<li><a href="#网络地址的初始化与分配">网络地址的初始化与分配</a></li>
+<li><a href="#改变和更改文件属性的办法">改变和更改文件属性的办法</a></li>
+<li><a href="#域名及网络地址">域名及网络地址</a></li>
+<li><a href="#tcp和udp">TCP和UDP</a></li>
+<li><a href="#tcp版代码示例">TCP版代码示例</a></li>
+<li><a href="#udp版代码示例">UDP版代码示例</a></li>
+</ul></li>
+<li><a href="#常见网络编程模式">常见网络编程模式</a>
+<ul>
+<li><a href="#每次只处理一个连接">1.每次只处理一个连接</a></li>
+<li><a href="#多进程版每个连接分配一个进程">2.多进程版，每个连接分配一个进程</a></li>
+<li><a href="#多线程版每个连接分配一个线程">3.多线程版，每个连接分配一个线程</a></li>
+<li><a href="#io多路复用版">4.I/O多路复用版</a>
+<ul>
+<li><a href="#select模型">select模型</a></li>
+<li><a href="#epoll模型">epoll模型</a></li>
+<li><a href="#水平触发level-trigger和边缘触发edge-trigger">水平触发(level trigger)和边缘触发(edge trigger)</a></li>
+</ul></li>
+<li><a href="#preactor-和-reactor">5.Preactor 和 Reactor</a></li>
+</ul></li>
+<li><a href="#unix-domain">UNIX Domain</a>
+<ul>
+<li><a href="#unix-domain-socket-ipc">UNIX Domain Socket IPC</a>
+<ul>
+<li><a href="#使用">使用</a></li>
+<li><a href="#客户端显式的bind">客户端显式的bind</a></li>
+</ul></li>
+<li><a href="#af_inet-和-af_unix区别">AF_INET 和 AF_UNIX区别</a>
+<ul>
+<li><a href="#af_inet域socket通信过程">1.AF_INET域socket通信过程</a></li>
+<li><a href="#af_unix域socket通信过程">2.AF_UNIX域socket通信过程</a></li>
+<li><a href="#相同点">3.相同点</a></li>
+<li><a href="#不同点">4.不同点</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="网络编程基础">网络编程基础</h2>
+<p><strong>套接字是通信端点的抽象</strong>。套接字在Linux上也是通过文件实现的，所以传统的write和read同样适用于套接字。</p>
+<h3 id="bind函数">bind函数</h3>
+<ul>
+<li>一台电脑可以有多个网卡多个ip</li>
+<li>在调用bind函数是，可以指定一个端口号，或指定一个IP地址，也可以两者都指定，还可以都不指定。<br />
+如果一个TCP客户或服务器未曾调用bind捆绑一个<strong>端口</strong>，当调用connect或listen时，内核就要为相应的套接字选择一个临时端口。</li>
+<li>进程可以把一个特定的IP地址 捆绑到它的套接字上，不过这个IP地址必须属于其所在主机的网络接口之一。对于TCP客户，这就为在该套接字上发送的IP数据报指派了源IP地址。对于TCP服务器，这就限定该套接字只接受那些目的地为这个IP地址的客户连接。<strong>TCP客户通常不bind ip和端口</strong>。</li>
+<li>如果在bind时指定端口号位0，那么内核就在bind被调用时选择一个临时端口。如果指定IP地址为通配地址，那么这台机器上的所有ip都会监听</li>
+</ul>
+<h3 id="网络字节序">网络字节序</h3>
+<p>不同的 CPU 中，4 字节整数值1在内存空间保存方式是不同的。<br />
+* 大端序（Big Endian）：低地址存高位<br />
+* 小端序（Little Endian）：低地址存低位</p>
+<p>在通过网络传输数据时必须约定统一的方式，这种约定被称为网络字节序，统一为大端序。即，先把数据数组转化成大端序格式再进行网络传输。</p>
+<p>帮助转换字节序的函数：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="dt">unsigned</span> <span class="dt">short</span> htons(<span class="dt">unsigned</span> <span class="dt">short</span>);</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="dt">unsigned</span> <span class="dt">short</span> ntohs(<span class="dt">unsigned</span> <span class="dt">short</span>);</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="dt">unsigned</span> <span class="dt">long</span> htonl(<span class="dt">unsigned</span> <span class="dt">long</span>);</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="dt">unsigned</span> <span class="dt">long</span> ntohl(<span class="dt">unsigned</span> <span class="dt">long</span>);</span></code></pre></div>
+<p>其中：<br />
+htons 的 h 代表主机（host）字节序。<br />
+htons 的 n 代表网络（network）字节序。<br />
+s 代表 short<br />
+l 代表 long</p>
+<h3 id="网络地址的初始化与分配">网络地址的初始化与分配</h3>
+<p>将字符串形式的IP地址转换成整数型的IP地址</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;arpa/inet.h&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>in_addr_t inet_addr(<span class="dt">const</span> <span class="dt">char</span> *string);</span></code></pre></div>
+<p>inet_aton 函数与 inet_addr 函数在功能上完全相同，只不过该函数用了 in_addr 结构体，且使用频率更高</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;arpa/inet.h&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="dt">int</span> inet_aton(<span class="dt">const</span> <span class="dt">char</span> *string, <span class="kw">struct</span> in_addr *addr);</span></code></pre></div>
+<p>还有一个函数，与 inet_aton() 正好相反，它可以把网络字节序整数型IP地址转换成我们熟悉的字符串形式</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;arpa/inet.h&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="dt">char</span> *inet_ntoa(<span class="kw">struct</span> in_addr adr);</span></code></pre></div>
+<h3 id="改变和更改文件属性的办法">改变和更改文件属性的办法</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="dt">int</span> opts = fcntl(st, F_GETFL); <span class="co">// F_GETFL  F_SETFL</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>opts = opts | O_NONBLOCK;      <span class="co">//设置nobloking</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>fcntl(st, F_SETFL, opts)</span></code></pre></div>
+<h3 id="域名及网络地址">域名及网络地址</h3>
+<p>利用域名获取IP地址</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;netdb.h&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="kw">struct</span> hostent *gethostbyname(<span class="dt">const</span> <span class="dt">char</span> *hostname);</span></code></pre></div>
+<p>利用IP地址获取域名</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;netdb.h&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="kw">struct</span> hostent *gethostbyaddr(<span class="dt">const</span> <span class="dt">char</span> *addr, socklen_t len, <span class="dt">int</span> family);</span></code></pre></div>
+<h3 id="tcp和udp">TCP和UDP</h3>
+<p>TCP，又被叫做字<strong>节流套接字</strong>（Stream Socket） SOCK_STREAM<br />
+UDP 也有一个类似的叫法, <strong>数据报套接字</strong>（Datagram Socket）SOCK_DGRAM</p>
+<p>TCP是面向连接的协议<br />
+TCP保证可靠的，保证顺序，不会丢包<br />
+TCP有流量控制和拥塞控制<br />
+TCP需要创建并保持一个连接，给系统带来很大开销。<br />
+TCP数据传输效率低<br />
+如果要传输一个重要的数据，丢失一点就会破坏整个数据，那么需要选择TCP</p>
+<p>UDP是无连接协议<br />
+UDP没有因接收方没有收到数据包重传而带来开销。<br />
+UDP处理的细节比TCP少<br />
+UDP不能保证消息被传送到目的地。<br />
+UDP不能保证数据包的传递顺序<br />
+UDP需要需要程序员额外的做一些工作<br />
+UDP需要程序员必须创建代码监测数据包的正确性，必要时重传。<br />
+UDP需要程序员必须把大数据包分片,并且重组</p>
+<p>UDP服务器端重启后可以继续收到客户端的报文，TCP 里是不可以的，TCP 断联之后必须重新连接才可以发送报文信息。<br />
+但是 UDP 报文的”无连接“的特点，可以在 UDP 服务器重启之后，继续进行报文的发送。</p>
+<p>流媒体为了保证很窄的网络带宽来传送更多的数据，基本采用UDP<br />
+一些消息重要程度不高，或者有规律重复，可以使用UDP。<br />
+设计用在<strong>局域网</strong>的应用可以采用UDP，因为在<strong>局域网中丢失数据包的可能性很低</strong></p>
+<p>有一种叫做广播或多播的技术，就是向网络中的多个节点同时发送信息，这个时候，选择UDP 更是非常合适的<br />
+UDP 也可以做到更高的可靠性，只不过这种可靠性，需要应用程序进行设计处理，比如对报文进行编号，设计 Request-Ack 机制，再加上重传等，在一定程度上可以达到更为高可靠的 UDP 程序。当然，这种可靠性和 TCP 相比还是有一定的距离，不过也可以弥补实战中 UDP 的一些不足。</p>
+<h3 id="tcp版代码示例">TCP版代码示例</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co">//=======cliet======</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>socket = socket(PF_INET,SOCK_STREAM)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>connet(socket, address)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a><span class="cf">while</span>(<span class="dv">1</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>{</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>    write(socket, buf, buf_len)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>    read(socket, buf, buf_len)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>}</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>close()</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a><span class="co">//======server=======</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a>s_socket = socket(PF_INET,SOCK_STREAM)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a>bind(s_socket,address)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a>listen(s_socket,queuelen)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true"></a>c_socket = accept(s_socket, client_address)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true"></a><span class="cf">while</span>(read(c_socket, buf, buf_len)!=<span class="dv">0</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true"></a>{</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true"></a>    write(c_socket, buf, buf_len)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true"></a>}</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true"></a>close(c_socket)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true"></a>close(s_socket)</span></code></pre></div>
+<h3 id="udp版代码示例">UDP版代码示例</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>s_socket = socket(PF_INET,SOCK_DGRAM)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>bind(s_socket,address)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="cf">while</span>(<span class="dv">1</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>{</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>    str_len = recvfrom(s_socket, buf, buf_len, <span class="dv">0</span>, &amp;client_addr, addr_size);</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>    sendto(s_socket, buf, buf_len, <span class="dv">0</span>,&amp;client_addr, addr_size);</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>}</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>close(s_socket)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a>sock = socket(PF_INET,SOCK_DGRAM)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a>bind(s_socket,address)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a><span class="cf">while</span>(<span class="dv">1</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>{</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a>    sendto(sock, buf, buf_len, <span class="dv">0</span>,&amp;client_addr, addr_size);</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a>    recvfrom(sock, buf, buf_len, <span class="dv">0</span>, &amp;client_addr, addr_size);</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a>}</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a>close(sock)</span></code></pre></div>
+<h2 id="常见网络编程模式">常见网络编程模式</h2>
+<h3 id="每次只处理一个连接">1.每次只处理一个连接</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>s_socket = socket(PF_INET,SOCK_STREAM)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>bind(s_socket,address)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>listen(s_socket,queuelen)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a><span class="cf">while</span>(<span class="dv">1</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>{</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>    c_socket = accept(s_socket, client_address)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>    <span class="cf">while</span>(read(c_socket, buf, buf_len)!=<span class="dv">0</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>    {</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>        write(c_socket, buf, buf_len)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a>    }</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a>    close(c_socket)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a>}</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a>close(s_socket)</span></code></pre></div>
+<h3 id="多进程版每个连接分配一个进程">2.多进程版，每个连接分配一个进程</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>s_socket = socket(PF_INET,SOCK_STREAM)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>bind(s_socket,address)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>listen(s_socket,queuelen)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a><span class="cf">while</span>(<span class="dv">1</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>{</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>    c_socket = accept(s_socket, client_address)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>    pid = fork()</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>    <span class="cf">if</span>(pid &gt; <span class="dv">0</span> )</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>    {</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>        close(c_socket)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a>    }<span class="cf">else</span> <span class="cf">if</span>(pid == <span class="dv">0</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a>    {</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a>        close(s_socket)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true"></a>        <span class="cf">while</span>(read(c_socket, buf, buf_len)!=<span class="dv">0</span>)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true"></a>        {</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true"></a>            write(c_socket, buf, buf_len)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true"></a>        }</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true"></a>        close(c_socket)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true"></a>    }</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true"></a>}</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true"></a>close(s_socket)</span></code></pre></div>
+<h3 id="多线程版每个连接分配一个线程">3.多线程版，每个连接分配一个线程</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="dt">void</span> *handle_clinet(<span class="dt">void</span> *arg )</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>{</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>    c_socket = *((<span class="dt">int</span> *)arg)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>    <span class="cf">while</span>(read(c_socket, buf, buf_len)!=<span class="dv">0</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>    {</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>        write(c_socket, buf, buf_len)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a>    }</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>}</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a>pthread_t tid</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a>s_socket = socket(PF_INET,SOCK_STREAM)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a>bind(s_socket,address)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true"></a>listen(s_socket,queuelen)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true"></a><span class="cf">while</span>(<span class="dv">1</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true"></a>{</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true"></a>    c_socket = accept(s_socket, client_address)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true"></a>    pthread_create(&amp;tid, NULL, handle_client, (<span class="dt">void</span> *)&amp;c_socket);</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true"></a>    pthread_detach(tid);</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true"></a>}</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true"></a>close(s_socket)</span></code></pre></div>
+<h3 id="io多路复用版">4.I/O多路复用版</h3>
+<h4 id="select模型">select模型</h4>
+<p>select要注意最大文件描述符是1024，超过了会崩溃的。<br />
+使用select可以将多个socket集中到一起统一监视，监视内容为：接收事件，非阻塞传输事件，异常<br />
+刚开始时把server_soket设置到<strong>fd_set</strong>文件描述符集合中，然后开始循环调用select去监视所有socet的变化，<br />
+当select返回值大于0，说明有变化，然后遍历fd_set的集合，判断哪些socket发生变化，<br />
+- 如果是server_socket发生变化则将accept到的cliet_socket设置到fd_set中<br />
+- 如果是cliet_socket发生变化则进行读写操作，若断开则FD_CLR()掉</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>fd_max=<span class="dv">100</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>fd_set read_set</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a>s_socket = socket(PF_INET,SOCK_STREAM)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a>bind(s_socket,address)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a>listen(s_socket,queuelen)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true"></a>FD_ZERO(&amp;read_set)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true"></a>FD_SET(s_socket, &amp;read_set)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true"></a><span class="cf">while</span>(<span class="dv">1</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true"></a>{</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true"></a>    temp_read_set = read_set        <span class="co">//每次都要复制</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true"></a>    count = select(fd_max, temp_read_set, NULL, NULL, timeout )</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true"></a>    <span class="cf">if</span>(count == <span class="dv">0</span>) <span class="cf">continue</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true"></a>    <span class="cf">for</span>(i = <span class="dv">1</span>, i &lt; fd_max, i++)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true"></a>    {</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true"></a>        <span class="cf">if</span>(FD_ISSET(i, &amp;temp_read_set)) <span class="co">//是否有变化,在select的时候被设置</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true"></a>        {</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true"></a>            <span class="cf">if</span>(i==serv_sock)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true"></a>            {</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true"></a>                c_socket = accept(s_socket, client_address)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true"></a>                FD_SET(c_socket, &amp;read_set);</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true"></a>            }<span class="cf">else</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true"></a>            {</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true"></a>                ret = read(i, buf, buf_len)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true"></a>                <span class="cf">if</span>(ret &gt; <span class="dv">0</span>)</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true"></a>                {</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true"></a>                    write(i, buf, buf_len)</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true"></a>                }<span class="cf">else</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true"></a>                {</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true"></a>                    FD_CLR(i, &amp;read_set);</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true"></a>                    close(i);</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true"></a>                }</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true"></a>             }</span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true"></a>        }</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true"></a>    }</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true"></a>}</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true"></a>close(s_socket)</span></code></pre></div>
+<h4 id="epoll模型">epoll模型</h4>
+<p><strong>select慢的原因</strong>：<br />
+1. 调用 select 函数后针对所有文件描述符的循环语句，即使只有一个socket改变了<br />
+2. 每次调用 select 函数时都需要向该函数传递<strong>fd集合(fd_set)</strong>，涉及到向内核传递数据。</p>
+<p>select 的兼容性比较高，这样就可以支持很多的操作系统，不受平台的限制，使用select函数满足以下两个条件：<br />
+1. 服务器接入者少<br />
+2. 程序应该具有兼容性</p>
+<p>下面是epoll函数的功能：<br />
+* epoll_create：创建保存epoll文件描述符的空间,everything is file,当然epoll的也不例外<br />
+* epoll_ctl：向空间注册并注销文件描述符<br />
+* epoll_wait：与 select 函数类似，等待文件描述符发生变化</p>
+<p>select 函数中为了保存监视对象的文件描述符，直接声明了 <strong>fd_set</strong> 变量，但 epoll 方式下<strong>操作系统</strong>负责保存监视对象文件描述符，因此需要向操作系统请求<strong>创建保存文件描述符的空间</strong>，此时用的函数就是 epoll_create。好处是不用在用户空间和内核空间传送数据了。</p>
+<p><strong>epoll流程</strong>：<br />
+1. epoll_create创建一个保存epoll文件描述符的空间<br />
+2. 动态分配内存，给将要监视的 epoll_wait，以读取所有发生事件的socket<br />
+3. 利用epoll_ctl添加server_socket的EPOLLIN事件<br />
+4. 利用epoll_wait来获取改变的文件描述符,把结果存在epoll_event类型的指针内存中<br />
+5. 处理发生事件的socket<br />
+6. 重复4-5步骤</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>EPOLL_SIZE = <span class="dv">100</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a><span class="kw">struct</span> epoll_event *events;  <span class="co">//保存所有事件</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a><span class="kw">struct</span> epoll_event event;</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>s_socket = socket(PF_INET,SOCK_STREAM)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a>bind(s_socket,address)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>listen(s_socket,queuelen)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a><span class="co">// setnonblockingmode(s_socket);</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a>ep_fd = epoll_create() <span class="co">//可以忽略这个参数，填入的参数为操作系统参考</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a>events = malloc(<span class="kw">sizeof</span>(<span class="kw">struct</span> epoll_event)*EPOLL_SIZE);</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a>event.events = EPOLLIN</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a>event.data.fd = s_socket</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true"></a>epoll_ctl(ep_fd, EPOLL_CTL_ADD, s_socket, &amp;event)</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true"></a><span class="cf">while</span>(<span class="dv">1</span>)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true"></a>{</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true"></a>    count = epoll_wait(ep_fd, events, EPOLL_SIZE, -<span class="dv">1</span>);  <span class="co">//-1是设置成永不超时</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true"></a>    <span class="cf">for</span>(i = <span class="dv">1</span>, i &lt; count, i++)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true"></a>    {</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true"></a>        fd = events[i].data.fd</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true"></a>        <span class="cf">if</span>(fd == s_socket)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true"></a>        {</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true"></a>            c_socket = accept(s_socket, client_address)</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true"></a>            event.events=EPOLLIN  <span class="co">// 设置监视类型</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true"></a>            <span class="co">// event.events = EPOLLIN | EPOLLET; //改成边缘触发</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true"></a>            <span class="co">// setnonblockingmode(c_socket); //将 accept 创建的套接字改为非阻塞模式</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true"></a>            event.data.fd=c_socket</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true"></a>            epoll_ctl(ep_fd, EPOLL_CTL_ADD, c_socket, &amp;event)</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true"></a>        }<span class="cf">else</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true"></a>        {</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true"></a>            ret = read(i, buf, buf_len)</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true"></a>            <span class="cf">if</span>(ret &gt; <span class="dv">0</span>)</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true"></a>            {</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true"></a>                write(fd, buf, buf_len)</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true"></a>            }<span class="cf">else</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true"></a>            {</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true"></a>                epoll_ctl(ep_fd, EPOLL_CTL_DEL, fd, NULL);</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true"></a>                close(fd);</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true"></a>            }</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true"></a>            <span class="co">/* ET触发</span></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true"></a><span class="co">            while(1) </span></span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true"></a><span class="co">            {</span></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true"></a><span class="co">                ret = read(i, buf, buf_len)</span></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true"></a><span class="co">                if(ret &gt; 0)</span></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true"></a><span class="co">                {</span></span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true"></a><span class="co">                    write(fd, buf, buf_len)</span></span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true"></a><span class="co">                }else if(ret&lt;0)</span></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true"></a><span class="co">                {</span></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true"></a><span class="co">                  if(errno = EAGAIN) braek;</span></span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true"></a><span class="co">                }</span></span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true"></a><span class="co">                else</span></span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true"></a><span class="co">                {</span></span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true"></a><span class="co">                    epoll_ctl(ep_fd, EPOLL_CTL_DEL, fd, NULL);</span></span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true"></a><span class="co">                    close(fd);</span></span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true"></a><span class="co">                }</span></span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true"></a><span class="co">            }</span></span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true"></a><span class="co">            */</span></span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true"></a>         }</span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true"></a>    }</span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true"></a>}</span>
+<span id="cb14-61"><a href="#cb14-61" aria-hidden="true"></a>close(s_socket)</span>
+<span id="cb14-62"><a href="#cb14-62" aria-hidden="true"></a>close(ep_fd)</span>
+<span id="cb14-63"><a href="#cb14-63" aria-hidden="true"></a>free(events)</span>
+<span id="cb14-64"><a href="#cb14-64" aria-hidden="true"></a>events = NULL</span></code></pre></div>
+<h4 id="水平触发level-trigger和边缘触发edge-trigger">水平触发(level trigger)和边缘触发(edge trigger)</h4>
+<p>epoll默认以水平触发方式工作，select也是以条件触发模式工作的。<br />
+两者区别：在于发生事件的时间点<br />
+* 水平触发：只要输入缓冲有数据就一直通知该事件<br />
+比如：服务器端输入缓冲收到50字节数据时，read了30字节，还剩20，仍会触发事件<br />
+* 边缘触发：输入缓冲收到数据时仅注册一次事件，即使输入缓冲中还留有数据</p>
+<ul>
+<li>边缘触发优点：<br />
+分离<strong>接收数据</strong>和<strong>处理数据</strong>的时间点，给服务端的实现带来很大灵活性。性能上使用得当会优于条件触发。</li>
+<li>边缘触发的要点：
+<ol>
+<li>read时缓存空，返回 -1，变量 errno 中的值变成 EAGAIN 时，说明没有数据可读</li>
+<li>为了完成非阻塞（Non-blocking）I/O ，更改套接字特性。</li>
+</ol></li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;unistd.h&gt;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;fcntl.h&gt;</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;errno.h&gt;</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;string.h&gt;</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;sys/socket.h&gt;</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;sys/types.h&gt;</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;sys/epoll.h&gt;</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;netinet/in.h&gt;</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;arpa/inet.h&gt;</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true"></a><span class="dt">ssize_t</span> socket_recv(<span class="dt">int</span> st)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true"></a>{</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true"></a>    <span class="dt">char</span> buf[<span class="dv">1024</span>];</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true"></a>    memset(buf, <span class="dv">0</span>, <span class="kw">sizeof</span>(buf));</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true"></a>    <span class="dt">ssize_t</span> rc = recv(st, buf, <span class="kw">sizeof</span>(buf), <span class="dv">0</span>);</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true"></a>    <span class="cf">if</span> (rc &lt;= <span class="dv">0</span>)</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true"></a>    {</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true"></a>        printf(<span class="st">&quot;recv failed %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true"></a>    } <span class="cf">else</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true"></a>    {</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true"></a>        printf(<span class="st">&quot;recv %s</span><span class="sc">\n</span><span class="st">&quot;</span>, buf);</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true"></a>        send(st, buf, rc, <span class="dv">0</span>);</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true"></a>    }</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true"></a>    <span class="cf">return</span> rc;</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true"></a>}</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true"></a></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true"></a></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true"></a><span class="dt">int</span> socket_accept(<span class="dt">int</span> listen_st)</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true"></a>{</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true"></a>    <span class="kw">struct</span> sockaddr_in client_addr;</span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true"></a>    socklen_t len = <span class="kw">sizeof</span>(client_addr);</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true"></a>    memset(&amp;client_addr, <span class="dv">0</span>, <span class="kw">sizeof</span>(client_addr));</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true"></a>    <span class="dt">int</span> client_st = accept(listen_st, (<span class="kw">struct</span> sockaddr *) &amp;client_addr, &amp;len);</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true"></a>    <span class="cf">if</span> (client_st &lt; <span class="dv">0</span>)</span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true"></a>        printf(<span class="st">&quot;accept failed %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true"></a>    <span class="cf">else</span></span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true"></a>        printf(<span class="st">&quot;accept by %s</span><span class="sc">\n</span><span class="st">&quot;</span>, inet_ntoa(client_addr.sin_addr));</span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true"></a>    <span class="cf">return</span> client_st;</span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true"></a>}</span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true"></a></span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true"></a></span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true"></a><span class="dt">void</span> setnonblocking(<span class="dt">int</span> st) <span class="co">//将socket设置为非阻塞</span></span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true"></a>{</span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true"></a>    <span class="dt">int</span> opts = fcntl(st, F_GETFL);</span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true"></a>    <span class="cf">if</span> (opts &lt; <span class="dv">0</span>)</span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true"></a>    {</span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true"></a>        printf(<span class="st">&quot;fcntl failed %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true"></a>    }</span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true"></a>    opts = opts | O_NONBLOCK;</span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true"></a>    <span class="cf">if</span> (fcntl(st, F_SETFL, opts) &lt; <span class="dv">0</span>)</span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true"></a>    {</span>
+<span id="cb15-56"><a href="#cb15-56" aria-hidden="true"></a>        printf(<span class="st">&quot;fcntl failed %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb15-57"><a href="#cb15-57" aria-hidden="true"></a>    }</span>
+<span id="cb15-58"><a href="#cb15-58" aria-hidden="true"></a>}</span>
+<span id="cb15-59"><a href="#cb15-59" aria-hidden="true"></a></span>
+<span id="cb15-60"><a href="#cb15-60" aria-hidden="true"></a></span>
+<span id="cb15-61"><a href="#cb15-61" aria-hidden="true"></a><span class="dt">int</span> socket_create(<span class="dt">int</span> port)</span>
+<span id="cb15-62"><a href="#cb15-62" aria-hidden="true"></a>{</span>
+<span id="cb15-63"><a href="#cb15-63" aria-hidden="true"></a>    <span class="dt">int</span> st = socket(AF_INET, SOCK_STREAM, <span class="dv">0</span>);</span>
+<span id="cb15-64"><a href="#cb15-64" aria-hidden="true"></a>    <span class="dt">int</span> on = <span class="dv">1</span>;</span>
+<span id="cb15-65"><a href="#cb15-65" aria-hidden="true"></a>    <span class="cf">if</span> (setsockopt(st, SOL_SOCKET, SO_REUSEADDR, &amp;on, <span class="kw">sizeof</span>(on)) == -<span class="dv">1</span>)</span>
+<span id="cb15-66"><a href="#cb15-66" aria-hidden="true"></a>    {</span>
+<span id="cb15-67"><a href="#cb15-67" aria-hidden="true"></a>        printf(<span class="st">&quot;setsockopt failed %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb15-68"><a href="#cb15-68" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb15-69"><a href="#cb15-69" aria-hidden="true"></a>    }</span>
+<span id="cb15-70"><a href="#cb15-70" aria-hidden="true"></a>    <span class="kw">struct</span> sockaddr_in addr;</span>
+<span id="cb15-71"><a href="#cb15-71" aria-hidden="true"></a>    memset(&amp;addr, <span class="dv">0</span>, <span class="kw">sizeof</span>(addr));</span>
+<span id="cb15-72"><a href="#cb15-72" aria-hidden="true"></a>    addr.sin_family = AF_INET;</span>
+<span id="cb15-73"><a href="#cb15-73" aria-hidden="true"></a>    addr.sin_port = htons(port);</span>
+<span id="cb15-74"><a href="#cb15-74" aria-hidden="true"></a>    addr.sin_addr.s_addr = htonl(INADDR_ANY);</span>
+<span id="cb15-75"><a href="#cb15-75" aria-hidden="true"></a>    <span class="cf">if</span> (bind(st, (<span class="kw">struct</span> sockaddr *) &amp;addr, <span class="kw">sizeof</span>(addr)) == -<span class="dv">1</span>)</span>
+<span id="cb15-76"><a href="#cb15-76" aria-hidden="true"></a>    {</span>
+<span id="cb15-77"><a href="#cb15-77" aria-hidden="true"></a>        printf(<span class="st">&quot;bind port %d failed %s</span><span class="sc">\n</span><span class="st">&quot;</span>, port, strerror(errno));</span>
+<span id="cb15-78"><a href="#cb15-78" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb15-79"><a href="#cb15-79" aria-hidden="true"></a>    }</span>
+<span id="cb15-80"><a href="#cb15-80" aria-hidden="true"></a>    <span class="cf">if</span> (listen(st, <span class="dv">300</span>) == -<span class="dv">1</span>)</span>
+<span id="cb15-81"><a href="#cb15-81" aria-hidden="true"></a>    {</span>
+<span id="cb15-82"><a href="#cb15-82" aria-hidden="true"></a>        printf(<span class="st">&quot;listen failed %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb15-83"><a href="#cb15-83" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb15-84"><a href="#cb15-84" aria-hidden="true"></a>    }</span>
+<span id="cb15-85"><a href="#cb15-85" aria-hidden="true"></a>    <span class="cf">return</span> st;</span>
+<span id="cb15-86"><a href="#cb15-86" aria-hidden="true"></a>}</span>
+<span id="cb15-87"><a href="#cb15-87" aria-hidden="true"></a></span>
+<span id="cb15-88"><a href="#cb15-88" aria-hidden="true"></a></span>
+<span id="cb15-89"><a href="#cb15-89" aria-hidden="true"></a><span class="dt">int</span> main(<span class="dt">int</span> arg, <span class="dt">char</span> *args[])</span>
+<span id="cb15-90"><a href="#cb15-90" aria-hidden="true"></a>{</span>
+<span id="cb15-91"><a href="#cb15-91" aria-hidden="true"></a>    <span class="cf">if</span> (arg &lt; <span class="dv">2</span>)</span>
+<span id="cb15-92"><a href="#cb15-92" aria-hidden="true"></a>        <span class="cf">return</span> -<span class="dv">1</span>;</span>
+<span id="cb15-93"><a href="#cb15-93" aria-hidden="true"></a>    <span class="dt">int</span> iport = atoi(args[<span class="dv">1</span>]);    </span>
+<span id="cb15-94"><a href="#cb15-94" aria-hidden="true"></a>    <span class="dt">int</span> listen_st = socket_create(iport);</span>
+<span id="cb15-95"><a href="#cb15-95" aria-hidden="true"></a>    <span class="cf">if</span> (listen_st == <span class="dv">0</span>)</span>
+<span id="cb15-96"><a href="#cb15-96" aria-hidden="true"></a>        <span class="cf">return</span> -<span class="dv">1</span>;</span>
+<span id="cb15-97"><a href="#cb15-97" aria-hidden="true"></a>    </span>
+<span id="cb15-98"><a href="#cb15-98" aria-hidden="true"></a>    <span class="kw">struct</span> epoll_event ev, events[<span class="dv">100</span>]; <span class="co">//声明epoll_event结构体的变量,ev用于注册事件,数组用于回传要处理的事件</span></span>
+<span id="cb15-99"><a href="#cb15-99" aria-hidden="true"></a>    memset(&amp;ev, <span class="dv">0</span>, <span class="kw">sizeof</span>(ev));</span>
+<span id="cb15-100"><a href="#cb15-100" aria-hidden="true"></a>    memset(events, <span class="dv">0</span>, <span class="kw">sizeof</span>(events));</span>
+<span id="cb15-101"><a href="#cb15-101" aria-hidden="true"></a></span>
+<span id="cb15-102"><a href="#cb15-102" aria-hidden="true"></a></span>
+<span id="cb15-103"><a href="#cb15-103" aria-hidden="true"></a>    <span class="dt">int</span> epfd = epoll_create(<span class="dv">100</span>); <span class="co">//建立epoll描述符</span></span>
+<span id="cb15-104"><a href="#cb15-104" aria-hidden="true"></a>    setnonblocking(listen_st); <span class="co">//把socket设置为非阻塞方式</span></span>
+<span id="cb15-105"><a href="#cb15-105" aria-hidden="true"></a>    ev.data.fd = listen_st; <span class="co">//设置与要处理的事件相关的文件描述符</span></span>
+<span id="cb15-106"><a href="#cb15-106" aria-hidden="true"></a>    ev.events = EPOLLIN | EPOLLERR | EPOLLHUP; <span class="co">//设置要处理的事件类型    </span></span>
+<span id="cb15-107"><a href="#cb15-107" aria-hidden="true"></a>    <span class="cf">if</span> (epoll_ctl(epfd, EPOLL_CTL_ADD, listen_st, &amp;ev) == -<span class="dv">1</span>) <span class="co">//注册epoll事件</span></span>
+<span id="cb15-108"><a href="#cb15-108" aria-hidden="true"></a>    {</span>
+<span id="cb15-109"><a href="#cb15-109" aria-hidden="true"></a>        printf(<span class="st">&quot;epoll_ctl error , %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb15-110"><a href="#cb15-110" aria-hidden="true"></a>        <span class="cf">return</span> -<span class="dv">1</span>;</span>
+<span id="cb15-111"><a href="#cb15-111" aria-hidden="true"></a>    }</span>
+<span id="cb15-112"><a href="#cb15-112" aria-hidden="true"></a>    <span class="dt">int</span> st = <span class="dv">0</span>;</span>
+<span id="cb15-113"><a href="#cb15-113" aria-hidden="true"></a>    <span class="cf">while</span> (<span class="dv">1</span>)</span>
+<span id="cb15-114"><a href="#cb15-114" aria-hidden="true"></a>    {</span>
+<span id="cb15-115"><a href="#cb15-115" aria-hidden="true"></a>        <span class="dt">int</span> nfds = epoll_wait(epfd, events, <span class="dv">100</span>, -<span class="dv">1</span>); <span class="co">//阻塞， 等待epoll事件的发生,100是和events[100]相对应的</span></span>
+<span id="cb15-116"><a href="#cb15-116" aria-hidden="true"></a>        <span class="cf">if</span> (nfds == -<span class="dv">1</span>)               <span class="co">//events存放出事的socket</span></span>
+<span id="cb15-117"><a href="#cb15-117" aria-hidden="true"></a>        {</span>
+<span id="cb15-118"><a href="#cb15-118" aria-hidden="true"></a>            printf(<span class="st">&quot;epoll_wait failed %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb15-119"><a href="#cb15-119" aria-hidden="true"></a>            <span class="cf">break</span>;</span>
+<span id="cb15-120"><a href="#cb15-120" aria-hidden="true"></a>        }</span>
+<span id="cb15-121"><a href="#cb15-121" aria-hidden="true"></a></span>
+<span id="cb15-122"><a href="#cb15-122" aria-hidden="true"></a></span>
+<span id="cb15-123"><a href="#cb15-123" aria-hidden="true"></a>        <span class="dt">int</span> i;</span>
+<span id="cb15-124"><a href="#cb15-124" aria-hidden="true"></a>        <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; nfds; i++)  <span class="co">//遍历发生的事件</span></span>
+<span id="cb15-125"><a href="#cb15-125" aria-hidden="true"></a>        {</span>
+<span id="cb15-126"><a href="#cb15-126" aria-hidden="true"></a>            <span class="cf">if</span> (events[i].data.fd &lt; <span class="dv">0</span>)</span>
+<span id="cb15-127"><a href="#cb15-127" aria-hidden="true"></a>                <span class="cf">continue</span>;</span>
+<span id="cb15-128"><a href="#cb15-128" aria-hidden="true"></a></span>
+<span id="cb15-129"><a href="#cb15-129" aria-hidden="true"></a></span>
+<span id="cb15-130"><a href="#cb15-130" aria-hidden="true"></a>            <span class="cf">if</span> (events[i].data.fd == listen_st) <span class="co">//监测到一个SOCKET用户连接到了绑定的SOCKET端口，建立新的连接。</span></span>
+<span id="cb15-131"><a href="#cb15-131" aria-hidden="true"></a>            {</span>
+<span id="cb15-132"><a href="#cb15-132" aria-hidden="true"></a>                st = socket_accept(listen_st);</span>
+<span id="cb15-133"><a href="#cb15-133" aria-hidden="true"></a>                <span class="cf">if</span> (st &gt;= <span class="dv">0</span>)</span>
+<span id="cb15-134"><a href="#cb15-134" aria-hidden="true"></a>                {</span>
+<span id="cb15-135"><a href="#cb15-135" aria-hidden="true"></a>                    setnonblocking(st);</span>
+<span id="cb15-136"><a href="#cb15-136" aria-hidden="true"></a>                    ev.data.fd = st;</span>
+<span id="cb15-137"><a href="#cb15-137" aria-hidden="true"></a>                    ev.events = EPOLLIN | EPOLLERR | EPOLLHUP; <span class="co">//设置要处理的事件类型？？？？？？</span></span>
+<span id="cb15-138"><a href="#cb15-138" aria-hidden="true"></a>                    <span class="cf">if</span> (epoll_ctl(epfd, EPOLL_CTL_ADD, st, &amp;ev) == -<span class="dv">1</span>)</span>
+<span id="cb15-139"><a href="#cb15-139" aria-hidden="true"></a>                    {</span>
+<span id="cb15-140"><a href="#cb15-140" aria-hidden="true"></a>                        printf(<span class="st">&quot;epoll_ctl error , %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb15-141"><a href="#cb15-141" aria-hidden="true"></a>                    }</span>
+<span id="cb15-142"><a href="#cb15-142" aria-hidden="true"></a>                    <span class="cf">continue</span>;</span>
+<span id="cb15-143"><a href="#cb15-143" aria-hidden="true"></a>                }</span>
+<span id="cb15-144"><a href="#cb15-144" aria-hidden="true"></a>            }</span>
+<span id="cb15-145"><a href="#cb15-145" aria-hidden="true"></a>            <span class="cf">if</span> (events[i].events &amp; EPOLLIN) <span class="co">//socket收到数据  ？？？？？？</span></span>
+<span id="cb15-146"><a href="#cb15-146" aria-hidden="true"></a>            {</span>
+<span id="cb15-147"><a href="#cb15-147" aria-hidden="true"></a>                st = events[i].data.fd;</span>
+<span id="cb15-148"><a href="#cb15-148" aria-hidden="true"></a>                <span class="cf">if</span> (socket_recv(st) &lt;= <span class="dv">0</span>)</span>
+<span id="cb15-149"><a href="#cb15-149" aria-hidden="true"></a>                {</span>
+<span id="cb15-150"><a href="#cb15-150" aria-hidden="true"></a>                    <span class="cf">if</span> (epoll_ctl(epfd, EPOLL_CTL_DEL, st, NULL) == -<span class="dv">1</span>)</span>
+<span id="cb15-151"><a href="#cb15-151" aria-hidden="true"></a>                    {</span>
+<span id="cb15-152"><a href="#cb15-152" aria-hidden="true"></a>                        printf(<span class="st">&quot;epoll_ctl error , %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb15-153"><a href="#cb15-153" aria-hidden="true"></a>                    }</span>
+<span id="cb15-154"><a href="#cb15-154" aria-hidden="true"></a>                    close(st);</span>
+<span id="cb15-155"><a href="#cb15-155" aria-hidden="true"></a>                }</span>
+<span id="cb15-156"><a href="#cb15-156" aria-hidden="true"></a>            }</span>
+<span id="cb15-157"><a href="#cb15-157" aria-hidden="true"></a>            <span class="cf">if</span> (events[i].events &amp; EPOLLERR) <span class="co">//socket错误</span></span>
+<span id="cb15-158"><a href="#cb15-158" aria-hidden="true"></a>            {</span>
+<span id="cb15-159"><a href="#cb15-159" aria-hidden="true"></a>                st = events[i].data.fd;</span>
+<span id="cb15-160"><a href="#cb15-160" aria-hidden="true"></a>                <span class="cf">if</span> (epoll_ctl(epfd, EPOLL_CTL_DEL, st, NULL) == -<span class="dv">1</span>)</span>
+<span id="cb15-161"><a href="#cb15-161" aria-hidden="true"></a>                {</span>
+<span id="cb15-162"><a href="#cb15-162" aria-hidden="true"></a>                    printf(<span class="st">&quot;epoll_ctl error , %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb15-163"><a href="#cb15-163" aria-hidden="true"></a>                }</span>
+<span id="cb15-164"><a href="#cb15-164" aria-hidden="true"></a>                close(st);</span>
+<span id="cb15-165"><a href="#cb15-165" aria-hidden="true"></a>            }</span>
+<span id="cb15-166"><a href="#cb15-166" aria-hidden="true"></a>            </span>
+<span id="cb15-167"><a href="#cb15-167" aria-hidden="true"></a>            <span class="cf">if</span> (events[i].events &amp; EPOLLHUP) <span class="co">//socket错误</span></span>
+<span id="cb15-168"><a href="#cb15-168" aria-hidden="true"></a>            {</span>
+<span id="cb15-169"><a href="#cb15-169" aria-hidden="true"></a>                st = events[i].data.fd;</span>
+<span id="cb15-170"><a href="#cb15-170" aria-hidden="true"></a>                <span class="cf">if</span> (epoll_ctl(epfd, EPOLL_CTL_DEL, st, NULL) == -<span class="dv">1</span>)</span>
+<span id="cb15-171"><a href="#cb15-171" aria-hidden="true"></a>                {</span>
+<span id="cb15-172"><a href="#cb15-172" aria-hidden="true"></a>                    printf(<span class="st">&quot;epoll_ctl error , %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb15-173"><a href="#cb15-173" aria-hidden="true"></a>                }</span>
+<span id="cb15-174"><a href="#cb15-174" aria-hidden="true"></a>                close(st);</span>
+<span id="cb15-175"><a href="#cb15-175" aria-hidden="true"></a>                events[i].data.fd=-<span class="dv">1</span>;<span class="co">//epoll会自动从池子里清除掉</span></span>
+<span id="cb15-176"><a href="#cb15-176" aria-hidden="true"></a>            }</span>
+<span id="cb15-177"><a href="#cb15-177" aria-hidden="true"></a>        }</span>
+<span id="cb15-178"><a href="#cb15-178" aria-hidden="true"></a>    }</span>
+<span id="cb15-179"><a href="#cb15-179" aria-hidden="true"></a>    close(epfd);</span>
+<span id="cb15-180"><a href="#cb15-180" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb15-181"><a href="#cb15-181" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="preactor-和-reactor">5.Preactor 和 Reactor</h3>
+<p>这两种模式都是针对IO操作的，我的理解是Reactor只是告诉调用者什么时候事件到来，但是需要进行什么操作，需要调用者自己处理。<br />
+Preactor不是当事件到来时通知，而是针对此事件对应的操作完成时，通知调用者，一般通知方式都是异步回调。<br />
+举例，Reactor中注册读事件，那么文件描述符可读时，需要调用者自己调用read系统调用读取数据，若工作在Preactor模式，注册读事件，同时提供一个buffer用于存储读取的数据，那么Preactor通过回调函数通知用户时，用户无需在调用系统调用读取数据，因为数据已经存储在buffer中了。显然epoll是Reactor的。</p>
+<p>无论是 Reactor 模式，还是 Proactor 模式，都是一种基于事件分发的网络编程模式。<br />
+Reactor 模式是基于<strong>待完成</strong>的 I/O 事件，而 Proactor 模式则是基于<strong>已完成</strong>的 I/O 事件，<br />
+两者的本质，都是借由事件分发的思想，设计出可兼容、可扩展、接口友好的一套程序框架</p>
+<pre><code>标准/典型的Reactor：
+  - 步骤1：等待事件到来（Reactor负责）
+  - 步骤2：将读就绪事件分发给用户定义的处理器（Reactor负责）
+  - 步骤3：读数据（用户处理器负责）
+  - 步骤4：处理数据（用户处理器负责）
+
+改进实现的模拟Proactor：
+  - 步骤1：等待事件到来（Proactor负责）
+  - 步骤2：得到读就绪事件，执行读数据（现在由Proactor负责）
+  - 步骤3：将读完成事件分发给用户处理器（Proactor负责）
+  - 步骤4：处理数据（用户处理器负责）  </code></pre>
+<h2 id="unix-domain">UNIX Domain</h2>
+<h3 id="unix-domain-socket-ipc">UNIX Domain Socket IPC</h3>
+<p>socket API原本是为网络通讯设计的，但后来在socket的框架上发展出一种IPC机制，就是UNIXDomain Socket。<br />
+UNIX Domain Socket也提供<strong>面向流和面向数据包</strong>两种API接口，类似于TCP和UDP，但是面向消息<br />
+的UNIX Domain Socket也是可靠的，消息既不会丢失也不会顺序错乱。<br />
+UNIX Domain Socket是全双工的，API接口语义丰富，相比其它IPC机制有明显的优越性，目前已成为使用最广泛的IPC机制。</p>
+<h4 id="使用">使用</h4>
+<p>使用UNIX Domain Socket的过程和网络socket十分相似，也要先调用socket()创建一<br />
+个socket文件描述符，address family指定为<code>AF_UNIX</code>，type可以选择SOCK_DGRAM或SOCK_STREAM，protocol参数仍然指定为0即可。<br />
+UNIX Domain Socket与网络socket编程最明显的不同在于<strong>地址格式不同</strong>，用结构<br />
+体sockaddr_un表示，网络编程的socket地址是IP地址加端口号，而UNIX Domain Socket的地<br />
+址是一个<strong>socket类型的文件在文件系统中的路径</strong>，这个socket文件由bind()调用创建，如果调用bind()时该文件已存在，则bind()错误返回。<br />
+通过accept得到客户端地址也应该是一个socket文件，如果不<br />
+是socket文件就返回错误码，如果是socket文件，在建立连接后这个文件就没有用了，调用unlink把它删掉，通过传出参数uidptr返回客户端程序的user id</p>
+<h4 id="客户端显式的bind">客户端显式的bind</h4>
+<p>与网络socket编程不同的是，UNIX Domain Socket客户端一般<br />
+要<strong>显式调用bind函数</strong>，而不依赖系统自动分配的地址。客户端bind一个自己指定的socket文件名<br />
+的好处是，该文件名可以包含客户端的pid以便服务器区分不同的客户端。</p>
+<h3 id="af_inet-和-af_unix区别">AF_INET 和 AF_UNIX区别</h3>
+<h4 id="af_inet域socket通信过程">1.AF_INET域socket通信过程</h4>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/25741395-5427-4821-a08d-f93c0385791b.png" /></p>
+<p>发送方、接收方依赖IP:Port来标识.<br />
+发送方通过系统调用send()将原始数据发送到操作系统内核缓冲区中。内核缓冲区从上到下依次经过TCP层、IP层、链路层的编码，分别添加对应的头部信息，经过网卡将一个数据包发送到网络中。经过网络路由到接收方的网卡。网卡通过系统中断将数据包通知到接收方的操作系统，再沿着发送方编码的反方向进行解码，即依次经过链路层、IP层、TCP层去除头部、检查校验等，最终将原始数据上报到接收方进程。</p>
+<h4 id="af_unix域socket通信过程">2.AF_UNIX域socket通信过程</h4>
+<p>典型的本地IPC，<strong>依赖路径名标识</strong>发送方和接收方。即发送数据时，<strong>指定接收方绑定的路径名</strong>，操作系统根据该路径名可以直接找到对应的接收方，并<strong>将原始数据直接拷贝到接收方的内核缓冲区中，并上报给接收方进程进行处理</strong>。同样的接收方可以从收到的数据包中获取到发送方的路径名，并通过此路径名向其发送数据。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/dd236489-47d7-4656-9e54-c21265c58da9.jpg" /></p>
+<h4 id="相同点">3.相同点</h4>
+<p>操作系统提供的接口socket(),bind(),connect(),accept(),send(),recv()，以及用来对其进行多路复用事件检测的select(),poll(),epoll()都是完全相同的。都有tcp和udp的协议。收发数据的过程中，上层应用感知不到底层的差别。</p>
+<h4 id="不同点">4.不同点</h4>
+<ul>
+<li>建立socket传递的地址域，及bind()的地址结构稍有区别：
+<ul>
+<li>socket() 分别传递不同的域AF_INET和AF_UNIX</li>
+<li>bind()的地址结构分别为sockaddr_in（制定IP端口）和sockaddr_un（指定路径名）</li>
+</ul></li>
+<li>AF_INET需经过多个协议层的编解码，消耗系统cpu，并且数据传输需要经过网卡，受到网卡带宽的限制，且网络层是不可靠的。<br />
+AF_UNIX数据到达内核缓冲区后，由内核根据指定路径名找到接收方socket对应的内核缓冲区，直接将数据拷贝过去，不经过协议层编解码，节省系统cpu，并且不经过网卡，因此不受网卡带宽的限制，通讯是可靠的。</li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

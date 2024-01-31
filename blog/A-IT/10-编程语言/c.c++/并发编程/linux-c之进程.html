@@ -1,0 +1,704 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/并发编程/linux-c之进程</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#进程控制块pcb">## 进程控制块（PCB）</a>
+<ul>
+<li><a href="#linux下的进程">linux下的进程：</a></li>
+</ul></li>
+<li><a href="#环境变量">环境变量</a></li>
+<li><a href="#进程控制">进程控制</a>
+<ul>
+<li><a href="#fork函数getpidgetppid">fork函数、getpid、getppid</a></li>
+<li><a href="#system系统调用">system系统调用</a></li>
+<li><a href="#exec函数">exec函数</a></li>
+<li><a href="#僵尸进程孤儿进程init进程wait和waitpid函数">僵尸进程、孤儿进程、init进程、wait和waitpid函数</a></li>
+<li><a href="#进程终止">进程终止</a></li>
+</ul></li>
+<li><a href="#守护进程daemon">守护进程（daemon）</a>
+<ul>
+<li><a href="#创建守护进程步骤">创建守护进程步骤</a></li>
+<li><a href="#如何确保只启动一个守护进程的实例">如何确保只启动一个守护进程的实例</a></li>
+<li><a href="#通过shell脚本结束守护进程">通过shell脚本结束守护进程</a></li>
+<li><a href="#守护进程记录日志">守护进程记录日志</a></li>
+<li><a href="#使用信号与守护进程通信">使用信号与守护进程通信</a></li>
+</ul></li>
+<li><a href="#进程间通信">进程间通信</a>
+<ul>
+<li><a href="#发信号">0.发信号</a></li>
+<li><a href="#管道pipe">1.管道(pipe)</a>
+<ul>
+<li><a href="#管道通信步骤">管道通信步骤：</a></li>
+<li><a href="#管道的限制">管道的限制：</a></li>
+<li><a href="#读写管道的4种特殊情况">读写管道的4种特殊情况:</a></li>
+<li><a href="#四种io事件">四种I/O事件</a></li>
+</ul></li>
+<li><a href="#fifo">2.FIFO</a>
+<ul>
+<li><a href="#管道和fifo的区别">管道和FIFO的区别</a></li>
+</ul></li>
+<li><a href="#共享内存">3.共享内存</a>
+<ul>
+<li><a href="#创建共享内存区">创建共享内存区</a></li>
+<li><a href="#附加共享内存区">附加共享内存区</a></li>
+</ul></li>
+<li><a href="#unix-domain-socket">4.Unix Domain Socket</a></li>
+<li><a href="#ipc机制总结">5.IPC机制总结</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>进程是一个正在执行的程序实例，他也是Linux基本的调度单位</p>
+<h2 id="进程控制块pcb">## 进程控制块（PCB）</h2>
+<p><strong>每个进程在内核中都有一个进程控制块</strong>（PCB）来维护进程相关的信息，Linux内核的进程控制块是 task_struct 结构体。<br />
+* 进程id。<br />
+* 进程的状态，有运行、挂起、停止、僵尸等状态。<br />
+* 文件描述符表，包含很多指向 file 结构体的指针。<br />
+* 当前工作目录（Current Working Directory）。<br />
+* 用户id和组id。<br />
+* 信号相关的信息--信号捕捉函数<br />
+* 进程切换时需要保存和恢复的一些CPU寄存器。<br />
+* 描述虚拟地址空间的信息。<br />
+* 描述控制终端的信息。<br />
+* umask 掩码--umask命令与文件和目录的默认访问权限有关<br />
+* 控制终端、Session和进程组。<br />
+* 进程可以使用的资源上限（Resource Limit）。</p>
+<p>子进程的PCB是根据父进程复制而来的，只是进程id不一样</p>
+<h3 id="linux下的进程">linux下的进程：</h3>
+<p>系统中同时运行着很多进程，这些进程都是从最初只有一个进程开始一个一个<strong>fork</strong>出来的。<br />
+在Shell下输入命令可以运行一个程序，是因为Shell进程在读取用户输入的命令之后会调用 <strong>fork</strong> 复制出一个新的Shell进程(因为当前执行的进程是shell进程)，然后新的Shell进程调用 <strong>exec</strong> 执行新的程序。<br />
+比如：在Shell提示符下输入命令 ls ，首先 fork 创建子进程，这时子进程仍在执行 <code>/bin/bash</code> 程序，然后子进程调用 exec 执行新的程序 <code>/bin/ls</code></p>
+<h2 id="环境变量">环境变量</h2>
+<p>libc中定义的全局变量 environ 指向环境变量表， environ 没有包含在任何头文件中，所以在使用<br />
+时要用 extern 声明。例如：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>int main(<span class="dt">void</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>{</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    extern char **environ;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    for(int i=<span class="dv">0</span>; environ[i]!=NULL; i++)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>        printf(<span class="st">&quot;%s</span><span class="sc">\n</span><span class="st">&quot;</span>, environ[i]);</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>}</span></code></pre></div>
+<p>用 environ 指针可以查看所有环境变量字符串，但是不够方便，如果给出 name 要在环境变量表中<br />
+查找它对应的 value ，可以用 getenv 函数。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>char *getenv(const char *name);</span></code></pre></div>
+<p>修改环境变量可以用以下函数</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>int setenv(const char *name, const char *value, int rewrite);</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>void unsetenv(const char *name);</span></code></pre></div>
+<h2 id="进程控制">进程控制</h2>
+<h3 id="fork函数getpidgetppid">fork函数、getpid、getppid</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;sys/types.h&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;unistd.h&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>pid_t fork(<span class="dt">void</span>);</span></code></pre></div>
+<p>返回值：-1出错，大于0父进程，0子进程<br />
+fork 在子进程中返回0，子进程仍可以调用 getpid 函数得到自己的进程id，也可以调用 getppid() 函数得到父进程的id。在父进程中用 getpid 可以得到自己的进程id，然而要想得到子进程的id，只有将 fork 的返回值记录下来，别无它法。<br />
+fork 函数的特点概括起来就是“调用一次，返回两次”，在父进程中调用一次，在父进程和子进程中各返回一次。<br />
+fork 的另一个特性是所有由父进程打开的描述符都被复制到子进程中。父、子进程中相同编号的文件描述符在内核中指向同一个 file 结构体，也就是说， file 结构体的<strong>引用计数要增加</strong>。</p>
+<p>用 gdb 调试多进程的程序会遇到困难， gdb 只能跟踪一个进程（默认是跟踪父进程），可以设置 gdb 在 fork 之后跟踪父进程还是子进程。<br />
+<code>set follow-fork-mode child</code> 命令设置 gdb 在 fork 之后跟踪子进程</p>
+<p>为什么要知道一个进程的PID以及它父进程的PID呢？。<br />
+* PID常见的用法之一就是创建唯一的文件或目录名。<br />
+* 另一种的用途是把PID写入日志文件做为日志消息的一部分。</p>
+<p>getlogin函数返回执行程序的用户登录名。<br />
+可以把登录名作为参数传递给getpwnam函数，这个函数能返回/etc/passwd文件中与该登录名相应的一行完整信息。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;pwd.h&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>struct passwd *getpwnam(const char *name);</span></code></pre></div>
+<h3 id="system系统调用">system系统调用</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>int system(const char *string);        <span class="co">//是fork和exec的结合</span></span></code></pre></div>
+<p><code>system（）</code>会调用<code>fork（）</code>产生子进程，由子进程来调用<code>/bin/sh -c string</code>来执行参数string字符串所代表的命令，此命令执行完后随即返回原调用的进程</p>
+<h3 id="exec函数">exec函数</h3>
+<p>用 fork 创建子进程后执行的是和父进程相同的程序（但有可能执行不同的代码分支），子进程<br />
+往往要调用一种 exec 函数以执行另一个程序。当进程调用一种 exec 函数时，该进程的<strong>用户空间<br />
+代码和数据完全被新程序替换</strong>，从新程序的<strong>启动例程</strong>开始执行。调用 exec 并不创建新进程，所<br />
+以调用 exec 前后该进程的id并未改变。<br />
+其实有六种以 exec 开头的函数，统称 exec 函数：</p>
+<pre><code>#include &lt;unistd.h&gt;
+int execl(const char *path, const char *arg, ...);
+int execlp(const char *file, const char *arg, ...);
+int execle(const char *path, const char *arg, ..., char *const envp[]);
+int execv(const char *path, char *const argv[]);
+int execvp(const char *file, char *const argv[]);
+int execve(const char *path, char *const argv[], char *const envp[]);</code></pre>
+<p>这些函数如果调用成功则加载新的程序从启动代码开始执行，<strong>不再返回</strong>，如果调用出错则返回-1，所以 exec 函数<strong>只有出错的返回值</strong>而没有成功的返回值<br />
+函数字母的含义：<br />
+不带字母<code>p(path)</code>的 exec 函数第一个参数必须是程序的相对路径或绝对路径，例如 "/bin/ls" 或 "./a.out" ，而不能是 "ls" 或 "a.out" 。对于带字母p的函数：如果参数中包含/，则将其视为路径名。<br />
+否则视为不带路径的程序名，在 PATH 环境变量的目录列表中搜索这个程序。<br />
+带有字母<code>l(list)</code>的 exec 函数要求将新程序的每个命令行参数都当作一个参数传给它，命令<br />
+行参数的个数是可变的，因此函数原型中有 ... ， ... 中的最后一个可变参数应该是 NULL ，<br />
+起sentinel的作用。<br />
+对于带有字母<code>v(vector)</code>的函数，则应该先构造一个指向各参数的指针<br />
+数组，然后将该数组的首地址当作参数传给它，数组中的最后一个指针也应该是 NULL ，就像 main 函数的 argv 参数或者环境变量表一样。<br />
+对于以<code>e(environment)</code>结尾的 exec 函数，可以把一份新的环境变量表传给它，其他 exec 函数仍使用当前的环境变量表执行新程序。<br />
+一个完整的例子：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;unistd.h&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>int main(<span class="dt">void</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>{</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>    execlp(<span class="st">&quot;ps&quot;</span>, <span class="st">&quot;ps&quot;</span>, <span class="st">&quot;-o&quot;</span>,<span class="st">&quot;pid,ppid,pgrp,session,tpgid,comm&quot;</span>, NULL);</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>    perror(<span class="st">&quot;exec ps&quot;</span>);</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>    exit(<span class="dv">1</span>);</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>}</span></code></pre></div>
+<p>注意在调用 execlp 时传了两个 "ps" 参数，第一个 "ps" 是程序名， execlp 函数要在 PATH 环境变量中找到这个程序并执行它，而第二个 "ps" 是第一个命令行参数， execlp 函数并不关心它的值，<br />
+只是简单地把它传给 ps 程序， ps 程序可以通过 main 函数的 argv[0] 取到这个参数。</p>
+<h3 id="僵尸进程孤儿进程init进程wait和waitpid函数">僵尸进程、孤儿进程、init进程、wait和waitpid函数</h3>
+<p>一个进程在终止时会关闭所有文件描述符，释放在用户空间分配的内存，但它的<code>PCB</code>还保留着，内核在其中保存了一些信息：如果是正常终止则保存着退出状态，如果是异常终止则保存着导致该进程终止的信号是哪个。</p>
+<p>这个进程的父进程可以调用 wait 或 waitpid 获取这些信息，然后<strong>彻底清除掉这个进程</strong>。我们知道一个进程的退出状态可以在Shell中用特殊变量 <code>$?</code> 查看，因为<strong>Shell是它的父进程</strong>，当它终止时Shell调用 <code>wait</code> 或 <code>waitpid</code> 得到它的退出状态同时彻底清除掉这个进程。</p>
+<p>当子进程退出时,它向父进程发送一个<code>SIGCHLD</code>信号,默认情况下总是忽略SIGCHLD信号,如果它的父进程尚未调用 <code>wait</code> 或 <code>waitpid</code> 对它进行清理，这时的进程状态称<strong>为僵尸（Zombie）进程</strong>。<strong>任何进程在刚终止时都是僵尸进程</strong>，正常情况下，僵尸进程都立刻被父进程清理了。即通过监听SIGCHLD信号调用waitpid来清理子进程。</p>
+<p>如果一个父进程终止，而它的子进程还存在（这些子进程或者仍在运行，或者已经是僵尸进程了），他们就成为<strong>孤儿进程</strong>，这些子进程的父进程改为 <code>init</code> 进程。 init 是系统中的一个特殊进程，通常程序文件是 <code>/sbin/init</code> ，进程id是1，在系统启动时负责启动各种系统服务，之后就负责清理子进程，只要有子进程终止， init 就会调用 <code>wait</code> 函数清理它。</p>
+<p>wait 和 waitpid 函数的原型是：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;sys/types.h&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;sys/wait.h&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>pid_t wait(int *status);</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>pid_t waitpid(pid_t pid, int *status, int options);</span></code></pre></div>
+<p>若调用成功则返回清理掉的子进程id，若调用出错则返回-1。父进程调用 wait 或 waitpid 时可能会：<br />
+* 阻塞（如果它的所有子进程都还在运行）。<br />
+* 带子进程的终止信息立即返回（如果一个子进程已终止，正等待父进程读取其终止信息）。<br />
+* 出错立即返回（如果它没有任何子进程）。</p>
+<p><strong>这两个函数的区别是</strong>：<br />
+* 如果父进程的所有子进程都还在运行，调用 wait 将使父进程阻塞，而调用 waitpid 时如果在 options 参数中指定 WNOHANG 可以使父进程不阻塞而立即返回0。<br />
+* wait <strong>等待第一个终止的子进程</strong>，而 waitpid 可以通过 pid 参数指定等待哪一个子进程。<br />
+可见，调用 wait 和 waitpid 不仅可以获得子进程的终止信息，还可以使父进程阻塞等待子进程终止，<strong>起到进程间同步的作用</strong>。如果参数 status 不是空指针，则子进程的终止信息通过这个参数传出，如果只是为了同步而不关心子进程的终止信息，可以将 status 参数指定为 NULL 。通过WIFEXITED、WEXITSTATUS宏可以取出status中的信息</p>
+<h3 id="进程终止">进程终止</h3>
+<ul>
+<li>main函数调用了return；</li>
+<li>调用了exit(int status)函数；返回给父进程的状态（status）</li>
+<li>调用了_exit函数；</li>
+<li>调用了abort(void)函数； 还可以让程序产生coredump</li>
+<li>被一个信号终止。</li>
+<li>kill函数用来杀死另一个进程,向另一个进程发送SIGKILL信号</li>
+</ul>
+<p>前三个原因都是正常终止，后面两个是非正常终止。</p>
+<p>exit()与_exit()区别：<br />
+<code>_exit()</code>函数的作用最为简单：直接使进程停止运行，清除其使用的内存空间，并销毁其在内核中的各种数据结构；<code>exit()</code> 函数则在这些基础上<strong>作了一些包装</strong></p>
+<p>exit()函数与_exit()函数最大的区别就在于 exit()函数在调用exit系统调用之前要检查文件的打开情况，把文件缓冲区中的内容写回文件，就是”清理I/O缓冲“，无论进程为何终止，最后都执行相同的内核代码，关闭打开的文件，释放内存资源，和其他清理工作。</p>
+<h2 id="守护进程daemon">守护进程（daemon）</h2>
+<p>守护进程是一个后台进程，它无需用户输入就能运行，经常是提供某种服务</p>
+<h3 id="创建守护进程步骤">创建守护进程步骤</h3>
+<p>1. 父进程中执行fork后，执行exit退出。<br />
+父进程在fork子进程退出后就消除了控制终端。<br />
+守护进程既不需要从标准输入设备读信息，也不需要从标准输出设备输出信息</p>
+<p>2. 在子进程中调用setsid。<br />
+取消进程和任何控制终端的关联。<br />
+setsid函数创建一个新会话和一个新进程组，然后守护进程成为新会话的会话leader，以及新进程组的进程组leader</p>
+<p>3. 让根目录<code>/</code>成为子进程的工作目录。</p>
+<pre><code>//chdir函数根据参数pathname设置当前工作
+chdir(const char *pathname)</code></pre>
+<p>因为任何进程如果它的当前目录是在一个被安装的文件系统上，那么就会<strong>妨碍这个文件系统被卸载</strong>。</p>
+<p>4. 把子进程的umask变为0。<br />
+为了避免守护进程集成的umask受到创建文件和目录操作的干扰，这一步是必要的。<br />
+如果一个进程集成了父进程的umask 055，他屏蔽掉了group和other的读和执行权。如果守护进程接着创建了一个文件，那么对group和other用户操作这个文件会带来麻烦。<br />
+守护进程调用 umask 0避免了这种情况，当创建文件的时候给予守护进程更大的灵活性<br />
+<code>mode_t umask(mode_t mask); </code></p>
+<p>5. 关闭任何不需要的文件描述符。<br />
+最后关闭子进程继承的任何不必要的文件描述符。对于子进程来说，没有理由保持从父进程继承来的打开的文件描述符。</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>void setdaemon()</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>{</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a> pid_t pid, sid;</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a> pid = fork();</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a> if (pid &lt; <span class="dv">0</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a> {</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>  printf(<span class="st">&quot;fork failed %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>  exit(EXIT_FAILURE);</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a> }</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a> if (pid &gt; <span class="dv">0</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a> {</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a>  exit(EXIT_SUCCESS);</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a> }</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true"></a> if ((sid = setsid()) &lt; <span class="dv">0</span>)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true"></a> {</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true"></a>  printf(<span class="st">&quot;setsid failed %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true"></a>  exit(EXIT_FAILURE);</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true"></a> }</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true"></a>    if((chdir(<span class="st">&quot;/&quot;</span>)) &lt; <span class="dv">0</span>)</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true"></a>    {</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true"></a>        printf(<span class="st">&quot;chdir failed</span><span class="sc">\n</span><span class="st">&quot;</span>);</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true"></a>        exit(EXIT_FAILURE);</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true"></a>    }</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true"></a>    umask(<span class="dv">0</span>);</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true"></a>    <span class="co">//close(STDIN_FILENO);//if close stdin,then daemon_console failed</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true"></a>    close(STDOUT_FILENO);</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true"></a>    close(STDERR_FILENO);    </span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="如何确保只启动一个守护进程的实例">如何确保只启动一个守护进程的实例</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="co">#!/bin/sh</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="va">WHOAMI=</span><span class="kw">`</span><span class="fu">whoami</span><span class="kw">`</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="va">PID=</span><span class="kw">`</span><span class="ex">ps</span> -u <span class="va">$WHOAMI</span> <span class="kw">|</span> <span class="ex">grep</span> abc <span class="kw">|</span> <span class="ex">awk</span> <span class="st">&#39;{print $1}&#39;</span><span class="kw">`</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a><span class="ex">if</span> (test <span class="st">&quot;</span><span class="va">$PID</span><span class="st">&quot;</span> = <span class="st">&quot;&quot;</span>) <span class="ex">then</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>    <span class="ex">./abc</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a><span class="kw">fi</span></span></code></pre></div>
+<h3 id="通过shell脚本结束守护进程">通过shell脚本结束守护进程</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="co">#!/bin/sh</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a><span class="va">WHOAMI=</span><span class="kw">`</span><span class="fu">whoami</span><span class="kw">`</span>   这个用户下的进程都列出来</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a><span class="va">PID=</span><span class="kw">`</span><span class="ex">ps</span> -u <span class="va">$WHOAMI</span> <span class="kw">|</span> <span class="ex">grep</span> abc <span class="kw">|</span> <span class="ex">awk</span> <span class="st">&#39;{print $1}&#39;</span><span class="kw">`</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a><span class="ex">if</span> (test <span class="st">&quot;</span><span class="va">$PID</span><span class="st">&quot;</span> != <span class="st">&quot;&quot;</span>) <span class="ex">then</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a>      <span class="ex">kill</span> <span class="va">$PID</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a><span class="kw">fi</span></span></code></pre></div>
+<h3 id="守护进程记录日志">守护进程记录日志</h3>
+<p>一旦系统调用setsid,它就不再有控制终端。<br />
+可以通过<code>syslog</code>提供服务，记录守护进程的各种输出信息</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="co">// openlog函数打开日志,syslog写入日志,closelog关闭日志。</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;syslog.h&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>void openlog(const char *ident, int option, int facility);</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>void syslog(int priority, const char *format, ...);</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a>void closelog(<span class="dt">void</span>);</span></code></pre></div>
+<p>linux系统上日志文件通常是<code>/var/log/messages</code></p>
+<h3 id="使用信号与守护进程通信">使用信号与守护进程通信</h3>
+<p>要和一个守护进程通信，你要向它发送信号，让它以某种方式响应。<br />
+例如：强行要求一个守护进程<strong>重新读取它的配置文件</strong>，或者改变守护进程的行为，或者指示守护进程结束运行</p>
+<p><strong>在守护进程中添加信号捕捉函数</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>void catch_Signal(int Sign)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>{</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>    switch(Sign)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a>    {</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>    case SIGTERM:</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a>        exit(EXIT_SUCCESS);</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>    }</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="进程间通信">进程间通信</h2>
+<p>每个进程各自有不同的用户地址空间，任何一个进程的全局变量在另一个进程中都看不到，所以进程之间要交换数据<strong>必须通过内核</strong>，在内核中开辟一块缓冲区，进程1把数据从用户空间拷到内核缓冲区，进程2再从内核缓冲区把数据读走，<strong>内核提供的这种机制</strong>称为进程间通信（IPC，InterProcess Communication）</p>
+<h3 id="发信号">0.发信号</h3>
+<h3 id="管道pipe">1.管道(pipe)</h3>
+<p>管道是一种最基本的IPC机制，由 pipe 函数创建：</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;unistd.h&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>int pipe(int filedes[<span class="dv">2</span>]);</span></code></pre></div>
+<p>调用 pipe 函数时在内核中开辟一块<strong>缓冲区</strong>（称为管道）用于通信，它有一个读端一个写端，然<br />
+后通过 filedes 参数传出给用户程序两个文件描述符， filedes[0] 指向管道的读<br />
+端， filedes[1] 指向管道的写端（很好记，就像0是标准输入1是标准输出一样）<br />
+所以管道在用户程序看起来就像一个打开的文件，通过 read(filedes[0]); 或者 write(filedes[1]); 向这个<br />
+文件读写数据其实是在读写内核缓冲区。 pipe 函数调用成功返回0，调用失败返回-1。</p>
+<h4 id="管道通信步骤">管道通信步骤：</h4>
+<p>1. 父进程调用 pipe 开辟管道，得到两个文件描述符指向管道的两端。<br />
+2. 父进程调用 fork 创建子进程，那么子进程也有两个文件描述符指向同一管道。<br />
+3. 父进程关闭管道读端，子进程关闭管道写端。父进程可以往管道里写，子进程可以从管道<br />
+里读，管道是用<strong>环形队列</strong>实现的，数据从写端流入从读端流出，这样就实现了进程间通信。</p>
+<h4 id="管道的限制">管道的限制：</h4>
+<p>1. 管道是半双工的，只能实现单向通信，如果想实现双向通信必须另开一个管道<br />
+2. 管道的读写端通过打开的文件描述符来传递，因此要通信的两个进程必须从它们的<strong>公共祖先那里继承管道文件描述符</strong>。</p>
+<h4 id="读写管道的4种特殊情况">读写管道的4种特殊情况:</h4>
+<p>假设都是阻塞I/O操作，没有设置 O_NONBLOCK 标志<br />
+1. 写端都关闭了，依然读，管道中的数据读完后，再次read返回0<br />
+2. 写端没关闭，依然读，管道中的数据读完后，再次 read 会阻塞<br />
+3. 读端都关闭了，依然写，那么该进程会收到信号 SIGPIPE ，通常会导致进程异常终止<br />
+4. 读端没关闭，依然写，管道中的数据写完后，再次 write 会阻塞</p>
+<h4 id="四种io事件">四种I/O事件</h4>
+<p>为了了解阻塞是如何进行的，我们来讨论缓冲区，以及内核缓冲区，最终把I/O事件解释清楚。<br />
+缓冲区的引入是为了减少频繁I/O操作而引起频繁的系统调用，当你操作一个流时，更多的是以缓冲区为单位进行操作，这是相对于用户空间而言。对于内核来说，也需要缓冲区。<br />
+假设有一个管道，进程A为管道的写入方，Ｂ为管道的读出方。<br />
+假设一开始内核缓冲区是空的，B作为读出方，被阻塞着。然后首先A往管道写入，这时候内核缓冲区由空的状态变到非空状态，内核就会产生一个事件告诉Ｂ该醒来了，这个事件姑且称之为“<strong>缓冲区非空</strong>”。<br />
+但是“缓冲区非空”事件通知B后，B却还没有读出数据；且内核许诺了不能把写入管道中的数据丢掉，这个时候，Ａ写入的数据会滞留在内核缓冲区中，如果内核也缓冲区满了，B仍未开始读数据，最终内核缓冲区会被填满，这个时候会产生一个I/O事件，告诉进程A，你该等等（阻塞）了，我们把这个事件定义为“<strong>缓冲区满</strong>”。<br />
+假设后来Ｂ终于开始读数据了，于是内核的缓冲区空了出来，这时候内核会告诉A，内核缓冲区有空位了，你可以从长眠中醒来了，继续写数据了，我们把这个事件叫做“<strong>缓冲区非满</strong>”<br />
+也许事件已经通知了A，但是A也没有数据写入了，而Ｂ继续读出数据，直到内核缓冲区空了。这个时候内核就告诉B，你需要阻塞了！，我们把这个时间定为“<strong>缓冲区空</strong>”。<br />
+这四个情形涵盖了四个I/O事件，缓冲区满，缓冲区空，缓冲区非空，缓冲区非满。这四个I/O事件是进行<strong>阻塞同步</strong>的根本。<br />
+管道的这四种特殊情况具有普遍意义，socket也具有管道的这些特性</p>
+<h3 id="fifo">2.FIFO</h3>
+<p>进程间通信必须通过内核提供的通道，而且必须有一种办法在进程中标识内核提供的某个通道，pipe是用打开的<strong>文件描述符来标识的</strong>。<br />
+内核提供一条通道不成问题，问题是如何标识这条通道才能使各进程都可以访问它？文件系统中的路径名是全局的，各进程都可以访问，因此可以用<strong>文件系统中的路径名</strong>来标识一个IPC通道。<br />
+FIFO和Unix Domain Socket这两种IPC机制都是利用文件系统中的特殊文件来标识的。<br />
+用 mkfifo 命令创建一个FIFO文件：</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>$ <span class="ex">mkfifo</span> hello</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>$ <span class="ex">ls</span> -l hello</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a><span class="ex">prw-r--r--</span> 1 djkings djkings 0 2008-10-30 10:44 hello</span></code></pre></div>
+<p>FIFO文件在磁盘上没有数据块，<strong>仅用来标识内核中的一条通道</strong>，各进程可以打开这个文件进行 read / write ，实际上是在读写内核通道创建fifo。</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a>int mkfifo(const char *pathname, mode_t mode)  <span class="co">//其中mode设置权限</span></span></code></pre></div>
+<p>删除fifo。</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a>int unlink(const char *pathname);</span></code></pre></div>
+<p>Linux的一切都是文件这一抽象概念的优势，打开和关闭FIFO和打开关闭一个普通文件操作是一样的(open close)。<br />
+<strong>FIFO的两端使用前都必须要打开</strong>。<br />
+open中如果参数flags为O_RDONLY将阻塞open调用，一直到另一个进程为写入数据打开FIFO为止。相同的，O_WRONLY也导致阻塞一直到为读出数据打开FIFO为止。</p>
+<p>当两个进程同时在往同一个 FIFO 中同时进行读写的可能造成的情况：<br />
+1. <strong>竞争条件</strong>：因为 FIFO 是一个公共资源，多个进程同时写入数据可能会导致竞争条件（Race Condition）。这可能导致数据的混乱和不可预测性。</p>
+<ol>
+<li><p><strong>阻塞</strong>：如果 FIFO 没有被设置为非阻塞模式，并且某个进程试图从空的 FIFO 中读取数据，该进程将会被阻塞，直到其他进程向 FIFO 中写入数据。类似地，如果 FIFO 已满并且有进程试图写入数据，该进程也会被阻塞。</p></li>
+<li><p><strong>数据错乱</strong>：如果两个进程同时写入数据并尝试从 FIFO 中读取数据，读取的数据可能会混合或交错，造成数据错乱。例如，一个进程可能会读取到另一个进程正在写入的部分数据。</p></li>
+</ol>
+<p>在这种情况下，要确保 FIFO 的正确使用，最好是让每个进程专注于要么写入数据，要么读取数据，并且在写入和读取之间进行合适的同步操作，避免竞争条件和数据错乱的发生。</p>
+<p>例子：</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a>int main(int arg, char * args[])</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a>{</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a>    int len = <span class="dv">0</span>;</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true"></a>    char buf[<span class="dv">100</span>];</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true"></a>    memset(buf, <span class="dv">0</span>, sizeof(buf));</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true"></a>    int fd = open(<span class="st">&quot;fifo1&quot;</span>, O_RDONLY);</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true"></a>    while ((len = read(fd, buf, sizeof(buf))) &gt; <span class="dv">0</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true"></a>    {</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true"></a>        printf(<span class="st">&quot;%s</span><span class="sc">\n</span><span class="st">&quot;</span>, buf);</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true"></a>    }</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true"></a>    close(fd);</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true"></a>}</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true"></a>int main(int arg, char * args[])</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true"></a>{</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true"></a>    int len = <span class="dv">0</span>;</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true"></a>    char buf[<span class="dv">100</span>];</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true"></a>    memset(buf, <span class="dv">0</span>, sizeof(buf));</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true"></a>    int fd = open(<span class="st">&quot;fifo1&quot;</span>, O_WRONLY);</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true"></a>    while(<span class="dv">1</span>)</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true"></a>    {</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true"></a>        scanf(<span class="st">&quot;%s&quot;</span>, buf);</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true"></a>        if (buf[<span class="dv">0</span>] == <span class="ch">&#39;0&#39;</span>)</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true"></a>            break;</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true"></a>        write(fd, buf, sizeof(buf));</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true"></a>    }</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true"></a>    close(fd);</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true"></a>}</span></code></pre></div>
+<h4 id="管道和fifo的区别">管道和FIFO的区别</h4>
+<ol>
+<li>类型：
+<ul>
+<li>管道：管道是Linux内核提供的一种特殊的文件类型，用于在<strong>父、子进程</strong>之间传递数据。它是单向的，只能用于单向数据流的通信。Linux中使用<code>pipe</code>函数创建管道。</li>
+<li>FIFO：FIFO也是一种文件类型，但它是用于<strong>多个进程之间</strong>进行数据通信的。FIFO是通过文件系统中的特殊文件来实现的，也称为命名管道。Linux中使用<code>mkfifo</code>函数创建FIFO。</li>
+</ul></li>
+<li>读写方式：
+<ul>
+<li>管道：管道是单向的，有两个端口：一个读取端和一个写入端。数据从写入端写入，然后从读取端读取。通常情况下，管道用于父进程和子进程之间的通信。</li>
+<li>FIFO：FIFO是双向的，允许多个进程同时读取和写入。多个进程可以按照先后顺序写入数据，并且其他进程会按照写入的顺序读取数据。FIFO允许多个进程之间进行双向通信。</li>
+</ul></li>
+<li>命名：
+<ul>
+<li>管道：管道通常是由操作系统自动创建的，并且是匿名的，只能用于具有亲缘关系（如父子进程）的进程之间的通信。</li>
+<li>FIFO：FIFO是由用户显式创建的，并且有一个在文件系统中可见的名字。不同进程可以通过FIFO的名字来访问它，使得它适用于非亲缘关系进程之间的通信。</li>
+</ul></li>
+<li>持久性：
+<ul>
+<li>管道：管道的生命周期与创建它的进程相关联，一旦创建进程结束，管道也会自动被销毁。</li>
+<li>FIFO：FIFO是持久的，它会一直存在于文件系统中，直到被显式地删除。</li>
+</ul></li>
+</ol>
+<h3 id="共享内存">3.共享内存</h3>
+<p>共享内存是由<strong>内核</strong>出于在多个进程间交换信息的目的而留出的一块<strong>内存区（段）</strong>。<br />
+如果段的权限设置恰当，每个要访问该段内存的进程都可以把它<strong>映像</strong>到自己的私有地址空间中。<br />
+如果一个进程更新了段中的数据，其他进程也立即会看到更新。<br />
+由一个进程创建的段，也可以由另一个进程读写。<br />
+每个进程都把它自己对共享内存的映像放入自己的地址空间。</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;sys/ipc.h&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;sys/shm.h&gt;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a>int shmget(key_t key, size_t size, int shm-flg);</span></code></pre></div>
+<h4 id="创建共享内存区">创建共享内存区</h4>
+<div class="sourceCode" id="cb22"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a>int main(int arg, char * args[])</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a>{</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a>    int shmid = shmget(IPC_PRIVATE, <span class="dv">1024</span>, <span class="bn">0666</span>);</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true"></a>    if (shmid &lt; <span class="dv">0</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true"></a>        printf(<span class="st">&quot;error</span><span class="sc">\n</span><span class="st">&quot;</span>);</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true"></a>    else</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true"></a>        printf(<span class="st">&quot;success</span><span class="sc">\n</span><span class="st">&quot;</span>);</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true"></a>}</span></code></pre></div>
+<p>在命令行执行<code>ipcs –m</code> 显示，已经成功的创建了一块共享内存区。<br />
+<code>nattch</code>字段显示已经附加到这个内存区的进程数。</p>
+<h4 id="附加共享内存区">附加共享内存区</h4>
+<div class="sourceCode" id="cb23"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a>void  *shmat(int  shmid, const void *shmaddr,int shmflg);   <span class="co">// Shared Memory Attach</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a>int shmdt(const void *shmaddr);                             <span class="co">// Shared Memory Detach</span></span></code></pre></div>
+<p>参数shmid是要附加的共享内存区标示符。总是把参数shmaddr设为0。<br />
+参数shmflg可以为SHM_RDONLY，这意味着附加段是只读的。<br />
+shmat成功返回被附加了<strong>段的地址</strong>，失败返回-1，并设置errno。<br />
+函数shmdt是将附加在shmaddr的段从调用进程的地址空间分离出去，这个地址必须是shmat返回的。<br />
+例子：</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a>int main(int arg, char * args[])</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true"></a>{</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true"></a>    char *shmbuf;</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true"></a>    int shmid = <span class="dv">0</span>;</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true"></a>    if (arg &gt; <span class="dv">2</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true"></a>    {</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true"></a>        shmid = atoi(args[<span class="dv">1</span>]);</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true"></a>        shmbuf = shmat(shmid, <span class="dv">0</span>, <span class="dv">0</span>);</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true"></a>        if (atoi(args[<span class="dv">2</span>]) == <span class="dv">1</span>) <span class="co">//write shared mem</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true"></a>        {</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true"></a>            scanf(<span class="st">&quot;%s</span><span class="sc">\n</span><span class="st">&quot;</span>, shmbuf);  <span class="co">// shmbuf内存首地址</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true"></a>        }</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true"></a>        if (atoi(args[<span class="dv">2</span>]) == <span class="dv">2</span>) <span class="co">//read shared mem</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true"></a>        {</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true"></a>            printf(<span class="st">&quot;%s</span><span class="sc">\n</span><span class="st">&quot;</span>, shmbuf);</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true"></a>        }</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true"></a>        shmdt(shmbuf);</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true"></a>    }</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="unix-domain-socket">4.Unix Domain Socket</h3>
+<p>Socket和FIFO的原理类似，也需要一个特殊的socket文件来标识内核中的通道，例<br />
+如 /var/run 目录下有很多系统服务的socket文件：</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a>$ <span class="ex">ls</span> -l /var/run/</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a><span class="ex">total</span> 52</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true"></a><span class="ex">srw-rw-rw-</span> 1 root root 0 2008-10-30 00:24</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true"></a><span class="ex">acpid.socket</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true"></a><span class="ex">......</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true"></a><span class="ex">srw-rw-rw-</span> 1 root root 0 2008-10-30 00:25</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true"></a><span class="ex">gdm_socket</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true"></a><span class="ex">......</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true"></a><span class="ex">srw-rw-rw-</span> 1 root root 0 2008-10-30 00:24 sdp</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true"></a><span class="ex">......</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true"></a><span class="ex">srwxr-xr-x</span> 1 root root 0 2008-10-30 00:42</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true"></a><span class="ex">synaptic.socket</span></span></code></pre></div>
+<h3 id="ipc机制总结">5.IPC机制总结</h3>
+<ul>
+<li>父进程通过 fork 可以将打开文件的描述符传递给子进程</li>
+<li>子进程结束时，父进程调用 wait 可以得到子进程的终止信息</li>
+<li>几个进程可以在文件系统中读写某个共享文件，也可以通过给文件加锁来实现进程间同步</li>
+<li>进程之间互发信号，一般使用 <code>SIGUSR1</code> 和 <code>SIGUSR2</code> 实现用户自定义功能</li>
+<li>管道</li>
+<li>FIFO</li>
+<li>共享内存， mmap函数，几个进程可以映射同一内存区</li>
+<li>UNIX Domain Socket，目前最广泛使用的IPC机制</li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

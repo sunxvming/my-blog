@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/python/编码规范</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#pep8规范">pep8规范</a></li>
+<li><a href="#google编码规范">google编码规范</a></li>
+<li><a href="#工具">工具</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>python使用的比较多的代码规范包括2种，分别如下：<br />
+- <a href="https://www.python.org/dev/peps/pep-0008/">pep8 python编码规范</a><br />
+- <a href="https://google.github.io/styleguide/pyguide.html">google python编码规范</a></p>
+<p>pep8是python编码规范的事实标准，google python编码规范做了更多的说明，可以作为pep8的补充。<br />
+这也意味着python社区开源贡献者基本都遵守pep8，但不一定遵守google的python编码规范。</p>
+<h2 id="pep8规范">pep8规范</h2>
+<ul>
+<li><p>缩进使用4个空格</p></li>
+<li><p>文件应该使用UTF-8编码, 且不应该有编码声明</p></li>
+<li><p>导入库的顺序：标准库导入、有关的第三方库进口、本地应用程序/库特定的导入，每组导入直接用空行分隔；避免通配符导入（import *）</p></li>
+<li><p>字符串</p>
+<ul>
+<li>单引号字符串和双引号字符串相同，代码保持一致即可</li>
+<li>对于三引号字符串，常用三个双引号作文档字符串，文档字符串常用在模块的开端用以说明模块的基本功能，或紧跟函数定义的后面用以说明函数的基本功能</li>
+</ul></li>
+<li><p>注释</p>
+<ul>
+<li>注释应该是完整的语句，第一个单词应该大写，除非它是特定标识符</li>
+<li>块注释：缩进到与该代码相同的级别。块注释的每一行都以＃和一个空格开始</li>
+<li>行注释：对某一语句行进行注释，注释应该与语句至少隔开两个空格，用＃和一个空格开始</li>
+<li>对于公共的modules, functions, classes, and methods，需要写文档字符串</li>
+</ul></li>
+<li><p>命名约定</p>
+<ul>
+<li><strong>文件名</strong>、<strong>目录名</strong>：小写+下划线</li>
+<li><strong>模块名</strong>：使用简短、全小写的名字</li>
+<li><strong>类名</strong>：大驼峰命名法</li>
+<li><strong>函数名</strong>、<strong>方法名</strong>、<strong>变量名</strong>：小写+下划线</li>
+<li><strong>常量名</strong>：全大写+下划线</li>
+<li><strong>私有成员</strong>：可以在变量名或方法名前加上一个下划线前缀，表示它们是私有的，例如：<code>_my_private_variable</code></li>
+<li>不要将字符’l’（小写字母l），’O’（大写字母o）或’I’（大写字母I）作为<strong>单个字符变量名称</strong></li>
+<li>python命名规范有点混乱，很难完全保存一致。对于新模块和包，应该遵守这些新的约定，已存在的库内部一致性更重要</li>
+<li>避免使用内置关键字作为变量名，例如不要使用名为 int、list 或 str 的变量。</li>
+</ul></li>
+</ul>
+<h2 id="google编码规范">google编码规范</h2>
+<p>相比pep8，google编码规范对怎么写代码的细节要求更多。比如怎么使用异常，文档字符串怎么写，Todo注释的使用等。</p>
+<p>2.1 背景<br />
+- 可以使用yapf自动格式化工具来格式化代码</p>
+<p>2.2 python语言规则<br />
+- 使用google的pylintrc配置文件来允许pylint</p>
+<p>2.3 python风格规则<br />
+- <strong>不使用分号</strong>作为行尾，不使用分号将2个语句放到同一行<br />
+- 不要在return语句或条件语句使用括号，除非使用括号来表示连续行或元组<br />
+- main文件使用<code>#!/usr/bin/env python3</code> 或<code>#!/usr/bin/python3</code>开头，绝大部分文件不需要使用#！开头<br />
+- 使用 f-string，%操作符或者format函数来格式化字符串</p>
+<h2 id="工具">工具</h2>
+<ul>
+<li><a href="https://github.com/hhatto/autopep8">autopep8</a> – autopep8是一款将python代码自动排版为PEP8风格的工具，它使用 pycodestyle来决定哪部分代码需要格式化</li>
+<li><a href="https://github.com/google/yapf/">yapf</a>–yapf是google开源的一个用于格式化Python代码的工具，可以一键美化代码，支持两种规范：PEP8和Google Style</li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

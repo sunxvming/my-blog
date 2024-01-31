@@ -1,0 +1,525 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c笔记/linux-c之信号</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#信号的基本概念">信号的基本概念</a></li>
+<li><a href="#产生信号">产生信号</a>
+<ul>
+<li><a href="#通过终端按键产生信号">通过终端按键产生信号</a></li>
+<li><a href="#调用系统函数向进程发信号">调用系统函数向进程发信号</a></li>
+<li><a href="#由软件条件产生信号">由软件条件产生信号</a></li>
+</ul></li>
+<li><a href="#阻塞信号">阻塞信号</a>
+<ul>
+<li><a href="#信号在内核中的表示">信号在内核中的表示</a></li>
+<li><a href="#信号集操作和信号屏蔽">信号集操作和信号屏蔽</a></li>
+</ul></li>
+<li><a href="#捕捉信号">捕捉信号</a>
+<ul>
+<li><a href="#捕捉信号流程">捕捉信号流程</a></li>
+<li><a href="#signal函数">signal函数</a></li>
+<li><a href="#sigaction函数">sigaction函数</a></li>
+<li><a href="#pause函数">pause函数</a></li>
+<li><a href="#竞态条件与sigsuspend函数">竞态条件与sigsuspend函数</a></li>
+</ul></li>
+<li><a href="#可重入函数">可重入函数</a>
+<ul>
+<li><a href="#sig_atomic_t类型与volatile限定符">sig_atomic_t类型与volatile限定符</a></li>
+</ul></li>
+<li><a href="#关于sigchld信号">关于SIGCHLD信号</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="信号的基本概念">信号的基本概念</h2>
+<p>信号是linux系统中进程间通讯的方式，是<strong>一种异步的通知机制，用来提醒进程一个事件已经发生</strong>。<br />
+为了理解信号，先从我们最熟悉的场景说起：<br />
+1. 用户输入命令，在Shell下启动一个前台进程。<br />
+2. 用户按下Ctrl-C，这个键盘输入产生一个<strong>硬件中断</strong>。<br />
+3. 如果CPU当前正在执行这个进程的代码，则该进程的用户空间代码暂停执行，CPU从用户<br />
+态切换到内核态处理硬件中断。<br />
+4. 终端驱动程序将Ctrl-C解释成一个 SIGINT 信号，记在该进程的PCB中（也可以说发送了一<br />
+个 SIGINT 信号给该进程）。<br />
+5. 当某个时刻要从内核返回到该进程的用户空间代码继续执行之前，首先处理PCB中记录的<br />
+信号，发现有一个 SIGINT 信号待处理，而这个信号的默认处理动作是终止进程，所以直接<br />
+终止进程而不再返回它的用户空间代码执行。</p>
+<p>产生信号的条件主要有：<br />
+* 用户在终端按下某些键时，终端驱动程序会发送信号给前台进程，例如<code>Ctrl-C</code>产生 SIGINT 信号，<code>Ctrl-\</code>产生 SIGQUIT 信号，<code>Ctrl-Z</code>产生 SIGTSTP 信号<br />
+* 硬件异常产生信号，这些条件由硬件检测到并通知内核，然后内核向当前进程发送适当的信号。例如当前进程执行了除以0的指令，CPU的运算单元会产生异常，内核将这个异常解释为 SIGFPE 信号发送给进程。再比如当前进程访问了非法内存地址，MMU会产生异常，内核将这个异常解释为 SIGSEGV 信号发送给进程。<br />
+* 一个进程调用 kill(2) 函数可以发送信号给另一个进程。<br />
+* 可以用 kill(1) 命令发送信号给某个进程， kill(1) 命令也是调用 kill(2) 函数实现的，如果不明确指定信号则发送 SIGTERM 信号，该信号的默认处理动作是终止进程。<br />
+* 当内核检测到某种<strong>软件条件</strong>发生时也可以通过信号通知进程，例如闹钟超时产生 SIGALRM 信号，向读端已关闭的管道写数据时产生 SIGPIPE 信号。</p>
+<p>如果不想按默认动作处理信号，用户程序可以调用 <code>sigaction()</code> 函数告诉内核如何处理某种信号，可选的处理动作有以下三种：<br />
+1. 忽略此信号。<br />
+2. 执行该信号的默认处理动作。<br />
+3. 提供一个信号处理函数，要求内核在处理该信号时切换到用户态执行这个处理函数，这种方式称为捕捉（Catch）一个信号。</p>
+<p>用 kill -l 命令可以察看系统定义的信号列表：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>$ <span class="ex">kill</span> -l</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="ex">1</span>) <span class="ex">SIGHUP</span> 2) <span class="ex">SIGINT</span> 3) <span class="ex">SIGQUIT</span> 4) <span class="ex">SIGILL</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="ex">5</span>) <span class="ex">SIGTRAP</span> 6) <span class="ex">SIGABRT</span> 7) <span class="ex">SIGBUS</span> 8) <span class="ex">SIGFPE</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="ex">9</span>) <span class="ex">SIGKILL</span> 10) <span class="ex">SIGUSR1</span> 11) <span class="ex">SIGSEGV</span> 12) <span class="ex">SIGUSR2</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="ex">13</span>) <span class="ex">SIGPIPE</span> 14) <span class="ex">SIGALRM</span> 15) <span class="ex">SIGTERM</span> 16) <span class="ex">SIGSTKFLT</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="ex">17</span>) <span class="ex">SIGCHLD</span> 18) <span class="ex">SIGCONT</span> 19) <span class="ex">SIGSTOP</span> 20) <span class="ex">SIGTSTP</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="ex">21</span>) <span class="ex">SIGTTIN</span> 22) <span class="ex">SIGTTOU</span> 23) <span class="ex">SIGURG</span> 24) <span class="ex">SIGXCPU</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="ex">25</span>) <span class="ex">SIGXFSZ</span> 26) <span class="ex">SIGVTALRM</span> 27) <span class="ex">SIGPROF</span> 28) <span class="ex">SIGWINCH</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="ex">29</span>) <span class="ex">SIGIO</span> 30) <span class="ex">SIGPWR</span> 31) <span class="ex">SIGSYS</span> 34) <span class="ex">SIGRTMIN</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a><span class="ex">35</span>) <span class="ex">SIGRTMIN+1</span> 36) <span class="ex">SIGRTMIN+2</span> 37) <span class="ex">SIGRTMIN+3</span> 38) <span class="ex">SIGRTMIN+4</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a><span class="ex">...</span></span></code></pre></div>
+<p>这些宏定义可以在 signal.h 中找到，例如其中有定义 <code>#define SIGINT 2</code></p>
+<h2 id="产生信号">产生信号</h2>
+<h3 id="通过终端按键产生信号">通过终端按键产生信号</h3>
+<ul>
+<li>SIGINT(Interrupt):用于终止进程，并允许进程进行清理工作。</li>
+<li>SIGQUIT: 用于终止进程，并在退出时生成 core dump 文件以进行调试。</li>
+<li>SIGTSTP: 用于暂停正在运行的进程，使其进入后台，并可以在后台恢复运行或终止。</li>
+</ul>
+<p>Core Dump:当一个进程要异常终止时，可以选择把进程的用户空间内存数据全部保存到磁盘上，文件名通常是 core ，这叫做Core Dump。进程异常终止通常是因为有Bug，比如非法内存访问导致段错误，事后可以用gdb检查 core 文件以查清错误原因<br />
+一个进程允许产生多大的 core 文件取决于进程的Resource Limit（这个信息保存在PCB中）。默认是不允许产生 core 文件的，因为 core 文件中可能包含用户密码等敏感信息，不安全。在开发调试阶段可以用 ulimit(user limit) 命令改变这个限制，允许产生 core 文件。<br />
+比如：ulimit -c 1024 c表示core</p>
+<h3 id="调用系统函数向进程发信号">调用系统函数向进程发信号</h3>
+<ul>
+<li><code>kill</code>  给一个指定的进程发送指定的信号。</li>
+<li><code>raise</code> 自己给自己发信号</li>
+<li><code>abort</code> 使当前进程接收到 SIGABRT 信号而异常终止。<br />
+该函数发送SIGABRT信号给调用进程，进程不应该忽略这个信号。<br />
+即使进程捕捉到SIGABRT这个信号，进程还是会异常退出。<br />
+让进程捕捉SIGABRT的意图是，在进程终止前由其<strong>执行所需的清理操作</strong>。<br />
+就像 exit 函数一样， abort 函数总是会成功的，所以没有返回值</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;signal.h&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>int kill(pid_t pid, int signo);</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>int raise(int signo);</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>void abort(<span class="dt">void</span>);</span></code></pre></div>
+<h3 id="由软件条件产生信号">由软件条件产生信号</h3>
+<p><code>SIGPIPE</code> 是一种由软件条件产生的信号,在读端都关闭了，依然写的情况下，那么该进程会收到信号 SIGPIPE ，通常会导致进程异常终止<br />
+<code>SIGALRM</code>信号是由alarm 函数产生的</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;unistd.h&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>unsigned int alarm(unsigned int seconds);</span></code></pre></div>
+<p>调用 alarm 函数可以设定一个闹钟，也就是告诉内核在 seconds 秒之后给当前进程发 <code>SIGALRM</code> 信号，该信号的默认处理动作是终止当前进程。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;unistd.h&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>int main(<span class="dt">void</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>{</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>    int counter;</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    alarm(<span class="dv">1</span>);</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>    for(counter=<span class="dv">0</span>; <span class="dv">1</span>; counter++)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>        printf(<span class="st">&quot;counter=%d &quot;</span>, counter);</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>}</span></code></pre></div>
+<p>这个程序的作用是1秒钟之内不停地数数，1秒钟到了就被 SIGALRM 信号终止。</p>
+<h2 id="阻塞信号">阻塞信号</h2>
+<h3 id="信号在内核中的表示">信号在内核中的表示</h3>
+<blockquote>
+<p>Generation--&gt;Block--&gt;Pending--&gt;Delivery</p>
+</blockquote>
+<p>以上我们讨论了信号产生（Generation）的各种原因，而实际执行信号的处理动作称为<strong>信号递达（Delivery）</strong>，信号从产生到递达之间的状态，称为信号<strong>未决（Pending）</strong>。进程可以选择<strong>阻塞</strong>（Block）某个信号。被阻塞的信号产生时将<strong>保持在未决状态</strong>，直到<strong>进程解除对此信号的阻塞</strong>，才执行递达的动作。<br />
+每个信号都有两个标志位分别表示<strong>阻塞</strong>和<strong>未决</strong>，还有一个<strong>函数指针</strong>表示处理动作。信号产生时，内核在进程控制块中设置该信号的未决标志，直到信号递达才清除该标志。<br />
+注意，阻塞和忽略是不同的，<strong>只要信号被阻塞就不会递达，而忽略是在递达之后可选的一种处理动作</strong>。</p>
+<h3 id="信号集操作和信号屏蔽">信号集操作和信号屏蔽</h3>
+<p><code>sigset_t</code> 类型对于每种信号用一个bit表示“有效”或“无效”状态,一下为操作sigset_t的函数</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;signal.h&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>int sigemptyset(sigset_t *set);</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>int sigfillset(sigset_t *set);</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>int sigaddset(sigset_t *set, int signo);</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>int sigdelset(sigset_t *set, int signo);</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>int sigismember(const sigset_t *set, int signo);</span></code></pre></div>
+<p>sigprocmask 可以<strong>读取或更改进程的信号屏蔽字</strong>。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;signal.h&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>int sigprocmask(int how, const sigset_t *set, sigset_t *oset);</span></code></pre></div>
+<p>返回值：若成功则为0，若出错则为-1<br />
+如果 oset 是非空指针，则读取进程的当前信号屏蔽字通过 oset 参数传出。<br />
+如果 set 是非空指针，则更改进程的信号屏蔽字，参数 how 指示如何更改。<br />
+如果 oset 和 set 都是非空指针，则先将原来的信号屏蔽字备份到 oset 里，然后根据 set 和 how 参数更改信号屏蔽字。</p>
+<p>sigpending读取当前进程的未决信号集，通过 set 参数传出。调用成功则返回0，出错则返回-1。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;signal.h&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>int sigpending(sigset_t *set);</span></code></pre></div>
+<p>例子：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;signal.h&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>void printsigset(const sigset_t *set)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>{</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>    int i;</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>    for (i = <span class="dv">1</span>; i &lt; <span class="dv">32</span>; i++)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>    if (sigismember(set, i) == <span class="dv">1</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>        putchar(<span class="ch">&#39;1&#39;</span>);</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>    else</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a>        putchar(<span class="ch">&#39;0&#39;</span>);</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a>    puts(<span class="st">&quot;&quot;</span>);</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a>}</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a>int main(<span class="dt">void</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a>{</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a>    sigset_t s, p;</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true"></a>    sigemptyset(&amp;s);</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true"></a>    sigaddset(&amp;s, SIGINT);</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true"></a>    sigprocmask(SIG_BLOCK, &amp;s, NULL);</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true"></a>    while (<span class="dv">1</span>) {</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true"></a>        sigpending(&amp;p);</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true"></a>        printsigset(&amp;p);</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true"></a>        sleep(<span class="dv">1</span>);</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true"></a>    }</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true"></a>}</span></code></pre></div>
+<p>程序运行时，每秒钟把各信号的未决状态打印一遍，由于我们阻塞了 SIGINT 信号，<br />
+按<code>Ctrl-C</code>将会使 SIGINT 信号处于未决状态，按<code>Ctrl-\</code>仍然可以终止程序，因为 SIGQUIT 信号没有阻塞。</p>
+<h2 id="捕捉信号">捕捉信号</h2>
+<p>linux编程需要捕捉各种信号，因为很多信号默认是终止程序的，<br />
+系统指不定就会跟程序发送什么信号呢，若不处理信号，100%会挂掉的<br />
+每个进程能够决定响应除了<code>SIGSTOP</code>和<code>SIGKILL</code>之外的其他所有信号</p>
+<h3 id="捕捉信号流程">捕捉信号流程</h3>
+<p>如果信号的处理动作是用户自定义函数，在信号递达时就调用这个函数，这称为捕捉信号。<br />
+处理流程如下：<br />
+1. 用户程序注册了 SIGQUIT 信号的处理函数 sighandler 。<br />
+2. 当前正在执行 main 函数，这时发生中断或异常切换到内核态。<br />
+3. 在中断处理完毕后要返回用户态的 main 函数之前<strong>检查到有信号</strong> SIGQUIT 递达。<br />
+4. 内核决定返回用户态后不是恢复 main 函数的上下文继续执行，而是执行 sighandler 函数， sighandler 和 main 函数<strong>使用不同的堆栈空间</strong>，它们之间不存在调用和被调用的关系，是两<strong>个独立的控制流程</strong>。<br />
+5. sighandler 函数返回后自动执行特殊的系统调用 <code>sigreturn</code> 再次进入内核态。<br />
+6. 如果没有新的信号要递达，这次再返回用户态就是恢复 main 函数的上下文继续执行了。</p>
+<h3 id="signal函数">signal函数</h3>
+<p>函数其实有点老了，用sigaction功能更强</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;signal.h&gt;</span><span class="pp"> </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>typedef void (*sighandler_t)(<span class="dt">int</span>);</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>sighandler_t signal(int signum, sighandler_t handler);</span></code></pre></div>
+<h3 id="sigaction函数">sigaction函数</h3>
+<p>sigaction 函数可以读取和修改与指定信号相关联的处理动作。调用成功则返回0，出错则返回-<br />
+1。 signo 是指定信号的编号。若 act 指针非空，则根据 act 修改该信号的处理动作。若 oact 指针<br />
+非空，则通过 oact 传出该信号原来的处理动作。</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;signal.h&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>int sigaction(int signo, const struct sigaction *act, struct</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>sigaction *oact);</span></code></pre></div>
+<p>act 和 oact 指向 sigaction 结构体：</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>struct sigaction {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>void (*sa_handler)(<span class="dt">int</span>); <span class="co">/* addr of signal handler, or SIG_IGN, or SIG_DFL */</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>sigset_t sa_mask; <span class="co">/* additional signals to block*/</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>int sa_flags; <span class="co">/* signal options, Figure 10.16*/</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>void (*sa_sigaction)(<span class="dt">int</span>, siginfo_t *, void *); <span class="co">/* alternate handler */</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>};</span></code></pre></div>
+<p>将 sa_handler 赋值为常数 <code>SIG_IGN</code> 传给 sigaction 表示忽略信号，赋值为常数 <code>SIG_DFL</code> 表示执行系<br />
+统默认动作，赋值为一个函数指针表示用自定义函数捕捉信号，或者说向内核注册了一个信号<br />
+处理函数，该函数返回值为 void ，可以带一个 int 参数，通过参数可以得知当前信号的编号，这<br />
+样就可以用同一个函数处理多种信号。显然，这也是一个回调函数，不是被 main 函数调用，而<br />
+是被系统所调用。<br />
+当某个信号的处理函数被调用时，内核自动将当前信号加入进程的信号屏蔽字，当信号处理函<br />
+数返回时自动恢复原来的信号屏蔽字，这样就保证了在处理某个信号时，<strong>如果这种信号再次产<br />
+生，那么它会被阻塞到当前处理结束为止</strong>。如果在调用信号处理函数时，除了当前信号被自动<br />
+屏蔽之外，还希望自动屏蔽另外一些信号，则用 <code>sa_mask</code> 字段说明这些需要额外屏蔽的信号，当<br />
+信号处理函数返回时自动恢复原来的信号屏蔽字。</p>
+<h3 id="pause函数">pause函数</h3>
+<p><code>pause</code> 函数使调用进程挂起，直到有信号递达。<br />
+* 如果信号的处理动作是终止进程，则进程终止， pause 函数没有机会返回；<br />
+* 如果信号的处理动作是忽略，则进程继续处于挂起状态， pause 不返回；<br />
+* 如果信号的处理动作是捕捉，则调用了信号处理函数之后 pause 返回-1， errno 设置为 EINTR ，所以 pause 只有出错的返回值。</p>
+<p>运用信号和pause实现sleep函数</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;unistd.h&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;signal.h&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>void sig_alrm(int signo)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>{</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a><span class="co">/* nothing to do */</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a>}</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>unsigned int mysleep(unsigned int nsecs)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a>{</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a>    struct sigaction newact, oldact;</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a>    unsigned int unslept;</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true"></a>    newact.sa_handler = sig_alrm;</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true"></a>    sigemptyset(&amp;newact.sa_mask);</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true"></a>    newact.sa_flags = <span class="dv">0</span>;</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true"></a>    sigaction(SIGALRM, &amp;newact, &amp;oldact);</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true"></a>    alarm(nsecs);</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true"></a>    pause();</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true"></a>    </span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true"></a>    <span class="co">// 在设置定时器时，内核会记录一个计时器的值，表示定时器还有多少时间到期。</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true"></a>    <span class="co">// 每次调用 `alarm` 时，如果之前存在未完成的定时器，则它的剩余时间将被新的定时器时间取代</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true"></a>    <span class="co">// `alarm` 在多线程环境下可能会存在竞争条件，因为它是一个全局的设置</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true"></a>    <span class="co">// 因此，在多线程环境中，最好使用更安全的替代方案，如 `timer_create` 和 `timer_settime` 等 POSIX 定时器函数</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true"></a>    unslept = alarm(<span class="dv">0</span>); </span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true"></a>    sigaction(SIGALRM, &amp;oldact, NULL);</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true"></a>    return unslept;</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true"></a>}</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true"></a>int main(<span class="dt">void</span>)</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true"></a>{</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true"></a>    while(<span class="dv">1</span>){</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true"></a>        mysleep(<span class="dv">2</span>);</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true"></a>        printf(<span class="st">&quot;Two seconds passed</span><span class="sc">\n</span><span class="st">&quot;</span>);</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true"></a>    }</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true"></a>return <span class="dv">0</span>;</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="竞态条件与sigsuspend函数">竞态条件与sigsuspend函数</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;signal.h&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>int sigsuspend(const sigset_t *sigmask);</span></code></pre></div>
+<p>调用 sigsuspend 时，进程的信号屏蔽字由 sigmask 参数指定，可以通过指定 sigmask 来临时解除对<br />
+某个信号的屏蔽，然后挂起等待，当 sigsuspend 返回时，进程的信号屏蔽字恢复为原来的值，<br />
+如果原来对该信号是屏蔽的，从 sigsuspend 返回后仍然是屏蔽的。<br />
+若仅用pause()的话，可能已经先收到信号了但是进程还没有调度到pause()函数呢<br />
+sigsuspend 包含了 pause 的挂起等待功能，同时解决了竞态条件的问题，在对时序要求严格的场合下都应该调用 sigsuspend 而不是 pause 。</p>
+<h2 id="可重入函数">可重入函数</h2>
+<p>当捕捉到信号时，不论进程的主控制流程当前执行到哪儿，都会先跳到信号处理函数中执行，<br />
+从信号处理函数返回后再继续执行主控制流程。信号处理函数是一个单独的控制流程，因为它<br />
+和主控制流程是<strong>异步</strong>的，二者不存在调用和被调用的关系，并且<strong>使用不同的堆栈空间</strong>。<br />
+引入了信号处理函数使得一个进程具有多个控制流程，如果这些控制流程访问相同的全局资源（全局变量、硬件资源等），就有可能出现冲突，<strong>根本原因是被打断的操作不是原子操作</strong>。<br />
+比如func1函数被不同的控制流程调用，有可能在第一次调用还没返回时就再次进入该函数，这称为<strong>重入</strong>， func1函数访问一个全局链表，有可能因为重入而造成错乱，像这样的函数称为<strong>不可重入函数</strong>。</p>
+<h3 id="sig_atomic_t类型与volatile限定符">sig_atomic_t类型与volatile限定符</h3>
+<p>如果在程序中需要使用一个变量，要保证对它的读写都是原子操作，应该采用什么类型呢？<br />
+为了解决这些平台相关的问题，C标准定义了一个类型 <code>sig_atomic_t</code> ，在不同平台的C语言库中取不同的类型，例如在32位机上定义 sig_atomic_t 为 int 类型。<br />
+对于程序中存在多个执行流程访问同一全局变量的情况， volatile 限定符是必要的.<br />
+<strong>sig_atomic_t 类型的变量应该总是加上 volatile 限定符</strong>，因为要使用 sig_atomic_t 类型的理由也正是要加 volatile 限定符的理由</p>
+<h2 id="关于sigchld信号">关于SIGCHLD信号</h2>
+<p>进程一章讲过用 wait 和 waitpid 函数清理僵尸进程，父进程可以阻塞等待子进程结束，也可以非阻塞地查询是否有子进程结束等待清理（也就是轮询的方式）。<br />
+采用第一种方式，父进程阻塞了就不能处理自己的工作了；<br />
+采用第二种方式，父进程在处理自己的工作的同时还要记得时不时地轮询一下，程序实现复杂。<br />
+其实，子进程在终止时会给父进程发 SIGCHLD 信号，该信号的默认处理动作是忽略，父进程可以自定义 SIGCHLD 信号的处理函数，这样父进程只需专心处理自己的工作，不必关心子进程了，子进程终止时会通知父进程，父进程在信号处理函数中调用 wait 清理子进程即可。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

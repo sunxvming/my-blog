@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/00-CS基础/50-algorithm/人工势场法</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>人工势场法（Artificial Potential Field，简称APF）是一种常用的路径规划算法，用于使机器人或无人车等移动体在避开障碍物的同时，从起始点到达目标点。这个算法的思想源于物理学中的势能场概念，将机器人的路径规划问题转化为一个在二维或三维空间中的“势能场”问题。</p>
+<p>基本思想：<br />
+- 假设机器人在一个虚拟的势能场中移动，该场景由吸引力和斥力组成。目标点产生吸引力，使得机器人被吸引向目标点；障碍物产生斥力，使得机器人避开障碍物。<br />
+- 在势能场中，机器人处于总势能的最低点时，即达到目标点。<br />
+- 算法会不断迭代，使得机器人根据当前位置的势能梯度方向调整移动方向，直至到达目标点或无法到达。</p>
+<p>算法步骤：<br />
+1. 定义目标点：给定机器人的起始点和目标点坐标。<br />
+2. 计算吸引力：通过吸引力计算方法（通常是简单的线性引力或者更复杂的方法），计算机器人当前位置与目标点之间的吸引力<strong>方向</strong>和<strong>大小</strong>。<br />
+4. 计算斥力：通过斥力计算方法（通常是与障碍物之间的距离相关的方法），计算机器人与周围障碍物之间的斥力方向和大小。<br />
+5. 计算合力：将吸引力和斥力合成为总的势能场，得到机器人当前位置的合力方向和大小。<br />
+6. 更新位置：根据合力方向和大小，更新机器人的位置，使其向势能减小的方向移动。<br />
+7. 重复迭代：重复上述步骤，直至机器人到达目标点或达到最大迭代次数。</p>
+<p>引力公式：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230818132119.png" alt="image.png" /><br />
+其中： η为引力场系数； <code>[x,y]</code> 为无人船运动过程中的坐标； <code>[xgyg]</code> 为目标点的坐标。<br />
+无人船与目标点的吸引力随着间距变大而变大。当无人船到达目标点时，其受到的吸引力变为0。</p>
+<p>斥力公式：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230818132422.png" alt="image.png" /></p>
+<p>用 ξ 来表示斥力场系数，路径中障碍物距离无人船的距离用 ρ表示，障碍物自身的影响范围的距离用 ρd表示。<br />
+函数的上部相当于一个反比例函数，其中1/ρd表示函数图像往下移动的距离<br />
+当无人船的航进方向上存在有障碍物且其向障碍物方向靠近时，越逼近障碍物，障碍物作用在无人船的排斥力越大</p>
+<p>优点：<br />
+- 算法简单直观，易于实现。<br />
+- 能够处理复杂的环境，包括多个障碍物和复杂的地形。</p>
+<p>缺点：<br />
+- 容易陷入局部最优解，导致无法到达目标点或绕过某些障碍物。<br />
+- 可能出现震荡现象，即机器人在局部区域内来回移动。<br />
+- 在障碍点和目标点在一块的时候，会产生达不到目标点的情况</p>
+<p>改进： 为了克服APF的局限性，研究者提出了许多改进方法。其中一种常见的改进方法是引入惯性项（inertia term），使机器人具有一定的惯性，从而避免陷入局部最优解和震荡现象。此外，还有其他方法，如模糊逻辑控制、基于梯度下降的优化算法等，用于改进人工势场法的性能。</p>
+<p>总体来说，人工势场法是一种简单但有效的路径规划算法，在一些简单场景和实时性要求较高的情况下有很好的应用效果。但在复杂环境和精确路径规划要求下，可能需要考虑其他更复杂的路径规划算法。</p>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="http://html.rhhz.net/jckxjsgw/html/68254.htm#close">基于改进人工势场算法的无人船路径规划</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/40-tools/版本管理/命令行svn</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+ <!--if(toc)-->
+
+<p>最新的版本 svn info -r 'HEAD' | grep Revision | egrep -o "[0-9]+"</p>
+<p>本地的版本 svn info | grep Revision | egrep -o "[0-9]+"</p>
+<p>svn revert -R %UNITY_PROJECT_PATH%</p>
+<p>svn cleanup --remove-unversioned %UNITY_PROJECT_PATH%</p>
+<p>1、将文件checkout到本地目录</p>
+<p>svn checkout path（path是服务器上的目录）<br />
+例如：svn checkout svn://192.168.1.1/pro/domain</p>
+<p>简写：svn co 2、往版本库中添加新的文件</p>
+<p>svn add file<br />
+例如：svn add test.php(添加test.php)</p>
+<p>svn add *.php(添加当前目录下所有的php文件) 3、将改动的文件提交到版本库</p>
+<p>svn commit -m "LogMessage" [-N] [--no-unlock] PATH(如果选择了保持锁，就使用--no-unlock开关)<br />
+例如：svn commit -m "add test file for my test" test.php</p>
+<p>简写：svn ci 4、加锁/解锁</p>
+<p>svn lock -m "LockMessage" [--force] PATH<br />
+例如：svn lock -m "lock test file" test.php</p>
+<p>svn unlock PATH</p>
+<p>5、更新到某个版本</p>
+<p>svn update -r m path<br />
+例如：<br />
+svn update如果后面没有目录，默认将当前目录以及子目录下的所有文件都更新到最新版本。<br />
+svn update -r 200 test.php(将版本库中的文件test.php还原到版本200)<br />
+svn update test.php(更新，于版本库同步。如果在提交的时候提示过期的话，是因为冲突，需要先update，修改文件，然后清除svn resolved，最后再提交commit)</p>
+<p>简写：svn up</p>
+<p>6、查看文件或者目录状态</p>
+<p>1）svn status path（目录下的文件和子目录的状态，正常状态不显示）<br />
+【?：不在svn的控制中；M：内容被修改；C：发生冲突；A：预定加入到版本库；K：被锁定】<br />
+2）svn status -v path(显示文件和子目录状态)<br />
+第一列保持相同，第二列显示工作版本号，第三和第四列显示最后一次修改的版本号和修改人。<br />
+注：svn status、svn diff和 svn revert这三条命令在没有网络的情况下也可以执行的，原因是svn在本地的.svn中保留了本地版本的原始拷贝。<br />
+简写：svn st</p>
+<p>7、删除文件</p>
+<p>svn delete path -m "delete test fle"<br />
+例如：svn delete svn://192.168.1.1/pro/domain/test.php -m "delete test file"<br />
+或者直接svn delete test.php 然后再svn ci -m 'delete test file‘，推荐使用这种<br />
+简写：svn (del, remove, rm)</p>
+<p>8、查看日志</p>
+<p>svn log path</p>
+<p>例如：svn log test.php 显示这个文件的所有修改记录，及其版本号的变化</p>
+<p>9、查看文件详细信息</p>
+<p>svn info path<br />
+例如：svn info test.php<br />
+10、比较差异</p>
+<p>svn diff path(将修改的文件与基础版本比较)<br />
+例如：svn diff test.php<br />
+svn diff -r m:n path(对版本m和版本n比较差异)<br />
+例如：svn diff -r 200:201 test.php</p>
+<p>简写：svn di</p>
+<p>11、将两个版本之间的差异合并到当前文件</p>
+<p>svn merge -r m:n path<br />
+例如：svn merge -r 200:205 test.php（将版本200与205之间的差异合并到当前文件，但是一般都会产生冲突，需要处理一下）</p>
+<p>12、SVN 帮助</p>
+<p>svn help</p>
+<p>svn help ci</p>
+<hr />
+<p>以上是常用命令，下面写几个不经常用的</p>
+<hr />
+<p>13、版本库下的文件和目录列表</p>
+<p>svn list path<br />
+显示path目录下的所有属于版本库的文件和目录</p>
+<p>简写：svn ls</p>
+<p>14、创建纳入版本控制下的新目录</p>
+<p>svn mkdir: 创建纳入版本控制下的新目录。<br />
+用法: 1、mkdir PATH...<br />
+2、mkdir URL...</p>
+<p>15、恢复本地修改</p>
+<p>svn revert: 恢复原始未改变的工作副本文件 (恢复大部份的本地修改)。revert:<br />
+用法: revert PATH...<br />
+注意: 本子命令不会存取网络，并且会解除冲突的状况。但是它不会恢复<br />
+被删除的目录</p>
+<p>16、代码库URL变更</p>
+<p>svn switch (sw): 更新工作副本至不同的URL。<br />
+用法: 1、switch URL [PATH]<br />
+2、switch --relocate FROM TO [PATH...]</p>
+<pre><code>      1、更新你的工作副本，映射到一个新的URL，其行为跟“svn update”很像，也会将
+         服务器上文件与本地文件合并。这是将工作副本对应到同一仓库中某个分支或者标记的
+         方法。
+      2、改写工作副本的URL元数据，以反映单纯的URL上的改变。当仓库的根URL变动
+         (比如方案名或是主机名称变动)，但是工作副本仍旧对映到同一仓库的同一目录时使用
+         这个命令更新工作副本与仓库的对应关系。</code></pre>
+<p>17、解决冲突</p>
+<p>svn resolved: 移除工作副本的目录或文件的“冲突”状态。<br />
+用法: resolved PATH...<br />
+注意: 本子命令不会依语法来解决冲突或是移除冲突标记；它只是移除冲突的<br />
+相关文件，然后让 PATH 可以再次提交。</p>
+<p>18、输出指定文件或URL的内容。</p>
+<p>svn cat 目标[@版本]...如果指定了版本，将从指定的版本开始查找。<br />
+svn cat -r PREV filename &gt; filename (PREV 是上一版本,也可以写具体版本号,这样输出结果是可以提交的)</p>
+<p>来源： &lt; http://blog.csdn.net/yangzhongxuan/article/details/7018168 &gt;</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

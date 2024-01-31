@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/c++编码规范</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#c编码规范">## c++编码规范</a>
+<ul>
+<li><a href="#c-version">C++ Version</a></li>
+<li><a href="#工具设置">工具设置</a></li>
+<li><a href="#头文件">头文件</a>
+<ul>
+<li><a href="#使用define保护">1.使用#define保护</a></li>
+<li><a href="#内联函数">2.内联函数</a></li>
+<li><a href="#cpp文件include顺序建议如下">3.cpp文件<code>#include</code>顺序建议如下</a></li>
+<li><a href="#类的前置声明">4.类的前置声明</a></li>
+</ul></li>
+<li><a href="#注释">注释</a></li>
+<li><a href="#命名空间">命名空间</a></li>
+<li><a href="#类">类</a></li>
+<li><a href="#其他c">其他C++</a></li>
+<li><a href="#低效率写法">低效率写法</a></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="c编码规范">## c++编码规范</h2>
+<h3 id="c-version">C++ Version</h3>
+<p>Currently, code should target C++17, i.e., should not use C++2x features.</p>
+<blockquote>
+<p> 基于 C++ 11，C++ 17 旨在使 C++ 成为一个不那么臃肿复杂的编程语言，以简化该语言的日常使用，使开发者可以更简单地编写和维护代码。</p>
+</blockquote>
+<h3 id="工具设置">工具设置</h3>
+<p>缩进 制表符大小=4 缩进大小=4<br />
+编码 no bom的UTF-8</p>
+<h3 id="头文件">头文件</h3>
+<h4 id="使用define保护">1.使用#define保护</h4>
+<pre><code>#ifndef __FOO_CLASS_H__
+#define __FOO_CLASS_H__
+...
+#endif//__FOO_CLASS_H__</code></pre>
+<h4 id="内联函数">2.内联函数</h4>
+<p>建议低于10行函数才考虑inline</p>
+<h4 id="cpp文件include顺序建议如下">3.cpp文件<code>#include</code>顺序建议如下</h4>
+<ul>
+<li>本.cpp的.h头文件</li>
+<li>c、c++库</li>
+<li>依赖库</li>
+<li>本项目内的.h</li>
+</ul>
+<h4 id="类的前置声明">4.类的前置声明</h4>
+<pre><code>// #include &lt;Hero&gt; 尽量不要包含头文件,
+class Hero; //下方前置声明
+class Mon;
+class Tri
+{
+    Mon* m;
+    Hero* h;
+}</code></pre>
+<p>其他的头文件规范：<br />
+- 避免多余的包含头文件<br />
+- 头文件应该是“自给自足的”<br />
+- 标准的头文件依赖的结构是树形的，若是存在环形图的结构，那就是自找麻烦了</p>
+<p>头文件的影响<br />
+- 编译时间：对编译时间的影响可能是巨大的。<br />
+- 复杂性：不必要或笨拙的依赖关系会增加意外的复杂性。<br />
+- 重构/重组您的程序更加困难。<br />
+- 这使测试“模块”更难隔离。<br />
+- 文档：当您知道标头准确反映了文件中使用的内容时，此信息有助于理解代码。</p>
+<ul>
+<li>定义函数时, 参数顺序依次为: 输入参数, 然后是输出参数.</li>
+<li>命令空间 &amp; 作用域
+<ul>
+<li><p>鼓励在源文件中使用匿名的命令空间，除std外不要有任何的using namespace，但是可以在源文件和头文件的函数、方法或类的内部using其它的实体，如using std::vector;等等；</p>
+<h3 id="命名规定">命名规定</h3></li>
+</ul></li>
+<li>常量：大写加下划线</li>
+<li>文件名:同类名一致，一般一个类一个文件</li>
+<li>类名：大驼峰 class MyClass;</li>
+<li>成员变量：小驼峰，<code>_foo</code> 下划线开头, 如果是结构体的成员，则不加下划线</li>
+<li>成员函数：小驼峰</li>
+<li>变量名：小写加下划线</li>
+<li>普通函数：小写加下划线</li>
+<li>通用命名规则<br />
+函数命名, 变量命名, 文件命名要有描述性; 少用缩写.<br />
+尽可能使用描述性的命名, 别心疼空间, 毕竟相比之下让代码易于新读者理解更重要. 不要用只有项目开发者能理解的缩写, 也不要通过砍掉几个字母来缩写单词.</li>
+</ul>
+<h3 id="注释">注释</h3>
+<ul>
+<li>使用规定的代码片段创建文件、类注释</li>
+<li>每个文件头加入功能说明及作者信息</li>
+<li>未完成的代码使用TODO注释</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co">//========================================================================</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="co">// 名称： xx</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="co">// 功能简介：xx</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="co">// 作者：xx</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="co">// 修改时间：2015.02.05</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="co">//========================================================================</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a><span class="co">//========================================================================</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a><span class="co">// Name: pathplan.cpp</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a><span class="co">// Author: sunxvming</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a><span class="co">// Description: Grid-based map representation and path planning using the A* algorithm</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a><span class="co">// Modified: October 19, 2023</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a><span class="co">//========================================================================</span></span></code></pre></div>
+<h3 id="命名空间">命名空间</h3>
+<p>1.客户端使用 namespace xxx{} 命名空间包裹,xxx为本项目定义的命名空间<br />
+2.全局函数也封装于命名空间内<br />
+3.禁止使用using namespace xx; 建议使用using namespace LORD::FOO;类型</p>
+<p>4.命名空间不要增加额外的缩进层次, 例如:</p>
+<pre><code>namespace {
+
+void foo() {  // 正确. 命名空间内没有额外的缩进.
+  ...
+}
+
+}  // namespace</code></pre>
+<p>5.声明嵌套命名空间时, 每个命名空间都独立成行.</p>
+<pre><code>namespace foo {
+namespace bar {</code></pre>
+<h3 id="类">类</h3>
+<p>1.仅仅有数据时使用struct,其他一律使用class<br />
+2.成员变量初始化顺序,声明顺序对应<br />
+3.头文件中一律不写任何方法实现的代码</p>
+<h3 id="其他c">其他C++</h3>
+<ul>
+<li>判断指针为空，逻辑层尽量判断</li>
+<li>输入参数为值或者const引用</li>
+<li>使用c++类型转换，<code>static_cast&lt;&gt;</code>，建议不要使用<code>int* y = (int*)x;</code> 验证 <code>B* b = (B*)c; B* b = static_cast&lt;B*&gt; c;</code></li>
+<li>使用前置自增自减，尤其迭代器和模板类型</li>
+<li>整数用0 实数用0.0 指针用nullptr </li>
+<li>使用sizeof(value)替代sizeof(type)</li>
+<li>消除编译器报的所有警告</li>
+</ul>
+<h3 id="低效率写法">低效率写法</h3>
+<pre><code>// 低效率 禁止使用
+for (int i=0; i&lt;1000; ++i)
+{
+    Foo f;
+    f.DoSomething(i);
+}
+// 建议使用
+Foo f;
+for (int i=0; i&lt;1000; ++i)
+{
+    f.DoSomething(i);
+}</code></pre>
+<h3 id="参考链接">参考链接</h3>
+<ul>
+<li><a href="https://zh-google-styleguide.readthedocs.io/en/latest/contents/">Google 开源项目风格指南 (中文版)</a>, by google</li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

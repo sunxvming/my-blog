@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/3.引用</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#引用入门教程">引用入门教程</a></li>
+<li><a href="#返回一个引用意味着什么">返回一个引用，意味着什么？</a></li>
+<li><a href="#object.method1.method2-是什么意思">object.method1().method2() 是什么意思? </a></li>
+<li><a href="#引用在本质上是什么它和指针到底有什么区别">引用在本质上是什么，它和指针到底有什么区别？</a>
+<ul>
+<li><a href="#引用和指针的其他区别">引用和指针的其他区别</a></li>
+</ul></li>
+<li><a href="#引用不能绑定到临时数据">引用不能绑定到临时数据</a></li>
+<li><a href="#编译器会为const引用创建临时变量">编译器会为const引用创建临时变量</a></li>
+<li><a href="#const-和-引用">const 和 引用</a></li>
+<li><a href="#const-和函数形参">const 和函数形参</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="引用入门教程">引用入门教程</h2>
+<p>参数的传递本质上是一次<strong>赋值</strong>的过程，赋值就是对内存进行拷贝。所谓内存拷贝，是指将一块内存上的数据复制到另一块内存上。<br />
+对于像 char、bool、int、float 等基本类型的数据，它们占用的内存往往只有几个字节，对它们进行内存拷贝非常快速。<br />
+而数组、结构体、对象是一系列数据的集合，数据的数量没有限制，可能很少，也可能成千上万，对它们进行频繁的内存拷贝可能会消耗很多时间，拖慢程序的执行效率。</p>
+<p>引用必须在定义的同时初始化，并且以后也要从一而终，不能再引用其它数据，这有点类似于常量（const 变量）。<br />
+如果读者不希望通过引用来修改原始的数据，那么可以在定义时添加 const 限制，形式为：<br />
+<code>const type &amp;name = value;</code>   也可以是：  <code>type const &amp;name = value;</code><br />
+当你<strong>不需要"重新指向(reseating)"时</strong>，引用一般优先于指针被选用。这通常意味着引用用于类的公有接口时更有用。引用出现的<strong>典型场合是对象的表面，而指针用于对象内部</strong>。</p>
+<ul>
+<li>引用作为函数参数</li>
+<li>引用作为函数返回值</li>
+<li>不能返回局部数据（例如局部变量、局部对象、局部数组等）的引用，因为当函数调用完成后局部数据就会被销毁</li>
+</ul>
+<h2 id="返回一个引用意味着什么">返回一个引用，意味着什么？</h2>
+<p>意味着该函数调用可以出现在赋值运算符的左边。<br />
+最初这种能力看起来有些古怪。例如，没有人会认为表达式 f() = 7 有意义。然而，如果 a 是一个 Array 类，大多数人会认为 a[i] = 7 有意义，即使 a[i] 实际上是一个函数调用的伪装（它调用了 如下的 Array 类的 Array::operator<a href="int"></a>）。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a> class Array {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a> public:</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>   int size() const;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>   float&amp; operator[] (int index);</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>   <span class="co">// ...</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a> };</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a> int main()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a> {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>   Array a;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>   for (int i = <span class="dv">0</span>; i &lt; a.size(); ++i)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>     a[i] = <span class="dv">7</span>; <span class="co">// 这行调用了 Array::operator[](int)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a> }</span></code></pre></div>
+<h2 id="object.method1.method2-是什么意思">object.method1().method2() 是什么意思? </h2>
+<p>第一个被执行的是 object.method1()。它返回对象，可能是对象的引用（如，method1()可能以 return <code>*this</code> 结束），或可能是一些其他对象。我们姑且把返回的对象称为objectB。然后objectB成为method2()的this对象。<br />
+方法链最常用的地方是iostream库。例如，cout &lt;&lt; x &lt;&lt; y 可以执行因为 cout &lt;&lt; x是一个返回cout.的函数</p>
+<h2 id="引用在本质上是什么它和指针到底有什么区别">引用在本质上是什么，它和指针到底有什么区别？</h2>
+<p><strong>其实引用只是对指针进行了简单的封装，它的底层依然是通过指针实现的</strong>，引用在C++中的内部实现是一个<strong>常量指针</strong><br />
+<code>Type&amp; name 等价于 Type* const name</code><br />
+引用占用的内存和指针占用的内存长度一样，在 32 位环境下是 4 个字节，在 64 位环境下是 8 个字节，<strong>之所以不能获取引用的地址，是因为编译器进行了内部转换</strong><br />
+从使用的角度，引用会让人误会其只是一个别名，没有自己的存储空间。这是C++为了实用性而做出的细节隐藏</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>int a = <span class="dv">99</span>;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>int &amp;r = a;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>r = <span class="dv">18</span>;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>cout&lt;&lt;&amp;r&lt;&lt;endl;</span></code></pre></div>
+<p>编译时会被转换成如下的形式：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>int a = <span class="dv">99</span>;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>int * const r = &amp;a;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>*r = <span class="dv">18</span>;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>cout&lt;&lt;r&lt;&lt;endl;</span></code></pre></div>
+<p>使用&amp;r取地址时，编译器会对代码进行<strong>隐式的转换</strong>，使得代码输出的是 r 的内容（引用的对象的地址），而不是 r 的地址，这就是为什么获取不到引用变量的地址的原因。也就是说，不是变量 r 不占用内存，而是<strong>编译器不让获取它的地址</strong>。<br />
+C++ 的发明人 Bjarne Stroustrup 也说过，他在 C++ 中引入引用的直接目的是为了<strong>让代码的书写更加漂亮</strong>，尤其是在运算符重载中，不借助引用有时候会使得运算符的使用很麻烦。</p>
+<h3 id="引用和指针的其他区别">引用和指针的其他区别</h3>
+<p>1. 引用必须在定义时初始化，不存在空引用，并且以后也要从一而终，不能再指向其他数据；而指针没有这个限制，指针在定义时不必赋值，以后也能指向任意数据。<br />
+2. 指针和引用的自增（++）自减（--）运算意义不一样。对指针使用 ++ 表示指向下一份数据，对引用使用 ++ 表示它所指代的数据本身加 1；<br />
+3. 可以有 const 指针，但是没有 const 引用。也就是说，引用变量不能定义为下面的形式：</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>int a = <span class="dv">20</span>;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>int &amp; const r = a;</span></code></pre></div>
+<p>注意：由于在调用者的代码处，<strong>无法提供清晰的的引用语义</strong>，所以传统的 C 程序员有时并不喜欢引用。然而，当有了一些 C++ 经验后，你会很快认识到<strong>这是信息隐藏的一种形式</strong>，它是有益的而不是有害的。<br />
+引用相对于指针来说具有更好的可读性和实用性<br />
+C++链式编程中，经常用到引用</p>
+<h2 id="引用不能绑定到临时数据">引用不能绑定到临时数据</h2>
+<p>我们平时不太留意的临时数据，例如表达式的结果、函数的返回值等，它们可能会放在内存中，也可能会放在寄存器中。一旦它们被放到了寄存器中，就没法用&amp;获取它们的地址了，也就没法用指针指向它们了。<br />
+int、double、bool、char 等基本类型的数据往往不超过 8 个字节，用一两个寄存器就能存储，所以这些类型的临时数据通常会放到寄存器中；而对象、结构体变量是自定义类型的数据，大小不可预测，所以这些类型的<strong>临时数据通常会放到内存中</strong>。</p>
+<p>常量表达式的值虽然在内存中，但是没有办法寻址，所以也不能使用&amp;来获取它的地址，更不能用指针指向它</p>
+<h2 id="编译器会为const引用创建临时变量">编译器会为const引用创建临时变量</h2>
+<p>将常引用绑定到临时数据时，编译器采取了一种妥协机制：编译器会为临时数据创建一个新的、无名的临时变量，并将临时数据放入该临时变量中，然后再将引用绑定到该临时变量。注意，<strong>临时变量也是变量，所有的变量都会被分配内存</strong>。</p>
+<h2 id="const-和-引用">const 和 引用</h2>
+<p>不同类型的数据占用的内存数量不一样，处理方式也不一样，指针的类型要与它指向的数据的类型严格对应。<br />
+引用（Reference）和指针（Pointer）在本质上是一样的，引用仅仅是对指针进行了简单的封装，<strong>类型严格一致</strong>这条规则同样也适用于引用。<br />
+但给引用添加 const 限定后，不但可以将引用绑定到临时数据，还可以将引用绑定到<strong>类型相近</strong>的数据，这使得引用更加灵活和通用，它们<strong>背后的机制都是临时变量</strong>。</p>
+<h2 id="const-和函数形参">const 和函数形参</h2>
+<p>const形参好处：<br />
+1. 使用 const 可以避免无意中修改数据的编程错误；<br />
+2. 清楚的分清参数的输入和输出特性<br />
+3. 可以接受const和非const的变量,否则将只能接收非 const 类型的实参<br />
+4. 使用 const 引用能够让函数正确生成并使用临时变量,可以将引用绑定到类型相近的数据，而不仅仅是严格匹配</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="dt">double</span> volume(<span class="dt">const</span> <span class="dt">double</span> &amp;len, <span class="dt">const</span> <span class="dt">double</span> &amp;width, <span class="dt">const</span> <span class="dt">double</span> &amp;hei){</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>    <span class="cf">return</span> len*width*<span class="dv">2</span> + len*hei*<span class="dv">2</span> + width*hei*<span class="dv">2</span>;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>}</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="dt">int</span> main(){</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    <span class="dt">int</span> a = <span class="dv">12</span>, b = <span class="dv">3</span>, c = <span class="dv">20</span>;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    <span class="dt">double</span> v1 = volume(a, b, c);</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>    <span class="dt">double</span> v2 = volume(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>);</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>    <span class="dt">double</span> v3 = volume(<span class="fl">89.4</span>, <span class="fl">32.7</span>, <span class="dv">19</span>);</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>    <span class="dt">double</span> v4 = volume(a+<span class="fl">12.5</span>, b+<span class="fl">23.4</span>, <span class="fl">16.78</span>);</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>    <span class="dt">double</span> v5 = volume(a+b, a+c, b+c);</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>}</span></code></pre></div>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

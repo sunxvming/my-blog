@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c笔记/c总结-常用函数</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#glob">glob  </a></li>
+<li><a href="#system">system</a></li>
+<li><a href="#popen">popen</a>
+<ul>
+<li><a href="#linux下的-system和popen差异">Linux下的 system()和popen()差异</a></li>
+<li><a href="#systempopen源码">system()、popen()源码</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="glob">glob  </h2>
+<p>函数查找匹配指定模式的文件名或目录。功能强大</p>
+<pre><code>#include &lt;glob.h&gt;
+int glob(const char *pattern, int flags,int errfunc(const char *epath, int eerrno),glob_t *pglob);</code></pre>
+<h2 id="system">system</h2>
+<p>属于stdlib.h中的，linux下，system()会调用fork()产生子进程，由子进程来用exec调用/bin/sh -c string来执行参数string字符串所代表的命令，此命令执行完后随即返回原调用的进程</p>
+<pre><code>system(&quot;start notepad&quot;);   多个进程的打开(异步的打开)
+system(&quot;notepad&quot;) 单个的打开(同步的打开)
+
+system(&quot;pause&quot;);      cmd窗口的停止
+system(&quot;explorer.exe  C:\\Program Files&quot;); 打开资源管理器并进入相应的目录</code></pre>
+<h2 id="popen">popen</h2>
+<p>popen可以让你在 C++ 程序中执行 shell 命令，并且得到命令执行的结果<br />
+以下是对popen的封装，输入是执行的命令，输出是命令执行的结果</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdexcept&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>std::string exec(const char* cmd)  <span class="co">// cmd 是你要执行的命令</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>{</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>    char buffer[<span class="dv">128</span>];</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>    std::string result ;  <span class="co">// result 保存命令执行的结果</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>    FILE* pipe = popen(cmd, <span class="st">&quot;r&quot;</span>);</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>    if (!pipe) </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a>        throw std::runtime_error(<span class="st">&quot;popen() failed!&quot;</span>);</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a>    try </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true"></a>    {</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true"></a>        while (fgets(buffer, sizeof buffer, pipe) != NULL)   <span class="co">//结果通过文件描述符进行读取</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true"></a>        {</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true"></a>            result += buffer ;</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true"></a>        }</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true"></a>    } </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true"></a>    catch (...) </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true"></a>    {</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true"></a>        pclose(pipe);</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true"></a>        throw ;</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true"></a>    }</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true"></a>    pclose(pipe);</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true"></a>    return result ;</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true"></a>}</span></code></pre></div>
+<p>C++11写法</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;cstdio&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;memory&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdexcept&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;array&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>std::string exec(const char* cmd)  <span class="co">// cmd 是你要执行的命令</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>{</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>    std::array&lt;<span class="dt">char</span>, <span class="dv">128</span>&gt; buffer ;</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a>    std::string result ;  <span class="co">// result 保存命令执行的结果</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>    std::unique_ptr&lt;<span class="dt">FILE</span>, decltype(&amp;pclose)&gt; pipe(popen(cmd, <span class="st">&quot;r&quot;</span>), pclose);</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a>    if (!pipe) </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true"></a>    {</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true"></a>        throw std::runtime_error(<span class="st">&quot;popen() failed!&quot;</span>);</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true"></a>    }</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true"></a>    while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr)  </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true"></a>    {</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true"></a>        result += buffer.data();</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true"></a>    }</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true"></a>    return result ;</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="linux下的-system和popen差异">Linux下的 system()和popen()差异</h3>
+<p>system()、popen()给我们处理了fork、exec、waitpid等一系列的处理流程，让我们只需要关注最后的返回结果(函数的返回值)即可。</p>
+<p><strong>popen如何获取命令执行的结果？</strong><br />
+命令执行时会将命令的结果输出到标准输出中，通过在父进程中创建一个管道，然后将标准输出到这个管道中，然后父进程从这个管道中读取结果。</p>
+<p>从上面的源码可以看到system和popen都是执行了类似的运行流程，大致是<code>fork-&gt;execl-&gt;return</code>。但是我们看到system在执行期间调用进程会一直等待shell命令执行完成(waitpid等待子进程结束)才返回，但是popen无须等待shell命令执行完成就返回了。我们可以理解system为串行执行，在执行期间调用进程放弃了”控制权”，popen为并行执行。<br />
+popen中的子进程没人给它”收尸”了啊？是的，如果你没有在调用popen后调用pclose那么这个子进程就可能变成”僵尸”。<br />
+上面我们没有给出pclose的源码，其实我们根据system的源码差不多可以猜测出pclose的源码就是system中第4部分的内容。</p>
+<h3 id="systempopen源码">system()、popen()源码</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>int system(const char *command)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>{</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>    struct sigaction sa_ignore, sa_intr, sa_quit;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    sigset_t block_mask, orig_mask;</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    pid_t pid;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>    sigemptyset(&amp;block_mask);</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>    sigaddset(&amp;block_mask, SIGCHLD);</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>    sigprocmask(SIG_BLOCK, &amp;block_mask, &amp;orig_mask);        <span class="co">//1. block SIGCHLD</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>    sa_ignore.sa_handler = SIG_IGN;</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>    sa_ignore.sa_flags = <span class="dv">0</span>;</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>    sigemptyset(&amp;sa_ignore.sa_mask);</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>    sigaction(SIGINT, &amp;sa_ignore, &amp;sa_intr);                <span class="co">//2. ignore SIGINT signal</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a>    sigaction(SIGQUIT, &amp;sa_ignore, &amp;sa_quit);                <span class="co">//3. ignore SIGQUIT signal</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true"></a>    switch((pid = fork()))</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true"></a>    {</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true"></a>        case -<span class="dv">1</span>:</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true"></a>            return -<span class="dv">1</span>;</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true"></a>        case <span class="dv">0</span>:</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true"></a>            sigaction(SIGINT, &amp;sa_intr, NULL); </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true"></a>            sigaction(SIGQUIT, &amp;sa_quit, NULL); </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true"></a>            sigprocmask(SIG_SETMASK, &amp;orig_mask, NULL);</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true"></a>            execl(<span class="st">&quot;/bin/sh&quot;</span>, <span class="st">&quot;sh&quot;</span>, <span class="st">&quot;-c&quot;</span>, command, (char *) <span class="dv">0</span>);</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true"></a>            exit(<span class="dv">127</span>);</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true"></a>        default:</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true"></a>            while(waitpid(pid, NULL, <span class="dv">0</span>) == -<span class="dv">1</span>)    <span class="co">//4. wait child process exit</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true"></a>            {</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true"></a>                if(errno != EINTR)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true"></a>                {</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true"></a>                    break;</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true"></a>                }</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true"></a>            }</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true"></a>    }</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true"></a>}</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true"></a>return <span class="dv">0</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>static pid_t    *childpid = NULL;  </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>                        <span class="co">/* ptr to array allocated at run-time */</span>  </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>static int      maxfd;  <span class="co">/* from our open_max(), {Prog openmax} */</span>  </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="pp">#define SHELL   &quot;/bin/sh&quot;  </span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>FILE *  </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>popen(const char *cmdstring, const char *type)  </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>{  </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>    int     i, pfd[<span class="dv">2</span>];  </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>    pid_t   pid;  </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>    FILE    *fp;  </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>            <span class="co">/* only allow &quot;r&quot; or &quot;w&quot; */</span>  </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>    if ((type[<span class="dv">0</span>] != <span class="ch">&#39;r&#39;</span> &amp;&amp; type[<span class="dv">0</span>] != <span class="ch">&#39;w&#39;</span>) || type[<span class="dv">1</span>] != <span class="dv">0</span>) {  </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a>        errno = EINVAL;     <span class="co">/* required by POSIX.2 */</span>  </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a>        return(NULL);  </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true"></a>    }  </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true"></a>    if (childpid == NULL) {     <span class="co">/* first time through */</span>  </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true"></a>                <span class="co">/* allocate zeroed out array for child pids */</span>  </span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true"></a>        maxfd = open_max();  </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true"></a>        if ( (childpid = calloc(maxfd, sizeof(pid_t))) == NULL)  </span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true"></a>            return(NULL);  </span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true"></a>    }  </span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true"></a>    if (pipe(pfd) &lt; <span class="dv">0</span>)  </span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true"></a>        return(NULL);   <span class="co">/* errno set by pipe() */</span>  </span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true"></a></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true"></a>    if ( (pid = fork()) &lt; <span class="dv">0</span>)  </span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true"></a>        return(NULL);   <span class="co">/* errno set by fork() */</span>  </span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true"></a>    else if (pid == <span class="dv">0</span>) {                            <span class="co">/* child */</span>  </span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true"></a>        if (*type == <span class="ch">&#39;r&#39;</span>) {  </span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true"></a>            close(pfd[<span class="dv">0</span>]);  </span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true"></a>            if (pfd[<span class="dv">1</span>] != STDOUT_FILENO) {  </span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true"></a>                dup2(pfd[<span class="dv">1</span>], STDOUT_FILENO);  </span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true"></a>                close(pfd[<span class="dv">1</span>]);  </span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true"></a>            }  </span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true"></a>        } else {  </span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true"></a>            close(pfd[<span class="dv">1</span>]);  </span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true"></a>            if (pfd[<span class="dv">0</span>] != STDIN_FILENO) {  </span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true"></a>                dup2(pfd[<span class="dv">0</span>], STDIN_FILENO);  </span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true"></a>                close(pfd[<span class="dv">0</span>]);  </span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true"></a>            }  </span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true"></a>        }  </span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true"></a>            <span class="co">/* close all descriptors in childpid[] */</span>  </span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true"></a>        for (i = <span class="dv">0</span>; i &lt; maxfd; i++)  </span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true"></a>            if (childpid[ i ] &gt; <span class="dv">0</span>)  </span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true"></a>                close(i);  </span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true"></a></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true"></a>        execl(SHELL, <span class="st">&quot;sh&quot;</span>, <span class="st">&quot;-c&quot;</span>, cmdstring, (char *) <span class="dv">0</span>);  </span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true"></a>        _exit(<span class="dv">127</span>);  </span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true"></a>    }  </span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true"></a>                                <span class="co">/* parent */</span>  </span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true"></a>    if (*type == <span class="ch">&#39;r&#39;</span>) {  </span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true"></a>        close(pfd[<span class="dv">1</span>]);  </span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true"></a>        if ( (fp = fdopen(pfd[<span class="dv">0</span>], type)) == NULL)  </span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true"></a>            return(NULL);  </span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true"></a>    } else {  </span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true"></a>        close(pfd[<span class="dv">0</span>]);  </span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true"></a>        if ( (fp = fdopen(pfd[<span class="dv">1</span>], type)) == NULL)  </span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true"></a>            return(NULL);  </span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true"></a>    }  </span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true"></a>    childpid[fileno(fp)] = pid; <span class="co">/* remember child pid for this fd */</span>  </span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true"></a>    return(fp);  </span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true"></a>}  </span></code></pre></div>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

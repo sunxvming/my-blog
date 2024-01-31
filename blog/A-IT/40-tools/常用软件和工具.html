@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/40-tools/常用软件和工具</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#常用软件">常用软件</a></li>
+<li><a href="#硬件相关">硬件相关</a></li>
+<li><a href="#版本管理">版本管理</a></li>
+<li><a href="#编程">编程</a>
+<ul>
+<li><a href="#网络工具">网络工具</a></li>
+</ul></li>
+<li><a href="#it工具">IT工具</a></li>
+<li><a href="#linux下">linux下</a></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="常用软件">常用软件</h2>
+<ul>
+<li>Microsoft PowerToys<br />
+windows下的一组实用工具，比如批量修改文件名，拾色器等</li>
+<li>搜狗输入法</li>
+<li>为知笔记</li>
+<li>chrome</li>
+<li>有道词典</li>
+<li>QQ、wechart</li>
+<li>百度云</li>
+<li>FOXMAIL</li>
+<li>稻壳阅读器、 neat-reader</li>
+<li>远程控制
+<ul>
+<li>向日葵</li>
+<li>teamviewer</li>
+</ul></li>
+<li>思维导图
+<ul>
+<li>mindnode(mac下的，界面比较清爽)</li>
+<li>xmind(功能比较强大)</li>
+</ul></li>
+<li>Resilio sync 一个p2p的文件同步工具</li>
+<li>VPN：expressVPN、nordVPN</li>
+<li>Calibre： 一站式”的电子书解决方案</li>
+<li>Windows Terminal</li>
+<li>clink<br />
+使 cmd 像 Linux 终端一样容易使用。</li>
+<li>3D viewer 3d的查看器</li>
+<li>paint 3d 3d文件的编辑器</li>
+<li><a href="https://www.blendercn.org/">blender</a> 开源的一个3d软件</li>
+<li>PdgCntEditor 可以把pdf的目录导出成txt的工具</li>
+<li>snipaste 截图神器</li>
+<li>FastStone Capture 录屏</li>
+<li>GifCam 录屏，生成gif动图</li>
+</ul>
+<h2 id="硬件相关">硬件相关</h2>
+<ul>
+<li><p>CrystalDsikinfo 查看硬盘信息的软件</p>
+<h2 id="办公神奇">办公神奇</h2></li>
+<li><p>utools 效率工具</p></li>
+<li><p>quicker 效率工具</p></li>
+<li><p>Synergy可以在多台电脑之间共享鼠标，键盘，剪贴板的软件，需要按服务器端和客户端的软件。</p></li>
+<li><p>百度云里的收藏的软件，截屏量尺寸的</p></li>
+<li><p>everything</p></li>
+<li><p>listary windows下搜索文件的</p></li>
+<li><p>Clover windows下的资源管理的东西</p></li>
+<li><p>MouseClick 鼠标连点器，游戏测试应该用的很爽</p></li>
+<li><p>One Commander 更高级版的资源管理器</p></li>
+<li><p>单词统计功能 Word Count Tool</p></li>
+<li><p>批量pdf转word Solid Converter</p></li>
+<li><p>QuickLook windows下文件预览软件，微软应用商店可下载</p>
+<ul>
+<li>选中+空格键 进行预览</li>
+<li>再次点空格键 或 Esc 退出预览</li>
+</ul></li>
+</ul>
+<h2 id="版本管理">版本管理</h2>
+<ul>
+<li>SVN<br />
+</li>
+<li>TortoiseSVN<br />
+</li>
+<li>Git<br />
+</li>
+<li>TortoiseGit<br />
+</li>
+<li>sourceTree</li>
+</ul>
+<h2 id="编程">编程</h2>
+<ul>
+<li>notepad++、emeditor</li>
+<li>xshell套件</li>
+<li>MobaXterm，也是远程链接的工具</li>
+<li>海马玩模拟器</li>
+<li>fiddler发http抓包工具、wireshark</li>
+<li>Beyond Compare比较文件夹文件啥的</li>
+<li>Total Commander windows下的管理文件的神器</li>
+<li>VMware、qemu</li>
+<li>Dependency Walker，windows下查看程序依赖库的工具</li>
+</ul>
+<h3 id="网络工具">网络工具</h3>
+<ul>
+<li>Colasoft Packet Player 模拟网络流量并回放网络数据包，允许用户加载预先捕获的网络数据包文件（通常是PCAP格式），然后将这些数据包重新发送到网络中，模拟网络流量</li>
+</ul>
+<h2 id="it工具">IT工具</h2>
+<ul>
+<li>网络爬虫：八爪鱼，采集网站文章的软件</li>
+<li>IDA pro 反汇编的工具</li>
+<li>Cheat Engine是一款内存修改编辑工具，它允许你修改你的游戏或软件内存数据，以得到其他功能。它包括16进制编辑，反汇编程序，内存查找工具。</li>
+<li>dll注入工具DllInject，可以把自己写的dll注入到电脑中正在运行的程序</li>
+<li>Ollydbg动态调试软件一般是黑客和软件破解者用的用来对WINDOWS下的32位应用程序进行汇编级的调试来动态分析软件</li>
+<li>VLC媒体播放器VLC是一款自由，开源的跨平台多媒体播放器及框架，可播放大多数多媒体文件，以及DVD，音频CD，VCD及各类流媒体协议。</li>
+<li>Cygwin64 Terminal<br />
+一个模拟linux系统的windows软件，其安装目录下的目录结构跟linux下相同<br />
+它会提供一个terminal，模拟linux的shell，其他在terminal中建立的文件会在用户的home目录下</li>
+<li>mingw-w64<br />
+windows下的gcc编译环境,有gcc,g++等，还有make，但是名字叫mingw32-make.exe，可以把它重命名为make.exe</li>
+<li>msys2<br />
+msys2是一款跨平台编译套件，它模拟linux编译环境，支持整合mingw32和mingw64，能很方便的在windows上对一些开源的linux工程进行编译运行。<br />
+相对于 cygwin ，它支持 pacman 包管理器，这意味着你可以很方便的安装所需要的软件包和开发库，而不需要自己去找源码编译</li>
+</ul>
+<h2 id="linux下">linux下</h2>
+<ul>
+<li>词典StarDict</li>
+<li>bash窗口guake</li>
+</ul>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/632914483?utm_id=0">Windows文件预览神器，一键快速预览视频/音频/文档/压缩包 - 知乎</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

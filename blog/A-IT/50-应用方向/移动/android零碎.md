@@ -1,0 +1,27 @@
+single application package (APK).
+
+
+调试真机的时候在manifest文件中  android：debugable=“true”  application标签中 ，真机上也可以下断点
+
+
+adb的全称为Android Debug Bridge，就是起到调试桥的作用。
+借助adb工具，我们可以管理设备或手机模拟器的状态。还可以进行很多手机操作，如安装软件、系统升级、运行shell命令等等。其实简而言说，adb就是连接Android手机与PC端的桥梁，可以让用户在电脑上对手机进行全面的操作。
+
+
+ADT（Android Development Tools）是一种安卓开发工具。
+
+
+adb shell  可进入手机系统的终端      sqlite3  xxx.db 进入sqlite的命令行终端
+第一个是android的test ，第二个是junit test
+![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/2523f016-8b19-49fd-b738-bda4d7d80390.png)   
+
+
+
+
+
+
+
+
+
+
+

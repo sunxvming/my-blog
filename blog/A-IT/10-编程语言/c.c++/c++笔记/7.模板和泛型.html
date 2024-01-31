@@ -1,0 +1,692 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/7.模板和泛型</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#函数模板入门教程">函数模板入门教程</a></li>
+<li><a href="#类模板入门教程">类模板入门教程</a></li>
+<li><a href="#大话模板编程的来龙去脉">大话模板编程的来龙去脉</a></li>
+<li><a href="#函数模板的重载">函数模板的重载</a></li>
+<li><a href="#函数模板的实参推断">函数模板的实参推断</a>
+<ul>
+<li><a href="#类型转换">类型转换</a></li>
+<li><a href="#为函数模板显式地指明实参也就是具体的类型">为函数模板显式地指明实参（也就是具体的类型）</a></li>
+<li><a href="#显式地指明实参时可以应用正常的类型转换">显式地指明实参时可以应用正常的类型转换</a></li>
+</ul></li>
+<li><a href="#模板中用typename声明类型别名">模板中用typename声明类型别名</a></li>
+<li><a href="#模板的显式具体化特化">模板的显式具体化(特化)</a>
+<ul>
+<li><a href="#函数模板的显式具体化全特化">函数模板的显式具体化(全特化)</a></li>
+<li><a href="#类模板的显式具体化全特化">类模板的显式具体化(全特化)</a></li>
+<li><a href="#部分显式具体化偏特化">部分显式具体化(偏特化)</a></li>
+</ul></li>
+<li><a href="#模板中的非类型参数">模板中的非类型参数</a>
+<ul>
+<li><a href="#在函数模板中使用非类型参数">在函数模板中使用非类型参数</a></li>
+<li><a href="#在类模板中使用非类型参数">在类模板中使用非类型参数</a></li>
+</ul></li>
+<li><a href="#模板的实例化">模板的实例化</a></li>
+<li><a href="#将模板应用于多文件编程">将模板应用于多文件编程</a></li>
+<li><a href="#模板的显式实例化">模板的显式实例化</a>
+<ul>
+<li><a href="#函数模板的显式实例化">函数模板的显式实例化</a></li>
+<li><a href="#类模板的显式实例化">类模板的显式实例化</a></li>
+<li><a href="#显式实例化的缺陷">显式实例化的缺陷</a></li>
+</ul></li>
+<li><a href="#类模板与继承详解">类模板与继承详解</a>
+<ul>
+<li><a href="#类模板从类模板派生">1. 类模板从类模板派生</a></li>
+<li><a href="#类模板从模板类派生">2. 类模板从模板类派生</a></li>
+<li><a href="#类模板从普通类派生">3. 类模板从普通类派生</a></li>
+<li><a href="#普通类从模板类派生">4. 普通类从模板类派生</a></li>
+</ul></li>
+<li><a href="#类模板与友元详解">类模板与友元详解</a>
+<ul>
+<li><a href="#函数类类的成员函数作为-类模板-的友元">1. 函数、类、类的成员函数作为 类模板 的友元</a></li>
+<li><a href="#函数模板作为类模板的友元">2. 函数模板作为类模板的友元</a></li>
+<li><a href="#函数模板作为类的友元">3. 函数模板作为类的友元</a></li>
+<li><a href="#类模板作为类模板的友元">4. 类模板作为类模板的友元</a></li>
+</ul></li>
+<li><a href="#类模板中的静态成员">类模板中的静态成员</a></li>
+<li><a href="#模板名称决议">模板名称决议</a></li>
+<li><a href="#两种模板名称决议规则">两种模板名称决议规则</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>所谓“泛型”，指的是算法只要实现一遍，就能适用于多种数据类型。优势在于能够减少重复代码的编写。<strong>本质的类型参数化</strong>。<br />
+泛型程序设计就是大量编写模板、使用模板的程序设计。泛型程序设计在 C++ 中的重要性和带来的好处不亚于面向对象的特性。<br />
+在C++中，数据的类型也可以通过参数来传递，在<strong>函数定义时</strong>可以不指明具体的数据类型，当发生函数调用时，编译器可以根据传入的<strong>实参自动推断</strong>数据类型。这就是类型的参数化。<br />
+在 C++ 中，模板分为<strong>函数模板</strong>和<strong>类模板</strong>两种。熟练的 C++ 程序员，在编写函数时都会考虑能否将其写成函数模板，编写类时都会考虑能否将其写成类模板，以便实现重用。</p>
+<h3 id="函数模板入门教程">函数模板入门教程</h3>
+<p>所谓函数模板，编写函数的时候用<strong>类型参数</strong>代替真正的参数，<strong>函数调用时</strong>再通过参数判断类型。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>template&lt;typename T&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>void Swap(T &amp;a, T &amp;b){</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    T temp = a;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    a = b;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    b = temp;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>bool b1 = false, b2 = true;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>Swap(&amp;b1, &amp;b2); <span class="co">//编译器会根据参数自动判断类型</span></span></code></pre></div>
+<p>typename关键字也可以使用class关键字替代，它们没有任何区别。C++ 早期对模板的支持并不严谨，没有引入新的关键字，而是用 class 来指明类型参数，但是 class 关键字本来已经用在类的定义中了，这样做显得不太友好，所以后来 C++ 又引入了一个新的关键字 typename，专门用来定义类型参数。不过至今仍然有很多代码在使用 class 关键字，包括 C++ 标准库、一些开源程序等。</p>
+<h3 id="类模板入门教程">类模板入门教程</h3>
+<p>一但声明了类模板，就可以<strong>将类型参数用于</strong>类的<strong>成员函数</strong>和<strong>成员变量</strong>了。换句话说，原来使用 int、float、char 等内置类型的地方，都可以用类型参数来代替。<br />
+模板类声明：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>template&lt;typename T1, typename T2&gt; <span class="co">//这里不能有分号</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>class Point{</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>public:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    Point(T1 x, T2 y): m_x(x), m_y(y){ }</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>public:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>    T1 getX() const; <span class="co">//获取x坐标</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>    void setX(T1 x); <span class="co">//设置x坐标</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>    T2 getY() const; <span class="co">//获取y坐标</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>    void setY(T2 y); <span class="co">//设置y坐标</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>private:</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>    T1 m_x; <span class="co">//x坐标</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>    T2 m_y; <span class="co">//y坐标</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>};</span></code></pre></div>
+<p>模板类方法实现：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>template&lt;typename T1, typename T2&gt; <span class="co">//模板头</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>T1 Point&lt;T1, T2&gt;::getX() const <span class="co">/*函数头*/</span> {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>    return m_x;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>}</span></code></pre></div>
+<p>注意:<strong>类名后面也要带上类型参数，只是不加typename关键字了</strong>。</p>
+<p>使用类模板创建对象：</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>Point&lt;<span class="dt">int</span>, int&gt; p1(<span class="dv">10</span>, <span class="dv">20</span>);</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>Point&lt;<span class="dt">int</span>, float&gt; p2(<span class="dv">10</span>, <span class="fl">15.5</span>);</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>Point&lt;<span class="dt">float</span>, float&gt; *p1 = new Point&lt;<span class="dt">float</span>, float&gt;(<span class="fl">10.6</span>, <span class="fl">109.3</span>);</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>Point&lt;<span class="dt">char</span>*, char*&gt; *p = new Point&lt;<span class="dt">char</span>*, char*&gt;(<span class="st">&quot;东经180度&quot;</span>, <span class="st">&quot;北纬210度&quot;</span>);</span></code></pre></div>
+<p>与函数模板不同的是，类模板在实例化时<strong>必须显式地指明数据类型</strong>，编译器不能根据给定的数据推演出数据类型。</p>
+<h3 id="大话模板编程的来龙去脉">大话模板编程的来龙去脉</h3>
+<p>计算机编程语言种类繁多，这些编程语言根据不同的标准可以分为不同的种类，根据“在定义变量时是否需要显式地指明数据类型”可以分为<strong>强类型语言</strong>和<strong>弱类型语言</strong>。<br />
+对于强类型的语言，变量的类型从始至终都是确定的、不变的，编译器在编译期间就能检测某个变量的操作是否正确，这样最终生成的程序中就<strong>不用再维护一套类型信息了</strong>，从而减少了内存的使用，加快了程序的运行。<br />
+不过这种说法也不是绝对的，有些特殊情况还是要等到运行阶段才能确定变量的类型信息。比如 C++ 中的多态，编译器在编译阶段会在对象内存模型中增加虚函数表、type_info 对象等辅助信息，以维护一个完整的继承链，等到程序运行后再执行一段代码才能确定调用哪个函数<br />
+对于弱类型的语言，变量的类型可以随时改变，赋予它什么类型的数据它就是什么类型，编译器在编译期间不好确定变量的类型，只有等到程序运行后、真的赋给变量一个值了，才能确定变量当前是什么类型，所以<strong>传统的编译对弱类型语言意义不大</strong>，因为<strong>即使编译了也有很多东西确定不下来</strong>。<br />
+我们将这种一边执行一边编译的语言称为<strong>解释型语言</strong>，而将传统的先编译后执行的语言称为<strong>编译型语言</strong>。</p>
+<p><strong>强类型语言</strong>较为严谨，在编译时就能发现很多错误，适合开发大型的、系统级的、工业级的项目；<br />
+而<strong>弱类型语言</strong>较为灵活，编码效率高，部署容易，学习成本低，在 Web 开发中大显身手。另外，强类型语言的 IDE 一般都比较强大，代码感知能力好，提示信息丰富；而弱类型语言一般都是在编辑器中直接书写代码。</p>
+<p>C++ 模板也是被迫推出的，最直接的动力来源于<strong>对数据结构的封装</strong>。数据结构关注的是数据的存储，以及存储后如何进行增加、删除、修改和查询操作，但是数据结构中每份数据的类型无法提前预测。以链表为例，它的每个节点可以用来存储小数、整数、字符串等，也可以用来存储一名学生、教师、司机等，还可以直接存储二进制数据，这些都是可以的，没有任何限制。而 C++ 又是强类型的，数据的种类受到了严格的限制，这种矛盾是无法调和的，于是模板就诞生了。模板虽然不是 C++ 的首创，但是却在 C++ 中大放异彩，后来也被 Java、C# 等其他强类型语言采用。</p>
+<h3 id="函数模板的重载">函数模板的重载</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>template&lt;class T&gt; void Swap(T &amp;a, T &amp;b);               <span class="co">//模板①：交换基本类型的值</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>template&lt;typename T&gt; void Swap(T a[], T b[], int len); <span class="co">//模板②：交换两个数组,注意：最后一个参数可以是非泛型的</span></span></code></pre></div>
+<h3 id="函数模板的实参推断">函数模板的实参推断</h3>
+<h4 id="类型转换">类型转换</h4>
+<p>对于非模板函数，发生函数调用时<strong>会对实参的类型进行适当的转换</strong>，以适应形参的类型。这些转换包括：<br />
+* 算数转换：例如 int 转换为 float，char 转换为 int，double 转换为 int 等。<br />
+* 派生类向基类的转换：也就是向上转型<br />
+* const 转换：也即将非 const 类型转换为 const 类型，例如将 <code>char *</code> 转换为 <code>const char *</code>。<br />
+* 数组或函数指针转换：如数组名会转换为数组指针，函数名也会转换为函数指针。<br />
+* 用户自定的类型转换。</p>
+<p>而对于函数模板，类型转换则受到了更多的限制，仅能进行<strong>const 转换</strong>和<strong>数组或函数指针转</strong></p>
+<h4 id="为函数模板显式地指明实参也就是具体的类型">为函数模板显式地指明实参（也就是具体的类型）</h4>
+<p>函数模板的实参推断是指「在函数调用过程中根据实参的类型来寻找类型参数的具体类型」的过程，这在大部分情况下是奏效的，但是当函数参数少于类型参数时。</p>
+<p>「为函数模板显式地指明实参」和「为类模板显式地指明实参」的形式是类似的，就是在<strong>函数名后面添加尖括号<code>&lt; &gt;</code></strong>，里面包含具体的类型。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>func&lt;<span class="dt">int</span>, int&gt;(<span class="dv">10</span>);</span></code></pre></div>
+<h4 id="显式地指明实参时可以应用正常的类型转换">显式地指明实参时可以应用正常的类型转换</h4>
+<p>上面我们提到，函数模板仅能进行「const 转换」和「数组或函数指针转换」两种形式的类型转换，但是当我们显式地指明类型参数的实参（具体类型）时，就可以使用正常的类型转换（非模板函数可以使用的类型转换）了。<br />
+例如对于下面的函数模板：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>template&lt;typename T&gt; void func(T a, T b);</span></code></pre></div>
+<p>它的具体调用形式如下：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>func(<span class="dv">10</span>, <span class="fl">23.5</span>); <span class="co">//Error</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>func&lt;<span class="dt">float</span>&gt;(<span class="dv">20</span>, <span class="fl">93.7</span>); <span class="co">//Correct</span></span></code></pre></div>
+<p>显示的指明模板的实参是个好习惯</p>
+<h3 id="模板中用typename声明类型别名">模板中用typename声明类型别名</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>struct X { typedef int       foo;       }; </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>struct Y { static  int const foo = <span class="dv">123</span>; }; </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="co">// T::foo的可能是一个类型，也可能是一个变量，这个就存在歧义了</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a><span class="co">// 可以认为 int * x； 一个变量定义</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a><span class="co">// 也可以认为 123 * x； 一个乘法表达式</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>template&lt;class T&gt; void f_tmpl () { T::foo * x; }</span></code></pre></div>
+<p>c++中这种情况被称为<strong>dependent names</strong>。Dependent Names 是指那些在模板中的名称，其含义需要根据模板参数的实际类型来确定，编译器会在模板实例化阶段进行解析。<br />
+为了解决这个问题，C++中引入了 typename 关键字，用来告诉编译器 T::foo 是一个类型。在模板定义中，当涉及到依赖名称时，你可以使用 typename 来明确指定这个名称是一个类型。<br />
+修复后如下：</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>template&lt;class T&gt; <span class="dt">void</span> f_tmpl() { typename T::foo * x; }</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>template&lt;typename T&gt;</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>struct MyType {</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>  using iterator = ...;         <span class="co">//c++中这叫做alias template</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>  ...</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>};</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>template&lt;typename T&gt;</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>using MyTypeIterator = typename MyType&lt;T&gt;::iterator;       <span class="co">// typename必须有</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>MyTypeIterator&lt;<span class="dt">int</span>&gt; pos;</span></code></pre></div>
+<p>上面的注释说明了：<code>typename MyType&lt;T&gt;::iterator</code>里的typename是必须的，因为这里的typename代表后面紧跟的是一个定义在类内的类型，否则，iterator会被当成一个静态变量或者枚举</p>
+<h3 id="模板的显式具体化特化">模板的显式具体化(特化)</h3>
+<p>C++ <strong>没有办法限制类型参数的范围</strong>，我们可以使用任意一种类型来实例化模板。但是模板中的语句（函数体或者类体）不一定就能适应所有的类型，可能会有个别的类型没有意义，或者会导致语法错误。<br />
+但是现在我们希望改变这种“游戏规则”，让模板能够<strong>针对某种具体的类型使用不同的算法</strong>（函数体或类体不同），这在 C++ 中是可以做到的，这种技术称为模板的<strong>显示具体化（Explicit Specialization）</strong>。</p>
+<h4 id="函数模板的显式具体化全特化">函数模板的显式具体化(全特化)</h4>
+<p>语法：1. <code>template&lt;&gt;</code> 2. 其他的类型参数都换成具体类型。</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>using namespace std;</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>typedef struct{</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>    string name;</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>    int age;</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a>    float score;</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>} STU;</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a><span class="co">//函数模板</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a>template&lt;class T&gt; const T&amp; Max(const T&amp; a, const T&amp; b);</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true"></a><span class="co">//函数模板的显示具体化（针对STU类型的显示具体化）</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true"></a>template&lt;&gt; const STU&amp; Max&lt;STU&gt;(const STU&amp; a, const STU&amp; b);</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true"></a><span class="co">//重载&lt;&lt;</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true"></a>ostream &amp; operator&lt;&lt;(ostream &amp;out, const STU &amp;stu);</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true"></a>int main(){</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true"></a>    int a = <span class="dv">10</span>;</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true"></a>    int b = <span class="dv">20</span>;</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true"></a>    cout&lt;&lt;Max(a, b)&lt;&lt;endl;</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true"></a>    STU stu1 = { <span class="st">&quot;王明&quot;</span>, <span class="dv">16</span>, <span class="fl">95.5</span>};</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true"></a>    STU stu2 = { <span class="st">&quot;徐亮&quot;</span>, <span class="dv">17</span>, <span class="fl">90.0</span>};</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true"></a>    cout&lt;&lt;Max(stu1, stu2)&lt;&lt;endl;</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true"></a>}</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true"></a>template&lt;class T&gt; const T&amp; Max(const T&amp; a, const T&amp; b){</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true"></a>    return a &gt; b ? a : b;</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true"></a>}</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true"></a>template&lt;&gt; const STU&amp; Max&lt;STU&gt;(const STU&amp; a, const STU&amp; b){ <span class="co">//函数模板的显示具体化</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true"></a>    return a.score &gt; b.score ? a : b;</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true"></a>}</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true"></a>ostream &amp; operator&lt;&lt;(ostream &amp;out, const STU &amp;stu){</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true"></a>    out&lt;&lt;stu.name&lt;&lt;<span class="st">&quot; , &quot;</span>&lt;&lt;stu.age &lt;&lt;<span class="st">&quot; , &quot;</span>&lt;&lt;stu.score;</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true"></a>    return out;</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true"></a>}</span></code></pre></div>
+<p>在 C++ 中，对于给定的函数名，可以有1.非模板函数、2.模板函数、3.显示具体化模板函数以及它们的重载版本<br />
+在调用函数时: 非模板函数 &gt; 显示具体化 &gt; 常规模板</p>
+<h4 id="类模板的显式具体化全特化">类模板的显式具体化(全特化)</h4>
+<div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>using namespace std;</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a><span class="co">//类模板</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a>template&lt;class T1, class T2&gt; class Point{</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a>public:</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a>    Point(T1 x, T2 y): m_x(x), m_y(y){ }</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true"></a>public:</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true"></a>    T1 getX() const{ return m_x; }</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true"></a>    void setX(T1 x){ m_x = x; }</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true"></a>    T2 getY() const{ return m_y; }</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true"></a>    void setY(T2 y){ m_y = y; }</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true"></a>    void display() const;</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true"></a>private:</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true"></a>    T1 m_x;</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true"></a>    T2 m_y;</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true"></a>};</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true"></a>template&lt;class T1, class T2&gt; <span class="co">//这里要带上模板头</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true"></a>void Point&lt;T1, T2&gt;::display() const{</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true"></a>    cout&lt;&lt;<span class="st">&quot;x=&quot;</span>&lt;&lt;m_x&lt;&lt;<span class="st">&quot;, y=&quot;</span>&lt;&lt;m_y&lt;&lt;endl;</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true"></a>}</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true"></a></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true"></a><span class="co">//类模板的显示具体化（针对字符串类型的显示具体化）</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true"></a>template&lt;&gt; class Point&lt;<span class="dt">char</span>*, char*&gt;{</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true"></a>public:</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true"></a>    Point(char *x, char *y): m_x(x), m_y(y){ }</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true"></a>public:</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true"></a>    char *getX() const{ return m_x; }</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true"></a>    void setX(char *x){ m_x = x; }</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true"></a>    char *getY() const{ return m_y; }</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true"></a>    void setY(char *y){ m_y = y; }</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true"></a>    void display() const;</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true"></a>private:</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true"></a>    char *m_x; <span class="co">//x坐标</span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true"></a>    char *m_y; <span class="co">//y坐标</span></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true"></a>};</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true"></a><span class="co">//这里不能带模板头template&lt;&gt;</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true"></a>void Point&lt;<span class="dt">char</span>*, char*&gt;::display() const{</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true"></a>    cout&lt;&lt;<span class="st">&quot;x=&quot;</span>&lt;&lt;m_x&lt;&lt;<span class="st">&quot; | y=&quot;</span>&lt;&lt;m_y&lt;&lt;endl;</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true"></a>}</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true"></a>int main(){</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true"></a>    ( new Point&lt;<span class="dt">int</span>, int&gt;(<span class="dv">10</span>, <span class="dv">20</span>) ) -&gt; display();</span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true"></a>    ( new Point&lt;<span class="dt">int</span>, char*&gt;(<span class="dv">10</span>, <span class="st">&quot;东京180度&quot;</span>) ) -&gt; display();</span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true"></a>    ( new Point&lt;<span class="dt">char</span>*, char*&gt;(<span class="st">&quot;东京180度&quot;</span>, <span class="st">&quot;北纬210度&quot;</span>) ) -&gt; display();</span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true"></a>}</span></code></pre></div>
+<p>需要定义两套类，一个模板的，一个具体类型的。</p>
+<h4 id="部分显式具体化偏特化">部分显式具体化(偏特化)</h4>
+<p>在上面的显式具体化例子中，我们<strong>为所有的类型参数都提供了实参</strong>，所以最后的模板头为空，也即template&lt;&gt;。另外 C++ 还允许只为一部分类型参数提供实参，这称为<strong>部分显式具体化</strong>。<br />
+部分显式具体化<strong>只能用于类模板</strong>，不能用于函数模板。<br />
+此种方法依然是重写一套类，只不过类中可以部分的是类型参数。</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>using namespace std;</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a><span class="co">//类模板</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>template&lt;class T1, class T2&gt; class Point{</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a>public:</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>    Point(T1 x, T2 y): m_x(x), m_y(y){ }</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a>public:</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a>    T1 getX() const{ return m_x; }</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a>    void setX(T1 x){ m_x = x; }</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a>    T2 getY() const{ return m_y; }</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a>    void setY(T2 y){ m_y = y; }</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a>    void display() const;</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a>private:</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true"></a>    T1 m_x;</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true"></a>    T2 m_y;</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true"></a>};</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true"></a>template&lt;class T1, class T2&gt; <span class="co">//这里需要带上模板头</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true"></a>void Point&lt;T1, T2&gt;::display() const{</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true"></a>    cout&lt;&lt;<span class="st">&quot;x=&quot;</span>&lt;&lt;m_x&lt;&lt;<span class="st">&quot;, y=&quot;</span>&lt;&lt;m_y&lt;&lt;endl;</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true"></a>}</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true"></a><span class="co">//类模板的部分显示具体化</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true"></a>template&lt;typename T2&gt; class Point&lt;<span class="dt">char</span>*, T2&gt;{</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true"></a>public:</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true"></a>    Point(char *x, T2 y): m_x(x), m_y(y){ }</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true"></a>public:</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true"></a>    char *getX() const{ return m_x; }</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true"></a>    void setX(char *x){ m_x = x; }</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true"></a>    T2 getY() const{ return m_y; }</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true"></a>    void setY(T2 y){ m_y = y; }</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true"></a>    void display() const;</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true"></a>private:</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true"></a>    char *m_x; <span class="co">//x坐标</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true"></a>    T2 m_y; <span class="co">//y坐标</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true"></a>};</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true"></a>template&lt;typename T2&gt; <span class="co">//这里需要带上模板头</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true"></a>void Point&lt;<span class="dt">char</span>*, T2&gt;::display() const{</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true"></a>    cout&lt;&lt;<span class="st">&quot;x=&quot;</span>&lt;&lt;m_x&lt;&lt;<span class="st">&quot; | y=&quot;</span>&lt;&lt;m_y&lt;&lt;endl;</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="模板中的非类型参数">模板中的非类型参数</h3>
+<p>模板是一种泛型技术，目的是将数据的类型参数化，以增强 C++ 语言（强类型语言）的灵活性。C++ 对模板的支持非常自由，模板中除了可以包含类型参数，还可以包含<strong>非类型参数</strong>，例如：</p>
+<pre><code>template&lt;typename T, int N&gt; class Demo{ };
+template&lt;class T, int N&gt; void func(T (&amp;arr)[N]);</code></pre>
+<h4 id="在函数模板中使用非类型参数">在函数模板中使用非类型参数</h4>
+<p><code>template&lt;typename T&gt; void Swap(T a[], T b[], int len);</code><br />
+多出来的形参 len 给编码带来了不便，我们可以借助模板中的非类型参数将它消除。</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a>template&lt;typename T, unsigned N&gt; void Swap(T (&amp;a)[N], T (&amp;b)[N]){</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>    T temp;</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a>    for(int i=<span class="dv">0</span>; i&lt;N; i++){</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a>        temp = a[i];</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a>        a[i] = b[i];</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a>        b[i] = temp;</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true"></a>    }</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true"></a>}</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true"></a><span class="co">//调用，编译器会自动推断类型为int，长度为5</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true"></a>int a[<span class="dv">5</span>] = { <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span> };</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true"></a>int b[<span class="dv">5</span>] = { <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span> };</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true"></a>Swap(a, b);</span></code></pre></div>
+<p><code>T (&amp;a)[N]</code>表明 a 是一个引用，它引用的数据的类型是<code>T [N]</code>，也即一个数组；<br />
+分析一个引用和分析一个指针的方法类似，编译器总是从它的名字开始读取，然后<strong>按照优先级顺序依次解析</strong></p>
+<h4 id="在类模板中使用非类型参数">在类模板中使用非类型参数</h4>
+<p>以动态数组为例讲解</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>template&lt;typename T, int N&gt;</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>Array&lt;T, N&gt;::Array(){</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>    m_p = new T[N];</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a>    m_capacity = m_length = N;</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Array 是一个类模板，它有一个类型参数T和一个非类型参数N，<code>T</code> 指明了数组元素的类型，<code>N</code> 指明了数组长度。</p>
+<h3 id="模板的实例化">模板的实例化</h3>
+<p>模板（Templet）并不是真正的函数或类，它仅仅是编译器用来生成函数或类的一个模板。<strong>模板不会占用内存</strong>，最终生成的函数或者类才会占用内存。由模板生成函数或类的过程叫做<strong>模板的实例化（Instantiate）</strong>，相应地，针对某个类型生成的特定版本的函数或类叫做<strong>模板的一个实例</strong>（Instantiation）。<br />
+编译器会帮助我们自动地生成这些代码。从这个角度理解，模板也可以看做是编译器的一组指令，它命令编译器生成我们想要的代码。<br />
+模板的实例化是<strong>按需进行的</strong>，用到哪个类型就生成针对哪个类型的函数或类，不会提前生成过多的代码。也就是说，编译器会根据传递给类型参数的实参（也可以是编译器自己推演出来的实参）来生成一个特定版本的函数或类，并且相同的类型只生成一次。实例化的过程也很简单，就是将所有的类型参数用实参代替。<br />
+另外需要注意的是类模板的实例化，通过类模板创建对象时并<strong>不会实例化所有的成员函数</strong>，只有等到真正调用它们时才会被实例化；如果一个成员函数永远不会被调用，那它就永远不会被实例化。这说明类的实例化是<strong>延迟的、局部的</strong>，编译器并不着急生成所有的代码。</p>
+<h3 id="将模板应用于多文件编程">将模板应用于多文件编程</h3>
+<p>将类的声明和类的实现分别放到头文件和源文件中。类的声明已经包含了所有成员变量的定义和所有成员函数的声明（也可以是 inline 形式的定义），这样就知道如何创建对象了，也知道如何调用成员函数了，只是还不能将函数调用与函数实现对应起来，但是这又有什么关系呢，反正链接器可以帮助我们完成这项工作。<br />
+不管是函数还是类，声明和定义（实现）的分离其实是一回事，都是将函数定义放到其他文件中，最终要解决的问题也只有一个，就是把<strong>函数调用和函数定义对应起来</strong>（找到函数定义的地址，并填充到函数调用处），而保证完成这项工作的就是<strong>链接器</strong>。<br />
+基于传统的编程思维，初学者往往也会将模板（函数模板和类模板）的声明和定义分散到不同的文件中，以期达到「模块化编程」的目的。但事实证明这种做法是不对的，程序员惯用的做法是<strong>将模板的声明和定义都放到头文件中</strong>。<br />
+<strong>模板并不是真正的函数或类</strong>，它仅仅是用来生成函数或类的一张“图纸”，在这个生成过程中有三点需要明确：<br />
+* 模板的实例化是按需进行的，用到哪个类型就生成针对哪个类型的函数或类，不会提前生成过多的代码；<br />
+* 模板的实例化是由<strong>编译器</strong>完成的，而不是由<strong>链接器</strong>完成的；<br />
+* 在实例化过程中需要知道<strong>模板的所有细节，包含声明和定义</strong>(如果只包含声明的话，也即只包含头文件的话，由于没有定义而不会生成所需的方法)</p>
+<h3 id="模板的显式实例化">模板的显式实例化</h3>
+<p>前面讲到的模板的实例化是在<strong>调用函数</strong>或者<strong>创建对象</strong>时由编译器自动完成的，因此称为<strong>隐式实例化</strong>。<br />
+通过代码明确地告诉编译器需要针对哪个类型进行实例化，这称为<strong>显式实例化</strong>。</p>
+<p>编译器在实例化的过程中需要知道模板的所有细节：对于函数模板，也就是函数定义；对于类模板，需要同时知道类声明和类定义。<br />
+我们必须将显式实例化的代码放在<strong>包含了模板定义的源文件中</strong>，这样编译器在编译时会在当前的<code>.o</code>w文件中生成实例化后的代码</p>
+<p>显式实例化的一个好处是：<strong>可以将模板的声明和定义（实现）分散到不同的文件中了</strong>。</p>
+<h4 id="函数模板的显式实例化">函数模板的显式实例化</h4>
+<div class="sourceCode" id="cb18"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a>template void Swap(double &amp;a, double &amp;b); <span class="co">// //显式实例化定义</span></span></code></pre></div>
+<p>这条语言由两部分组成，前边是一个template关键字（后面不带&lt; &gt;），后面是一个普通的函数原型。<br />
+显式实例化也包括声明和定义，定义要放在模板定义（实现）所在的源文件，声明要放在模板声明所在的头文件（当然也可以不写）。</p>
+<h4 id="类模板的显式实例化">类模板的显式实例化</h4>
+<p>类模板的显式实例化和函数模板类似。<br />
+<code>template class Point&lt;char*, char*&gt;;</code><br />
+相应地，它的声明形式为：<br />
+<code>extern template class Point&lt;char*, char*&gt;;</code><br />
+不管是声明还是定义，都要带上class关键字，以表明这是针对类模板的。<br />
+另外需要注意的是，显式实例化一个类模板时，会一次性<strong>实例化该类的所有成员</strong>，包括成员变量和成员函数。</p>
+<h4 id="显式实例化的缺陷">显式实例化的缺陷</h4>
+<p>1. C++ 支持显式实例化的目的是为<strong>模块化编程</strong>提供一种解决方案，这种方案虽然有效，但是也有明显的缺陷：程序员必须要在模板的定义文件（实现文件）中对所有使用到的类型进行实例化。这就意味着，每次更改了模板使用文件（调用函数模板的文件，或者通过类模板创建对象的文件），<strong>也要相应地更改模板定义文件</strong>，以增加对新类型的实例化，或者删除无用类型的实例化。<br />
+2. 而对于库的开发者来说，他不能提前假设用户会使用哪些类型，所以根本就无法使用显式实例化，只能将模板的声明和定义（实现）全部放到头文件中；C++标准库几乎都是用模板来实现的，这些模板的代码也都位于头文件中。<br />
+总起来说，如果我们开发的模板<strong>只有我们自己使用</strong>，那也可以勉强使用显式实例化；如果希望让其他人使用（例如库、组件等），那只能将模板的声明和定义都放到头文件中了。</p>
+<h3 id="类模板与继承详解">类模板与继承详解</h3>
+<p>类模板和类模板之间、类模板和类之间可以互相继承。它们之间的派生关系有以下四种情况。</p>
+<h4 id="类模板从类模板派生">1. 类模板从类模板派生</h4>
+<p>派生的类模板实例化的时候，编译器会自动生成其基类模板的模板类和派生类模板的模板类。</p>
+<h4 id="类模板从模板类派生">2. 类模板从模板类派生</h4>
+<p>模板类: 从类模板中实例化后的类<br />
+派生的类模板实例化的时候，编译器会自动生成其基类的模板类和派生类的模板类。</p>
+<h4 id="类模板从普通类派生">3. 类模板从普通类派生</h4>
+<h4 id="普通类从模板类派生">4. 普通类从模板类派生</h4>
+<div class="sourceCode" id="cb19"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a>template &lt;class T&gt;</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a>class A{ T v1; int n; };</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a>class B: public A &lt;<span class="dt">int</span>&gt; { double v; };</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a>int main() { B obj1; return <span class="dv">0</span>; }</span></code></pre></div>
+<h3 id="类模板与友元详解">类模板与友元详解</h3>
+<h4 id="函数类类的成员函数作为-类模板-的友元">1. 函数、类、类的成员函数作为 类模板 的友元</h4>
+<h4 id="函数模板作为类模板的友元">2. 函数模板作为类模板的友元</h4>
+<p>比如全局的输入输出重载运算符做类的有元</p>
+<h4 id="函数模板作为类的友元">3. 函数模板作为类的友元</h4>
+<p>最终生成的只是具体的模板函数</p>
+<h4 id="类模板作为类模板的友元">4. 类模板作为类模板的友元</h4>
+<h3 id="类模板中的静态成员">类模板中的静态成员</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a>using namespace std;</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a>template &lt;class T&gt;</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true"></a>class A</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true"></a>{</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true"></a>private:</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true"></a>    static int count;</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true"></a>public:</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true"></a>    A() { count ++; }</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true"></a>    ~A() { count -- ; };</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true"></a>    A(A &amp;) { count ++ ; }</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true"></a>    static void PrintCount() { cout &lt;&lt; count &lt;&lt; endl; }</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true"></a>};</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true"></a>template&lt;&gt; int A&lt;<span class="dt">int</span>&gt;::count = <span class="dv">0</span>;     <span class="co">//初始化，对静态成员变量在类外部加以声明是必需的</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true"></a>template&lt;&gt; int A&lt;<span class="dt">double</span>&gt;::count = <span class="dv">0</span>;  <span class="co">//初始化</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true"></a>int main()</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true"></a>{</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true"></a>    A&lt;<span class="dt">int</span>&gt; ia;</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true"></a>    A&lt;<span class="dt">double</span>&gt; da;</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true"></a>    ia.PrintCount();</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true"></a>    da.PrintCount();</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="模板名称决议">模板名称决议</h2>
+<ol>
+<li><strong>依赖名称（Dependent Name）：</strong> 这些名称依赖于模板参数，即它们的含义可能在模板实例化时才能确定。例如，当模板参数类型为 <code>T</code> 时，<code>T::value</code> 中的 <code>T</code> 就是一个依赖名称，因为它取决于实际使用模板时的类型。</li>
+<li><strong>非依赖名称（Non-dependent Name）：</strong> 这些名称在模板定义时的上下文中是已知的，与模板参数无关。例如，<code>std::vector</code> 中的 <code>std</code> 和 <code>vector</code> 就是非依赖名称，它们不会因为模板参数而改变。</li>
+</ol>
+<p>模板名称决议遵循两阶段查找的原则，其中包括两个阶段：<br />
+- <strong>第一阶段（First Phase）：</strong> 在模板定义的上下文中，编译器会查找并解析所有的非依赖名称，以确保模板的语法正确。在这个阶段，编译器只考虑非依赖名称。<br />
+- <strong>第二阶段（Second Phase）：</strong> 在模板实例化的上下文中，编译器会查找并解析所有的依赖名称，以确定实际使用模板时的含义。在这个阶段，编译器会考虑依赖名称，确保它们在实例化时具有正确的语义。</p>
+<p>例子：</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="kw">template</span> &lt;<span class="kw">typename</span> T&gt;</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a><span class="kw">class</span> MyContainer {</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a>    <span class="dt">void</span> print(T value) {</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; value &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true"></a>    }</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true"></a>};</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true"></a>    MyContainer&lt;<span class="dt">int</span>&gt; container;</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true"></a>    container.print(<span class="dv">42</span>);</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true"></a>}</span></code></pre></div>
+<ol>
+<li><strong>非依赖名称：</strong>
+<ul>
+<li><code>MyContainer</code>: 在模板定义时已知，与模板参数无关，是一个非依赖名称。</li>
+<li><code>print</code>: 在模板定义时已知，与模板参数无关，是一个非依赖名称。</li>
+<li><code>std::cout</code>: 不依赖于模板参数，是一个非依赖名称。</li>
+<li><code>std::endl</code>: 不依赖于模板参数，是一个非依赖名称。</li>
+</ul></li>
+<li><strong>依赖名称：</strong>
+<ul>
+<li><code>T</code>: 依赖于模板参数，根据实际使用的模板参数来确定其类型，是一个依赖名称。</li>
+</ul></li>
+</ol>
+<h2 id="两种模板名称决议规则">两种模板名称决议规则</h2>
+<p>模板定义的作用域（scope of the template definition）和模板实例化的作用域（scope of the template instantiation）</p>
+<p>在 C++ 中，模板是一种通用的代码生成机制，允许您编写一次代码，然后可以通过提供不同的类型或值参数来生成多个具体版本。在进行模板名称决议时，涉及两个主要的作用域：模板定义的作用域和模板实例化的作用域。<br />
+1. <strong>情况 1：scope of the template definition（模板定义的作用域）：</strong> 在模板定义的作用域内，当模板的名称与非依赖名称（不依赖于模板参数的名称）发生冲突时，会使用定义模板的作用域进行名称决议。<br />
+2. <strong>情况 2：scope of the template instantiation（模板实例化的作用域）：</strong> 在模板实例化的作用域内，当模板的名称与依赖名称（依赖于模板参数的名称）发生冲突时，会使用实例化模板的作用域进行名称决议。</p>
+<p>这种规则称为 "Two-Phase Lookup"，即两阶段查找。在 C++ 中，模板名称的决议是分两个阶段进行的，以支持模板的类型独立性和代码重用。</p>
+<p>这两个阶段的查找是为了确保代码在模板定义时具有良好的语法，以及在实例化时可以适应不同的上下文。您正确地指出，在这种情况下，非依赖名称和依赖名称的决议方式是不同的，这是为了保证模板的正确性和灵活性。</p>
+<p>总的来说，这个名称决议的规则确保了模板代码可以在不同上下文中正确运行，同时也体现了 C++ 中模板的高度通用性和复杂性。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

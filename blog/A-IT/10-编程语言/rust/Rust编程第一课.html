@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/rust/Rust编程第一课</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#开篇词让rust成为你的下一门主力语言">开篇词｜让Rust成为你的下一门主力语言</a>
+<ul>
+<li><a href="#学习-rust-的难点">学习 Rust 的难点</a></li>
+</ul></li>
+<li><a href="#内存值放堆上还是放栈上这是一个问题">01｜内存：值放堆上还是放栈上，这是一个问题</a></li>
+<li><a href="#串讲编程开发中那些你需要掌握的基本概念">02｜串讲：编程开发中，那些你需要掌握的基本概念</a>
+<ul>
+<li><a href="#数据值和类型指针和引用">数据（值和类型、指针和引用）</a></li>
+<li><a href="#代码函数方法闭包接口和虚表">代码（函数、方法、闭包、接口和虚表）</a></li>
+<li><a href="#运行方式并发并行同步异步和-promise-async-await">运行方式（并发并行、同步异步和 Promise / async / await ）</a></li>
+<li><a href="#编程范式泛型编程">编程范式（泛型编程）</a></li>
+</ul></li>
+<li><a href="#加餐-rust真的值得我们花时间学习么">加餐｜ Rust真的值得我们花时间学习么？</a>
+<ul>
+<li><a href="#代码缺陷">代码缺陷</a></li>
+<li><a href="#引入缺陷的代价">引入缺陷的代价</a></li>
+</ul></li>
+<li><a href="#初窥门径从你的第一个rust程序开始">03｜初窥门径：从你的第一个Rust程序开始！</a></li>
+<li><a href="#get-hands-dirty来写个实用的cli小工具">04｜get hands dirty：来写个实用的CLI小工具</a></li>
+<li><a href="#get-hands-dirty做一个图片服务器有多难">05｜get hands dirty：做一个图片服务器有多难？</a></li>
+<li><a href="#get-hands-dirtysql查询工具怎么一鱼多吃">06｜get hands dirty：SQL查询工具怎么一鱼多吃？</a></li>
+<li><a href="#所有权值的生杀大权到底在谁手上">07｜所有权：值的生杀大权到底在谁手上？</a></li>
+<li><a href="#所有权值的借用是如何工作的">08｜所有权：值的借用是如何工作的？</a></li>
+<li><a href="#所有权一个值可以有多个所有者么">09｜所有权：一个值可以有多个所有者么？</a></li>
+<li><a href="#生命周期你创建的值究竟能活多久">10｜生命周期：你创建的值究竟能活多久？</a>
+<ul>
+<li><a href="#编译器如何识别生命周期">编译器如何识别生命周期</a></li>
+</ul></li>
+<li><a href="#内存管理从创建到消亡值都经历了什么">11｜内存管理：从创建到消亡，值都经历了什么？</a>
+<ul>
+<li><a href="#struct">struct</a></li>
+<li><a href="#enum">enum</a></li>
+<li><a href="#vect-和-string"><code>vec&lt;T&gt;</code> 和 String</a></li>
+</ul></li>
+<li><a href="#类型系统rust的类型系统有什么特点">12｜类型系统：Rust的类型系统有什么特点？</a></li>
+<li><a href="#类型系统如何使用trait来定义接口">13｜类型系统：如何使用trait来定义接口？</a></li>
+<li><a href="#类型系统有哪些必须掌握的trait">14｜类型系统：有哪些必须掌握的Trait？</a></li>
+<li><a href="#数据结构这些浓眉大眼的结构竟然都是智能指针">15｜数据结构：这些浓眉大眼的结构竟然都是智能指针？</a></li>
+<li><a href="#数据结构vecttboxt-你真的了解集合容器么">16｜数据结构：<code>Vec&lt;T&gt;</code>、<code>&amp;[T]</code>、<code>Box&lt;[T]&gt;</code> ，你真的了解集合容器么？</a>
+<ul>
+<li><a href="#切片究竟是什么">切片究竟是什么？</a></li>
+<li><a href="#切片和迭代器-iterator">切片和迭代器 Iterator</a></li>
+</ul></li>
+<li><a href="#数据结构软件系统核心部件哈希表内存如何布局">17｜数据结构：软件系统核心部件哈希表，内存如何布局？</a></li>
+<li><a href="#错误处理为什么rust的错误处理与众不同">18｜错误处理：为什么Rust的错误处理与众不同？</a>
+<ul>
+<li><a href="#错误处理的主流方法">错误处理的主流方法</a></li>
+</ul></li>
+<li><a href="#闭包fnoncefnmut-和-fn为什么有这么多类型">19｜闭包：FnOnce、FnMut 和 Fn，为什么有这么多类型？</a></li>
+<li><a href="#steps-如何更好地阅读rust源码">20｜4 Steps ：如何更好地阅读Rust源码？</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p><a href="https://github.com/tyrchen/geektime-rust">课程代码</a></p>
+<h2 id="开篇词让rust成为你的下一门主力语言">开篇词｜让Rust成为你的下一门主力语言</h2>
+<p>首先，你使用起来就会感受到，Rust 是一门非常重视开发者用户体验的语言<br />
+其次，众所周知的优异性能和强大的表现力，让 Rust 在很多场合都能够施展拳脚。</p>
+<h3 id="学习-rust-的难点">学习 Rust 的难点</h3>
+<p>而 Rust 中最大的思维转换就是变量的所有权和生命周期，这是几乎所有编程语言都未曾涉及的领域。</p>
+<p>作为一门有着自己独特思想的语言，Rust 采百家之长，<br />
+从 C++ 学习并强化了 move 语义和 RAII，<br />
+从 Cyclone 借鉴和发展了生命周期，<br />
+从 Haskell 吸收了函数式编程和类型系统等。</p>
+<h2 id="内存值放堆上还是放栈上这是一个问题">01｜内存：值放堆上还是放栈上，这是一个问题</h2>
+<p>代码中最基本的概念是变量和值，而存放它们的地方是内存，所以我们就从内存开始。</p>
+<p>在编译时，一切无法确定大小或者大小可以改变的数据，都无法安全地放在栈上，最好放在堆上<br />
+当我们需要动态大小的内存时，只能使用堆，比如可变长度的数组、列表、哈希表、字典，它们都分配在堆上。<br />
+除了动态大小的内存需要被分配到堆上外，动态生命周期的内存也需要分配到堆上。</p>
+<p>小结<br />
+对于存入栈上的值，它的大小在编译期就需要确定。栈上存储的变量生命周期在当前调用栈的作用域内，无法跨调用栈引用。<br />
+堆可以存入大小未知或者动态伸缩的数据类型。堆上存储的变量，其生命周期从分配后开始，一直到释放时才结束，因此堆上的变量允许在多个调用栈之间引用。<br />
+一句话对比总结就是：<strong>栈上存放的数据是静态的，静态大小，静态生命周期；堆上存放的数据是动态的，动态大小，动态生命周期</strong></p>
+<h2 id="串讲编程开发中那些你需要掌握的基本概念">02｜串讲：编程开发中，那些你需要掌握的基本概念</h2>
+<h3 id="数据值和类型指针和引用">数据（值和类型、指针和引用）</h3>
+<p>值无法离开类型单独讨论，类型一般分为原生类型和组合类型。指针和引用都指向值的内存地址，只不过二者在解引用时的行为不一样。引用只能解引用到原来的数据类型，而指针没有这个限制，然而，不受约束的指针解引用，会带来内存安全方面的问题。</p>
+<h3 id="代码函数方法闭包接口和虚表">代码（函数、方法、闭包、接口和虚表）</h3>
+<p>函数是代码中重复行为的抽象，方法是对象内部定义的函数，而闭包是一种特殊的函数，它会捕获函数体内使用到的上下文中的自由变量，作为闭包成员的一部分。</p>
+<p>而接口将调用者和实现者隔离开，大大促进了代码的复用和扩展。面向接口编程可以让系统变得灵活，当使用接口去引用具体的类型时，我们就需要虚表来辅助运行时代码的执行。有了虚表，我们可以很方便地进行动态分派，它是运行时多态的基础。</p>
+<h3 id="运行方式并发并行同步异步和-promise-async-await">运行方式（并发并行、同步异步和 Promise / async / await ）</h3>
+<p>在代码的运行方式中，并发是并行的基础，是同时与多个任务打交道的能力；并行是并发的体现，是同时处理多个任务的手段。同步阻塞后续操作，异步允许后续操作。被广泛用于异步操作的 Promise 代表未来某个时刻会得到的结果，async/await 是 Promise 的封装，一般用状态机来实现。</p>
+<h3 id="编程范式泛型编程">编程范式（泛型编程）</h3>
+<p>泛型编程通过参数化让数据结构像函数一样延迟绑定，提升其通用性，类型的参数可以用接口约束，使类型满足一定的行为，同时，在使用泛型结构时，我们的代码也需要更高的抽象度。</p>
+<h2 id="加餐-rust真的值得我们花时间学习么">加餐｜ Rust真的值得我们花时间学习么？</h2>
+<h3 id="代码缺陷">代码缺陷</h3>
+<p>从软件开发的角度来看，一个软件系统想要提供具有良好用户体验的功能，<strong>最基本的要求就是控制缺陷</strong>。<br />
+为了控制缺陷，在软件工程中，我们定义了各种各样的流程，从代码的格式，到 linting，到 code review，再到单元测试、集成测试、手工测试。<br />
+所有这些手段就像一个个漏斗，不断筛查代码，把缺陷一层层过滤掉，让软件在交付到用户时尽善尽美<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230203211135.png" alt="image.png" /></p>
+<h3 id="引入缺陷的代价">引入缺陷的代价</h3>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230203212228.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h2 id="初窥门径从你的第一个rust程序开始">03｜初窥门径：从你的第一个Rust程序开始！</h2>
+<p>vscode插件<br />
+* rust-analyzer：它会实时编译和分析你的 Rust 代码，提示代码中的错误，并对类型进行标注。你也可以使用官方的 rust 插件取代。<br />
+* rust syntax：为代码提供语法高亮。<br />
+* crates：帮助你分析当前项目的依赖是否是最新的版本。<br />
+* better toml：Rust 使用 toml 做项目的配置管理。better toml 可以帮你语法高亮，并展示 toml 文件中的错误。<br />
+* rust test lens：可以帮你快速运行某个 Rust 测试。<br />
+* Tabnine：基于 AI 的自动补全，可以帮助你更快地撰写代码。</p>
+<h2 id="get-hands-dirty来写个实用的cli小工具">04｜get hands dirty：来写个实用的CLI小工具</h2>
+<h2 id="get-hands-dirty做一个图片服务器有多难">05｜get hands dirty：做一个图片服务器有多难？</h2>
+<h2 id="get-hands-dirtysql查询工具怎么一鱼多吃">06｜get hands dirty：SQL查询工具怎么一鱼多吃？</h2>
+<h2 id="所有权值的生杀大权到底在谁手上">07｜所有权：值的生杀大权到底在谁手上？</h2>
+<p>所有权和生命周期是 Rust 和其它编程语言的主要区别，也是 Rust 其它知识点的基础。</p>
+<p>所有权的基本规则：<br />
+* 一个值只能被一个变量所拥有，这个变量被称为所有者（Each value in Rust has a variable that’s called its owner）。<br />
+* 一个值同一时刻只能有一个所有者（There can only be one owner at a time），也就是说不能有两个变量拥有相同的值。所以对应刚才说的变量赋值、参数传递、函数返回等行为，旧的所有者会把值的所有权转移给新的所有者，以便保证单一所有者的约束。这个就是Move 语义。<br />
+* 当所有者离开作用域，其拥有的值被丢弃（When the owner goes out of scope, the value will be dropped），内存得到释放。</p>
+<p>例外规则：<br />
+* 如果你不希望值的所有权被转移，在 Move 语义外，Rust 提供了 <strong>Copy 语义</strong>。如果一个数据结构实现了 Copy trait，那么它就会使用 Copy 语义。这样，在你赋值或者传参时，值会自动按位拷贝（浅拷贝）。<br />
+* 如果你不希望值的所有权被转移，又无法使用 Copy 语义，那你可以“借用”数据，我们下一讲会详细讨论“借用”。</p>
+<p>copy的规则：<br />
+* 原生类型，包括函数、不可变引用和裸指针实现了 Copy；<br />
+* 数组和元组，如果其内部的数据结构实现了 Copy，那么它们也实现了 Copy；<br />
+* 可变引用没有实现 Copy；<br />
+* 非固定大小的数据结构，没有实现 Copy。</p>
+<h2 id="所有权值的借用是如何工作的">08｜所有权：值的借用是如何工作的？</h2>
+<p>在 Rust 中，“<strong>借用</strong>”和“<strong>引用</strong>”是一个概念，只不过在其他语言中引用的意义和 Rust 不同，所以 Rust 提出了新概念“借用”，便于区分。</p>
+<ul>
+<li>默认情况下，Rust 的借用都是只读的</li>
+<li>借用不能超过（outlive）值的生存期，否则编译不过</li>
+<li>在一个作用域内，仅允许一个活跃的可变引用。所谓活跃，就是真正被使用来修改数据的可变引用，如果只是定义了，却没有使用或者当作只读引用使用，不算活跃。</li>
+<li>在一个作用域内，活跃的可变引用（写）和只读引用（读）是互斥的，不能同时存在。</li>
+</ul>
+<h2 id="所有权一个值可以有多个所有者么">09｜所有权：一个值可以有多个所有者么？</h2>
+<p>搞明白了 Rc，我们就进一步理解 Rust 是如何进行所有权的静态检查和动态检查了：</p>
+<ul>
+<li><p>静态检查，靠编译器保证代码符合所有权规则；</p></li>
+<li><p>动态检查，通过 Box::leak 让堆内存拥有不受限的生命周期，然后在运行过程中，通过对引用计数的检查，保证这样的堆内存最终会得到释放。</p></li>
+</ul>
+<p>如果想绕过“一个值只有一个所有者”的限制，我们可以使用 Rc / Arc 这样带引用计数的智能指针。其中，Rc 效率很高，但只能使用在单线程环境下；Arc 使用了原子结构，效率略低，但可以安全使用在多线程环境下。</p>
+<p>然而，Rc / Arc 是不可变的，如果想要修改内部的数据，需要引入<strong>内部可变性</strong>，在单线程环境下，可以在 Rc 内部使用 <code>RefCell</code>；在多线程环境下，可以使用 Arc 嵌套 Mutex 或者 RwLock 的方法。</p>
+<h2 id="生命周期你创建的值究竟能活多久">10｜生命周期：你创建的值究竟能活多久？</h2>
+<p>在任何语言里，栈上的值都有自己的生命周期，它和帧的生命周期一致，而 Rust，进一步明确这个概念，并且为堆上的内存也引入了生命周期。<br />
+在其它语言中，堆内存的生命周期是不确定的，或者是未定义的。因此，要么开发者手工维护，要么语言在运行时做额外的检查。而在 Rust 中，除非显式地做 Box::leak() / Box::into_raw() / ManualDrop 等动作，一般来说，堆内存的生命周期，会默认和其栈内存的生命周期绑定在一起。</p>
+<p>如果一个值的生命周期贯穿整个进程的生命周期，那么我们就称这种生命周期为<strong>静态生命周期</strong>。</p>
+<blockquote>
+<p>一般来说，全局变量、静态变量、字符串字面量（string literal）等，都拥有静态生命周期。我们上文中提到的堆内存，如果使用了 Box::leak 后，也具有静态生命周期。</p>
+<p>函数指针的生命周期也是静态的，因为函数在 Text 段中，只要进程活着，其内存一直存在。</p>
+</blockquote>
+<p>如果一个值是在某个作用域中定义的，也就是说它被创建在栈上或者堆上，那么<strong>其生命周期是动态的</strong>。</p>
+<blockquote>
+<p>当这个值的作用域结束时，值的生命周期也随之结束。对于动态生命周期，我们约定用 'a 、'b 或者 'hello 这样的小写字符或者字符串来表述。' 后面具体是什么名字不重要，它代表某一段动态的生命周期</p>
+</blockquote>
+<p>生命周期的主要目标是避免<strong>悬垂引用</strong>（<em>dangling references</em>）</p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230210220323.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="编译器如何识别生命周期">编译器如何识别生命周期</h3>
+<p>生命周期参数，描述的是参数和参数之间、参数和返回值之间的关系，并不改变原有的生命周期。</p>
+<p>编译器自动标注<br />
+* 所有引用类型的参数都有独立的生命周期 'a 、'b 等。<br />
+* 如果只有一个引用型输入，它的生命周期会赋给所有输出。<br />
+* 如果有多个引用类型的参数，其中一个是 self，那么它的生命周期会赋给所有输出。</p>
+<h2 id="内存管理从创建到消亡值都经历了什么">11｜内存管理：从创建到消亡，值都经历了什么？</h2>
+<p>Rust 的创造者们，重新审视了堆内存的生命周期，发现大部分堆内存的需求在于动态大小，小部分需求是更长的生命周期。所以它默认将堆内存的生命周期和使用它的栈内存的生命周期绑在一起，并留了个小口子 leaked 机制，让堆内存在需要的时候，可以有超出帧存活期的生命周期</p>
+<h3 id="struct">struct</h3>
+<p>对于struct的内存对齐问题，Rust 编译器替我们自动完成了这个优化，这就是为什么 Rust 会自动重排你定义的结构体，来达到最高效率。</p>
+<h3 id="enum">enum</h3>
+<p>在 Rust 下它是一个标签联合体（tagged union），它的大小是标签的大小，加上最大类型的长度。<br />
+option占用的内存，引用类型的第一个域是个指针，而指针是不可能等于 0 的，但是我们可以复用这个指针：当其为 0 时，表示 None，否则是 Some，减少了内存占用</p>
+<h3 id="vect-和-string"><code>vec&lt;T&gt;</code> 和 String</h3>
+<p>String 和 <code>Vec&lt;u8&gt;</code> 占用相同的大小，都是 24 个字节。其实，如果你打开 String 结构的源码，可以看到，它内部就是一个 <code>Vec&lt;u8&gt;</code>。<br />
+胖指针，结构为：[pointer,capacity,length]</p>
+<h2 id="类型系统rust的类型系统有什么特点">12｜类型系统：Rust的类型系统有什么特点？</h2>
+<p>类型，是对值的区分，它包含了值在内存中的长度、对齐以及值可以进行的操作等信息<br />
+类型系统其实就是，对类型进行定义、检查和处理的系统。</p>
+<p>按定义后类型是否可以隐式转换，可以分为强类型和弱类型。Rust 不同类型间不能自动转换，所以是强类型语言，而 C / C++ / JavaScript 会自动转换，是弱类型语言。</p>
+<p>按类型检查的时机，在编译时检查还是运行时检查，可以分为静态类型系统和动态类型系统。</p>
+<p>在类型系统中，多态是一个非常重要的思想，它是指在使用相同的接口时，不同类型的对象，会采用不同的实现。</p>
+<h2 id="类型系统如何使用trait来定义接口">13｜类型系统：如何使用trait来定义接口？</h2>
+<h2 id="类型系统有哪些必须掌握的trait">14｜类型系统：有哪些必须掌握的Trait？</h2>
+<h2 id="数据结构这些浓眉大眼的结构竟然都是智能指针">15｜数据结构：这些浓眉大眼的结构竟然都是智能指针？</h2>
+<p>在 Rust 中，凡是需要做资源回收的数据结构，且实现了 Deref/DerefMut/Drop，都是智能指针。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230228205653.png" alt="image.png" /></p>
+<p>String 对堆上的值有所有权，而 &amp;str 是没有所有权的，这是 Rust 中智能指针和普通胖指针的区别。</p>
+<h2 id="数据结构vecttboxt-你真的了解集合容器么">16｜数据结构：<code>Vec&lt;T&gt;</code>、<code>&amp;[T]</code>、<code>Box&lt;[T]&gt;</code> ，你真的了解集合容器么？</h2>
+<p>提到容器，很可能你首先会想到的就是数组、列表这些可以遍历的容器，但其实只要把某种特定的数据封装在某个数据结构中，这个数据结构就是一个容器。比如 <code>Option&lt;T&gt;</code>，它是一个包裹了 T 存在或不存在的容器</p>
+<h3 id="切片究竟是什么">切片究竟是什么？</h3>
+<p>在 Rust 里，切片是描述一组属于同一类型、长度不确定的、在内存中连续存放的数据结构，用 [T] 来表述。因为长度不确定，所以切片是个 DST（Dynamically Sized Type）</p>
+<p>切片之于具体的数据结构，就像数据库中的视图之于表.你可以把它看成一种工具，让我们可以统一访问行为相同、结构类似但有些许差异的类型。</p>
+<p><code>&amp;[T]</code>：表示一个只读的切片引用。<br />
+<code>&amp;mut [T]</code>：表示一个可写的切片引用。<br />
+<code>Box&lt;[T]&gt;</code>：一个在堆上分配的切片。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230301213037.png" alt="image.png" /><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230301213104.png" alt="image.png" /></p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230303114652.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230303114615.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="切片和迭代器-iterator">切片和迭代器 Iterator</h3>
+<p>迭代器可以说是切片的孪生兄弟。切片是集合数据的视图，而迭代器定义了对集合数据的各种各样的访问操作。</p>
+<h2 id="数据结构软件系统核心部件哈希表内存如何布局">17｜数据结构：软件系统核心部件哈希表，内存如何布局？</h2>
+<h2 id="错误处理为什么rust的错误处理与众不同">18｜错误处理：为什么Rust的错误处理与众不同？</h2>
+<p>对我们开发者来说，错误处理包含这么几部分：</p>
+<ol>
+<li><p>当错误发生时，用合适的错误类型捕获这个错误。</p></li>
+<li><p>错误捕获后，可以立刻处理，也可以延迟到不得不处理的地方再处理，这就涉及到错误的传播（propagate）。</p></li>
+<li><p>最后，根据不同的错误类型，给用户返回合适的、帮助他们理解问题所在的错误消息。</p></li>
+</ol>
+<h3 id="错误处理的主流方法">错误处理的主流方法</h3>
+<p>错误码<br />
+如c语言<br />
+缺点：<br />
+会混淆函数逻辑的返回值和错误码<br />
+多返回值<br />
+在函数最后返回一个错误对象<br />
+缺点：<br />
+在调用者调用时，错误就必须得到处理或者显式的传播。造成代码会有很多if err then return err<br />
+非强制性的，若开发者不自觉则会忽略<br />
+异常<br />
+可以把异常看成一种关注点分离（Separation of Concerns）：错误的产生和错误的处理完全被分隔开，调用者不必关心错误，而被调者也不强求调用者关心错误。<br />
+缺点：<br />
+1.可能会出现异常安全（exception safety）问题<br />
+2.开发者会滥用异常。只要有错误，不论是否严重、是否可恢复，都一股脑抛个异常。到了需要的地方，捕获一下了之<br />
+使用类型系统</p>
+<h2 id="闭包fnoncefnmut-和-fn为什么有这么多类型">19｜闭包：FnOnce、FnMut 和 Fn，为什么有这么多类型？</h2>
+<h2 id="steps-如何更好地阅读rust源码">20｜4 Steps ：如何更好地阅读Rust源码？</h2>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

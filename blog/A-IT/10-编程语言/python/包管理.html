@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/python/包管理</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#pip">pip</a>
+<ul>
+<li><a href="#pip加速">pip加速</a></li>
+<li><a href="#pyc">pyc</a></li>
+<li><a href="#pyd">pyd</a></li>
+<li><a href="#windows下pip">windows下pip</a></li>
+<li><a href="#linux下pip">linux下pip</a></li>
+</ul></li>
+<li><a href="#setuptools">setuptools</a>
+<ul>
+<li><a href="#python中安装依赖包的方式">python中安装依赖包的方式</a></li>
+<li><a href="#python-requirements文件生成和安装">python requirements文件生成和安装</a></li>
+</ul></li>
+<li><a href="#venv">venv</a>
+<ul>
+<li><a href="#基本使用">基本使用</a></li>
+<li><a href="#ubuntu中使用">ubuntu中使用</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="pip">pip</h2>
+<h3 id="pip加速">pip加速</h3>
+<p>使用国内镜像源：</p>
+<pre><code># 使用清华大学镜像源
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple 包名
+
+# 使用阿里云镜像源
+pip install -i https://mirrors.aliyun.com/pypi/simple 包名</code></pre>
+<p>永久更改镜像</p>
+<pre><code>pip config set global.index-url https://mirrors.aliyun.com/pypi/simple
+pip config set install.trusted-host https://mirrors.aliyun.com/pypi/simple</code></pre>
+<p>查看设置后的配置</p>
+<pre><code>pip config list</code></pre>
+<p>使用本地已下载的包安装</p>
+<pre><code>pip install /path/to/package.whl</code></pre>
+<pre><code>pip install -r requirements.txt</code></pre>
+<p>-r requirements.txt: 指定包含依赖关系的 requirements 文件。</p>
+<p>使用pip下载python包</p>
+<pre><code>pip download Flask -d .</code></pre>
+<p>Flask: 要下载的包的名称。<br />
+-d .: 指定下载目录为当前目录。</p>
+<p>下载指定版本的库</p>
+<pre><code>pip download YourPackage --platform manylinux2014_aarch64 -d .</code></pre>
+<h3 id="pyc">pyc</h3>
+<p><code>.pyc</code> 文件是已编译的 Python 源代码文件的字节码表示形式。当您运行一个 Python 脚本时，解释器会将源代码编译成字节码，然后在执行时使用这些字节码。<br />
+<code>.pyc</code> 文件是在第一次执行源代码时由 Python 解释器自动生成的。它们包含了与源代码等效的字节码表示形式，以便在后续运行中可以更快地加载和执行代码。<br />
+<code>.pyc</code> 文件是与特定的 Python 版本和编译设置相关联的。因此，如果您更改了 Python 版本或更改了源代码，可能需要重新生成相应的 <code>.pyc</code> 文件，以确保其与新环境或代码的兼容性。</p>
+<h3 id="pyd">pyd</h3>
+<p>在Python中，<code>.pyd</code> 文件是用C或C++编写的扩展模块的二进制文件。它们是Python Dynamic Modules的缩写。扩展模块是在Python解释器中使用的自定义功能模块，可以通过C或C++编写以获得更高的性能或访问底层系统功能。</p>
+<p><code>.pyd</code> 文件是通过将C或C++代码编译为共享库（在Windows上是动态链接库）并与Python解释器进行链接生成的。这些文件通常包含编译后的二进制代码和相关的符号信息，以便Python解释器可以加载和执行扩展模块。</p>
+<p>扩展模块通常用于执行一些与Python内置模块不同的任务，例如访问底层系统API、执行高性能的计算任务、与外部库进行交互等。一些常见的Python扩展模块，如NumPy、Pandas和OpenCV，都是使用C或C++编写并编译为<code>.pyd</code> 文件的。</p>
+<p>要在Python中使用<code>.pyd</code> 文件，通常需要使用<code>import</code>语句将其导入到Python脚本或模块中。导入后，您可以使用扩展模块提供的功能和类来增强您的Python代码。</p>
+<p>需要注意的是，<code>.pyd</code> 文件在不同的操作系统上可能具有不同的扩展名，例如<code>.so</code>（Linux）、<code>.dylib</code>（macOS）等，但在Windows上通常使用<code>.pyd</code>。</p>
+<p>总而言之，<code>.pyd</code> 文件是用C或C++编写并编译为共享库的Python扩展模块的二进制文件，用于在Python中访问底层系统功能或实现高性能计算任务。</p>
+<h3 id="windows下pip">windows下pip</h3>
+<p>window是pip的安装位置：</p>
+<pre><code>D:\program\Python311\Lib\site-packages</code></pre>
+<h3 id="linux下pip">linux下pip</h3>
+<p>查看三方库安装位置:<br />
+<code>python3 -m site --user-site</code></p>
+<p>普通用户身份安装的包通常会存储在用户的主目录下的 <code>.local</code> 目录中，例如：<code>/home/username/.local/lib/pythonX.Y/site-packages/</code></p>
+<p>在以 root 用户身份使用 pip 安装 Python 包时，包将被下载和安装到 <code>/usr/local/lib/pythonX.Y/dist-packages/</code> 目录下。<br />
+但推荐使用虚拟环境或普通用户身份来管理 Python 包，以避免潜在的系统兼容性和安全性问题。</p>
+<p>python自带的包安装在：<code>/usr/lib/pythonX.Y/</code></p>
+<h2 id="setuptools">setuptools</h2>
+<h3 id="python中安装依赖包的方式">python中安装依赖包的方式</h3>
+<p>1. 源码包：python setup.py install<br />
+2. 在线安装：pip install pkg_name / easy_install pkg_name<br />
+在线安装是从PyPI （Python Package Index）来的，官网是：https://pypi.python.org/pypi<br />
+执行<code>pip install pkg_name</code>命令的时候，它就会去从官方网站搜pkg_name，搜到了就下载压缩包并解压安装，如果没有搜索到就会报错。</p>
+<p>曾经 Python 的分发工具是 <code>distutils</code>，但它无法定义包之间的依赖关系。<br />
+<code>setuptools</code> 则是它的增强版，能帮助我们更好的创建和分发 Python 包，尤其是具有复杂依赖关系的包。他还提供了自动包查询程序，用来自动获取包之间的依赖关系，并完成这些包的安装，大大降低了安装各种包的难度，使之更加方便。</p>
+<p>一般 Python 安装会自带 setuptools，如果没有可以使用 pip 安装：</p>
+<pre><code>$ pip install setuptools</code></pre>
+<p>setuptools 简单易用，只需写一个简短的 setup.py 安装文件，就可以将你 Python 应用打包。</p>
+<pre><code># ----- Imports ----- #
+from setuptools import setup
+
+
+# ----- Setup ----- #
+
+
+setup(
+    name=&#39;blog-engine&#39;,
+    version=&#39;0.1.0&#39;,
+    author=&#39;sunxvming&#39;,
+    install_requires=[&#39;markdown&#39;, &#39;jinja2&#39;]
+)</code></pre>
+<p>安装后的结果:<br />
+打包之后多出两个文件夹，分别是xx.egg-info和dist。xx.egg-info是必要的安装信息，<br />
+而dist中的压缩包就是安装包，此时默认的egg包，egg包就是zip包，如果需要使用egg包，将egg后缀改成zip解压即可</p>
+<p>安装命令：<code>python setup.py install</code></p>
+<h3 id="python-requirements文件生成和安装">python requirements文件生成和安装</h3>
+<p>生成requirements.txt文件</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>pip freeze <span class="op">&gt;</span> requirements.txt</span></code></pre></div>
+<p>安装requirements.txt依赖</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>pip install <span class="op">-</span>r requirements.txt</span></code></pre></div>
+<h2 id="venv">venv</h2>
+<h3 id="基本使用">基本使用</h3>
+<p>创建虚拟环境：<br />
+<code>python3 -m venv myenv</code><br />
+这将在当前目录中创建一个名为 myenv 的虚拟环境。</p>
+<p>激活虚拟环境</p>
+<p>linux上<br />
+<code>source myenv/bin/activate</code></p>
+<p>Windows 上：<br />
+<code>myenv\Scripts\activate</code></p>
+<p>一旦虚拟环境被激活，您可以在其中安装项目特定的 Python 包，并运行项目，而不会影响全局 Python 环境。</p>
+<h3 id="ubuntu中使用">ubuntu中使用</h3>
+<p>在某些 Linux 发行版中，如 Debian 和 Ubuntu，<code>python3-venv</code> 软件包提供了 <code>venv</code> 模块的一种实现。尽管 Python 3 的标准库本身包含 <code>venv</code> 模块，但某些 Linux 发行版选择将它拆分为单独的软件包以降低操作系统的体积。</p>
+<p>因此，如果您在某些 Linux 发行版上使用 <code>python3-venv</code> 包，实际上是安装了 <code>venv</code> 模块的一个特定版本，以便在您的系统上使用。这样，即使系统的 Python 3 安装本身没有包含 <code>venv</code> 模块，您仍然可以使用虚拟环境功能。</p>
+<p>一般来说，如果您使用的是标准的 Python 3 安装（而不是特定于某个 Linux 发行版的Python版本），那么您通常不需要安装 <code>python3-venv</code> 包，因为 <code>venv</code> 模块已经内置在 Python 3 中。只有在一些定制的 Linux 环境中才需要安装 <code>python3-venv</code> 软件包。</p>
+<p>安装python3-venv<br />
+<code>sudo apt install python3-venv</code></p>
+<p>查看venv安装到哪里了<br />
+<code>find /usr -type d -name 'venv'</code></p>
+<p>使用apt下载venv的deb的包<br />
+<code>apt-get download python3.10-venv</code></p>
+<p>安装<br />
+<code>sudo dpkg -i package_name.deb</code></p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

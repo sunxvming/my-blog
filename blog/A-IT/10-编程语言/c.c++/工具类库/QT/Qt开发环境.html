@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/工具类库/QT/Qt开发环境</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#qtqmake">Qt+Qmake</a></li>
+<li><a href="#qtcmake">Qt+Cmake</a>
+<ul>
+<li><a href="#ninja">Ninja</a></li>
+</ul></li>
+<li><a href="#vscodecmake">VSCode+cmake</a>
+<ul>
+<li><a href="#工具和插件的安装和配置">工具和插件的安装和配置</a></li>
+<li><a href="#新建qt项目">新建Qt项目</a></li>
+</ul></li>
+<li><a href="#ubuntu中打开qt-creator提示无法覆盖文件">Ubuntu中打开Qt creator,提示无法覆盖文件</a></li>
+<li><a href="#linux下源码编译qt和qtcreator">linux下源码编译qt和qtCreator</a></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="qtqmake">Qt+Qmake</h2>
+<ol>
+<li>从0新建项目的话直接在Qt中按其引导步骤一步步创建就行</li>
+<li>已有项目源码，且项目中有<code>.pro</code>项目配置文件，则直接用Qt打开<code>.pro</code>即可打开工程</li>
+<li>已有项目源码，但没有<code>.pro</code>项目配置文件,则1.新建一个工程 2.把源码考进新工程中3.Add Existing File or Directory</li>
+</ol>
+<h2 id="qtcmake">Qt+Cmake</h2>
+<p>使用的Qt版本为5.12.12<br />
+1. 下载cmake，并设置到环境变量中<br />
+2. 下载Ninja，Qt中会默认生成用Ninja构建的项目。从 <a href="https://github.com/ninja-build/ninja/releases">Ninja 的 GitHub 仓库</a>下载与操作系统相兼容的预编译二进制文件(仅一个ninja.exe)，并放入到cmake所在的目录中<br />
+3. 在qt中创建cmake的工程，qt会进行自动的构建</p>
+<h3 id="ninja">Ninja</h3>
+<p>Ninja是一个快速且轻量级的构建系统，旨在加速软件项目的构建过程。它是由Google开发的，最初用于支持Chromium项目的构建，后来逐渐被广泛采用于其他开源项目和商业项目。<br />
+Ninja的主要作用是根据构建规则和依赖关系，自动化执行项目的编译和构建过程。</p>
+<h2 id="vscodecmake">VSCode+cmake</h2>
+<h3 id="工具和插件的安装和配置">工具和插件的安装和配置</h3>
+<p>需要配置的环境变量</p>
+<pre><code># cmake工具
+C:\Program Files\CMake\bin
+
+# mingw编译工具链g++.exe gdb.exe
+D:\program\Qt\Qt5.12.12\Tools\mingw730_64\bin
+
+# Qt的相关开发工具、动态库，如designer.exe、Qt5Core.dll、Qt5Widgets.dll等
+D:\program\Qt\Qt5.12.12\5.12.12\mingw73_64\bin</code></pre>
+<p>vscode中安装的插件<br />
+- CMake<br />
+- CMake Tools<br />
+- Qt Configure<br />
+- Qt tools</p>
+<h3 id="新建qt项目">新建Qt项目</h3>
+<p>1.配置Qt安装目录 <code>&gt;QtConfigure:Set Qt Dir</code>, 目录为<code>D:\program\Qt\Qt5.12.12</code><br />
+2.创建Qt项目 <code>&gt;QtConfigure:New Project</code>, 新建项目名称、选择Qt套件（msvc或mingw），选择构建工具（cmake或qmake），是否带ui文件<br />
+套件即为Qt的特定版本的相关开发工具、动态库等<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230616194753.png" alt="image.png" /><br />
+以上步骤会创建一个带<code>CmakeLists.txt</code>的Qt工程<br />
+3.<code>&gt; CMake:quick start</code>用cmake生成build目录和相关文件<br />
+4.<code>Cmake:build</code>F7编译 <code>cmake:debug</code>F5调试</p>
+<p>若直接运行编译好的exe文件报<code>Qt5xxx.dll</code>的错误，则配置对应的编译套件环境变量，重新编译，即可直接打开exe运行程序。</p>
+<pre><code># Qt的相关开发工具、动态库，如designer.exe、Qt5Core.dll、Qt5Widgets.dll等
+D:\program\Qt\Qt5.12.12\5.12.12\mingw73_64\bin</code></pre>
+<h2 id="ubuntu中打开qt-creator提示无法覆盖文件">Ubuntu中打开Qt creator,提示无法覆盖文件</h2>
+<p>Ubuntu12.10中打开Qt creator,提示无法覆盖文件 /home/xxx/.config/Nokia/qtversion.xml : Permission denied解决办法<br />
+打开Qt creator,提示无法覆盖文件 /home/xxx/.config/Nokia/qtversion.xml : Permission denied ，要不断点好几次确定之后才能进去。</p>
+<p>退出的时候显示无法覆盖文件 /home/xxx/.config/Nokia/toolChains.xml : Permission denied。</p>
+<p>实际上解决方式是改变主目录下.config的权限。</p>
+<p>终端下输入：sudo chown -R lmm:lmm ~/.config/。<br />
+lmm:lmm是我的当前的登录的用户名，改成你自己的用户名就可以了。<br />
+估计原来不好用的原因是没有以root权限安装。</p>
+<h2 id="linux下源码编译qt和qtcreator">linux下源码编译qt和qtCreator</h2>
+<p>QTCreator要想在Linux-arm架构下运行，必须要保证两个：<br />
+1. qt要在arm下编译生成对应库文件和qmake<br />
+2. qtCreator 要在arm架构下编译</p>
+<ul>
+<li><a href="https://juejin.cn/post/7300569624236359718">飞腾ARM架构 UOS系统编译Qt 5.15.2源码及Qt Creator - 掘金</a></li>
+<li><a href="https://blog.csdn.net/yaojinjian1995/article/details/117285197">qt/qtcreator在Arm架构下的安装_qt creator arm-CSDN博客</a></li>
+</ul>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://blog.csdn.net/qq_39827640/article/details/127630482">Qt 开发使用VSCode</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

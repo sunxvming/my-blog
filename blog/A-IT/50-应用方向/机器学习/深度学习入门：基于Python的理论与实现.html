@@ -1,0 +1,1119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/机器学习/深度学习入门：基于Python的理论与实现</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#第1章-python入门">第1章 Python入门</a></li>
+<li><a href="#第2章-感知机">第2章　感知机</a>
+<ul>
+<li><a href="#感知机是什么">感知机是什么</a></li>
+<li><a href="#使用函数表示感知机">使用函数表示感知机</a></li>
+<li><a href="#多层感知机">多层感知机</a></li>
+</ul></li>
+<li><a href="#第3章-神经网络">第3章　神经网络</a>
+<ul>
+<li><a href="#从感知机到神经网络">从感知机到神经网络</a></li>
+<li><a href="#激活函数">激活函数</a></li>
+<li><a href="#非线性函数">非线性函数</a></li>
+<li><a href="#层神经网络的实现">3层神经网络的实现</a></li>
+<li><a href="#输出层的设计">输出层的设计</a>
+<ul>
+<li><a href="#恒等函数">恒等函数</a></li>
+<li><a href="#softmax函数">softmax函数</a></li>
+<li><a href="#输出层的神经元数量">输出层的神经元数量</a></li>
+<li><a href="#手写数字识别">手写数字识别</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#第4章-神经网络的学习">第4章　神经网络的学习</a>
+<ul>
+<li><a href="#从数据中学习">从数据中学习</a></li>
+<li><a href="#损失函数">损失函数</a>
+<ul>
+<li><a href="#均方误差mean-squared-error">均方误差（mean squared error）</a></li>
+<li><a href="#交叉熵误差cross-entropy-error">交叉熵误差（cross entropy error）</a></li>
+<li><a href="#mini-batch学习">mini-batch学习</a></li>
+</ul></li>
+<li><a href="#为何要设定损失函数">为何要设定损失函数</a></li>
+<li><a href="#数值微分">数值微分</a></li>
+<li><a href="#梯度法">梯度法</a></li>
+<li><a href="#神经网络的梯度">神经网络的梯度</a></li>
+<li><a href="#学习算法的实现">学习算法的实现</a></li>
+</ul></li>
+<li><a href="#第5章-误差反向传播法">第5章　误差反向传播法</a>
+<ul>
+<li><a href="#计算图">计算图</a></li>
+<li><a href="#计算图的局部计算">计算图的局部计算</a></li>
+<li><a href="#链式法则和计算图">链式法则和计算图</a></li>
+<li><a href="#层节点的实现">层/节点的实现</a>
+<ul>
+<li><a href="#乘法层和加法层">乘法层和加法层</a></li>
+<li><a href="#激活函数层-relu层">激活函数层-ReLU层</a></li>
+<li><a href="#激活函数层-sigmoid层">激活函数层-Sigmoid层</a></li>
+<li><a href="#affine层">Affine层</a></li>
+<li><a href="#批版本的affine层">批版本的Affine层</a></li>
+<li><a href="#softmax-with-loss层">Softmax-with-Loss层</a></li>
+</ul></li>
+<li><a href="#误差反向传播法的实现">误差反向传播法的实现</a></li>
+<li><a href="#误差反向传播法的梯度确认">误差反向传播法的梯度确认</a></li>
+</ul></li>
+<li><a href="#第6章-与学习相关的技巧">第6章　与学习相关的技巧</a>
+<ul>
+<li><a href="#参数的更新">参数的更新</a>
+<ul>
+<li><a href="#sgd">SGD</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#第7章-卷积神经网络">第7章　卷积神经网络</a></li>
+<li><a href="#第8章-深度学习-260">第8章　深度学习 260</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>本书最大的特点是“剖解”了深度学习的底层技术。正如美国物理学家理查德·费曼（Richard Phillips Feynman）所说： “What I cannot create, I do not understand.”只有创造一个东西，才算真正弄懂了一个问题。</p>
+<h2 id="第1章-python入门">第1章 Python入门</h2>
+<h2 id="第2章-感知机">第2章　感知机</h2>
+<h3 id="感知机是什么">感知机是什么</h3>
+<p>• 感知机是具有输入和输出的算法。给定一个输入后，将输出一个既定的值。可以作为神经网络的<strong>神经元</strong><br />
+• 感知机将<strong>权重</strong>和<strong>偏置</strong>设定为参数。<br />
+• 使用感知机可以表示与门和或门等逻辑电路。<br />
+• 异或门无法通过<strong>单层感知机</strong>来表示。<br />
+• 使用2层感知机可以表示<strong>异或门</strong>。<br />
+• 单层感知机只能表示<strong>线性空间</strong>，而多层感知机可以表示<strong>非线性空间</strong>。<br />
+• 多层感知机（在理论上）可以表示计算机。</p>
+<p>感知机的图的表示<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231205141155.png" alt="image.png" /></p>
+<p>感知机的公式<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231205141147.png" alt="image.png" /></p>
+<p>神经元会计算传送过来的信号的总和，只有当这个总和超过了某个界限值时，才会输出1。这也称为“神经元被激活” 。这里将这个界限值称为<strong>阈值</strong>，用符号θ表示。 阈值可以移到不等式的左边，−θ命名为<strong>偏置</strong>b</p>
+<h3 id="使用函数表示感知机">使用函数表示感知机</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">def</span> AND(x1, x2):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    x <span class="op">=</span> np.array([x1, x2])</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    w <span class="op">=</span> np.array([<span class="fl">0.5</span>, <span class="fl">0.5</span>])</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    b <span class="op">=</span> <span class="op">-</span><span class="fl">0.7</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    tmp <span class="op">=</span> np.<span class="bu">sum</span>(w<span class="op">*</span>x) <span class="op">+</span> b</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>    <span class="cf">if</span> tmp <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a><span class="kw">def</span> OR(x1, x2):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>    x <span class="op">=</span> np.array([x1, x2])</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>    w <span class="op">=</span> np.array([<span class="fl">0.5</span>, <span class="fl">0.5</span>])</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>    b <span class="op">=</span> <span class="op">-</span><span class="fl">0.2</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>    tmp <span class="op">=</span> np.<span class="bu">sum</span>(w<span class="op">*</span>x) <span class="op">+</span> b</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>    <span class="cf">if</span> tmp <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a><span class="kw">def</span> NAND(x1, x2):</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>    x <span class="op">=</span> np.array([x1, x2])</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a>    w <span class="op">=</span> np.array([<span class="op">-</span><span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>])</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a>    b <span class="op">=</span> <span class="fl">0.7</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a>    tmp <span class="op">=</span> np.<span class="bu">sum</span>(w<span class="op">*</span>x) <span class="op">+</span> b</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true"></a>    <span class="cf">if</span> tmp <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true"></a>    </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true"></a><span class="kw">def</span> XOR(x1, x2):</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true"></a>    s1 <span class="op">=</span> NAND(x1, x2)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true"></a>    s2 <span class="op">=</span> OR(x1, x2)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true"></a>    y <span class="op">=</span> AND(s1, s2)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true"></a>    <span class="cf">return</span> y</span></code></pre></div>
+<h3 id="多层感知机">多层感知机</h3>
+<p>OR的图，分割线是一个线性函数<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231205143022.png" alt="image.png" /></p>
+<p>XOR的图，分割线是多个进行分割<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231205141727.png" alt="image.png" /></p>
+<p>上图中中的○和△无法用一条直线分开，但是如果将“直线”这个限制条件去掉，就可以实现了。<br />
+感知机的局限性就在于它只能表示由一条直线分割的空间。上图这样弯曲的曲线无法用感知机表示。另外，上图这样的曲线分割而成的空间称为<strong>非线性空间</strong>，由直线分割而成的空间称为<strong>线性空间</strong><br />
+感知机不能表示异或门让人深感遗憾，但也无需悲观。实际上，感知机的绝妙之处在于它可以“<strong>叠加层</strong>”</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231205145510.png" alt="image.png" /><br />
+上图表示的含义为：先求出NAND为1的区域，再求出OR的区域，两者重叠(AND)的区域便是XOR的区域。<br />
+因为没有用非线性的sigmoid函数的感知机，所以上面的区域依然是线性围起来的空间</p>
+<p>实际上，与门、或门是单层感知机，而异或门是2层感知机。叠加了多层的感知机也称为<strong>多层感知机</strong>（multi-layered perceptron）。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231205142155.png" alt="image.png" /><br />
+s1相当于NAND，s2相当于OR，y相当于AND</p>
+<p>理论上可以说2层感知机就能构建计算机。这是因为，已有研究证明，2层感知机可以表示任意函数。但是，使用2层感知机的构造，通过设定合适的权重来构建计算机是一件非常累人的事情。实际上，在用与非门等低层的元件构建计算机的情况下，分阶段地制作所需的零件（模块）会比较自然，即先实现与门和或门，然后实现半加器和全加器，接着实现算数逻辑单元（ALU），然后实现CPU。因此，通过感知机表示计算机时，使用叠加了多层的构造来实现是比较自然的流程。</p>
+<h2 id="第3章-神经网络">第3章　神经网络</h2>
+<p>• 神经网络中的激活函数使用平滑变化的 <code>sigmoid</code> 函数或 <code>ReLU</code> 函数。<br />
+• 通过巧妙地使用NumPy多维数组，可以高效地实现神经网络。<br />
+• 机器学习的问题大体上可以分为回归问题和分类问题。<br />
+• 关于输出层的激活函数，回归问题中一般用恒等函数，分类问题中一般用softmax函数。<br />
+• 分类问题中，输出层的神经元的数量设置为要分类的类别数。<br />
+• 输入数据的集合称为批。通过以批为单位进行推理处理，能够实现高速的运算。</p>
+<h3 id="从感知机到神经网络">从感知机到神经网络</h3>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231205171553.png" alt="image.png" /><br />
+区别在于激活函数的不同<br />
+可以说感知机中使用了<strong>阶跃函数</strong>作为激活函数, 在激活函数的众多候选函数中，感知机使用了阶跃函数<br />
+而神经网络则使用其他的激活函数</p>
+<h3 id="激活函数">激活函数</h3>
+<p><strong>阶跃函数的实现</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">def</span> step_function(x):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>        </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="co"># 改为支持NumPy数组</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="kw">def</span> step_function(x):</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>    y <span class="op">=</span> x <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>    <span class="cf">return</span> y.astype(np.int64)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="kw">def</span> step_function(x):</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>    <span class="cf">return</span> np.array(x <span class="op">&gt;</span> <span class="dv">0</span>, dtype<span class="op">=</span>np.int64)</span></code></pre></div>
+<p><strong>sigmoid函数的实现</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">def</span> sigmoid(x):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> np.exp(<span class="op">-</span>x))</span></code></pre></div>
+<p>ReLU函数（Rectified Linear Unit）</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">def</span> relu(x):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    <span class="cf">return</span> np.maximum(<span class="dv">0</span>, x)</span></code></pre></div>
+<h3 id="非线性函数">非线性函数</h3>
+<p>函数本来是输入某个值后会返回一个值的转换器。向这个转换器输入某个值后，输出值是输入值的常数倍的函数称为线性函数（用数学式表示为h(x) = cx。c为常数）。因此，线性函数是一条笔直的直线。而非线性函数，顾名思义，指的是不像线性函数那样呈现出一条直线的函数。</p>
+<p>阶跃函数和sigmoid函数还有其他共同点，就是两者均为非线性函数。sigmoid函数是一条曲线，阶跃函数是一条像阶梯一样的折线，两者都属于<strong>非线性的函数</strong></p>
+<p>神经网络的激活函数必须使用非线性函数。换句话说，激活函数不能使用线性函数。为什么不能使用线性函数呢？因为使用线性函数的话，加深神经网络的层数就没有意义了。<br />
+线性函数的问题在于，不管如何加深层数，总是存在与之等效的“无隐藏层的神经网络”。为了具体地（稍微直观地）理解这一点，我们来思考下面这个简单的例子。这里我们考虑把线性函数h(x) = cx作为激活函数，把y(x) = h(h(h(x)))的运算对应3层神经网络 。这个运算会进行y(x) = c × c × c × x的乘法运算，但是同样的处理可以由y(x) = ax（注意，a = c3 ）这一次乘法运算（即没有隐藏层的神经网络）来表示。如本例所示，使用线性函数时，无法发挥多层网络带来的优势。因此，为了发挥叠加层所带来的优势，激活函数必须使用非线性函数。</p>
+<h3 id="层神经网络的实现">3层神经网络的实现</h3>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206091710.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206093619.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206093844.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p><strong>代码实现</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">def</span> init_network():</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>    network <span class="op">=</span> {}</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>    network[<span class="st">&#39;W1&#39;</span>] <span class="op">=</span> np.array([[<span class="fl">0.1</span>, <span class="fl">0.3</span>, <span class="fl">0.5</span>], [<span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.6</span>]])</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    network[<span class="st">&#39;b1&#39;</span>] <span class="op">=</span> np.array([<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>])</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    network[<span class="st">&#39;W2&#39;</span>] <span class="op">=</span> np.array([[<span class="fl">0.1</span>, <span class="fl">0.4</span>], [<span class="fl">0.2</span>, <span class="fl">0.5</span>], [<span class="fl">0.3</span>, <span class="fl">0.6</span>]])</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    network[<span class="st">&#39;b2&#39;</span>] <span class="op">=</span> np.array([<span class="fl">0.1</span>, <span class="fl">0.2</span>])</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>    network[<span class="st">&#39;W3&#39;</span>] <span class="op">=</span> np.array([[<span class="fl">0.1</span>, <span class="fl">0.3</span>], [<span class="fl">0.2</span>, <span class="fl">0.4</span>]])</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>    network[<span class="st">&#39;b3&#39;</span>] <span class="op">=</span> np.array([<span class="fl">0.1</span>, <span class="fl">0.2</span>])</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>    <span class="cf">return</span> network</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a><span class="kw">def</span> forward(network, x):</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>    W1, W2, W3 <span class="op">=</span> network[<span class="st">&#39;W1&#39;</span>], network[<span class="st">&#39;W2&#39;</span>], network[<span class="st">&#39;W3&#39;</span>]</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>    b1, b2, b3 <span class="op">=</span> network[<span class="st">&#39;b1&#39;</span>], network[<span class="st">&#39;b2&#39;</span>], network[<span class="st">&#39;b3&#39;</span>]</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>    a1 <span class="op">=</span> np.dot(x, W1) <span class="op">+</span> b1</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>    z1 <span class="op">=</span> sigmoid(a1)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a>    a2 <span class="op">=</span> np.dot(z1, W2) <span class="op">+</span> b2</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a>    z2 <span class="op">=</span> sigmoid(a2)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true"></a>    a3 <span class="op">=</span> np.dot(z2, W3) <span class="op">+</span> b3</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true"></a>    y <span class="op">=</span> identity_function(a3)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true"></a>    <span class="cf">return</span> y</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true"></a>network <span class="op">=</span> init_network()</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true"></a>x <span class="op">=</span> np.array([<span class="fl">1.0</span>, <span class="fl">0.5</span>])</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true"></a>y <span class="op">=</span> forward(network, x)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true"></a><span class="bu">print</span>(y) <span class="co"># [ 0.31682708 0.69627909]</span></span></code></pre></div>
+<h3 id="输出层的设计">输出层的设计</h3>
+<p>机器学习的问题大致可以分为分类问题和回归问题。<br />
+<strong>分类问题</strong>是数据属于哪一个类别的问题。比如，区分图像中的人是男性还是女性的问题就是分类问题。<br />
+<strong>回归问题</strong>是根据某个输入预测一个（连续的）数值的问题。比如，根据一个人的图像预测这个人的体重的问题就是回归问题（类似“57.4kg”这样的预测）。</p>
+<p>一般而言，回归问题用恒等函数，分类问题用softmax函数。</p>
+<h4 id="恒等函数">恒等函数</h4>
+<p>恒等函数会将输入按原样输出，对于输入的信息，不加以任何改动地直接输出</p>
+<h4 id="softmax函数">softmax函数</h4>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206094900.png" alt="image.png" /><br />
+exp(x)是表示e x 的指数函数（e是纳皮尔常数2.7182 ... ）。表示假设输出层共有n个神经元，计算第k个神经元的输出y k 。如式所示，softmax函数的分子是输入信号ak 的指数函数，分母是所有输入信号的指数函数的和。</p>
+<p><strong>实现softmax函数时的注意事项</strong><br />
+softmax函数的实现中要进行指数函数的运算，但是此时指数函数的值很容易变得非常大，从而造成溢出问题。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206095533.png" alt="image.png" /><br />
+上式说明，在进行softmax的指数函数的运算时，加上（或者减去）某个常数并不会改变运算的结果。这里的C可以使用任何值，但是为了防止溢出，一般会使用输入信号中的最大值。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">def</span> softmax(a):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>    c <span class="op">=</span> np.<span class="bu">max</span>(a)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>    exp_a <span class="op">=</span> np.exp(a <span class="op">-</span> c)   <span class="co"># 溢出对策</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>    sum_exp_a <span class="op">=</span> np.<span class="bu">sum</span>(exp_a)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>    y <span class="op">=</span> exp_a <span class="op">/</span> sum_exp_a</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>    <span class="cf">return</span> y</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> np.array([<span class="fl">0.3</span>, <span class="fl">2.9</span>, <span class="fl">4.0</span>])</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a><span class="op">&gt;&gt;&gt;</span> y <span class="op">=</span> softmax(a)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(y)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>[ <span class="fl">0.01821127</span> <span class="fl">0.24519181</span> <span class="fl">0.73659691</span>]</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a><span class="op">&gt;&gt;&gt;</span> np.<span class="bu">sum</span>(y)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a><span class="fl">1.0</span></span></code></pre></div>
+<p><strong>softmax函数的特征</strong><br />
+softmax函数的输出是0.0到1.0之间的实数。并且，softmax函数的输出值的总和是1。输出总和为1是softmax函数的一个重要性质。正因为有了这个性质，我们才可以把softmax函数的输出解释为“概率”。<br />
+这里需要注意的是，即便使用了softmax函数，各个元素之间的大小关系也不会改变。这是因为指数函数（y = exp(x)）是单调递增函数。实际上，上例中 a 的各元素的大小关系和 y 的各元素的大小关系并没有改变。<br />
+<strong>推理阶段</strong>一般会省略输出层的softmax函数。在输出层使用softmax函数是因为它和神经网络的学习有关系</p>
+<h4 id="输出层的神经元数量">输出层的神经元数量</h4>
+<p>输出层的神经元数量需要根据待解决的问题来决定。<br />
+对于<strong>分类问题</strong>，输出层的神经元数量一般设定为类别的数量。比如，对于某个输入图像，预测是图中的数字0到9中的哪一个的问题（10类别分类问题），可以像图3-23这样，将输出层的神经元设定为10个。</p>
+<h4 id="手写数字识别">手写数字识别</h4>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206104237.png" alt="image.png" /><br />
+输入一个由784个元素（原本是一个28 × 28的二维数组）构成的一维数组后，输出一个有10个元素的一维数组。这是只输入一张图像数据时的处理流程。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206104329.png" alt="image.png" /><br />
+批处理：输入数据的形状为100 × 784，输出数据的形状为100 × 10。这表示输入的100张图像的结果被一次性输出了</p>
+<h2 id="第4章-神经网络的学习">第4章　神经网络的学习</h2>
+<p>本章介绍了神经网络的学习。首先，为了能顺利进行神经网络的学习，我们导入了<strong>损失函数</strong>这个指标。以这个损失函数为基准，找出使它的值达到最小的<strong>权重参数</strong>，就是神经网络学习的目标。为了找到尽可能小的损失函数值，我们介绍了使用函数斜率的<strong>梯度法</strong>。</p>
+<p>• 机器学习中使用的数据集分为训练数据和测试数据。<br />
+• 神经网络用训练数据进行学习，并用测试数据评价学习到的模型的泛化能力。<br />
+• 神经网络的学习以损失函数为指标，更新权重参数，以使损失函数的值减小。<br />
+• 利用某个给定的微小值的差分求导数的过程，称为<strong>数值微分</strong>。<br />
+• 利用数值微分，可以计算权重参数的<strong>梯度</strong>。<br />
+• 数值微分虽然费时间，但是实现起来很简单。下一章中要实现的稍微复杂一些的误差反向传播法可以高速地计算梯度。</p>
+<h3 id="从数据中学习">从数据中学习</h3>
+<p>先从图像中提取特征量，再用机器学习技术学习这些特征量的模式。这里所说的“特征量”是指可以从输入数据（输入图像）中准确地提取本质数据（重要的数据）的转换器。图像的特征量通常表示为向量的形式。在计算机视觉领域，常用的特征量包括SIFT、SURF和HOG等。使用这些特征量将图像数据转换为向量，然后对转换后的向量使用机器学习中的SVM、KNN等分类器进行学习。</p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206140347.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>神经网络的优点是对所有的问题都可以用同样的流程来解决。比如，不管要求解的问题是识别5，还是识别狗，抑或是识别人脸，神经网络都是通过不断地学习所提供的数据，尝试发现待求解的问题的模式。</p>
+<h3 id="损失函数">损失函数</h3>
+<p>损失函数是表示神经网络性能的“恶劣程度”的指标，即当前的神经网络对监督数据在多大程度上不拟合，在多大程度上不一致。</p>
+<h4 id="均方误差mean-squared-error">均方误差（mean squared error）</h4>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206141443.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p><strong>代码实现</strong>：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="kw">def</span> mean_squared_error(y, t):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>    <span class="cf">return</span> <span class="fl">0.5</span> <span class="op">*</span> np.<span class="bu">sum</span>((y<span class="op">-</span>t)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="op">&gt;&gt;&gt;</span> <span class="co"># 设“2”为正确解</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a><span class="op">&gt;&gt;&gt;</span> t <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a><span class="op">&gt;&gt;&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a><span class="op">&gt;&gt;&gt;</span> <span class="co"># 例1：“2”的概率最高的情况（0.6）</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a><span class="op">&gt;&gt;&gt;</span> y <span class="op">=</span> [<span class="fl">0.1</span>, <span class="fl">0.05</span>, <span class="fl">0.6</span>, <span class="fl">0.0</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.0</span>, <span class="fl">0.1</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>]</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a><span class="op">&gt;&gt;&gt;</span> mean_squared_error(np.array(y), np.array(t))</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a><span class="fl">0.097500000000000031</span></span></code></pre></div>
+<h4 id="交叉熵误差cross-entropy-error">交叉熵误差（cross entropy error）</h4>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206141939.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206142358.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p><strong>代码实现</strong>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="kw">def</span> cross_entropy_error(y, t):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>    delta <span class="op">=</span> <span class="fl">1e-7</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    <span class="cf">return</span> <span class="op">-</span>np.<span class="bu">sum</span>(t <span class="op">*</span> np.log(y <span class="op">+</span> delta))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a><span class="op">&gt;&gt;&gt;</span> t <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a><span class="op">&gt;&gt;&gt;</span> y <span class="op">=</span> [<span class="fl">0.1</span>, <span class="fl">0.05</span>, <span class="fl">0.6</span>, <span class="fl">0.0</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.0</span>, <span class="fl">0.1</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>]</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a><span class="op">&gt;&gt;&gt;</span> cross_entropy_error(np.array(y), np.array(t))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a><span class="fl">0.51082545709933802</span></span></code></pre></div>
+<p>函数内部在计算 <code>np.log</code> 时，加上了一个微小值 <code>delta</code> 。这是因为，当出现 <code>np.log(0)</code> 时， <code>np.log(0)</code> 会变为负无限大的 <code>-inf</code> ，这样一来就会导致后续计算无法进行。作为保护性对策，添加一个微小值可以防止负无限大的发生。</p>
+<h4 id="mini-batch学习">mini-batch学习</h4>
+<p>神经网络的学习也是从训练数据中选出一批数据（称为mini-batch,小批量），然后对每个mini-batch进行学习。比如，从60000个训练数据中随机选择100笔，再用这100笔数据进行学习。这种学习方式称为<strong>mini-batch学习</strong></p>
+<p>mini-batch版交叉熵误差的实现</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="co"># one-hot版</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="kw">def</span> cross_entropy_error(y, t):</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>    <span class="cf">if</span> y.ndim <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>        t <span class="op">=</span> t.reshape(<span class="dv">1</span>, t.size)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>        y <span class="op">=</span> y.reshape(<span class="dv">1</span>, y.size)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>    batch_size <span class="op">=</span> y.shape[<span class="dv">0</span>]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>    <span class="cf">return</span> <span class="op">-</span>np.<span class="bu">sum</span>(t <span class="op">*</span> np.log(y <span class="op">+</span> <span class="fl">1e-7</span>)) <span class="op">/</span> batch_size  <span class="co"># 除batch_size是为了进行正规化</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a><span class="co"># 非one-hot版</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a><span class="kw">def</span> cross_entropy_error(y, t):</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a>    <span class="cf">if</span> y.ndim <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a>        t <span class="op">=</span> t.reshape(<span class="dv">1</span>, t.size)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>        y <span class="op">=</span> y.reshape(<span class="dv">1</span>, y.size)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a>    batch_size <span class="op">=</span> y.shape[<span class="dv">0</span>]</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a>    <span class="cf">return</span> <span class="op">-</span>np.<span class="bu">sum</span>(np.log(y[np.arange(batch_size), t] <span class="op">+</span> <span class="fl">1e-7</span>)) <span class="op">/</span> batch_size</span></code></pre></div>
+<h3 id="为何要设定损失函数">为何要设定损失函数</h3>
+<p>在进行神经网络的学习时，不能将识别精度作为指标。因为如果以识别精度为指标，则参数的导数在绝大多数地方都会变为0<br />
+识别精度（或准确率）通常被定义为分类正确的样本数量与总样本数量的比值。这个比率是一个离散的值。<br />
+识别精度是基于离散的分类结果计算得出的，而且即使微小的参数变化也可能不会立即改变分类结果。举例来说，如果你的模型在100笔数据中正确识别了32笔，识别精度为32%。微调参数可能不会立即影响分类结果，因此识别精度会保持在32%。即使有所改善，也可能会从32%跳跃到33%或34%，而不是以连续的方式变化。<br />
+相比之下，当使用损失函数作为指标时，通常是连续的。损失函数是一个连续的函数，它对参数的微小变化会产生相应的连续变化。如果稍微改变参数，损失函数值可能会从0.92543连续地变化到0.93432等。</p>
+<p>识别精度对微小的参数变化基本上没有什么反应，即便有反应，它的值也是不连续地、突然地变化。作为激活函数的阶跃函数也有同样的情况。出于相同的原因，如果使用阶跃函数作为激活函数，神经网络的学习将无法进行。<br />
+阶跃函数的导数在绝大多数地方（除了0以外的地方）均为0。就是说，如果使用了阶跃函数，那么即便将损失函数作为指标，参数的微小变化也会被阶跃函数抹杀，导致损失函数的值不会产生任何变化。</p>
+<h3 id="数值微分">数值微分</h3>
+<p>代码实现：</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="co"># 不好的实现示例</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="kw">def</span> numerical_diff_0(f, x):</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>    h <span class="op">=</span> <span class="fl">10e-50</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>    <span class="cf">return</span> (f(x<span class="op">+</span>h) <span class="op">-</span> f(x)) <span class="op">/</span> h</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>    </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a><span class="kw">def</span> numerical_diff(f, x):</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>    h <span class="op">=</span> <span class="fl">1e-4</span>    <span class="co"># 0.0001</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>    <span class="cf">return</span> (f(x<span class="op">+</span>h) <span class="op">-</span> f(x<span class="op">-</span>h)) <span class="op">/</span> (<span class="dv">2</span><span class="op">*</span>h)</span></code></pre></div>
+<p>函数 numerical_diff(f, x) 的名称来源于数值微分的英文numerical differentiation<br />
+numerical_diff_0有两个问题：<br />
+1. h 使用了 10e-50 这个微小值。但是，这样反而产生了<strong>舍入误差</strong>（rounding error）。<br />
+2. (x + h)和x之间的差分称为<strong>前向差分</strong>，在(x + h)和(x − h)之间的差分。因为这种计算方法以x为中心，计算它左右两边的差分，所以也称为<strong>中心差分</strong>，中心差分误差更小些</p>
+<p>上述函数是一个典型的<strong>高阶函数</strong>。</p>
+<p>如上所示，利用微小的差分求导数的过程称为数值微分。而基于数学式的推导求导数的过程，则用“解析性” （analytic）一词，称为“解析性求解”或者“<strong>解析性求导</strong>”。比如，y = x^2 的导数，可以通过 dy/dx = 2x。<br />
+解析性求导得到的导数是不含误差的“真的导数”。</p>
+<h3 id="梯度法">梯度法</h3>
+<p><strong>计算梯度的代码实现</strong>：</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">def</span> numerical_gradient(f, x):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>    h <span class="op">=</span> <span class="fl">1e-4</span> <span class="co"># 0.0001</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>    grad <span class="op">=</span> np.zeros_like(x) <span class="co"># 生成和x形状相同的数组</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>    <span class="cf">for</span> idx <span class="kw">in</span> <span class="bu">range</span>(x.size):</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>        tmp_val <span class="op">=</span> x[idx]</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>        <span class="co"># f(x+h)的计算</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>        x[idx] <span class="op">=</span> tmp_val <span class="op">+</span> h</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>        fxh1 <span class="op">=</span> f(x)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>        </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>        <span class="co"># f(x-h)的计算</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a>        x[idx] <span class="op">=</span> tmp_val <span class="op">-</span> h</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a>        fxh2 <span class="op">=</span> f(x)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a>        </span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true"></a>        grad[idx] <span class="op">=</span> (fxh1 <span class="op">-</span> fxh2) <span class="op">/</span> (<span class="dv">2</span><span class="op">*</span>h)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true"></a>        x[idx] <span class="op">=</span> tmp_val <span class="co"># 还原值</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true"></a>    <span class="cf">return</span> grad</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true"></a><span class="op">&gt;&gt;&gt;</span> numerical_gradient(function_2, np.array([<span class="fl">3.0</span>, <span class="fl">4.0</span>]))</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true"></a>array([ <span class="fl">6.</span>, <span class="fl">8.</span>])</span></code></pre></div>
+<p>在梯度法中，函数的取值从当前位置沿着梯度方向前进一定距离，然后在新的地方重新求梯度，再沿着新梯度方向前进，如此反复，不断地沿梯度方向前进。像这样，通过不断地沿梯度方向前进，逐渐减小函数值的过程就是<strong>梯度法</strong>（gradient method）。梯度法是解决机器学习中最优化问题的常用方法，特别是在神经网络的学习中经常被使用。</p>
+<p><strong>梯度法求最小值的代码实现</strong>：</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="kw">def</span> gradient_descent(f, init_x, lr<span class="op">=</span><span class="fl">0.01</span>, step_num<span class="op">=</span><span class="dv">100</span>):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>    x <span class="op">=</span> init_x</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>    x_history <span class="op">=</span> []</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>    <span class="co"># lr = 0.1</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(step_num):</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>        x_history.append( x.copy() )</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>        grad <span class="op">=</span> numerical_gradient(f, x)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a>        x <span class="op">-=</span> lr <span class="op">*</span> grad     <span class="co"># 每次朝梯度方向前进，前进的步长会随着梯度的变小而变小</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a>    <span class="cf">return</span> x, np.array(x_history)</span></code></pre></div>
+<p><strong>学习率</strong><br />
+学习率过大或者过小都无法得到好的结果，学习率过大的话，会发散成一个很大的值；反过来，学习率过小的话，基本上没怎么更新就结束了</p>
+<p>像学习率这样的参数称为<strong>超参数</strong>。这是一种和神经网络的参数（权重和偏置）性质不同的参数。相对于神经网络的权重参数是通过训练数据和学习算法自动获得的，学习率这样的超参数则是<strong>人工设定的</strong>。一般来说，超参数需要尝试多个值，以便找到一种可以使学习顺利进行的设定。</p>
+<h3 id="神经网络的梯度">神经网络的梯度</h3>
+<p>神经网络的学习也要求梯度。这里所说的梯度是指<strong>损失函数</strong>关于<strong>权重参数</strong>的梯度</p>
+<p>代码实现：</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="kw">class</span> simpleNet:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a>        <span class="va">self</span>.W <span class="op">=</span> np.random.randn(<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a>    <span class="kw">def</span> predict(<span class="va">self</span>, x):</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a>        <span class="cf">return</span> np.dot(x, <span class="va">self</span>.W)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true"></a>    <span class="kw">def</span> loss(<span class="va">self</span>, x, t):</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true"></a>        z <span class="op">=</span> <span class="va">self</span>.predict(x)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true"></a>        y <span class="op">=</span> softmax(z)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true"></a>        loss <span class="op">=</span> cross_entropy_error(y, t)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true"></a>        <span class="cf">return</span> loss</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true"></a>x <span class="op">=</span> np.array([<span class="fl">0.6</span>, <span class="fl">0.9</span>])</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true"></a>t <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true"></a>net <span class="op">=</span> simpleNet()</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true"></a></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true"></a>f <span class="op">=</span> <span class="kw">lambda</span> w: net.loss(x, t)</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true"></a><span class="co"># 上面的lambda等同于下面的函数</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true"></a><span class="co"># def f(W):</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true"></a><span class="co">#    return net.loss(x, t)</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true"></a>dW <span class="op">=</span> numerical_gradient(f, net.W)  </span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true"></a><span class="bu">print</span>(dW)</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true"></a></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true"></a><span class="co"># 梯度下降，这样的下降只能找到极小值，不能找到最小值</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true"></a>net.W <span class="op">-=</span> <span class="fl">0.1</span><span class="op">*</span>dW</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true"></a>dW <span class="op">=</span> numerical_gradient(f, net.W)</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true"></a></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true"></a>net.W <span class="op">-=</span> <span class="fl">0.1</span><span class="op">*</span>dW</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true"></a>dW <span class="op">=</span> numerical_gradient(f, net.W)</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true"></a></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true"></a>net.W <span class="op">-=</span> <span class="fl">0.1</span><span class="op">*</span>dW</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true"></a>dW <span class="op">=</span> numerical_gradient(f, net.W)</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true"></a></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true"></a>net.W <span class="op">-=</span> <span class="fl">0.1</span><span class="op">*</span>dW</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true"></a>dW <span class="op">=</span> numerical_gradient(f, net.W)</span></code></pre></div>
+<p>上述的代码是求当输入值是x，目标值时t时，初始权重关于损失函数的梯度。</p>
+<h3 id="学习算法的实现">学习算法的实现</h3>
+<p>神经网络的学习分成下面4个步骤。<br />
+<strong>步骤1</strong>（mini-batch）<br />
+从训练数据中随机选出一部分数据，这部分数据称为mini-batch。我们的目标是减小mini-batch的损失函数的值。<br />
+<strong>步骤2</strong>（计算梯度）<br />
+为了减小mini-batch的损失函数的值，需要求出各个权重参数的梯度。梯度表示损失函数的值减小最多的方向。<br />
+<strong>步骤3</strong>（更新参数）<br />
+将权重参数沿梯度方向进行微小更新<br />
+<strong>步骤4</strong>（重复）<br />
+重复步骤1、步骤2、步骤3。</p>
+<p>这个方法通过梯度下降法更新参数，不过因为这里使用的数据是随机选择的mini batch数据，所以又称为<strong>随机梯度下降法</strong>（stochastic gradient descent）。随机梯度下降法一般由一个名为<strong>SGD</strong>的函数来实现</p>
+<p><strong>epoch</strong>是一个单位。一个epoch表示学习中所有训练数据均被使用过一次时的更新次数。比如，对于10000笔训练数据，用大小为100笔数据的mini-batch进行学习时，重复随机梯度下降法100次，所有的训练数据就都被“看过”了 。此时，100次就是一个epoch</p>
+<p>代码实现：</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="kw">class</span> TwoLayerNet:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, input_size, hidden_size, output_size, weight_init_std<span class="op">=</span><span class="fl">0.01</span>):</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>        <span class="co"># 初始化权重</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a>        <span class="va">self</span>.params <span class="op">=</span> {}</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>        <span class="va">self</span>.params[<span class="st">&#39;W1&#39;</span>] <span class="op">=</span> weight_init_std <span class="op">*</span> np.random.randn(input_size, hidden_size)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a>        <span class="va">self</span>.params[<span class="st">&#39;b1&#39;</span>] <span class="op">=</span> np.zeros(hidden_size)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a>        <span class="va">self</span>.params[<span class="st">&#39;W2&#39;</span>] <span class="op">=</span> weight_init_std <span class="op">*</span> np.random.randn(hidden_size, output_size)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a>        <span class="va">self</span>.params[<span class="st">&#39;b2&#39;</span>] <span class="op">=</span> np.zeros(output_size)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a>    <span class="kw">def</span> predict(<span class="va">self</span>, x):</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a>        W1, W2 <span class="op">=</span> <span class="va">self</span>.params[<span class="st">&#39;W1&#39;</span>], <span class="va">self</span>.params[<span class="st">&#39;W2&#39;</span>]</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a>        b1, b2 <span class="op">=</span> <span class="va">self</span>.params[<span class="st">&#39;b1&#39;</span>], <span class="va">self</span>.params[<span class="st">&#39;b2&#39;</span>]</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true"></a>    </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true"></a>        a1 <span class="op">=</span> np.dot(x, W1) <span class="op">+</span> b1</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true"></a>        z1 <span class="op">=</span> sigmoid(a1)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true"></a>        a2 <span class="op">=</span> np.dot(z1, W2) <span class="op">+</span> b2</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true"></a>        y <span class="op">=</span> softmax(a2)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true"></a>        </span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true"></a>        <span class="cf">return</span> y</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true"></a>        </span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true"></a>    <span class="co"># x:输入数据, t:监督数据</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true"></a>    <span class="kw">def</span> loss(<span class="va">self</span>, x, t):</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true"></a>        y <span class="op">=</span> <span class="va">self</span>.predict(x)</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true"></a>        </span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true"></a>        <span class="cf">return</span> cross_entropy_error(y, t)</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true"></a>    </span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true"></a>    <span class="kw">def</span> accuracy(<span class="va">self</span>, x, t):</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true"></a>        y <span class="op">=</span> <span class="va">self</span>.predict(x)</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true"></a>        y <span class="op">=</span> np.argmax(y, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true"></a>        t <span class="op">=</span> np.argmax(t, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true"></a>        </span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true"></a>        accuracy <span class="op">=</span> np.<span class="bu">sum</span>(y <span class="op">==</span> t) <span class="op">/</span> <span class="bu">float</span>(x.shape[<span class="dv">0</span>])</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true"></a>        <span class="cf">return</span> accuracy</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true"></a>        </span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true"></a>    <span class="co"># x:输入数据, t:监督数据</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true"></a>    <span class="kw">def</span> numerical_gradient(<span class="va">self</span>, x, t):</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true"></a>        loss_W <span class="op">=</span> <span class="kw">lambda</span> W: <span class="va">self</span>.loss(x, t)</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true"></a>        </span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true"></a>        grads <span class="op">=</span> {}</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true"></a>        grads[<span class="st">&#39;W1&#39;</span>] <span class="op">=</span> numerical_gradient(loss_W, <span class="va">self</span>.params[<span class="st">&#39;W1&#39;</span>])</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true"></a>        grads[<span class="st">&#39;b1&#39;</span>] <span class="op">=</span> numerical_gradient(loss_W, <span class="va">self</span>.params[<span class="st">&#39;b1&#39;</span>])</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true"></a>        grads[<span class="st">&#39;W2&#39;</span>] <span class="op">=</span> numerical_gradient(loss_W, <span class="va">self</span>.params[<span class="st">&#39;W2&#39;</span>])</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true"></a>        grads[<span class="st">&#39;b2&#39;</span>] <span class="op">=</span> numerical_gradient(loss_W, <span class="va">self</span>.params[<span class="st">&#39;b2&#39;</span>])</span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true"></a>        </span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true"></a>        <span class="cf">return</span> grads</span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true"></a>        </span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true"></a>    <span class="kw">def</span> gradient(<span class="va">self</span>, x, t):</span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true"></a>        W1, W2 <span class="op">=</span> <span class="va">self</span>.params[<span class="st">&#39;W1&#39;</span>], <span class="va">self</span>.params[<span class="st">&#39;W2&#39;</span>]</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true"></a>        b1, b2 <span class="op">=</span> <span class="va">self</span>.params[<span class="st">&#39;b1&#39;</span>], <span class="va">self</span>.params[<span class="st">&#39;b2&#39;</span>]</span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true"></a>        grads <span class="op">=</span> {}</span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true"></a>        </span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true"></a>        batch_num <span class="op">=</span> x.shape[<span class="dv">0</span>]</span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true"></a>        </span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true"></a>        <span class="co"># forward</span></span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true"></a>        a1 <span class="op">=</span> np.dot(x, W1) <span class="op">+</span> b1</span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true"></a>        z1 <span class="op">=</span> sigmoid(a1)</span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true"></a>        a2 <span class="op">=</span> np.dot(z1, W2) <span class="op">+</span> b2</span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true"></a>        y <span class="op">=</span> softmax(a2)</span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true"></a>        </span>
+<span id="cb14-61"><a href="#cb14-61" aria-hidden="true"></a>        <span class="co"># backward</span></span>
+<span id="cb14-62"><a href="#cb14-62" aria-hidden="true"></a>        dy <span class="op">=</span> (y <span class="op">-</span> t) <span class="op">/</span> batch_num</span>
+<span id="cb14-63"><a href="#cb14-63" aria-hidden="true"></a>        grads[<span class="st">&#39;W2&#39;</span>] <span class="op">=</span> np.dot(z1.T, dy)</span>
+<span id="cb14-64"><a href="#cb14-64" aria-hidden="true"></a>        grads[<span class="st">&#39;b2&#39;</span>] <span class="op">=</span> np.<span class="bu">sum</span>(dy, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb14-65"><a href="#cb14-65" aria-hidden="true"></a>        </span>
+<span id="cb14-66"><a href="#cb14-66" aria-hidden="true"></a>        da1 <span class="op">=</span> np.dot(dy, W2.T)</span>
+<span id="cb14-67"><a href="#cb14-67" aria-hidden="true"></a>        dz1 <span class="op">=</span> sigmoid_grad(a1) <span class="op">*</span> da1</span>
+<span id="cb14-68"><a href="#cb14-68" aria-hidden="true"></a>        grads[<span class="st">&#39;W1&#39;</span>] <span class="op">=</span> np.dot(x.T, dz1)</span>
+<span id="cb14-69"><a href="#cb14-69" aria-hidden="true"></a>        grads[<span class="st">&#39;b1&#39;</span>] <span class="op">=</span> np.<span class="bu">sum</span>(dz1, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb14-70"><a href="#cb14-70" aria-hidden="true"></a></span>
+<span id="cb14-71"><a href="#cb14-71" aria-hidden="true"></a>        <span class="cf">return</span> grads</span>
+<span id="cb14-72"><a href="#cb14-72" aria-hidden="true"></a></span>
+<span id="cb14-73"><a href="#cb14-73" aria-hidden="true"></a></span>
+<span id="cb14-74"><a href="#cb14-74" aria-hidden="true"></a><span class="co"># 读入数据</span></span>
+<span id="cb14-75"><a href="#cb14-75" aria-hidden="true"></a>(x_train, t_train), (x_test, t_test) <span class="op">=</span> load_mnist(normalize<span class="op">=</span><span class="va">True</span>, one_hot_label<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-76"><a href="#cb14-76" aria-hidden="true"></a></span>
+<span id="cb14-77"><a href="#cb14-77" aria-hidden="true"></a>network <span class="op">=</span> TwoLayerNet(input_size<span class="op">=</span><span class="dv">784</span>, hidden_size<span class="op">=</span><span class="dv">50</span>, output_size<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb14-78"><a href="#cb14-78" aria-hidden="true"></a></span>
+<span id="cb14-79"><a href="#cb14-79" aria-hidden="true"></a>iters_num <span class="op">=</span> <span class="dv">1000</span>  <span class="co"># 适当设定循环的次数</span></span>
+<span id="cb14-80"><a href="#cb14-80" aria-hidden="true"></a>train_size <span class="op">=</span> x_train.shape[<span class="dv">0</span>]</span>
+<span id="cb14-81"><a href="#cb14-81" aria-hidden="true"></a>batch_size <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb14-82"><a href="#cb14-82" aria-hidden="true"></a>learning_rate <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb14-83"><a href="#cb14-83" aria-hidden="true"></a></span>
+<span id="cb14-84"><a href="#cb14-84" aria-hidden="true"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(iters_num):</span>
+<span id="cb14-85"><a href="#cb14-85" aria-hidden="true"></a>    batch_mask <span class="op">=</span> np.random.choice(train_size, batch_size)</span>
+<span id="cb14-86"><a href="#cb14-86" aria-hidden="true"></a>    x_batch <span class="op">=</span> x_train[batch_mask]</span>
+<span id="cb14-87"><a href="#cb14-87" aria-hidden="true"></a>    t_batch <span class="op">=</span> t_train[batch_mask]</span>
+<span id="cb14-88"><a href="#cb14-88" aria-hidden="true"></a>    </span>
+<span id="cb14-89"><a href="#cb14-89" aria-hidden="true"></a>    <span class="co"># 计算梯度</span></span>
+<span id="cb14-90"><a href="#cb14-90" aria-hidden="true"></a>    <span class="co">#grad = network.numerical_gradient(x_batch, t_batch)</span></span>
+<span id="cb14-91"><a href="#cb14-91" aria-hidden="true"></a>    grad <span class="op">=</span> network.gradient(x_batch, t_batch)</span>
+<span id="cb14-92"><a href="#cb14-92" aria-hidden="true"></a>    </span>
+<span id="cb14-93"><a href="#cb14-93" aria-hidden="true"></a>    <span class="co"># 更新参数</span></span>
+<span id="cb14-94"><a href="#cb14-94" aria-hidden="true"></a>    <span class="cf">for</span> key <span class="kw">in</span> (<span class="st">&#39;W1&#39;</span>, <span class="st">&#39;b1&#39;</span>, <span class="st">&#39;W2&#39;</span>, <span class="st">&#39;b2&#39;</span>):</span>
+<span id="cb14-95"><a href="#cb14-95" aria-hidden="true"></a>        network.params[key] <span class="op">-=</span> learning_rate <span class="op">*</span> grad[key]</span></code></pre></div>
+<h2 id="第5章-误差反向传播法">第5章　误差反向传播法</h2>
+<p>本章希望大家通过计算图，直观地理解误差反向传播法<br />
+• 通过使用计算图，可以直观地把握计算过程。<br />
+• 计算图的节点是由局部计算构成的。局部计算构成全局计算。<br />
+• 计算图的正向传播进行一般的计算。通过计算图的反向传播，可以计算各个节点的<strong>导数</strong>。<br />
+• 通过将神经网络的组成元素实现为层，可以高效地计算梯度（反向传播法）。<br />
+• 通过比较数值微分和误差反向传播法的结果，可以确认误差反向传播法的实现是否正确（<strong>梯度确认</strong>）。</p>
+<h3 id="计算图">计算图</h3>
+<p>计算图将计算过程用图形表示出来<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207140346.png" alt="image.png" /></p>
+<h3 id="计算图的局部计算">计算图的局部计算</h3>
+<p>计算图的特征是可以通过传递“局部计算”获得最终结果。“局部”这个词的意思是“与自己相关的某个小范围”。局部计算是指，无论全局发生了什么，都能只根据与自己相关的信息输出接下来的结果。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207140453.png" alt="image.png" /><br />
+综上，计算图可以集中精力于局部计算。无论全局的计算有多么复杂，各个步骤所要做的就是对象节点的局部计算。虽然局部计算非常简单，但是通过传递它的计算结果，可以获得全局的复杂计算的结果。<br />
+另一个优点是，利用计算图可以将<strong>中间的计算结果</strong>全部保存起来<br />
+实际上，使用计算图最大的原因是，可以通过反向传播高效计算导数。</p>
+<h3 id="链式法则和计算图">链式法则和计算图</h3>
+<p>计算图的<strong>反向传播</strong>从右到左传播信号。反向传播的计算顺序是，先将节点的<strong>输入信号</strong>乘以节点的局部导数（偏导数），然后再传递给下一个节点。最右边的节点的输入信号为dz/dz = 1<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207141822.png" alt="image.png" /></p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207142016.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="层节点的实现">层/节点的实现</h3>
+<h4 id="乘法层和加法层">乘法层和加法层</h4>
+<p>这里我们把要实现的计算图的乘法节点称为“乘法层” （ MulLayer ），加法节点称为“加法层”（ AddLayer ）<br />
+层的实现中有两个共通的方法（接口） <code>forward()</code> 和 <code>backward()</code></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="kw">class</span> MulLayer:</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>        <span class="va">self</span>.x <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a>        <span class="va">self</span>.y <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x, y):</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a>        <span class="va">self</span>.y <span class="op">=</span> y                </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a>        out <span class="op">=</span> x <span class="op">*</span> y</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true"></a>        <span class="cf">return</span> out</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true"></a>    <span class="kw">def</span> backward(<span class="va">self</span>, dout):</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true"></a>        dx <span class="op">=</span> dout <span class="op">*</span> <span class="va">self</span>.y</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true"></a>        dy <span class="op">=</span> dout <span class="op">*</span> <span class="va">self</span>.x</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true"></a>        <span class="cf">return</span> dx, dy</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true"></a></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true"></a><span class="kw">class</span> AddLayer:</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true"></a>        <span class="cf">pass</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x, y):</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true"></a>        out <span class="op">=</span> x <span class="op">+</span> y</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true"></a></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true"></a>        <span class="cf">return</span> out</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true"></a></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true"></a>    <span class="kw">def</span> backward(<span class="va">self</span>, dout):</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true"></a>        dx <span class="op">=</span> dout <span class="op">*</span> <span class="dv">1</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true"></a>        dy <span class="op">=</span> dout <span class="op">*</span> <span class="dv">1</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true"></a></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true"></a>        <span class="cf">return</span> dx, dy</span></code></pre></div>
+<h4 id="激活函数层-relu层">激活函数层-ReLU层</h4>
+<p>当大于0时，反向传播时原样返回，小于等于0时不返回0</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="kw">class</span> Relu:</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a>        <span class="va">self</span>.mask <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a>        <span class="va">self</span>.mask <span class="op">=</span> (x <span class="op">&lt;=</span> <span class="dv">0</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true"></a>        out <span class="op">=</span> x.copy()</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true"></a>        out[<span class="va">self</span>.mask] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true"></a>        <span class="cf">return</span> out</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true"></a>    <span class="kw">def</span> backward(<span class="va">self</span>, dout):</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true"></a>        dout[<span class="va">self</span>.mask] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true"></a>        dx <span class="op">=</span> dout</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true"></a>        <span class="cf">return</span> dx</span></code></pre></div>
+<h4 id="激活函数层-sigmoid层">激活函数层-Sigmoid层</h4>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207145715.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="kw">class</span> Sigmoid:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>        <span class="va">self</span>.out <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a>        out <span class="op">=</span> sigmoid(x)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true"></a>        <span class="va">self</span>.out <span class="op">=</span> out</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true"></a>        <span class="cf">return</span> out</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true"></a>    <span class="kw">def</span> backward(<span class="va">self</span>, dout):</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true"></a>        dx <span class="op">=</span> dout <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">-</span> <span class="va">self</span>.out) <span class="op">*</span> <span class="va">self</span>.out</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true"></a>        <span class="cf">return</span> dx</span></code></pre></div>
+<h4 id="affine层">Affine层</h4>
+<p>神经网络的正向传播中，为了计算加权信号的总和，使用了矩阵的乘积运算。神经网络的正向传播中进行的矩阵的乘积运算在几何学领域被称为“<strong>仿射变换</strong>”。因此，这里将进行仿射变换的处理实现为“Affine层”。<br />
+几何中，仿射变换包括一次线性变换和一次平移，分别对应神经网络的加权和运算与加偏置运算。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207150536.png" alt="image.png" /></p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207151313.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207151423.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h4 id="批版本的affine层">批版本的Affine层</h4>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207151559.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>代码实现：</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="kw">class</span> Affine:</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, W, b):</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a>        <span class="va">self</span>.W <span class="op">=</span> W</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a>        <span class="va">self</span>.b <span class="op">=</span> b</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a>        <span class="va">self</span>.x <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a>        <span class="va">self</span>.dW <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true"></a>        <span class="va">self</span>.db <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true"></a>    </span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true"></a>        out <span class="op">=</span> np.dot(x, <span class="va">self</span>.W) <span class="op">+</span> <span class="va">self</span>.b</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true"></a>        <span class="cf">return</span> out</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true"></a>    </span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true"></a>    <span class="kw">def</span> backward(<span class="va">self</span>, dout):</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true"></a>        dx <span class="op">=</span> np.dot(dout, <span class="va">self</span>.W.T)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true"></a>        <span class="va">self</span>.dW <span class="op">=</span> np.dot(<span class="va">self</span>.x.T, dout)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true"></a>        <span class="va">self</span>.db <span class="op">=</span> np.<span class="bu">sum</span>(dout, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true"></a>        <span class="cf">return</span> dx</span></code></pre></div>
+<h4 id="softmax-with-loss层">Softmax-with-Loss层</h4>
+<p>softmax函数会将输入值正规化之后再输出<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207154222.png" alt="image.png" /><br />
+神经网络中进行的处理有推理（inference）和学习两个阶段。神经网络的<strong>推理</strong>通常不使用Softmax层。</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207154945.png" alt="image.png" /><br />
+Softmax层的反向传播得到了（y1 − t1 , y2 − t2 , y3 − t3 ）这样“漂亮”的结果。由于（y1 ,y2 ,y3 ）是Softmax层的<br />
+输出，（t1 , t2 , t3 ）是监督数据，所以（y1 − t1 ,y2 − t2 ,y3 − t3 ）是Softmax层的输出和教师标签的差分。神经网络的反向传播会把这个差分表示的误差传递给前面的层，这是神经网络学习中的重要性质</p>
+<p>使用交叉熵误差作为softmax函数的损失函数后，反向传播得到（y1 − t1 , y2 − t2 , y3 − t3 ）这样 “漂亮”的结果。实际上，这样“漂亮”的结果并不是偶然的，而是为了得到这样的结果，特意设计了交叉熵误差函数。回归问题中输出层使用“恒等函数”，损失函数使用“平方和误差”，也是出于同样的理由（3.5节）。也就是说，使用“平方和误差”作为“恒等函数”的损失函数，反向传播才能得到（y1 −t1 ,y2 − t2 , y3 − t3 ）这样“漂亮”的结果</p>
+<p>代码实现：</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="kw">class</span> SoftmaxWithLoss:</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a>        <span class="va">self</span>.loss <span class="op">=</span> <span class="va">None</span> <span class="co"># 损失</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a>        <span class="va">self</span>.y <span class="op">=</span> <span class="va">None</span> <span class="co"># softmax的输出</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true"></a>        <span class="va">self</span>.t <span class="op">=</span> <span class="va">None</span> <span class="co"># 监督数据（one-hot vector）</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true"></a>    </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x, t):</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true"></a>        <span class="va">self</span>.t <span class="op">=</span> t</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true"></a>        <span class="va">self</span>.y <span class="op">=</span> softmax(x)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true"></a>        <span class="va">self</span>.loss <span class="op">=</span> cross_entropy_error(<span class="va">self</span>.y, <span class="va">self</span>.t)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true"></a>        <span class="cf">return</span> <span class="va">self</span>.loss</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true"></a>    </span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true"></a>    <span class="kw">def</span> backward(<span class="va">self</span>, dout<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true"></a>        batch_size <span class="op">=</span> <span class="va">self</span>.t.shape[<span class="dv">0</span>]</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true"></a>        dx <span class="op">=</span> (<span class="va">self</span>.y <span class="op">-</span> <span class="va">self</span>.t) <span class="op">/</span> batch_size</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true"></a>        <span class="cf">return</span> dx</span></code></pre></div>
+<h3 id="误差反向传播法的实现">误差反向传播法的实现</h3>
+<p>代码实现：</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="co"># coding: utf-8</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a><span class="im">import</span> sys, os</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a>sys.path.append(os.pardir)  <span class="co"># 为了导入父目录的文件而进行的设定</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true"></a><span class="im">from</span> common.layers <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true"></a><span class="im">from</span> common.gradient <span class="im">import</span> numerical_gradient</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true"></a><span class="im">from</span> collections <span class="im">import</span> OrderedDict</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true"></a><span class="kw">class</span> TwoLayerNet:</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, input_size, hidden_size, output_size, weight_init_std <span class="op">=</span> <span class="fl">0.01</span>):</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true"></a>        <span class="co"># 初始化权重</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true"></a>        <span class="va">self</span>.params <span class="op">=</span> {}</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true"></a>        <span class="va">self</span>.params[<span class="st">&#39;W1&#39;</span>] <span class="op">=</span> weight_init_std <span class="op">*</span> np.random.randn(input_size, hidden_size)</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true"></a>        <span class="va">self</span>.params[<span class="st">&#39;b1&#39;</span>] <span class="op">=</span> np.zeros(hidden_size)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true"></a>        <span class="va">self</span>.params[<span class="st">&#39;W2&#39;</span>] <span class="op">=</span> weight_init_std <span class="op">*</span> np.random.randn(hidden_size, output_size) </span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true"></a>        <span class="va">self</span>.params[<span class="st">&#39;b2&#39;</span>] <span class="op">=</span> np.zeros(output_size)</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true"></a></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true"></a>        <span class="co"># 生成层</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true"></a>        <span class="va">self</span>.layers <span class="op">=</span> OrderedDict()  <span class="co">#  OrderedDict 有序字典，“有序”是指它可以记住向字典里添加元素的顺序</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true"></a>        <span class="va">self</span>.layers[<span class="st">&#39;Affine1&#39;</span>] <span class="op">=</span> Affine(<span class="va">self</span>.params[<span class="st">&#39;W1&#39;</span>], <span class="va">self</span>.params[<span class="st">&#39;b1&#39;</span>])</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true"></a>        <span class="va">self</span>.layers[<span class="st">&#39;Relu1&#39;</span>] <span class="op">=</span> Relu()</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true"></a>        <span class="va">self</span>.layers[<span class="st">&#39;Affine2&#39;</span>] <span class="op">=</span> Affine(<span class="va">self</span>.params[<span class="st">&#39;W2&#39;</span>], <span class="va">self</span>.params[<span class="st">&#39;b2&#39;</span>])</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true"></a></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true"></a>        <span class="va">self</span>.lastLayer <span class="op">=</span> SoftmaxWithLoss()</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true"></a>        </span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true"></a>    <span class="kw">def</span> predict(<span class="va">self</span>, x):</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true"></a>        <span class="cf">for</span> layer <span class="kw">in</span> <span class="va">self</span>.layers.values():</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true"></a>            x <span class="op">=</span> layer.forward(x)</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true"></a>        </span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true"></a>        <span class="cf">return</span> x</span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true"></a>        </span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true"></a>    <span class="co"># x:输入数据, t:监督数据</span></span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true"></a>    <span class="kw">def</span> loss(<span class="va">self</span>, x, t):</span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true"></a>        y <span class="op">=</span> <span class="va">self</span>.predict(x)</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true"></a>        <span class="cf">return</span> <span class="va">self</span>.lastLayer.forward(y, t)</span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true"></a>    </span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true"></a>    <span class="kw">def</span> accuracy(<span class="va">self</span>, x, t):</span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true"></a>        y <span class="op">=</span> <span class="va">self</span>.predict(x)</span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true"></a>        y <span class="op">=</span> np.argmax(y, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true"></a>        <span class="cf">if</span> t.ndim <span class="op">!=</span> <span class="dv">1</span> : t <span class="op">=</span> np.argmax(t, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true"></a>        </span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true"></a>        accuracy <span class="op">=</span> np.<span class="bu">sum</span>(y <span class="op">==</span> t) <span class="op">/</span> <span class="bu">float</span>(x.shape[<span class="dv">0</span>])</span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true"></a>        <span class="cf">return</span> accuracy</span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true"></a></span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true"></a>    <span class="kw">def</span> gradient(<span class="va">self</span>, x, t):</span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true"></a>        <span class="co"># forward</span></span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true"></a>        <span class="va">self</span>.loss(x, t)</span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true"></a></span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true"></a>        <span class="co"># backward</span></span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true"></a>        dout <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb20-53"><a href="#cb20-53" aria-hidden="true"></a>        dout <span class="op">=</span> <span class="va">self</span>.lastLayer.backward(dout)</span>
+<span id="cb20-54"><a href="#cb20-54" aria-hidden="true"></a>        </span>
+<span id="cb20-55"><a href="#cb20-55" aria-hidden="true"></a>        layers <span class="op">=</span> <span class="bu">list</span>(<span class="va">self</span>.layers.values())</span>
+<span id="cb20-56"><a href="#cb20-56" aria-hidden="true"></a>        layers.reverse()</span>
+<span id="cb20-57"><a href="#cb20-57" aria-hidden="true"></a>        <span class="cf">for</span> layer <span class="kw">in</span> layers:</span>
+<span id="cb20-58"><a href="#cb20-58" aria-hidden="true"></a>            dout <span class="op">=</span> layer.backward(dout)</span>
+<span id="cb20-59"><a href="#cb20-59" aria-hidden="true"></a></span>
+<span id="cb20-60"><a href="#cb20-60" aria-hidden="true"></a>        <span class="co"># 设定</span></span>
+<span id="cb20-61"><a href="#cb20-61" aria-hidden="true"></a>        grads <span class="op">=</span> {}</span>
+<span id="cb20-62"><a href="#cb20-62" aria-hidden="true"></a>        grads[<span class="st">&#39;W1&#39;</span>], grads[<span class="st">&#39;b1&#39;</span>] <span class="op">=</span> <span class="va">self</span>.layers[<span class="st">&#39;Affine1&#39;</span>].dW, <span class="va">self</span>.layers[<span class="st">&#39;Affine1&#39;</span>].db</span>
+<span id="cb20-63"><a href="#cb20-63" aria-hidden="true"></a>        grads[<span class="st">&#39;W2&#39;</span>], grads[<span class="st">&#39;b2&#39;</span>] <span class="op">=</span> <span class="va">self</span>.layers[<span class="st">&#39;Affine2&#39;</span>].dW, <span class="va">self</span>.layers[<span class="st">&#39;Affine2&#39;</span>].db</span>
+<span id="cb20-64"><a href="#cb20-64" aria-hidden="true"></a></span>
+<span id="cb20-65"><a href="#cb20-65" aria-hidden="true"></a>        <span class="cf">return</span> grads</span></code></pre></div>
+<p>像这样通过将神经网络的<strong>组成元素以层的方式</strong>实现，可以轻松地构建神经网络。这个用层进行模块化的实现具有很大优点。因为想另外构建一个神经网络（比如5层、10层、20层……的大的神经网络）时，只需像组装乐高积木那样添加必要的层就可以了。之后，通过各个层内部实现的正向传播和反向传播，就可以正确计算进行识别处理或学习所需的梯度。</p>
+<h3 id="误差反向传播法的梯度确认">误差反向传播法的梯度确认</h3>
+<p>到目前为止，我们介绍了两种求梯度的方法。一种是基于数值微分的方法，另一种是解析性地求解数学式的方法。后一种方法通过使用误差反向传播法，即使存在大量的参数，也可以高效地计算梯度。</p>
+<p>数值微分的优点是<strong>实现简单</strong>，因此，一般情况下<strong>不太容易出错</strong>。而误差反向传播法的实现很复杂，容易出错。所以，经常会比较数值微分的结果和误差反向传播法的结果，以确认误差反向传播法的实现是否正确。确认数值微分求出的梯度结果和误差反向传播法求出的结果是否一致（严格地讲，是非常相近）的操作称为<strong>梯度确认（gradient check）</strong>。</p>
+<p><strong>代码实现</strong>：</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="co"># 读入数据</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a>(x_train, t_train), (x_test, t_test) <span class="op">=</span> load_mnist(normalize<span class="op">=</span><span class="va">True</span>, one_hot_label<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a>network <span class="op">=</span> TwoLayerNet(input_size<span class="op">=</span><span class="dv">784</span>, hidden_size<span class="op">=</span><span class="dv">50</span>, output_size<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true"></a>x_batch <span class="op">=</span> x_train[:<span class="dv">3</span>]</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true"></a>t_batch <span class="op">=</span> t_train[:<span class="dv">3</span>]</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true"></a>grad_numerical <span class="op">=</span> network.numerical_gradient(x_batch, t_batch)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true"></a>grad_backprop <span class="op">=</span> network.gradient(x_batch, t_batch)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true"></a><span class="cf">for</span> key <span class="kw">in</span> grad_numerical.keys():</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true"></a>    diff <span class="op">=</span> np.average( np.<span class="bu">abs</span>(grad_backprop[key] <span class="op">-</span> grad_numerical[key]) )</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true"></a>    <span class="bu">print</span>(key <span class="op">+</span> <span class="st">&quot;:&quot;</span> <span class="op">+</span> <span class="bu">str</span>(diff))</span></code></pre></div>
+<h2 id="第6章-与学习相关的技巧">第6章　与学习相关的技巧</h2>
+<p>本章介绍了神经网络的学习中的几个重要技巧。参数的更新方法、权重初始值的赋值方法、Batch Normalization、Dropout等，这些都是现代神经网络中不可或缺的技术。另外，这里介绍的技巧，在最先进的深度学习中也被频繁使用。</p>
+<p>• 参数的更新方法，除了SGD之外，还有Momentum、AdaGrad、Adam等方法。<br />
+• 权重初始值的赋值方法对进行正确的学习非常重要。<br />
+• 作为权重初始值，Xavier初始值、He初始值等比较有效。<br />
+• 通过使用Batch Normalization，可以加速学习，并且对初始值变得健壮。<br />
+• 抑制过拟合的正则化技术有权值衰减、Dropout等。<br />
+• 逐渐缩小“好值”存在的范围是搜索超参数的一个有效方法。</p>
+<h3 id="参数的更新">参数的更新</h3>
+<h4 id="sgd">SGD</h4>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a><span class="kw">class</span> SGD:</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;随机梯度下降法（Stochastic Gradient Descent）&quot;&quot;&quot;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, lr<span class="op">=</span><span class="fl">0.01</span>):</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true"></a>        <span class="va">self</span>.lr <span class="op">=</span> lr</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true"></a>        </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true"></a>    <span class="kw">def</span> update(<span class="va">self</span>, params, grads):</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true"></a>        <span class="cf">for</span> key <span class="kw">in</span> params.keys():</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true"></a>            params[key] <span class="op">-=</span> <span class="va">self</span>.lr <span class="op">*</span> grads[key] </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true"></a>network <span class="op">=</span> TwoLayerNet(...)</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true"></a>optimizer <span class="op">=</span> SGD()    <span class="co"># optimizer可以进行策略的替换</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true"></a></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>):</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true"></a>    ...</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true"></a>    x_batch, t_batch <span class="op">=</span> get_mini_batch(...) <span class="co"># mini-batch</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true"></a>    grads <span class="op">=</span> network.gradient(x_batch, t_batch)</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true"></a>    params <span class="op">=</span> network.params</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true"></a>    optimizer.update(params, grads)</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true"></a>    ...</span></code></pre></div>
+<p>SGD的缺点<br />
+Momentum<br />
+AdaGrad<br />
+Adam<br />
+使用哪种更新方法呢<br />
+基于MNIST数据集的更新方法的比较</p>
+<p>6.2　权重的初始值<br />
+可以将权重初始值设为0吗<br />
+隐藏层的激活值的分布<br />
+ReLU的权重初始值<br />
+基于MNIST数据集的权重初始值的比较<br />
+6.3　Batch Normalization<br />
+Batch Normalization的算法<br />
+Batch Normalization的评估<br />
+6.4　正则化<br />
+过拟合<br />
+权值衰减<br />
+Dropout<br />
+6.5　超参数的验证<br />
+验证数据<br />
+超参数的最优化<br />
+超参数最优化的实现</p>
+<h2 id="第7章-卷积神经网络">第7章　卷积神经网络</h2>
+<p>7.1　整体结构<br />
+7.2　卷积层<br />
+全连接层存在的问题<br />
+卷积运算<br />
+填充<br />
+步幅<br />
+3维数据的卷积运算<br />
+结合方块思考<br />
+批处理<br />
+7.3　池化层<br />
+7.4　卷积层和池化层的实现<br />
+4维数组<br />
+基于im2col的展开<br />
+卷积层的实现<br />
+池化层的实现<br />
+7.5　CNN的实现<br />
+7.6　CNN的可视化<br />
+第1层权重的可视化<br />
+基于分层结构的信息提取<br />
+7.7　具有代表性的CNN<br />
+LeNet<br />
+AlexNet</p>
+<h2 id="第8章-深度学习-260">第8章　深度学习 260</h2>
+<p>8.1　加深网络<br />
+向更深的网络出发<br />
+进一步提高识别精度<br />
+加深层的动机<br />
+8.2　深度学习的小历史<br />
+ImageNet<br />
+VGG<br />
+GoogLeNet<br />
+ResNet<br />
+8.3　深度学习的高速化<br />
+需要努力解决的问题<br />
+基于GPU的高速化<br />
+分布式学习<br />
+运算精度的位数缩减<br />
+8.4　深度学习的应用案例<br />
+物体检测<br />
+图像分割<br />
+图像标题的生成<br />
+8.5　深度学习的未来<br />
+图像风格变换<br />
+图像的生成 285<br />
+自动驾驶<br />
+Deep Q-Network（强化学习）</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

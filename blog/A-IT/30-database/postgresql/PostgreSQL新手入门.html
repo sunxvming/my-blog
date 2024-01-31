@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/30-database/postgresql/PostgreSQL新手入门</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#创建新表">创建新表</a></li>
+<li><a href="#插入数据">插入数据</a></li>
+<li><a href="#选择记录">选择记录</a></li>
+<li><a href="#更新数据">更新数据</a></li>
+<li><a href="#删除记录">删除记录</a></li>
+<li><a href="#添加栏位">添加栏位</a></li>
+<li><a href="#更新结构">更新结构</a></li>
+<li><a href="#更名栏位">更名栏位</a></li>
+<li><a href="#删除栏位">删除栏位</a></li>
+<li><a href="#表格更名">表格更名</a></li>
+<li><a href="#删除表格">删除表格</a></li>
+<li><a href="#su---postgres">su - postgres</a></li>
+<li><a href="#安装postgres">安装postgres</a></li>
+<li><a href="#w-加上这个参数可以设置密码-postgres">-W 加上这个参数可以设置密码 postgres</a></li>
+<li><a href="#再回到root用户">再回到root用户</a>
+<ul>
+<li><a href="#创建数据库错误">创建数据库错误</a>
+<ul>
+<li><a href="#方法一指定不同的模板数据库">方法一：指定不同的模板数据库</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>自从MySQL被Oracle收购以后，PostgreSQL逐渐成为开源关系型数据库的首选。<br />
+本文介绍PostgreSQL的安装和基本用法，供初次使用者上手。以下内容基于Debian操作系统，其他操作系统实在没有精力兼顾，但是大部分内容应该普遍适用。<br />
+postgresql<br />
+一、安装<br />
+首先，安装PostgreSQL客户端。<br />
+sudo apt-get install postgresql-client<br />
+然后，安装PostgreSQL服务器。<br />
+sudo apt-get install postgresql<br />
+正常情况下，安装完成后，PostgreSQL服务器会自动在本机的5432端口开启。</p>
+<p>二、添加新用户和新数据库<br />
+初次安装后，默认生成一个名为postgres的数据库和一个名为postgres的数据库用户。这里需要注意的是，同时还生成了一个名为postgres的Linux系统用户。<br />
+下面，我们使用postgres用户，来生成其他用户和新数据库。好几种方法可以达到这个目的，这里介绍两种。<br />
+第一种方法，使用PostgreSQL控制台。<br />
+首先，新建一个Linux新用户，可以取你想要的名字，这里为dbuser。<br />
+sudo adduser dbuser<br />
+然后，切换到postgres用户。<br />
+sudo su - postgres<br />
+下一步，使用psql命令登录PostgreSQL控制台。<br />
+psql<br />
+这时相当于系统用户postgres以同名数据库用户的身份，登录数据库，这是不用输入密码的。如果一切正常，系统提示符会变为"postgres=#"，表示这时已经进入了数据库控制台。以下的命令都在控制台内完成。<br />
+第一件事是使用\password命令，为postgres用户设置一个密码。<br />
+\password postgres<br />
+第二件事是创建数据库用户dbuser（刚才创建的是Linux系统用户），并设置密码。<br />
+CREATE USER dbuser WITH PASSWORD 'password';<br />
+第三件事是创建用户数据库，这里为exampledb，并指定所有者为dbuser。<br />
+CREATE DATABASE exampledb OWNER dbuser;<br />
+第四件事是将exampledb数据库的所有权限都赋予dbuser，否则dbuser只能登录控制台，没有任何数据库操作权限。<br />
+GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;<br />
+最后，使用\q命令退出控制台（也可以直接按ctrl+D）。<br />
+\q<br />
+第二种方法，使用shell命令行。<br />
+添加新用户和新数据库，除了在PostgreSQL控制台内，还可以在shell命令行下完成。这是因为PostgreSQL提供了命令行程序createuser和createdb。还是以新建用户dbuser和数据库exampledb为例。<br />
+首先，创建数据库用户dbuser，并指定其为超级用户。<br />
+sudo -u postgres createuser --superuser dbuser<br />
+然后，登录数据库控制台，设置dbuser用户的密码，完成后退出控制台。<br />
+sudo -u postgres psql<br />
+\password dbuser<br />
+\q<br />
+接着，在shell命令行下，创建数据库exampledb，并指定所有者为dbuser。<br />
+sudo -u postgres createdb -O dbuser exampledb<br />
+三、登录数据库<br />
+添加新用户和新数据库以后，就要以新用户的名义登录数据库，这时使用的是psql命令。<br />
+psql -U dbuser -d exampledb -h 127.0.0.1 -p 5432</p>
+<p>简写形式，如果当前Linux系统用户，同时也是PostgreSQL用户，则可以省略用户名（-U参数的部分）。举例来说，我的Linux系统用户名为ruanyf，且PostgreSQL数据库存在同名用户，则我以ruanyf身份登录Linux系统后，可以直接使用下面的命令登录数据库，且不需要密码。<br />
+psql exampledb<br />
+此时，如果PostgreSQL内部还存在与当前系统用户同名的数据库，则连数据库名都可以省略。比如，假定存在一个叫做ruanyf的数据库，则直接键入psql就可以登录该数据库。<br />
+【数据库导入】<br />
+psql exampledb &lt; exampledb.sql<br />
+四、控制台命令<br />
+除了前面已经用到的\password命令（设置密码）和\q命令（退出）以外，控制台还提供一系列其他命令。<br />
+\h：查看SQL命令的解释，比如\h select。<br />
+?：查看psql命令列表。<br />
+\l：列出所有数据库。<br />
+\c [database_name]：连接其他数据库。<br />
+\d：列出当前数据库的所有表格。<br />
+\d [table_name]：列出某一张表格的结构。<br />
+\dt show tables 数据数据库名就可以切换数据库<br />
+\du：列出所有用户。<br />
+\e：打开文本编辑器。<br />
+\conninfo：列出当前数据库和连接的信息。<br />
+五、数据库操作</p>
+<h1 id="创建新表">创建新表</h1>
+<p>CREATE TABLE user_tbl(name VARCHAR(20), signup_date DATE);</p>
+<h1 id="插入数据">插入数据</h1>
+<p>INSERT INTO user_tbl(name, signup_date) VALUES('张三', '2013-12-22');</p>
+<h1 id="选择记录">选择记录</h1>
+<p>SELECT * FROM user_tbl;</p>
+<h1 id="更新数据">更新数据</h1>
+<p>UPDATE user_tbl set name = '李四' WHERE name = '张三';</p>
+<h1 id="删除记录">删除记录</h1>
+<p>DELETE FROM user_tbl WHERE name = '李四' ;</p>
+<h1 id="添加栏位">添加栏位</h1>
+<p>ALTER TABLE user_tbl ADD email VARCHAR(40);</p>
+<h1 id="更新结构">更新结构</h1>
+<p>ALTER TABLE user_tbl ALTER COLUMN signup_date SET NOT NULL;</p>
+<h1 id="更名栏位">更名栏位</h1>
+<p>ALTER TABLE user_tbl RENAME COLUMN signup_date TO signup;</p>
+<h1 id="删除栏位">删除栏位</h1>
+<p>ALTER TABLE user_tbl DROP COLUMN email;</p>
+<h1 id="表格更名">表格更名</h1>
+<p>ALTER TABLE user_tbl RENAME TO backup_tbl;</p>
+<h1 id="删除表格">删除表格</h1>
+<p>DROP TABLE IF EXISTS backup_tbl;</p>
+<p>ps aux | grep postgres<br />
+netstat -npl | grep postgres<br />
+重启命令：</p>
+<h1 id="su---postgres">su - postgres</h1>
+<p>$pg_ctl restart<br />
+sudo -u postgres psql 登录pg时得用postgres用户<br />
+connect to PostgreSQL server: FATAL: no pg_hba.conf entry for host "4X.XXX.XX.XXX", user "userXXX", database "dbXXX",<br />
+postgresql.conf listen_addresses = '*'<br />
+pg_hba.conf host all all 0.0.0.0/0 md5<br />
+需重启</p>
+<p>【导数据】<br />
+\o /data/account.csv \f ',' 逗号分隔 \a Output format is unaligned \t Showing only tuples.</p>
+<p>select * from account where server_id = 18;<br />
+psql -h 127.0.0.1 -p 5432 -U sm -Atc "select (year, month, day, hour, min, sec)::text from bigtime where serverid=99997" sm99997</p>
+<p>echo "select * from player" | psql -X -U sm -At -F ' ' sm99997<br />
+echo "select 'select sequence_name,last_value from '|| relname||';' FROM pg_class c where c.relkind='S' order by relname" | psql -U sm -At -F ' ' sm99997</p>
+<p>psql - U sm -Atc "select ver from version where serverid=99997" sm99997</p>
+<p>psql -U sm -d sm99997</p>
+<p>sh m.sh 127.0.0.1:5432,99997 127.0.0.1:5432,99999</p>
+<p>PGPASSWORD= psql -U postgres -c "insert into version values(-1, false, 0)" sm99997</p>
+<p>-X 的参数是去掉命令行的提示</p>
+<p>SELECT FROM table_name<br />
+WHERE column LIKE 'XXXX%' %代表0个或多个 _代表一个任意的字符</p>
+<p>select sequence_name,last_value from advisorids;<br />
+取出并设置下一个seq select nextval('advisorids');</p>
+<p>命令行设置默认密码的，查找 在客户端设置.pgpass密码文件，Windows上是pgpass<br />
+127.0.0.1:5432:<em>:postgres:postgres<br />
+localhost:5432:</em>:postgres:postgres</p>
+<p>【安装】</p>
+<h1 id="安装postgres">安装postgres</h1>
+<p>yum install -y http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-redhat94-9.4-2.noarch.rpm<br />
+yum -y install postgresql94-server postgresql94-contrib postgresql94-devel postgresql94-client<br />
+mkdir -p /data/postgresql/<br />
+chown postgres /data/postgresql/<br />
+su postgres</p>
+<h1 id="w-加上这个参数可以设置密码-postgres">-W 加上这个参数可以设置密码 postgres</h1>
+<p>/usr/pgsql-9.4/bin/initdb --locale=C -E UTF8 -D /data/postgresql -W --auth=md5 --auth-host=md5 --auth-local=md5</p>
+<h1 id="再回到root用户">再回到root用户</h1>
+<p>exit</p>
+<p>1:配置并启动数据库<br />
+vim /data/postgresql/pg_hba.conf<br />
+本地连数据库不限制用户，限制远程访问数据库的IP，用户和数据库<br />
+# "local" is for Unix domain socket connections only<br />
+local all all trust<br />
+# IPv4 local connections:<br />
+host all all 127.0.0.1/32 md5<br />
+# IPv6 local connections:<br />
+host all all ::1/128 md5<br />
+# backend ip connections:<br />
+host databk databk 120.132.58.71/32 md5<br />
+host databk databk 106.75.192.3/32 md5</p>
+<p>vim /data/postgresql/postgresql.conf<br />
+listen_addresses = '*'<br />
+启动数据库<br />
+su postgres<br />
+启动数据库 /usr/pgsql-9.4/bin/pg_ctl -D /data/postgresql start<br />
+关闭数据库 /usr/pgsql-9.4/bin/pg_ctl -D /data/postgresql stop</p>
+<p>service postgresql-9.4 start 这种启动方式postgres设置了密码也无效</p>
+<p>修改密码<br />
+sudo -u postgres psql<br />
+ALTER USER postgres WITH PASSWORD 'postgres';</p>
+<p>psql -U rise -d rise90001</p>
+<h2 id="创建数据库错误">创建数据库错误</h2>
+<pre><code>postgres  create database rise00001 owner rise lc_collate &#39;C&#39; encoding &#39;UTF8&#39;</code></pre>
+<pre><code>sql error: S错误~C22023~M新的排序规则(C)与模版数据库(Chinese (Simplified)_China.936)中的排序规则不兼容~H 在模版数据库中使用同一排序规则，或者使用template0作为模版.~Fsrc\backend\commands\dbcommands.c~L366~Rcreatedb~</code></pre>
+<p>这个错误提示表明你尝试创建的数据库使用的排序规则与模板数据库（通常是默认的模板数据库）的排序规则不兼容。在 PostgreSQL 中，新建数据库默认会继承模板数据库的属性，包括排序规则和字符集等。但是，如果模板数据库的排序规则与你尝试创建的数据库所设定的不同，就会导致这个错误。</p>
+<p>解决这个问题的方法有两种：</p>
+<h3 id="方法一指定不同的模板数据库">方法一：指定不同的模板数据库</h3>
+<p>在创建数据库时，可以使用不同的模板数据库来避免继承其排序规则。通常，可以使用 <code>template0</code> 作为模板数据库，因为它是一个干净的模板，没有设定特定的排序规则。以下是一个示例：</p>
+<pre><code>CREATE DATABASE rise00001
+  WITH OWNER = rise
+       LC_COLLATE = &#39;C&#39;
+       LC_CTYPE = &#39;C&#39;
+       ENCODING = &#39;UTF8&#39;
+       TEMPLATE = template0;</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

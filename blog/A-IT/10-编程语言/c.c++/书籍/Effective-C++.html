@@ -1,0 +1,1230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/书籍/Effective-C++</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#一让自己习惯c-accustoming-yourself-to-c-11">一、让自己习惯C++ (Accustoming Yourself to C++ 11)</a></li>
+<li><a href="#二构造析构赋值运算-constructors-destructors-and-assignment-operators">二、构造/析构/赋值运算 (Constructors, Destructors, and Assignment Operators)</a></li>
+<li><a href="#三资源管理-resource-management">三、资源管理 (Resource Management)</a></li>
+<li><a href="#四设计与声明-designs-and-declarations">四、设计与声明 (Designs and Declarations)</a></li>
+<li><a href="#五实现-implementations">五、实现 (Implementations)</a></li>
+<li><a href="#六继承与面向对象设计-inheritance-and-object-oriented-design">六、继承与面向对象设计 (Inheritance and Object-Oriented Design)</a></li>
+<li><a href="#七模板与泛型编程-templates-and-generic-programming">七、模板与泛型编程 (Templates and Generic Programming)</a></li>
+<li><a href="#八定制new和delete-customizing-new-and-delete">八、定制new和delete (Customizing new and delete)</a></li>
+<li><a href="#杂项讨论-miscellany">杂项讨论 (Miscellany)</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>一、让自己习惯C++ (Accustoming Yourself to C++ 11)<br />
+1. 视C++ 为一个语言联邦 （View C++ as a federation of languages )<br />
+2. 尽量以const, enum, inline替换<code>#defines</code>（Prefer consts,enums, and inlines to <code>#defines</code>.)<br />
+3. 尽可能使用const（Use const whenever possible.)<br />
+4. 确定对象被使用前已先被初始化（Make sure that objects are initialized before they're used.)</p>
+<p>二、构造/析构/赋值运算 (Constructors, Destructors, and Assignment Operators)<br />
+5. 了解C++ 那些自动生成和调用的函数（Know what functions C++ silently writes and calls.)<br />
+6. 若不想使用编译器自动生成的函数，就该明确拒绝（Explicitly disallow the use of compiler-generated functions you do not want.)<br />
+7. 为多态基类声明virtual析构函数（Declare destructors virtual in polymorphic base classes.)<br />
+8. 别让异常逃离析构函数（Prevent exceptions from leaving destructors.)<br />
+9. 绝不在构造和析构过程中调用virtual函数（Never call virtual functions during construction or destruction.)<br />
+10. 令operator= 返回一个reference to <code>*this</code> （Have assignment operators return a reference to <code>*this</code>.）<br />
+11. 在operator= 中处理“自我赋值” （Handle assignment to self in operator=)<br />
+12. 复制对象时勿忘其每一个成分 （Copy all parts of an object)</p>
+<p>三、资源管理 (Resource Management)<br />
+13. 以对象管理资源 （Use objects to manage resources)<br />
+14. 在资源管理类中小心coping行为 （Think carefully about copying behavior in resource-managing classes)<br />
+15. 在资源管理类中提供对原始资源的访问（Provide access to raw resources in resource-managing classes)<br />
+16. 成对使用new和delete时要采取相同形式 （Use the same form in corresponding uses of new and delete)<br />
+17. 以独立语句将newed对象置入智能指针 （Store newed objects in smart pointers in standalone statements)</p>
+<p>四、设计与声明 (Designs and Declarations)<br />
+18. 让接口容易被正确使用，不易被误用 （Make interfaces easy to use correctly and hard to use incorrectly)<br />
+19. 设计class犹如设计type （Treat class design as type design)<br />
+20. 以pass-by-reference-to-const替换pass-by-value （Prefer pass-by-reference-to-const to pass-by-value)<br />
+21. 必须返回对象时，别妄想返回其reference （Don't try to return a reference when you must return an object)<br />
+22. 将成员变量声明为private （Declare data members private)<br />
+23. 以non-member、non-friend替换member函数 （Prefer non-member non-friend functions to member functions)<br />
+24. 若所有参数皆需类型转换，请为此采用non-member函数 （Declare non-member functions when type conversions should apply to all parameters)<br />
+25. 考虑写出一个不抛异常的swap函数 （Consider support for a non-throwing swap)</p>
+<p>五、实现 (Implementations)<br />
+26. 尽可能延后变量定义式的出现时间 （Postpone variable definitions as long as possible)<br />
+27. 尽量不要进行强制类型转换 （Minimize casting)<br />
+28. 避免返回handles指向对象内部成分 （Avoid returning "handles" to object internals)<br />
+29. 为“异常安全”而努力是值得的 （Strive for exception-safe code)<br />
+30. 透彻了解inlining （Understand the ins and outs of inlining)<br />
+31. 将文件间的编译依存关系降至最低 （Minimize compilation dependencies between files)</p>
+<p>六、继承与面向对象设计 (Inheritance and Object-Oriented Design)<br />
+32. 确定你的public继承塑模出is-a关系 （Make sure public inheritance models "is-a.")<br />
+33. 避免遮掩继承而来的名称 （Avoid hiding inherited names)<br />
+34. 区分接口继承和实现继承 （Differentiate between inheritance of interface and inheritance of implementation)<br />
+35. 考虑virtual函数以外的其他选择 （Consider alternatives to virtual functions)<br />
+36. 绝不重新定义继承而来的non-virtual函数 （Never redefine an inherited non-virtual function)<br />
+37. 绝不重新定义继承而来的缺省参数值 （Never redefine a function's inherited default parameter value)<br />
+38. 通过复合塑模出has-a或"根据某物实现出" （Model "has-a" or "is-implemented-in-terms-of" through composition)<br />
+39. 明智而审慎地使用private继承 （Use private inheritance judiciously)<br />
+40. 明智而审慎地使用多重继承 （Use multiple inheritance judiciously)</p>
+<p>七、模板与泛型编程 (Templates and Generic Programming)<br />
+41. 了解隐式接口和编译期多态 （Understand implicit interfaces and compile-time polymorphism)<br />
+42. 了解typename的双重意义 （Understand the two meanings of typename)<br />
+43. 学习处理模板化基类内的名称 （Know how to access names in templatized base classes)<br />
+44. 将与参数无关的代码抽离templates （Factor parameter-independent code out of templates)<br />
+45. 运用成员函数模板接受所有兼容类型 （Use member function templates to accept "all compatible types.")<br />
+46. 需要类型转换时请为模板定义非成员函数 （Define non-member functions inside templates when type conversions are desired)<br />
+47. 请使用traits classes表现类型信息 （Use traits classes for information about types)<br />
+48. 认识template元编程 （Be aware of template metaprogramming)</p>
+<p>八、定制new和delete (Customizing new and delete)<br />
+49. 了解new-handler的行为 （Understand the behavior of the new-handler)<br />
+50. 了解new和delete的合理替换时机 （Understand when it makes sense to replace new and delete)<br />
+51. 编写new和delete时需固守常规（Adhere to convention when writing new and delete)<br />
+52. 写了placement new也要写placement delete（Write placement delete if you write placement new)</p>
+<p>九、杂项讨论 (Miscellany)<br />
+53. 不要轻忽编译器的警告（Pay attention to compiler warnings)<br />
+54. 让自己熟悉包括TR1在内的标准程序库 （Familiarize yourself with the standard library, including TR1)<br />
+55. 让自己熟悉Boost （Familiarize yourself with Boost)</p>
+<h4 id="一让自己习惯c-accustoming-yourself-to-c-11">一、让自己习惯C++ (Accustoming Yourself to C++ 11)</h4>
+<p><strong>1. 视C++ 为一个语言联邦 （View C++ as a federation of languages )</strong></p>
+<pre><code>主要是因为C++是从四个语言发展出来的：
+- C的代码块({}), 语句，数据类型等，
+- object-C的class，封装继承多态，virtual动态绑定等，
+- template C++的泛型
+- STL：容器，迭代器，算法，函数对象等
+
+因此当这四个子语言相互切换的时候，可以更多地考虑高效编程，例如pass-by-value和pass-by-reference在不同语言中效率不同</code></pre>
+<p>总结：<br />
++ C++高效编程守则视状况而变化，取决于使用哪个子语言</p>
+<p><strong>2. 尽量以const, enum, inline替换<code>#define</code>（Prefer consts,enums, and inlines to <code>#defines</code>)</strong><br />
+实际是：应该让编译器代替预处理器定义，因为预处理器定义的变量并没有进入到symbol table里面。编译器有时候会看不到预处理器定义</p>
+<p>所以用</p>
+<pre><code>const double Ratio = 1.653;</code></pre>
+<p>来代替</p>
+<pre><code>#define Ratio 1.653</code></pre>
+<p>实际上在这个转换中还要考虑到指针，例如需要把指针写成<code>const char* const authorName = "name";</code>而不是只用一个const</p>
+<p>以及在class类里面的常量，为了防止被多次拷贝，需要定义成类的成员（添加static）例如</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">class</span> GamePlayer{</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    <span class="at">static</span> <span class="at">const</span> <span class="dt">int</span> numT = <span class="dv">5</span>;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>}</span></code></pre></div>
+<p>对于类似函数的宏，最好改用inline函数代替，例如：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="pp">#define CALL_WITH_MAX</span>(a,<span class="pp"> </span>b)<span class="pp"> </span>f((a)<span class="pp"> </span>&gt;<span class="pp"> </span>(b)<span class="pp"> </span>?<span class="pp"> </span>(a)<span class="pp"> </span>:<span class="pp"> </span>(b))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="kw">template</span>&lt;<span class="kw">typename</span> T&gt;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="kw">inline</span> <span class="dt">void</span> callWithMax(<span class="at">const</span> T&amp; a, <span class="at">const</span> T&amp; b){</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    f(a &gt; b ? a : b);</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>}</span></code></pre></div>
+<p>总结：<br />
++ 对于单纯的常量，最好用const和enums替换<code>#define</code>， 对于形似函数的宏，最好改用inline函数替换<code>#define</code></p>
+<p><strong>3. 尽可能使用const（Use const whenever possible.)</strong><br />
+const最强的用法是在函数声明时，如果将返回值设置成const，或者返回指针设置成const，可以避免很多用户错误造成的意外。</p>
+<p>考虑这样一段代码</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">class</span> CTextBlock{</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>        <span class="dt">char</span>&amp; <span class="kw">operator</span>[](<span class="bu">std::</span>size_t position) <span class="at">const</span>{</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>            <span class="cf">return</span> pText[position];</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>        }</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>    <span class="kw">private</span>:</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>        <span class="dt">char</span> *pText;</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>}</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a><span class="at">const</span> CTextBlock cctb(<span class="st">&quot;Hello&quot;</span>);</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a><span class="dt">char</span> *pc = &amp;cctb[<span class="dv">0</span>];</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>*pc = <span class="ch">&#39;J&#39;</span></span></code></pre></div>
+<p>这种情况下不会报错，但是一方面声明的时候说了是const，一方面还修改了值。这种逻辑虽然有问题但是编译器并不会报错<br />
+但是const使用过程中会出现想要修改某个变量的情况，而另外一部分代码确实不需要修改。这个时候最先想到的方法就是重载一个非const版本。<br />
+但是还有其他的方法，例如将非const版本的代码调用const的代码</p>
+<p>总结：<br />
++ 将某些东西声明为const可以帮助编译器检查出错误。<br />
++ 编译器强制实施bitwise const，但是编写程序的时候应该使用概念上的常量性。<br />
++ 当const和非const版本有着实质等价的实现时，让<strong>非const版本调用const版本</strong>可以避免代码重复</p>
+<p><strong>4. 确定对象被使用前已先被初始化（Make sure that objects are initialized before they're used)</strong><br />
+如果我们有两个文件A和B，需要分别编译，A构造函数中用到了B中的对象，那么初始化A和B的顺序就很重要了，这些变量称为（<strong>non-local static对象</strong>）。因为静态全局对象的初始化的顺序可能是不确定的。</p>
+<p>解决方法是：将每个non-local static对象搬到自己专属的函数内，并且该对象被声明为static，然后这些函数返回一个reference指向他所含的对象，用户调用这些函数，而不直接涉及这些对象（Singleton模式手法）：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co">// 原代码：</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="st">&quot;A.h&quot;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="kw">class</span> FileSystem{</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>        <span class="bu">std::</span>size_t numDisks() <span class="at">const</span>;</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>};</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a><span class="at">extern</span> FileSystem tfs;</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a><span class="st">&quot;B.h&quot;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a><span class="kw">class</span> Directory{</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a>        Directory(params){</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a>            <span class="bu">std::</span>size_t disks = tfs.numDisks(); <span class="co">//使用tfs</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true"></a>        }</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true"></a>}</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true"></a>Director tempDir(params);</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true"></a><span class="co">// 修改后：</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true"></a><span class="st">&quot;A.h&quot;</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true"></a><span class="kw">class</span> FileSystem{...}    <span class="co">//同前</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true"></a>FileSystem&amp; tfs(){       <span class="co">//这个函数用来替换tfs对象，他在FileSystem class 中可能是一个static，            </span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true"></a>    <span class="at">static</span> FileSystem fs;<span class="co">//定义并初始化一个local static对象，返回一个reference</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true"></a>    <span class="cf">return</span> fs;</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true"></a>}</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true"></a><span class="st">&quot;B.h&quot;</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true"></a><span class="kw">class</span> Directory{...}     <span class="co">// 同前</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true"></a>Directory::Directory(params){</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true"></a>    <span class="bu">std::</span>size_t disks = tfs().numDisks();</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true"></a>}</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true"></a>Directotry&amp; tempDir(){   <span class="co">//这个函数用来替换tempDir对象，他在Directory class中可能是一个static，</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true"></a>    <span class="at">static</span> Directory td; <span class="co">//定义并初始化local static对象，返回一个reference指向上述对象</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true"></a>    <span class="cf">return</span> td;</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true"></a>}</span></code></pre></div>
+<p>这样做的原理在于C++对于函数内的local static对象会在“该函数被调用期间，且首次遇到的时候”被初始化。当然我们需要避免“A受制于B，B也受制于A”</p>
+<p>总结：<br />
++ 为内置型对象进行手工初始化，因为C++不保证初始化他们<br />
++ 构造函数最好使用初始化列初始化而不是复制，并且他们初始化时有顺序的<br />
++ 为了免除跨文件编译的初始化次序问题，应该以local static对象替换non-local static对象</p>
+<h4 id="二构造析构赋值运算-constructors-destructors-and-assignment-operators">二、构造/析构/赋值运算 (Constructors, Destructors, and Assignment Operators)</h4>
+<p><strong>5. 了解C++ 那些自动生成和调用的函数（Know what functions C++ silently writes and calls)</strong><br />
+总结：<br />
++ 编译器可以自动为class生成default构造函数，拷贝构造函数，拷贝赋值操作符，以及析构函数</p>
+<p><strong>6. 若不想使用编译器自动生成的函数，就该明确拒绝（Explicitly disallow the use of compiler-generated functions you do not want)</strong><br />
+这一条主要是针对类设计者而言的，有一些类可能从需求上不允许两个相同的类，例如某一个类表示某一个独一无二的交易记录，那么编译器自动生成的拷贝和复制函数就是无用的，而且是不想要的</p>
+<p>总结：<br />
++ 可以将不需要的默认自动生成函数设置成<strong>delete</strong>的</p>
+<p><strong>7. 为多态基类声明virtual析构函数（Declare destructors virtual in polymorphic base classes)</strong><br />
+其主要原因是如果基类没有virtual析构函数，那么派生类在析构的时候，如果是delete 了一个base基类的指针，那么派生的对象就会没有被销毁，引起内存泄漏。<br />
+例如：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="kw">class</span> TimeKeeper{</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    TimeKeeper();</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>    ~TimeKeeper();</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>    <span class="kw">virtual</span> getTimeKeeper();</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>}</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a><span class="kw">class</span> AtomicClock:<span class="kw">public</span> TimeKeeper{...}</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>TimeKeeper *ptk = getTimeKeeper();</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a><span class="kw">delete</span> ptk;</span></code></pre></div>
+<p>除析构函数以外还有很多其他的函数，如果有一个函数拥有virtual 关键字，那么他的析构函数也就必须要是virtual的，但是如果class不含virtual函数,析构函数就不要加virtual了，因为一旦实现了virtual函数，那么对象必须携带一个叫做vptr(virtual table pointer)的指针，这个指针指向一个由函数指针构成的数组，成为vtbl（virtual table），这样对象的体积就会变大，例如：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="kw">class</span> Point{</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>    <span class="kw">public</span>:<span class="co">//析构和构造函数</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>    <span class="kw">private</span>:</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>    <span class="dt">int</span> x, y</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>}</span></code></pre></div>
+<p>本来上面那个代码只占用64bits(假设一个int是32bits)，存放一个vptr就变成了96bits，因此在64位计算机中无法塞到一个64-bits缓存器中，也就无法移植到其他语言写的代码里面了。</p>
+<p>总结：<br />
++ 如果一个函数是多态性质的基类，应该有virtual 析构函数<br />
++ 如果一个class带有任何virtual函数，他就应该有一个virtual的析构函数<br />
++ 如果一个class不是多态基类，也没有virtual函数，就不应该有virtual析构函数</p>
+<p><strong>8. 别让异常逃离析构函数（Prevent exceptions from leaving destructors)</strong><br />
+如果在析构函数中发生异常并且允许它传播出去，这可能会导致未定义的行为和资源泄漏,这是因为析构函数未能正常的执行完。尤其是有多个继承层次或者类中包含其他对象。</p>
+<p>解决方法为：<br />
+原代码：</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="kw">class</span> DBConn{</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>    ~DBConn(){</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>        db.close();</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>    }</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>    DBConnection db;</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>}</span></code></pre></div>
+<p>修改后的代码：</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">class</span> DBConn{</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>    <span class="dt">void</span> close(){</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>        db.close();</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>        closed = <span class="kw">true</span>;</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>    }</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>    ~DBConn(){</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>        <span class="cf">if</span>(!closed){</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>            <span class="cf">try</span>{</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a>                db.close();</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a>            }</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a>            <span class="cf">catch</span>(...){</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true"></a>                <span class="bu">std::</span>abort();</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true"></a>            }</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true"></a>        }</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true"></a>    }</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true"></a>    <span class="dt">bool</span> closed;</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true"></a>    DBConnection db;</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true"></a>}</span></code></pre></div>
+<p>这种做法就可以一方面将close的的方法交给用户，另一方面在用户忽略的时候还能够做“强迫结束程序”或者“吞下异常”的操作。相比较而言，交给用户是最好的选择，因为用户有机会根据实际情况操作异常。</p>
+<p>总结：<br />
++ 析构函数不要抛出异常，因该在内部捕捉异常<br />
++ 如果客户需要对某个操作抛出的异常做出反应，应该将这个操作放到普通函数（而不是析构函数）里面</p>
+<p><strong>9. 绝不在构造和析构过程中调用virtual函数（Never call virtual functions during construction or destruction)</strong><br />
+- 在构造函数中避免调用虚拟函数。如果需要执行某些虚拟函数相关的操作，可以考虑将这些操作延迟到构造函数之后的初始化阶段。<br />
+- 在析构函数中也应该避免调用虚拟函数。析构函数的主要目标是资源的清理，而不是执行多态操作。如果需要执行多态操作，可以在析构函数外部进行。<br />
+- 参见：c++对象模型-构造和析构过程不具有多态性</p>
+<p><strong>10. 令operator= 返回一个reference to <code>*this</code> （Have assignment operators return a reference to <code>*this</code>)</strong></p>
+<p>主要是为了支持连读和连写，例如：</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="kw">class</span> Widget{</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>    Widget&amp; <span class="kw">operator</span>=(<span class="dt">int</span> rhs){<span class="cf">return</span> *<span class="kw">this</span>;}</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>}</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>a = b = c;</span></code></pre></div>
+<p><strong>11. 在operator= 中处理“自我赋值” （Handle assignment to self in operator=)</strong></p>
+<p>主要是要处理<code>SomeClass x; x = x;</code> , <code>a[i] = a[j]</code> 或者 <code>*px = *py</code>这样的自我赋值。有可能会出现一场安全性问题，或者在使用之前就销毁了原来的对象.<br />
+这是一个示例的C++赋值运算符的实现，处理了自我赋值情况：</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="kw">class</span> SomeClass {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a>    <span class="co">// 赋值运算符</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a>    SomeClass&amp; <span class="kw">operator</span>=(<span class="at">const</span> SomeClass&amp; other) {</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a>        <span class="co">// 自我赋值检测</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a>        <span class="cf">if</span> (<span class="kw">this</span> == &amp;other) {</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true"></a>            <span class="cf">return</span> *<span class="kw">this</span>; <span class="co">// 如果是自我赋值，直接返回</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true"></a>        }</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true"></a>        <span class="co">// 清理目标对象的资源，如果有的话</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true"></a>        <span class="co">// ...</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true"></a>        <span class="co">// 执行赋值操作</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true"></a>        <span class="co">// ...</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true"></a>        <span class="cf">return</span> *<span class="kw">this</span>; <span class="co">// 支持链式赋值</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true"></a>    }</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true"></a>    <span class="co">// 其他成员函数和数据成员</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true"></a>};</span></code></pre></div>
+<p>原代码：</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="kw">class</span> Bitmap{...}</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a><span class="kw">class</span> Widget{</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>    Bitmap *pb;</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a>};</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>Widget&amp; Widget::<span class="kw">operator</span>=(<span class="at">const</span> Widget&amp; rhs){</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a>    <span class="kw">delete</span> pb; <span class="co">// 当this和rhs是同一个对象的时候，就相当于直接把rhs的bitmap也销毁掉了</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a>    pb = <span class="kw">new</span> Bitmap(*rhs.pb);</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a>    <span class="cf">return</span> *<span class="kw">this</span>;</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a>}</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a><span class="co">// 修改后的代码</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a><span class="kw">class</span> Widget{</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true"></a>    <span class="dt">void</span> swap(Widget&amp; rhs);    <span class="co">//交换this和rhs的数据</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true"></a>};</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true"></a>Widget&amp; Widget::<span class="kw">operator</span>=(<span class="at">const</span> Widget&amp; rhs){</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true"></a>    Widget temp(rhs)           <span class="co">//为rhs数据制作一个副本</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true"></a>    swap(temp);                <span class="co">//将this数据和上述副本数据交换</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true"></a>    <span class="cf">return</span> *<span class="kw">this</span>;</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true"></a>}<span class="co">//出了作用域，原来的副本销毁</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true"></a><span class="co">// 或者有一个效率不太高的版本：</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true"></a>Widget&amp; Widget::<span class="kw">operator</span>=(<span class="at">const</span> Widget&amp; rhs){</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true"></a>    Bitmap *pOrig = pb;       <span class="co">//记住原先的pb</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true"></a>    pb = <span class="kw">new</span> Bitmap(*rhs.pb); <span class="co">//令pb指向 *pb的一个副本</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true"></a>    <span class="kw">delete</span> pOrig;            <span class="co">//删除原先的pb</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true"></a>    <span class="cf">return</span> *<span class="kw">this</span>;</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true"></a>}</span></code></pre></div>
+<p>总结：<br />
++ 确保当对象自我赋值的时候operator=有比较良好的行为，包括两个对象的地址，语句顺序，以及copy-and-swap<br />
++ 确定任何函数如果操作一个以上的对象，而其中多个对象可能指向同一个对象时，仍然正确</p>
+<p><strong>12. 复制对象时勿忘其每一个成分 （Copy all parts of an object)</strong><br />
+总结：<br />
++ 当编写一个copy或者拷贝构造函数，应该确保复制成员里面的所有变量，以及所有基类的成员<br />
++ 不要尝试用一个拷贝构造函数调用另一个拷贝构造函数，如果想要精简代码的话，应该把所有的功能机能放到第三个函数里面，并且由两个拷贝构造函数共同调用<br />
++ 当<strong>新增</strong>一个变量或者继承一个类的时候，很容易出现忘记拷贝构造的情况，所以每增加一个变量都需要在拷贝构造里面修改对应的方法</p>
+<h4 id="三资源管理-resource-management">三、资源管理 (Resource Management)</h4>
+<p><strong>13. 以对象管理资源 （Use objects to manage resources)</strong><br />
+在对象销毁时自动调用自动调用析构函数。<br />
+总结：<br />
++ 建议使用shared_ptr<br />
++ 如果需要自定义shared_ptr，请通过定义自己的资源管理类来对资源进行管理</p>
+<p><strong>14. 在资源管理类中小心copying行为 （Think carefully about copying behavior in resource-managing classes)</strong><br />
+在资源管理类里面，如果出现了拷贝复制行为的话，需要注意这个复制具体的含义，从而保证和我们想要的效果一样</p>
+<p>以下是一些与资源管理类中复制行为相关的考虑事项：<br />
+1. <strong>禁止浅复制（Shallow Copy）：</strong> 默认情况下，C++执行浅复制，这意味着它只会复制资源的引用而不是资源本身。如果资源管理类使用浅复制，多个对象可能共享相同的资源，这会导致潜在的资源释放问题。<br />
+2. <strong>实施深复制（Deep Copy）或引用计数：</strong> 在资源管理类中，通常需要实施深复制，这意味着在复制对象时，会创建一个独立的资源拷贝。另一种方法是使用引用计数，以确保多个对象可以共享相同的资源，但在不再需要时可以安全地释放。<br />
+3. <strong>定义复制构造函数和赋值运算符：</strong> 如果您允许对象复制，确保正确定义复制构造函数和赋值运算符。这些函数应该进行适当的资源管理，以避免资源泄漏。<br />
+4. <strong>提供移动语义（Move Semantics）：</strong> 如果您的C++版本支持移动语义（C++11及更高版本），则可以通过定义移动构造函数和移动赋值运算符来改进性能，而不是执行深复制。</p>
+<p><strong>15. 在资源管理类中提供对原始资源的访问（Provide access to raw resources in resource-managing classes)</strong><br />
+这意味着当你编写一个管理底层资源（如内存、文件句柄、数据库连接等）的类时，应该考虑允许客户端代码直接访问这些底层资源，同时也提供了一些安全的方式来访问它们。<br />
+例如：<br />
+在这个示例中，<code>FileManager</code> 类允许客户端代码访问原始文件句柄（<code>std::ifstream</code>），同时还提供了更高级别的操作，比如 <code>readAndPrintFileContents</code> 函数用于读取和打印文件内容。这种设计允许客户端代码根据需要直接操作原始资源，同时确保资源在 <code>FileManager</code> 对象析构时被正确关闭。</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;fstream&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a><span class="kw">class</span> FileManager {</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a>    FileManager(<span class="at">const</span> <span class="bu">std::</span>string&amp; filename) {</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>        <span class="va">file_</span>.open(filename); <span class="co">// 打开文件</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a>        <span class="cf">if</span> (!<span class="va">file_</span>.is_open()) {</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a>            <span class="cf">throw</span> <span class="bu">std::</span>runtime_error(<span class="st">&quot;Failed to open file.&quot;</span>);</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true"></a>        }</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true"></a>    }</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true"></a>    <span class="co">// 允许客户端代码访问原始文件句柄</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true"></a>    <span class="bu">std::</span>ifstream&amp; getRawFileHandle() {</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true"></a>        <span class="cf">return</span> <span class="va">file_</span>;</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true"></a>    }</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true"></a></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true"></a>    <span class="dt">void</span> readAndPrintFileContents() {</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true"></a>        <span class="bu">std::</span>string line;</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true"></a>        <span class="cf">while</span> (<span class="bu">std::</span>getline(<span class="va">file_</span>, line)) {</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true"></a>            <span class="bu">std::</span>cout &lt;&lt; line &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true"></a>        }</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true"></a>    }</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true"></a></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true"></a>    ~FileManager() {</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true"></a>        <span class="cf">if</span> (<span class="va">file_</span>.is_open()) {</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true"></a>            <span class="va">file_</span>.close(); <span class="co">// 在资源管理类析构函数中关闭文件</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true"></a>        }</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true"></a>    }</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true"></a></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true"></a>    <span class="bu">std::</span>ifstream <span class="va">file_</span>;</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true"></a>};</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true"></a></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true"></a>    <span class="cf">try</span> {</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true"></a>        FileManager manager(<span class="st">&quot;example.txt&quot;</span>);</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true"></a></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true"></a>        <span class="co">// 客户端代码可以直接访问原始文件句柄</span></span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true"></a>        <span class="bu">std::</span>ifstream&amp; fileHandle = manager.getRawFileHandle();</span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true"></a>        </span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true"></a>        <span class="co">// 执行更高级别的文件操作</span></span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true"></a>        <span class="bu">std::</span>string data;</span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true"></a>        <span class="cf">while</span> (fileHandle &gt;&gt; data) {</span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true"></a>            <span class="co">// 处理文件数据</span></span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true"></a>        }</span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true"></a>        <span class="co">// 读取并打印文件内容</span></span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true"></a>        manager.readAndPrintFileContents();</span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true"></a>    } <span class="cf">catch</span> (<span class="at">const</span> <span class="bu">std::</span>exception&amp; e) {</span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true"></a>        <span class="bu">std::</span>cerr &lt;&lt; <span class="st">&quot;Error: &quot;</span> &lt;&lt; e.what() &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true"></a>    }</span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true"></a></span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>16. 成对使用new和delete时要采取相同形式 （Use the same form in corresponding uses of new and delete)</strong><br />
+总结：<br />
++ 即： 使用new[]的时候要使用delete[], 使用new的时候一定不要使用delete[]</p>
+<p><strong>17. 以独立语句将new的对象置入智能指针 （Store newed objects in smart pointers in standalone statements)</strong></p>
+<p>主要是会造成内存泄漏，考虑下面的代码：</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="dt">int</span> priority();</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="dt">void</span> processWidget(shared_ptr&lt;Widget&gt; pw, <span class="dt">int</span> priority);</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a>processWidget(<span class="kw">new</span> Widget, priority());       <span class="co">// 错误，这里函数是explicit的，不允许隐式转换（shared_ptr需要给他一个普通的原始指针</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a>processWidget(shared_ptr&lt;Widget&gt;(<span class="kw">new</span> Widget), priority()) <span class="co">// 可能会造成内存泄漏</span></span></code></pre></div>
+<p>内存泄漏的原因为：先执行new Widget，再调用priority， 最后执行shared_ptr构造函数，那么当priority的调用<strong>发生异常</strong>的时候，new Widget返回的指针就会丢失了。当然不同编译器对上面这个代码的执行顺序不一样。所以安全的做法是：</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>shared_ptr&lt;Widget&gt; pw(<span class="kw">new</span> Widget)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>processWidget(pw, priority())</span></code></pre></div>
+<p>总结：<br />
++ 凡是有new语句的，尽量放在单独的语句当中，特别是当使用<strong>new出来的对象放到智能指针里面的时候</strong></p>
+<h4 id="四设计与声明-designs-and-declarations">四、设计与声明 (Designs and Declarations)</h4>
+<p><strong>18. 让接口容易被正确使用，不易被误用 （Make interfaces easy to use correctly and hard to use incorrectly)</strong></p>
+<p>要思考用户有可能做出什么样子的错误，考虑下面的代码：</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a>Date(<span class="dt">int</span> month, <span class="dt">int</span> day, <span class="dt">int</span> year);</span></code></pre></div>
+<p>这一段代码可以有很多问题，例如用户将day和month顺序写反（因为三个参数都是int类型的），可以修改成：</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a>Date(<span class="at">const</span> Month &amp;m, <span class="at">const</span> Day &amp;d, <span class="at">const</span> Year &amp;y);  <span class="co">//注意这里将每一个类型的数据单独设计成一个类，同时加上const限定符</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a>为了让接口更加易用，可以对month加以限制，只有<span class="dv">12</span>个月份</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a><span class="kw">class</span> Month{</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true"></a>    <span class="at">static</span> Month Jan(){<span class="cf">return</span> Month(<span class="dv">1</span>);}<span class="co">//这里用函数代替对象，主要是方式第四条：non-local static对象的初始化顺序问题</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true"></a>}</span></code></pre></div>
+<p>而对于一些返回指针的问题函数，例如：</p>
+<pre><code>Investment *createInvestment();//智能指针可以防止用户忘记delete返回的指针或者delete两次指针，但是可能存在用户忘记使用智能指针的情况，那么方法：
+std::shared_ptr&lt;Investment&gt; createInvestment();就可以强制用户使用智能指针</code></pre>
+<p>总结：<br />
++ “阻止误用”的办法包括建立新类型、限制类型上的操作，束缚对象值，以及消除客户的资源管理责任<br />
++ shared_ptr支持定制删除器，从而防范dll问题，可以用来解除互斥锁等</p>
+<p><strong>19. 设计class犹如设计type （Treat class design as type design)</strong><br />
+如何设计class：<br />
++ 新的class对象应该被如何创建和构造<br />
++ 对象的初始化和赋值应该有什么样的差别（不同的函数调用，构造函数和赋值操作符）<br />
++ 新的class如果被pass by value（以值传递），意味着什么（copy构造函数）<br />
++ 什么是新type的“合法值”（成员变量通常只有某些数值是有效的，这些值决定了class必须维护的约束条件）<br />
++ 新的class需要配合某个继承图系么（会受到继承类的约束）<br />
++ 新的class需要什么样的转换（和其他类型的类型变换）<br />
++ 什么样的操作符和函数对于此type而言是合理的（决定声明哪些函数，哪些是成员函数）<br />
++ 什么样的函数必须为private的<br />
++ 新的class是否还有相似的其他class，如果是的话就应该定义一个class template<br />
++ 你真的需要一个新type么？如果只是定义新的derived class或者为原来的class添加功能，说不定定义non-member函数或者templates更好</p>
+<p><strong>20. 以pass-by-reference-to-const替换pass-by-value （Prefer pass-by-reference-to-const to pass-by-value)</strong></p>
+<p>主要是1.可以提高效率，2.避免基类和子类的参数切割问题</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="dt">bool</span> validateStudent(<span class="at">const</span> Student &amp;s);   <span class="co">//省了很多构造析构拷贝赋值操作</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a><span class="dt">bool</span> validateStudent(s);</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a>subStudent s;</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a>validateStudent(s); <span class="co">//调用后,则在validateStudent函数内部实际上是一个student类型</span></span></code></pre></div>
+<p>切割的例子,其实就是实现多态：</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true"></a><span class="kw">class</span> Person {</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true"></a>    Person(<span class="at">const</span> <span class="bu">std::</span>string&amp; name) : <span class="va">name_</span>(name) {}</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true"></a>    <span class="kw">virtual</span> <span class="dt">void</span> introduce() <span class="at">const</span> {</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;I am a person named &quot;</span> &lt;&lt; <span class="va">name_</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true"></a>    }</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true"></a>    <span class="bu">std::</span>string <span class="va">name_</span>;</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true"></a>};</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true"></a></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true"></a><span class="kw">class</span> Student : <span class="kw">public</span> Person {</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true"></a>    Student(<span class="at">const</span> <span class="bu">std::</span>string&amp; name, <span class="at">const</span> <span class="bu">std::</span>string&amp; major)</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true"></a>        : Person(name), <span class="va">major_</span>(major) {}</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true"></a></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true"></a>    <span class="dt">void</span> introduce() <span class="at">const</span> <span class="kw">override</span> {</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;I am a student named &quot;</span> &lt;&lt; getName() &lt;&lt; <span class="st">&quot; and my major is &quot;</span> &lt;&lt; <span class="va">major_</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true"></a>    }</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true"></a></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true"></a>    <span class="bu">std::</span>string getMajor() <span class="at">const</span> {</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true"></a>        <span class="cf">return</span> <span class="va">major_</span>;</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true"></a>    }</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true"></a></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true"></a>    <span class="bu">std::</span>string <span class="va">major_</span>;</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true"></a>};</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true"></a></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true"></a><span class="co">// 通过引用传递 const 引用参数，可以处理 Student 的派生类</span></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true"></a><span class="dt">void</span> printIntroduction(<span class="at">const</span> Person&amp; person) {</span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true"></a>    person.introduce();</span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true"></a>}</span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true"></a></span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true"></a>    Person person(<span class="st">&quot;Alice&quot;</span>);</span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true"></a>    Student student(<span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Computer Science&quot;</span>);</span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true"></a></span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true"></a>    printIntroduction(person);  <span class="co">// 输出：I am a person named Alice</span></span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true"></a>    printIntroduction(student); <span class="co">// 输出：I am a student named Bob and my major is Computer Science</span></span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true"></a></span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true"></a>}</span></code></pre></div>
+<p>对于STL等内置类型，还是以值传递好一些</p>
+<p><strong>21. 必须返回对象时，别妄想返回其reference （Don't try to return a reference when you must return an object)</strong><br />
+- 很容易返回一个已经销毁的局部变量<br />
+- 如果想要在堆上用new创建的话，则用户无法delete</p>
+<p><strong>22. 将成员变量声明为private （Declare data members private)</strong><br />
+应该将成员变量弄成private，然后用过public的成员函数来访问他们，这种方法的好处在于可以更精准的控制成员变量，包括控制读写，只读访问等。<br />
+同时，如果public的变量发生了改变，如果这个变量在代码中广泛使用，那么将会有很多代码遭到了破坏，需要重新写<br />
+另外protected 并不比public更具有封装性，因为protected的变量，在发生改变的时候，他的子类代码也会受到破坏</p>
+<p><strong>23. 以non-member、non-friend替换member函数 （Prefer non-member non-friend functions to member functions)</strong><br />
+例如：通常的做法是将输出操作定义为非成员函数，使其独立于类，从而提高了封装性、灵活性和可维护性。</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a><span class="kw">class</span> Date {</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true"></a>    Date(<span class="dt">int</span> day, <span class="dt">int</span> month, <span class="dt">int</span> year) : <span class="va">day_</span>(day), <span class="va">month_</span>(month), <span class="va">year_</span>(year) {}</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true"></a>    <span class="co">// 错误的方式：将输出操作作为成员函数</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true"></a>    <span class="co">// 这违反了封装性，因为它需要访问类的私有成员</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true"></a>    <span class="dt">void</span> print() <span class="at">const</span> {</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="va">day_</span> &lt;&lt; <span class="st">&quot;/&quot;</span> &lt;&lt; <span class="va">month_</span> &lt;&lt; <span class="st">&quot;/&quot;</span> &lt;&lt; <span class="va">year_</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true"></a>    }</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true"></a>    <span class="dt">int</span> <span class="va">day_</span>;</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true"></a>    <span class="dt">int</span> <span class="va">month_</span>;</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true"></a>    <span class="dt">int</span> <span class="va">year_</span>;</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true"></a>};</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true"></a></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true"></a><span class="co">// 正确的方式：将输出操作定义为非成员函数</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true"></a><span class="co">// 这提高了封装性和灵活性</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true"></a><span class="dt">void</span> printDate(<span class="at">const</span> Date&amp; date) {</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; date.getDay() &lt;&lt; <span class="st">&quot;/&quot;</span> &lt;&lt; date.getMonth() &lt;&lt; <span class="st">&quot;/&quot;</span> &lt;&lt; date.getYear() &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true"></a>}</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true"></a></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true"></a>    Date date(<span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">2023</span>);</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true"></a></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true"></a>    <span class="co">// 调用非成员函数以打印日期, 或者换成静态方法也行</span></span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true"></a>    printDate(date);</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true"></a></span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>24. 若所有参数皆需类型转换，请为此采用non-member函数 （Declare non-member functions when type conversions should apply to all parameters)</strong></p>
+<p>例如想要将一个int类型变量和Rational变量做乘法，如果是成员函数的话，发生隐式转换的时候会因为不存在int到Rational的类型变换而出错：<br />
+以全局函数的话有对称性。</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a><span class="kw">class</span> Rational{</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true"></a>    <span class="at">const</span> Rational <span class="kw">operator</span>* (<span class="at">const</span> Rational&amp; rhs)<span class="at">const</span>;</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true"></a>}</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true"></a>Rational oneHalf;</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true"></a>result = oneHalf * <span class="dv">2</span>;</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true"></a>result = <span class="dv">2</span> * oneHalf;<span class="co">//出错，因为没有int转Rational函数</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true"></a>non-member函数</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true"></a><span class="kw">class</span> Rational{}</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true"></a><span class="at">const</span> Rational <span class="kw">operator</span>*(<span class="at">const</span> Rational&amp; lhs, <span class="at">const</span> Rational&amp; rhs){}</span></code></pre></div>
+<p><strong>25. 考虑写出一个不抛异常的swap函数 （Consider support for a non-throwing swap)</strong></p>
+<p>在 C++11 及更高版本中，std::swap 的实现使用了移动语义，如果类型支持移动构造函数和移动赋值运算符，它将使用这些操作来实现高效的值交换。这意味着如果一个对象具有移动构造函数和移动赋值运算符，那么在进行 std::swap 时，不需要复制对象的内容，而是通过移动数据来完成交换，从而提高性能。<br />
+如果一个对象没有移动构造函数，而且在C++11或更高版本中使用<code>std::swap</code>，则<code>std::swap</code>将回退到使用拷贝构造函数来进行值的交换,会创建一个临时对象并复制内容。这意味着在这种情况下，将会执行对象的拷贝操作来进行交换，而不是移动。</p>
+<p>通过自定义swap大幅度提升swap效率的例子。</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;utility&gt;</span><span class="pp"> </span><span class="co">// 使用 std::swap</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;cstring&gt;</span><span class="pp"> </span><span class="co">// 使用 std::strlen</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true"></a><span class="kw">class</span> MyString {</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true"></a>    <span class="co">// 构造函数</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true"></a>    MyString(<span class="at">const</span> <span class="dt">char</span>* str = <span class="kw">nullptr</span>) {</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true"></a>        <span class="cf">if</span> (str) {</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true"></a>            <span class="va">size_</span> = <span class="bu">std::</span>strlen(str);</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true"></a>            <span class="va">data_</span> = <span class="kw">new</span> <span class="dt">char</span>[<span class="va">size_</span> + <span class="dv">1</span>];</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true"></a>            <span class="bu">std::</span>strcpy(<span class="va">data_</span>, str);</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true"></a>        } <span class="cf">else</span> {</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true"></a>            <span class="va">size_</span> = <span class="dv">0</span>;</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true"></a>            <span class="va">data_</span> = <span class="kw">nullptr</span>;</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true"></a>        }</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true"></a>    }</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true"></a></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true"></a>    <span class="co">// 析构函数</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true"></a>    ~MyString() {</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true"></a>        <span class="kw">delete</span>[] <span class="va">data_</span>;</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true"></a>    }</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true"></a></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true"></a>    <span class="co">// 拷贝构造函数</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true"></a>    MyString(<span class="at">const</span> MyString&amp; other) : <span class="va">size_</span>(other.<span class="va">size_</span>) {</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true"></a>        <span class="va">data_</span> = <span class="kw">new</span> <span class="dt">char</span>[<span class="va">size_</span> + <span class="dv">1</span>];</span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true"></a>        <span class="bu">std::</span>strcpy(<span class="va">data_</span>, other.<span class="va">data_</span>);</span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true"></a>    }</span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true"></a></span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true"></a>    <span class="co">// 移动构造函数</span></span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true"></a>    MyString(MyString&amp;&amp; other) <span class="kw">noexcept</span> : <span class="va">data_</span>(<span class="kw">nullptr</span>), <span class="va">size_</span>(<span class="dv">0</span>) {</span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true"></a>        swap(*<span class="kw">this</span>, other); <span class="co">// 调用自定义的 swap 函数</span></span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true"></a>    }</span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true"></a></span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true"></a>    <span class="co">// 拷贝赋值运算符</span></span>
+<span id="cb25-36"><a href="#cb25-36" aria-hidden="true"></a>    MyString&amp; <span class="kw">operator</span>=(<span class="at">const</span> MyString&amp; other) {</span>
+<span id="cb25-37"><a href="#cb25-37" aria-hidden="true"></a>        MyString temp(other); <span class="co">// 利用拷贝构造函数创建临时对象</span></span>
+<span id="cb25-38"><a href="#cb25-38" aria-hidden="true"></a>        swap(*<span class="kw">this</span>, temp);    <span class="co">// 调用自定义的 swap 函数</span></span>
+<span id="cb25-39"><a href="#cb25-39" aria-hidden="true"></a>        <span class="cf">return</span> *<span class="kw">this</span>;</span>
+<span id="cb25-40"><a href="#cb25-40" aria-hidden="true"></a>    }</span>
+<span id="cb25-41"><a href="#cb25-41" aria-hidden="true"></a></span>
+<span id="cb25-42"><a href="#cb25-42" aria-hidden="true"></a>    <span class="co">// 移动赋值运算符</span></span>
+<span id="cb25-43"><a href="#cb25-43" aria-hidden="true"></a>    MyString&amp; <span class="kw">operator</span>=(MyString&amp;&amp; other) <span class="kw">noexcept</span> {</span>
+<span id="cb25-44"><a href="#cb25-44" aria-hidden="true"></a>        swap(*<span class="kw">this</span>, other); <span class="co">// 调用自定义的 swap 函数</span></span>
+<span id="cb25-45"><a href="#cb25-45" aria-hidden="true"></a>        <span class="cf">return</span> *<span class="kw">this</span>;</span>
+<span id="cb25-46"><a href="#cb25-46" aria-hidden="true"></a>    }</span>
+<span id="cb25-47"><a href="#cb25-47" aria-hidden="true"></a></span>
+<span id="cb25-48"><a href="#cb25-48" aria-hidden="true"></a>    <span class="co">// 获取字符串长度</span></span>
+<span id="cb25-49"><a href="#cb25-49" aria-hidden="true"></a>    <span class="dt">size_t</span> size() <span class="at">const</span> {</span>
+<span id="cb25-50"><a href="#cb25-50" aria-hidden="true"></a>        <span class="cf">return</span> <span class="va">size_</span>;</span>
+<span id="cb25-51"><a href="#cb25-51" aria-hidden="true"></a>    }</span>
+<span id="cb25-52"><a href="#cb25-52" aria-hidden="true"></a></span>
+<span id="cb25-53"><a href="#cb25-53" aria-hidden="true"></a>    <span class="co">// 获取字符串内容</span></span>
+<span id="cb25-54"><a href="#cb25-54" aria-hidden="true"></a>    <span class="at">const</span> <span class="dt">char</span>* c_str() <span class="at">const</span> {</span>
+<span id="cb25-55"><a href="#cb25-55" aria-hidden="true"></a>        <span class="cf">return</span> <span class="va">data_</span>;</span>
+<span id="cb25-56"><a href="#cb25-56" aria-hidden="true"></a>    }</span>
+<span id="cb25-57"><a href="#cb25-57" aria-hidden="true"></a></span>
+<span id="cb25-58"><a href="#cb25-58" aria-hidden="true"></a>    <span class="kw">friend</span> <span class="dt">void</span> swap(MyString&amp; first, MyString&amp; second) <span class="kw">noexcept</span> {    <span class="co">//友元函数</span></span>
+<span id="cb25-59"><a href="#cb25-59" aria-hidden="true"></a>        <span class="kw">using</span> <span class="bu">std::</span>swap;</span>
+<span id="cb25-60"><a href="#cb25-60" aria-hidden="true"></a>        swap(first.<span class="va">data_</span>, second.<span class="va">data_</span>);</span>
+<span id="cb25-61"><a href="#cb25-61" aria-hidden="true"></a>        swap(first.<span class="va">size_</span>, second.<span class="va">size_</span>);</span>
+<span id="cb25-62"><a href="#cb25-62" aria-hidden="true"></a>    }</span>
+<span id="cb25-63"><a href="#cb25-63" aria-hidden="true"></a></span>
+<span id="cb25-64"><a href="#cb25-64" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb25-65"><a href="#cb25-65" aria-hidden="true"></a>    <span class="dt">char</span>* <span class="va">data_</span>;</span>
+<span id="cb25-66"><a href="#cb25-66" aria-hidden="true"></a>    <span class="dt">size_t</span> <span class="va">size_</span>;</span>
+<span id="cb25-67"><a href="#cb25-67" aria-hidden="true"></a>};</span>
+<span id="cb25-68"><a href="#cb25-68" aria-hidden="true"></a></span>
+<span id="cb25-69"><a href="#cb25-69" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb25-70"><a href="#cb25-70" aria-hidden="true"></a>    MyString str1(<span class="st">&quot;Hello&quot;</span>);</span>
+<span id="cb25-71"><a href="#cb25-71" aria-hidden="true"></a>    MyString str2(<span class="st">&quot;World&quot;</span>);</span>
+<span id="cb25-72"><a href="#cb25-72" aria-hidden="true"></a></span>
+<span id="cb25-73"><a href="#cb25-73" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Before swap:&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb25-74"><a href="#cb25-74" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;str1: &quot;</span> &lt;&lt; str1.c_str() &lt;&lt; <span class="st">&quot;, size = &quot;</span> &lt;&lt; str1.size() &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb25-75"><a href="#cb25-75" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;str2: &quot;</span> &lt;&lt; str2.c_str() &lt;&lt; <span class="st">&quot;, size = &quot;</span> &lt;&lt; str2.size() &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb25-76"><a href="#cb25-76" aria-hidden="true"></a></span>
+<span id="cb25-77"><a href="#cb25-77" aria-hidden="true"></a>    <span class="co">// 使用自定义 swap 函数</span></span>
+<span id="cb25-78"><a href="#cb25-78" aria-hidden="true"></a>    <span class="bu">std::</span>swap(str1, str2);</span>
+<span id="cb25-79"><a href="#cb25-79" aria-hidden="true"></a></span>
+<span id="cb25-80"><a href="#cb25-80" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;After swap:&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb25-81"><a href="#cb25-81" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;str1: &quot;</span> &lt;&lt; str1.c_str() &lt;&lt; <span class="st">&quot;, size = &quot;</span> &lt;&lt; str1.size() &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb25-82"><a href="#cb25-82" aria-hidden="true"></a>    std.</span></code></pre></div>
+<h4 id="五实现-implementations">五、实现 (Implementations)</h4>
+<p><strong>26. 尽可能延后变量定义式的出现时间 （Postpone variable definitions as long as possible)</strong><br />
+主要是防止变量在定义以后没有使用，影响效率，应该在用到的时候再定义，同时通过default构造而不是赋值来初始化</p>
+<p><strong>27. 尽量不要进行强制类型转换 （Minimize casting)</strong><br />
+主要是因为：<br />
+1.从int转向double容易出现精度错误<br />
+2.将一个类转换成他的父类也容易出现问题</p>
+<p>总结：<br />
++ 尽量避免转型，特别是在注重效率的代码中避免dynamic_cast，试着用无需转型的替代设计<br />
++ 如果转型是必要的，试着将他封装到函数背后，让用户调用该函数，而不需要在自己的代码里面转型<br />
++ 如果需要转型，使用新式的static_cast等转型，比原来的（int）好很多（更明显，分工更精确）</p>
+<p><strong>28. 避免返回handles指向对象内部成分 （Avoid returning "handles" to object internals)</strong><br />
+尽量不要返回指向private变量的指针引用等</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="kw">class</span> Employee {</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true"></a>    Employee(<span class="at">const</span> <span class="bu">std::</span>string&amp; name, <span class="dt">int</span> age) : <span class="va">name_</span>(name), <span class="va">age_</span>(age) {}</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true"></a>    <span class="co">// 返回指向姓名的&quot;handle&quot;</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true"></a>    <span class="at">const</span> <span class="bu">std::</span>string&amp; getName() <span class="at">const</span> {</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true"></a>        <span class="cf">return</span> <span class="va">name_</span>;</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true"></a>    }</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true"></a></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true"></a>    <span class="co">// 返回指向年龄的&quot;handle&quot;</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true"></a>    <span class="dt">int</span>&amp; getAge() {</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true"></a>        <span class="cf">return</span> <span class="va">age_</span>;</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true"></a>    }</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true"></a></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true"></a>    <span class="bu">std::</span>string <span class="va">name_</span>;</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true"></a>    <span class="dt">int</span> <span class="va">age_</span>;</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true"></a>};</span></code></pre></div>
+<p>Employee 类返回了指向姓名和年龄成员的"handles"，即 getName 返回一个指向姓名的常量引用，getAge 返回一个指向年龄的非常量引用。这会破坏封装性，允许外部代码直接访问和修改员工的姓名和年龄，可能导致不安全性和不可维护性。</p>
+<p><strong>29. 为“异常安全”而努力是值得的 （Strive for exception-safe code)</strong><br />
+异常安全函数具有以下三个特征之一：<br />
+1. <strong>基本承诺（Basic Guarantee）</strong>：异常安全函数提供了基本的保证，即如果函数出现异常，程序状态仍然保持一致，不会泄漏资源，但对象的内部状态可能会被修改。这意味着函数会恢复到调用前的状态，但可能不会保持对象的不变性。这是最低级别的异常安全保证。<br />
+2. <strong>强烈保证（Strong Guarantee）</strong>：异常安全函数提供了强烈的保证，即如果函数出现异常，程序状态仍然保持一致，对象的内部状态不会被修改，就好像函数从未被调用过一样。这要求函数要具备回滚操作，以确保不会对对象状态产生任何影响。<br />
+3. <strong>无异常保证（No-Throw Guarantee）</strong>：某些函数承诺不会抛出异常。这意味着无论输入如何，函数都不会导致异常，通常是通过避免使用可能抛出异常的操作来实现的，例如使用不抛异常的内存分配函数。</p>
+<p>原函数：</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="kw">class</span> PrettyMenu{</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true"></a>    <span class="dt">void</span> changeBackground(<span class="bu">std::</span>istream&amp; imgSrc); <span class="co">//改变背景图像</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true"></a>    <span class="kw">private</span>:</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true"></a>    Mutex mutex; <span class="co">// 互斥器</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true"></a>};</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true"></a><span class="dt">void</span> changeBackground(<span class="bu">std::</span>istream&amp; imgSrc){</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true"></a>    lock(&amp;mutex);               <span class="co">//取得互斥器</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true"></a>    <span class="kw">delete</span> bgImage;             <span class="co">//摆脱旧的背景图像</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true"></a>    ++imageChanges;             <span class="co">//修改图像的变更次数</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true"></a>    bgImage = <span class="kw">new</span> Image(imgSrc);<span class="co">//安装新的背景图像</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true"></a>    unlock(&amp;mutex);             <span class="co">//释放互斥器</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true"></a>}</span></code></pre></div>
+<p>当异常抛出的时候，这个函数就存在很大的问题：<br />
++ 不泄露任何资源：当new Image(imgSrc)发生异常的时候，对unlock的调用就绝不会执行，于是互斥器就永远被把持住了<br />
++ 不允许数据破坏：如果new Image(imgSrc)发生异常，bgImage就是空的，而且imageChanges也已经加上了</p>
+<p>修改后代码：</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true"></a><span class="dt">void</span> PrettyMenu::changeBackground(<span class="bu">std::</span>istream&amp; imgSrc){</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true"></a>    Lock ml(&amp;mutex);    <span class="co">//Lock是第13条中提到的用对象管理资源的类</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true"></a>    bgImage.reset(<span class="kw">new</span> Image(imgSrc));</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true"></a>    ++imageChanges; <span class="co">//放在后面</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>30. 透彻了解inlining （Understand the ins and outs of inlining)</strong><br />
+inline 函数的过度使用会让程序的体积变大，内存占用过高<br />
+而编译器是可以拒绝将函数inline的，不过当编译器不知道该调用哪个函数的时候，会报一个warning<br />
+尽量不要为template或者构造函数设置成inline的，因为template inline以后有可能为每一个模板都生成对应的函数，从而让代码过于臃肿<br />
+同样的道理，构造函数在实际的过程中也会产生很多的代码</p>
+<p><strong>31. 将文件间的编译依存关系降至最低 （Minimize compilation dependencies between files)</strong><br />
+这个关系其实指的是一个文件包含另外一个文件的类定义等<br />
+那么如何实现解耦呢,通常是将实现定义到另外一个类里面，如下：</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a><span class="co">// 原代码：</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true"></a><span class="kw">class</span> Person{</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true"></a><span class="kw">private</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true"></a>    Dates <span class="va">m_data</span>;</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true"></a>    Addresses <span class="va">m_addr</span>;</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true"></a>}</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true"></a><span class="co">// 添加一个Person的实现类，定义为PersonImpl，修改后的代码：</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true"></a><span class="co">// 在下面的设计下,就实现了解耦，即“实现和接口分离”</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true"></a><span class="kw">class</span> PersonImpl;</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true"></a><span class="kw">class</span> Person{</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true"></a>    <span class="kw">private</span>:</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true"></a>    shared_ptr&lt;PersonImpl&gt; pImpl;</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true"></a>}</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true"></a></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true"></a></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true"></a></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true"></a><span class="co">// 与此相似的接口类还可以使用全虚函数</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true"></a><span class="kw">class</span> Person{</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true"></a>    <span class="kw">virtual</span> ~Person();</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true"></a>    <span class="kw">virtual</span> <span class="bu">std::</span>string name() <span class="at">const</span> = <span class="dv">0</span>;</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true"></a>    <span class="kw">virtual</span> <span class="bu">std::</span>string birthDate() <span class="at">const</span> = <span class="dv">0</span>;</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true"></a>}</span></code></pre></div>
+<p>然后通过继承的子类来实现相关的方法</p>
+<p>这种情况下这些virtual函数通常被成为factory工厂函数</p>
+<p>总结：<br />
++ 应该让文件依赖于声明而不依赖于定义，可以通过上面两种方法实现<br />
++ 程序头文件应该有且仅有声明, 这个就是个很理想的情况下了。</p>
+<h4 id="六继承与面向对象设计-inheritance-and-object-oriented-design">六、继承与面向对象设计 (Inheritance and Object-Oriented Design)</h4>
+<p><strong>32. 确定你的public继承塑模出is-a关系 （Make sure public inheritance models "is-a.")</strong><br />
+public类继承指的是单向的更一般化的，例如：</p>
+<pre><code>class Student : public Person{...};</code></pre>
+<p>其意义指的是student是一个person，但是person不一定是一个student。</p>
+<p>这里经常会出的错误是，将父类可能不存在的功能实现出来，例如：</p>
+<pre><code>class Bird{
+    virtual void fly();
+}
+class Penguin:public Bird{...};//企鹅是不会飞的</code></pre>
+<p>这个时候就需要通过设计来排除这种错误，例如通过定义一个FlyBird</p>
+<p>总结：<br />
++ public继承中，意味着每一个Base class的东西一定适用于他的derived class</p>
+<p><strong>33. 避免遮掩继承而来的名称 （Avoid hiding inherited names)</strong><br />
+它强调了在派生类中避免使用相同名称来覆盖基类的成员名称，以免造成名称冲突和混淆。</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true"></a><span class="kw">class</span> Base {</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true"></a>    <span class="dt">void</span> doSomething() {</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Base::doSomething()&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true"></a>    }</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true"></a>};</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true"></a></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true"></a><span class="kw">class</span> Derived : <span class="kw">public</span> Base {</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true"></a>    <span class="co">// 遮蔽了基类的同名函数</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true"></a>    <span class="dt">void</span> doSomething() {</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Derived::doSomething()&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true"></a>    }</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true"></a></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true"></a>    <span class="co">// 使用using声明解决遮蔽问题</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true"></a>    <span class="kw">using</span> Base::doSomething;</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true"></a></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true"></a>    <span class="co">// 转交函数解决遮蔽问题</span></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true"></a>    <span class="dt">void</span> callBaseDoSomething() {</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true"></a>        Base::doSomething();</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true"></a>    }</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true"></a>};</span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true"></a></span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true"></a>    Derived derived;</span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true"></a>    derived.doSomething(); <span class="co">// 调用Derived类的函数</span></span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true"></a>    derived.callBaseDoSomething(); <span class="co">// 调用Base类的函数</span></span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>34. 区分接口继承和实现继承 （Differentiate between inheritance of interface and inheritance of implementation)</strong><br />
+1. <strong>接口继承（Inheritance of Interface）</strong>：当派生类只继承了基类的接口（即公共函数声明），而不继承实际的实现时，这被称为接口继承。这种情况下，派生类的主要目的是遵循基类的接口规范，并可能提供自己的实现。接口继承是一种高度抽象的关系，用于描述类之间的公共行为。<br />
+2. <strong>实现继承（Inheritance of Implementation）</strong>：当派生类不仅继承了基类的接口，还继承了基类的实现细节时，这被称为实现继承。这种情况下，派生类不仅继承了接口规范，还继承了基类的内部实现，可能通过重写或扩展来修改基类的行为。实现继承是一种更紧密的关系，通常用于共享代码和复用现有的实现。</p>
+<p>在使用继承时，应该明确目的是进行接口继承还是实现继承，并根据需要采取适当的措施：<br />
+- 如果只需要继承接口，应该考虑使用纯虚函数和抽象基类来定义接口规范，而不提供默认实现。<br />
+- 如果需要继承实现，应该小心确保派生类确实需要修改或扩展基类的行为，而不是仅仅出于代码复用的目的而继承。如果需要修改行为，可以通过虚函数重写来实现。</p>
+<p><strong>35. 考虑virtual函数以外的其他选择 （Consider alternatives to virtual functions)</strong><br />
+这个建议提醒开发者，在某些情况下，虽然C++中的虚拟函数（virtual functions）是实现多态性的一种强大机制，但也存在一些替代方案，可以更灵活地解决问题。</p>
+<p>比如：标准库中的可调用对象</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true"></a><span class="co">// 使用 std::function 实现多态性</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true"></a><span class="co">// 定义一个可调用对象</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true"></a><span class="kw">struct</span> MyCallable {</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true"></a>    <span class="dt">void</span> <span class="kw">operator</span>()() {</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Calling MyCallable&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true"></a>    }</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true"></a>};</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true"></a>    <span class="bu">std::</span>function&lt;<span class="dt">void</span>()&gt; func = MyCallable();</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true"></a>    func(); <span class="co">// 调用可调用对象</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true"></a></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>36. 绝不重新定义继承而来的non-virtual函数 （Never redefine an inherited non-virtual function)</strong></p>
+<p><strong>37. 绝不重新定义继承而来的缺省参数值 （Never redefine a function's inherited default parameter value)</strong></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true"></a><span class="kw">class</span> Shape{</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true"></a>    <span class="kw">enum</span> ShapeColor {Red, Green, Blue};</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true"></a>    <span class="kw">virtual</span> <span class="dt">void</span> draw(ShapeColor color=Red)<span class="at">const</span> = <span class="dv">0</span>;</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true"></a>};</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true"></a><span class="kw">class</span> Rectangle : <span class="kw">public</span> Shape{</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true"></a>    <span class="kw">virtual</span> <span class="dt">void</span> draw(ShapeColor color=Green)<span class="at">const</span>;<span class="co">//和父类的默认参数不同</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true"></a>}</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true"></a>Shape* pr = <span class="kw">new</span> Rectangle; <span class="co">// 注意此时pr的静态类型是Shape，但是他的动态类型是Rectangle</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true"></a>pr-&gt;draw();                <span class="co">//virtual函数是动态绑定，而缺省参数值是静态绑定，所以会调用Red</span></span></code></pre></div>
+<p><strong>38. 通过复合塑模出has-a或"根据某物实现出" （Model "has-a" or "is-implemented-in-terms-of" through composition)</strong><br />
+复合：一个类里面有另外一个类的成员，那么这两个类的成员关系就叫做复合（或称聚合，内嵌，内含等）。<br />
+我们认为复合的关系是“has a”的概念，<br />
+这个建议的核心思想是，尽量使用复合而不是继承，以更灵活、可维护和可扩展的方式构建类之间的关系。</p>
+<p>在C++中，继承（inheritance）是一种强耦合的机制，它会将基类的实现细节暴露给派生类，限制了代码的灵活性和可维护性。相反，复合是一种轻量级的机制，允许将一个类的对象嵌入到另一个类中，从而实现了"has-a"或"根据某物实现出"的关系。</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true"></a><span class="co">// 使用复合实现 &quot;has-a&quot; 关系</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true"></a><span class="co">// 定义一个 Engine 类</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true"></a><span class="kw">class</span> Engine {</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true"></a>    <span class="dt">void</span> start() {</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Engine started.&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true"></a>    }</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true"></a>};</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true"></a></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true"></a><span class="co">// 使用复合将 Engine 嵌入到 Car 类中</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true"></a><span class="kw">class</span> Car {</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true"></a>    <span class="dt">void</span> start() {</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true"></a>        <span class="va">engine_</span>.start();</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Car started.&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true"></a>    }</span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true"></a></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true"></a>    Engine <span class="va">engine_</span>;</span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true"></a>};</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true"></a></span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true"></a>    Car myCar;</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true"></a>    myCar.start(); <span class="co">// 启动汽车，实际上是启动引擎和汽车本身</span></span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true"></a></span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>39. 明智而审慎地使用private继承 （Use private inheritance judiciously)</strong><br />
+私有继承（private inheritance）是一种较少使用的继承形式，因为它对类之间的关系进行了强烈限制。通常情况下，应谨慎使用私有继承，确保你真正需要它，以及你了解它的含义和影响。<br />
+以下是一些应该考虑使用私有继承的情况：<br />
+1. <strong>实现继承</strong>：当你需要重用基类的实现而不继承其接口时，可以考虑私有继承。这种情况下，派生类将成为基类的一种实现方式，但不会继承其接口。<br />
+2. <strong>限制接口可见性</strong>：私有继承将基类的公共和保护成员变为私有成员，从而限制了它们的可见性。这可以用于确保某些接口只能在派生类内部使用，而不会暴露给外部。</p>
+<p>下面是一个示例，演示了如何在合适的情况下使用私有继承：</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true"></a><span class="kw">class</span> Logger {</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true"></a>    <span class="dt">void</span> log(<span class="at">const</span> <span class="bu">std::</span>string&amp; message) {</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true"></a>        <span class="co">// 实现日志记录逻辑</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true"></a>    }</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true"></a>};</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true"></a></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true"></a><span class="kw">class</span> MyClass : <span class="kw">private</span> Logger {</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true"></a>    <span class="dt">void</span> doSomething() {</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true"></a>        <span class="co">// 使用基类的日志记录功能</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true"></a>        log(<span class="st">&quot;Doing something...&quot;</span>);</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true"></a>        <span class="co">// 执行其他操作</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true"></a>    }</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true"></a>};</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true"></a></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true"></a>    MyClass myObj;</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true"></a>    myObj.doSomething(); <span class="co">// 调用派生类的函数，间接使用私有继承的功能</span></span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true"></a>    <span class="co">// myObj.log(&quot;This won&#39;t work&quot;); // 错误，无法直接访问基类的接口</span></span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true"></a>}</span></code></pre></div>
+<p>其实上面改成组合模式，has-a更好一点</p>
+<p><strong>40. 明智而审慎地使用多重继承 （Use multiple inheritance judiciously)</strong><br />
+总结：<br />
++ 多重继承容易产生歧义<br />
++ virtual继承会增加大小、速度、初始化复杂度等成本，如果virtual base class不带任何数据，将是最具使用价值的情况<br />
++ 多重继承的使用情况：当一个类是“public 继承某个interface class”和“private 继承某个协助实现的class”两个相结合的时候。</p>
+<h4 id="七模板与泛型编程-templates-and-generic-programming">七、模板与泛型编程 (Templates and Generic Programming)</h4>
+<p><strong>41. 了解隐式接口和编译期多态 （Understand implicit interfaces and compile-time polymorphism)</strong></p>
+<p>对于面向对象编程：以显式接口（explicit interfaces）和运行期多态（runtime polymorphism）解决问题：</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true"></a><span class="kw">class</span> Widget {</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true"></a>    Widget();</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true"></a>    <span class="kw">virtual</span> ~Widget();</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true"></a>    <span class="kw">virtual</span> <span class="bu">std::</span>size_t size() <span class="at">const</span>;</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true"></a>    <span class="dt">void</span> swap(Widget&amp; other); <span class="co">//第25条</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true"></a>}</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true"></a></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true"></a><span class="dt">void</span> doProcessing(Widget&amp; w){</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true"></a>    <span class="cf">if</span>(w.size()&gt;<span class="dv">10</span>){...}</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true"></a>}</span></code></pre></div>
+<ul>
+<li>在上面这段代码中，由于w的类型被声明为Widget，所以w必须支持Widget接口，我们可以在源码中找出这个接口，看看他是什么样子（explicit interface），也就是他在源码中清晰可见</li>
+<li>由于Widget的某些成员函数是virtual，w对于那些函数的调用将表现运行期多态，也就是运行期间根据w的动态类型决定调用哪一个函数</li>
+</ul>
+<p>在templete编程中：隐式接口（implicit interface）和编译器多态（compile-time polymorphism）更重要：</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true"></a><span class="kw">template</span>&lt;<span class="kw">typename</span> T&gt;</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true"></a><span class="dt">void</span> doProcessing(T&amp; w)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true"></a>{</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true"></a>    <span class="cf">if</span>(w.size()&gt;<span class="dv">10</span>){...}</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true"></a>}</span></code></pre></div>
+<ul>
+<li>在上面这段代码中，w必须支持哪一种接口，由template中执行于w身上的操作来决定，例如T必须支持size等函数。这叫做<strong>隐式接口</strong></li>
+<li>凡涉及到w的任何函数调用，例如operator&gt;，都有可能造成template具现化，使得调用成功，根据不同的T类型调用具现化出来不同的函数，这叫做编译期多态</li>
+</ul>
+<p><strong>42. 了解typename的双重意义 （Understand the two meanings of typename)</strong><br />
+以下是 <code>typename</code> 的两种主要用途：</p>
+<ol>
+<li><strong>告诉编译器某个名称是一个类型</strong>：这是 <code>typename</code> 最常见的用途，它用于告诉编译器某个名称是一个类型而不是变量或函数。这通常用于模板编程中，以明确模板参数中的某个名称是类型。例如：</li>
+</ol>
+<div class="sourceCode" id="cb39"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true"></a><span class="kw">template</span> &lt;<span class="kw">typename</span> T&gt;</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true"></a><span class="dt">void</span> foo() {</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true"></a>    <span class="kw">typename</span> T::SomeType* ptr; <span class="co">// 告诉编译器 T::SomeType 是一个类型</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true"></a>}</span></code></pre></div>
+<ol>
+<li><strong>告诉编译器某个名称是一个依赖名称</strong>：在模板编程中，编译器需要知道某个名称是否是依赖于模板参数的，以防止解析错误。使用 <code>typename</code> 可以明确告诉编译器某个名称是一个依赖名称。例如：</li>
+</ol>
+<div class="sourceCode" id="cb40"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true"></a><span class="kw">template</span> &lt;<span class="kw">typename</span> T&gt;</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true"></a><span class="dt">void</span> bar() {</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true"></a>    T::<span class="kw">template</span> SomeTemplateType&lt;<span class="dt">int</span>&gt; var; <span class="co">// 使用 typename 明确 T::SomeTemplateType 是依赖名称</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>43. 学习处理模板化基类内的名称 （Know how to access names in templatized base classes)</strong></p>
+<p><strong>44. 将与参数无关的代码抽离templates （Factor parameter-independent code out of templates)</strong></p>
+<p><strong>45. 运用成员函数模板接受所有兼容类型 （Use member function templates to accept "all compatible types.")</strong></p>
+<p><strong>46. 需要类型转换时请为模板定义非成员函数 （Define non-member functions inside templates when type conversions are desired)</strong></p>
+<p><strong>47. 请使用traits classes表现类型信息 （Use traits classes for information about types)</strong></p>
+<p><strong>48. 认识template元编程 （Be aware of template metaprogramming)</strong></p>
+<p>Template metaprogramming是编写执行于编译期间的程序，因为这些代码运行于编译器而不是运行期，所以效率会很高，同时一些运行期容易出现的问题也容易暴露出来</p>
+<pre><code>template&lt;unsigned n&gt;
+struct Factorial{
+    enum{
+        value = n * Factorial&lt;n-1&gt;::value
+    };
+};
+template&lt;&gt;
+struct Factorial&lt;0&gt;{
+    enum{ value = 1 };
+};                       //这就是一个计算阶乘的元编程</code></pre>
+<h4 id="八定制new和delete-customizing-new-and-delete">八、定制new和delete (Customizing new and delete)</h4>
+<p><strong>49. 了解new-handler的行为 （Understand the behavior of the new-handler)</strong><br />
+总结：<br />
++ set_new_handler允许客户制定一个函数，在内存分配无法获得满足时被调用</p>
+<p>一个设计良好的new-handler要做下面的事情：<br />
++ 让更多内存可以被使用<br />
++ 安装另一个new-handler，如果目前这个new-handler无法取得更多可用内存，或许他知道另外哪个new-handler有这个能力，然后用那个new-handler替换自己<br />
++ 卸除new-handler<br />
++ 抛出bad_alloc的异常<br />
++ 不返回，调用abort或者exit</p>
+<p><strong>50. 了解new和delete的合理替换时机 （Understand when it makes sense to replace new and delete)</strong></p>
+<ul>
+<li>用来检测运用上的错误，如果new的内存delete的时候失败掉了就会导致内存泄漏，定制的时候可以进行检测和定位对应的失败位置</li>
+<li>为了强化效率（传统的new是为了适应各种不同需求而制作的，所以效率上就很中庸）</li>
+<li>可以收集使用上的统计数据</li>
+<li>为了增加分配和归还内存的速度</li>
+<li>为了降低缺省内存管理器带来的空间额外开销</li>
+<li>为了弥补缺省分配器中的非最佳对齐位</li>
+<li>为了将相关对象成簇集中起来</li>
+</ul>
+<p><strong>51. 编写new和delete时需固守常规（Adhere to convention when writing new and delete)</strong><br />
++ 重写new的时候要保证49条的情况，要能够处理0bytes内存申请等所有意外情况<br />
++ 重写delete的时候，要保证删除null指针永远是安全的</p>
+<p><strong>52. 写了placement new也要写placement delete（Write placement delete if you write placement new)</strong></p>
+<p>如果operator new接受的参数除了一定会有的size_t之外还有其他的参数，这个就是所谓的palcement new</p>
+<pre><code>void* operator new(std::size_t, void* pMemory) throw(); //placement new
+static void operator delete(void* pMemory) throw();     //palcement delete，此时要注意名称遮掩问题</code></pre>
+<h4 id="杂项讨论-miscellany">杂项讨论 (Miscellany)</h4>
+<p><strong>53. 不要轻忽编译器的警告（Pay attention to compiler warnings)</strong><br />
++ 严肃对待编译器发出的warning， 努力在编译器最高警告级别下无warning<br />
++ 同时不要过度依赖编译器的警告，因为不同的编译器对待事情的态度可能并不相同，换一个编译器警告信息可能就没有了</p>
+<p><strong>54. 让自己熟悉包括TR1在内的标准程序库 （Familiarize yourself with the standard library, including TR1)</strong><br />
+其实感觉这一条已经有些过时了，不过虽然过时，但是很多地方还是有用的<br />
++ smart pointers<br />
++ tr1::function ： 表示任何callable entity（可调用物，只任何函数或者函数对象）<br />
++ tr1::bind是一种stl绑定器<br />
++ Hash tables例如set，multisets， maps等<br />
++ 正则表达式<br />
++ tuples变量组<br />
++ tr1::array：本质是一个STL化的数组<br />
++ tr1::mem_fn:语句构造上与程艳函数指针一样的东西<br />
++ tr1::reference_wrapper： 一个让references的行为更像对象的东西<br />
++ 随机数生成工具<br />
++ type traits</p>
+<p><strong>55. 让自己熟悉Boost （Familiarize yourself with Boost)</strong><br />
+主要是因为boost是一个C++开发者贡献的程序库，代码相对比较好</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

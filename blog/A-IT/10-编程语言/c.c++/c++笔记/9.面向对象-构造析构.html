@@ -1,0 +1,567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/9.面向对象-构造析构</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#拷贝构造函数">拷贝构造函数</a></li>
+<li><a href="#何时调用拷贝构造函数">何时调用拷贝构造函数</a></li>
+<li><a href="#深拷贝和浅拷贝">深拷贝和浅拷贝</a></li>
+<li><a href="#重载赋值运算符">重载=（赋值运算符）</a></li>
+<li><a href="#拷贝控制操作三五法则">拷贝控制操作（三/五法则）</a>
+<ul>
+<li><a href="#再谈构造函数">再谈构造函数</a></li>
+</ul></li>
+<li><a href="#类型转换函数">类型转换函数</a></li>
+<li><a href="#函数对象详解">函数对象详解</a></li>
+<li><a href="#类型转换的本质">类型转换的本质</a>
+<ul>
+<li><a href="#强制类型转换也不是万能的">强制类型转换也不是万能的</a></li>
+</ul></li>
+<li><a href="#四种类型转换运算符">四种类型<strong>转换运算符</strong></a>
+<ul>
+<li><a href="#static_cast">static_cast</a></li>
+<li><a href="#const_cast">const_cast</a></li>
+<li><a href="#reinterpret_cast">reinterpret_cast</a></li>
+<li><a href="#dynamic_cast">dynamic_cast</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h3 id="拷贝构造函数">拷贝构造函数</h3>
+<ul>
+<li>拷贝是在用<strong>其它对象</strong>的数据来<strong>初始化</strong>新对象的内存时发生的</li>
+<li><strong>默认</strong>的拷贝构造函数很简单，就是使用“老对象”的成员变量对“新对象”的成员变量进行挨个赋值</li>
+<li>当类持有其它资源时，如动态分配的内存、打开的文件、指向其他数据的指针、网络连接等，默认拷贝构造函数就不能拷贝这些资源，我们必须显式地定义拷贝构造函数，以完整地拷贝对象的所有数据。</li>
+<li>此时有两种做法：1.behavior like a value(深拷贝)  2.behavior like a ref(引用计数)</li>
+</ul>
+<h3 id="何时调用拷贝构造函数">何时调用拷贝构造函数</h3>
+<p>以拷贝的方式来初始化对象的情况：<br />
+1. 构造对象时，将其它对象作为实参 <code>Student stu2(stu1); //以拷贝的方式初始化</code><br />
+2. 在创建对象的同时以对象赋值<br />
+3. 函数调用时<br />
+4. 函数返回值为类类型</p>
+<p>当函数的返回值为类类型时，return 语句会返回一个对象，不过为了防止局部对象被销毁，编译器并不会直接返回这个对象，而是根据这个对象先创建出一个<strong>临时对象（匿名对象）</strong>，再将这个临时对象返回。而创建临时对象的过程，就是以拷贝的方式进行的，会调用拷贝构造函数。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>Student func(){</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    Student s(<span class="st">&quot;小明&quot;</span>, <span class="dv">16</span>, <span class="fl">90.5</span>);</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    return s;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>Student stu = func();</span></code></pre></div>
+<p>理论上讲，运行代码后会调用<strong>两次拷贝构造函数</strong>，一次是返回 s 对象时，另外一次是创建 stu 对象时。但是在现代编译器上，只会调用一次拷贝构造函数，或者一次也不调用这是因为，现代编译器都支持<strong>返回值优化技术</strong>，会尽量避免拷贝对象，以提高程序运行效率</p>
+<h3 id="深拷贝和浅拷贝">深拷贝和浅拷贝</h3>
+<p>默认浅拷贝，深拷贝要自己处理（behavior like a value）<br />
+深拷贝例子：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>Array(const Array &amp;arr);        <span class="co">//拷贝构造函数</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>Array::Array(const Array &amp;arr){ <span class="co">//拷贝构造函数</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    this-&gt;<span class="va">m_len</span> = arr.<span class="va">m_len</span>;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    this-&gt;<span class="va">m_p</span> = (<span class="dt">int</span>*)calloc( this-&gt;<span class="va">m_len</span>, sizeof(<span class="dt">int</span>) );</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>    memcpy( this-&gt;<span class="va">m_p</span>, arr.<span class="va">m_p</span>, <span class="va">m_len</span> * <span class="kw">sizeof</span>(<span class="dt">int</span>) );</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>}</span></code></pre></div>
+<p>深拷贝的例子比比皆是，标准模板库（STL）中的 <code>string、vector、stack、set、map</code> 等都必须使用深拷贝。</p>
+<p>深拷贝的时机：<br />
+1. 存在指针成员，和动态分配的内存, 因为只有这样，才能将指针指向的内容再复制出一份来，让原有对象和新生对象相互独立，彼此之间不受影响。</p>
+<h3 id="重载赋值运算符">重载=（赋值运算符）</h3>
+<p>编译器会默认生成。功能就是将原有对象的所有成员变量挨个赋值给新对象，这和默认拷贝构造函数的功能类似。<br />
+若<strong>需要拷贝构造函数，则必须有赋值运算符</strong>。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>Array &amp; <span class="kw">operator</span>=(const Array &amp;arr);</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>Array &amp;Array::<span class="kw">operator</span>=(const Array &amp;arr){ <span class="co">//重载赋值运算符</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>    if( this != &amp;arr){ <span class="co">//判断是否是给自己赋值</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>        this-&gt;<span class="va">m_len</span> = arr.<span class="va">m_len</span>;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>        free(<span class="kw">this</span>-&gt;<span class="va">m_p</span>); <span class="co">//释放原来的内存</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>        this-&gt;<span class="va">m_p</span> = (<span class="dt">int</span>*)calloc( this-&gt;<span class="va">m_len</span>, sizeof(<span class="dt">int</span>) );</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>        memcpy( this-&gt;<span class="va">m_p</span>, arr.<span class="va">m_p</span>, <span class="va">m_len</span> * <span class="kw">sizeof</span>(<span class="dt">int</span>) );</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>    }</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>    return *<span class="kw">this</span>;</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="拷贝控制操作三五法则">拷贝控制操作（三/五法则）</h3>
+<p>C++中的三/五法则（Rule of Three/Five）是一组关于自定义类（用户定义类型）的重要规则，用于确保类的正确管理资源和避免内存泄漏等问题。C++ 并不要求我们定义所有的这些操作，你可以只定义其中的一个或两个。但是，这些操作<strong>通常应该被看做一个整体</strong>，只需要定义其中一个操作，而不需要定义其他操作的情况很少见。<br />
+* 1.需要析构函数的类也需要拷贝和赋值操作。若没有拷贝和赋值操作，那么析构函数free()的时候可能free两次，造成错误<br />
+* 2.需要拷贝操作的类也需要赋值操作，反之亦然</p>
+<ol>
+<li><p><strong>析构函数（Destructor Rule）：</strong> 如果类需要分配资源（如动态内存、文件句柄等），则需要定义析构函数来释放这些资源，以防止内存泄漏。</p></li>
+<li><p><strong>拷贝构造函数（Copy Constructor Rule）：</strong> 如果类需要在拷贝构造函数中执行深拷贝（而不是默认的浅拷贝），则需要定义拷贝构造函数。</p></li>
+<li><p><strong>拷贝赋值操作符（Copy Assignment Operator Rule）：</strong> 如果类需要在拷贝赋值操作符中执行深拷贝，并且为了支持对象的赋值操作，则需要定义拷贝赋值操作符。</p></li>
+<li><p><strong>移动构造函数（Move Constructor Rule，C++11引入）：</strong> 如果类中有动态分配的资源，而且拷贝构造函数的成本很高，可以通过定义移动构造函数来支持对象的高效移动。移动构造函数允许将资源的所有权从一个对象转移到另一个对象，避免不必要的资源拷贝。</p></li>
+<li><p><strong>移动赋值操作符（Move Assignment Operator Rule，C++11引入）：</strong> 类似于移动构造函数，移动赋值操作符允许对象之间的资源所有权的高效转移。如果类中有动态分配的资源，同时要支持对象的赋值操作，可以定义移动赋值操作符。</p></li>
+<li><p><strong>转换构造函数</strong></p></li>
+<li><p><strong>类型转换函数</strong></p></li>
+<li><p><strong>函数对象</strong></p>
+<h3 id="转换构造函数">转换构造函数</h3>
+<p>将其它类型转换为当前类的类型<br />
+不管是自动类型转换还是强制类型转换，<strong>前提必须是编译器知道如何转换</strong>，例如，将小数转换为整数会抹掉小数点后面的数字，将<code>int *</code>转换为<code>float *</code>只是简单地复制指针的值，这些规则都是编译器内置的，我们并没有告诉编译器。<br />
+换句话说，<strong>如果编译器不知道转换规则就不能转换，使用强制类型也无用</strong><br />
+幸运的是，C++ 允许我们自定义类型转换规则，用户可以将其它类型转换为当前类类型，也可以将当前类类型转换为其它类型。<br />
+这种自定义的类型转换规则只能以<strong>类的成员函数</strong>的形式出现，换句话说，这种转换规则只适用于类。<br />
+在进行数学运算、赋值、拷贝等操作时，如果遇到类型不兼容、需要将 double 类型转换为 Complex 类型时，编译器会检索当前的类<strong>是否定义了转换构造函数</strong>，如果没有定义的话就转换失败，如果定义了的话就调用转换构造函数。</p></li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">class</span> MyString {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>    <span class="co">// 转换构造函数：将const char* 转换为 MyString</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    MyString(<span class="at">const</span> <span class="dt">char</span>* str) : <span class="va">data_</span>(str) {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;转换构造函数被调用&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    }</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>    <span class="dt">void</span> print() <span class="at">const</span> {</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="va">data_</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>    }</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a>    <span class="bu">std::</span>string <span class="va">data_</span>;</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a>};</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true"></a>    <span class="at">const</span> <span class="dt">char</span>* text = <span class="st">&quot;Hello, World!&quot;</span>;</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a>    </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true"></a>    <span class="co">// 使用转换构造函数将 const char* 转换为 MyString 对象</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true"></a>    MyString myStr = text;</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true"></a>    <span class="co">// 若转换构造函数加上explicit后，必须显式调用构造函数来创建 MyString 对象</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true"></a>    MyString myStr(text);</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true"></a>    myStr.print();</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true"></a>}</span></code></pre></div>
+<h4 id="再谈构造函数">再谈构造函数</h4>
+<ul>
+<li>1) 默认构造函数。就是编译器自动生成的构造函数。以 Complex 类为例，它的原型为：</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>Complex(); <span class="co">//没有参数</span></span></code></pre></div>
+<ul>
+<li>2) 普通构造函数。就是用户自定义的构造函数。以 Complex 类为例，它的原型为：</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>Complex(double real, double imag); <span class="co">//两个参数</span></span></code></pre></div>
+<ul>
+<li>3) 拷贝构造函数。在以拷贝的方式初始化对象时调用。以 Complex 类为例，它的原型为：</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>Complex(const Complex &amp;c);</span></code></pre></div>
+<ul>
+<li>4) 转换构造函数，也是在构造对象的时候调用的。将其它类型转换为当前类类型时调用。以 Complex 为例，它的原型为：</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>Complex(double real);</span></code></pre></div>
+<p>不管哪一种构造函数，都能够<strong>用来初始化对象</strong>，这是构造函数的本意。<br />
+除了在创建对象时初始化对象，其他情况下也会调用构造函数，例如，以拷贝的的方式初始化对象时会调用拷贝构造函数，将其它类型转换为当前类类型时会调用转换构造函数。</p>
+<h3 id="类型转换函数">类型转换函数</h3>
+<p>将当前类的类型转换为其它类型<br />
+<strong>转换构造函数</strong>能够将<strong>其它类型转换为当前类类型</strong>（例如将 double 类型转换为 Complex 类型），但是不能反过来将当前类类型转换为其它类型（例如将 Complex 类型转换为 double 类型）。<br />
+语法：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="kw">operator</span> type(){        <span class="co">//this参数会自动传入进去</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>    return data;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>}</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="co">//例子：</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a><span class="kw">operator</span> double() const { return <span class="va">m_real</span>; } <span class="co">//类型转换函数,函数的名字就叫做double</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a><span class="kw">class</span> MyNumber {</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>    MyNumber(<span class="dt">int</span> value) : number(value) {}</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>    <span class="co">// 类型转换函数将 MyNumber 转换为 int</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>    <span class="kw">operator</span> <span class="dt">int</span>() <span class="at">const</span> {</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>        <span class="cf">return</span> number;</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a>    }</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a>    <span class="dt">int</span> number;</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a>};</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true"></a>    MyNumber num(<span class="dv">42</span>);</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true"></a>    <span class="co">// 使用类型转换函数将 MyNumber 对象转换为 int</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true"></a>    <span class="dt">int</span> intValue = num;</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;intValue: &quot;</span> &lt;&lt; intValue &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true"></a>}</span></code></pre></div>
+<p>因为要转换的目标类型是 type，所以返回值 data 也必须是 type 类型。类型转换函数看起来没有返回值类型，其实是<strong>隐式地指明了返回值类型</strong>。<br />
+关于类型转换函数的说明:<br />
+* 1) type 可以是内置类型、类类型以及由 typedef 定义的类型别名，任何可作为函数返回类型的类型（void 除外）都能够被支持。一般而言，不允许转换为数组或函数类型，转换为指针类型或引用类型是可以的。<br />
+* 2) 类型转换函数一般不会更改被转换的对象，所以通常被定义为 <strong>const 成员</strong>。<br />
+* 3) 类型转换函数可以被继承，可以是虚函数。<br />
+* 4) 一个类虽然可以有多个类型转换函数（类似于函数重载），但是如果多个类型转换函数要转换的目标类型本身又可以相互转换（类型相近），那么有时候就会产生二义性<br />
+比如：</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">operator</span> double() const { return <span class="va">m_real</span>; } <span class="co">//转换为double类型</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="kw">operator</span> int() const { return (<span class="dt">int</span>)<span class="va">m_real</span>; } <span class="co">//转换为int类型</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a><span class="co">// 下面会出错</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>Complex c1(<span class="fl">24.6</span>, <span class="dv">100</span>);</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>float f = <span class="fl">12.5</span> + c1;    <span class="co">// 隐式转换</span></span></code></pre></div>
+<p><strong>总结：</strong><br />
+转换构造函数和类型转换函数的<strong>作用是相反的</strong>：<br />
+转换构造函数会将其它类型转换为当前类类型，类型转换函数会将当前类类型转换为其它类型<br />
+如果没有这两个函数，Complex 类和 int、double、bool 等基本类型的四则运算、逻辑运算都将变得非常复杂，<strong>要编写大量的运算符重载函数</strong>。<br />
+<strong>但是，如果一个类同时存在这两个函数，就有可能产生二义性。</strong><br />
+解决二义性问题的办法也很简单粗暴，要么只使用转换构造函数，要么只使用类型转换函数。</p>
+<p>实践证明，<strong>用户对转换构造函数的需求往往更加强烈</strong>，这样能<strong>增加编码的灵活性</strong>，例如，可以将一个字符串字面量或者一个字符数组直接赋值给 string 类的对象，可以将一个 int、double、bool 等基本类型的数据直接赋给 Complex 类的对象。</p>
+<p>如果我们想把当前类类型转换为其它类型怎么办呢？很简单，增加一个<strong>普通的成员函数即可</strong>，<code>std::string</code>就是最好的例子。例如，string 类使用 <code>c_str()</code> 函数转换为 C 风格的字符串，complex 类使用 <code>real() 和 imag()</code> 函数来获取复数的实部和虚部。</p>
+<h3 id="函数对象详解">函数对象详解</h3>
+<p>如果一个类将<code>()</code>运算符重载为成员函数，这个类就称为<strong>函数对象类</strong>，这个类的对象就是<strong>函数对象</strong>。函数对象其实就是重载了<code>()</code>的对象，是一个<strong>更加面向对象的函数指针</strong>，它可以用很多面相对象的很多特性。</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>class CAverage</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>{</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>    double <span class="kw">operator</span>()(int a1, int a2, int a3)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>    { <span class="co">//重载()运算符</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>        return (<span class="dt">double</span>)(a1 + a2 + a3) / <span class="dv">3</span>;</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a>    }</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>};</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a>int main()</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a>{</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a>    CAverage average; <span class="co">//能够求三个整数平均数的函数对象</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true"></a>    cout &lt;&lt; average(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>); <span class="co">//等价于 cout &lt;&lt; average.operator(3, 2, 3);</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="类型转换的本质">类型转换的本质</h3>
+<p>原则：有强制转换就有风险<br />
+内存中的数据有多种解释方式，使用之前必须要确定。这种「确定数据的解释方式」的工作就是由数据类型（Data Type）来完成的。例如int a;表明，a 这份数据是整数，不能理解为像素、声音、视频等。<br />
+所谓数据类型转换，就是<strong>对数据所占用的二进制位做出重新解释</strong>。如果有必要，在重新解释的同时<strong>还会修改数据</strong>，改变它的二进制位。<br />
+对于隐式类型转换，编译器可以根据<strong>已知的转换规则</strong>来决定是否需要修改数据的二进制位；<br />
+而对于强制类型转换，由于没有对应的转换规则，所以能做的事情仅仅是<strong>重新解释数据的二进制位</strong>，但无法对数据的二进制位做出<strong>修正</strong>。这就是隐式类型转换和强制类型转换<strong>最根本的区别</strong>。</p>
+<p>隐式类型转换必须使用已知的转换规则，虽然灵活性受到了限制，但是由于能够对数据进行恰当地调整，所以更加安全（几乎没有风险）。<br />
+强制类型转换能够在更大范围的数据类型之间进行转换，例如不同类型指针（引用）之间的转换、从 const 到非 const 的转换、从 int 到指针的转换（有些编译器也允许反过来）等，这虽然增加了灵活性，但是由于不能恰当地调整数据，所以也充满了风险，程序员要小心使用。</p>
+<p>隐式类型转换和显式类型转换最根本的区别：<br />
+* 隐式类型转换除了会重新解释数据的二进制位，还会利用<strong>已知的转换规则</strong>（编译器和自己定义的转换函数）对数据进行恰当地调整；<br />
+* 显式类型转换只能简单粗暴地<strong>重新解释</strong>二进制位，不能对数据进行任何调整。</p>
+<h4 id="强制类型转换也不是万能的">强制类型转换也不是万能的</h4>
+<ul>
+<li>两个没有继承关系的类不能相互转换</li>
+<li>基类不能向派生类转换（向下转型）</li>
+<li>类类型不能向基本类型转换</li>
+<li>指针和类类型之间不能相互转换。</li>
+</ul>
+<h3 id="四种类型转换运算符">四种类型<strong>转换运算符</strong></h3>
+<p>C风格的强制类型转换统一使用<code>( )</code>,而他是很难再程序中搜索到的。<br />
+为了使潜在风险更加细化，使问题追溯更加方便，使书写格式更加规范，C++ <strong>对类型转换进行了分类</strong>，并新增了四个关键字来予以支持，它们分别是：</p>
+<h4 id="static_cast">static_cast</h4>
+<p>用于良性转换，一般不会导致意外发生，风险很低。在<strong>编译期间转换</strong>，能够更加及时地发现错误,转换失败的话会抛出一个编译错误。<br />
+* 原有的自动类型转换，例如 short 转 int、int 转 double、向上转型等；<br />
+* void 指针和具体类型指针之间的转换，例如<code>void *</code>转<code>int *</code>、<code>char *</code>转<code>void *</code>等；<br />
+* 有转换构造函数或者类型转换函数的类与其它类型之间的转换，例如 double 转 Complex（调用转换构造函数）、Complex 转 double（调用类型转换函数）。</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="co">//下面是正确的用法</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>int m = <span class="dv">100</span>;</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a>Complex c(<span class="fl">12.5</span>, <span class="fl">23.8</span>);</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a>long n = static_cast&lt;<span class="dt">long</span>&gt;(m); <span class="co">//宽转换，没有信息丢失</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a>char ch = static_cast&lt;<span class="dt">char</span>&gt;(m); <span class="co">//窄转换，可能会丢失信息</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a>int *p1 = static_cast&lt;<span class="dt">int</span>*&gt;( malloc(<span class="dv">10</span> * <span class="kw">sizeof</span>(<span class="dt">int</span>)) ); <span class="co">//将void指针转换为具体类型指针</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true"></a>void *p2 = static_cast&lt;<span class="dt">void</span>*&gt;(p1); <span class="co">//将具体类型指针，转换为void指针</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true"></a>double real= static_cast&lt;<span class="dt">double</span>&gt;(c); <span class="co">//调用类型转换函数</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true"></a><span class="co">//下面的用法是错误的</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true"></a>float *p3 = static_cast&lt;<span class="dt">float</span>*&gt;(p1); <span class="co">//不能在两个具体类型的指针之间进行转换</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true"></a>p3 = static_cast&lt;<span class="dt">float</span>*&gt;(<span class="bn">0X2DF9</span>); <span class="co">//不能将整数转换为指针类型</span></span></code></pre></div>
+<h4 id="const_cast">const_cast</h4>
+<p>它用来去掉表达式的 const 修饰或 volatile 修饰。换句话说，const_cast 就是用来将 const/volatile 类型转换为非 const/volatile 类型。</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>int main(){</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>    const int n = <span class="dv">100</span>;</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>    int *p = const_cast&lt;<span class="dt">int</span>*&gt;(&amp;n);</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>    *p = <span class="dv">234</span>;</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a>    cout&lt;&lt;<span class="st">&quot;n = &quot;</span>&lt;&lt;n&lt;&lt;endl;</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>    cout&lt;&lt;<span class="st">&quot;*p = &quot;</span>&lt;&lt;*p&lt;&lt;endl;</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a>}</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a><span class="co">// 运行结果：</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a><span class="co">// n = 100,  是因为n相当于编译期间的替换。</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a><span class="co">// *p = 234</span></span></code></pre></div>
+<h4 id="reinterpret_cast">reinterpret_cast</h4>
+<p>高度危险的转换，这种转换仅仅是对<strong>二进制位的重新解释</strong>，<strong>不会借助已有的转换规则对数据进行调整</strong>，但是最灵活</p>
+<h4 id="dynamic_cast">dynamic_cast</h4>
+<ul>
+<li>1) 向上转型（Upcasting）<br />
+向上转型始终是安全的，所以 dynamic_cast 不会进行任何运行期间的检查，这个时候的 <code>dynamic_cast</code> 和 <code>static_cast</code> 就没有什么区别了</li>
+<li>2) 向下转型（Downcasting）<br />
+借助 RTTI，用于类型安全的向下转型（Downcasting）。<br />
+<code>dynamic_cast</code> 的主要用途是在多态类的继承关系中，将基类指针或引用安全地转换为派生类指针或引用，以便可以访问派生类的特定成员和方法，同时进行类型检查以避免错误。如果你只需要调用基类中的方法，那么不进行类型转换也能正常使用。</li>
+</ul>
+<p>会在程序运行期间借助 RTTI 进行类型转换，这就要求基类必须包含虚函数<br />
+<code>dynamic_cast &lt;newType&gt; (expression)</code> <br />
+对于指针，如果转换失败将返回 NULL；对于引用，如果转换失败将抛出std::bad_cast异常。</p>
+<p>dynamic_cast 只能转换<strong>指针类型</strong>和<strong>引用类型</strong>，其它类型（int、double、数组、类、结构体等）都不行。<br />
+每个类都会在内存中保存一份类型信息，编译器会将存在继承关系的类的类型信息使用指针“连接”起来，从而形成一个<strong>继承链</strong>（Inheritance Chain）<br />
+总起来说，dynamic_cast 会<strong>在程序运行过程中遍历继承链</strong>，如果途中遇到了要转换的目标类型，那么就能够转换成功，如果直到继承链的顶点（最顶层的基类）还没有遇到要转换的目标类型，那么就转换失败。<br />
+但是从本质上讲，dynamic_cast 还是只允许向上转型，因为它只会向上遍历继承链。<br />
+造成这种假象的根本原因在于，派生类对象可以用任何一个基类的指针指向它（基类指针本来就指向派生类对象）</p>
+<p>例子：</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="kw">class</span> Base {</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>    <span class="kw">virtual</span> <span class="dt">void</span> show() {</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Base&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>    }</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a>};</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true"></a><span class="kw">class</span> Derived : <span class="kw">public</span> Base {</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true"></a>    <span class="dt">void</span> show() <span class="kw">override</span> {</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Derived&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true"></a>    }</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true"></a>};</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true"></a>    Base* basePtr = <span class="kw">new</span> Derived;</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true"></a>    Derived* derivedPtr = <span class="kw">dynamic_cast</span>&lt;Derived*&gt;(basePtr);</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true"></a>    <span class="cf">if</span> (derivedPtr) {</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true"></a>        derivedPtr-&gt;show();</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true"></a>    } <span class="cf">else</span> {</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Conversion failed&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true"></a>    }</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true"></a></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true"></a>    <span class="kw">delete</span> basePtr;</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true"></a></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true"></a>}</span></code></pre></div>
+<p>在上述示例中，即使不进行类型转换，你仍然可以通过基类指针 <code>basePtr</code> 调用 <code>show()</code> 方法，因为基类指针可以在运行时动态地绑定到派生类的函数。但是，如果你希望在派生类中进行更多的操作，或者访问派生类特有的成员，那么将基类指针转换为派生类指针会更加方便和合适。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

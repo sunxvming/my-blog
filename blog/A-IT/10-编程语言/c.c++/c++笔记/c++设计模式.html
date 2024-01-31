@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/c++设计模式</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#pimpl">Pimpl</a></li>
+<li><a href="#创建型模式">创建型模式</a></li>
+<li><a href="#结构型模式">结构型模式</a>
+<ul>
+<li><a href="#适配器模式">适配器模式</a></li>
+<li><a href="#外观模式">外观模式</a></li>
+<li><a href="#代理模式">代理模式</a></li>
+</ul></li>
+<li><a href="#行为模式">行为模式</a>
+<ul>
+<li><a href="#责任链命令">责任链&amp;&amp;命令</a></li>
+<li><a href="#策略模式">策略模式</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="pimpl">Pimpl</h2>
+<p>Pimpl是“pointer to implementation”的缩写，意为指向实现的指针。Pimpl是针对C++的设计模式，它将所有的私有数据成员、私有成员函数隔离到一个.cpp文件中独立实现的类或结构体内，在.h中仅需要包含指向该类实例的不透明指针（opaque pointer）即可。<br />
+好处：1.接口和实现完全分离 2.修改实现文件，使用的地方不用重新编译。因为不会改动到头文件</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>class AutoTimer</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>{</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    explicit AutoTimer(const <span class="bu">std::</span>string &amp;name);</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    ~AutoTimer();</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    class Impl;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>    Impl *pmImpl;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>};</span></code></pre></div>
+<h2 id="创建型模式">创建型模式</h2>
+<ul>
+<li>工厂模式<br />
+对 new 的封装”，make_unique()、make_shared() 这两个函数，就是工厂模式的具体应用</li>
+</ul>
+<h2 id="结构型模式">结构型模式</h2>
+<p>它关注的是对象的<strong>静态联系</strong>，以灵活、可拆卸、可装配的方式组合出新的对象。<br />
+结构型模式一共有 7 个，其中，我觉得在 C++ 里比较有用、常用的是适配器、外观和代理。</p>
+<h3 id="适配器模式">适配器模式</h3>
+<p>适配器模式的目的是<strong>接口转换</strong>，不需要修改源码，就能够把一个对象转换成可以在本系统中使用的形式<br />
+适配器模式在 C++ 里多出现在有第三方库或者外部接口的时候，通常这些接口不会恰好符合我们自己的系统，功能很好，但不能直接用，想改源码很难，甚至是不可能的。所以，就需要用适配器模式给“适配”一下，让外部工具能够“match”我们的系统，而两边都不需要变动，“皆大欢喜”。<br />
+标准库中的容器 array 就是一个适配器，适配c/c++的原生数组，包装了 c/c++ 的原生数组，转换成了容器的形式，让<strong>裸内存数据</strong>也可以接入标准库的泛型体系。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>array&lt;<span class="dt">int</span>, <span class="dv">5</span>&gt; arr = {<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>};</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>auto b = begin(arr);</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>auto e = end(arr);</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>for_each(b, e, [](int x){...});</span></code></pre></div>
+<h3 id="外观模式">外观模式</h3>
+<p>再来看外观模式，它封装了一组对象，目的是简化这组对象的通信关系，提供一个高层次的易用接口，让外部用户更容易使用，降低系统的复杂度。<br />
+外观模式的特点是<strong>内部会操作很多对象</strong>，然后对外表现成一个对象。使用它的话，你就可以不用“事必躬亲”了，只要发一个指令，后面的杂事就都由它代劳了，就像是一个“大管家”。<br />
+不过要注意，外观模式并不绝对控制、屏蔽内部包装的那些对象。如果你觉得外观不好用，完全可以越过它，自己“深入基层”，去实现外观没有提供的功能。<br />
+<code>async()</code> 就是外观模式的一个例子，它封装了线程的创建、调度等细节，用起来很简单，但也不排斥你直接使用 thread、mutex 等底层线程工具。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>auto f = <span class="bu">std::</span>async([](){...});</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>f.wait();</span></code></pre></div>
+<h3 id="代理模式">代理模式</h3>
+<p>它和适配器有点像，都是包装一个对象，但关键在于它们的目的、意图有差异：不是为了适配插入系统，而是要“控制”对象，不允许外部直接与内部对象通信，所以叫作“代理”。<br />
+代理模式的应用非常广泛，如果你想限制、屏蔽、隐藏、增强或者优化一个类，就可以使用代理。这样，客户代码看到的只是代理对象，不知道原始对象（被代理的对象）是什么样，<br />
+只能用代理对象给出的接口，这样就实现了控制的目的。<br />
+代理在 C++ 里的一个典型应用就是<strong>智能指针</strong>，它接管了原始指针，限制了某些危险操作，并且添加了自动生命周期管理，虽然少了些自由，但获得了更多的安全。</p>
+<h2 id="行为模式">行为模式</h2>
+<p>行为模式，它描述了对象之间动态的<strong>消息传递</strong>，也就是对象的“行为”、工作的方式。<br />
+因为行为模式都是在运行时才建立联系，所以通常都很复杂，不太好理解对象之间的关系和通信机制。<br />
+我觉得比较难用，或者说是要尽量避免使用的模式有解释器和中介者，它们的结构比较难懂，会增加系统的复杂度。而比较容易理解、容易使用的有<strong>职责链、命令和策略</strong>，所以我重点说说它们。</p>
+<h3 id="责任链命令">责任链&amp;&amp;命令</h3>
+<p>职责链和命令这两个模式经常联合起来使用。职责链把多个对象串成一个“链条”，让链条<br />
+里的每个对象都有机会去处理请求。而请求通常使用的是命令模式，把相关的数据打包成一<br />
+个对象，解耦请求的发送方和接收方。<br />
+其实，你仔细想一下就会发现，C++ 的异常处理机制（  第 9 讲）就是“职责链 + 命<br />
+令”的一个实际应用。<br />
+在异常处理的过程中，异常类 exception 就是一个命令对象，throw 抛出异常就是发起了<br />
+一个请求处理流程。而一系列的 try-catch 块就构成了处理异常的职责链，异常会自下而上<br />
+地走过函数调用栈——也就是职责链，直到在链条中找到一个能够处理的 catch 块。</p>
+<h3 id="策略模式">策略模式</h3>
+<p>策略模式的要点是“策略”这两个字，它封装了不同的算法，可以在运行的时候灵活地互相<br />
+替换，从而在外部“非侵入”地改变系统的行为内核。<br />
+策略模式有点像装饰模式和状态模式，你可不要弄混了。跟它们相比，策略模式的的特点是<br />
+不会改变类的外部表现和内部状态，只是动态替换一个很小的算法功能模块。<br />
+前面讲过的容器和算法用到的<strong>比较函数</strong>、<strong>散列函数</strong>，还有 <strong>for_each</strong> 算法里的 lambda 表达<br />
+式，它们都可以算是策略模式的具体应用。<br />
+另外，策略模式也非常适合应用在有 if-else/switch-case 这样“分支决策”的代码里，你<br />
+可以把每个分支逻辑都封装成类或者 lambda 表达式，再把它们存进容器，让容器来帮你<br />
+查找最合适的处理策略。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

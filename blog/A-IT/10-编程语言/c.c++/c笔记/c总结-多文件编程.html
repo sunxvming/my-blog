@@ -1,0 +1,533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c笔记/c总结-多文件编程</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#c语言头文件的编写多文件编程">C语言头文件的编写（多文件编程）</a>
+<ul>
+<li><a href="#从extern关键字开始谈c语言多文件编程">从extern关键字开始谈C语言多文件编程</a></li>
+<li><a href="#那些被编译器隐藏了的过程">那些被编译器隐藏了的过程</a></li>
+<li><a href="#目标文件和可执行文件里面都有什么">目标文件和可执行文件里面都有什么？</a>
+<ul>
+<li><a href="#目标文件的组织形式">目标文件的组织形式</a></li>
+<li><a href="#可执行文件的组织形式">可执行文件的组织形式</a></li>
+<li><a href="#段section的合并">段（Section）的合并</a></li>
+</ul></li>
+<li><a href="#到底什么是链接它起到了什么作用">到底什么是链接，它起到了什么作用？</a>
+<ul>
+<li><a href="#模块化开发">模块化开发</a></li>
+</ul></li>
+<li><a href="#符号链接的粘合剂">符号——链接的粘合剂</a></li>
+<li><a href="#强符号和弱符号">强符号和弱符号</a></li>
+<li><a href="#强引用和弱引用">强引用和弱引用</a></li>
+<li><a href="#c语言模块化编程中的头文件">C语言模块化编程中的头文件</a></li>
+<li><a href="#细说c语言头文件的路径">细说C语言头文件的路径</a></li>
+<li><a href="#c语言标准库以及标准头文件">C语言标准库以及标准头文件</a></li>
+<li><a href="#防止c语言头文件被重复包含">防止C语言头文件被重复包含</a></li>
+<li><a href="#关于声明定义类的定义头文件不具名空间">关于声明，定义，类的定义，头文件，不具名空间</a>
+<ul>
+<li><a href="#头文件的由来">头文件的由来</a></li>
+<li><a href="#编译单元">1.编译单元</a></li>
+<li><a href="#数据的定义声明">2.数据的定义，声明</a></li>
+<li><a href="#符号重复">3. 符号重复</a></li>
+<li><a href="#关于头文件">4.关于头文件。</a></li>
+<li><a href="#关于类的声明和定义">5. 关于类的声明和定义。</a></li>
+</ul></li>
+<li><a href="#include">include</a></li>
+<li><a href="#c头文件和std命名空间">C++头文件和std命名空间</a>
+<ul>
+<li><a href="#使用namespace的三种方法">使用namespace的三种方法</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="c语言头文件的编写多文件编程">C语言头文件的编写（多文件编程）</h2>
+<h3 id="从extern关键字开始谈c语言多文件编程">从extern关键字开始谈C语言多文件编程</h3>
+<p>所谓声明（Declaration），就是告诉编译器我要使用这个变量或函数，你现在没有找到它的定义不要紧，请不要报错，稍后我会把定义补上。<br />
+1) 函数的声明<br />
+函数的定义有函数体，函数的声明<strong>没有函数体</strong>，<strong>编译器很容易区分定义和声明</strong>，所以对于函数声明来说，有没有 extern 都是一样的。<br />
+2) 变量的声明<br />
+变量和函数不同，编译器只能根据 extern 来区分，有 extern 才是声明，没有 extern 就是定义。</p>
+<p>变量的定义有两种形式，你可以在定义的同时初始化，也可以不初始化：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>datatype name = value;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>datatype name;</span></code></pre></div>
+<p>而变量的声明只有一种形式，就是使用 extern 关键字：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">extern</span> datatype name;</span></code></pre></div>
+<p>另外，变量也可以在声明的同时初始化，格式为：<br />
+extern datatype name = value;<br />
+这种似是而非的方式是不被推荐的，有的编译器也会给出警告，我们不再深入讨论，也建议各位读者把定义和声明分开，尽量不要这样写。</p>
+<h3 id="那些被编译器隐藏了的过程">那些被编译器隐藏了的过程</h3>
+<p>从源代码生成可执行文件可以分为四个步骤，分别是预处理（Preprocessing）、编译（Compilation）、汇编（Assembly）和链接（Linking）。</p>
+<p>汇编的过程非常简单，仅仅是查表翻译，我们通常把它作为编译过程的一部分，不再单独提及。这样，源文件经过预处理、编译和链接就生成了可执行文件。</p>
+<h3 id="目标文件和可执行文件里面都有什么">目标文件和可执行文件里面都有什么？</h3>
+<p>从文件结构上来讲，目标文件已经是二进制文件，它与可执行文件的组织形式非常类似，只是有些变量和函数的地址还未确定，程序不能执行。链接的一个重要作用就是找到这些变量和函数的地址。</p>
+<p>编译是针对单个源文件的，有几个源文件就会生成几个目标文件。</p>
+<p>现在PC平台上流行的可执行文件格式主要是 Windows 下的 PE（Portable Executable）和 Linux 下的 ELF（Executable Linkable Format），它们都是 COFF（Common File Format）格式的变种。</p>
+<p>从广义上讲，目标文件与可执行文件的存储格式几乎是一样的，我们可以将它们看成是同一种类型的文件，在 Windows 下，将它们统称为 PE 文件，在 Linux 下，将它们统称为 ELF文件。</p>
+<p>另外，动态链接库（DLL，Dynamic Linking Library）（Windows 下的.dll和 Linux 下的.so）和静态链接库（Static Linking Library）（Windows 下的.lib和 Linux 下的.a）也是按照可执行文件的格式存储的。</p>
+<h4 id="目标文件的组织形式">目标文件的组织形式</h4>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0.6569474214992366.png" /></p>
+<h4 id="可执行文件的组织形式">可执行文件的组织形式</h4>
+<p><strong>Section &amp;&amp; Segment</strong><br />
+站在<strong>文件结构</strong>的角度，可执行文件包含了众多的段（<strong>Section</strong>），每个段都有不同的作用；<br />
+站在<strong>加载和执行</strong>的角度，所有的段都是数据，操作系统只关心数据的权限，只要把相同权限的数据加载到同一个内存区域，程序就能正确执行。</p>
+<p>常见的数据权限无外乎三种：<br />
+* 只读（例如 .rodata 只读数据段）、<br />
+* 读写（例如 .data 数据段）、<br />
+* 读取和执行（例如 .text 代码段）</p>
+<p>我们将一块连续的、具有相同权限的数据称为一个 Section，一个 Segment 由多个权限相同的 Section 构成。<br />
+不巧的是，“Segment”也被翻译为“段”，但这里的<strong>段（Segment）是针对加载和执行的过程</strong>。</p>
+<p>在目标文件中，<strong>段表</strong>（Section Table）用来描述各个 Section 的信息，包括它的名字、长度、在文件中的偏移、读写权限等，通过段表可以详细地了解目标文件的结构。</p>
+<p>而在可执行文件中，段表被删除了，取代它的是<strong>程序头表</strong>（Program Header Table）；<br />
+程序头表用来描述各个 <strong>Segment</strong> 的信息，包括它的类型、偏移、在进程虚拟地址空间中的起始地址、物理装载地址、长度、权限等。<strong>操作系统就是根据程序头表</strong>将可执行文件加载到内存，并为各个 Segment 分配内存空间、确定起止地址。</p>
+<p>可执行文件不再关注具体的文件结构，而是<strong>关注程序的加载和执行过程</strong>。<br />
+由于可执行文件在加载时实际上是被映射的虚拟地址空间，所以可执行文件很多时候又被叫做映像文件（Image）。</p>
+<h4 id="段section的合并">段（Section）的合并</h4>
+<p>编译器生成的是目标文件，而我们最终需要的是可执行文件，链接（Linking）的作用就是将多个目标文件合并成一个可执行文件<br />
+在链接过程中，链接器会将多个目标文件中的代码段、数据段、调试信息等合并成可执行文件中的一个段。段的合并仅仅是一个简单的叠加过程<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0.8095789479712292.png" /></p>
+<h3 id="到底什么是链接它起到了什么作用">到底什么是链接，它起到了什么作用？</h3>
+<p>数据是保存在内存中的，对于计算机硬件来说，必须知道它的地址才能使用。变量名、函数名等仅仅是地址的一种助记符，目的是在编程时更加方便地使用数据，当源文件被编译成可执行文件后，这些标识符都不存在了，它们被替换成了数据的地址。<br />
+编译器和链接器的一项重要任务就是<strong>将助记符替换成地址</strong>。</p>
+<p>符号（Symbol）这个概念随着汇编语言的普及被广泛接受，它用来表示一个地址，这个地址可能是<strong>一段子程序</strong>（后来发展为函数）的起始地址，也可以是<strong>一个变量的地址</strong>。</p>
+<h4 id="模块化开发">模块化开发</h4>
+<p>现代软件的规模往往都很大，动辄数百万行代码，程序员需要把它们分散到成百上千个模块中。这些模块之间相互依赖又相互独立，原则上每个模块都可以单独开发、编译、测试，改变一个模块中的代码不需要编译整个程序。<br />
+在C语言中，<strong>一个模块可以认为是一个源文件（.c 文件）</strong>。<br />
+在程序被分隔成多个模块后，需要解决的一个重要问题是如何将这些模块组合成一个单一的可执行程序。在C语言中，模块之间的依赖关系主要有两种：一种是模块间的函数调用，另外一种是模块间的变量访问。</p>
+<p>函数调用需要知道函数的首地址，变量访问需要知道变量的地址，所以这两种方式可以归结为一种，那就是<strong>模块间的符号引用</strong>。<br />
+这种通过符号将多个模块拼接为一个独立的程序的过程就叫做<strong>链接</strong>（Linking）。</p>
+<h3 id="符号链接的粘合剂">符号——链接的粘合剂</h3>
+<p><strong>链接（Linking）就是通过符号将各个模块组合成一个独立的程序的过程。</strong><br />
+链接的主要内容就是<strong>把各个模块之间的相互引用部分处理好</strong>，使得各个模块能够正确地衔接。原理无非是找到符号的地址，或者把指令中使用到的地址加以修正。这个过程称为<strong>符号决议（Symbol Resolution）或者重定位（Relocation）</strong>。</p>
+<p>有了链接器，我们可以直接调用其他模块中的函数而无需知道它们的地址，因为在链接的时候，链接器会根据符号 func 自动去 module.c 模块查找 func 的地址，然后将 main.c 模块中所有使用到 func 的指令重新修正，让它们的目标地址成为真正的 func() 函数的地址。</p>
+<p>这种在程序运行之前确定符号地址的过程叫做<strong>静态链接</strong>（Static Linking）；<br />
+如果需要等到程序运行期间再确定符号地址，就叫<strong>做动态链接</strong>（Dynamic Linking）。</p>
+<h3 id="强符号和弱符号">强符号和弱符号</h3>
+<p>在C语言中，编译器默认函数和初始化了的全局变量为<strong>强符号</strong>（Strong Symbol）,未初始化的全局变量为<strong>弱符号</strong>（Weak Symbol）<br />
+<strong>强符号之所以强，是因为它们拥有确切的数据</strong>，变量有值，函数有函数体；弱符号之所以弱，是因为它们还未被初始化，没有确切的数据。</p>
+<p>链接器会按照如下的规则处理<strong>被多次定义的</strong>强符号和弱符号：<br />
+1) 不允许强符号被多次定义，也即不同的目标文件中不能有同名的强符号；如果有多个强符号，那么链接器会报符号重复定义错误。<br />
+2) 如果一个符号在某个目标文件中是强符号，在其他文件中是弱符号，那么选择强符号。<br />
+3) 如果一个符号在所有的目标文件中都是弱符号，那么选择其中占用空间最大的一个。</p>
+<p>在 GCC 中，可以通过<code>__attribute__((weak))</code>来强制定义任何一个符号为弱符号。<br />
+需要注意的是，<code>__attribute__((weak))</code>只对链接器有效，对编译器不起作用，编译器不区分强符号和弱符号，<br />
+只要在一个源文件中定义两个相同的符号，不管它们是强是弱，都会报“重复定义”错误。</p>
+<p><strong>弱符号对于库来说十分有用</strong>，我们在开发库时，可以将某些符号定义为弱符号，这样就能够被<strong>用户定义的强符号覆盖</strong>，从而使得程序可以使用自定义版本的函数，增加了很大的灵活性。</p>
+<h3 id="强引用和弱引用">强引用和弱引用</h3>
+<p>目前我们所看到的符号引用，在所有目标文件被链接成可执行文件时，它们的地址都要被找到，如果没有符号定义，链接器就会报符号未定义错误，这种被称为<strong>强引用</strong>（Strong Reference）。<br />
+与之相对应的还有一种<strong>弱引用</strong>（Weak Reference），如果符号有定义，就使用它对应的地址，<strong>如果没有定义，也不报错</strong>。</p>
+<p>链接器处理强引用和弱引用的过程几乎是一样的，只是<strong>对于未定义的弱引用，链接器不认为它是一个错误</strong>，一般默认其为 0（地址为 0），或者是一个特殊的值，以便程序代码能够识别。</p>
+<p>在变量声明或函数声明的前面加上<code>__attribute__((weak))</code>就会使符号变为弱引用。</p>
+<p>弱引用和强引用<strong>非常利于程序的模块化开发</strong>，我们可以将程序的扩展模块定义为弱引用，当我们将扩展模块和程序链接在一起时，程序就可以正常使用；如果我们去掉了某些模块，那么程序也可以正常链接，只是缺少了某些功能，这使得程序的功能更加容易<strong>裁剪和组合</strong>。</p>
+<h3 id="c语言模块化编程中的头文件">C语言模块化编程中的头文件</h3>
+<p>头文件可以包含如下的内容：<br />
+* 可以声明函数，但不可以定义函数。<br />
+* 可以声明变量，但不可以定义变量。<br />
+* 可以定义宏，包括带参的宏和不带参的宏。<br />
+* 结构体的定义、自定义数据类型一般也放在头文件中。</p>
+<h3 id="细说c语言头文件的路径">细说C语言头文件的路径</h3>
+<p>实际上我们一般不直接向用户提供目标文件，而是将多个相关的目标文件<strong>打包</strong>成一个静态链接库（Static Link Library），例如 Linux 下的 .a 和 Windows 下的 .lib。</p>
+<p>打包静态库的过程很容易理解，就是将多个目标文件捆绑在一起形成一个新的文件，然后再加上一些索引，方便链接器找到，这和压缩文件的过程非常类似。<br />
+C语言在发布的时候已经将标准库打包到了静态库，并提供了相应的头文件，例如 stdio.h、stdlib.h、string.h 等。</p>
+<h3 id="c语言标准库以及标准头文件">C语言标准库以及标准头文件</h3>
+<p>在实际开发中，我们都是将头文件放在当前工程目录下，非常建议大家使用相对路径，这样即使后来改变了工程所在目录，也无需修改包含语句，因为源文件的相对位置没有改变。</p>
+<h3 id="防止c语言头文件被重复包含">防止C语言头文件被重复包含</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#ifndef _INC_STDIO</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="pp">#define _INC_STDIO</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="co">/* 头文件内容 */</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="pp">#endif</span></span></code></pre></div>
+<h3 id="关于声明定义类的定义头文件不具名空间">关于声明，定义，类的定义，头文件，不具名空间</h3>
+<h4 id="头文件的由来">头文件的由来</h4>
+<p>那是一个被遗忘的年代，那时，编译器只认识.c(或.cpp)文件，而不知道.h是何物的年代。<br />
+那时的人们写了很多的.c(或.cpp)文件，渐渐地，人们发现在很多.c文件中的声明变量或函数原型是相同的，但他们却不得不一个字一个字地重复地将这些内容敲入每个.c文件。但更为恐怖的是，当其中一个声明有变更时，就需要检查所有的.c(或.cpp)文件，并修改其中的声明，啊~，简直是世界末日降临!<br />
+终于，有人再不能忍受这样的折磨，他（们）将重复的部分提取出来，放在一个新文件里，然后在需要的.c(或.cpp)文件中敲入#include XXXX这样的语句。这样即使某个声明发生了变更，也再不需要到处寻找与修改了。<br />
+因为这个新文件，经常被放在.c(或.cpp)文件的头部，所以就给它起名叫做“头文件”。</p>
+<h4 id="编译单元">1.编译单元</h4>
+<p>一个.cc，或.cpp作为一个编译单元.生成.o</p>
+<h4 id="数据的定义声明">2.数据的定义，声明</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>extern int x; <span class="co">//变量是声明，并未实际分配地址，未产生实际目标代码，可以有多个重复声明的存在。</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>void print(); <span class="co">//函数声明，未产生实际目标代码</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>int x; int x = <span class="dv">3</span> ; void print() {}; <span class="co">//定义,产生了实际目标代码。</span></span></code></pre></div>
+<p>声明不产生实际的目标代码，它的作用是告诉编译器，OK，我在该编译单元后面会有这个x变量或函数的定义。<br />
+否则编译器如果发现程序用到x，print，而前面没有声明会报错。<br />
+如果有声明，而没有定义，那么链接的时候会报错未定义。<br />
+在c语言的早期，没有头文件，为了减少重复各种extern的变量和函数的声明，才加上了头文件</p>
+<h4 id="符号重复">3. 符号重复</h4>
+<p>同一编译单元内部的重名符号在编译期就被阻止了，而不同编译单元之间的重名符号要到链接器才会被发现。 <br />
+如果你在一个 source1.cc中</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co">//source1.cc</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>int x;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>int x;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="co">//出现两次 int x; int x;即两个x的定义，会编译报错,x重复定义。</span></span></code></pre></div>
+<p>如果你的</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co">//source1.cc</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>int x;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="co">//source2.cc</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>int x;</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>g++ –o test source1.cc source2.cc</span></code></pre></div>
+<p>那么编译过程不会出错，在链接过程，由于目标代码中有两个全局域的x，会链接出错，x重定义。<br />
+不同的编程人员可能会写不同的模块，那么很容易出现这种情况，如何避免呢，namespace可以避免重名。<br />
+google编程规范鼓励使用不具名空间,没有名字的namespace，<strong>不具名空间只在本文件中可见</strong>。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co">//source1.cc</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>namespace {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>    int x;</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>}</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a><span class="co">//source2.cc</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>namespace {</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>    int x;</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>}</span></code></pre></div>
+<p>OK,现在不会链接出错了因为两个x不重名了，当然对于这个简单的例子只在source1.cc中用不具名命名空间就可<br />
+避免链接出差了。</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co">//source1.cc</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>namespace {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    int x;</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>}</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a><span class="co">//source1.cc</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>static int x;</span></code></pre></div>
+<p>有什么区别呢，看上去效果一样，区别在于不具名空间的x仍然具有外链接，但是由于它是不具名的，所以别的单元没办法链接到，如果</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>namespace haha{</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>    int x;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>}  </span></code></pre></div>
+<p>则在别的单元可以用haha::x访问到它，static则因为是内部链接特性，所以无法链接到。<strong>可以用不具名命名空间替代static</strong>。</p>
+<h4 id="关于头文件">4.关于头文件。</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="co">//head.h</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>int x;</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a><span class="co">//source1.cc</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a><span class="pp">#include “head.h”</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a><span class="co">//source2.cc</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a><span class="pp">#include “head.h” </span></span></code></pre></div>
+<p>头文件不被编译，.cc中的引用 include “ head.h”其实就是在预编译的时候将head.h中的内容插入到.cc中。<br />
+所以上面的例子如果<br />
+g++ –o test source1.cc source2.cc， 同样会链时发现重复定义的全局变量x。</p>
+<p>因此<strong>变量定义，包括函数的定义不要写到头文件中，因为头文件很可能要被多个.cc引用</strong>。<br />
+那么如果我的head.h如下这么写呢，是否防止了x的链接时重定义出错呢？</p>
+<pre><code>//head.h
+#ifndef _HEAD_H_
+#define _HEAD_H_
+int x;
+#endif
+
+//source1.cc
+#include “head.h”
+
+//source2.cc
+#include “head.h” </code></pre>
+<p>现在是否g++ –o test source1.cc source2.cc就没有问题了呢，答案是否定的。</p>
+<p>所有的头文件都是应该如上加头文件保护，但它的作用是防止头文件在同一编译单元被重复引用。<br />
+就是说防止可能的</p>
+<pre><code>//source1.cc
+#include “head.h”
+#include “head.h”</code></pre>
+<p>这种情况，当然我们不会主动写成上面的形式但是，下面的情况很可能发送</p>
+<pre><code>//source1.cc
+#include “head.h”
+#inlcude “a.h”
+
+//a.h
+#include “head.h”</code></pre>
+<p>这样就在不经意见产生了同一编译单元的头文件重复引用，于是soruc1.cc 就出现了两个int x;定义。</p>
+<h4 id="关于类的声明和定义">5. 关于类的声明和定义。</h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>class A; <span class="co">//类的声明类的声明和普通变量声明一样，不产生目标代码，可以在同一，以及多个编译单元重复声明。</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>class A {</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>}; <span class="co">//类的定义只是告诉编译器，类的数据格式是如何的，实例化后对象该占多大空间。类的定义也不产生目标代码。</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="co">//source1.cc</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>class A;</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>class A; <span class="co">//类重复声明，OK</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a>class A{</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>};</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a>class A{</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>};</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true"></a>class A{</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true"></a>   int x;</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true"></a>};         <span class="co">//同一编译单元内，类重复定义，会编译时报错,因为编译器不知道在该编译单元，A a；的话要生产怎样的a.</span></span></code></pre></div>
+<p>但是在不同编译单元内，类可以重复定义,因为类的定义未产生实际代码。但链接的时候会出问题。</p>
+<pre><code>//source1.cc
+class A{
+}
+
+
+//source2.cc
+class A{
+  int x;
+}</code></pre>
+<h3 id="include">include</h3>
+<p><code>&lt; &gt;</code>引用的是<strong>编译器的类库路径</strong>里面的头文件<br />
+<code>" "</code>引用的是你程序目录的相对路径中的头文件，在程序目录的相对路径中找不到该头文件时会继续在类库路径里搜寻该头文件。</p>
+<h3 id="c头文件和std命名空间">C++头文件和std命名空间</h3>
+<p>C++标准程序库中的所有标识符都被定义于一个名为<code>std</code>的namespace中<br />
+C++ 头文件的现状：<br />
+1) 旧的 C++ 头文件，如 iostream.h、fstream.h 等将会继续被支持，尽管它们不在官方标准中。这些头文件的内容不在命名空间 std 中。<br />
+2) 新的 C++ 头文件，如 iostream、fstream 等包含的基本功能和对应的旧版头文件相似，但头文件的内容在命名空间 std 中。<br />
+3) 标准C头文件如 stdio.h、stdlib.h 等继续被支持。头文件的内容<strong>不在 std 中</strong>。<br />
+4) 具有C库功能的新C++头文件，如 cstdio、cstdlib 。提供的内容和相应的旧的C头文件相同，只是内容<strong>在 std 中</strong>。</p>
+<p>不过现实情况和 C++ 标准所期望的有些不同，对于原来C语言的头文件，即使按照 C++ 的方式来使用，即<code>#include &lt;cstdio&gt;</code>这种形式，那么符号可以位于命名空间 std 中，也可以位于全局范围中, 大部分编译器在实现时并没有严格遵循C++标准，<strong>它们对带std和不带std的都支持</strong></p>
+<p>c++标准为了和C区别开，也为了正确使用命名空间，规定头文件不使用后缀.h。<br />
+一 ：<code>&lt;iostream&gt;</code>和<code>&lt;iostream.h&gt;</code>格式不一样，后缀为.h的头文件c++标准已经明确提出不支持了，早些的实现将标准库功能定义在全局空间里，声明在带.h后缀的头文件里，c++标准为了和C区别开，也为了正确使用命名空间，<strong>规定头文件不使用后缀</strong><code>.h</code>。 因此，<br />
+1）当使用<code>&lt;iostream.h&gt;</code>时，相当于在c中调用库函数，使用的是全局命名空间，也就是早期的c++实现；<br />
+2）当使用<code>&lt;iostream&gt;</code>的时候，该头文件没有定义全局命名空间，必须使用namespace std；这样才能正确使用cout。<br />
+一个是为了兼容以前的C++代码，一个是为了支持新的标准。命名空间std封装的是标准程序库的名称，标准程序库为了和以前的头文件区别，一般不加".h"</p>
+<h4 id="使用namespace的三种方法">使用namespace的三种方法</h4>
+<p>1、直接指定标识符。例如<code>std::cout</code><br />
+2、使用using关键字。 <code>using std::cout; using std::endl; using std::cin;</code> 以上程序可以写成 <code>cout &lt;&lt; std::hex &lt;&lt; 3.4 &lt;&lt; endl</code>;<br />
+3、最方便的就是使用<code>using namespace std</code>; 这样命名空间std内定义的所有标识符都有效。</p>
+<p>很多教程中都是这样做的，将 std 直接声明在所有函数外部，这样虽然使用方便，但在中大型项目开发中是不被推荐的，这样做增加了命名冲突的风险，我推荐<strong>在函数内部声明 std</strong>。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

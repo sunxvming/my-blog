@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/40-tools/版本管理/svn服务器搭建</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+ <!--if(toc)-->
+
+<p>Windows上用这个 VisualSVN server，要下载64位的。</p>
+<p>安装的时候一直点下一步就行</p>
+<p>创建 Repository 和user</p>
+<p>1.检查是否已安装</p>
+<p>rpm -qa subversion</p>
+<p>如果要卸载旧版本：</p>
+<p>yum remove subversion</p>
+<p>2.安装</p>
+<p>yum install subversion</p>
+<p>3.检查是否安装成功</p>
+<p>svnserve --version</p>
+<p>4.创建仓库目录</p>
+<p>/data/svn/game</p>
+<p>5.创建项目</p>
+<p>svnadmin create /home/svn/game</p>
+<p>6.检查是否创建成功</p>
+<p>cd /home/svn/game<br />
+如果成功，game目录下会多出几个文件夹</p>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/8b0e66ef-1d80-4a38-9e3c-a0a28dcae6e5.jpg" /></p>
+<p>7.配置权限<br />
+A.配置SVN</p>
+<p>vim svnserve.conf</p>
+<p>anon-access=none #去除文件前的注释，将read改为none,防止匿名访问</p>
+<p>auth-access=write #去除文件前的注释</p>
+<p>password-db=passwd #去除文件前的注释</p>
+<p>authz-db = authz #去除文件前的注释,访问权限配置，非常重要，不打开，分组权限不生效</p>
+<p>B.添加访问的用户</p>
+<p>vim passwd<br />
+[users]<br />
+albert=123456</p>
+<p>findyou=123456</p>
+<p>C.设置添加的用户权限，注意格式：注释不能在语句的后面</p>
+<p>vim authz</p>
+<p>[groups]</p>
+<p>g_qa=albert,findyou</p>
+<p>g_read=abc</p>
+<p>[TestCode:/] #[<版本库名>:<路径>]</p>
+<p>@g_qa=rw #<用户组> = <权限> ，第一种方式</p>
+<p>@g_read=r #<用户名> = <权限> ，第二种方式</p>
+<p>love=r</p>
+<p><em>= #</em> = <权限>，第三种方式，*为任意用户，此为禁止匿名用户访问</p>
+<p>8.关闭防火墙<br />
+防火墙开放SVN端口通行</p>
+<p>iptables -A INPUT -p tcp --dport 3690 -j ACCEPT</p>
+<p>service iptables stop</p>
+<p>9.设置开启启动<br />
+vi /etc/rc.d/rc.local 添加下面一行</p>
+<p>/usr/bin/svnserve -d -r /data/svn whereis 查下命令在哪里</p>
+<p>客户端访问svn://192.168.1.186/art</p>
+<p>【问题】<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/1622090a-f7bc-4b77-821a-4d3250c1b07a.jpg" /><br />
+1.检查防火墙是否关闭 2.检查协议是用的https的还是用svn的</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

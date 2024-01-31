@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/工具类库/vcpkg</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#vcpkg安装依赖的原理">vcpkg安装依赖的原理</a>
+<ul>
+<li><a href="#知识库">知识库</a></li>
+<li><a href="#源码编译">源码编译</a></li>
+<li><a href="#依赖解析">依赖解析</a></li>
+<li><a href="#本地安装">本地安装</a></li>
+</ul></li>
+<li><a href="#注意点">注意点</a></li>
+<li><a href="#构建三元组">构建三元组</a></li>
+<li><a href="#linux下的使用">linux下的使用</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="vcpkg安装依赖的原理">vcpkg安装依赖的原理</h2>
+<p>vcpkg是一个包管理器，它使用本身编译、组织和安装C++库及其相关依赖项。它的工作原理基于以下几个关键点：</p>
+<h3 id="知识库">知识库</h3>
+<p>vcpkg维护了一个知识库，其中包含了大量的C++库以及它们的依赖关系、编译选项等信息。这个知识库使得vcpkg能够知道每个库的构建配置和它们彼此之间的依赖关系。</p>
+<h3 id="源码编译">源码编译</h3>
+<p>当你使用vcpkg安装一个库时，它会<strong>从源代码构建该库</strong>。vcpkg会自动下载所需的源代码，并根据目标平台进行编译。这确保了库能够在你的系统上良好地工作。</p>
+<h3 id="依赖解析">依赖解析</h3>
+<p>vcpkg会检查库的依赖关系，并确保安装所需的所有依赖项。如果某个库依赖于其他库，vcpkg会尝试解析这些依赖关系并安装缺失的依赖项。</p>
+<h3 id="本地安装">本地安装</h3>
+<p>安装的库和它们的依赖项会被保存在vcpkg管理的本地目录中。这些库会被编译为静态或动态链接库，以便后续在你的项目中使用。</p>
+<p>vcpkg下载和编译依赖需要维护以下这几个目录：<br />
+- <strong>ports</strong> 所有可以下载的三方包的信息<br />
+* <strong>downloads</strong> 源码包，一般从github上下载<br />
+* <strong>buildtrees</strong> 源码和编译后的文件都放在这里，编译后的文件分debug版本和release版本<br />
+* <strong>packages</strong> 按照不同的包存放的库的依赖，包括头文件库文件，分debug版本和release版本<br />
+* <strong>installed</strong> 存放编译后的文件和头文件，所有的依赖库都存放在统一的目录下，比如lib下有所有的依赖库</p>
+<h2 id="注意点">注意点</h2>
+<p><strong>安装的版本</strong><br />
+请注意: vcpkg 在 Windows 中默认编译并安装 <strong>x86</strong> 版本的库。 若要编译并安装 <strong>x64</strong> 版本，请执行:</p>
+<pre><code>vcpkg install [package name]:x64-windows</code></pre>
+<p><strong>安装时的报错</strong><br />
+安装的时候经常会出错，大部分原因都是因为去下载源码包的时候网络连接的问题，可以加个代理去下载</p>
+<h2 id="构建三元组">构建三元组</h2>
+<p>（cpu架构，操作系统，静动态库）</p>
+<p>确保已安装包的三元组与项目的配置匹配。 对 64 位项目，使用 x64-windows 或 x64-windows-static；对 32 位项目，使用 x86-windows 或 x86-windows-static。</p>
+<p><strong>静动态库</strong><br />
+安装的时候默认是动态库，如何需要安装成静态库的话需要设置参数：<code>x64-windows-static</code>,<br />
+vcpkg会安装到这个目录下：<code>vcpkg\packages\freeglut_x64-windows-static</code></p>
+<p><strong>覆盖默认三元组</strong><br />
+如前所述，Windows（x86-windows 和 x64-windows）的默认三联密码<strong>安装动态库</strong>，而静态库则需要一个后缀 (-static)。 这与 Linux 和 Mac OS 不同，这两个操作系统中的静态库是由 x64-linux 和 x64-osx 构建的。</p>
+<p>x64-linux：构建动态库，<br />
+x64-linux-static：构建静态库。</p>
+<h2 id="linux下的使用">linux下的使用</h2>
+<p>安装vcpkg</p>
+<pre><code>sudo apt-get update
+sudo apt-get install git
+sudo apt-get install build-essential tar curl zip unzip
+
+git clone https://github.com/microsoft/vcpkg
+
+./vcpkg/bootstrap-vcpkg.sh   // 这会从github上下载 vcpkg的可执行程序</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,539 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c笔记/c总结-修饰符</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#const">const</a>
+<ul>
+<li><a href="#一般用法">一般用法</a></li>
+<li><a href="#c中的const又玩出了新花样">C++中的const又玩出了新花样</a></li>
+<li><a href="#const和指针判别时用就近原则">const和指针，判别时用就近原则</a></li>
+<li><a href="#const-和非-const-类型转换">const 和非 const 类型转换</a></li>
+<li><a href="#编译器会为const引用创建临时变量">编译器会为const引用创建临时变量</a></li>
+<li><a href="#const-和-引用">const 和 引用</a></li>
+<li><a href="#const-和函数形参">const 和函数形参</a></li>
+<li><a href="#const成员变量和成员函数常成员函数">const成员变量和成员函数（常成员函数）</a></li>
+<li><a href="#constexpr验证是否为常量表达式">constexpr：验证是否为常量表达式</a></li>
+<li><a href="#c11-constexpr和const的区别">C++11 constexpr和const的区别</a></li>
+</ul></li>
+<li><a href="#static">static</a>
+<ul>
+<li><a href="#修饰变量">修饰变量</a></li>
+<li><a href="#修饰类成员">修饰类成员</a></li>
+<li><a href="#存储类定义">存储类定义</a></li>
+</ul></li>
+<li><a href="#extern">extern</a>
+<ul>
+<li><a href="#修饰变量的声明">1.修饰变量的声明</a></li>
+<li><a href="#修饰函数声明">2.修饰函数声明</a></li>
+<li><a href="#extern-c">3.extern “C”</a></li>
+<li><a href="#总结">总结：</a></li>
+</ul></li>
+<li><a href="#inline">inline</a>
+<ul>
+<li><a href="#inline内联函数详解">inline内联函数详解</a>
+<ul>
+<li><a href="#虚函数virtual可以是内联函数inline吗">虚函数（virtual）可以是内联函数（inline）吗？</a></li>
+</ul></li>
+<li><a href="#如何规范地使用c内联函数">如何规范地使用C++内联函数</a></li>
+</ul></li>
+<li><a href="#register">register</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="const">const</h2>
+<p>总之就是一句话：尽可能多用 const，让代码更安全、灵活。</p>
+<h3 id="一般用法">一般用法</h3>
+<p><code>const int MAXNUM = 100;</code> <br />
+由于常量一旦被创建后其值就不能再改变，所以常量必须在定义的同时赋值（初始化），后面的任何赋值行为都将引发错误。<br />
+By Default, const Objects Are Local to a File，在编译的时候就已经被替换了。所以作用域是当前文件。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>int n = <span class="dv">90</span>;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>const int MaxNum1 = getNum(); <span class="co">//运行时初始化</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>const int MaxNum2 = n; <span class="co">//运行时初始化</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>const int MaxNum3 = <span class="dv">80</span>; <span class="co">//编译时初始化</span></span></code></pre></div>
+<h3 id="c中的const又玩出了新花样">C++中的const又玩出了新花样</h3>
+<ol>
+<li>C语言对 const 的处理和普通变量一样，<strong>会到内存中读取数据，可通过指针修改</strong>； C++ 对 const 的处理更像是<strong>编译时期的<code>#define</code></strong>，是一个值替换的过程。</li>
+<li>在C语言中，const 变量和普通变量一样，<strong>在其他源文件中也是可见的</strong>. C++ 规定，全局const变量的作用域<strong>是当前文件</strong>，这和添加了static关键字的效果类似。</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="dt">void</span> main()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>{</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    <span class="dt">const</span> <span class="dt">int</span> a = <span class="dv">10</span>;   <span class="co">//c里面的const是一个冒牌货</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    <span class="co">//a = 11; 直接修改a不可以</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>    <span class="dt">int</span> *p = (<span class="dt">int</span> *)&amp;a;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>    *p = <span class="dv">11</span>; <span class="co">//但是间接修改a可以 ，而在C++中却不可以</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>    printf(<span class="st">&quot;a: %d </span><span class="sc">\n</span><span class="st">&quot;</span>, a);</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>    system(<span class="st">&quot;pause&quot;</span>);</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="const和指针判别时用就近原则">const和指针，判别时用就近原则</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>const int *p1;     <span class="co">//指向常量的指针</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>int * const p3;    <span class="co">//常量指针</span></span></code></pre></div>
+<h3 id="const-和非-const-类型转换">const 和非 const 类型转换</h3>
+<p><code>const char *</code>和<code>char *</code>是不同的类型，不能将<code>const char *</code>类型的数据赋值给<code>char *</code>类型的变量。但反过来是可以的，编译器允许将<code>char *</code>类型的数据赋值给<code>const char *</code>类型的变量。<br />
+这种限制很容易理解，<code>char *</code>指向的数据有读取和写入权限，而<code>const char *</code>指向的数据只有读取权限，降低数据的权限不会带来任何问题，但提升数据的权限就有可能发生危险。</p>
+<h3 id="编译器会为const引用创建临时变量">编译器会为const引用创建临时变量</h3>
+<p><strong>引用不能绑定到临时数据</strong><br />
+原因有二：1.临时数据如表达式的结果、函数的返回值等可能存在寄存器中 2.常量表达式由于不包含变量，没有不稳定因素，所以在编译阶段就能求值，所以没办法法寻址，故不能用指针指向它，也不能进行引用。<br />
+当引用作为函数参数，有时候很容易给它传递临时数据，这个要注意。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="dt">bool</span> isOdd(<span class="dt">int</span> &amp;n){</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    <span class="cf">if</span>(n%<span class="dv">2</span> == <span class="dv">0</span>){</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>        <span class="cf">return</span> false;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    }<span class="cf">else</span>{</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>        <span class="cf">return</span> true;</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    }</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>}</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a><span class="dt">int</span> a = <span class="dv">100</span>;</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>isOdd(a);  <span class="co">//正确</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>isOdd(a + <span class="dv">9</span>);  <span class="co">//错误</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a>isOdd(<span class="dv">27</span>);  <span class="co">//错误</span></span></code></pre></div>
+<p>但是当使用 const 关键字对引用加以限定后，引用就可以绑定到临时数据了。为 const 引用创建临时变量反而会使得引用更加灵活和通用.<br />
+将常引用绑定到临时数据时，编译器采取了一种妥协机制：编译器会为临时数据创建一个新的、无名的<strong>临时变量</strong>，并将临时数据放入该临时变量中，然后再将引用绑定到该临时变量。注意，临时变量也是变量，所有的变量都会被分配内存。</p>
+<p>例子：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="dt">bool</span> isOdd(<span class="dt">const</span> <span class="dt">int</span> &amp;n){  <span class="co">//改为常引用</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>    <span class="cf">if</span>(n/<span class="dv">2</span> == <span class="dv">0</span>){</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>        <span class="cf">return</span> false;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    }<span class="cf">else</span>{</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>        <span class="cf">return</span> true;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    }</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>}</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a><span class="co">//由于在函数体中不会修改 n 的值，所以可以用 const 限制 n，这样一来，下面的函数调用就都是正确的了：</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a><span class="dt">int</span> a = <span class="dv">100</span>;</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>isOdd(a);  <span class="co">//正确</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>isOdd(a + <span class="dv">9</span>);  <span class="co">//正确</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>isOdd(<span class="dv">27</span>);  <span class="co">//正确</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>isOdd(<span class="dv">23</span> + <span class="dv">55</span>);  <span class="co">//正确</span></span></code></pre></div>
+<h3 id="const-和-引用">const 和 引用</h3>
+<p>不同类型的数据占用的内存数量不一样，处理方式也不一样，指针的类型要与它指向的数据的类型严格对应。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="dt">int</span> n = <span class="dv">100</span>;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="dt">int</span> *p1 = &amp;n;  <span class="co">//正确</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="dt">float</span> *p2 = &amp;n;  <span class="co">//错误</span></span></code></pre></div>
+<p>引用（Reference）和指针（Pointer）在本质上是一样的，引用仅仅是对指针进行了简单的封装，<strong>类型严格一致</strong>这条规则同样也适用于引用。<br />
+但给引用添加 const 限定后，不但可以将引用绑定到临时数据，还可以将引用绑定到<strong>类型相近</strong>的数据，这使得引用更加灵活和通用，它们背后的机制都是临时变量。</p>
+<h3 id="const-和函数形参">const 和函数形参</h3>
+<p>const形参好处：<br />
+1. 使用 const 可以避免无意中修改数据的编程错误；<br />
+2. 清楚的分清参数的输入和输出特性<br />
+3. 可以接受const和非const的变量,否则将只能接收非 const 类型的实参<br />
+4. 使用 const 引用能够让函数正确生成并使用临时变量,可以将引用绑定到类型相近的数据，而不仅仅是严格匹配</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="dt">double</span> volume(<span class="dt">const</span> <span class="dt">double</span> &amp;len, <span class="dt">const</span> <span class="dt">double</span> &amp;width, <span class="dt">const</span> <span class="dt">double</span> &amp;hei){</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>    <span class="cf">return</span> len*width*<span class="dv">2</span> + len*hei*<span class="dv">2</span> + width*hei*<span class="dv">2</span>;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>}</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="dt">int</span> main(){</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>    <span class="dt">int</span> a = <span class="dv">12</span>, b = <span class="dv">3</span>, c = <span class="dv">20</span>;</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>    <span class="dt">double</span> v1 = volume(a, b, c);</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>    <span class="dt">double</span> v2 = volume(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>);</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>    <span class="dt">double</span> v3 = volume(<span class="fl">89.4</span>, <span class="fl">32.7</span>, <span class="dv">19</span>);</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a>    <span class="dt">double</span> v4 = volume(a+<span class="fl">12.5</span>, b+<span class="fl">23.4</span>, <span class="fl">16.78</span>);</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a>    <span class="dt">double</span> v5 = volume(a+b, a+c, b+c);</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="const成员变量和成员函数常成员函数">const成员变量和成员函数（常成员函数）</h3>
+<ul>
+<li><p>初始化 const 成员变量只有一种方法，就是通过构造函数的<strong>初始化列表</strong></p></li>
+<li><p>const 成员函数可以使用类中的所有成员变量，但是不能修改它们的值，这种措施主要还是为了保护数据而设置的。比如：我们通常将 get 函数设置为const成员函数,这是一种保险的做法，同时也使得语义更加明显。</p></li>
+<li><p>必须在成员函数的<strong>声明和定义</strong>处同时加上 const 关键字。<code>char *getname() const</code>和<code>char *getname()</code>是两个不同的函数原型，如果只在一个地方加 const 会导致<strong>声明和定义</strong>处的函数原型<strong>冲突</strong>。</p></li>
+<li><p>函数开头的 const 用来修饰函数的返回值，表示返回值是 const 类型，也就是不能被修改，例如<code>const char * getname()</code>。</p></li>
+<li><p>函数头部的结尾加上 const 表示常成员函数，<strong>此时的const是修饰的this指针</strong>，这种函数只能读取成员变量的值，而不能修改成员变量的值，例如<code>char * getname() const</code>。</p>
+<h3 id="const对象常对象">const对象（常对象）</h3>
+<p><code>const class object(params);</code><br />
+<strong>只能调用类的const成员</strong>（包括 const 成员变量和 const 成员函数）了</p></li>
+</ul>
+<h3 id="constexpr验证是否为常量表达式">constexpr：验证是否为常量表达式</h3>
+<p>常量表达式，是<strong>由多个（≥1）常量组成的表达式</strong>。常量表达式一旦确定，其值将无法修改。<br />
+我们知道，C++ 程序的执行过程大致要经历编译、链接、运行这 3 个阶段。值得一提的是，常量表达式和非常量表达式的计算时机不同，非常量表达式只能在程序运行阶段计算出结果；而常量表达式的计算往往发生在程序的<strong>编译阶段</strong>，这可以极大<strong>提高程序的执行效率</strong>，因为表达式只需要在编译阶段计算一次，节省了每次程序运行时都需要计算一次的时间。</p>
+<p>对于用 C++ 编写的程序，性能往往是永恒的追求。那么在实际开发中，<strong>如何才能判定</strong>一个表达式是否为常量表达式，进而获得在<strong>编译阶段即可执行的“特权”呢</strong>？除了人为判定外，C++11 标准还提供有 constexpr 关键字。<br />
+constexpr 关键字的功能是使指定的常量表达式获得在程序编译阶段计算出结果的能力，而不必等到程序运行阶段。C++ 11 标准中，constexpr 可用于修饰普通变量、函数（包括模板函数）以及类的构造函数。</p>
+<blockquote>
+<p> 注意，获得在编译阶段计算出结果的能力，并不代表 constexpr 修饰的表达式一定会在程序编译阶段被执行，具体的计算时机还是编译器说了算。</p>
+</blockquote>
+<h3 id="c11-constexpr和const的区别">C++11 constexpr和const的区别</h3>
+<p>在C++ 98之前const是有两种语义的：1.只读 2.常量<br />
+C++ 11标准中，为了解决 const 关键字的双重语义问题，保留了 const 表示“<strong>只读</strong>”的语义，而将“常量”的语义划分给了新添加的 constexpr 关键字。因此 C++11 标准中，建议将 const 和 constexpr 的功能区分开，<br />
+* 即凡是表达“只读”语义的场景都使用 const，<br />
+* 表达“常量”语义的场景都使用 constexpr。</p>
+<p><strong>只读”和“常量”之间并没有必然的联系</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>int main()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>{</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    int a = <span class="dv">10</span>;</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>    const int &amp; con_b = a; <span class="co">//只读，但并不意味着值为常量</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>    cout &lt;&lt; con_b &lt;&lt; endl;</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>    a = <span class="dv">20</span>;</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>    cout &lt;&lt; con_b &lt;&lt; endl;  <span class="co">//变量的内容变了</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="static">static</h2>
+<h3 id="修饰变量">修饰变量</h3>
+<ul>
+<li>static 存储类指示编译器在程序的<strong>生命周期</strong>内保持局部变量的存在，而不需要在每次它进入和离开作用域时进行创建和销毁。因此，使用 static 修饰局部变量可以在函数调用之间保持局部变量的值。</li>
+<li>static 修饰符也可以应用于全局变量。当 static 修饰全局变量时，会使变量的作用域限制在声明它的文件内。<br />
+实际开发中，我们通常将不需要被其他模块调用的全局变量或函数用 static 关键字来修饰，static 能够将全局变量和函数的作用域<strong>限制在当前文件中，在其他文件中无效</strong>。使用 static 修饰的变量或函数的作用域仅限于当前模块，对其他模块隐藏，利用这一特性可以在不同的文件中定义同名的变量或函数，而不必担心命名冲突。</li>
+</ul>
+<h3 id="修饰类成员">修饰类成员</h3>
+<p>在创建第一个对象时，所有的<strong>静态数据</strong>都会被初始化为零。<br />
+我们不能把静态成员的初始化放置在类的定义中，但是可以在类的外部<br />
+通过使用范围解析运算符 <code>::</code> 来重新声明静态变量从而对它进行初始化</p>
+<p>静态成员函数与普通成员函数的区别：<br />
+- 静态成员函数没有 this 指针，只能访问静态成员（包括静态成员变量和静态成员函数）。<br />
+- 普通成员函数有 this 指针，可以访问类中的任意成员，包括静态变量和函数；</p>
+<h3 id="存储类定义">存储类定义</h3>
+<p>C++ 程序中变量/函数的范围（可见性）和生命周期。<br />
+- auto 关键字用于两种情况：声明变量时根据初始化表达式自动推断该变量的类型、声明函数时函数返回值的占位符。<br />
+- register 存储类用于定义存储在寄存器中而不是内存中的局部变量。<br />
+- extern  修饰符通常用于当有两个或多个文件共享相同的全局变量或函数的时候<br />
+- static 修饰局部变量-&gt;改变其声明周期 修饰全局变量-&gt;内部链接性，作用域限制在本文件中</p>
+<p><strong>volatile修饰符</strong><br />
+对于一般的变量编译器会对变量进行优化，将内存中的变量值放在寄存器中以加快读写效率。<br />
+而volatile 告诉编译器不需要优化volatile声明的变量，让程序可以直接从<strong>内存</strong>中读取变量。</p>
+<h2 id="extern">extern</h2>
+<p>在C语言中，修饰符extern用在变量或者函数的声明前，用来说明“此变量/函数是在别处定义的，要在此处引用”。<br />
+也就是引用<strong>另一个文件的全局变量或函数</strong>要用extern进行引用声明，</p>
+<h3 id="修饰变量的声明">1.修饰变量的声明</h3>
+<p>能够被其他模块以extern修饰符引用到的变量通常是<strong>全局变量</strong>。<br />
+extern int v可以放在a.c中的任何地方</p>
+<h3 id="修饰函数声明">2.修饰函数声明</h3>
+<p>从本质上来讲，变量和函数没有区别，对于函数<code>extern</code>可以省略。<br />
+对其他模块中函数的引用，最常用的方法是<strong>包含这些函数声明的头文件</strong>。<br />
+使用extern和包含头文件来引用函数有什么区别呢？<br />
+extern的引用方式比包含头文件要简洁得多！extern的使用方法是直接了当的，想引用哪个函数就用extern声明哪个函数。这大概是KISS原则的一种体现吧！<br />
+这样做的一个明显的好处是，会加速程序的编译（确切的说是预处理）的过程，节省时间。在大型C程序编译过程中，这种差异是非常明显的。<br />
+但坏处是<strong>函数的原型该了，你不得不改掉所有其他文件中的extern的声明</strong>。</p>
+<h3 id="extern-c">3.extern “C”</h3>
+<p>extern “C”这个声明的真实目的是为了实现C++与C及其它语言的<strong>混合编程</strong><br />
+extern "C" 包含双重含义，从字面上即可得到：首先，被它修饰的目标是“extern”的；其次，被它修饰的目标是“C”的。<br />
+被extern "C"修饰的变量和函数是按照C语言方式编译和链接的<br />
+比如在<strong>C＋＋中调用C库函数</strong>，就需要在C＋＋程序中用<code>extern “C”</code>声明要引用的函数。这是给<strong>链接器</strong>用的，告诉链接器在链接的时候用C函数规范来链接。主要原因是C＋＋和C程序编译完成后在<strong>目标代码中命名规则不同</strong>。<br />
+<strong>应用场合</strong>:<br />
+* 1.C++代码调用C语言代码、在C++的头文件中使用<br />
+* 2.C++调用一个C语言编写的.DLL时，当包括.DLL的头文件或声明接口函数时，应加extern "C"{}。<br />
+* 函数指针：当在C++中使用C语言的函数指针时，需要使用<code>extern "C"</code>来声明这些函数指针，以便正确地处理函数指针的调用和链接。</p>
+<p>例子：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="co">// mylibrary.c</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="dt">int</span> globalVar = <span class="dv">10</span>;</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a><span class="dt">void</span> myCFunction(<span class="dt">int</span> a, <span class="dt">int</span> b) {</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>    printf(<span class="st">&quot;Sum: %d</span><span class="sc">\n</span><span class="st">&quot;</span>, a + b);</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>}</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a><span class="co">// mylibrary.h</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a><span class="pp">#ifdef __cplusplus</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a><span class="kw">extern</span> <span class="st">&quot;C&quot;</span> {</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a><span class="pp">#endif</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a><span class="kw">extern</span> <span class="dt">int</span> globalVar;</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a><span class="kw">extern</span> <span class="dt">void</span> myCFunction(<span class="dt">int</span> a, <span class="dt">int</span> b);</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true"></a><span class="pp">#ifdef __cplusplus</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true"></a>}</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true"></a><span class="pp">#endif</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true"></a><span class="co">//===========================</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true"></a><span class="co">// main.cpp</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;mylibrary.h&quot;</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true"></a>    <span class="dt">int</span> x = <span class="dv">5</span>;</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true"></a>    myCFunction(x, globalVar);</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="总结">总结：</h3>
+<p>对变量而言，如果你想在本源文件(例如文件名A)中使用另一个源文件(例如文件名B)的变量，方法有2种：<br />
+* (1)在A文件中必须用extern声明在B文件中定义的变量(当然是全局变量)；<br />
+* (2)在A文件中添加B文件对应的头文件，当然这个头文件包含B文件中的变量声明，也即在这个头文件中必须用extern声明该变量。<br />
+对函数而言，如果你想在本源文件(例如文件名A)中使用另一个源文件(例如文件名B)的函数，方法有2种：<br />
+* (1)在A文件中用extern声明在B文件中定义的函数(其实，也可省略extern，只需在A文件中出现B文件定义函数原型即可)；<br />
+* (2)在A文件中添加B文件对应的头文件，当然这个头文件包含B文件中的函数原型，在头文件中函数可以不用加extern。</p>
+<h2 id="inline">inline</h2>
+<h3 id="inline内联函数详解">inline内联函数详解</h3>
+<p>函数调用是有时间和空间开销的。<br />
+程序在执行一个函数之前需要做一些准备工作，要将实参、局部变量、返回地址以及若干寄存器都压入栈中，然后才能执行函数体中的代码；<br />
+函数体中的代码执行完毕后还要清理现场，将之前压入栈中的数据都出栈，才能接着执行函数调用位置以后的代码。<br />
+由于内联函数比较短小，我们通常的做法是<strong>省略函数原型，将整个函数定义（包括函数头和函数体）放在本应该提供函数原型的地方</strong>。</p>
+<p>宏定义一不小心就会踩坑，而且不一定在编译和运行时发现，给程序埋下隐患。<br />
+和宏一样，内联函数<strong>可以定义在头文件中</strong>（不用加 static 关键字），并且头文件被多次#include后也不会引发重复定义错误。<br />
+这一点和非内联函数不同，非内联函数是<strong>禁止定义在头文件中</strong>的，它所在的头文件被多次<code>#include</code>后会引发重复定义错误。</p>
+<p>inline只是一种请求，编译器不一定允许这种请求。</p>
+<p>内联函数<strong>在编译时</strong>会将函数调用处用函数体替换，<strong>编译完成后函数就不存在了</strong>，所以<strong>在链接时不会引发重复定义错误</strong>。<br />
+这一点和宏很像，宏在预处理时被展开，编译时就不存在了。从这个角度讲，内联函数更像是<strong>编译期间的宏</strong>。<br />
+<strong>主要有两个作用</strong>:<br />
+* 一是消除函数调用时的开销<br />
+* 二是<strong>取代带参数的宏</strong>。不过我更倾向于后者，取代<strong>带参数的宏</strong>更能凸显内联函数存在的意义。</p>
+<h4 id="虚函数virtual可以是内联函数inline吗">虚函数（virtual）可以是内联函数（inline）吗？</h4>
+<ul>
+<li>虚函数可以是内联函数，内联是可以修饰虚函数的，但是当虚函数表现多态性的时候不能内联。</li>
+<li>内联是在编译期建议编译器内联，而虚函数的多态性在运行期，编译器无法知道运行期调用哪个代码，因此虚函数表现为多态性时（运行期）不可以内联。</li>
+<li><code>inline virtual</code> 唯一可以内联的时候是：编译器知道所调用的对象是哪个类（如 <code>Base::who()</code>），这只有在编译器具有实际对象而不是对象的指针或引用时才会发生。</li>
+</ul>
+<h3 id="如何规范地使用c内联函数">如何规范地使用C++内联函数</h3>
+<p>inline 是一种“<strong>用于实现的关键字</strong>”，而不是一种“用于声明的关键字”,故在函数定义处添加，在函数声明处添加 inline 关键字是无效的，编译器会忽略函数声明处的 inline 关键字。</p>
+<p>尽管大多数教科书中在函数声明和函数定义处都增加了 inline 关键字，但我认为 inline 关键字不应该出现在函数声明处。这个细节虽然不会影响函数的功能，但是体现了高质量 C++ 程序设计风格的一个基本原则：<strong>声明与定义不可混为一谈</strong>，<strong>用户没有必要、也不应该知道函数是否需要内联</strong>。</p>
+<p>更为严格地说，内联函数不应该有声明，<strong>应该将函数定义放在本应该出现函数声明的地方，这是一种良好的编程风格</strong>。<br />
+在多文件编程时，建议将内联函数的定义直接放在头文件中，并且禁用内联函数的声明,因为将内联函数的声明和定义分散到不同的文件中会出错</p>
+<p><strong>对内联函数进行任何修改，都需要重新编译函数的所有客户端</strong>，因为编译器需要重新更换一次所有的代码。</p>
+<h2 id="register">register</h2>
+<p>register关键字请求“编译器”将局部变量存储于寄存器中，以加快其存储速度。<br />
+C语言中无法取得register变量地址<br />
+C++中可以取得register变量的地址 C++编译器发现程序中需要取register变量的地址时，register对变量的声明<strong>变得无效</strong>。<br />
+C++编译器有自己的优化方式，不使用register也可能做优化<br />
+<strong>早期C语言编译器不会对代码进行优化，因此register变量是一个很好的补充</strong>。然而，随着编译程序设计技术的进步，在决定那些变量应该被存到寄存器中时，现在的C<strong>编译器</strong>能比程序员做出更好的决定。实际上，许多编译程序都会忽略register修饰符，因为尽管它完全合法，但它仅仅是暗示而不是命令。</p>
+<pre><code>int main22()
+{
+    register int a = 0;
+    printf(&quot;&amp;a = %x\n&quot;, &amp;a);
+    system(&quot;pause&quot;);
+    return 0;
+}</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

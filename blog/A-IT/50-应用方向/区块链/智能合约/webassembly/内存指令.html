@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/区块链/智能合约/webassembly/内存指令</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#内存">内存</a></li>
+<li><a href="#memory.size">memory.size</a></li>
+<li><a href="#memory.grow">memory.grow</a></li>
+<li><a href="#load">load</a></li>
+<li><a href="#store">store</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="内存">内存</h2>
+<p>每个Wasm模块都可以定义或者导入一个内存，内存大小以页为单位，每一页是64K。定义内存时，需要指定内存的页数下限。页数上限可选，可以指定也可以不指定。内存的初始数据则可以在数据段中指定。下面是一个WAT例子，展示了内存和数据段的定义：</p>
+<pre><code>(module
+  (memory 1 8) ;; { min: 1, max: 8 }
+  (data 0 (offset (i32.const 100)) &quot;hello&quot;)
+  ;; ...
+)</code></pre>
+<h2 id="memory.size">memory.size</h2>
+<p><code>memory.size</code> 指令（操作码<code>0x3F</code>）把内存的当前页数按<code>i32</code>类型推入栈顶。<code>memory.size</code> 指令带有一个1字节立即数，可以指定操作的是哪个内存。由于Wasm1.0规范规定最多只能有一个内存，所以目前这个立即数只能是0。下面是<code>memory.size</code> 指令的示意图：</p>
+<pre><code>bytecode:
+...][ memory.size ][ 0 ][...
+
+
+stack:
+|           |          |           | 
+|           |         ➘|   p(i32)  | # page count
+|     d     |          |     d     |
+|     c     |          |     c     | 
+|     b     |          |     b     |  
+|     a     |          |     a     | 
+└───────────┘          └───────────┘</code></pre>
+<h2 id="memory.grow">memory.grow</h2>
+<p><code>memory.grow</code> 指令（操作码<code>0x40</code>）将内存增长<code>n</code>页，其中<code>n</code>是一个<code>i32</code>类型的整数，从栈顶弹出。如果操作成功，将<strong>增长前</strong>的页数按<code>i32</code>类型推入栈顶，否则将<code>-1</code>推入栈顶。和<code>memory.size</code>指令一样，<code>memory.grow</code>指令也带有一个1字节立即数，且取值必须为0。下面是<code>memory.grow</code> 指令的示意图：</p>
+<pre><code>bytecode:
+...][ memory.grow ][ 0 ][...
+
+
+stack:
+|           |          |           | 
+|   n(i32)  |➚        ➘|   p(i32)  | # grow n pages
+|     d     |          |     d     |
+|     c     |          |     c     | 
+|     b     |          |     b     |  
+|     a     |          |     a     | 
+└───────────┘          └───────────┘</code></pre>
+<h2 id="load">load</h2>
+<p><code>load</code>指令从内存读取数据，然后推入栈顶。具体读取多少字节的数据，以及将数据解释为何种类型的数，因指令而异。Wasm采用了“立即数+操作数”的内存寻址方式，所有<code>load</code>指令都带有两个<code>u32</code>类型。以<code>i64.load</code>指令（操作码<code>0x29</code>）为例，下面是它的示意图：</p>
+<pre><code>bytecode:
+...][ i64.load ][ align ][ offset ][...
+
+
+stack:
+|           |          |           | 
+|           |          |           | 
+|   d(i32)  |➚        ➘|m[offset+d]| # i64
+|     c     |          |     c     | 
+|     b     |          |     b     |  
+|     a     |          |     a     | 
+└───────────┘          └───────────┘</code></pre>
+<h2 id="store">store</h2>
+<p><code>store</code> 指令从栈顶弹出操作数，然后写入内存。具体如何解释操作数，以及写入多少字节，因指令而异。所有的<code>store</code>指令也都带有两个立即数，含义和 <code>load</code>指令一样。和<code>load</code>指令不同的是，<code>store</code>指令要从栈顶弹出两个操作数，一个用于计算内存地址，另一个是要写入的数据。以<code>i64.store</code> 指令（操作码<code>0x37</code>）为例，下面是它的示意图：</p>
+<pre><code>bytecode:
+...][ i64.store ][ align ][ offset ][...
+
+
+stack:
+|           |          |           | 
+|   e(i64)  |➚         |           | 
+|   d(i32)  |➚         |           | # m[offset+d]=e
+|     c     |          |     c     | 
+|     b     |          |     b     |  
+|     a     |          |     a     | 
+└───────────┘          └───────────┘</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

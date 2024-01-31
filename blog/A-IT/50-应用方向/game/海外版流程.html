@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/game/海外版流程</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#混服联运">【混服联运】</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>【1】打分支<br />
+找一个国内版某一个版本打下分支  </p>
+<p>【2】做版机</p>
+<ul>
+<li><p>安装软件</p></li>
+<li><p>svn，office套件，.net4, xshell，xftp, flash，notepadd++</p></li>
+</ul>
+<p>【3】添加加language目录树，移植多语言工具</p>
+<ul>
+<li><p>checkcfgs 检查excel配置表是否有漏掉的翻译标识  </p>
+<ul>
+<li><p>checkcfgs 检查的是lua配置表中是中文且没加_T的内容  </p></li>
+<li><p>--excelname=items_sm.xlsx:sheetname=#货币计数     生成的lua配置文件要有这么一个东西</p></li>
+<li><p>excel批量生成lua表的时候如果一次生成的太多的话会报错</p></li>
+<li><p>CheckExcelKey.exe 这个工具可以自动在excel中加翻译标识，但此工具运行会报错，少的话手动改一下就行  </p></li>
+<li><p>{"openui","MakeItem",{idx=2,id=20078},_T"升星宝石合成"}     配置表中table的话，工具能检查出来但是不能直接加翻译标识，得根据规则手动的去批量修改</p></li>
+</ul></li>
+<li><p>replacecode 加翻译标志符_T的工具</p></li>
+<li><p>txttrans  多语言文字挑选工具 </p>
+<ul>
+<li>最终生成语言包</li>
+<li>注意代码中的路径是否正确</li>
+</ul></li>
+<li><p>txttranschecknew 检查语言包翻译的格式是否正确（运行txttrans要先运行这个程序）</p>
+<ul>
+<li>1.launch.lua  checkTransHtml 方法可能存在错误判断的情况 </li>
+<li>2.txttrans中也存在检查语言包格式的代码，所以要改动两个地方 </li>
+<li>3. XlsParse.exe 这个程序如果报错且cmd窗口有乱码啥的可能是cmd的代码页（右击-选项）的编码不是utf-8的</li>
+</ul></li>
+<li><p>解决：1.通过 chcp命令改变代码页，UTF-8的代码页为65001    chcp 65001   2.  选择"属性"-&gt;"字体"，将字体修改为True Type字体"Lucida Console"</p></li>
+<li><p>fla清理工具  <br />
+    </p></li>
+<li><p>extractflatxt fla文本抽取工具     jsfl文件，专门处理flash文件的，用的是js的语法</p></li>
+<li><p>extranctpng fla图片抽取工具 </p></li>
+<li><p> formswf          swf生成工具，用来把翻译后的fla中图片重新生成swf文件</p></li>
+<li><p>经过extractflatxt提取并翻译后的文件也要放在这个工具下进行处理</p></li>
+<li><p>formone.bat可以单独的生成一个文件的，当对方发过来fla文件的时候，直接放在游戏里面是会报错的no-fancy.as的错，用这个跑一下就可以了</p></li>
+<li><p>form.bat 是批量生成，主逻辑为复制，处理，在复制，看下bat脚本就明了了  <br />
+    </p></li>
+<li><p>生成后的文件目录要预先建立好，要不然会找不到文件出错</p></li>
+<li><p>注意：updatefla.jsfl 中的这个变量lang2font，看看电脑上是否有这个字体，没有的话去下载并安装，要不游戏会出现方块乱码</p></li>
+</ul>
+<p>【4】生成语言包</p>
+<p>  </p>
+<p>【5】带有语言的游戏资源（图片，flash，音频，贴图。。。）  res目录</p>
+<ul>
+<li>主要是flash，icon  <br />
+    </li>
+</ul>
+<p>【6】项目代码中的差异文件的修改</p>
+<ul>
+<li><p>客户端</p></li>
+<li><p>code/font.lua   设置字体啥的</p></li>
+<li><p>list.lua        1._G.language = 'tw' 设置全局变量      2. language.lua（_T方法）   3. cfg_mul.lua 语言包   ，  设置好后可显示指定语言</p></li>
+<li><p>code/string.lua    _T 方法</p></li>
+<li><p>服务器端</p></li>
+<li><p>cfg_launch_win.lua     os.info.platcfg = 'top1game'   平台名字改了</p></li>
+<li><p>unite/top1game.lua     增加平台的配置文件</p></li>
+<li><p>plat/plat_xxx.lua</p></li>
+<li><p>cs_recharge.lua     增加充值的ip白名单</p></li>
+</ul>
+<p>【7】客户端和服务器端打版工具修改</p>
+<ul>
+<li>copy文件然后再打版,客户端还要多加了一个生成atles图集的步骤  <br />
+    </li>
+<li>服务器端       zip包中的dofile  外面的dofile0，若不正确的话可能会 </li>
+</ul>
+<p>【8】外围</p>
+<ul>
+<li><p>微端  各种连接</p></li>
+<li><p>loader  素材（原画，视频等） 提供给对方</p></li>
+<li><p>游戏音频</p></li>
+<li><p>项目中资源的位置</p></li>
+<li><p>代码中控制的地方和配置文件</p></li>
+<li><p>index下载页</p></li>
+<li><p>要根据运营平台和浏览器要有差异的</p></li>
+<li><p>官网</p></li>
+<li><p>定制功能需求（facebook，邮箱验证，）</p></li>
+<li><p>接口文档（给对方）</p></li>
+<li><p>充值，登录，角色查询</p></li>
+<li><p>登录串的生成工具 tools/url，生成的url用于测试期间登录游戏    </p></li>
+<li><p>支付串生成 tools/pay</p></li>
+</ul>
+<p>  <br />
+【9】游戏变动</p>
+<ul>
+<li>开关，unlock表</li>
+<li>configplant</li>
+</ul>
+<p>  <br />
+【10】测试服务器准备</p>
+<ul>
+<li><p>游戏测试服</p></li>
+<li><p>服务器环境准备：服务器时间，yum源</p></li>
+<li><p>ip和域名解析（向对方要）</p></li>
+<li><p>域名规则如下：  <br />
+    <br />
+    游戏服域名 --- 203.74.150.53<br />
+    <br />
+    s99997-mfwz.top1game.com<br />
+    <br />
+    s99999-mfwz.top1game.com<br />
+    <br />
+    s99998-mfwz.top1game.com<br />
+    <br />
+      <br />
+    <br />
+    scgs53333-mfwz.top1game.com<br />
+    <br />
+    * * *<br />
+    <br />
+    跨服域名  --- 203.74.150.54<br />
+    <br />
+    ccs-mfwz.top1game.com<br />
+    <br />
+    area-mfwz.top1game.com<br />
+    <br />
+      <br />
+    <br />
+    proxy1-mfwz.top1game.com<br />
+    <br />
+    proxy2-mfwz.top1game.com<br />
+    <br />
+    proxy3-mfwz.top1game.com<br />
+    <br />
+    proxy4-mfwz.top1game.com<br />
+    <br />
+    proxy5-mfwz.top1game.com<br />
+    <br />
+    proxy6-mfwz.top1game.com<br />
+    <br />
+    proxy7-mfwz.top1game.com<br />
+    <br />
+    proxy8-mfwz.top1game.com<br />
+    <br />
+      <br />
+    <br />
+    cgs1-mfwz.top1game.com<br />
+    <br />
+    cgs2-mfwz.top1game.com<br />
+    <br />
+    cgs3-mfwz.top1game.com<br />
+    <br />
+    cgs4-mfwz.top1game.com<br />
+    <br />
+    cgs5-mfwz.top1game.com<br />
+    <br />
+    cgs6-mfwz.top1game.com<br />
+    <br />
+    cgs7-mfwz.top1game.com<br />
+    <br />
+    cgs8-mfwz.top1game.com<br />
+    <br />
+      <br />
+    <br />
+    query-mfwz.top1game.com<br />
+    </p></li>
+<li><p>服务器部署   <br />
+    </p></li>
+<li><p>缺少库文件的问题  <br />
+      <br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/923e7a06-9692-4172-a204-87ea941521ec.jpg" /></p></li>
+</ul>
+<p>      yum -y install nss-*      yum -y install nss.i686<br />
+    <br />
+- postgres设置问题：1.给postgres生成密码，2. 设置连接权限   postgresql.conf ,pg_hba.conf增加用户名</p>
+<ul>
+<li><p>中心服</p></li>
+<li><p>index登录页</p></li>
+<li><p>微端自动登录</p></li>
+<li><p>1.ruby的登录服部署   2. cdn的重定向规则</p></li>
+<li><p> location ~^/mclient {  <br />
+    <br />
+               rewrite ^/mclient/(\w+)/.*$ /mclient/$1/ark.exe break;<br />
+    <br />
+            }<br />
+    </p></li>
+<li><p>数据上报</p></li>
+<li><p>数据后台接入</p></li>
+<li><p>td-agent日志收集工具</p></li>
+<li><p>日志的目录地址</p></li>
+<li><p>unite/平台.lua 中改变    gid和dept</p></li>
+</ul>
+<p>  <br />
+【11】其他的支持</p>
+<ul>
+<li> GM命令  client/code/swtich.lua  server/cs_debug gs_debug        | /cmdtest1012  (客户端) /pw QA  （服务端）</li>
+</ul>
+<p>  </p>
+<p>【12】第N个大版本更新  </p>
+<p>  </p>
+<p>  </p>
+<hr />
+<p>【注意】</p>
+<p>客户端打版时一定要先在本地测试测试有没有问题，因为打版上传很耗时，</p>
+<p>  </p>
+<p>  </p>
+<p>  </p>
+<p>15号给语言包（下周三返回）</p>
+<p>15号给到loader的中文flash文件</p>
+<p>20给图片翻译（下下周三返回 ）</p>
+<p>19给到所有的定制功能需求</p>
+<p>21给到微端需要的所有链接</p>
+<p>22搭建完台湾测试服</p>
+<p>24给到登录充值文档</p>
+<p>25号给到微端，插件</p>
+<p>25号接入到后台</p>
+<p>26完成登入充值技术对接</p>
+<p>27更新个新版本，把台湾第1批图片导入</p>
+<p>29号给到loader，游戏页素材</p>
+<p>  </p>
+<h2 id="混服联运">【混服联运】</h2>
+<p>微端</p>
+<p>    1.打微端，换各种链接</p>
+<p>    2.中心服微端自动下载（需要改链接）</p>
+<p>下载页</p>
+<p>    各种连接</p>
+<p>数据后台<br />
+    转换率（）<br />
+    各种数据</p>
+<p>游戏<br />
+    游戏内链接<br />
+    非联运的功能</p>
+<p>  </p>
+<p>  </p>
+<p>游戏中需要改的链接：1. unite目录下的平台配置文件   2.客户端的plat.lua(控制关闭微端后的跳转链接)</p>
+<p>index页中要改的东西</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

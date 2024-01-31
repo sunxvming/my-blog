@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/00-CS基础/80-软件实践/项目管理</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#游戏项目立项办法">游戏项目立项办法</a></li>
+<li><a href="#项目工具">项目工具</a></li>
+<li><a href="#项目规范">项目规范</a></li>
+<li><a href="#语义化版本">语义化版本</a></li>
+<li><a href="#leader绩效评价">LEADER绩效评价</a></li>
+<li><a href="#低级错误零容忍具体问题">低级错误零容忍具体问题</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="游戏项目立项办法">游戏项目立项办法</h2>
+<p>一、前言<br />
+为了完善公司研发管理制度、规范游戏项目的立项过程，降低项目风险，制定本办法。<br />
+本办法自发布之日起实施，在实施过程中不断根据反馈进行修正，力求完善。</p>
+<p>二、本办法适用范围<br />
+公司游戏项目（页游与手游）的立项，均须遵循本办法。<br />
+手机APP产品或其它非游戏产品的项目不适用本办法。</p>
+<p>三、项目立项流程<br />
+为繁荣和丰富公司的自主研发游戏产品，公司鼓励项目组新产品研发立项提议。项目提议需进行严格的立项审查，方能投入实际制作。<br />
+新项目立项，需按下面的流程执行：<br />
+一、项目提议者（PM）向公司负责研发的管理者（研发总监，或主管研发的副总裁）提交本办法规定的各种文档（文档类型及要求见本文第四章）。<br />
+二、管理者确认文档齐全后，对材料进行初步评审，结果使用电子邮件通知项目提议者。<br />
+三、初评通过后，将进行立项公开答辩，邀请公司各类专家（包括其他团队主策划、评测团队专家、市场和运营相关人员）、公司管理层参加。答辩根据本文第五章的“立项审查标准”对项目关键点进行逐项审查，决定是否通过。<br />
+四、公开答辩通过后，需通过公司总裁的最终审查，在《游戏项目立项批准书》文档上签字批准，立项成功。<br />
+立项提议未能通过上述全部环节者，则立项失败。</p>
+<p>四、立项提交文档<br />
+项目发起者，需提交下列6种立项文档：<br />
+1、项目概要PPT，具体要求：PPT格式，简明介绍游戏类别、玩法、背景，特色，创新点，制作档期。此文档用于了解项目和公开答辩。</p>
+<p>2、目标用户群需求分析与市场调研文档。具体要求：PPT格式，分析产品的目标玩家及其特点（性别、年龄层次、游戏习惯），产品适应运营的国家地区与平台（例如国内还是海外，海外分日韩、东南亚、欧美等），目标玩家消费能力与消费习惯，产品的市场前景估算，产品研发出来时市场的变化预估，当前同类产品的市场情况，同类产品中主要竞争者的收益情况。<br />
+本文档需量化，数据客观，数据来源主要依据行业具有权威性的市场报告、行业发展报告书以及大公司发布的数据等，力求可靠。</p>
+<p>3、游戏的总体策划大纲文件。具体要求：WORD格式，关键点在于列出游戏的三个关键设计策略。包括：玩法设计（主要玩法，玩家的追求线以及如何达到这些追求、游戏的亮点特色、主要玩点等）、经济系统设计（核心收费点、游戏货币、经济系统循环过程），核心系统设计（核心系统及其关系）。</p>
+<p>4、游戏的参照系分析文档，具体要求：PPT格式，阐明立项要做的游戏，参照市面上哪个或哪几个游戏，为什么要参照这些游戏（背后逻辑），以何种方式和程度进行参照，在参照的同时如何进行创新。对于没有明确参照系的产品，属于高风险项目，在审查时将重点关注。</p>
+<ol>
+<li>项目风险管理文档，具体要求：Excel文档，详细列出项目的风险分析和规避手段。</li>
+</ol>
+<p>6、项目开发计划，具体要求：Excel文档，列出项目大致开发日期安排（其中要求有两个以上可验收评审的里程碑）、人员需求（人员类别、质量、数量和现有人员情况）、技术需求（主要技术、引擎及其可获得性）、项目成本预算、外包需求、项目产品的收入预估。注意：①网游项目整个设计开发时间不得超过一年。②上述各项，需量化（可进行大致估算）。</p>
+<p>未通过立项审查的项目，可补充材料或修正文档内容后再次进行审查。</p>
+<p>五、立项审查标准<br />
+总的原则是：在项目立项阶段，严格审查，避免不合格项目进入执行阶段，造成项目失败或高成本（包括资金成本、管理成本和机会成本）。</p>
+<p>审查标准如下：<br />
+1. 立项文档是否齐全？立项文档不齐全，则无法通过。<br />
+2. 产品是否有参照系？产品自身有亮点和特色吗？有独特性吗？产品无特色和亮点，则不能通过立项。<br />
+3. 对目标玩家群的分析是否准确？<br />
+4. 当此产品做出来的时候，当时的市场上将会有多少类似产品？<br />
+5. 是否对项目可能遇到的风险进行了详尽的分析，并有排除风险的办法？如果有较大风险没有分析到、或者无可靠的应对措施，则立项无法通过。<br />
+6. 项目的开发档期是否合理？如果延期，可能是什么原因？最多可能延期多久？公司是否能接受这样的延期时间？如果相对于工作量，开发档期估算得过短或过长，需重新估算。<br />
+7. 里程碑设设定时间是否合理？里程碑提交的结果如何验证？如果没有设立两个可验证的里程碑，则需重新设定。<br />
+8. 项目成本估算是否准确合理？公司能否接受这个成本？如果延期导致成本增加，能增加到什么程度？如果项目无利润或利润薄（预估收入与成本接近），则不支持立项。<br />
+9. 项目是否有外包？外包费用估算合理吗？对于外包发生的沟通成本和返工是否有预估？<br />
+10. PM对于要做的项目，有明确的方向感和信心吗？<br />
+11. PM有项目管理能力与经验吗？他历史上曾经做成功过什么产品，做失败过什么产品？为什么会做失败？是否总结过主要失败因素并确保不重蹈覆辙？原则上，对于持续失败过两次或以上的PM，不予以支持，需更换PM。<br />
+12. 项目组关键人才（PM、主策划、主美术、主程序）到位了吗？如果上述关键人员没到齐则无法通过立项。<br />
+13. 项目组除了关键人才之外，还缺什么人员？什么时候能到位？</p>
+<h2 id="项目工具">项目工具</h2>
+<p>gitlab<br />
+[[看板工具]]<br />
+共享文件服务器，内网</p>
+<h2 id="项目规范">项目规范</h2>
+<p>有哪些地方需要制定规范？<br />
+* 非编码类规范，主要包括开源规范、文档规范、版本规范、Commit 规范和发布规范。<br />
+* 编码类规范，则主要包括目录规范、代码规范、接口规范、日志规范和错误码规范。</p>
+<h2 id="语义化版本">语义化版本</h2>
+<p>语义化版本<br />
+版本格式：主版本号.次版本号.修订号，版本号递增规则如下：<br />
+* 主版本号：当你做了不兼容的API 修改。<br />
+* 次版本号：当你做了向下兼容的功能性新增。<br />
+* 修订号：当你做了向下兼容的问题修正。</p>
+<p>先行版本号及版本编译信息可以加到“主版本号.次版本号.修订号”的后面，作为延伸。</p>
+<h2 id="leader绩效评价">LEADER绩效评价</h2>
+<blockquote>
+<p>以下的测试表是俺在之前的游戏公司中给leader测评用的，每隔一段时间HRBP就会给项目组的所有员工发这么个问卷以调查本项目组leader的情况。发给俺的时候一般5秒就搞定，因为俺都选了B，哈哈，典型的员工心态，事不关己高高挂起。后来突然有一天俺才有了觉悟，俺要先学会识别项目组leader的各项能力，他们那些方面做的好，那些方面做得差自己心中要有个大概。做的好是为什么做的好，做的差又是为什么做得差。好的咱要向人家学习，差的咱得想怎样做才能做的更好。遵循这样的逻辑咱们才能让自己做的更优秀，才能自己达到leader的水平。恩，没毛病！</p>
+</blockquote>
+<ol>
+<li>项目的方向<br />
+A. 保证项目的方向没有偏差<br />
+B. 虽然有时走弯路，不过大方向还是对的<br />
+C. 经常变换大方向思路<br />
+D. 基本不清楚项目的何去何从，看到一点就修改一点</li>
+<li>进度控制、协调能力<br />
+A. 不会制定无法完成的计划，保证每位组员都在基本满负荷工作。<br />
+B. 制定计划基本符合预期，能及时给空闲组员分配任务。<br />
+C. 计划不明确导致分工不均，组员很闲或很忙。<br />
+D. 大部分组员很闲。</li>
+<li>制定项目milestone、根据milestone的计划能力<br />
+A. 制定里程碑、计划时考虑周全，并且监督得当能让预期目标实现<br />
+B. 同上，预期目标基本实现<br />
+C. 计划及目标无法实现，导致项目整体进度滞后</li>
+<li>接受能力，接受建议能力；<br />
+A. 能认真倾听对产品、对管理方式建议；合理采纳意见，对未采纳的意见持尊重态度；而大部分对意见的处理，事后证明有有效的改善。<br />
+B. 能认真倾听对产品、对管理方式建议；并采纳意见。<br />
+C. 能接收建议，但是无改变能力<br />
+D. 顽固不化，不愿接受任何意见建议</li>
+<li>团队的凝聚力(人望、组员积极性，这个可以排第一位)<br />
+A. 对组员的性格、工作能力有比较清晰的认识,知人善用，最大限度调动组员积极性。<br />
+B. 与组员关系和睦、以德服人、理据服，善于适时适度激励组员<br />
+C. 虽不能与每个人打好交道，但是威慑力足，有事后组长压力也是一种动力。<br />
+D. 与组员关系不融洽，经常发生争执，团队人心涣散。</li>
+<li>组员的能力培养（Leader一个人NB与不NB，组员不给力都会很累，不过建立在Leader能力比组员强的情况下）<br />
+A. 有能力教导组员，在组员遇到困难的时候，提供支持，能调动组员的学习积极性，努力成为自己领域内最NB的人<br />
+B. 能调动组员的学习积极性<br />
+C. 很少将任务分配给组员，导致组员没有练手的机会。<br />
+D. 自己动手效率最高。。</li>
+<li>遇到工作中的失误时，是否向其他部门推卸责任<br />
+A. 10%<br />
+B. 30%<br />
+C. 50%<br />
+D. 70%</li>
+<li>执行过程中遇到问题，能组织起有效的方式解决。<br />
+A、遇到问题时1小时内有效相关人员，确定好解决方案并督促问题解决<br />
+B、遇到问题时在当天内有相关人员，确定好解决方案并督促问题解决<br />
+C、遇到问题时在当天内有相关人员，确定好解决方案但未督促问题解决<br />
+D、遇到问题时在当天内未相关人员去确定解决方案</li>
+<li>自身的修养(至少是60%-100%的数值、60%的文案、60%-100%的系统，25%-100%的程序、普世的价值观和审美能力。不然你怎么搞定组员？这个可以由组员评)<br />
+A. 对项目的各类工作有很强的把控能力，不会有任何混水摸鱼的可能性。对于组员有任何不明了的问题都能一一解答指引方向，明灯一般的存在。<br />
+A. 精通某一类工作，可以保证在此项不会有任何问题。在其他方面能有明确的最终预期的设想。<br />
+C. 虽然对各类工作的具体方法不是不明白，但是能向刘邦一样不耻下问，能贯彻自己对项目的设想。<br />
+D. 基本每项工作具体方法都只懂一点，无法指导别人，只能提供预期的想法。</li>
+</ol>
+<h2 id="低级错误零容忍具体问题">低级错误零容忍具体问题</h2>
+<p>通用：<br />
+1.工作不提交<br />
+2.各种命名错误<br />
+3.工作做完没有移交下个部门。<br />
+4.移交下个部门制作之前不检查，造成返工。</p>
+<p>程序：<br />
+1. 编译不过（引擎）,提交SVN<br />
+2. 语法错误（Lua），抛异常，提交SVN<br />
+3. 提交没有用的调试代码到SVN<br />
+4. 提交SVN时，日志不清晰，词不达意<br />
+5. API修改后没有提交whatsnew和官网文档（引擎）<br />
+6. 多文件提交SVN时，漏提交文件<br />
+7. 提交了无用的文件到SVN，例如：日志<br />
+8. 没有经过检查，直接覆盖提交别人的代码到SVN<br />
+9. SVN提交时一次性提交两个或以上功能/BUG<br />
+10. 不符合代码规范</p>
+<p>美术：<br />
+地形编辑：<br />
+1.没有按照要求建立合理的网格数的地形文件。<br />
+2.地形阻挡不规范有漏洞。<br />
+3.逻辑地表与美术表现不匹配（角色会插到地表下或者悬浮在半空中）。<br />
+4.地形安全区穿帮。<br />
+5.动态地物没有添加动画。</p>
+<p>模型（角色和场景）：<br />
+1.模型存在废点，无焊接点，对称不合并点。<br />
+2.光滑组不合理。<br />
+3.单位不统一，比例失调。<br />
+4.需要材质表现的没有调节材质。<br />
+5.没有坐标归零。没有ResetXForm</p>
+<p>贴图：<br />
+1.贴图不是2的次幂。<br />
+2.格式存储错误。<br />
+3.贴错贴图。<br />
+4.贴图命名错误，不规范。（不应含有空格，中文，特殊符号等，手游必须小写）<br />
+5.没有制作特殊效果贴图。（透明，反光，法线，自发光）</p>
+<p>特效：<br />
+1.制作过程中使用命名不规范的贴图或模型后忘记更正。<br />
+2.骨骼加了点不给动作<br />
+3.做完东西不检查法线方向<br />
+4.需要绑定的特效不勾绑定、不需要绑定的瞎绑定<br />
+5.提交资源不检查<br />
+6.特效贴图不加通道</p>
+<p>原画：<br />
+1.设计完毕没有及时移交给模型制作。<br />
+2.文件命名不规范</p>
+<p>图标：<br />
+1.不是2的次幂。<br />
+2.格式存储错误<br />
+3.文件命名不规范</p>
+<p>动画：<br />
+1.模型没有附材质。<br />
+2.蒙皮有问题，开点，飞点。<br />
+3.动作没加tag文件。<br />
+4.骨骼缺少mark点（T点 P点 特效点）。<br />
+5.各种摄像机位置错误。</p>
+<p>UI<br />
+1.UI文字有错别字。<br />
+2.排版对齐方式错误<br />
+3.按钮状态和文字状态不统一<br />
+4.界面过大，超出最小分辨率<br />
+5.文字和底图靠色 看不清文字<br />
+6.出图格式 层级关系错误</p>
+<p>策划：<br />
+1 在项目文档或公式中，对同一概念，使用与大家不同的术语，导致理解与沟通出现困难。<br />
+“VIP1需要60元宝。”-----但游戏中一级货币是“钻石”。<br />
+2 设计规则时，不清晰定义规则中涉及到的术语，导致程序或其他策划理解错误。<br />
+“一天内，玩家的钻石消耗达到100”，其中的＂一天＂是24小时还是一个自然天，未准确说明。<br />
+3 设计规则时，未考虑边界条件，导致出现漏洞。<br />
+玩家等级小于5级时，不能创建公会。<br />
+玩家等级大于5级时，可创建公会。<br />
+边界情况：玩家等于5级时，该怎么办？<br />
+4 设计规则集时，前后规则明显相矛盾。<br />
+公会创立规则如下：<br />
+10级以下玩家不能成立或加入公会。<br />
+VIP1玩家可创立公会。<br />
+-------VIP1玩家可能是10级以下玩家。<br />
+5 设计规则或界面时，漏写一种情况，导致执行时需额外沟通。<br />
+按钮有＂攻击＂，＂招降＂两个，当玩家点击＂攻击＂，则攻击此怪。<br />
+----没有说明玩家点击“招降”的规则。<br />
+6 设计文案时，不为玩家考虑，用玩家陌生的术语或明显不通顺的语句。<br />
+“熔炼战士能得到游戏货币，可使用游戏货币获得战士碎片”----“游戏货币”歧义，玩家困惑，真正含义是“英雄徽章”。<br />
+7. 策划某设定已经更改，但策划不通知程序或美术，导致制作错误。<br />
+8. 写完文档，自己不阅读检查一遍，就提交给程序执行。<br />
+9. 开重要的策划会议时，不带笔和笔记本。</p>
+<p>PM：<br />
+1.PM没能按时发出项目总结（要求每周一下午6:30前)<br />
+2.PM周项目总结过于简略，寥寥几句，明显敷衍了事。<br />
+3.PM无法清晰地给出项目组下周的工作重点和方向，严重缺乏规划，走一步看一步，团队迷茫。<br />
+4.项目上线没有完整跑过checklist，导致各种低级错误出现。<br />
+5.发版时，PM没有亲自测一下项目前期（前20分钟）感受，导致游戏有明显问题却没有发现。<br />
+6.项目组进的新人，PM无法在两周时评价新人的态度和能力。<br />
+7.PM不加甄别地让性格、工作态度或工作能力明显有问题的人进项目组，导致后期劝退这些人的时候公司损失金钱。<br />
+8.工作态度或能力有问题的员工，其行为已经在团队中造成明显不良影响时，PM不闻不问，管理缺失。<br />
+9.在项目上线、或重大版本发布时，因故不在现场。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

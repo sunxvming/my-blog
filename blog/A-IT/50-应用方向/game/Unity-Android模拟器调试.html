@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/game/Unity-Android模拟器调试</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+ <!--if(toc)-->
+
+<p>1.打untiy的android包，记得要勾选Development Build和Script Debugging，这样调试的信息才行打进包<br />
+2.在模拟器中运行打的包</p>
+<p>运行模拟器时，模拟器窗口标题栏会显示模拟器的端口号和AVD名称，这个端口号是它的console端口号，其区间为5554-5584之间的偶数，而5555-5585之间的奇数则是对应的为adb保留的端口号。默认情况下运行第一个模拟器的console port为5554，adb port为5555，第二个模拟器的console port为5556，adb port为5557，依此类推。Console port和adb port用于下面的adb连接：<br />
+1、adb tcpip 5555将设备的adb daemon与宿主机的5555端口绑定。如果5555端口已经被占用，可以使用5555-5585之间其它的奇数。<br />
+默认情况下第一个模拟器的console port为5554，adb port为5555，因此可以跳过这步。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/a61fdfd5-0b08-4bfa-a5cd-92d53d5cc4df.png" /><br />
+2、adb connect 127.0.0.1:5555这里通过网络进行adb连接，5555为上一步设置好的模拟器adb port，127.0.0.1为本机环路地址。因为模拟器的adb daemon与本机的5555端口进行了绑定，因此adb连接本机（127.0.0.1/localhost）的5555端口时就是连接了模拟器。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/6cbcdb09-129d-4d65-af16-15279bba948f.png" /><br />
+3、adb devices查看连接是否建立好。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/43e6182a-0d0f-4534-8c28-0a55a3ed8c85.png" /><br />
+3.在vs的debug中attach上要调试的进程<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/84abdf30-ef05-42a2-83e6-1f631ab4266e.png" /></p>
+<p>4.需要做的配置工作。<br />
+运行项目后，MonoDevelopment或UnityVS的Attach窗口会出现AndroidPlayer一项，这就是我们模拟器上运行的项目了。但如果此时直接Attach会发现Attach不上，我们还需要做些配置工作。<br />
+仔细看AndroidPlayer这项会发现有unknown_sdk@10.0.2.15这样的标识，这个10.0.2.15实际上是模拟器自己定义并分配的IP，直接Attach会尝试去连接这个IP，当然无法连接到模拟器，也就无法调试项目了。好在UnityVS有两个很好的功能，一个是列出了调试项目时需要连接模拟器的端口号，即上图的56997，另一个是允许自定义输入IP和端口号来进行远程调试。<br />
+1、打开UnityVS的Attach Unity Debugger窗口，记住AndroidPlayer的端口号。<br />
+2、打开cmd，输入telnet localhost 5554来进入Android Console，5554即前面提到的模拟器的console port。<br />
+3、Android Console中输入redir add tcp:5590:56997，将模拟器56997端口重定向为宿主机的5590端口。这里的56997即第1步需要记住的端口号，5590可以设置为任意你想用的端口号。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/cd89aecd-8cdf-4ce9-b1c2-31cf196a5b9f.jpg" /><br />
+4、在UnityVS Attach窗口点击“Input IP”，输入127.0.0.1:5590，点击“OK”将会连接到模拟器并Attach项目成功，接下来就可以体验“真机”调试了。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/516e3602-f94c-4e63-ac52-e64b46caf70b.jpg" /></p>
+<p>解决more than one device and emulator问题</p>
+<p>1、获取模拟器/设备列表 adb devices<br />
+2、指定device来执行 adb -s devicename shell</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>
