@@ -396,7 +396,7 @@ int main(int argc, char *argv[])
 信号量用在多线程多任务同步的，一个线程完成了某一个动作就通过信号量告诉别的线程，别的线程再进行某些动作。
 Mutex变量是非0即1的，可看作一种**资源的可用数量**，初始化时Mutex是1，表示有一个可用资源，加锁时获得该资源，将Mutex减到0，表示不再有可用资源，解锁时释放该资源，将Mutex重新加到1，表示又有了一个可用资源。
 
-信号量（Semaphore）和Mutex类似，表示可用资源的数量，和Mutex不同的是这个数量可以大于1。
+信号量（Semaphore）和Mutex类似，**表示可用资源的数量**，和Mutex不同的是这个数量可以大于1。
 信号量是一个整数 count，提供两个原子(atom，不可分割)操作：P 操作和 V 操作，或是说 wait 和 signal 操作。
 * P操作 (wait操作)：count 减1；如果 count < 0 那么挂起执行线程；
 * V操作 (signal操作)：count 加1；如果 count <= 0(说明有其他的线程在等待) 那么唤醒一个执行线程；  
@@ -467,7 +467,7 @@ int main(int argc, char *argv[])
 #### 被”抛弃”的信号量
 semaphore同时具有了mutex和condition_variable的功能, 这使得人们使用semaphore的时候很难区分某个semaphore是用来互斥的, 还是用来同步的.
 而大部分情况下, semaphore都是用来互斥的, 而一个binary semaphore可以**在一个线程加锁, 在另一个线程解锁**的行为, 很容易导致错误. 
-而mutex则规定了在哪个线程加锁, 就得在哪个线程解锁, 否则未定义行为, 用错就挂, 至少容易发现错误. 这使得linux kernel也大范围弃用semaphore
+**而mutex则规定了在哪个线程加锁, 就得在哪个线程解锁**, 否则未定义行为, 用错就挂, 至少容易发现错误. 这使得linux kernel也大范围弃用semaphore
 
 ### 读写锁(read-write-lock)
 如果共享数据是只读的，那么各线程读到的数据应该总是一致的，不会出现访问冲突。只要有一个线程可以改写数据，就必须考虑线程间同步的问题。由此引出了读者写者锁（**Reader-Writer Lock**）的概念，Reader之间并不互斥，可以同时读共享数据，而Writer是独占的（exclusive），在Writer修改数据时其它Reader或Writer不能访问数据，可见Reader-Writer Lock比Mutex具有更好的并发性。

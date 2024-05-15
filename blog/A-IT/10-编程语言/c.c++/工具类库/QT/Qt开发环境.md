@@ -66,6 +66,20 @@ lmm:lmm是我的当前的登录的用户名，改成你自己的用户名就可�
 估计原来不好用的原因是没有以root权限安装。
 
 
+
+## QT配置msvc
+
+![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240410133607.png)
+
+
+![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240410133747.png)
+需要下载windbg
+CDB（command line debugger）是给控制台调试代码用的，CDB是WinDbg的小兄弟。因为VS的VC++用的调试器是C:\Windows\System32\vsjitdebugger.exe，所以安装Visual Studio是没有cdb的。必须从WDK里面安装Debugging Tools for Windows。
+
+![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240410133848.png)
+
+
+
 ## linux下源码编译qt和qtCreator
 QTCreator要想在Linux-arm架构下运行，必须要保证两个：
 1. qt要在arm下编译生成对应库文件和qmake

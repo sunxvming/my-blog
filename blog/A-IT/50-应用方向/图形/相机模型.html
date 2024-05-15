@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/图形/相机模型</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#小孔成像-针孔相机模型pinhole-camera-model">小孔成像-针孔相机模型（Pinhole Camera Model）</a></li>
+<li><a href="#凸透镜成像-透视投影模型perspective-projection-model">凸透镜成像-透视投影模型（Perspective Projection Model）</a></li>
+<li><a href="#什么是焦距">什么是焦距</a></li>
+<li><a href="#相机模型">相机模型</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="小孔成像-针孔相机模型pinhole-camera-model">小孔成像-针孔相机模型（Pinhole Camera Model）</h2>
+<p>（1）三维空间中的物体到相机像平面的投影关系叫做<strong>成像模型</strong>，理想的投影成像模型是光学中的<strong>中心投影</strong>，也称为<strong>针孔模型</strong>或<strong>小孔成像模型</strong>。之所以说<strong>理想模型</strong>，是因为实际相机中都存在<strong>透镜</strong>，透镜会产生图像畸变，镜头失真，所以单纯的小孔成像模型并不是很严谨。那不禁要问，为什么还要用小孔成像模型作为相机模型呢？下面我们来回答</p>
+<p>（2）小孔成像由于<strong>透光量小</strong>，因此针孔相机要很长的曝光时间，并且得到的图像不清晰，为解决这个问题，实际摄像系统通常是由<strong>透镜组</strong>组成的，<strong>但是但是</strong>由于小孔成像和凸透镜成像具有<strong>相同</strong>的成像几何关系，即<strong>像点</strong>是<strong>物点</strong>和<strong>光心</strong>的连线与成像平面的交点，因此仍然可以用<strong>小孔成像模型</strong>作为<strong>相机成像模型</strong>。事实上这也是图像处理领域和计算机视觉领域常用的基本的<strong>相机成像理论模型之一</strong></p>
+<p>物点本来是向四面八方发射光线，透镜通过折射把光线重新汇聚起来成像。小孔是把其它光线隔开，只让“一根”光线通过，也能实现一个物点对应一个像点来成像。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240319094500.png" alt="image.png" /><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240319094621.png" alt="image.png" /></p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240319094007.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h2 id="凸透镜成像-透视投影模型perspective-projection-model">凸透镜成像-透视投影模型（Perspective Projection Model）</h2>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240319094024.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>我们大家都知道相机的镜头是用凸透镜做的，但为啥要用凸透镜呢 ？首先我们要了解到，最早的相机是根据小孔成像的原理制作的，那大家就又会问了，为啥不用小孔做镜头呢？专业摄影相机上的镜头花了我们多少钱，如果用小孔做镜头的话那得省多少钱呀；</p>
+<p>这是因为小孔成像无法兼顾亮度和清晰度，孔径越小越接近理想成像系统，所以孔越小所成的像也就越清晰，但相应的亮度就会越低，所以对相机来说小孔的亮度是远远不够的，不然我们中学物理做小孔成像的实验课为啥要用蜡烛呢 ？是因为蜡烛够亮啊，</p>
+<p>另外还有一个重要原因，小孔成像最大的问题就是成像范围太小了；</p>
+<p>那有什么东西可以克服成像范围小的问题呢，那就是凸透镜了，凸透镜的汇聚能力可以把物体的像缩小到一个很小的范围，所以凸透镜就成了镜头了，凸透镜<strong>汇聚光线的能力</strong>就用<strong>焦距</strong>表示，焦距长，聚光能力弱，焦距短，聚光能力强；</p>
+<p>实际相机成像中，这个孔要大得多。对于焦距为50 mm，光圈F2的透镜来说，限制光束的孔的半径为12.5 mm，这个孔我大概估计了一下应该有下图中所示这么大。此时，我们看到，由于孔直径的变大，每个点通过孔的光线不再是一条，而是一束较宽的发散光。点A和点B发出的光在观察屏上交叠在一起，我们无法区分哪部分是A发出的，哪部分是B发出的，此时无法进行成像。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240319100117.png" alt="image.png" /></p>
+<p>但是，如果我们把观察屏向右移动，会发生什么呢？如下图所示，A和B发出的光线在远处逐渐趋近于平行光，且两个点发出的光在空间上又分开了，我们可以清晰的看到A和B的像A'和B'。另外我们也观察到，此时像的尺寸变大了很多。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240319100135.png" alt="image.png" /><br />
+既然只要距离足够远，A'和B'总能分开，那么如果我们在<a href="https://www.zhihu.com/search?q=%E5%AD%94%E9%98%91&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2815832054%7D">孔阑</a>后面加一个凸透镜，让光线提前汇聚一下会发生什么现象呢？按照这个思路，如下图所示，在孔阑后加入凸透镜之后，我们发现A和B在离孔阑不远处就成像了，且由于凸透镜的作用，此时像的尺寸要小于不加凸透镜的时候。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240319100205.png" alt="image.png" /><br />
+实际上，在上图中，我们已经再现了了相机的基本成像过程，其中，凸透镜代表镜头，而孔阑又被叫做<a href="https://www.zhihu.com/search?q=%E5%AD%94%E5%BE%84%E5%85%89%E9%98%91&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2815832054%7D">孔径光阑</a>，就是我们常说的光圈，观察屏就是传感器。因此我们可以下结论，小孔成像与凸透镜成像其实是在描述同样一个过程，只是凸透镜成像中有了透镜的参与，将大孔径下的像进行了“提前”成像，也正是因为有了凸透镜改变了原本的光线路径，因此相机成像过程就偏离了传统的小孔成像，在计算成像关系时需要将凸透镜的焦距等因素考虑进去。</p>
+<h2 id="什么是焦距">什么是焦距</h2>
+<p>我们都知道相机的成像原理是小孔成像，所以在数码相机中，焦距是指镜头小孔到传感器的距离，单位是mm（毫米）。</p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240319143938.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>相信稍微了解摄影的小伙伴都知道镜头有<strong>定焦镜头</strong>和<strong>变焦镜头。</strong></p>
+<p>定焦镜头是指焦距不可变，变焦镜头则是表示镜头焦距可变。</p>
+<p>那么焦距是否可变在我们摄影过程中有什么影响吗？</p>
+<p>比如我们在拍摄过程中，需要改变人物在画面中的大小，使用定焦镜头则需要拍摄者前后移动自己的位置进行拍摄；而使用变焦镜头则只需要我们改变相机的焦距即可实现，具体分析如下：</p>
+<p><strong>定焦镜头：</strong> 要改变人物在相机中成像的大小，需要改变人物和相机之间的距离，即前后移动。如下是将人物远离镜头，从而达到减小人物在画面中成像的大小。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240319144109.png" alt="image.png" /><br />
+<strong>变焦镜头：</strong> 要改变人物在相机中的成像大小，可以改变人物和相机之间的距离，也可以改变相机本身的焦距。如下是减小焦距，从而达到减小人物在画面中成像的大小。</p>
+<p>在相机中，焦距决定了成像的视野范围以及图像中物体的大小。较长的焦距会产生较窄的视野，使远处的物体看起来更大；而较短的焦距则会产生更宽的视野，使近处的物体看起来更大。</p>
+<h2 id="相机模型">相机模型</h2>
+<p>FOV的全称是Field of View (视场角），它表示相机或者人眼可以接收或者显示的影像的角度范围。由于相机的成像原理，一般都会有视场角的限制。<br />
+FOV就是相机视锥体的两端的夹角，焦距大概是镜头到“传感器”的距离。<br />
+实际的相机，传感器在镜头后面，为了简化，可以假设镜头在传感器的前面，相对镜头镜像。<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231219170133.png" alt="image.png" /></p>
+<p>基本上确定了fov就可以确定摄像机捕捉的视野的范围。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

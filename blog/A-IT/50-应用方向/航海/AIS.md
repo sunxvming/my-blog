@@ -60,6 +60,24 @@ $GNGLL,<纬度>,<纬度方向>,<经度>,<经度方向>,<UTC时间>,<状态>,<校
 - `<状态>`：定位状态，表示GPS定位的质量和状态。
 - `<校验和>`：校验和，用于数据完整性验证。
 
+
+### 自定义格式
+aipov   heading  pitch  roll  utctime 
+罗经信息  
+
+
+
+### 协议模拟发送工具
+[NemaStudio](https://www.sailsoft.nl/ais_simulator.html),通过模拟各种航海仪器和目标对象包括GPS，AIS和雷达的输出非常强大的开发和测试工具
+
+
+
+
+
+
+
+
+
 ## 参考资料
 - [Automatic identification system - Wikipedia](https://en.wikipedia.org/wiki/Automatic_identification_system)
 - [船舶定位AIS数据源是从哪来的？ - 知乎](https://www.zhihu.com/question/21633927)

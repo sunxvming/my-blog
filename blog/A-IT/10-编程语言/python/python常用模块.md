@@ -18,3 +18,7 @@ mysql的python客户端目前市场主流有三个
 - [[python-protobuf]]
 - pickle
 	- 可以将程序运行中的对象保存为文件。如果加载保存过的pickle文件，可以立刻复原之前程序运行中的对象。
+
+
+## 跨语言处理
+- pybind11 — Seamless operability between C++11 and Python

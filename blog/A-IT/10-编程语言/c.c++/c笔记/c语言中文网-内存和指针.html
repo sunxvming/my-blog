@@ -302,7 +302,7 @@ jQuery(document).ready(function(){
 </ul></li>
 <li><a href="#指针">## 指针</a>
 <ul>
-<li><a href="#c语言指针是什么1分钟彻底理解c语言指针的概念">C语言指针是什么？1分钟彻底理解C语言指针的概念</a></li>
+<li><a href="#c语言指针是什么">C语言指针是什么？</a></li>
 <li><a href="#c语言指针变量的定义和使用精华">C语言指针变量的定义和使用（精华）</a></li>
 <li><a href="#指针变量的运算加法减法和比较运算">指针变量的运算（加法、减法和比较运算）</a></li>
 <li><a href="#数组指针指向数组的指针详解">数组指针（指向数组的指针）详解</a></li>
@@ -368,8 +368,8 @@ bss不占用<strong>可执行文件空间</strong>，其内容由<strong>操作�
 <p>现在程序员都习以为常，好像就应该是这样子似的。但是在最初可不是这样子的。<br />
 虚拟地址：虚拟地址的整个想法是这样的：把程序给出的地址看做是一种虚拟地址（Virtual Address），然后通过某些映射的方法，将这个虚拟地址转换成实际的物理地址。<br />
 让我们回到程序的运行本质上来。用户程序在运行时<strong>不希望介入到这些复杂的内存管理过程中</strong>，作为普通的程序，<strong>它需要的是一个简单的执行环境，有自己的内存，有自己的CPU</strong>，好像整个程序<strong>独占</strong>整个计算机而不用关心其他的程序。<br />
-<strong>使不同程序的地址空间相互隔离</strong><br />
-如果所有程序都直接使用物理内存，那么程序所使用的地址空间不是相互隔离的。恶意程序可以很容易改写其他程序的内存数据，以达到破坏的目的；有些非恶意、但是有 Bug 的程序也可能会不小心修改其他程序的数据，导致其他程序崩溃。</p>
+<strong>使不同程序的地址空间相互隔离</strong></p>
+<p>如果所有程序都直接使用物理内存，那么程序所使用的地址空间不是相互隔离的。恶意程序可以很容易改写其他程序的内存数据，以达到破坏的目的；有些非恶意、但是有 Bug 的程序也可能会不小心修改其他程序的数据，导致其他程序崩溃。</p>
 <h3 id="虚拟地址空间以及编译模式">虚拟地址空间以及编译模式</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="dt">int</span> a = <span class="dv">1</span>, b = <span class="dv">255</span>;</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="dt">int</span> main(){</span>
@@ -379,8 +379,8 @@ bss不占用<strong>可执行文件空间</strong>，其内容由<strong>操作�
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>}</span></code></pre></div>
 <p>全局去的变量<strong>在编译的时候就确定了</strong>，栈区的变量为<strong>保护程序安全</strong>会进行随机的栈地址。<br />
-<strong>所谓虚拟地址空间，就是程序可以使用的虚拟地址的有效范围</strong>。虚拟地址和物理地址的映射关系由操作系统决定，相应地，虚拟地址空间的大小也由操作系统决定，但还会受到编译模式的影响。<br />
-CPU是计算机的核心，决定了计算机的<strong>数据处理能力</strong>和<strong>寻址能力</strong>，也即决定了计算机的性能。CPU一次（一个时钟内）能处理的数据的大小由<strong>寄存器的位数</strong>和能支持的<strong>数据总线的宽度</strong>（也即有多少根数据总线）决定，我们通常所说的多少位的CPU，除了可以理解为寄存器的位数，也可以理解数据总线的宽度，通常情况下它们是相等的。</p>
+<strong>所谓虚拟地址空间，就是程序可以使用的虚拟地址的有效范围</strong>。虚拟地址和物理地址的映射关系由操作系统决定，相应地，虚拟地址空间的大小也由操作系统决定，但还会受到编译模式的影响。</p>
+<p>CPU是计算机的核心，决定了计算机的<strong>数据处理能力</strong>和<strong>寻址能力</strong>，也即决定了计算机的性能。CPU一次（一个时钟内）能处理的数据的大小由<strong>寄存器的位数</strong>和能支持的<strong>数据总线的宽度</strong>（也即有多少根数据总线）决定，我们通常所说的多少位的CPU，除了可以理解为寄存器的位数，也可以理解数据总线的宽度，通常情况下它们是相等的。</p>
 <p><strong>数据总线</strong>和<strong>主频</strong>都是CPU的重要指标：数据总线决定了CPU单次的数据处理能力，主频决定了CPU单位时间内的数据处理次数，它们的乘积就是CPU单位时间内的数据处理量。<br />
 需要注意的是，<strong>数据总线</strong>和<strong>地址总线</strong>不是一回事，数据总线用于在CPU和内存之间传输数据，<strong>地址总线用于在内存上定位数据</strong>，它们之间没有必然的联系，宽度并不一定相等。实际情况是，地址总线的宽度往往随着数据总线的宽度而增长，以访问更大的内存。</p>
 <h4 id="系统实际支持的物理内存">系统实际支持的物理内存</h4>
@@ -396,7 +396,7 @@ Windows Server 2003 数据中心版专为大型企业或国家机构而设计，
 在64位编译模式下，一个指针或地址占用8个字节的内存，共有64位，理论上能够访问的虚拟内存空间大小为 2^64。这是一个很大的值，几乎是无限的，就目前的技术来讲，不但物理内存不可能达到这么大，CPU的寻址能力也没有这么大，实现64位长的虚拟地址只会增加系统的复杂度和地址转换的成本，带不来任何好处，所以 Windows 和 Linux <strong>都对虚拟地址进行了限制</strong>，仅使用虚拟地址的<strong>低48位</strong>（6个字节），总的虚拟地址空间大小为 2^48 = 256TB。</li>
 </ul>
 <p>需要注意的是：<br />
-32位的操作系统只能运行32位的程序（也即以32位模式编译的程序），64位操作系统可以同时运行32位的程序（为了向前兼容，保留已有的大量的32位应用程序）和64位的程序（也即以64位模式编译的程序）。<br />
+32位的操作系统只能运行32位的程序（也即以32位模式编译的程序,因为有64位的指令），64位操作系统可以同时运行32位的程序（为了向前兼容，保留已有的大量的32位应用程序）和64位的程序（也即以64位模式编译的程序）。<br />
 64位的CPU运行64位的程序才能发挥它的最大性能，运行32位的程序会白白浪费一部分资源。</p>
 <p>64位的操作系统 为什么能运行32位的程序<br />
 主要的原因如下：<br />
@@ -508,7 +508,7 @@ extend是因为从16位扩展到32位的原因，64的叫做：rbp，rsp<br />
 * 3) 参数弹出方式。函数调用结束后需要将压入栈中的参数全部弹出，以使得栈在函数调用前后保持一致。这个弹出的工作可以由调用方来完成，也可以由被调用方来完成。<br />
 * 4) 函数名修饰方式。函数名在编译时会被修改，调用惯例可以决定如何修改函数名。</p>
 <p>在C语言中，存在多种调用惯例，可以在函数声明或函数定义时指定。<br />
-在函数声明处是为调用方指定调用惯例，而在函数定义处是为被调用方（也就是函数本身）指定调用惯例。<br />
+在函数<strong>声明处</strong>是为调用方指定调用惯例，而在函数<strong>定义处</strong>是为被调用方（也就是函数本身）指定调用惯例。<br />
 例如：</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="dt">int</span> __cdecl max(<span class="dt">int</span> m, <span class="dt">int</span> n);</span>
@@ -523,7 +523,7 @@ extend是因为从16位扩展到32位的原因，64的叫做：rbp，rsp<br />
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>}</span></code></pre></div>
 <p><code>__cdecl</code>是C语言默认的调用惯例，在平时编程中，我们其实很少去指定调用惯例，这个时候就使用默认的<code>__cdecl</code>。除了 cdecl，还有其他调用惯例：cdecl、stdcall、fastcall等</p>
 <blockquote>
-<p>__cdecl 并不是标准关键字，上面的写法在 VC/VS 下有效，但是在 GCC 下，要使用 <strong>attribute</strong>((cdecl))。</p>
+<p><code>__cdecl</code> 并不是标准关键字，上面的写法在 VC/VS 下有效，但是在 GCC 下，要使用 <code>__attribute__((cdecl))</code>。</p>
 </blockquote>
 <h3 id="用一个实例来深入剖析函数进栈出栈的过程">用一个实例来深入剖析函数进栈出栈的过程</h3>
 <p>函数出栈只是在增加 esp 寄存器的值，使它指向上一个数据，并没有销毁之前的数据。栈上的数据只有在后续函数继续入栈时才能被覆盖掉，这就意味着，只要时机合适，在函数外部依然能够取得局部变量的值。</p>
@@ -542,7 +542,7 @@ C语言不会对数组溢出做检测，这是一个典型的由于数组溢出�
 栈溢出一般不会产生严重的后果，但是如果有用户精心构造栈溢出，让<strong>返回地址指向恶意代码</strong>，那就比较危险了，这就是常说的栈溢出攻击。</p>
 <h3 id="c语言动态内存分配">C语言动态内存分配</h3>
 <p><strong>静态内存分配</strong>，在进程的地址空间中，代码区、常量区、全局数据区的内存在程序启动时就已经分配好了，它们大小固定，不能由程序员分配和释放，只能等到程序运行结束由操作系统回收。<br />
-<strong>动态内存分配</strong>，<strong>栈区</strong>和<strong>堆区</strong>的内存在程序运行期间可以根据实际需求来分配和释放，不用在程序刚启动时就备足所有内存。<br />
+<strong>动态内存分配</strong>，<strong>栈区</strong>和<strong>堆区</strong>的内存在程序<strong>运行期间</strong>可以根据实际需求来分配和释放，不用在程序刚启动时就备足所有内存。<br />
 使用静态内存的优点是速度快，省去了向操作系统申请内存的时间，缺点就是不灵活，缺乏表现力，例如不能控制数据的作用范围，不能使用较大的内存。而使用动态内存可以让程序对内存的管理更加灵活和高效，需要内存就立即分配，而且需要多少就分配多少，从几个字节到几个GB不等；不需要时就立即回收，再分配给其他程序使用。</p>
 <h4 id="动态内存分配函数">动态内存分配函数</h4>
 <ul>
@@ -566,7 +566,7 @@ C语言不会对数组溢出做检测，这是一个典型的由于数组溢出�
 同一个地址不可以释放两次 ,Null可释放多次没有问题</li>
 </ul>
 <h3 id="malloc函数背后的实现原理内存池">malloc函数背后的实现原理——内存池</h3>
-<p>一种做法是把 malloc() 的内存管理交给系统内核去做，既然内核管理着进程的地址空间，那么如果它提供一个系统调用，可以让 malloc() 使用这个系统调用去申请内存，不就可以了吗？当然这是一种理论上的做法，但实际上这样做的性能比较差，因为每次程序申请或者释放堆空间<strong>都要进行系统调用</strong>。<br />
+<p>一种做法是把 malloc() 的内存管理交给系统内核去做，既然内核管理着进程的地址空间，那么如果它提供一个系统调用，可以让 malloc() 使用这个系统调用去申请内存，不就可以了吗？当然这是一种理论上的做法，但实际上这样做的性能比较差，因为每次程序申请或者释放堆空间<strong>都要进行系统调用</strong>, 调用<code>brk</code>系统调用。<br />
 malloc() 实现是向操作系统申请一块适当大小的堆空间，然后由 <strong>malloc() 自己管理这块空间</strong>。如果用完了就再向系统申请空间。</p>
 <h4 id="链表式内存管理">链表式内存管理</h4>
 <p>在程序运行过程中，堆内存从低地址向高地址连续分配，随着内存的释放，会出现不连续的空闲区域，<br />
@@ -648,9 +648,9 @@ p++可能引用得空间为非法的。编译时不会出错，但运行时会�
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="dt">void</span> main()</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>{</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a>    <span class="dt">char</span>*p,*q;</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>    p=(<span class="dt">char</span>*)malloc(<span class="dv">10</span>);</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>    p=(<span class="dt">char</span>*)malloc(<span class="dv">10</span>);       <span class="co">// 之前的内存</span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a>    q=p;   <span class="co">// q之后会成悬空指针</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>    p=(<span class="dt">char</span>*)realloc(q,<span class="dv">20</span>);</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>    p=(<span class="dt">char</span>*)realloc(q,<span class="dv">20</span>);    <span class="co">// realloc之后的内存</span></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a>    <span class="co">//…………………………</span></span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a>}</span></code></pre></div>
 <p>realloc时会把原来内存空间中的内容复制到新开辟的内存中，返回新的内存首地址。此时<strong>q就成了悬空指针</strong>。</p>
@@ -668,12 +668,12 @@ p++可能引用得空间为非法的。编译时不会出错，但运行时会�
 <pre><code>int *pOld = (int*) malloc( sizeof(int) );
 int *pNew = (int*) malloc( sizeof(int) );
 pOld=pNew;</code></pre>
-<p>原因都是把之前的指针给覆盖，整没了，然后没用办法用free释放了。</p>
+<p>原因都是把之前的指针<strong>给覆盖，整没了</strong>，然后没用办法用free释放了。</p>
 <h2 id="指针">## 指针</h2>
-<h3 id="c语言指针是什么1分钟彻底理解c语言指针的概念">C语言指针是什么？1分钟彻底理解C语言指针的概念</h3>
+<h3 id="c语言指针是什么">C语言指针是什么？</h3>
 <p><strong>一切都是地址</strong><br />
 数据和代码都以二进制的形式存储在内存中，计算机无法从格式上区分某块内存到底存储的是数据还是代码。当程序被加载到内存后，操作系统会<strong>给不同的内存块指定不同的权限</strong>，拥有读取和执行权限的内存块就是代码，而拥有读取和写入权限（也可能只有读取权限）的内存块就是数据。<br />
-CPU 访问内存时需要的是地址，而不是变量名和函数名！变量名和函数名只是地址的一种助记符，当源文件被编译和链接成可执行程序后，它们都会被替换成地址。<strong>编译和链接</strong>过程的一项重要任务就是找到这些名称所对应的地址。</p>
+CPU 访问内存时需要的是地址，而不是变量名和函数名！变量名和函数名只是地址的一种<strong>助记符</strong>，当源文件被编译和链接成可执行程序后，它们都会被替换成地址。<strong>编译和链接</strong>过程的一项重要任务就是<strong>找到这些名称所对应的地址</strong>。</p>
 <h3 id="c语言指针变量的定义和使用精华">C语言指针变量的定义和使用（精华）</h3>
 <pre><code>int *a, *b, *c; //a、b、c 的类型都是 int*
 int *a, b, c;   //只有a是指针</code></pre>

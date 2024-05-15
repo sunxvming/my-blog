@@ -190,6 +190,7 @@ jQuery(document).ready(function(){
 <li><a href="#新建qt项目">新建Qt项目</a></li>
 </ul></li>
 <li><a href="#ubuntu中打开qt-creator提示无法覆盖文件">Ubuntu中打开Qt creator,提示无法覆盖文件</a></li>
+<li><a href="#qt配置msvc">QT配置msvc</a></li>
 <li><a href="#linux下源码编译qt和qtcreator">linux下源码编译qt和qtCreator</a></li>
 <li><a href="#参考链接">参考链接</a></li>
 </ul>
@@ -245,6 +246,16 @@ D:\program\Qt\Qt5.12.12\5.12.12\mingw73_64\bin</code></pre>
 <p>终端下输入：sudo chown -R lmm:lmm ~/.config/。<br />
 lmm:lmm是我的当前的登录的用户名，改成你自己的用户名就可以了。<br />
 估计原来不好用的原因是没有以root权限安装。</p>
+<h2 id="qt配置msvc">QT配置msvc</h2>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240410133607.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240410133747.png" alt="image.png" /><br />
+需要下载windbg<br />
+CDB（command line debugger）是给控制台调试代码用的，CDB是WinDbg的小兄弟。因为VS的VC++用的调试器是C:\Windows\System32\vsjitdebugger.exe，所以安装Visual Studio是没有cdb的。必须从WDK里面安装Debugging Tools for Windows。</p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240410133848.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
 <h2 id="linux下源码编译qt和qtcreator">linux下源码编译qt和qtCreator</h2>
 <p>QTCreator要想在Linux-arm架构下运行，必须要保证两个：<br />
 1. qt要在arm下编译生成对应库文件和qmake<br />

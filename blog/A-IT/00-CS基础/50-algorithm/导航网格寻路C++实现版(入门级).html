@@ -183,15 +183,17 @@ jQuery(document).ready(function(){
 <li><a href="#寻路功能的实现步骤">寻路功能的实现步骤</a>
 <ul>
 <li><a href="#寻路地图文件的生成">1.寻路地图文件的生成</a></li>
-<li><a href="#对地图文件进行三角剖分">2.对地图文件进行三角剖分</a></li>
+<li><a href="#对地图文件进行格栅化">2.对地图文件进行格栅化</a></li>
 <li><a href="#网格寻路">3.网格寻路</a></li>
 <li><a href="#根据寻路的网格生成最终的路径">4.根据寻路的网格生成最终的路径</a></li>
 </ul></li>
-<li><a href="#编译说明">编译说明</a>
+<li><a href="#编译方式说明">编译方式说明</a>
 <ul>
 <li><a href="#一cmakevisual-studio编译">一、cmake+visual studio编译</a></li>
 <li><a href="#二mingwmakegcc编译">二、mingw+make+gcc编译</a></li>
+<li><a href="#三vscodecmake插件编译">三、VScode+cmake插件编译</a></li>
 </ul></li>
+<li><a href="#程序运行说明">程序运行说明</a></li>
 <li><a href="#地图文件的生成">地图文件的生成</a></li>
 <li><a href="#寻路涉及的主要算法">寻路涉及的主要算法</a></li>
 <li><a href="#delaunay剖分是啥">Delaunay剖分是啥？</a></li>
@@ -205,45 +207,62 @@ jQuery(document).ready(function(){
 <h2 id="导航网格寻路项目说明">导航网格寻路项目说明</h2>
 <p>每个mmorpg游戏中都会少不了有寻路模块，且还是开发中的一个难点，涉及到地形资源、客户端、服务器端，涉及到的算法还比较多，还得注意它的性能开销。相信不少游戏开发者都想弄清楚它是怎么实现的。网上讲解这方面的文章也有不少，github上的开源实现也有一些，不过有很大一部分是unity相关的，或者c#实现的。c++的实现也有，但是没几个像俺这样对初级中级程序员这么友好的。友好的原因如下：</p>
 <ul>
-<li>俺的这版是导航网格寻路的最简化版，仅是实现了平面多边形(没有嵌套的)的三角剖分和两点之间的寻路，代码量可谓相当少，实现的也比较通俗易懂。</li>
+<li>俺的这版是导航网格寻路的最简化版，仅是实现了平面多边形(没有相互嵌套的)的三角剖分和两点之间的寻路，代码量可谓相当少，实现的也比较通俗易懂。</li>
 <li>俺还会提供一些资料和一些线索来引导你去了解实现的过程。</li>
 </ul>
-<p>了解学习一个东西如果一下子把你带到一个很难很深的level的话，恐怕还多人都是吃不消的。就应该循序渐进，按部登阶，从简入深。俺这个就是遵循这样的精神滴。这个是个入门版的，相信聪明的你很快就能看懂学会，说不定修改就直接用到你们的游戏里面！此项目为入门版，功能少且简单，进阶版的请看这里<a href="https://github.com/sunxvming/navmesh-advance">导航网格寻路C++实现版(进阶版)</a>。</p>
+<p>了解学习一个东西如果一下子把你带到一个很难很深的level的话，恐怕还多人都是吃不消的。就应该循序渐进，按步登阶，从简入深。俺这个就是遵循这样的精神滴。这个是个入门版的，相信聪明的你很快就能看懂学会，说不定修改就直接用到你们的游戏里面！此项目为入门版，功能少且简单，进阶版的请看这里<a href="https://github.com/sunxvming/navmesh-advance">导航网格寻路C++实现版(进阶版)</a>。</p>
 <h2 id="寻路功能的实现步骤">寻路功能的实现步骤</h2>
 <h3 id="寻路地图文件的生成">1.寻路地图文件的生成</h3>
 <p>对游戏中需要寻路的场景通常都需要对其进行相应的处理以生成专门针对寻路功能所使用的文件，文件里面包含了地图的信息，比如地图的顶点、边、三角形等。这个文件的生成通常是由专门的生成工具来完成的，比如在unity中，可以通过Unity的插件把场景文件导出为寻路地图文件。</p>
-<h3 id="对地图文件进行三角剖分">2.对地图文件进行三角剖分</h3>
-<p>对于寻路地图文件，我们需要对其进行三角剖分，以便后续的寻路算法可以使用。</p>
+<h3 id="对地图文件进行格栅化">2.对地图文件进行格栅化</h3>
+<p>对于寻路地图文件，我们需要对其进行进一步的格栅化处理，格栅化通常指的是将游戏地图划分为离散的网格的过程，网格又分为可行走区域和不可行走区域。格栅化后以便寻路算法能够更有效地进行路径搜索 。<br />
+常见的栅格化有正方形网格、三角形网格：</p>
+<ul>
+<li><strong>正方形网格</strong>：易于实现和理解，方法简单直观，但不适用于不规则地形。其中格子选择的大小对寻路算法影响很大。小格子供更高的地图精度，但算法效率低。大格子效率高但提供的精度低。</li>
+<li><strong>三角形网格</strong>：适用于复杂地形，节省空间，但实现稍复杂些。</li>
+</ul>
+<p>如何你对正方形网格格栅化感兴趣的话，可以看一下<a href="https://github.com/sunxvming">俺的github</a>上的另一个<a href="https://github.com/sunxvming/pathplan">路径规划的工程</a>，其中的<code>pathplan-gird</code>目录下的程序用的便是正方形网格，程序运行的截图如下：<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240214150332.png" alt="image.png" /></p>
 <h3 id="网格寻路">3.网格寻路</h3>
-<p>网格寻路是一种基于网格的寻路算法，它的基本思想是：首先将地图划分为一个个的网格，然后在网格中寻找一条从起点到终点的路径。网格寻路的算法有很多种，比如A*、Dijkstra、BFS、DFS等等，通常可以选择<code>A*</code>算法来实现。</p>
+<p>网格寻路是一种基于网格的寻路算法，它的基本思想是：首先将地图划分为一个个的网格，然后在网格中寻找一条从起点到终点的路径。网格寻路的算法有很多种，比如<code>A*</code>、<code>Dijkstra</code>、<code>BFS</code>、<code>DFS</code>等等，通常可以选择<code>A*</code>算法来实现。</p>
 <h3 id="根据寻路的网格生成最终的路径">4.根据寻路的网格生成最终的路径</h3>
-<p>在网格寻路的过程中，我们只是找到了一条从起点到终点的网格路径，但是这条路径并不是我们想要的最终路径，因为这条路径是由网格组成的，而我们需要的是由顶点组成的路径。所以我们需要根据网格路径生成最终的路径。这个生成算法可以使用拐点算法来实现。</p>
-<h2 id="编译说明">编译说明</h2>
+<p>在网格寻路的过程中，我们只是找到了一条从起点到终点的网格路径，但是这条路径并不是我们想要的最终路径，因为这条路径是由网格组成的，而我们需要的是由顶点组成的路径。所以我们需要根据网格路径生成最终的路径。这种算法通常称为路径的二次优化算法。本工程使用拐点算法来实现。</p>
+<h2 id="编译方式说明">编译方式说明</h2>
 <p>此工程的编译运行环境为windows，需要你的电脑的开发环境有cmake、Visual Studio或make、MinGW</p>
 <h3 id="一cmakevisual-studio编译">一、cmake+visual studio编译</h3>
-<ol>
-<li>在cmake中设置源码目录和build目录<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230113115226.png" alt="image.png" /></li>
-<li>设置visual studio的版本，和32位应用程序<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230113115835.png" alt="image.png" /></li>
-<li>点击生成vs工程，生成的目录为<code>build</code>目录，用vs打开生成的工程并运行，可执行程序会生成到当前项目根目录的<code>bin</code>目录下</li>
-</ol>
+<p>1.在cmake中设置源码目录和build目录<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230113115226.png" alt="image.png" /></p>
+<p>2.点击<code>configure</code>设置visual studio的版本，和64位应用程序<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240131153911.png" alt="image.png" /></p>
+<p>3.点击<code>Generrate</code>生成vs工程，生成的目录为<code>build</code>目录，用vs打开生成的工程并运行，可执行程序会生成到当前项目根目录的<code>bin</code>目录下</p>
 <h3 id="二mingwmakegcc编译">二、mingw+make+gcc编译</h3>
 <p>在项目根目录执行<code>make</code>命令即可，可执行程序同样会生成到<code>bin</code>目录下</p>
+<h3 id="三vscodecmake插件编译">三、VScode+cmake插件编译</h3>
+<p>1.选择编译套件<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240131165800.png" alt="image.png" /></p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240131165840.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>2.编译<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240131165915.png" alt="image.png" /></p>
+<p>3.运行<br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240131165954.png" alt="image.png" /></p>
+<h2 id="程序运行说明">程序运行说明</h2>
 <p>编译成功后再运行你会看到如下的程序运行界面：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230113121644.png" alt="image.png" /></p>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240131170422.png" alt="image.png" /></p>
 <p>界面说明:<br />
 * 红色的线是平面多边形，你可以把它看成游戏中的地型。<br />
 * 绿色的线表示经三角剖分后构成的线<br />
-* 蓝色的线代表寻路的路径</p>
+* 蓝色的线代表寻路的路径<br />
+* 灰色的格子代表路径规划所跨越的格子</p>
 <p>操作说明：<br />
-程序运行时在窗口点击第一下为寻路的起点，再点击第二下为寻路的终点。点击第三下会把之前的路径清空。</p>
+- 程序运行时在窗口点击第一下为寻路的起点，再点击第二下为寻路的终点。点击第三下会把之前的路径清空。</p>
 <h2 id="地图文件的生成">地图文件的生成</h2>
 <p>地图文件是一个自定义格式的文件，可以通过工具由obj模型文件导出生成，而obj模型文件可以通过Unity的插件把场景文件导出，例如这个<a href="https://github.com/monitor1394/ExportSceneToObj">monitor1394/ExportSceneToObj</a>github项目。</p>
 <p>在本项目的<code>tools</code>目录下有一个gen_map_tools的工具，此工具可以将obj模型文件导出成适合本项目的地图文件格式。</p>
 <p>这个工具的主要逻辑就是把obj模型的地图文件的外轮廓和内轮廓的多边形识别出来，并按照如下格式生成一个文本文件</p>
 <blockquote>
-<p> childsize，parentlength, parentpoints，[0，child1length,child1points, [0，child2length, child2points]]</p>
+<p> childsize，parentlength, parentpoints，[0，child1 length,child1 points, [0，child2 length, child2 points]]</p>
 </blockquote>
 <blockquote>
 <p> 内嵌多边形数量，外多边形点的数量，外多边形的点，[0，子多边形1点的数量，子多边形1的点，[0, 子多边形2点的数量，子多边形2的点]]</p>
@@ -260,24 +279,22 @@ jQuery(document).ready(function(){
 </figure>
 <p>具体的说明和使用方法请参考<code>gen_map_tools</code>目录下的说明文档。</p>
 <h2 id="寻路涉及的主要算法">寻路涉及的主要算法</h2>
-<p>这些都可以在网上查的到，在俺的小demo中应该也很容易找的到的</p>
-<ul>
-<li>平面多边形三角剖分算法(Delaunay剖分)<br />
-    + 多边形用什么数据结构来表示<br />
-    + 各种几何图形用什么数据结构来表示<br />
-    + 如何生成网格以及附带数据<br />
-    + 如何确定一个DT点<br />
-    + 如何遍历整个多边形来完成三角剖分</li>
-<li>寻路算法</li>
-<li>寻路拐点算法</li>
-<li>判断两条线段是否相交</li>
-<li>判断点是否在三角形中</li>
-<li>判断点在向量的那一侧</li>
-<li>已知三点求三点的夹角</li>
-</ul>
+<p>这些都可以在网上查的到，在俺的小demo中应该也很容易找的到的<br />
+- 平面多边形三角剖分算法(Delaunay剖分)<br />
+- 多边形用什么数据结构来表示<br />
+- 各种几何图形用什么数据结构来表示<br />
+- 如何生成网格以及附带数据<br />
+- 如何确定一个DT点<br />
+- 如何遍历整个多边形来完成三角剖分<br />
+- 寻路算法<br />
+- 寻路拐点算法<br />
+- 判断两条线段是否相交<br />
+- 判断点是否在三角形中<br />
+- 判断点在向量的那一侧<br />
+- 已知三点求三点的夹角</p>
 <h2 id="delaunay剖分是啥">Delaunay剖分是啥？</h2>
 <p>Delaunay三角剖分其实并不是一种算法，而是一种三角剖分的标准，实现它有多种算法。它只是给出了一个“好的”三角网格的定义，它的优秀特性是空圆特性和最大化最小角特性，这两个特性避免了狭长三角形的产生，也使得Delaunay三角剖分应用广泛。</p>
-<p>空圆特性其实就是对于两个共边的三角形，任意一个三角形的外接圆中都不能包含有另一个三角形的顶点，这种形式的剖分产生的最小角最大(比不满足空圆特性的最小角大)</p>
+<p><strong>空圆特性</strong>其实就是对于两个共边的三角形，任意一个三角形的外接圆中都不能包含有另一个三角形的顶点，这种形式的剖分产生的最小角最大(比不满足空圆特性的最小角大)</p>
 <h2 id="项目主要类说明">项目主要类说明</h2>
 <pre><code>// Polygon类，代表寻路多边形的类，主要实现多边形的三角剖分和寻路
 Polygon
@@ -339,7 +356,7 @@ FindPath：向指定的点寻路
         摇杆移动
             向摇杆方向FindCross
             主要点：摇杆移动每桢渲染，但是FindCross寻路的调用要增加个冷却时间，比如100毫秒，
-                    要不然调用台频繁
+                    要不然调用寻路的接口会太频繁
         屏幕点击某个位置点
             FindPath，寻路到指定位置
         释放技能(FindCross)

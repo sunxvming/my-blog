@@ -2,6 +2,7 @@
 
  - **blog/**
    - **A-IT/**
+     - [读书清单](./blog/A-IT/读书清单.md)
      - **00-CS基础/**
        - **00-硬件/**
          - [串口并口](./blog/A-IT/00-CS基础/00-硬件/串口并口.md)
@@ -21,12 +22,14 @@
        - **20-汇编/**
          - [ProgrammingGroundUp笔记](./blog/A-IT/00-CS基础/20-汇编/ProgrammingGroundUp笔记.txt)
        - **30-编译原理/**
+         - [136-极客时间-编译原理实战课](./blog/A-IT/00-CS基础/30-编译原理/136-极客时间-编译原理实战课.md)
+         - [205-极客时间-手把手带你写一门编程语言](./blog/A-IT/00-CS基础/30-编译原理/205-极客时间-手把手带你写一门编程语言.md)
+         - [83-极客时间-编译原理之美](./blog/A-IT/00-CS基础/30-编译原理/83-极客时间-编译原理之美.md)
          - [llvm](./blog/A-IT/00-CS基础/30-编译原理/llvm.md)
-         - [手把手带你写一门编程语言](./blog/A-IT/00-CS基础/30-编译原理/手把手带你写一门编程语言.md)
          - [程序员的自我修养——链接装载与库-读书笔记](./blog/A-IT/00-CS基础/30-编译原理/程序员的自我修养——链接装载与库-读书笔记.md)
          - [编程语言方方面面](./blog/A-IT/00-CS基础/30-编译原理/编程语言方方面面.md)
-         - [编译原理之美](./blog/A-IT/00-CS基础/30-编译原理/编译原理之美.md)
-         - [编译原理实战课](./blog/A-IT/00-CS基础/30-编译原理/编译原理实战课.md)
+         - [编译原理-龙书](./blog/A-IT/00-CS基础/30-编译原理/编译原理-龙书.md)
+         - [编译原理及实践教程(第3版)](./blog/A-IT/00-CS基础/30-编译原理/编译原理及实践教程(第3版).txt)
        - **40-操作系统/**
          - [操作系统](./blog/A-IT/00-CS基础/40-操作系统/操作系统.txt)
        - **50-algorithm/**
@@ -50,6 +53,7 @@
            - [设计模式](./blog/A-IT/00-CS基础/50-algorithm/设计模式/设计模式.md)
        - **70-network/**
          - [扫盲VPN](./blog/A-IT/00-CS基础/70-network/扫盲VPN.md)
+         - [网络连接问题](./blog/A-IT/00-CS基础/70-network/网络连接问题.md)
          - [趣谈网络](./blog/A-IT/00-CS基础/70-network/趣谈网络.md)
          - [通过SSH反向代理连接学校内网服务器](./blog/A-IT/00-CS基础/70-network/通过SSH反向代理连接学校内网服务器.md)
          - **协议/**
@@ -74,7 +78,7 @@
            - [libp2p](./blog/A-IT/00-CS基础/70-network/网络编程/libp2p.md)
            - [libuv](./blog/A-IT/00-CS基础/70-network/网络编程/libuv.md)
            - [linux-c之网络编程](./blog/A-IT/00-CS基础/70-network/网络编程/linux-c之网络编程.md)
-           - [muduo网络库](./blog/A-IT/00-CS基础/70-network/网络编程/muduo网络库.md)
+           - [【图书】Linux多线程服务端编程：使用muduo-C++网络库](./blog/A-IT/00-CS基础/70-network/网络编程/【图书】Linux多线程服务端编程：使用muduo-C++网络库.md)
            - [网络编程实战](./blog/A-IT/00-CS基础/70-network/网络编程/网络编程实战.md)
        - **80-软件实践/**
          - [code-review-list](./blog/A-IT/00-CS基础/80-软件实践/code-review-list.md)
@@ -116,7 +120,7 @@
            - [9.面向对象-构造析构](./blog/A-IT/10-编程语言/c.c++/c++笔记/9.面向对象-构造析构.md)
            - [c++11总结](./blog/A-IT/10-编程语言/c.c++/c++笔记/c++11总结.md)
            - [c++23](./blog/A-IT/10-编程语言/c.c++/c++笔记/c++23.md)
-           - [c++标准库-std--function和std--bind](./blog/A-IT/10-编程语言/c.c++/c++笔记/c++标准库-std--function和std--bind.md)
+           - [c++标准库-function和bind](./blog/A-IT/10-编程语言/c.c++/c++笔记/c++标准库-function和bind.md)
            - [c++模板元编程](./blog/A-IT/10-编程语言/c.c++/c++笔记/c++模板元编程.md)
            - [c++编码规范](./blog/A-IT/10-编程语言/c.c++/c++笔记/c++编码规范.md)
            - [c++设计模式](./blog/A-IT/10-编程语言/c.c++/c++笔记/c++设计模式.md)
@@ -167,11 +171,13 @@
            - **QT/**
              - [QT-C语音中文网](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/QT-C语音中文网.md)
              - [Qt 教程2](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/Qt&#32;教程2.docx)
-             - [Qt-creator](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/Qt-creator.md)
              - [Qt和wxWidgets](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/Qt和wxWidgets.md)
              - [Qt开发环境](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/Qt开发环境.md)
              - [Qt打包相关](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/Qt打包相关.md)
              - [Qt样式表使用说明](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/Qt样式表使用说明.pdf)
+             - [qt笔记](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/qt笔记.md)
+             - [ui适配](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/ui适配.md)
+             - [播放视频](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/播放视频.md)
            - **boost/**
              - [Getting-Started](./blog/A-IT/10-编程语言/c.c++/工具类库/boost/Getting-Started.md)
              - [boost-test](./blog/A-IT/10-编程语言/c.c++/工具类库/boost/boost-test.md)
@@ -198,6 +204,7 @@
              - [cmake](./blog/A-IT/10-编程语言/c.c++/程序工具/cmake/cmake.md)
              - [cmake修改__FILE__宏为相对路径](./blog/A-IT/10-编程语言/c.c++/程序工具/cmake/cmake修改__FILE__宏为相对路径.md)
              - [premake和cmake比较](./blog/A-IT/10-编程语言/c.c++/程序工具/cmake/premake和cmake比较.md)
+             - [vscode-cmake插件](./blog/A-IT/10-编程语言/c.c++/程序工具/cmake/vscode-cmake插件.md)
        - **go/**
          - [0-c语言中文网-Go语言入门教程](./blog/A-IT/10-编程语言/go/0-c语言中文网-Go语言入门教程.md)
          - [1-极客时间-Go语言第一课](./blog/A-IT/10-编程语言/go/1-极客时间-Go语言第一课.md)
@@ -290,9 +297,10 @@
          - [python设置](./blog/A-IT/10-编程语言/python/python设置.md)
          - [the-craft-of-selfteaching](./blog/A-IT/10-编程语言/python/the-craft-of-selfteaching.md)
          - [包管理](./blog/A-IT/10-编程语言/python/包管理.md)
+         - [多线程](./blog/A-IT/10-编程语言/python/多线程.md)
          - [极客时间-python核心技术与实战](./blog/A-IT/10-编程语言/python/极客时间-python核心技术与实战.md)
          - [编码规范](./blog/A-IT/10-编程语言/python/编码规范.md)
-         - [视频识别项目在arm64平台的麒麟系统上的移植](./blog/A-IT/10-编程语言/python/视频识别项目在arm64平台的麒麟系统上的移植.md)
+         - [跨语言交互](./blog/A-IT/10-编程语言/python/跨语言交互.md)
          - **三方库/**
            - [PyInstaller](./blog/A-IT/10-编程语言/python/三方库/PyInstaller.md)
            - [python-protobuf](./blog/A-IT/10-编程语言/python/三方库/python-protobuf.md)
@@ -301,6 +309,8 @@
          - [rust总结](./blog/A-IT/10-编程语言/rust/rust总结.txt)
          - [rust语言之道](./blog/A-IT/10-编程语言/rust/rust语言之道.txt)
          - [学习资源](./blog/A-IT/10-编程语言/rust/学习资源.md)
+       - **通用概念/**
+         - [错误处理](./blog/A-IT/10-编程语言/通用概念/错误处理.md)
      - **20-linux/**
        - [1list](./blog/A-IT/20-linux/1list.md)
        - [Centos7升级GCC8版本](./blog/A-IT/20-linux/Centos7升级GCC8版本.md)
@@ -337,12 +347,14 @@
        - [yum源配置](./blog/A-IT/20-linux/yum源配置.md)
        - [使用webbench进行网站压力测试](./blog/A-IT/20-linux/使用webbench进行网站压力测试.md)
        - [修改服务器时间](./blog/A-IT/20-linux/修改服务器时间.md)
+       - [操作系统不常见问题](./blog/A-IT/20-linux/操作系统不常见问题.md)
        - [极客时间-趣谈Linux操作系统](./blog/A-IT/20-linux/极客时间-趣谈Linux操作系统.md)
        - [网站部署checklist](./blog/A-IT/20-linux/网站部署checklist.md)
        - [装硬盘-分区-格式化-挂载](./blog/A-IT/20-linux/装硬盘-分区-格式化-挂载.md)
        - [运维](./blog/A-IT/20-linux/运维.md)
        - [零碎知识](./blog/A-IT/20-linux/零碎知识.md)
        - **docker/**
+         - [arm架构服务器docker离线安装](./blog/A-IT/20-linux/docker/arm架构服务器docker离线安装.md)
          - [docker](./blog/A-IT/20-linux/docker/docker.md)
          - [kubernetes](./blog/A-IT/20-linux/docker/kubernetes.md)
          - [kubernetes与swarm的区别](./blog/A-IT/20-linux/docker/kubernetes与swarm的区别.md)
@@ -449,6 +461,7 @@
            - [vscode-go](./blog/A-IT/40-tools/编辑器/vscode/vscode-go.md)
            - [vscode-java](./blog/A-IT/40-tools/编辑器/vscode/vscode-java.md)
            - [vscode-php](./blog/A-IT/40-tools/编辑器/vscode/vscode-php.md)
+           - [vscode-python](./blog/A-IT/40-tools/编辑器/vscode/vscode-python.md)
            - [vscode-rust](./blog/A-IT/40-tools/编辑器/vscode/vscode-rust.md)
            - [vscode](./blog/A-IT/40-tools/编辑器/vscode/vscode.md)
      - **50-应用方向/**
@@ -480,6 +493,7 @@
            - [博客搭建工具](./blog/A-IT/50-应用方向/web前端/blog/博客搭建工具.md)
        - **web后端/**
          - [Kafka核心技术与实战](./blog/A-IT/50-应用方向/web后端/Kafka核心技术与实战.md)
+         - [压缩解压缩](./blog/A-IT/50-应用方向/web后端/压缩解压缩.md)
          - [服务器打点](./blog/A-IT/50-应用方向/web后端/服务器打点.txt)
          - [说透中台](./blog/A-IT/50-应用方向/web后端/说透中台.md)
          - [阿里云运维架构实践秘籍](./blog/A-IT/50-应用方向/web后端/阿里云运维架构实践秘籍.md)
@@ -496,6 +510,7 @@
          - [浏览器调用exe程序](./blog/A-IT/50-应用方向/windows&mac/浏览器调用exe程序.md)
          - **bat/**
            - [build_py_exe](./blog/A-IT/50-应用方向/windows&mac/bat/build_py_exe.bat)
+           - [gen_menu_tree](./blog/A-IT/50-应用方向/windows&mac/bat/gen_menu_tree.bat)
        - **区块链/**
          - [EOS相关资源](./blog/A-IT/50-应用方向/区块链/EOS相关资源.md)
          - [IPFS](./blog/A-IT/50-应用方向/区块链/IPFS.md)
@@ -521,8 +536,11 @@
          - [glut消息事件处理函数glutMainLoop](./blog/A-IT/50-应用方向/图形/glut消息事件处理函数glutMainLoop.md)
          - [osg](./blog/A-IT/50-应用方向/图形/osg.md)
          - [osgEarth](./blog/A-IT/50-应用方向/图形/osgEarth.md)
-         - [交互式计算机图形学](./blog/A-IT/50-应用方向/图形/交互式计算机图形学.md)
+         - [【图书】openGL-红宝书](./blog/A-IT/50-应用方向/图形/【图书】openGL-红宝书.md)
+         - [【图书】交互式计算机图形学-webGL](./blog/A-IT/50-应用方向/图形/【图书】交互式计算机图形学-webGL.md)
+         - [【图书】计算机图形学编程（使用OpenGL和C++）（第2版）](./blog/A-IT/50-应用方向/图形/【图书】计算机图形学编程（使用OpenGL和C++）（第2版）.md)
          - [图形学知识点](./blog/A-IT/50-应用方向/图形/图形学知识点.md)
+         - [相机模型](./blog/A-IT/50-应用方向/图形/相机模型.md)
        - **安全/**
          - [DDOS攻击](./blog/A-IT/50-应用方向/安全/DDOS攻击.md)
          - [Session安全性问题](./blog/A-IT/50-应用方向/安全/Session安全性问题.md)
@@ -533,128 +551,34 @@
          - [用图片隐藏信息的技术实现](./blog/A-IT/50-应用方向/安全/用图片隐藏信息的技术实现.md)
          - [社会工程学](./blog/A-IT/50-应用方向/安全/社会工程学.md)
        - **机器学习/**
+         - [GPU推理卡和训练卡](./blog/A-IT/50-应用方向/机器学习/GPU推理卡和训练卡.md)
+         - [OpenCL和CUDA](./blog/A-IT/50-应用方向/机器学习/OpenCL和CUDA.md)
          - [PyTorch](./blog/A-IT/50-应用方向/机器学习/PyTorch.md)
-         - [PyTorch生成对抗网络编程(Make-Your-First-GAN-With-PyTorch)](./blog/A-IT/50-应用方向/机器学习/PyTorch生成对抗网络编程(Make-Your-First-GAN-With-PyTorch).md)
-         - [Python神经网络编程(Make-Your-Own-Neural-Network)](./blog/A-IT/50-应用方向/机器学习/Python神经网络编程(Make-Your-Own-Neural-Network).md)
-         - [深度学习入门：基于Python的理论与实现](./blog/A-IT/50-应用方向/机器学习/深度学习入门：基于Python的理论与实现.md)
+         - [yolov5](./blog/A-IT/50-应用方向/机器学习/yolov5.md)
          - [深度学习框架](./blog/A-IT/50-应用方向/机器学习/深度学习框架.md)
-         - [深度学习进阶-自然语言处理](./blog/A-IT/50-应用方向/机器学习/深度学习进阶-自然语言处理.md)
          - [目标追踪](./blog/A-IT/50-应用方向/机器学习/目标追踪.md)
          - [视频识别](./blog/A-IT/50-应用方向/机器学习/视频识别.txt)
          - [计算机视觉](./blog/A-IT/50-应用方向/机器学习/计算机视觉.md)
+         - [语音识别](./blog/A-IT/50-应用方向/机器学习/语音识别.md)
+         - **书籍/**
+           - [Make-Your-First-GAN-With-PyTorch](./blog/A-IT/50-应用方向/机器学习/书籍/Make-Your-First-GAN-With-PyTorch.md)
+           - [Make-Your-Own-Neural-Network](./blog/A-IT/50-应用方向/机器学习/书籍/Make-Your-Own-Neural-Network.md)
+           - [Python深度学习(Keras框架)](./blog/A-IT/50-应用方向/机器学习/书籍/Python深度学习(Keras框架).md)
+           - [深度学习入门：基于Python的理论与实现](./blog/A-IT/50-应用方向/机器学习/书籍/深度学习入门：基于Python的理论与实现.md)
+           - [深度学习进阶-自然语言处理](./blog/A-IT/50-应用方向/机器学习/书籍/深度学习进阶-自然语言处理.md)
        - **移动/**
          - [JNI基础](./blog/A-IT/50-应用方向/移动/JNI基础.md)
          - [android零碎](./blog/A-IT/50-应用方向/移动/android零碎.md)
          - [deeplink](./blog/A-IT/50-应用方向/移动/deeplink.md)
        - **航海/**
          - [AIS](./blog/A-IT/50-应用方向/航海/AIS.md)
+         - [AR航行](./blog/A-IT/50-应用方向/航海/AR航行.md)
          - [电子海图](./blog/A-IT/50-应用方向/航海/电子海图.md)
          - [自主航行控制系统](./blog/A-IT/50-应用方向/航海/自主航行控制系统.md)
-       - **视频/**
-         - [rtsp](./blog/A-IT/50-应用方向/视频/rtsp.md)
-         - [攻克视频技术](./blog/A-IT/50-应用方向/视频/攻克视频技术.md)
-   - **B-学科/**
-     - **个人成长/**
-       - **学会学习/**
-         - [一些感悟](./blog/B-学科/个人成长/学会学习/一些感悟.md)
-         - [关于写作](./blog/B-学科/个人成长/学会学习/关于写作.md)
-         - [关于读书](./blog/B-学科/个人成长/学会学习/关于读书.md)
-         - [如何成为优秀开发人员](./blog/B-学科/个人成长/学会学习/如何成为优秀开发人员.md)
-         - [学习方法论](./blog/B-学科/个人成长/学会学习/学习方法论.md)
-         - [快速阅读](./blog/B-学科/个人成长/学会学习/快速阅读.md)
-         - [把时间当作朋友-李笑来](./blog/B-学科/个人成长/学会学习/把时间当作朋友-李笑来.md)
-         - [知识管理](./blog/B-学科/个人成长/学会学习/知识管理.md)
-         - [编程随想btsyc](./blog/B-学科/个人成长/学会学习/编程随想btsyc.md)
-         - [识人](./blog/B-学科/个人成长/学会学习/识人.md)
-         - [超越感觉-批判性思考指南](./blog/B-学科/个人成长/学会学习/超越感觉-批判性思考指南.md)
-         - [高效学习-左耳听风](./blog/B-学科/个人成长/学会学习/高效学习-左耳听风.md)
-       - **提高效率/**
-         - [提高效率之方法](./blog/B-学科/个人成长/提高效率/提高效率之方法.md)
-         - [输入法](./blog/B-学科/个人成长/提高效率/输入法.md)
-       - **沟通交流/**
-         - [好好说话1-100](./blog/B-学科/个人成长/沟通交流/好好说话1-100.md)
-         - [好好说话101-200](./blog/B-学科/个人成长/沟通交流/好好说话101-200.md)
-         - [好好说话200--end](./blog/B-学科/个人成长/沟通交流/好好说话200--end.md)
-     - **人文社科/**
-       - [无处不在的二八原理](./blog/B-学科/人文社科/无处不在的二八原理.md)
-       - [自下而上](./blog/B-学科/人文社科/自下而上.md)
-     - **医学/**
-       - [打呼噜](./blog/B-学科/医学/打呼噜.md)
-     - **政治/**
-       - [美国政治](./blog/B-学科/政治/美国政治.md)
-     - **数理化/**
-       - [向量](./blog/B-学科/数理化/向量.md)
-       - [定律，定理，定则，公理，原理的区别](./blog/B-学科/数理化/定律，定理，定则，公理，原理的区别.md)
-       - [封底计算和费米问题](./blog/B-学科/数理化/封底计算和费米问题.md)
-       - [希腊字母](./blog/B-学科/数理化/希腊字母.md)
-       - [数学符号的英文读法](./blog/B-学科/数理化/数学符号的英文读法.md)
-       - [物理](./blog/B-学科/数理化/物理.md)
-       - [程序员的数学基础课](./blog/B-学科/数理化/程序员的数学基础课.md)
-       - [零碎知识点](./blog/B-学科/数理化/零碎知识点.md)
-       - **微积分/**
-         - [微积分公式大全](./blog/B-学科/数理化/微积分/微积分公式大全.pdf)
-         - [知识点](./blog/B-学科/数理化/微积分/知识点.md)
-       - **概率论与数理统计/**
-         - [基础](./blog/B-学科/数理化/概率论与数理统计/基础.md)
-         - [排列组合](./blog/B-学科/数理化/概率论与数理统计/排列组合.md)
-       - **离散数学/**
-         - [离散数学](./blog/B-学科/数理化/离散数学/离散数学.md)
-     - **经济&金融&商业/**
-       - [5分钟掌握的理财防骗清单](./blog/B-学科/经济&金融&商业/5分钟掌握的理财防骗清单.md)
-       - [The-Self-Cultivation-of-Leeks](./blog/B-学科/经济&金融&商业/The-Self-Cultivation-of-Leeks.md)
-       - [互联网地下产业链分析白皮书](./blog/B-学科/经济&金融&商业/互联网地下产业链分析白皮书.md)
-       - [人生不同阶段的投资规划](./blog/B-学科/经济&金融&商业/人生不同阶段的投资规划.md)
-       - [基金指数](./blog/B-学科/经济&金融&商业/基金指数.md)
-       - [工作前5年，决定你一生的财富](./blog/B-学科/经济&金融&商业/工作前5年，决定你一生的财富.md)
-       - [指数基金投资指南-银行螺丝钉](./blog/B-学科/经济&金融&商业/指数基金投资指南-银行螺丝钉.md)
-       - [贫穷的本质](./blog/B-学科/经济&金融&商业/贫穷的本质.md)
-     - **英语/**
-       - [everyone-can-use-english](./blog/B-学科/英语/everyone-can-use-english.md)
-       - [生词本](./blog/B-学科/英语/生词本.md)
-       - [英语](./blog/B-学科/英语/英语.md)
-       - [英语语音](./blog/B-学科/英语/英语语音.md)
-   - **C-生活/**
-     - **兴趣/**
-       - [摇滚乐](./blog/C-生活/兴趣/摇滚乐.md)
-       - [旅行摄影](./blog/C-生活/兴趣/旅行摄影.md)
-       - [练钢琴的好习惯](./blog/C-生活/兴趣/练钢琴的好习惯.md)
-     - **常识/**
-       - [一件Tee的生产过程](./blog/C-生活/常识/一件Tee的生产过程.md)
-       - [乱七八糟的常识](./blog/C-生活/常识/乱七八糟的常识.md)
-       - [产品设计的常识](./blog/C-生活/常识/产品设计的常识.md)
-       - [健康常识](./blog/C-生活/常识/健康常识.md)
-       - [军人为何拥有强大的执行力](./blog/C-生活/常识/军人为何拥有强大的执行力.md)
-       - [医学常识](./blog/C-生活/常识/医学常识.md)
-       - [吃的常识](./blog/C-生活/常识/吃的常识.md)
-       - [商家诱导冲动消费手法清单](./blog/C-生活/常识/商家诱导冲动消费手法清单.md)
-       - [增肌常识](./blog/C-生活/常识/增肌常识.md)
-       - [学会花钱](./blog/C-生活/常识/学会花钱.md)
-       - [安全常识](./blog/C-生活/常识/安全常识.md)
-       - [小学问](./blog/C-生活/常识/小学问.md)
-       - [开车经验](./blog/C-生活/常识/开车经验.md)
-       - [房贷常识](./blog/C-生活/常识/房贷常识.md)
-       - [数字欺骗术](./blog/C-生活/常识/数字欺骗术.md)
-       - [新闻常识](./blog/C-生活/常识/新闻常识.md)
-       - [智力是谁的遗传大](./blog/C-生活/常识/智力是谁的遗传大.md)
-       - [电子书格式](./blog/C-生活/常识/电子书格式.md)
-       - [知识清单](./blog/C-生活/常识/知识清单.md)
-       - [租房常识](./blog/C-生活/常识/租房常识.md)
-       - [管理学常识](./blog/C-生活/常识/管理学常识.md)
-       - [经济学常识](./blog/C-生活/常识/经济学常识.md)
-       - [美国文化](./blog/C-生活/常识/美国文化.md)
-       - [老司机的开车经验](./blog/C-生活/常识/老司机的开车经验.md)
-       - [育儿常识](./blog/C-生活/常识/育儿常识.md)
-       - [苏霍姆林斯基教育原则](./blog/C-生活/常识/苏霍姆林斯基教育原则.md)
-       - [购房知识](./blog/C-生活/常识/购房知识.md)
-       - [金融常识](./blog/C-生活/常识/金融常识.md)
-       - [食品方面的知识](./blog/C-生活/常识/食品方面的知识.md)
-     - **经验.技巧/**
-       - [关于打工和创业](./blog/C-生活/经验.技巧/关于打工和创业.md)
-       - [境外旅行checklist](./blog/C-生活/经验.技巧/境外旅行checklist.md)
-       - [小技巧小秘密](./blog/C-生活/经验.技巧/小技巧小秘密.md)
-       - [杂言碎语](./blog/C-生活/经验.技巧/杂言碎语.md)
-       - [林彪对自己的作战特点怎样总结](./blog/C-生活/经验.技巧/林彪对自己的作战特点怎样总结.md)
-       - [知乎上那些简短却让你印象深刻的回答](./blog/C-生活/经验.技巧/知乎上那些简短却让你印象深刻的回答.md)
-       - [项目失败总结](./blog/C-生活/经验.技巧/项目失败总结.md)
+       - **音视频/**
+         - [rtsp](./blog/A-IT/50-应用方向/音视频/rtsp.md)
+         - [攻克视频技术](./blog/A-IT/50-应用方向/音视频/攻克视频技术.md)
+         - [语音合成](./blog/A-IT/50-应用方向/音视频/语音合成.md)
+         - [音频](./blog/A-IT/50-应用方向/音视频/音频.md)
 
 <!-- filetreestop -->

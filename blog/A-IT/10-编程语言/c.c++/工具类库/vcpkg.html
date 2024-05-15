@@ -189,6 +189,7 @@ jQuery(document).ready(function(){
 <li><a href="#注意点">注意点</a></li>
 <li><a href="#构建三元组">构建三元组</a></li>
 <li><a href="#linux下的使用">linux下的使用</a></li>
+<li><a href="#编译包时指定指定包所包含的模块">编译包时指定指定包所包含的模块</a></li>
 </ul>
 </div>
  <!--if(toc)-->
@@ -234,6 +235,22 @@ sudo apt-get install build-essential tar curl zip unzip
 git clone https://github.com/microsoft/vcpkg
 
 ./vcpkg/bootstrap-vcpkg.sh   // 这会从github上下载 vcpkg的可执行程序</code></pre>
+<h2 id="编译包时指定指定包所包含的模块">编译包时指定指定包所包含的模块</h2>
+<p>以编译opencv为例：<br />
+默认编译的版本是没有ffmpeg模块的，需要修改vcpkg.json的配置，<br />
+修改<code>vcpkg\ports\opencv4\vcpkg.json</code> ，在其中增加ffmpeg模块<br />
+在<a href="https://vcpkg.link/ports/opencv4">vcpkg官网</a>查看opencv都有哪些模块</p>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240311190612.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>增加模块后如何重新编译？<br />
+没有找到增量编译的命令，于是采用最原始的方式，删除掉然后再重新安装</p>
+<pre><code>./vcpkg.exe remove opencv4:x64-windows   --recurse
+./vcpkg.exe install opencv4:x64-windows  </code></pre>
+<p>./vcpkg.exe remove osg:x64-windows --recurse<br />
+./vcpkg.exe install osg:x64-windows</p>
+<p>./vcpkg.exe install osgearth:x64-windows</p>
+<p>./vcpkg.exe remove osgearth:x64-windows --recurse</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/程序工具/cmake/vscode-cmake插件</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#vscode的cmake插件使用">vscode的cmake插件使用</a>
+<ul>
+<li><a href="#以mingw说明cmake执行的过程">以mingw说明cmake执行的过程</a>
+<ul>
+<li><a href="#cmake构建命令">cmake构建命令</a></li>
+<li><a href="#编译的构建命令">编译的构建命令</a></li>
+<li><a href="#vs的套件说明">vs的套件说明</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#cmake插件存在的问题">cmake插件存在的问题</a></li>
+<li><a href="#cmake编译时传递参数">cmake编译时传递参数</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="vscode的cmake插件使用">vscode的cmake插件使用</h2>
+<p>cmake插件是微软官方出品，使用很方便。需要大致三个步骤：<br />
+1. 选择kits(编译套件)，比如是vs的还是mingw的<br />
+2. 生成对应平台的构建工程并编译，比如是vs的工程还是make的工程<br />
+3. build(f7) Debug(ctrl+f5) run without debugging(shift+f5)</p>
+<h3 id="以mingw说明cmake执行的过程">以mingw说明cmake执行的过程</h3>
+<h4 id="cmake构建命令">cmake构建命令</h4>
+<pre><code>cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=D:\program\Qt\Qt5.12.12\Tools\mingw730_64\bin\gcc.exe -DCMAKE_CXX_COMPILER:FILEPATH=D:\program\Qt\Qt5.12.12\Tools\mingw730_64\bin\g++.exe -SD:/project/c++/example -Bd:/project/c++/example/build -G &quot;MinGW Makefiles&quot;</code></pre>
+<h4 id="编译的构建命令">编译的构建命令</h4>
+<p><code>cmake --build</code> 命令是 CMake 提供的用于执行构建的命令。它允许你在不离开 CMake 命令行界面的情况下调用底层的构建工具（如 Make、Ninja、Visual Studio 等），以执行构建过程。<br />
+其中-v命令可以查看最终执行的命令</p>
+<pre><code>cmake --build  d:/project/c++/example/build -v --config Debug --target all -j 22</code></pre>
+<p>最终命令如下：</p>
+<pre><code>&quot;C:\Program Files\CMake\bin\cmake.exe&quot; -SD:\project\c++\example -BD:\project\c++\example\build --check-build-system CMakeFiles\Makefile.cmake 0
+&quot;C:\Program Files\CMake\bin\cmake.exe&quot; -E cmake_progress_start D:\project\c++\example\build\CMakeFiles D:\project\c++\example\build\\CMakeFiles\progress.marks
+D:/program/Qt/Qt5.12.12/Tools/mingw730_64/bin/mingw32-make.exe  -f CMakeFiles\Makefile2 all
+mingw32-make.exe[1]: Entering directory &#39;D:/project/c++/example/build&#39;
+D:/program/Qt/Qt5.12.12/Tools/mingw730_64/bin/mingw32-make.exe  -f CMakeFiles\MyApp.dir\build.make CMakeFiles/MyApp.dir/depend
+mingw32-make.exe[2]: Entering directory &#39;D:/project/c++/example/build&#39;
+&quot;C:\Program Files\CMake\bin\cmake.exe&quot; -E cmake_depends &quot;MinGW Makefiles&quot; D:\project\c++\example D:\project\c++\example D:\project\c++\example\build D:\project\c++\example\build D:\project\c++\example\build\CMakeFiles\MyApp.dir\DependInfo.cmake --color=
+mingw32-make.exe[2]: Leaving directory &#39;D:/project/c++/example/build&#39;
+D:/program/Qt/Qt5.12.12/Tools/mingw730_64/bin/mingw32-make.exe  -f CMakeFiles\MyApp.dir\build.make CMakeFiles/MyApp.dir/build
+mingw32-make.exe[2]: Entering directory &#39;D:/project/c++/example/build&#39;
+[ 50%] Building CXX object CMakeFiles/MyApp.dir/main.cpp.obj
+D:\program\Qt\Qt5.12.12\Tools\mingw730_64\bin\g++.exe   -g -std=gnu++1z -MD -MT CMakeFiles/MyApp.dir/main.cpp.obj -MF CMakeFiles\MyApp.dir\main.cpp.obj.d -o CMakeFiles\MyApp.dir\main.cpp.obj -c D:\project\c++\example\main.cpp
+[100%] Linking CXX executable MyApp.exe
+&quot;C:\Program Files\CMake\bin\cmake.exe&quot; -E cmake_link_script CMakeFiles\MyApp.dir\link.txt --verbose=1
+&quot;C:\Program Files\CMake\bin\cmake.exe&quot; -E rm -f CMakeFiles\MyApp.dir/objects.a
+D:\program\Qt\Qt5.12.12\Tools\mingw730_64\bin\ar.exe qc CMakeFiles\MyApp.dir/objects.a @CMakeFiles\MyApp.dir\objects1
+D:\program\Qt\Qt5.12.12\Tools\mingw730_64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\MyApp.dir/objects.a -Wl,--no-whole-archive -o MyApp.exe -Wl,--out-implib,libMyApp.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\MyApp.dir\linkLibs.rsp
+mingw32-make.exe[2]: Leaving directory &#39;D:/project/c++/example/build&#39;
+[100%] Built target MyApp
+mingw32-make.exe[1]: Leaving directory &#39;D:/project/c++/example/build&#39;
+&quot;C:\Program Files\CMake\bin\cmake.exe&quot; -E cmake_progress_start D:\project\c++\example\build\CMakeFiles 0</code></pre>
+<h4 id="vs的套件说明">vs的套件说明</h4>
+<ul>
+<li>x86：编译器为x86版本，输出文件为x86。</li>
+<li>amd64_x86：编译器为amd64版本，输出文件为x86。</li>
+<li>amd64：编译器为amd64版本，输出文件为amd64。</li>
+<li>x86_amd64：编译器为x86版本，输出文件为amd64。</li>
+</ul>
+<h2 id="cmake插件存在的问题">cmake插件存在的问题</h2>
+<p>按<code>shift+F5</code>或<code>cmake：run without debugging</code> 直接运行编译好的程序，无法在插件创建的terminal中运行起来程序，且没有任何报错，但是用其他的terminal都可运行程序。</p>
+<p>定位问题的步骤：<br />
+1. 确定带gui界面的程序无法运行，命令行的程序可以运行<br />
+2. 用之前的python打包的单独exe且是带图形界面程序运行，发现可以运行<br />
+3. 在terminal中运行编译好的程序时程序一闪而过，猜想会不会是缺少dll动态库直接退出程序的运行<br />
+4. 把依赖的dll库放在运行程序的文件中，发现可以正常运行，猜想cmake创建的terminal的环境变量可能有问题<br />
+5. 在cmake创建的terminal中和非cmake创建的terminal中用<code>$env:path</code>打印环境变量发现，cmake创建的比非cmake创建的少了依赖的动态库的环境变量<br />
+6. 对比发现少的path环境变量中带有mingw，猜想是不是cmake插件进行了某些处理，直接把带mingw的环境变量给干掉了<br />
+7. vscode中执行<code>CMake: Open the CMake Tools Log File</code>打开cmake插件的log文件，发现其中有打印环境变量，打印如下<code>2023-06-20T11:08:55.736Z [debug] [kit] The environment for kit 'GCC 7.3.0 x86_64-w64-mingw32': {</code><br />
+8. 下载cmake tool插件的源码，搜索<code>The environment for kit</code>,找到其所在的源码位置，发现其中有针对path环境变量的过滤逻辑<code>current_path_list = current_path_list.filter(p =&gt; !isMingw(p));  9. 其主要逻辑是如果path环境变量中包含mingw，则将其删除，逻辑多少有些随意，虽是微软官方出品的插件 10. 既然你代码把我的环境变量删除了，我也不想改你源码，于是就想办法怎么在把被删除的变量加上去 11. 去插件的github的issue上有关键字搜看有没有人和我遇到同样的问题，找了很多，虽然有，但里面没有解决方案 12. 最终搜索到的方法是，在Setting中设置</code>cmake.env<code>, Environment variables to set when running CMake commands. 设置成如下：</code>PATH : ${env:PATH};D:\program\opencv\build-mingw\install\x64\mingw\bin;D:\program\Qt\Qt5.12.12\5.12.12\mingw73_64\bin;`</p>
+<h2 id="cmake编译时传递参数">cmake编译时传递参数</h2>
+<p>在vscode的<code>settings.json</code>中添加如下配置：</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="er">&quot;cmake.configureSettings&quot;:</span> <span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    <span class="dt">&quot;CMAKE_BUILD_TYPE&quot;</span><span class="fu">:</span> <span class="st">&quot;${buildType}&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a> <span class="fu">}</span>    </span></code></pre></div>
+<p>可以添加到项目里面的<code>.vscode/settings.json</code>中， 也可以添加到自己的配置中。<br />
+上面的是cmake插件的配置，通过它可以向cmake命令传递类似如下的参数：</p>
+<pre><code>cmake.EXE -DCMAKE_BUILD_TYPE:STRING=Debug </code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

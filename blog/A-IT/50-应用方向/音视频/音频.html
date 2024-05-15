@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/音视频/音频</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#采样率">采样率</a></li>
+<li><a href="#linux音频驱动">linux音频驱动</a></li>
+<li><a href="#麒麟系统中播放音频失败">麒麟系统中播放音频失败</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="采样率">采样率</h2>
+<p>音频的采样率是指在单位时间内对音频信号进行采样的次数，通常以赫兹（Hz）为单位。采样率决定了数字音频中每秒的采样点数量。更高的采样率意味着更多的采样点，通常能够捕捉更高频率的音频信号。</p>
+<p>具体而言，采样率是指每秒从模拟音频信号中获取的样本数。采样的过程涉及到将连续的模拟信号转换为离散的数字信号。这样的数字信号由一系列采样点组成，而采样率就是描述这些采样点数量的指标。</p>
+<p>例如，如果一个音频文件的采样率为44.1千赫兹（44.1 kHz），那么每秒钟将有44,100个采样点。通常，这是在音频领域中常见的标准之一。其他常见的采样率包括 48 kHz、96 kHz 等。</p>
+<p>采样率为<strong>16000 Hz</strong>在音频处理中是相当常见的。它通常用于语音识别、语音合成、语音通信等领域，特别是在语音识别和语音合成领域中，16000 Hz是一个常见的标准。这是因为16 kHz采样率能够提供足够的频率范围，使得语音信号中的重要特征能够被捕捉到，并且相对于更高采样率来说，它需要更少的存储空间和计算资源。</p>
+<h2 id="linux音频驱动">linux音频驱动</h2>
+<p>Linux上的音频驱动还很混乱，说实话，（Linux根本不适合做专业的音频软件，想在Linux上听歌看视频都很不方便，除非只使用一些简单的功能），收回前话，现在在Linux上看视频已经有了mpv了，mpv是目前跨平台的最好开源播放器了，使用mpv的体验甚至比Windows上的PotPlayer还要好</p>
+<p>Linux上的音频驱动有oss,alsa,pulse audio,jack1,jack2，oss是较老的音频驱动了已经不怎么使用了，alsa是目前直接与底层设备交流的，pulse audio是基于alsa的主流音频服务，基本上所有Linux发行版<strong>都使用pulse audio作为音频服务</strong>，系统的所有声音都经由它送到alsa再驱动设备，pulse audio提供了alsa访问，使用alsa音频的软件不直接访问alsa驱动而是访问pulse audio（软件并不知道其访问的是alsa还是pa）,jack是Linux上专业音频解决方案，分为jack1和jack2，前者是由c写成，后者是c++重新写就，jack具有低延迟的特点，而pa延迟较高，虽然alsa也是低延迟的。</p>
+<h2 id="麒麟系统中播放音频失败">麒麟系统中播放音频失败</h2>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/fd1c0e0a5f456167ce212ef02e9f2c1.png" alt="" /><figcaption>fd1c0e0a5f456167ce212ef02e9f2c1.png</figcaption>
+</figure>
+<p>通过mplayer播放音频，提示pulse驱动初始化失败。<br />
+还有一个现象就是在麒麟系统的设置界面点击声音的那个tab，设置界面没打开，设置界面好像是崩了<br />
+命令行输入<code>pulseaudio</code>, 但是没有这个命令<br />
+通过 <code>dpkg   -l   |grep pulseaudio</code>命令查看pulseaudio包也并未安装，可能是之前安装过但是又被卸载了。</p>
+<p>于是安装了pulseaudio便解决了问题。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

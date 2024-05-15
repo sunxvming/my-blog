@@ -2,7 +2,7 @@
 开发的Qt程序在运行时会依赖QT本身的一些动态库，QT自带了windeployqt.exe工具可以实现自动将所需的QT依赖库拷贝过来
 
 以下是实现这个功能的bat脚本
-```
+```sh
 echo off
 echo Setting up environment for Qt usage...
 set PATH=D:\program\Qt\Qt5.12.12\5.12.12\mingw73_64\bin;%PATH%      rem 此行目录为QT的安装目录，需要自行调整
@@ -61,4 +61,32 @@ Thread 1 received signal ?, Unknown signal.
 
 最终发现是少了`platforms/qwindowsd.dll`这个dll插件，这是因为在复制程序的dll依赖时没有用windeployqt去复制导致上面的插件没有复制过来
 
+
+
+## qt程序去掉console界面
+By default, and in contrast to qmake, cmake builds Qt apps with enabled console window under windows (windows binaries can use different entry points - the console window is one of them).
+
+You can disable the console window appearing via setting the [`WIN32_EXECUTABLE`](https://cmake.org/cmake/help/latest/prop_tgt/WIN32_EXECUTABLE.html#prop_tgt:WIN32_EXECUTABLE) cmake property on the executable.
+
+This can be achieved either via setting an [`add_executable`](https://cmake.org/cmake/help/latest/command/add_executable.html) option, i.e.
+
+```cpp
+add_executable(myexe WIN32 ...)
+```
+
+or via setting the property explicitly:
+
+```cpp
+set_property(TARGET main PROPERTY WIN32_EXECUTABLE true)
+```
+
+Using `set_property()` is helpful when the console window should conditionally be disabled, e.g.:
+
+```cpp
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+  set_property(TARGET main PROPERTY WIN32_EXECUTABLE true)
+endif()
+```
+
+The `WIN32_EXECUTABLE` property has no effect when compiling on platforms other than windows
 

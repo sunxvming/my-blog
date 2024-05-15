@@ -78,7 +78,7 @@ if __name__ == '__main__':
 from mypackage import *
 ```
 `__init__.py` 中还有一个重要的变量，叫做 `__all__`。
-`__all__` 关联了一个模块列表，当执行 `from xx import *` 时，就会导入列表中的模块。
+`__all__` 关联了一个模块列表，当执行 `from xx import *` 时，就会导入`__all__`列表中的模块。
 比如：
 ```python
 __all__ = ['subpackage_1', 'subpackage_2']

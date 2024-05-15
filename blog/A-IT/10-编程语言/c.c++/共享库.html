@@ -187,6 +187,7 @@ jQuery(document).ready(function(){
 <ul>
 <li><a href="#win下动态链接库静态库import库区别">win下动态链接库、静态库、import库区别</a></li>
 <li><a href="#dumpbin查看库文件">dumpbin查看库文件</a></li>
+<li><a href="#查看lib库是32位还是64位">查看lib库是32位还是64位</a></li>
 </ul></li>
 <li><a href="#linux下共享库">Linux下共享库</a>
 <ul>
@@ -196,6 +197,12 @@ jQuery(document).ready(function(){
 <li><a href="#使用动态库">使用动态库</a></li>
 <li><a href="#动态库找不到的问题">动态库找不到的问题</a></li>
 <li><a href="#显示调用cc动态链接库">显示调用C/C++动态链接库</a></li>
+</ul></li>
+<li><a href="#vs中编译共享库">VS中编译共享库</a></li>
+<li><a href="#debug-or-release">debug or release</a>
+<ul>
+<li><a href="#使用gdb命令">使用gdb命令</a></li>
+<li><a href="#使用file命令">使用file命令</a></li>
 </ul></li>
 </ul>
 </div>
@@ -302,6 +309,8 @@ File Type: LIBRARY
        78390 .text
           18 .text$yc
           54 .xdata$x</code></pre>
+<h3 id="查看lib库是32位还是64位">查看lib库是32位还是64位</h3>
+<pre><code>dumpbin /headers lua51.lib|findstr machine</code></pre>
 <h2 id="linux下共享库">Linux下共享库</h2>
 <h3 id="编译静态库">编译静态库</h3>
 <p>将源文件打包为静态链接库的过程很简单，只需经历以下 2 个步骤：<br />
@@ -424,6 +433,20 @@ include ld.so.conf.d/*.conf
 <p>5、借助 dlerror() 函数，我们可以获得最近一次 dlopen()、dlsym() 或者 dlclose() 函数操作失败的错误信息</p>
 <p>6、编译时加上 -ldl，可执行程序需要 libdl.so 动态库的支持</p>
 <pre><code>gcc main.c -ldl -o main.exe</code></pre>
+<h2 id="vs中编译共享库">VS中编译共享库</h2>
+<figure>
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240212145334.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h2 id="debug-or-release">debug or release</h2>
+<p>linux 下编译，区分程序、库是debug还是release版本。<br />
+在linux里面，使用编译器的时候，默认没有 -g 的选项，也就是默认编译成release版本。</p>
+<h3 id="使用gdb命令">使用gdb命令</h3>
+<p>使用 gdb filename //filename这里指的是你想要产看的程序，或者库<br />
+如果是debug版本的话，最后会提示：Reading symbols from filename...done 相关信息 //filename这里指的是你想要产看的程序，或者库<br />
+如果是release版本的话，最后会提示：no debugging symbols found</p>
+<h3 id="使用file命令">使用file命令</h3>
+<pre><code>file &lt;your_program&gt;</code></pre>
+<p>通常情况下，如果程序是 release 版本，输出可能会包含 "stripped" 或 "not stripped" 等字样，表示调试信息被删除或保留。而 debug 版本则可能会包含 "debug" 或 "with debug_info" 等字样，表示调试信息被保留。</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

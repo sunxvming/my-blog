@@ -7,9 +7,9 @@
 ![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231024114011.png)
 
 
-
-
-
+> [!warning]
+> 
+如果打开的是三方库的源码，并且用此源码进行了相应库的编译，自动更改格式会造成调试时断点和源码不对应的问题
 
 
 

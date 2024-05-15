@@ -246,15 +246,21 @@ jQuery(document).ready(function(){
 <li><a href="#pip">pip</a>
 <ul>
 <li><a href="#pip加速">pip加速</a></li>
+<li><a href="#linux">linux</a></li>
 <li><a href="#pyc">pyc</a></li>
 <li><a href="#pyd">pyd</a></li>
+<li><a href="#requirements文件">requirements文件</a></li>
 <li><a href="#windows下pip">windows下pip</a></li>
 <li><a href="#linux下pip">linux下pip</a></li>
 </ul></li>
 <li><a href="#setuptools">setuptools</a>
 <ul>
 <li><a href="#python中安装依赖包的方式">python中安装依赖包的方式</a></li>
-<li><a href="#python-requirements文件生成和安装">python requirements文件生成和安装</a></li>
+<li><a href="#使用setuptools打包">使用setuptools打包</a>
+<ul>
+<li><a href="#源码包sdist">源码包sdist</a></li>
+<li><a href="#二进制包bdist">二进制包bdist</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#venv">venv</a>
 <ul>
@@ -288,6 +294,13 @@ pip config set install.trusted-host https://mirrors.aliyun.com/pypi/simple</code
 -d .: 指定下载目录为当前目录。</p>
 <p>下载指定版本的库</p>
 <pre><code>pip download YourPackage --platform manylinux2014_aarch64 -d .</code></pre>
+<h3 id="linux">linux</h3>
+<pre><code>mkdir -p .config/pip
+cd .config/pip/
+touch pip.conf
+vim pip.conf</code></pre>
+<pre><code>[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple</code></pre>
 <h3 id="pyc">pyc</h3>
 <p><code>.pyc</code> 文件是已编译的 Python 源代码文件的字节码表示形式。当您运行一个 Python 脚本时，解释器会将源代码编译成字节码，然后在执行时使用这些字节码。<br />
 <code>.pyc</code> 文件是在第一次执行源代码时由 Python 解释器自动生成的。它们包含了与源代码等效的字节码表示形式，以便在后续运行中可以更快地加载和执行代码。<br />
@@ -298,9 +311,13 @@ pip config set install.trusted-host https://mirrors.aliyun.com/pypi/simple</code
 <p>扩展模块通常用于执行一些与Python内置模块不同的任务，例如访问底层系统API、执行高性能的计算任务、与外部库进行交互等。一些常见的Python扩展模块，如NumPy、Pandas和OpenCV，都是使用C或C++编写并编译为<code>.pyd</code> 文件的。</p>
 <p>要在Python中使用<code>.pyd</code> 文件，通常需要使用<code>import</code>语句将其导入到Python脚本或模块中。导入后，您可以使用扩展模块提供的功能和类来增强您的Python代码。</p>
 <p>需要注意的是，<code>.pyd</code> 文件在不同的操作系统上可能具有不同的扩展名，例如<code>.so</code>（Linux）、<code>.dylib</code>（macOS）等，但在Windows上通常使用<code>.pyd</code>。</p>
-<p>总而言之，<code>.pyd</code> 文件是用C或C++编写并编译为共享库的Python扩展模块的二进制文件，用于在Python中访问底层系统功能或实现高性能计算任务。</p>
+<h3 id="requirements文件">requirements文件</h3>
+<p>生成requirements.txt文件</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>pip freeze <span class="op">&gt;</span> requirements.txt</span></code></pre></div>
+<p>安装requirements.txt依赖</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>pip install <span class="op">-</span>r requirements.txt</span></code></pre></div>
 <h3 id="windows下pip">windows下pip</h3>
-<p>window是pip的安装位置：</p>
+<p>window下pip的安装位置：</p>
 <pre><code>D:\program\Python311\Lib\site-packages</code></pre>
 <h3 id="linux下pip">linux下pip</h3>
 <p>查看三方库安装位置:<br />
@@ -311,7 +328,7 @@ pip config set install.trusted-host https://mirrors.aliyun.com/pypi/simple</code
 <p>python自带的包安装在：<code>/usr/lib/pythonX.Y/</code></p>
 <h2 id="setuptools">setuptools</h2>
 <h3 id="python中安装依赖包的方式">python中安装依赖包的方式</h3>
-<p>1. 源码包：python setup.py install<br />
+<p>1. 源码包：<code>python setup.py install</code><br />
 2. 在线安装：pip install pkg_name / easy_install pkg_name<br />
 在线安装是从PyPI （Python Package Index）来的，官网是：https://pypi.python.org/pypi<br />
 执行<code>pip install pkg_name</code>命令的时候，它就会去从官方网站搜pkg_name，搜到了就下载压缩包并解压安装，如果没有搜索到就会报错。</p>
@@ -337,22 +354,47 @@ setup(
 打包之后多出两个文件夹，分别是xx.egg-info和dist。xx.egg-info是必要的安装信息，<br />
 而dist中的压缩包就是安装包，此时默认的egg包，egg包就是zip包，如果需要使用egg包，将egg后缀改成zip解压即可</p>
 <p>安装命令：<code>python setup.py install</code></p>
-<h3 id="python-requirements文件生成和安装">python requirements文件生成和安装</h3>
-<p>生成requirements.txt文件</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>pip freeze <span class="op">&gt;</span> requirements.txt</span></code></pre></div>
-<p>安装requirements.txt依赖</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>pip install <span class="op">-</span>r requirements.txt</span></code></pre></div>
+<h3 id="使用setuptools打包">使用setuptools打包</h3>
+<h4 id="源码包sdist">源码包sdist</h4>
+<p>setuptools可以帮助我们创建和分发Python包。<br />
+首先python库的打包分发方式有两种：源码包source dist（sdist）、二进制包binary dist（bdist）。</p>
+<pre><code># 源码包sdist就是我们熟悉的.zip、.tar.gz等后缀文件，就是一个压缩包。
+python setup.py sdist
+
+# 解压后使用如下命令进行安装
+python setup.py install
+
+# 或者是用pip命令直接安装源码包
+pip install xxx.zip
+# notice：该命令会将当前的Python应用安装到当前的Python环境的“site-packages”目录下，这样其他程序就可以像导入标准库一样导入该应用的代码了</code></pre>
+<h4 id="二进制包bdist">二进制包bdist</h4>
+<p>python目前主流的二进制包格式是wheel（.whl后缀），它的前身是egg。wheel本质也还是一个压缩包，可以像zip一样解压缩</p>
+<pre><code># wheel是目前官方推荐的打包方式。
+python setup.py build_wheel 
+# 等价于
+python setup.py bdist_wheel</code></pre>
+<p>安装whell</p>
+<pre><code>pip install xxx.whl</code></pre>
 <h2 id="venv">venv</h2>
 <h3 id="基本使用">基本使用</h3>
 <p>创建虚拟环境：<br />
 <code>python3 -m venv myenv</code><br />
 这将在当前目录中创建一个名为 myenv 的虚拟环境。</p>
-<p>激活虚拟环境</p>
-<p>linux上<br />
+<p>【激活虚拟环境】<br />
+linux上<br />
 <code>source myenv/bin/activate</code></p>
 <p>Windows 上：<br />
 <code>myenv\Scripts\activate</code></p>
 <p>一旦虚拟环境被激活，您可以在其中安装项目特定的 Python 包，并运行项目，而不会影响全局 Python 环境。</p>
+<p>【退出环境】</p>
+<pre><code>deactivate</code></pre>
+<p>venv只能使用当前系统已经安装好的python，无法使用其他版本的python环境<br />
+venv是如何创建“独立”的Python运行环境的呢？原理很简单，就是把系统Python链接或复制一份到venv的环境，用命令<code>source activate</code>进入一个venv环境时，venv会修改相关环境变量，让命令<code>python</code>和<code>pip</code>均指向当前的venv环境。</p>
+<p>如果不再使用某个venv，例如<code>proj101env</code>，删除它也很简单。首先确认该venv没有处于“激活”状态，然后直接把整个目录<code>proj101env</code>删掉就行。</p>
+<p><strong>优缺点分析：</strong><br />
+1、venv是python3自带的，不需要额外安装库就能运行。<br />
+2、只能在3.3版本以后，2.x用不了<br />
+3、venv过于简单，没有额外的api。只能创建个虚拟环境，不能指定系统不存在的python环境版本，不能查看环境列表。</p>
 <h3 id="ubuntu中使用">ubuntu中使用</h3>
 <p>在某些 Linux 发行版中，如 Debian 和 Ubuntu，<code>python3-venv</code> 软件包提供了 <code>venv</code> 模块的一种实现。尽管 Python 3 的标准库本身包含 <code>venv</code> 模块，但某些 Linux 发行版选择将它拆分为单独的软件包以降低操作系统的体积。</p>
 <p>因此，如果您在某些 Linux 发行版上使用 <code>python3-venv</code> 包，实际上是安装了 <code>venv</code> 模块的一个特定版本，以便在您的系统上使用。这样，即使系统的 Python 3 安装本身没有包含 <code>venv</code> 模块，您仍然可以使用虚拟环境功能。</p>

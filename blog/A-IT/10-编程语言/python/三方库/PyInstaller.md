@@ -87,5 +87,18 @@ conda create -n xxx python=3.8
 
 
 
+## linux下使用
+```
+pyinstaller -D -F -n main -c "main.py"
+```
+- `-D`：这个参数告诉PyInstaller生成一个包含所有依赖项的目录，而不是单个的可执行文件。生成的文件夹通常在`dist`目录下。
+- `-F`：这个参数告诉PyInstaller生成一个单个的可执行文件，而不是一个包含多个文件的目录。
+- `-n main`：这个参数指定了生成的可执行文件的名称为"main"。如果没有指定该参数，默认情况下，PyInstaller会使用脚本文件的名称来命名生成的可执行文件。
+- `-c`：这个参数告诉PyInstaller在控制台窗口中打开生成的可执行文件。
+
+
+
+pyinstaller -D -F  -c "gen_proto_data_from_file.py"
+pyinstaller -F  "gen_proto_data_from_file.py"
 ## 参考链接
 - [Python程序打包成exe可执行文件](https://blog.csdn.net/zengxiantao1994/article/details/76578421)

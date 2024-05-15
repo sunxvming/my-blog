@@ -269,7 +269,7 @@ jQuery(document).ready(function(){
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>  printf ( <span class="st">&quot;2 + 3 = %d&quot;</span>, add ( <span class="dv">2</span>, <span class="dv">3</span>) );</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>}</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="co">//程序运行的结果为输出：2 + 3 = 5</span></span></code></pre></div>
-<p>这说明不加返回值说明的函数的确为int函数<br />
+<p>这说明不加返回值说明的函数的确为<code>int</code>函数<br />
 林锐博士《高质量C/C++编程》中提到：“C++语言有很严格的类型安全检查，不允许上述情况（指函数不加类型声明）发生”。<br />
 如果函数没有返回值，一定要声明为void类型。这既是程序良好可读性的需要，也是编程规范性的要求。<br />
 另外，加上void类型声明后，也可以发挥<strong>代码的"自注释"作用</strong>。代码的“自注释”即代码能自己注释自己。<br />
@@ -280,22 +280,21 @@ jQuery(document).ready(function(){
 <h3 id="c-new和delete运算符简介">C++ new和delete运算符简介</h3>
 <p>在C++中，建议使用 new 和 delete 来管理内存，它们可以使用C++的一些新特性，最明显的是可以自动调用构造函数和析构函数.<br />
 c11中增加了智能指针，可以用它来代替new和delete。<br />
-在栈上的对象创建的时候调用构造函数和出作用域的时候调析构函数。<br />
-原理：编译器通过对程序的语法结构、作用域规则以及生成的中间代码的分析，确定了每个对象的作用域范围和何时出作用域，从而在适当的位置自动生成析构函数的调用代码。</p>
+在<strong>栈上</strong>的对象创建的时候调用构造函数和出作用域的时候调析构函数。<br />
+原理：编译器通过对程序的语法结构、作用域规则以及生成的中间代码的分析，确定了每个对象的作用域范围和何时出作用域，从而<strong>在适当的位置自动生成析构函数的调用代码</strong>。</p>
 <h3 id="c函数的默认参数">C++函数的默认参数</h3>
-<p>C++规定，默认参数只能放在形参列表的最后，而且一旦为某个形参指定了默认值，那么它后面的所有形参都必须有默认值。<br />
-在以后设计类时你将发现，通过使用默认参数，可以减少要定义的构造函数、方法以及方法重载的数量。</p>
+<p>C++规定，默认参数只能放在形参列表的最后。通过使用默认参数，可以减少要定义的构造函数、方法以及方法重载的数量。</p>
 <p>到底在声明中还是定义中指定默认参数?<br />
-<strong>放到头文件中就行</strong><br />
+<strong>放到头文件中就行</strong>。<br />
 C++ 规定，在给定的作用域中只能<strong>指定一次默认参数</strong><br />
 编译器使用的是<strong>当前作用域</strong>中的默认参数。站在编译器的角度看，它不管当前作用域中是函数声明还是函数定义，只要有默认参数就可以使用。<br />
 不过有一点需要注意，在给定的作用域中一个形参只能被赋予一次默认参数</p>
 <h3 id="c函数重载详解">C++函数重载详解</h3>
 <p>参数列表又叫<strong>参数签名</strong>，包括参数的类型、参数的个数和参数的顺序，只要有一个不同就叫做参数列表不同。<br />
 重载的结果是<strong>让一个函数名拥有了多种用途</strong>，使得命名更加方便，调用更加灵活<br />
-在使用重载函数时，同名函数的功能应当相同或相近，不要用同一函数名去实现完全不相干的功能，虽然程序也能运行，但可读性不好，使人觉得莫名其妙。</p>
-<p>重载决议<br />
-C++代码在编译时会根据参数列表对函数进行重命名，例如void Swap(int a, int b)会被重命名为_Swap_int_int，void Swap(float x, float y)会被重命名为_Swap_float_float。当发生函数调用时，编译器会根据传入的实参去逐个匹配，以选择对应的函数，如果匹配失败，编译器就会报错，这叫做<strong>重载决议（Overload Resolution）</strong>。<br />
+在使用重载函数时，同名函数的功能应当相同或相近</p>
+<p><strong>重载决议</strong><br />
+C++代码在编译时会根据参数列表对函数进行重命名，例如<code>void Swap(int a, int b)</code>会被重命名为<code>_Swap_float_float</code>。当发生函数调用时，编译器会根据传入的实参去逐个匹配，以选择对应的函数，如果匹配失败，编译器就会报错，这叫做<strong>重载决议（Overload Resolution）</strong>。<br />
 不同的编译器有不同的重命名方式，这里仅仅举例说明，实际情况可能并非如此。<br />
 从这个角度讲，<strong>函数重载仅仅是语法层面的</strong>，<strong>本质上它们还是不同的函数，占用不同的内存，入口地址也不一样</strong>。</p>
 <h3 id="c函数重载过程中的二义性和类型转换">C++函数重载过程中的二义性和类型转换</h3>
@@ -343,12 +342,12 @@ C++编译器会在赋值时将非0值转换为true，0值转换为false</p>
 <li>rvalue 译为 "read value"，指的是那些可以提供数据值的数据（不一定可以寻址，例如存储于寄存器中的数据）</li>
 </ul>
 <p>通常情况下，判断某个表达式是左值还是右值，最常用的有以下 2 种方法：<br />
+- 左值 能被放在 = 做值 称为左值，当左值的条件， <strong>这段内存空间可以被写</strong>。<br />
 * 可位于赋值号（=）左侧的表达式就是左值；反之，只能位于赋值号右侧的表达式就是右值<br />
 * 有名称的、可以获取到存储地址的表达式即为左值；反之则是右值。</p>
 <p>三目运算C语言返回变量的值,C++语言是返回变量本身<br />
 C语言中的三目运算符返回的是变量值，不能做为左值使用,C++可以做<strong>左值</strong><br />
-三目运算符可能返回的值中如果有一个是<strong>常量值</strong>，则不能作为左值使用<br />
-左值 能被放在 = 做值 称为左值，当左值的条件， <strong>这段内存空间可以被写</strong>。</p>
+三目运算符可能返回的值中如果有一个是<strong>常量值</strong>，则不能作为左值使用</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>(a &lt; b ? a : b ) = <span class="dv">30</span>;<span class="co">// c++做的手脚 *((a &lt; b ? &amp;a : &amp;b ))=30</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>(a &lt; b ? <span class="dv">1</span> : b ) 有常量了就不能做左值了</span></code></pre></div>
 <h3 id="struct类型的加强">struct类型的加强</h3>

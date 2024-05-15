@@ -3,13 +3,22 @@
 
 下载并安装的话windows去官网直接下载安装包安装，linux的话去官网查看如何安装。
 
+
+
 windows下安装完成后需要配置环境变量
 ```
 C:\ProgramData\anaconda3
 C:\ProgramData\anaconda3\Scripts
 ```
 
-之后用conda下载或更新包的时候可能会出现错误。
+虚拟环境安装的目录为：
+```
+C:\Users\sunxv\.conda
+```
+
+anaconda会非常吃硬盘空间，用过一段时间后，其中安装目录`C:\ProgramData\anaconda3`的大小为：10G作用，有三个虚拟环境大概也是10G左右
+
+
 ###  HttpError
 出现HttpError的时候可能是下载地址的channel有问题，在conda安装好之后，默认的镜像是官方的，由于官网的镜像在境外,访问太慢或者不能访问，为了能够加快访问的速度，这里选择了清华的的镜像。在命令行中运行(设置清华的镜像)
 ```

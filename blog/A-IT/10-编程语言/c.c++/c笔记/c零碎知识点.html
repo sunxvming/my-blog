@@ -257,7 +257,7 @@ jQuery(document).ready(function(){
  <!--if(toc)-->
 
 <p><code>__typeof__()</code>并且<code>__typeof()</code>是C语言的编译器专用扩展，因为标准C不包含这样的运算符。标准C要求编译器用双下划线前缀语言扩展（这也是为什么你不应该为自己的函数，变量等做这些）</p>
-<p>C++ 程序员偏向于使用 for(;;) 结构来表示一个无限循环。</p>
+<p>C++ 程序员偏向于使用 <code>for(;;) </code>结构来表示一个无限循环。</p>
 <h3 id="vs中查看string的中文字">vs中查看string的中文字</h3>
 <p>在获取包含中文变量的时候，查看std::string字符串变量，提示：字符串中的字符无效<br />
 变量后加,s8 即可</p>
@@ -269,7 +269,7 @@ jQuery(document).ready(function(){
 <img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/2cb8774d-20b1-4a5b-9db3-e24b80b4b498.png" /><br />
  </p>
 <h3 id="vs命令行编译">VS命令行编译</h3>
-<p>在tools下有个bat文件VsDevCmd.bat，运行后就可以把编译的命令设置到环境变量中，然后就可以在命令行中编译了<br />
+<p>在tools下有个bat文件VsDevCmd.bat，运行后就可以把编译的命令设置到<strong>环境变量中</strong>，然后就可以在命令行中编译了<br />
 <img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/277f4bd4-0fbc-46e5-96df-e3864abaa6f6.png" /></p>
 <h3 id="net-framework-符号">.net framework ^符号</h3>
 <p>在MSDN看到这个“^”符号，它究竟是什么意思？不是位运算符哈。</p>
@@ -281,7 +281,7 @@ jQuery(document).ready(function(){
 <p>这个是c++调用.net framework库里面的对象用到的符号，DirectoryInfo和String都是.net对象，你把^当作一种特殊的指针看就可以了。</p>
 <h3 id="linux-man">linux man</h3>
 <p>man fopen  在linux下就可以查看到c函数的用法</p>
-<p>c函数（尤其linux下）正确情况一般返回0 ，错误的话则返回错误码</p>
+<p>c函数（尤其linux下）正确情况一般返回 <strong>0</strong> ，错误的话则返回<strong>错误码</strong></p>
 <h3 id="dll-_declspec"><code>DLL _declspec</code></h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#include</span><span class="im">&lt;stdlib.h&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="pp">#include</span><span class="im">&lt;windows.h&gt;</span></span>
@@ -296,7 +296,7 @@ jQuery(document).ready(function(){
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>}</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>要编译成dll的文件，注入到其他程序中</span></code></pre></div>
 <h3 id="cgi">CGI</h3>
-<p>CGI：早期动态网页技术使用最多的，发展的比较成熟并且功能强大，但是效率比较低，编程比较困难。目前很少使用CGI做动态网页。CGI就是web服务器提供的一个可以执行服务器端程序接口的东西，可以用c c++ python 等各来写种语言<br />
+<p>CGI：早期动态网页技术使用最多的，发展的比较成熟并且功能强大，但是效率比较低，编程比较困难。目前很少使用CGI做动态网页。CGI就是<strong>web服务器</strong>提供的一个<strong>可以执行服务器端程序接口</strong>的东西，可以用<code>c c++ python</code> 等各来写种语言<br />
 一个网站的后门cgi程序，可以执行各种系统的命令，当然用php也可以这样做的</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>void main()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>{</span>
@@ -329,7 +329,7 @@ jQuery(document).ready(function(){
 <span id="cb4-29"><a href="#cb4-29" aria-hidden="true"></a>}</span></code></pre></div>
 <h3 id="外挂的思路">外挂的思路</h3>
 <p>植物大战僵尸外挂的思路<br />
-知道那些地址代表那些属性，然后修改之，（属性包括游戏运行暂停状态，分数，生命值……）这就是外挂可以通过使用Cheat Engine 来扫描比如阳光的地址，然后修改地址，最重要的是<strong>扫描出基址</strong>，和各个属性的偏移地址。然后根据这些地址写一个修改地址的dll，然后注入到游戏中</p>
+知道那些地址代表那些属性，然后修改之，（属性包括游戏运行暂停状态，分数，生命值……）这就是外挂可以通过使用<strong>Cheat Engine</strong> 来扫描比如阳光的地址，然后修改地址，最重要的是<strong>扫描出基址</strong>，和各个属性的偏移地址。然后根据这些地址写一个修改地址的dll，然后注入到游戏中</p>
 <h2 id="示例代码">示例代码</h2>
 <div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;stdio.h&quot;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;stdlib.h&quot;</span></span>
@@ -364,7 +364,7 @@ jQuery(document).ready(function(){
 <span id="cb5-31"><a href="#cb5-31" aria-hidden="true"></a>int main()</span>
 <span id="cb5-32"><a href="#cb5-32" aria-hidden="true"></a>{</span>
 <span id="cb5-33"><a href="#cb5-33" aria-hidden="true"></a>    char *p1 = <span class="st">&quot;111111&quot;</span>;</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true"></a>    char *p2 = malloc(<span class="dv">100</span>);   <span class="co">//sizeof(p2) = 4</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true"></a>    char *p2 = malloc(<span class="dv">100</span>);   <span class="co">//sizeof(p2) = 4   32位 = 4   64位 = 8</span></span>
 <span id="cb5-35"><a href="#cb5-35" aria-hidden="true"></a>    strcpy(p2, <span class="st">&quot;3333&quot;</span>);</span>
 <span id="cb5-36"><a href="#cb5-36" aria-hidden="true"></a>}</span>
 <span id="cb5-37"><a href="#cb5-37" aria-hidden="true"></a></span>
@@ -378,7 +378,7 @@ jQuery(document).ready(function(){
 <span id="cb5-45"><a href="#cb5-45" aria-hidden="true"></a></span>
 <span id="cb5-46"><a href="#cb5-46" aria-hidden="true"></a>    while (p = strstr(p, <span class="st">&quot;abcd&quot;</span>))</span>
 <span id="cb5-47"><a href="#cb5-47" aria-hidden="true"></a>    {</span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true"></a>        p = p + strlen(<span class="st">&quot;abcd&quot;</span>);</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true"></a>        p = p + strlen(<span class="st">&quot;abcd&quot;</span>);  <span class="co">// 未找到则返回 NULL。</span></span>
 <span id="cb5-49"><a href="#cb5-49" aria-hidden="true"></a>        ncout ++;</span>
 <span id="cb5-50"><a href="#cb5-50" aria-hidden="true"></a>        if (*p == <span class="ch">&#39;\0&#39;</span>)</span>
 <span id="cb5-51"><a href="#cb5-51" aria-hidden="true"></a>        {</span>
@@ -415,404 +415,399 @@ jQuery(document).ready(function(){
 <span id="cb5-82"><a href="#cb5-82" aria-hidden="true"></a>            ncout++;</span>
 <span id="cb5-83"><a href="#cb5-83" aria-hidden="true"></a>            p = p + strlen(substr);</span>
 <span id="cb5-84"><a href="#cb5-84" aria-hidden="true"></a>        }</span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true"></a></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true"></a>    } while (*p != <span class="ch">&#39;\0&#39;</span>);</span>
 <span id="cb5-86"><a href="#cb5-86" aria-hidden="true"></a></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true"></a>    } while (*p != <span class="ch">&#39;\0&#39;</span>);</span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true"></a></span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true"></a></span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true"></a>    *count  = ncout;</span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true"></a>    return rv;</span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true"></a>}</span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true"></a></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true"></a></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true"></a>    *count  = ncout;</span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true"></a>    return rv;</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true"></a>}</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true"></a></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true"></a></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true"></a>--------------字符串复制-------------------</span>
 <span id="cb5-94"><a href="#cb5-94" aria-hidden="true"></a></span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true"></a>--------------字符串复制-------------------</span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true"></a></span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true"></a></span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true"></a><span class="co">//因为后缀++的优先级,高于，*p;</span></span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true"></a>void copy_str3(char *from , char *to)</span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true"></a>{</span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true"></a>    int ret = <span class="dv">0</span>;</span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true"></a>    if (from ==NULL || to== NULL)</span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true"></a>    {</span>
-<span id="cb5-104"><a href="#cb5-104" aria-hidden="true"></a>        ret = -<span class="dv">1</span>;</span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true"></a>        printf(<span class="st">&quot;func copy_str2() err: %d, (from ==NULL || to== NULL)&quot;</span>, ret);</span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true"></a>        return ret;</span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true"></a>    }   </span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true"></a>    while(*from != <span class="ch">&#39;\0&#39;</span>)</span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true"></a>    {</span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true"></a><span class="co">//         *to = *from;</span></span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true"></a><span class="co">//         to ++;</span></span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true"></a><span class="co">//         from ++;</span></span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true"></a>        *to ++ = *from++;</span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true"></a>    }</span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true"></a>    *to = <span class="ch">&#39;\0&#39;</span>;</span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true"></a>    return ret;</span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true"></a>}</span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true"></a></span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true"></a></span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true"></a>void copy_str4(char *from , char *to)</span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true"></a>{</span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true"></a>    while((*to++ = *from++) != <span class="ch">&#39;\0&#39;</span>)</span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true"></a>    {</span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true"></a>        ;</span>
-<span id="cb5-125"><a href="#cb5-125" aria-hidden="true"></a>    }</span>
-<span id="cb5-126"><a href="#cb5-126" aria-hidden="true"></a>}</span>
-<span id="cb5-127"><a href="#cb5-127" aria-hidden="true"></a></span>
-<span id="cb5-128"><a href="#cb5-128" aria-hidden="true"></a></span>
-<span id="cb5-129"><a href="#cb5-129" aria-hidden="true"></a></span>
-<span id="cb5-130"><a href="#cb5-130" aria-hidden="true"></a>----------------去两边的空格，两头堵-----------------</span>
-<span id="cb5-131"><a href="#cb5-131" aria-hidden="true"></a><span class="co">//char *p = &quot;       abcd11111abcd2222abcdqqqqq       &quot;;</span></span>
-<span id="cb5-132"><a href="#cb5-132" aria-hidden="true"></a>void main41()</span>
-<span id="cb5-133"><a href="#cb5-133" aria-hidden="true"></a>{</span>
-<span id="cb5-134"><a href="#cb5-134" aria-hidden="true"></a>    int count = <span class="dv">0</span>; <span class="co">//去除空格后的长度</span></span>
-<span id="cb5-135"><a href="#cb5-135" aria-hidden="true"></a>    int i = <span class="dv">0</span>, j = <span class="dv">0</span>;</span>
-<span id="cb5-136"><a href="#cb5-136" aria-hidden="true"></a></span>
-<span id="cb5-137"><a href="#cb5-137" aria-hidden="true"></a>  </span>
-<span id="cb5-138"><a href="#cb5-138" aria-hidden="true"></a>    char *p = <span class="st">&quot;   abcd       &quot;</span>;</span>
-<span id="cb5-139"><a href="#cb5-139" aria-hidden="true"></a>    j = strlen(p) -<span class="dv">1</span>;</span>
-<span id="cb5-140"><a href="#cb5-140" aria-hidden="true"></a></span>
-<span id="cb5-141"><a href="#cb5-141" aria-hidden="true"></a></span>
-<span id="cb5-142"><a href="#cb5-142" aria-hidden="true"></a>    while (isspace(p[i]) &amp;&amp; p[i] != <span class="ch">&#39;\0&#39;</span>)</span>
-<span id="cb5-143"><a href="#cb5-143" aria-hidden="true"></a>    {</span>
-<span id="cb5-144"><a href="#cb5-144" aria-hidden="true"></a>        i++;</span>
-<span id="cb5-145"><a href="#cb5-145" aria-hidden="true"></a>    }</span>
-<span id="cb5-146"><a href="#cb5-146" aria-hidden="true"></a></span>
-<span id="cb5-147"><a href="#cb5-147" aria-hidden="true"></a></span>
-<span id="cb5-148"><a href="#cb5-148" aria-hidden="true"></a>    while (isspace(p[j]) &amp;&amp; j&gt;<span class="dv">0</span>)</span>
-<span id="cb5-149"><a href="#cb5-149" aria-hidden="true"></a>    {</span>
-<span id="cb5-150"><a href="#cb5-150" aria-hidden="true"></a>        j--;</span>
-<span id="cb5-151"><a href="#cb5-151" aria-hidden="true"></a>    }</span>
-<span id="cb5-152"><a href="#cb5-152" aria-hidden="true"></a>    count = j-i +<span class="dv">1</span>;</span>
-<span id="cb5-153"><a href="#cb5-153" aria-hidden="true"></a></span>
-<span id="cb5-154"><a href="#cb5-154" aria-hidden="true"></a></span>
-<span id="cb5-155"><a href="#cb5-155" aria-hidden="true"></a>    printf(<span class="st">&quot;count:%d&quot;</span>, count);</span>
-<span id="cb5-156"><a href="#cb5-156" aria-hidden="true"></a>    system(<span class="st">&quot;pause&quot;</span>);</span>
-<span id="cb5-157"><a href="#cb5-157" aria-hidden="true"></a>}</span>
-<span id="cb5-158"><a href="#cb5-158" aria-hidden="true"></a><span class="co">//封装成函数</span></span>
-<span id="cb5-159"><a href="#cb5-159" aria-hidden="true"></a>int trimSpace(char *mybuf) </span>
-<span id="cb5-160"><a href="#cb5-160" aria-hidden="true"></a>{</span>
-<span id="cb5-161"><a href="#cb5-161" aria-hidden="true"></a>    int count = <span class="dv">0</span>;</span>
-<span id="cb5-162"><a href="#cb5-162" aria-hidden="true"></a>    int i = <span class="dv">0</span>, j = <span class="dv">0</span>;</span>
-<span id="cb5-163"><a href="#cb5-163" aria-hidden="true"></a></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true"></a><span class="co">//因为后缀++的优先级,高于，*p;</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true"></a>void copy_str3(char *from , char *to)</span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true"></a>{</span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true"></a>    int ret = <span class="dv">0</span>;</span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true"></a>    if (from ==NULL || to== NULL)</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true"></a>    {</span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true"></a>        ret = -<span class="dv">1</span>;</span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true"></a>        printf(<span class="st">&quot;func copy_str2() err: %d, (from ==NULL || to== NULL)&quot;</span>, ret);</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true"></a>        return ret;</span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true"></a>    }   </span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true"></a>    while(*from != <span class="ch">&#39;\0&#39;</span>)</span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true"></a>    {</span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true"></a><span class="co">//         *to = *from;</span></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true"></a><span class="co">//         to ++;</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true"></a><span class="co">//         from ++;</span></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true"></a>        *to ++ = *from++;</span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true"></a>    }</span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true"></a>    *to = <span class="ch">&#39;\0&#39;</span>;</span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true"></a>    return ret;</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true"></a>}</span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true"></a></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true"></a></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true"></a>void copy_str4(char *from , char *to)</span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true"></a>{</span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true"></a>    while((*to++ = *from++) != <span class="ch">&#39;\0&#39;</span>)</span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true"></a>    {</span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true"></a>        ;</span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true"></a>    }</span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true"></a>}</span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true"></a></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true"></a></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true"></a></span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true"></a>----------------去两边的空格，两头堵-----------------</span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true"></a><span class="co">//char *p = &quot;       abcd11111abcd2222abcdqqqqq       &quot;;</span></span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true"></a>void main41()</span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true"></a>{</span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true"></a>    int count = <span class="dv">0</span>; <span class="co">//去除空格后的长度</span></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true"></a>    int i = <span class="dv">0</span>, j = <span class="dv">0</span>;</span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true"></a></span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true"></a>  </span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true"></a>    char *p = <span class="st">&quot;   abcd       &quot;</span>;</span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true"></a>    j = strlen(p) -<span class="dv">1</span>;</span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true"></a></span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true"></a></span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true"></a>    while (isspace(p[i]) &amp;&amp; p[i] != <span class="ch">&#39;\0&#39;</span>)</span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true"></a>    {</span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true"></a>        i++;</span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true"></a>    }</span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true"></a></span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true"></a></span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true"></a>    while (isspace(p[j]) &amp;&amp; j&gt;<span class="dv">0</span>)</span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true"></a>    {</span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true"></a>        j--;</span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true"></a>    }</span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true"></a>    count = j-i +<span class="dv">1</span>;</span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true"></a></span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true"></a></span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true"></a>    printf(<span class="st">&quot;count:%d&quot;</span>, count);</span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true"></a>    system(<span class="st">&quot;pause&quot;</span>);</span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true"></a>}</span>
+<span id="cb5-155"><a href="#cb5-155" aria-hidden="true"></a><span class="co">//封装成函数</span></span>
+<span id="cb5-156"><a href="#cb5-156" aria-hidden="true"></a>int trimSpace(char *mybuf) </span>
+<span id="cb5-157"><a href="#cb5-157" aria-hidden="true"></a>{</span>
+<span id="cb5-158"><a href="#cb5-158" aria-hidden="true"></a>    int count = <span class="dv">0</span>;</span>
+<span id="cb5-159"><a href="#cb5-159" aria-hidden="true"></a>    int i = <span class="dv">0</span>, j = <span class="dv">0</span>;</span>
+<span id="cb5-160"><a href="#cb5-160" aria-hidden="true"></a></span>
+<span id="cb5-161"><a href="#cb5-161" aria-hidden="true"></a></span>
+<span id="cb5-162"><a href="#cb5-162" aria-hidden="true"></a>    char *p = mybuf;</span>
+<span id="cb5-163"><a href="#cb5-163" aria-hidden="true"></a>    j = strlen(p) -<span class="dv">1</span>;</span>
 <span id="cb5-164"><a href="#cb5-164" aria-hidden="true"></a></span>
-<span id="cb5-165"><a href="#cb5-165" aria-hidden="true"></a>    char *p = mybuf;</span>
-<span id="cb5-166"><a href="#cb5-166" aria-hidden="true"></a>    j = strlen(p) -<span class="dv">1</span>;</span>
-<span id="cb5-167"><a href="#cb5-167" aria-hidden="true"></a></span>
-<span id="cb5-168"><a href="#cb5-168" aria-hidden="true"></a></span>
-<span id="cb5-169"><a href="#cb5-169" aria-hidden="true"></a>    while (isspace(p[i]) &amp;&amp; p[i] != <span class="ch">&#39;\0&#39;</span>)</span>
-<span id="cb5-170"><a href="#cb5-170" aria-hidden="true"></a>    {</span>
-<span id="cb5-171"><a href="#cb5-171" aria-hidden="true"></a>        i++;</span>
-<span id="cb5-172"><a href="#cb5-172" aria-hidden="true"></a>    }</span>
-<span id="cb5-173"><a href="#cb5-173" aria-hidden="true"></a></span>
-<span id="cb5-174"><a href="#cb5-174" aria-hidden="true"></a></span>
-<span id="cb5-175"><a href="#cb5-175" aria-hidden="true"></a>    while (isspace(p[j]) &amp;&amp; j&gt;<span class="dv">0</span>)</span>
-<span id="cb5-176"><a href="#cb5-176" aria-hidden="true"></a>    {</span>
-<span id="cb5-177"><a href="#cb5-177" aria-hidden="true"></a>        j--;</span>
-<span id="cb5-178"><a href="#cb5-178" aria-hidden="true"></a>    }</span>
-<span id="cb5-179"><a href="#cb5-179" aria-hidden="true"></a>    count = j-i +<span class="dv">1</span>;</span>
-<span id="cb5-180"><a href="#cb5-180" aria-hidden="true"></a></span>
-<span id="cb5-181"><a href="#cb5-181" aria-hidden="true"></a></span>
-<span id="cb5-182"><a href="#cb5-182" aria-hidden="true"></a>    printf(<span class="st">&quot;count:%d&quot;</span>, count);</span>
-<span id="cb5-183"><a href="#cb5-183" aria-hidden="true"></a>    <span class="co">//void *  __cdecl memcpy(void *, const void *, size_t);</span></span>
-<span id="cb5-184"><a href="#cb5-184" aria-hidden="true"></a>    memcpy(mybuf, mybuf+i, count);</span>
-<span id="cb5-185"><a href="#cb5-185" aria-hidden="true"></a>    mybuf[count] = <span class="ch">&#39;\0&#39;</span>;</span>
-<span id="cb5-186"><a href="#cb5-186" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
-<span id="cb5-187"><a href="#cb5-187" aria-hidden="true"></a>}</span>
-<span id="cb5-188"><a href="#cb5-188" aria-hidden="true"></a><span class="co">//改进版</span></span>
-<span id="cb5-189"><a href="#cb5-189" aria-hidden="true"></a><span class="co">//一般情况下不要修改输入的内存块的值，一般有输入参数和输出参数</span></span>
-<span id="cb5-190"><a href="#cb5-190" aria-hidden="true"></a>int trimSpace(char *mybuf, char *outbuf)</span>
-<span id="cb5-191"><a href="#cb5-191" aria-hidden="true"></a>{</span>
-<span id="cb5-192"><a href="#cb5-192" aria-hidden="true"></a>    int count = <span class="dv">0</span>;</span>
-<span id="cb5-193"><a href="#cb5-193" aria-hidden="true"></a>    int i = <span class="dv">0</span>, j = <span class="dv">0</span>;</span>
-<span id="cb5-194"><a href="#cb5-194" aria-hidden="true"></a></span>
+<span id="cb5-165"><a href="#cb5-165" aria-hidden="true"></a></span>
+<span id="cb5-166"><a href="#cb5-166" aria-hidden="true"></a>    while (isspace(p[i]) &amp;&amp; p[i] != <span class="ch">&#39;\0&#39;</span>)</span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true"></a>    {</span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true"></a>        i++;</span>
+<span id="cb5-169"><a href="#cb5-169" aria-hidden="true"></a>    }</span>
+<span id="cb5-170"><a href="#cb5-170" aria-hidden="true"></a></span>
+<span id="cb5-171"><a href="#cb5-171" aria-hidden="true"></a></span>
+<span id="cb5-172"><a href="#cb5-172" aria-hidden="true"></a>    while (isspace(p[j]) &amp;&amp; j&gt;<span class="dv">0</span>)</span>
+<span id="cb5-173"><a href="#cb5-173" aria-hidden="true"></a>    {</span>
+<span id="cb5-174"><a href="#cb5-174" aria-hidden="true"></a>        j--;</span>
+<span id="cb5-175"><a href="#cb5-175" aria-hidden="true"></a>    }</span>
+<span id="cb5-176"><a href="#cb5-176" aria-hidden="true"></a>    count = j-i +<span class="dv">1</span>;</span>
+<span id="cb5-177"><a href="#cb5-177" aria-hidden="true"></a></span>
+<span id="cb5-178"><a href="#cb5-178" aria-hidden="true"></a></span>
+<span id="cb5-179"><a href="#cb5-179" aria-hidden="true"></a>    printf(<span class="st">&quot;count:%d&quot;</span>, count);</span>
+<span id="cb5-180"><a href="#cb5-180" aria-hidden="true"></a>    <span class="co">//void *  __cdecl memcpy(void *, const void *, size_t);</span></span>
+<span id="cb5-181"><a href="#cb5-181" aria-hidden="true"></a>    memcpy(mybuf, mybuf+i, count);</span>
+<span id="cb5-182"><a href="#cb5-182" aria-hidden="true"></a>    mybuf[count] = <span class="ch">&#39;\0&#39;</span>;</span>
+<span id="cb5-183"><a href="#cb5-183" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb5-184"><a href="#cb5-184" aria-hidden="true"></a>}</span>
+<span id="cb5-185"><a href="#cb5-185" aria-hidden="true"></a><span class="co">//改进版</span></span>
+<span id="cb5-186"><a href="#cb5-186" aria-hidden="true"></a><span class="co">//一般情况下不要修改输入的内存块的值，一般有输入参数和输出参数</span></span>
+<span id="cb5-187"><a href="#cb5-187" aria-hidden="true"></a>int trimSpace(char *mybuf, char *outbuf)</span>
+<span id="cb5-188"><a href="#cb5-188" aria-hidden="true"></a>{</span>
+<span id="cb5-189"><a href="#cb5-189" aria-hidden="true"></a>    int count = <span class="dv">0</span>;</span>
+<span id="cb5-190"><a href="#cb5-190" aria-hidden="true"></a>    int i = <span class="dv">0</span>, j = <span class="dv">0</span>;</span>
+<span id="cb5-191"><a href="#cb5-191" aria-hidden="true"></a></span>
+<span id="cb5-192"><a href="#cb5-192" aria-hidden="true"></a></span>
+<span id="cb5-193"><a href="#cb5-193" aria-hidden="true"></a>    char *p = mybuf;   <span class="co">//付给一个值，以免这个指针找不到了，比如 ++操作后</span></span>
+<span id="cb5-194"><a href="#cb5-194" aria-hidden="true"></a>    j = strlen(p) -<span class="dv">1</span>;</span>
 <span id="cb5-195"><a href="#cb5-195" aria-hidden="true"></a></span>
-<span id="cb5-196"><a href="#cb5-196" aria-hidden="true"></a>    char *p = mybuf;   <span class="co">//付给一个值，以免这个指针找不到了，比如 ++操作后</span></span>
-<span id="cb5-197"><a href="#cb5-197" aria-hidden="true"></a>    j = strlen(p) -<span class="dv">1</span>;</span>
-<span id="cb5-198"><a href="#cb5-198" aria-hidden="true"></a></span>
-<span id="cb5-199"><a href="#cb5-199" aria-hidden="true"></a></span>
-<span id="cb5-200"><a href="#cb5-200" aria-hidden="true"></a>    while (isspace(p[i]) &amp;&amp; p[i] != <span class="ch">&#39;\0&#39;</span>)</span>
-<span id="cb5-201"><a href="#cb5-201" aria-hidden="true"></a>    {</span>
-<span id="cb5-202"><a href="#cb5-202" aria-hidden="true"></a>        i++;</span>
-<span id="cb5-203"><a href="#cb5-203" aria-hidden="true"></a>    }</span>
-<span id="cb5-204"><a href="#cb5-204" aria-hidden="true"></a></span>
-<span id="cb5-205"><a href="#cb5-205" aria-hidden="true"></a></span>
-<span id="cb5-206"><a href="#cb5-206" aria-hidden="true"></a>    while (isspace(p[j]) &amp;&amp; j&gt;<span class="dv">0</span>)</span>
-<span id="cb5-207"><a href="#cb5-207" aria-hidden="true"></a>    {</span>
-<span id="cb5-208"><a href="#cb5-208" aria-hidden="true"></a>        j--;</span>
-<span id="cb5-209"><a href="#cb5-209" aria-hidden="true"></a>    }</span>
-<span id="cb5-210"><a href="#cb5-210" aria-hidden="true"></a>    count = j-i +<span class="dv">1</span>;</span>
-<span id="cb5-211"><a href="#cb5-211" aria-hidden="true"></a></span>
-<span id="cb5-212"><a href="#cb5-212" aria-hidden="true"></a></span>
-<span id="cb5-213"><a href="#cb5-213" aria-hidden="true"></a>    printf(<span class="st">&quot;count:%d&quot;</span>, count);</span>
-<span id="cb5-214"><a href="#cb5-214" aria-hidden="true"></a>    <span class="co">//void *  __cdecl memcpy(void *, const void *, size_t);</span></span>
-<span id="cb5-215"><a href="#cb5-215" aria-hidden="true"></a>    memcpy(outbuf, mybuf+i, count);</span>
-<span id="cb5-216"><a href="#cb5-216" aria-hidden="true"></a>    outbuf[count] = <span class="ch">&#39;\0&#39;</span>;</span>
-<span id="cb5-217"><a href="#cb5-217" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
-<span id="cb5-218"><a href="#cb5-218" aria-hidden="true"></a>}</span>
-<span id="cb5-219"><a href="#cb5-219" aria-hidden="true"></a></span>
-<span id="cb5-220"><a href="#cb5-220" aria-hidden="true"></a></span>
-<span id="cb5-221"><a href="#cb5-221" aria-hidden="true"></a>-------------字符串反转----------------</span>
-<span id="cb5-222"><a href="#cb5-222" aria-hidden="true"></a>void main()</span>
-<span id="cb5-223"><a href="#cb5-223" aria-hidden="true"></a>{</span>
-<span id="cb5-224"><a href="#cb5-224" aria-hidden="true"></a>    <span class="co">//char *str = &quot;abcdefg&quot;;   因为他是在全局区，没法改变的</span></span>
-<span id="cb5-225"><a href="#cb5-225" aria-hidden="true"></a>    char str[] = <span class="st">&quot;abcdefg&quot;</span>;   <span class="co">//在栈区的</span></span>
-<span id="cb5-226"><a href="#cb5-226" aria-hidden="true"></a>    int len = strlen(str);</span>
-<span id="cb5-227"><a href="#cb5-227" aria-hidden="true"></a>    char *p1 = str;</span>
-<span id="cb5-228"><a href="#cb5-228" aria-hidden="true"></a>    char *p2 = str + len -<span class="dv">1</span>;</span>
-<span id="cb5-229"><a href="#cb5-229" aria-hidden="true"></a></span>
-<span id="cb5-230"><a href="#cb5-230" aria-hidden="true"></a></span>
-<span id="cb5-231"><a href="#cb5-231" aria-hidden="true"></a>    while(p1 &lt; p2)</span>
-<span id="cb5-232"><a href="#cb5-232" aria-hidden="true"></a>    {</span>
-<span id="cb5-233"><a href="#cb5-233" aria-hidden="true"></a>        char c = *p1;</span>
-<span id="cb5-234"><a href="#cb5-234" aria-hidden="true"></a>        *p1 = *p2;</span>
-<span id="cb5-235"><a href="#cb5-235" aria-hidden="true"></a>        *p2 = c;</span>
-<span id="cb5-236"><a href="#cb5-236" aria-hidden="true"></a>        p1 ++;</span>
-<span id="cb5-237"><a href="#cb5-237" aria-hidden="true"></a>        p2 --;</span>
-<span id="cb5-238"><a href="#cb5-238" aria-hidden="true"></a>    }</span>
-<span id="cb5-239"><a href="#cb5-239" aria-hidden="true"></a>    printf(<span class="st">&quot;str:%s</span><span class="sc">\n</span><span class="st">&quot;</span>, str);</span>
-<span id="cb5-240"><a href="#cb5-240" aria-hidden="true"></a>    system(<span class="st">&quot;pause&quot;</span>);</span>
-<span id="cb5-241"><a href="#cb5-241" aria-hidden="true"></a>}</span>
-<span id="cb5-242"><a href="#cb5-242" aria-hidden="true"></a></span>
-<span id="cb5-243"><a href="#cb5-243" aria-hidden="true"></a></span>
-<span id="cb5-244"><a href="#cb5-244" aria-hidden="true"></a>----------------------配置文件查找------------------------------</span>
-<span id="cb5-245"><a href="#cb5-245" aria-hidden="true"></a>int getKeyByValude(char *keyvaluebuf <span class="co">/*in*/</span>,  char *keybuf  <span class="co">/*in*/</span>,</span>
-<span id="cb5-246"><a href="#cb5-246" aria-hidden="true"></a>    char *valuebuf <span class="co">/*in out*/</span>, int * valuebuflen <span class="co">/*in out*/</span>)</span>
-<span id="cb5-247"><a href="#cb5-247" aria-hidden="true"></a>{</span>
-<span id="cb5-248"><a href="#cb5-248" aria-hidden="true"></a>    <span class="co">// 检查参数合法性</span></span>
-<span id="cb5-249"><a href="#cb5-249" aria-hidden="true"></a>    int rv = <span class="dv">0</span>;</span>
-<span id="cb5-250"><a href="#cb5-250" aria-hidden="true"></a>    char tmp[<span class="dv">2048</span>*<span class="dv">10</span>];</span>
-<span id="cb5-251"><a href="#cb5-251" aria-hidden="true"></a>    char *p = NULL;</span>
-<span id="cb5-252"><a href="#cb5-252" aria-hidden="true"></a>    <span class="co">//1. 在大字符串里面查找有么有关键字</span></span>
-<span id="cb5-253"><a href="#cb5-253" aria-hidden="true"></a>    p = strstr(keyvaluebuf, keybuf);</span>
-<span id="cb5-254"><a href="#cb5-254" aria-hidden="true"></a>    if (p==NULL)</span>
-<span id="cb5-255"><a href="#cb5-255" aria-hidden="true"></a>    {</span>
-<span id="cb5-256"><a href="#cb5-256" aria-hidden="true"></a>        return <span class="dv">0</span>;</span>
-<span id="cb5-257"><a href="#cb5-257" aria-hidden="true"></a>    }</span>
-<span id="cb5-258"><a href="#cb5-258" aria-hidden="true"></a>    p = p + strlen(keybuf);</span>
-<span id="cb5-259"><a href="#cb5-259" aria-hidden="true"></a></span>
-<span id="cb5-260"><a href="#cb5-260" aria-hidden="true"></a></span>
-<span id="cb5-261"><a href="#cb5-261" aria-hidden="true"></a>    <span class="co">//2. 再查找=号</span></span>
-<span id="cb5-262"><a href="#cb5-262" aria-hidden="true"></a>    p = strstr(keyvaluebuf, <span class="st">&quot;=&quot;</span>);</span>
-<span id="cb5-263"><a href="#cb5-263" aria-hidden="true"></a>    if (p==NULL)</span>
-<span id="cb5-264"><a href="#cb5-264" aria-hidden="true"></a>    {</span>
-<span id="cb5-265"><a href="#cb5-265" aria-hidden="true"></a>        return <span class="dv">0</span>;</span>
-<span id="cb5-266"><a href="#cb5-266" aria-hidden="true"></a>    }</span>
-<span id="cb5-267"><a href="#cb5-267" aria-hidden="true"></a>    p = p + <span class="dv">1</span>;</span>
-<span id="cb5-268"><a href="#cb5-268" aria-hidden="true"></a>    <span class="co">//3 去掉左右空格</span></span>
-<span id="cb5-269"><a href="#cb5-269" aria-hidden="true"></a>    rv = trimSpace_ok2(p, tmp);</span>
-<span id="cb5-270"><a href="#cb5-270" aria-hidden="true"></a>    if (rv != <span class="dv">0</span>)</span>
-<span id="cb5-271"><a href="#cb5-271" aria-hidden="true"></a>    {</span>
-<span id="cb5-272"><a href="#cb5-272" aria-hidden="true"></a>        printf(<span class="st">&quot;func trimSpace_ok2() err:%d</span><span class="sc">\n</span><span class="st">&quot;</span>, rv);</span>
-<span id="cb5-273"><a href="#cb5-273" aria-hidden="true"></a>        return rv;</span>
-<span id="cb5-274"><a href="#cb5-274" aria-hidden="true"></a>    }</span>
-<span id="cb5-275"><a href="#cb5-275" aria-hidden="true"></a></span>
-<span id="cb5-276"><a href="#cb5-276" aria-hidden="true"></a></span>
-<span id="cb5-277"><a href="#cb5-277" aria-hidden="true"></a>    strcpy(valuebuf, tmp);</span>
-<span id="cb5-278"><a href="#cb5-278" aria-hidden="true"></a>    *valuebuflen = strlen(tmp);</span>
-<span id="cb5-279"><a href="#cb5-279" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
-<span id="cb5-280"><a href="#cb5-280" aria-hidden="true"></a>}</span>
-<span id="cb5-281"><a href="#cb5-281" aria-hidden="true"></a></span>
-<span id="cb5-282"><a href="#cb5-282" aria-hidden="true"></a></span>
-<span id="cb5-283"><a href="#cb5-283" aria-hidden="true"></a>void main()</span>
-<span id="cb5-284"><a href="#cb5-284" aria-hidden="true"></a>{</span>
-<span id="cb5-285"><a href="#cb5-285" aria-hidden="true"></a>    int rv = <span class="dv">0</span>;</span>
-<span id="cb5-286"><a href="#cb5-286" aria-hidden="true"></a>    char keyvaluebuf[] = <span class="st">&quot;ORACLE_name  =  itcast     &quot;</span>;</span>
-<span id="cb5-287"><a href="#cb5-287" aria-hidden="true"></a></span>
-<span id="cb5-288"><a href="#cb5-288" aria-hidden="true"></a></span>
-<span id="cb5-289"><a href="#cb5-289" aria-hidden="true"></a>    char *keybuf = <span class="st">&quot;ORACLE_name&quot;</span>;</span>
-<span id="cb5-290"><a href="#cb5-290" aria-hidden="true"></a>    char valuebuf[<span class="dv">1024</span>];</span>
-<span id="cb5-291"><a href="#cb5-291" aria-hidden="true"></a>    int valuebuflen = <span class="dv">0</span>;</span>
-<span id="cb5-292"><a href="#cb5-292" aria-hidden="true"></a></span>
-<span id="cb5-293"><a href="#cb5-293" aria-hidden="true"></a></span>
-<span id="cb5-294"><a href="#cb5-294" aria-hidden="true"></a>    <span class="co">//调用函数，要先判断是否出错</span></span>
-<span id="cb5-295"><a href="#cb5-295" aria-hidden="true"></a>    rv = getKeyByValude(keyvaluebuf, keybuf, valuebuf, &amp;valuebuflen);</span>
-<span id="cb5-296"><a href="#cb5-296" aria-hidden="true"></a>    if (rv != <span class="dv">0</span>)</span>
-<span id="cb5-297"><a href="#cb5-297" aria-hidden="true"></a>    {</span>
-<span id="cb5-298"><a href="#cb5-298" aria-hidden="true"></a>        printf(<span class="st">&quot;func getKeyByValude() err:%d&quot;</span>, rv);</span>
-<span id="cb5-299"><a href="#cb5-299" aria-hidden="true"></a>        return ;</span>
-<span id="cb5-300"><a href="#cb5-300" aria-hidden="true"></a>    }</span>
-<span id="cb5-301"><a href="#cb5-301" aria-hidden="true"></a>    printf(<span class="st">&quot;valuebuf:%s</span><span class="sc">\n</span><span class="st">&quot;</span>, valuebuf);</span>
-<span id="cb5-302"><a href="#cb5-302" aria-hidden="true"></a>    printf(<span class="st">&quot;valuebuflen:%d</span><span class="sc">\n</span><span class="st">&quot;</span>, valuebuflen);</span>
-<span id="cb5-303"><a href="#cb5-303" aria-hidden="true"></a></span>
+<span id="cb5-196"><a href="#cb5-196" aria-hidden="true"></a></span>
+<span id="cb5-197"><a href="#cb5-197" aria-hidden="true"></a>    while (isspace(p[i]) &amp;&amp; p[i] != <span class="ch">&#39;\0&#39;</span>)</span>
+<span id="cb5-198"><a href="#cb5-198" aria-hidden="true"></a>    {</span>
+<span id="cb5-199"><a href="#cb5-199" aria-hidden="true"></a>        i++;</span>
+<span id="cb5-200"><a href="#cb5-200" aria-hidden="true"></a>    }</span>
+<span id="cb5-201"><a href="#cb5-201" aria-hidden="true"></a></span>
+<span id="cb5-202"><a href="#cb5-202" aria-hidden="true"></a></span>
+<span id="cb5-203"><a href="#cb5-203" aria-hidden="true"></a>    while (isspace(p[j]) &amp;&amp; j&gt;<span class="dv">0</span>)</span>
+<span id="cb5-204"><a href="#cb5-204" aria-hidden="true"></a>    {</span>
+<span id="cb5-205"><a href="#cb5-205" aria-hidden="true"></a>        j--;</span>
+<span id="cb5-206"><a href="#cb5-206" aria-hidden="true"></a>    }</span>
+<span id="cb5-207"><a href="#cb5-207" aria-hidden="true"></a>    count = j-i +<span class="dv">1</span>;</span>
+<span id="cb5-208"><a href="#cb5-208" aria-hidden="true"></a></span>
+<span id="cb5-209"><a href="#cb5-209" aria-hidden="true"></a></span>
+<span id="cb5-210"><a href="#cb5-210" aria-hidden="true"></a>    printf(<span class="st">&quot;count:%d&quot;</span>, count);</span>
+<span id="cb5-211"><a href="#cb5-211" aria-hidden="true"></a>    <span class="co">//void *  __cdecl memcpy(void *, const void *, size_t);</span></span>
+<span id="cb5-212"><a href="#cb5-212" aria-hidden="true"></a>    memcpy(outbuf, mybuf+i, count);</span>
+<span id="cb5-213"><a href="#cb5-213" aria-hidden="true"></a>    outbuf[count] = <span class="ch">&#39;\0&#39;</span>;</span>
+<span id="cb5-214"><a href="#cb5-214" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb5-215"><a href="#cb5-215" aria-hidden="true"></a>}</span>
+<span id="cb5-216"><a href="#cb5-216" aria-hidden="true"></a></span>
+<span id="cb5-217"><a href="#cb5-217" aria-hidden="true"></a></span>
+<span id="cb5-218"><a href="#cb5-218" aria-hidden="true"></a>-------------字符串反转----------------</span>
+<span id="cb5-219"><a href="#cb5-219" aria-hidden="true"></a>void main()</span>
+<span id="cb5-220"><a href="#cb5-220" aria-hidden="true"></a>{</span>
+<span id="cb5-221"><a href="#cb5-221" aria-hidden="true"></a>    <span class="co">//char *str = &quot;abcdefg&quot;;   因为他是在全局区，没法改变的</span></span>
+<span id="cb5-222"><a href="#cb5-222" aria-hidden="true"></a>    char str[] = <span class="st">&quot;abcdefg&quot;</span>;   <span class="co">//在栈区的可以修改</span></span>
+<span id="cb5-223"><a href="#cb5-223" aria-hidden="true"></a>    int len = strlen(str);</span>
+<span id="cb5-224"><a href="#cb5-224" aria-hidden="true"></a>    char *p1 = str;</span>
+<span id="cb5-225"><a href="#cb5-225" aria-hidden="true"></a>    char *p2 = str + len -<span class="dv">1</span>;</span>
+<span id="cb5-226"><a href="#cb5-226" aria-hidden="true"></a></span>
+<span id="cb5-227"><a href="#cb5-227" aria-hidden="true"></a></span>
+<span id="cb5-228"><a href="#cb5-228" aria-hidden="true"></a>    while(p1 &lt; p2)</span>
+<span id="cb5-229"><a href="#cb5-229" aria-hidden="true"></a>    {</span>
+<span id="cb5-230"><a href="#cb5-230" aria-hidden="true"></a>        char c = *p1;</span>
+<span id="cb5-231"><a href="#cb5-231" aria-hidden="true"></a>        *p1 = *p2;</span>
+<span id="cb5-232"><a href="#cb5-232" aria-hidden="true"></a>        *p2 = c;</span>
+<span id="cb5-233"><a href="#cb5-233" aria-hidden="true"></a>        p1 ++;</span>
+<span id="cb5-234"><a href="#cb5-234" aria-hidden="true"></a>        p2 --;</span>
+<span id="cb5-235"><a href="#cb5-235" aria-hidden="true"></a>    }</span>
+<span id="cb5-236"><a href="#cb5-236" aria-hidden="true"></a>    printf(<span class="st">&quot;str:%s</span><span class="sc">\n</span><span class="st">&quot;</span>, str);</span>
+<span id="cb5-237"><a href="#cb5-237" aria-hidden="true"></a>    system(<span class="st">&quot;pause&quot;</span>);</span>
+<span id="cb5-238"><a href="#cb5-238" aria-hidden="true"></a>}</span>
+<span id="cb5-239"><a href="#cb5-239" aria-hidden="true"></a></span>
+<span id="cb5-240"><a href="#cb5-240" aria-hidden="true"></a></span>
+<span id="cb5-241"><a href="#cb5-241" aria-hidden="true"></a>----------------------配置文件查找------------------------------</span>
+<span id="cb5-242"><a href="#cb5-242" aria-hidden="true"></a>int getKeyByValude(char *keyvaluebuf <span class="co">/*in*/</span>,  char *keybuf  <span class="co">/*in*/</span>,</span>
+<span id="cb5-243"><a href="#cb5-243" aria-hidden="true"></a>    char *valuebuf <span class="co">/*in out*/</span>, int * valuebuflen <span class="co">/*in out*/</span>)</span>
+<span id="cb5-244"><a href="#cb5-244" aria-hidden="true"></a>{</span>
+<span id="cb5-245"><a href="#cb5-245" aria-hidden="true"></a>    <span class="co">// 检查参数合法性</span></span>
+<span id="cb5-246"><a href="#cb5-246" aria-hidden="true"></a>    int rv = <span class="dv">0</span>;</span>
+<span id="cb5-247"><a href="#cb5-247" aria-hidden="true"></a>    char tmp[<span class="dv">2048</span>*<span class="dv">10</span>];</span>
+<span id="cb5-248"><a href="#cb5-248" aria-hidden="true"></a>    char *p = NULL;</span>
+<span id="cb5-249"><a href="#cb5-249" aria-hidden="true"></a>    <span class="co">//1. 在大字符串里面查找有么有关键字</span></span>
+<span id="cb5-250"><a href="#cb5-250" aria-hidden="true"></a>    p = strstr(keyvaluebuf, keybuf);</span>
+<span id="cb5-251"><a href="#cb5-251" aria-hidden="true"></a>    if (p==NULL)</span>
+<span id="cb5-252"><a href="#cb5-252" aria-hidden="true"></a>    {</span>
+<span id="cb5-253"><a href="#cb5-253" aria-hidden="true"></a>        return <span class="dv">0</span>;</span>
+<span id="cb5-254"><a href="#cb5-254" aria-hidden="true"></a>    }</span>
+<span id="cb5-255"><a href="#cb5-255" aria-hidden="true"></a>    p = p + strlen(keybuf);</span>
+<span id="cb5-256"><a href="#cb5-256" aria-hidden="true"></a></span>
+<span id="cb5-257"><a href="#cb5-257" aria-hidden="true"></a></span>
+<span id="cb5-258"><a href="#cb5-258" aria-hidden="true"></a>    <span class="co">//2. 再查找=号</span></span>
+<span id="cb5-259"><a href="#cb5-259" aria-hidden="true"></a>    p = strstr(keyvaluebuf, <span class="st">&quot;=&quot;</span>);</span>
+<span id="cb5-260"><a href="#cb5-260" aria-hidden="true"></a>    if (p==NULL)</span>
+<span id="cb5-261"><a href="#cb5-261" aria-hidden="true"></a>    {</span>
+<span id="cb5-262"><a href="#cb5-262" aria-hidden="true"></a>        return <span class="dv">0</span>;</span>
+<span id="cb5-263"><a href="#cb5-263" aria-hidden="true"></a>    }</span>
+<span id="cb5-264"><a href="#cb5-264" aria-hidden="true"></a>    p = p + <span class="dv">1</span>;</span>
+<span id="cb5-265"><a href="#cb5-265" aria-hidden="true"></a>    <span class="co">//3 去掉左右空格</span></span>
+<span id="cb5-266"><a href="#cb5-266" aria-hidden="true"></a>    rv = trimSpace_ok2(p, tmp);</span>
+<span id="cb5-267"><a href="#cb5-267" aria-hidden="true"></a>    if (rv != <span class="dv">0</span>)</span>
+<span id="cb5-268"><a href="#cb5-268" aria-hidden="true"></a>    {</span>
+<span id="cb5-269"><a href="#cb5-269" aria-hidden="true"></a>        printf(<span class="st">&quot;func trimSpace_ok2() err:%d</span><span class="sc">\n</span><span class="st">&quot;</span>, rv);</span>
+<span id="cb5-270"><a href="#cb5-270" aria-hidden="true"></a>        return rv;</span>
+<span id="cb5-271"><a href="#cb5-271" aria-hidden="true"></a>    }</span>
+<span id="cb5-272"><a href="#cb5-272" aria-hidden="true"></a></span>
+<span id="cb5-273"><a href="#cb5-273" aria-hidden="true"></a></span>
+<span id="cb5-274"><a href="#cb5-274" aria-hidden="true"></a>    strcpy(valuebuf, tmp);</span>
+<span id="cb5-275"><a href="#cb5-275" aria-hidden="true"></a>    *valuebuflen = strlen(tmp);</span>
+<span id="cb5-276"><a href="#cb5-276" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb5-277"><a href="#cb5-277" aria-hidden="true"></a>}</span>
+<span id="cb5-278"><a href="#cb5-278" aria-hidden="true"></a></span>
+<span id="cb5-279"><a href="#cb5-279" aria-hidden="true"></a></span>
+<span id="cb5-280"><a href="#cb5-280" aria-hidden="true"></a>void main()</span>
+<span id="cb5-281"><a href="#cb5-281" aria-hidden="true"></a>{</span>
+<span id="cb5-282"><a href="#cb5-282" aria-hidden="true"></a>    int rv = <span class="dv">0</span>;</span>
+<span id="cb5-283"><a href="#cb5-283" aria-hidden="true"></a>    char keyvaluebuf[] = <span class="st">&quot;ORACLE_name  =  itcast     &quot;</span>;</span>
+<span id="cb5-284"><a href="#cb5-284" aria-hidden="true"></a></span>
+<span id="cb5-285"><a href="#cb5-285" aria-hidden="true"></a></span>
+<span id="cb5-286"><a href="#cb5-286" aria-hidden="true"></a>    char *keybuf = <span class="st">&quot;ORACLE_name&quot;</span>;</span>
+<span id="cb5-287"><a href="#cb5-287" aria-hidden="true"></a>    char valuebuf[<span class="dv">1024</span>];</span>
+<span id="cb5-288"><a href="#cb5-288" aria-hidden="true"></a>    int valuebuflen = <span class="dv">0</span>;</span>
+<span id="cb5-289"><a href="#cb5-289" aria-hidden="true"></a></span>
+<span id="cb5-290"><a href="#cb5-290" aria-hidden="true"></a></span>
+<span id="cb5-291"><a href="#cb5-291" aria-hidden="true"></a>    <span class="co">//调用函数，要先判断是否出错</span></span>
+<span id="cb5-292"><a href="#cb5-292" aria-hidden="true"></a>    rv = getKeyByValude(keyvaluebuf, keybuf, valuebuf, &amp;valuebuflen);</span>
+<span id="cb5-293"><a href="#cb5-293" aria-hidden="true"></a>    if (rv != <span class="dv">0</span>)</span>
+<span id="cb5-294"><a href="#cb5-294" aria-hidden="true"></a>    {</span>
+<span id="cb5-295"><a href="#cb5-295" aria-hidden="true"></a>        printf(<span class="st">&quot;func getKeyByValude() err:%d&quot;</span>, rv);</span>
+<span id="cb5-296"><a href="#cb5-296" aria-hidden="true"></a>        return ;</span>
+<span id="cb5-297"><a href="#cb5-297" aria-hidden="true"></a>    }</span>
+<span id="cb5-298"><a href="#cb5-298" aria-hidden="true"></a>    printf(<span class="st">&quot;valuebuf:%s</span><span class="sc">\n</span><span class="st">&quot;</span>, valuebuf);</span>
+<span id="cb5-299"><a href="#cb5-299" aria-hidden="true"></a>    printf(<span class="st">&quot;valuebuflen:%d</span><span class="sc">\n</span><span class="st">&quot;</span>, valuebuflen);</span>
+<span id="cb5-300"><a href="#cb5-300" aria-hidden="true"></a></span>
+<span id="cb5-301"><a href="#cb5-301" aria-hidden="true"></a></span>
+<span id="cb5-302"><a href="#cb5-302" aria-hidden="true"></a>    system(<span class="st">&quot;pause&quot;</span>);</span>
+<span id="cb5-303"><a href="#cb5-303" aria-hidden="true"></a>}</span>
 <span id="cb5-304"><a href="#cb5-304" aria-hidden="true"></a></span>
-<span id="cb5-305"><a href="#cb5-305" aria-hidden="true"></a>    system(<span class="st">&quot;pause&quot;</span>);</span>
-<span id="cb5-306"><a href="#cb5-306" aria-hidden="true"></a>}</span>
-<span id="cb5-307"><a href="#cb5-307" aria-hidden="true"></a></span>
-<span id="cb5-308"><a href="#cb5-308" aria-hidden="true"></a></span>
-<span id="cb5-309"><a href="#cb5-309" aria-hidden="true"></a>void main02()</span>
-<span id="cb5-310"><a href="#cb5-310" aria-hidden="true"></a>{</span>
-<span id="cb5-311"><a href="#cb5-311" aria-hidden="true"></a>    <span class="co">//我声明了一个数组类型</span></span>
-<span id="cb5-312"><a href="#cb5-312" aria-hidden="true"></a>    typedef int(MyArr5)[<span class="dv">5</span>];    <span class="co">//5个int类型的内存空间，也就是类型的长度</span></span>
+<span id="cb5-305"><a href="#cb5-305" aria-hidden="true"></a></span>
+<span id="cb5-306"><a href="#cb5-306" aria-hidden="true"></a>void main02()</span>
+<span id="cb5-307"><a href="#cb5-307" aria-hidden="true"></a>{</span>
+<span id="cb5-308"><a href="#cb5-308" aria-hidden="true"></a>    <span class="co">//我声明了一个数组类型</span></span>
+<span id="cb5-309"><a href="#cb5-309" aria-hidden="true"></a>    typedef int(MyArr5)[<span class="dv">5</span>];    <span class="co">//5个int类型的内存空间，也就是类型的长度</span></span>
+<span id="cb5-310"><a href="#cb5-310" aria-hidden="true"></a></span>
+<span id="cb5-311"><a href="#cb5-311" aria-hidden="true"></a>    <span class="co">//用数据类型定义一个变量</span></span>
+<span id="cb5-312"><a href="#cb5-312" aria-hidden="true"></a>    MyArr5 arr5; <span class="co">//相当于int arra[5];</span></span>
 <span id="cb5-313"><a href="#cb5-313" aria-hidden="true"></a></span>
-<span id="cb5-314"><a href="#cb5-314" aria-hidden="true"></a>    <span class="co">//用数据类型定义一个变量</span></span>
-<span id="cb5-315"><a href="#cb5-315" aria-hidden="true"></a>    MyArr5 arr5; <span class="co">//相当于int arra[5];</span></span>
-<span id="cb5-316"><a href="#cb5-316" aria-hidden="true"></a></span>
-<span id="cb5-317"><a href="#cb5-317" aria-hidden="true"></a></span>
-<span id="cb5-318"><a href="#cb5-318" aria-hidden="true"></a>    for (i=<span class="dv">0</span>; i&lt;<span class="dv">5</span>; i++)</span>
-<span id="cb5-319"><a href="#cb5-319" aria-hidden="true"></a>    {</span>
-<span id="cb5-320"><a href="#cb5-320" aria-hidden="true"></a>        arr5[i] = i+<span class="dv">1</span>;</span>
-<span id="cb5-321"><a href="#cb5-321" aria-hidden="true"></a>    }</span>
-<span id="cb5-322"><a href="#cb5-322" aria-hidden="true"></a></span>
-<span id="cb5-323"><a href="#cb5-323" aria-hidden="true"></a></span>
-<span id="cb5-324"><a href="#cb5-324" aria-hidden="true"></a>    for (i=<span class="dv">0</span>; i&lt;<span class="dv">5</span>; i++)</span>
-<span id="cb5-325"><a href="#cb5-325" aria-hidden="true"></a>    {</span>
-<span id="cb5-326"><a href="#cb5-326" aria-hidden="true"></a>        printf(<span class="st">&quot;%d </span><span class="sc">\n</span><span class="st">&quot;</span>, arr5[i]);</span>
-<span id="cb5-327"><a href="#cb5-327" aria-hidden="true"></a>    }</span>
+<span id="cb5-314"><a href="#cb5-314" aria-hidden="true"></a></span>
+<span id="cb5-315"><a href="#cb5-315" aria-hidden="true"></a>    for (i=<span class="dv">0</span>; i&lt;<span class="dv">5</span>; i++)</span>
+<span id="cb5-316"><a href="#cb5-316" aria-hidden="true"></a>    {</span>
+<span id="cb5-317"><a href="#cb5-317" aria-hidden="true"></a>        arr5[i] = i+<span class="dv">1</span>;</span>
+<span id="cb5-318"><a href="#cb5-318" aria-hidden="true"></a>    }</span>
+<span id="cb5-319"><a href="#cb5-319" aria-hidden="true"></a></span>
+<span id="cb5-320"><a href="#cb5-320" aria-hidden="true"></a></span>
+<span id="cb5-321"><a href="#cb5-321" aria-hidden="true"></a>    for (i=<span class="dv">0</span>; i&lt;<span class="dv">5</span>; i++)</span>
+<span id="cb5-322"><a href="#cb5-322" aria-hidden="true"></a>    {</span>
+<span id="cb5-323"><a href="#cb5-323" aria-hidden="true"></a>        printf(<span class="st">&quot;%d </span><span class="sc">\n</span><span class="st">&quot;</span>, arr5[i]);</span>
+<span id="cb5-324"><a href="#cb5-324" aria-hidden="true"></a>    }</span>
+<span id="cb5-325"><a href="#cb5-325" aria-hidden="true"></a></span>
+<span id="cb5-326"><a href="#cb5-326" aria-hidden="true"></a></span>
+<span id="cb5-327"><a href="#cb5-327" aria-hidden="true"></a>    printf(<span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span>, (<span class="dt">int</span>)<span class="kw">sizeof</span>(arr5));  <span class="co">//20</span></span>
 <span id="cb5-328"><a href="#cb5-328" aria-hidden="true"></a></span>
 <span id="cb5-329"><a href="#cb5-329" aria-hidden="true"></a></span>
-<span id="cb5-330"><a href="#cb5-330" aria-hidden="true"></a>    printf(<span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span>, (<span class="dt">int</span>)<span class="kw">sizeof</span>(arr5));  <span class="co">//20</span></span>
-<span id="cb5-331"><a href="#cb5-331" aria-hidden="true"></a></span>
+<span id="cb5-330"><a href="#cb5-330" aria-hidden="true"></a>    <span class="co">//指针步长是20</span></span>
+<span id="cb5-331"><a href="#cb5-331" aria-hidden="true"></a>    printf(<span class="st">&quot;%p %p</span><span class="sc">\n</span><span class="st">&quot;</span>, &amp;arr5, &amp;arr5 + <span class="dv">1</span>);   <span class="co">//0x7fffb9a9d500 0x7fffb9a9d514 </span></span>
 <span id="cb5-332"><a href="#cb5-332" aria-hidden="true"></a></span>
-<span id="cb5-333"><a href="#cb5-333" aria-hidden="true"></a>    <span class="co">//指针步长是20</span></span>
-<span id="cb5-334"><a href="#cb5-334" aria-hidden="true"></a>    printf(<span class="st">&quot;%p %p</span><span class="sc">\n</span><span class="st">&quot;</span>, &amp;arr5, &amp;arr5 + <span class="dv">1</span>);   <span class="co">//0x7fffb9a9d500 0x7fffb9a9d514 </span></span>
-<span id="cb5-335"><a href="#cb5-335" aria-hidden="true"></a></span>
+<span id="cb5-333"><a href="#cb5-333" aria-hidden="true"></a></span>
+<span id="cb5-334"><a href="#cb5-334" aria-hidden="true"></a>    system(<span class="st">&quot;pause&quot;</span>);</span>
+<span id="cb5-335"><a href="#cb5-335" aria-hidden="true"></a>}</span>
 <span id="cb5-336"><a href="#cb5-336" aria-hidden="true"></a></span>
-<span id="cb5-337"><a href="#cb5-337" aria-hidden="true"></a>    system(<span class="st">&quot;pause&quot;</span>);</span>
-<span id="cb5-338"><a href="#cb5-338" aria-hidden="true"></a>}</span>
+<span id="cb5-337"><a href="#cb5-337" aria-hidden="true"></a></span>
+<span id="cb5-338"><a href="#cb5-338" aria-hidden="true"></a></span>
 <span id="cb5-339"><a href="#cb5-339" aria-hidden="true"></a>--------------指向数组类型的指针变量----------</span>
-<span id="cb5-340"><a href="#cb5-340" aria-hidden="true"></a></span>
-<span id="cb5-341"><a href="#cb5-341" aria-hidden="true"></a></span>
-<span id="cb5-342"><a href="#cb5-342" aria-hidden="true"></a>void main022()</span>
-<span id="cb5-343"><a href="#cb5-343" aria-hidden="true"></a>{</span>
-<span id="cb5-344"><a href="#cb5-344" aria-hidden="true"></a>    int a;</span>
-<span id="cb5-345"><a href="#cb5-345" aria-hidden="true"></a>    int *p = NULL;</span>
-<span id="cb5-346"><a href="#cb5-346" aria-hidden="true"></a>    int i = <span class="dv">0</span>;</span>
-<span id="cb5-347"><a href="#cb5-347" aria-hidden="true"></a></span>
-<span id="cb5-348"><a href="#cb5-348" aria-hidden="true"></a></span>
-<span id="cb5-349"><a href="#cb5-349" aria-hidden="true"></a>    <span class="co">//我声明了一个数组类型 （固定大小内存块的别名）</span></span>
-<span id="cb5-350"><a href="#cb5-350" aria-hidden="true"></a>    typedef int(MyArr5)[<span class="dv">5</span>];</span>
-<span id="cb5-351"><a href="#cb5-351" aria-hidden="true"></a>    <span class="co">//定义一个指向数组类型的指针变量</span></span>
-<span id="cb5-352"><a href="#cb5-352" aria-hidden="true"></a>    MyArr5 *pArray;<span class="co">// &amp;a;</span></span>
-<span id="cb5-353"><a href="#cb5-353" aria-hidden="true"></a></span>
-<span id="cb5-354"><a href="#cb5-354" aria-hidden="true"></a></span>
-<span id="cb5-355"><a href="#cb5-355" aria-hidden="true"></a>    int a1[<span class="dv">5</span>] = {<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">55</span>, <span class="dv">6</span>};</span>
-<span id="cb5-356"><a href="#cb5-356" aria-hidden="true"></a>    <span class="co">//给数组指针赋值 需要。。。&amp;a1</span></span>
-<span id="cb5-357"><a href="#cb5-357" aria-hidden="true"></a>    MyArr5 *pArray = &amp;a1; <span class="co">//4个字节</span></span>
-<span id="cb5-358"><a href="#cb5-358" aria-hidden="true"></a>    <span class="co">//用数组指针去遍历数组</span></span>
-<span id="cb5-359"><a href="#cb5-359" aria-hidden="true"></a>    for (i=<span class="dv">0</span>; i&lt;<span class="dv">5</span>; i++)</span>
-<span id="cb5-360"><a href="#cb5-360" aria-hidden="true"></a>    {</span>
-<span id="cb5-361"><a href="#cb5-361" aria-hidden="true"></a>        printf(<span class="st">&quot;%d &quot;</span>, (*pArray)[i]);</span>
-<span id="cb5-362"><a href="#cb5-362" aria-hidden="true"></a>    }</span>
-<span id="cb5-363"><a href="#cb5-363" aria-hidden="true"></a></span>
-<span id="cb5-364"><a href="#cb5-364" aria-hidden="true"></a></span>
-<span id="cb5-365"><a href="#cb5-365" aria-hidden="true"></a>    system(<span class="st">&quot;pause&quot;</span>);</span>
-<span id="cb5-366"><a href="#cb5-366" aria-hidden="true"></a>}</span>
+<span id="cb5-340"><a href="#cb5-340" aria-hidden="true"></a>void main022()</span>
+<span id="cb5-341"><a href="#cb5-341" aria-hidden="true"></a>{</span>
+<span id="cb5-342"><a href="#cb5-342" aria-hidden="true"></a>    int a;</span>
+<span id="cb5-343"><a href="#cb5-343" aria-hidden="true"></a>    int *p = NULL;</span>
+<span id="cb5-344"><a href="#cb5-344" aria-hidden="true"></a>    int i = <span class="dv">0</span>;</span>
+<span id="cb5-345"><a href="#cb5-345" aria-hidden="true"></a></span>
+<span id="cb5-346"><a href="#cb5-346" aria-hidden="true"></a></span>
+<span id="cb5-347"><a href="#cb5-347" aria-hidden="true"></a>    <span class="co">//我声明了一个数组类型 （固定大小内存块的别名）</span></span>
+<span id="cb5-348"><a href="#cb5-348" aria-hidden="true"></a>    typedef int(MyArr5)[<span class="dv">5</span>];</span>
+<span id="cb5-349"><a href="#cb5-349" aria-hidden="true"></a>    <span class="co">//定义一个指向数组类型的指针变量</span></span>
+<span id="cb5-350"><a href="#cb5-350" aria-hidden="true"></a>    MyArr5 *pArray;<span class="co">// &amp;a;</span></span>
+<span id="cb5-351"><a href="#cb5-351" aria-hidden="true"></a></span>
+<span id="cb5-352"><a href="#cb5-352" aria-hidden="true"></a></span>
+<span id="cb5-353"><a href="#cb5-353" aria-hidden="true"></a>    int a1[<span class="dv">5</span>] = {<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">55</span>, <span class="dv">6</span>};</span>
+<span id="cb5-354"><a href="#cb5-354" aria-hidden="true"></a>    <span class="co">//给数组指针赋值 需要。。。&amp;a1</span></span>
+<span id="cb5-355"><a href="#cb5-355" aria-hidden="true"></a>    MyArr5 *pArray = &amp;a1; <span class="co">//4个字节</span></span>
+<span id="cb5-356"><a href="#cb5-356" aria-hidden="true"></a>    <span class="co">//用数组指针去遍历数组</span></span>
+<span id="cb5-357"><a href="#cb5-357" aria-hidden="true"></a>    for (i=<span class="dv">0</span>; i&lt;<span class="dv">5</span>; i++)</span>
+<span id="cb5-358"><a href="#cb5-358" aria-hidden="true"></a>    {</span>
+<span id="cb5-359"><a href="#cb5-359" aria-hidden="true"></a>        printf(<span class="st">&quot;%d &quot;</span>, (*pArray)[i]);</span>
+<span id="cb5-360"><a href="#cb5-360" aria-hidden="true"></a>    }</span>
+<span id="cb5-361"><a href="#cb5-361" aria-hidden="true"></a></span>
+<span id="cb5-362"><a href="#cb5-362" aria-hidden="true"></a></span>
+<span id="cb5-363"><a href="#cb5-363" aria-hidden="true"></a>    system(<span class="st">&quot;pause&quot;</span>);</span>
+<span id="cb5-364"><a href="#cb5-364" aria-hidden="true"></a>}</span>
+<span id="cb5-365"><a href="#cb5-365" aria-hidden="true"></a></span>
+<span id="cb5-366"><a href="#cb5-366" aria-hidden="true"></a></span>
 <span id="cb5-367"><a href="#cb5-367" aria-hidden="true"></a></span>
 <span id="cb5-368"><a href="#cb5-368" aria-hidden="true"></a></span>
-<span id="cb5-369"><a href="#cb5-369" aria-hidden="true"></a></span>
-<span id="cb5-370"><a href="#cb5-370" aria-hidden="true"></a></span>
-<span id="cb5-371"><a href="#cb5-371" aria-hidden="true"></a><span class="co">//c库函数读写二进制文件的代码，linux下不区分文本文件和二进制文件，所以也就没有win下的b的读写模式</span></span>
-<span id="cb5-372"><a href="#cb5-372" aria-hidden="true"></a><span class="co">//二进制文件必须知道文件的格式才能解析出来</span></span>
-<span id="cb5-373"><a href="#cb5-373" aria-hidden="true"></a>struct person</span>
-<span id="cb5-374"><a href="#cb5-374" aria-hidden="true"></a>{</span>
-<span id="cb5-375"><a href="#cb5-375" aria-hidden="true"></a>    int id;</span>
-<span id="cb5-376"><a href="#cb5-376" aria-hidden="true"></a>    char name[<span class="dv">20</span>];</span>
-<span id="cb5-377"><a href="#cb5-377" aria-hidden="true"></a>    int age;</span>
-<span id="cb5-378"><a href="#cb5-378" aria-hidden="true"></a>    int sex;</span>
-<span id="cb5-379"><a href="#cb5-379" aria-hidden="true"></a>    char tel[<span class="dv">20</span>];</span>
-<span id="cb5-380"><a href="#cb5-380" aria-hidden="true"></a>};</span>
-<span id="cb5-381"><a href="#cb5-381" aria-hidden="true"></a></span>
-<span id="cb5-382"><a href="#cb5-382" aria-hidden="true"></a></span>
-<span id="cb5-383"><a href="#cb5-383" aria-hidden="true"></a><span class="co">//读结构体</span></span>
-<span id="cb5-384"><a href="#cb5-384" aria-hidden="true"></a>int main(int arg, char *args[])</span>
-<span id="cb5-385"><a href="#cb5-385" aria-hidden="true"></a>{</span>
-<span id="cb5-386"><a href="#cb5-386" aria-hidden="true"></a>    FILE *p = fopen(args[<span class="dv">1</span>], <span class="st">&quot;w&quot;</span>);</span>
-<span id="cb5-387"><a href="#cb5-387" aria-hidden="true"></a>    if (p == NULL)</span>
-<span id="cb5-388"><a href="#cb5-388" aria-hidden="true"></a>    {</span>
-<span id="cb5-389"><a href="#cb5-389" aria-hidden="true"></a>        printf(<span class="st">&quot;error is %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
-<span id="cb5-390"><a href="#cb5-390" aria-hidden="true"></a>    } else</span>
-<span id="cb5-391"><a href="#cb5-391" aria-hidden="true"></a>    {</span>
-<span id="cb5-392"><a href="#cb5-392" aria-hidden="true"></a>        printf(<span class="st">&quot;success</span><span class="sc">\n</span><span class="st">&quot;</span>);</span>
-<span id="cb5-393"><a href="#cb5-393" aria-hidden="true"></a>        struct person man;</span>
-<span id="cb5-394"><a href="#cb5-394" aria-hidden="true"></a>        memset(&amp;man, <span class="dv">0</span>, sizeof(man));</span>
-<span id="cb5-395"><a href="#cb5-395" aria-hidden="true"></a></span>
-<span id="cb5-396"><a href="#cb5-396" aria-hidden="true"></a></span>
-<span id="cb5-397"><a href="#cb5-397" aria-hidden="true"></a>        while(fread(&amp;man, sizeof(struct person), <span class="dv">1</span>, p))</span>
-<span id="cb5-398"><a href="#cb5-398" aria-hidden="true"></a>        {</span>
-<span id="cb5-399"><a href="#cb5-399" aria-hidden="true"></a>            printf(<span class="st">&quot;id=%d</span><span class="sc">\n</span><span class="st">&quot;</span>, man.id);</span>
-<span id="cb5-400"><a href="#cb5-400" aria-hidden="true"></a>            printf(<span class="st">&quot;name=%s</span><span class="sc">\n</span><span class="st">&quot;</span>, man.name);</span>
-<span id="cb5-401"><a href="#cb5-401" aria-hidden="true"></a>            printf(<span class="st">&quot;age=%d</span><span class="sc">\n</span><span class="st">&quot;</span>, man.age);</span>
-<span id="cb5-402"><a href="#cb5-402" aria-hidden="true"></a>            printf(<span class="st">&quot;tel=%s</span><span class="sc">\n</span><span class="st">&quot;</span>, man.tel);</span>
-<span id="cb5-403"><a href="#cb5-403" aria-hidden="true"></a>        }</span>
-<span id="cb5-404"><a href="#cb5-404" aria-hidden="true"></a>        fclose(p);</span>
-<span id="cb5-405"><a href="#cb5-405" aria-hidden="true"></a>    }</span>
-<span id="cb5-406"><a href="#cb5-406" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
-<span id="cb5-407"><a href="#cb5-407" aria-hidden="true"></a>}</span>
-<span id="cb5-408"><a href="#cb5-408" aria-hidden="true"></a></span>
-<span id="cb5-409"><a href="#cb5-409" aria-hidden="true"></a></span>
-<span id="cb5-410"><a href="#cb5-410" aria-hidden="true"></a><span class="co">//写结构体</span></span>
-<span id="cb5-411"><a href="#cb5-411" aria-hidden="true"></a>int main(int arg, char *args[])</span>
-<span id="cb5-412"><a href="#cb5-412" aria-hidden="true"></a>{</span>
-<span id="cb5-413"><a href="#cb5-413" aria-hidden="true"></a>    FILE *p = fopen(args[<span class="dv">1</span>], <span class="st">&quot;w&quot;</span>);</span>
-<span id="cb5-414"><a href="#cb5-414" aria-hidden="true"></a>    if (p == NULL)</span>
-<span id="cb5-415"><a href="#cb5-415" aria-hidden="true"></a>    {</span>
-<span id="cb5-416"><a href="#cb5-416" aria-hidden="true"></a>        printf(<span class="st">&quot;error is %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
-<span id="cb5-417"><a href="#cb5-417" aria-hidden="true"></a>    } else</span>
-<span id="cb5-418"><a href="#cb5-418" aria-hidden="true"></a>    {</span>
-<span id="cb5-419"><a href="#cb5-419" aria-hidden="true"></a>        printf(<span class="st">&quot;success</span><span class="sc">\n</span><span class="st">&quot;</span>);</span>
-<span id="cb5-420"><a href="#cb5-420" aria-hidden="true"></a>        struct person man[<span class="dv">10</span>];</span>
-<span id="cb5-421"><a href="#cb5-421" aria-hidden="true"></a>        memset(&amp;man, <span class="dv">0</span>, sizeof(man));</span>
-<span id="cb5-422"><a href="#cb5-422" aria-hidden="true"></a></span>
-<span id="cb5-423"><a href="#cb5-423" aria-hidden="true"></a></span>
-<span id="cb5-424"><a href="#cb5-424" aria-hidden="true"></a>        man[<span class="dv">0</span>].id = <span class="dv">0</span>;</span>
-<span id="cb5-425"><a href="#cb5-425" aria-hidden="true"></a>        strcpy(man[<span class="dv">0</span>].name, <span class="st">&quot;苍井空&quot;</span>);</span>
-<span id="cb5-426"><a href="#cb5-426" aria-hidden="true"></a>        man[<span class="dv">0</span>].age = <span class="dv">50</span>;</span>
-<span id="cb5-427"><a href="#cb5-427" aria-hidden="true"></a>        man[<span class="dv">0</span>].sex = <span class="dv">1</span>;</span>
-<span id="cb5-428"><a href="#cb5-428" aria-hidden="true"></a>        strcpy(man[<span class="dv">0</span>].tel, <span class="st">&quot;911&quot;</span>);</span>
-<span id="cb5-429"><a href="#cb5-429" aria-hidden="true"></a></span>
-<span id="cb5-430"><a href="#cb5-430" aria-hidden="true"></a></span>
-<span id="cb5-431"><a href="#cb5-431" aria-hidden="true"></a>        man[<span class="dv">1</span>].id = <span class="dv">1</span>;</span>
-<span id="cb5-432"><a href="#cb5-432" aria-hidden="true"></a>        strcpy(man[<span class="dv">1</span>].name, <span class="st">&quot;饭岛爱&quot;</span>);</span>
-<span id="cb5-433"><a href="#cb5-433" aria-hidden="true"></a>        man[<span class="dv">1</span>].age = <span class="dv">20</span>;</span>
-<span id="cb5-434"><a href="#cb5-434" aria-hidden="true"></a>        man[<span class="dv">1</span>].sex = <span class="dv">0</span>;</span>
-<span id="cb5-435"><a href="#cb5-435" aria-hidden="true"></a>        strcpy(man[<span class="dv">1</span>].tel, <span class="st">&quot;119&quot;</span>);</span>
-<span id="cb5-436"><a href="#cb5-436" aria-hidden="true"></a></span>
-<span id="cb5-437"><a href="#cb5-437" aria-hidden="true"></a></span>
-<span id="cb5-438"><a href="#cb5-438" aria-hidden="true"></a>        fwrite(&amp;man, sizeof(struct person), <span class="dv">2</span>, p);</span>
-<span id="cb5-439"><a href="#cb5-439" aria-hidden="true"></a>        fclose(p);</span>
-<span id="cb5-440"><a href="#cb5-440" aria-hidden="true"></a>    }</span>
-<span id="cb5-441"><a href="#cb5-441" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
-<span id="cb5-442"><a href="#cb5-442" aria-hidden="true"></a>}</span>
-<span id="cb5-443"><a href="#cb5-443" aria-hidden="true"></a></span>
-<span id="cb5-444"><a href="#cb5-444" aria-hidden="true"></a></span>
-<span id="cb5-445"><a href="#cb5-445" aria-hidden="true"></a><span class="co">//写log的代码</span></span>
-<span id="cb5-446"><a href="#cb5-446" aria-hidden="true"></a>void writelog(const char *log)</span>
-<span id="cb5-447"><a href="#cb5-447" aria-hidden="true"></a>{</span>
-<span id="cb5-448"><a href="#cb5-448" aria-hidden="true"></a>    time_t tDate;</span>
-<span id="cb5-449"><a href="#cb5-449" aria-hidden="true"></a>    struct tm *eventTime;</span>
-<span id="cb5-450"><a href="#cb5-450" aria-hidden="true"></a>    time(&amp;tDate);<span class="co">//得到系统当前时间</span></span>
-<span id="cb5-451"><a href="#cb5-451" aria-hidden="true"></a>    eventTime = localtime(&amp;tDate);<span class="co">//将time_t数据类型转化为struct tm结构</span></span>
-<span id="cb5-452"><a href="#cb5-452" aria-hidden="true"></a>    int iYear = eventTime-&gt;tm_year + <span class="dv">1900</span>;</span>
-<span id="cb5-453"><a href="#cb5-453" aria-hidden="true"></a>    int iMon = eventTime-&gt;tm_mon + <span class="dv">1</span>;</span>
-<span id="cb5-454"><a href="#cb5-454" aria-hidden="true"></a>    int iDay = eventTime-&gt;tm_mday;</span>
-<span id="cb5-455"><a href="#cb5-455" aria-hidden="true"></a>    int iHour = eventTime-&gt;tm_hour;</span>
-<span id="cb5-456"><a href="#cb5-456" aria-hidden="true"></a>    int iMin = eventTime-&gt;tm_min;</span>
-<span id="cb5-457"><a href="#cb5-457" aria-hidden="true"></a>    int iSec = eventTime-&gt;tm_sec;</span>
-<span id="cb5-458"><a href="#cb5-458" aria-hidden="true"></a></span>
+<span id="cb5-369"><a href="#cb5-369" aria-hidden="true"></a><span class="co">//c库函数读写二进制文件的代码，linux下不区分文本文件和二进制文件，所以也就没有win下的b的读写模式</span></span>
+<span id="cb5-370"><a href="#cb5-370" aria-hidden="true"></a><span class="co">//二进制文件必须知道文件的格式才能解析出来</span></span>
+<span id="cb5-371"><a href="#cb5-371" aria-hidden="true"></a>struct person</span>
+<span id="cb5-372"><a href="#cb5-372" aria-hidden="true"></a>{</span>
+<span id="cb5-373"><a href="#cb5-373" aria-hidden="true"></a>    int id;</span>
+<span id="cb5-374"><a href="#cb5-374" aria-hidden="true"></a>    char name[<span class="dv">20</span>];</span>
+<span id="cb5-375"><a href="#cb5-375" aria-hidden="true"></a>    int age;</span>
+<span id="cb5-376"><a href="#cb5-376" aria-hidden="true"></a>    int sex;</span>
+<span id="cb5-377"><a href="#cb5-377" aria-hidden="true"></a>    char tel[<span class="dv">20</span>];</span>
+<span id="cb5-378"><a href="#cb5-378" aria-hidden="true"></a>};</span>
+<span id="cb5-379"><a href="#cb5-379" aria-hidden="true"></a></span>
+<span id="cb5-380"><a href="#cb5-380" aria-hidden="true"></a></span>
+<span id="cb5-381"><a href="#cb5-381" aria-hidden="true"></a><span class="co">//读结构体</span></span>
+<span id="cb5-382"><a href="#cb5-382" aria-hidden="true"></a>int main(int arg, char *args[])</span>
+<span id="cb5-383"><a href="#cb5-383" aria-hidden="true"></a>{</span>
+<span id="cb5-384"><a href="#cb5-384" aria-hidden="true"></a>    FILE *p = fopen(args[<span class="dv">1</span>], <span class="st">&quot;w&quot;</span>);</span>
+<span id="cb5-385"><a href="#cb5-385" aria-hidden="true"></a>    if (p == NULL)</span>
+<span id="cb5-386"><a href="#cb5-386" aria-hidden="true"></a>    {</span>
+<span id="cb5-387"><a href="#cb5-387" aria-hidden="true"></a>        printf(<span class="st">&quot;error is %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb5-388"><a href="#cb5-388" aria-hidden="true"></a>    } else</span>
+<span id="cb5-389"><a href="#cb5-389" aria-hidden="true"></a>    {</span>
+<span id="cb5-390"><a href="#cb5-390" aria-hidden="true"></a>        printf(<span class="st">&quot;success</span><span class="sc">\n</span><span class="st">&quot;</span>);</span>
+<span id="cb5-391"><a href="#cb5-391" aria-hidden="true"></a>        struct person man;</span>
+<span id="cb5-392"><a href="#cb5-392" aria-hidden="true"></a>        memset(&amp;man, <span class="dv">0</span>, sizeof(man));</span>
+<span id="cb5-393"><a href="#cb5-393" aria-hidden="true"></a></span>
+<span id="cb5-394"><a href="#cb5-394" aria-hidden="true"></a></span>
+<span id="cb5-395"><a href="#cb5-395" aria-hidden="true"></a>        while(fread(&amp;man, sizeof(struct person), <span class="dv">1</span>, p))</span>
+<span id="cb5-396"><a href="#cb5-396" aria-hidden="true"></a>        {</span>
+<span id="cb5-397"><a href="#cb5-397" aria-hidden="true"></a>            printf(<span class="st">&quot;id=%d</span><span class="sc">\n</span><span class="st">&quot;</span>, man.id);</span>
+<span id="cb5-398"><a href="#cb5-398" aria-hidden="true"></a>            printf(<span class="st">&quot;name=%s</span><span class="sc">\n</span><span class="st">&quot;</span>, man.name);</span>
+<span id="cb5-399"><a href="#cb5-399" aria-hidden="true"></a>            printf(<span class="st">&quot;age=%d</span><span class="sc">\n</span><span class="st">&quot;</span>, man.age);</span>
+<span id="cb5-400"><a href="#cb5-400" aria-hidden="true"></a>            printf(<span class="st">&quot;tel=%s</span><span class="sc">\n</span><span class="st">&quot;</span>, man.tel);</span>
+<span id="cb5-401"><a href="#cb5-401" aria-hidden="true"></a>        }</span>
+<span id="cb5-402"><a href="#cb5-402" aria-hidden="true"></a>        fclose(p);</span>
+<span id="cb5-403"><a href="#cb5-403" aria-hidden="true"></a>    }</span>
+<span id="cb5-404"><a href="#cb5-404" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb5-405"><a href="#cb5-405" aria-hidden="true"></a>}</span>
+<span id="cb5-406"><a href="#cb5-406" aria-hidden="true"></a></span>
+<span id="cb5-407"><a href="#cb5-407" aria-hidden="true"></a></span>
+<span id="cb5-408"><a href="#cb5-408" aria-hidden="true"></a><span class="co">//写结构体</span></span>
+<span id="cb5-409"><a href="#cb5-409" aria-hidden="true"></a>int main(int arg, char *args[])</span>
+<span id="cb5-410"><a href="#cb5-410" aria-hidden="true"></a>{</span>
+<span id="cb5-411"><a href="#cb5-411" aria-hidden="true"></a>    FILE *p = fopen(args[<span class="dv">1</span>], <span class="st">&quot;w&quot;</span>);</span>
+<span id="cb5-412"><a href="#cb5-412" aria-hidden="true"></a>    if (p == NULL)</span>
+<span id="cb5-413"><a href="#cb5-413" aria-hidden="true"></a>    {</span>
+<span id="cb5-414"><a href="#cb5-414" aria-hidden="true"></a>        printf(<span class="st">&quot;error is %s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb5-415"><a href="#cb5-415" aria-hidden="true"></a>    } else</span>
+<span id="cb5-416"><a href="#cb5-416" aria-hidden="true"></a>    {</span>
+<span id="cb5-417"><a href="#cb5-417" aria-hidden="true"></a>        printf(<span class="st">&quot;success</span><span class="sc">\n</span><span class="st">&quot;</span>);</span>
+<span id="cb5-418"><a href="#cb5-418" aria-hidden="true"></a>        struct person man[<span class="dv">10</span>];</span>
+<span id="cb5-419"><a href="#cb5-419" aria-hidden="true"></a>        memset(&amp;man, <span class="dv">0</span>, sizeof(man));</span>
+<span id="cb5-420"><a href="#cb5-420" aria-hidden="true"></a></span>
+<span id="cb5-421"><a href="#cb5-421" aria-hidden="true"></a></span>
+<span id="cb5-422"><a href="#cb5-422" aria-hidden="true"></a>        man[<span class="dv">0</span>].id = <span class="dv">0</span>;</span>
+<span id="cb5-423"><a href="#cb5-423" aria-hidden="true"></a>        strcpy(man[<span class="dv">0</span>].name, <span class="st">&quot;苍井空&quot;</span>);</span>
+<span id="cb5-424"><a href="#cb5-424" aria-hidden="true"></a>        man[<span class="dv">0</span>].age = <span class="dv">50</span>;</span>
+<span id="cb5-425"><a href="#cb5-425" aria-hidden="true"></a>        man[<span class="dv">0</span>].sex = <span class="dv">1</span>;</span>
+<span id="cb5-426"><a href="#cb5-426" aria-hidden="true"></a>        strcpy(man[<span class="dv">0</span>].tel, <span class="st">&quot;911&quot;</span>);</span>
+<span id="cb5-427"><a href="#cb5-427" aria-hidden="true"></a></span>
+<span id="cb5-428"><a href="#cb5-428" aria-hidden="true"></a></span>
+<span id="cb5-429"><a href="#cb5-429" aria-hidden="true"></a>        man[<span class="dv">1</span>].id = <span class="dv">1</span>;</span>
+<span id="cb5-430"><a href="#cb5-430" aria-hidden="true"></a>        strcpy(man[<span class="dv">1</span>].name, <span class="st">&quot;饭岛爱&quot;</span>);</span>
+<span id="cb5-431"><a href="#cb5-431" aria-hidden="true"></a>        man[<span class="dv">1</span>].age = <span class="dv">20</span>;</span>
+<span id="cb5-432"><a href="#cb5-432" aria-hidden="true"></a>        man[<span class="dv">1</span>].sex = <span class="dv">0</span>;</span>
+<span id="cb5-433"><a href="#cb5-433" aria-hidden="true"></a>        strcpy(man[<span class="dv">1</span>].tel, <span class="st">&quot;119&quot;</span>);</span>
+<span id="cb5-434"><a href="#cb5-434" aria-hidden="true"></a></span>
+<span id="cb5-435"><a href="#cb5-435" aria-hidden="true"></a></span>
+<span id="cb5-436"><a href="#cb5-436" aria-hidden="true"></a>        fwrite(&amp;man, sizeof(struct person), <span class="dv">2</span>, p);</span>
+<span id="cb5-437"><a href="#cb5-437" aria-hidden="true"></a>        fclose(p);</span>
+<span id="cb5-438"><a href="#cb5-438" aria-hidden="true"></a>    }</span>
+<span id="cb5-439"><a href="#cb5-439" aria-hidden="true"></a>    return <span class="dv">0</span>;</span>
+<span id="cb5-440"><a href="#cb5-440" aria-hidden="true"></a>}</span>
+<span id="cb5-441"><a href="#cb5-441" aria-hidden="true"></a></span>
+<span id="cb5-442"><a href="#cb5-442" aria-hidden="true"></a></span>
+<span id="cb5-443"><a href="#cb5-443" aria-hidden="true"></a><span class="co">//写log的代码</span></span>
+<span id="cb5-444"><a href="#cb5-444" aria-hidden="true"></a>void writelog(const char *log)</span>
+<span id="cb5-445"><a href="#cb5-445" aria-hidden="true"></a>{</span>
+<span id="cb5-446"><a href="#cb5-446" aria-hidden="true"></a>    time_t tDate;</span>
+<span id="cb5-447"><a href="#cb5-447" aria-hidden="true"></a>    struct tm *eventTime;</span>
+<span id="cb5-448"><a href="#cb5-448" aria-hidden="true"></a>    time(&amp;tDate);<span class="co">//得到系统当前时间</span></span>
+<span id="cb5-449"><a href="#cb5-449" aria-hidden="true"></a>    eventTime = localtime(&amp;tDate);<span class="co">//将time_t数据类型转化为struct tm结构</span></span>
+<span id="cb5-450"><a href="#cb5-450" aria-hidden="true"></a>    int iYear = eventTime-&gt;tm_year + <span class="dv">1900</span>;</span>
+<span id="cb5-451"><a href="#cb5-451" aria-hidden="true"></a>    int iMon = eventTime-&gt;tm_mon + <span class="dv">1</span>;</span>
+<span id="cb5-452"><a href="#cb5-452" aria-hidden="true"></a>    int iDay = eventTime-&gt;tm_mday;</span>
+<span id="cb5-453"><a href="#cb5-453" aria-hidden="true"></a>    int iHour = eventTime-&gt;tm_hour;</span>
+<span id="cb5-454"><a href="#cb5-454" aria-hidden="true"></a>    int iMin = eventTime-&gt;tm_min;</span>
+<span id="cb5-455"><a href="#cb5-455" aria-hidden="true"></a>    int iSec = eventTime-&gt;tm_sec;</span>
+<span id="cb5-456"><a href="#cb5-456" aria-hidden="true"></a></span>
+<span id="cb5-457"><a href="#cb5-457" aria-hidden="true"></a></span>
+<span id="cb5-458"><a href="#cb5-458" aria-hidden="true"></a>    printf(<span class="st">&quot;tm_isdst = %d</span><span class="sc">\n</span><span class="st">&quot;</span>, eventTime-&gt;tm_isdst);</span>
 <span id="cb5-459"><a href="#cb5-459" aria-hidden="true"></a></span>
-<span id="cb5-460"><a href="#cb5-460" aria-hidden="true"></a>    printf(<span class="st">&quot;tm_isdst = %d</span><span class="sc">\n</span><span class="st">&quot;</span>, eventTime-&gt;tm_isdst);</span>
-<span id="cb5-461"><a href="#cb5-461" aria-hidden="true"></a></span>
-<span id="cb5-462"><a href="#cb5-462" aria-hidden="true"></a></span>
-<span id="cb5-463"><a href="#cb5-463" aria-hidden="true"></a>    char sDate[<span class="dv">16</span>];</span>
-<span id="cb5-464"><a href="#cb5-464" aria-hidden="true"></a>    sprintf(sDate, <span class="st">&quot;%04d-%02d-%02d&quot;</span>, iYear, iMon, iDay);</span>
-<span id="cb5-465"><a href="#cb5-465" aria-hidden="true"></a>    char sTime[<span class="dv">16</span>];</span>
-<span id="cb5-466"><a href="#cb5-466" aria-hidden="true"></a>    sprintf(sTime, <span class="st">&quot;%02d:%02d:%02d&quot;</span>, iHour, iMin, iSec);</span>
-<span id="cb5-467"><a href="#cb5-467" aria-hidden="true"></a>    char s[<span class="dv">1024</span>];</span>
-<span id="cb5-468"><a href="#cb5-468" aria-hidden="true"></a>    sprintf(s, <span class="st">&quot;%s %s %s</span><span class="sc">\n</span><span class="st">&quot;</span>, sDate, sTime, log);</span>
-<span id="cb5-469"><a href="#cb5-469" aria-hidden="true"></a>    FILE *p = fopen(<span class="st">&quot;my.log&quot;</span>, <span class="st">&quot;a+&quot;</span>);</span>
-<span id="cb5-470"><a href="#cb5-470" aria-hidden="true"></a>    if (p == NULL)</span>
-<span id="cb5-471"><a href="#cb5-471" aria-hidden="true"></a>    {</span>
-<span id="cb5-472"><a href="#cb5-472" aria-hidden="true"></a>        printf(<span class="st">&quot;write log my.log error:%s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
-<span id="cb5-473"><a href="#cb5-473" aria-hidden="true"></a>    }<span class="cf">else</span></span>
-<span id="cb5-474"><a href="#cb5-474" aria-hidden="true"></a>    {</span>
-<span id="cb5-475"><a href="#cb5-475" aria-hidden="true"></a>        fputs(s, p);</span>
-<span id="cb5-476"><a href="#cb5-476" aria-hidden="true"></a>        fclose(p);</span>
-<span id="cb5-477"><a href="#cb5-477" aria-hidden="true"></a>    }</span>
-<span id="cb5-478"><a href="#cb5-478" aria-hidden="true"></a>    return;</span>
-<span id="cb5-479"><a href="#cb5-479" aria-hidden="true"></a>}</span>
-<span id="cb5-480"><a href="#cb5-480" aria-hidden="true"></a></span>
-<span id="cb5-481"><a href="#cb5-481" aria-hidden="true"></a></span>
-<span id="cb5-482"><a href="#cb5-482" aria-hidden="true"></a></span></code></pre></div>
+<span id="cb5-460"><a href="#cb5-460" aria-hidden="true"></a></span>
+<span id="cb5-461"><a href="#cb5-461" aria-hidden="true"></a>    char sDate[<span class="dv">16</span>];</span>
+<span id="cb5-462"><a href="#cb5-462" aria-hidden="true"></a>    sprintf(sDate, <span class="st">&quot;%04d-%02d-%02d&quot;</span>, iYear, iMon, iDay);</span>
+<span id="cb5-463"><a href="#cb5-463" aria-hidden="true"></a>    char sTime[<span class="dv">16</span>];</span>
+<span id="cb5-464"><a href="#cb5-464" aria-hidden="true"></a>    sprintf(sTime, <span class="st">&quot;%02d:%02d:%02d&quot;</span>, iHour, iMin, iSec);</span>
+<span id="cb5-465"><a href="#cb5-465" aria-hidden="true"></a>    char s[<span class="dv">1024</span>];</span>
+<span id="cb5-466"><a href="#cb5-466" aria-hidden="true"></a>    sprintf(s, <span class="st">&quot;%s %s %s</span><span class="sc">\n</span><span class="st">&quot;</span>, sDate, sTime, log);</span>
+<span id="cb5-467"><a href="#cb5-467" aria-hidden="true"></a>    FILE *p = fopen(<span class="st">&quot;my.log&quot;</span>, <span class="st">&quot;a+&quot;</span>);</span>
+<span id="cb5-468"><a href="#cb5-468" aria-hidden="true"></a>    if (p == NULL)</span>
+<span id="cb5-469"><a href="#cb5-469" aria-hidden="true"></a>    {</span>
+<span id="cb5-470"><a href="#cb5-470" aria-hidden="true"></a>        printf(<span class="st">&quot;write log my.log error:%s</span><span class="sc">\n</span><span class="st">&quot;</span>, strerror(errno));</span>
+<span id="cb5-471"><a href="#cb5-471" aria-hidden="true"></a>    }<span class="cf">else</span></span>
+<span id="cb5-472"><a href="#cb5-472" aria-hidden="true"></a>    {</span>
+<span id="cb5-473"><a href="#cb5-473" aria-hidden="true"></a>        fputs(s, p);</span>
+<span id="cb5-474"><a href="#cb5-474" aria-hidden="true"></a>        fclose(p);</span>
+<span id="cb5-475"><a href="#cb5-475" aria-hidden="true"></a>    }</span>
+<span id="cb5-476"><a href="#cb5-476" aria-hidden="true"></a>    return;</span>
+<span id="cb5-477"><a href="#cb5-477" aria-hidden="true"></a>}</span></code></pre></div>
 
 <footer id="colophon" >
 		<div class="site-info col">

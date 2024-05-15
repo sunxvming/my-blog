@@ -90,23 +90,25 @@ swap out：即so，表示虚拟内存的页导出，即从RAM交换到SWAP DISK�
 ```
 
 ## 三：系统性能分析工具
---------------------------------
-|工具 |简单介绍
-|---------|----------------
-|uptime   | 查看系统已经运行时长和负载
-|top      | 查看进程活动状态以及一些系统状况
-|ps       | 进程查看工具
-|vmstat   |查看系统状态、硬件和系统信息等，但查看cpu时只能看总体情况
-|mpstat   | Multiprocessor Statistics，可以查看cup各个核的情况
-|iostat   |查看CPU 负载，硬盘状况
-|iotop    | 类似top，监控个进程的io状况
-|netstat  | 查看网络状况
-|iptraf   |IP traffic monitor，实时网络状况监测
-|tcpdump  | 抓取网络数据包，详细分析
-|netperf  | 测试网络带宽的工具
-|sar      | 综合工具，查看系统状况
-|dstat    |综合工具，综合了 vmstat, iostat, ifstat, netstat 等多个信息
-|nmon     | 综合的工具，cpu、内存、硬盘、带宽等都能看
+
+| 工具      | 简单介绍                                           |
+| ------- | ---------------------------------------------- |
+| uptime  | 查看系统已经运行时长和负载                                  |
+| top     | 查看进程活动状态以及一些系统状况                               |
+| ps      | 进程查看工具                                         |
+| vmstat  | 查看系统状态、硬件和系统信息等，但查看 CPU 时只能看总体情况               |
+| mpstat  | Multiprocessor Statistics，可以查看 CPU 各个核的情况      |
+| iostat  | 查看 CPU 负载，硬盘状况                                 |
+| iotop   | 类似 top，监控个进程的 IO 状况                            |
+| netstat | 查看网络状况                                         |
+| iptraf  | IP traffic monitor，实时网络状况监测                    |
+| tcpdump | 抓取网络数据包，详细分析                                   |
+| netperf | 测试网络带宽的工具                                      |
+| sar     | 综合工具，查看系统状况                                    |
+| dstat   | 综合工具，综合了 vmstat, iostat, ifstat, netstat 等多个信息 |
+| nmon    | 综合的工具，CPU、内存、硬盘、带宽等都能看                         |
+
+
 常用组合方式
 * 用vmstat、sar、iostat检测是否是CPU瓶颈
 * 用free、vmstat检测是否是内存瓶颈

@@ -67,3 +67,37 @@ git clone https://github.com/microsoft/vcpkg
 
 ./vcpkg/bootstrap-vcpkg.sh   // 这会从github上下载 vcpkg的可执行程序
 ```
+
+
+
+## 编译包时指定指定包所包含的模块
+
+以编译opencv为例：
+默认编译的版本是没有ffmpeg模块的，需要修改vcpkg.json的配置，
+修改`vcpkg\ports\opencv4\vcpkg.json` ，在其中增加ffmpeg模块
+在[vcpkg官网](https://vcpkg.link/ports/opencv4)查看opencv都有哪些模块
+
+![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240311190612.png)
+
+
+
+增加模块后如何重新编译？
+没有找到增量编译的命令，于是采用最原始的方式，删除掉然后再重新安装
+```
+./vcpkg.exe remove opencv4:x64-windows   --recurse
+./vcpkg.exe install opencv4:x64-windows  
+```
+
+
+
+
+
+./vcpkg.exe remove osg:x64-windows   --recurse
+./vcpkg.exe install osg:x64-windows  
+
+./vcpkg.exe install osgearth:x64-windows  
+
+./vcpkg.exe remove osgearth:x64-windows   --recurse
+
+
+

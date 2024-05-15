@@ -262,7 +262,6 @@ jQuery(document).ready(function(){
 <li><a href="#强引用和弱引用">强引用和弱引用</a></li>
 <li><a href="#c语言模块化编程中的头文件">C语言模块化编程中的头文件</a></li>
 <li><a href="#细说c语言头文件的路径">细说C语言头文件的路径</a></li>
-<li><a href="#c语言标准库以及标准头文件">C语言标准库以及标准头文件</a></li>
 <li><a href="#防止c语言头文件被重复包含">防止C语言头文件被重复包含</a></li>
 <li><a href="#关于声明定义类的定义头文件不具名空间">关于声明，定义，类的定义，头文件，不具名空间</a>
 <ul>
@@ -293,10 +292,9 @@ jQuery(document).ready(function(){
 <p>变量的定义有两种形式，你可以在定义的同时初始化，也可以不初始化：</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>datatype name = value;</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>datatype name;</span></code></pre></div>
-<p>而变量的声明只有一种形式，就是使用 extern 关键字：</p>
+<p>而变量的<strong>声明</strong>只有一种形式，就是使用 extern 关键字：</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">extern</span> datatype name;</span></code></pre></div>
-<p>另外，变量也可以在声明的同时初始化，格式为：<br />
-extern datatype name = value;<br />
+<p>另外，变量也可以在声明的同时初始化，格式为： <code>extern datatype name = value;</code><br />
 这种似是而非的方式是不被推荐的，有的编译器也会给出警告，我们不再深入讨论，也建议各位读者把定义和声明分开，尽量不要这样写。</p>
 <h3 id="那些被编译器隐藏了的过程">那些被编译器隐藏了的过程</h3>
 <p>从源代码生成可执行文件可以分为四个步骤，分别是预处理（Preprocessing）、编译（Compilation）、汇编（Assembly）和链接（Linking）。</p>
@@ -350,17 +348,17 @@ extern datatype name = value;<br />
 <p>链接器会按照如下的规则处理<strong>被多次定义的</strong>强符号和弱符号：<br />
 1) 不允许强符号被多次定义，也即不同的目标文件中不能有同名的强符号；如果有多个强符号，那么链接器会报符号重复定义错误。<br />
 2) 如果一个符号在某个目标文件中是强符号，在其他文件中是弱符号，那么选择强符号。<br />
-3) 如果一个符号在所有的目标文件中都是弱符号，那么选择其中占用空间最大的一个。</p>
+3) 如果一个符号在所有的目标文件中都是弱符号，那么选择其中<strong>占用空间最大</strong>的一个。</p>
 <p>在 GCC 中，可以通过<code>__attribute__((weak))</code>来强制定义任何一个符号为弱符号。<br />
-需要注意的是，<code>__attribute__((weak))</code>只对链接器有效，对编译器不起作用，编译器不区分强符号和弱符号，<br />
+需要注意的是，<code>__attribute__((weak))</code>只<strong>对链接器有效</strong>，对编译器不起作用，编译器不区分强符号和弱符号，<br />
 只要在一个源文件中定义两个相同的符号，不管它们是强是弱，都会报“重复定义”错误。</p>
 <p><strong>弱符号对于库来说十分有用</strong>，我们在开发库时，可以将某些符号定义为弱符号，这样就能够被<strong>用户定义的强符号覆盖</strong>，从而使得程序可以使用自定义版本的函数，增加了很大的灵活性。</p>
 <h3 id="强引用和弱引用">强引用和弱引用</h3>
 <p>目前我们所看到的符号引用，在所有目标文件被链接成可执行文件时，它们的地址都要被找到，如果没有符号定义，链接器就会报符号未定义错误，这种被称为<strong>强引用</strong>（Strong Reference）。<br />
 与之相对应的还有一种<strong>弱引用</strong>（Weak Reference），如果符号有定义，就使用它对应的地址，<strong>如果没有定义，也不报错</strong>。</p>
-<p>链接器处理强引用和弱引用的过程几乎是一样的，只是<strong>对于未定义的弱引用，链接器不认为它是一个错误</strong>，一般默认其为 0（地址为 0），或者是一个特殊的值，以便程序代码能够识别。</p>
+<p>链接器处理强引用和弱引用的过程几乎是一样的，只是<strong>对于未定义的弱引用，链接器不认为它是一个错误</strong>，一般默认其为 0（地址为 0），或者是一个特殊的值，以便程序代码能够识别。这特别适合做插件。</p>
 <p>在变量声明或函数声明的前面加上<code>__attribute__((weak))</code>就会使符号变为弱引用。</p>
-<p>弱引用和强引用<strong>非常利于程序的模块化开发</strong>，我们可以将程序的扩展模块定义为弱引用，当我们将扩展模块和程序链接在一起时，程序就可以正常使用；如果我们去掉了某些模块，那么程序也可以正常链接，只是缺少了某些功能，这使得程序的功能更加容易<strong>裁剪和组合</strong>。</p>
+<p>弱引用和强引用<strong>非常利于程序的模块化开发</strong>，我们可以将程序的扩展模块定义为<strong>弱引用</strong>，当我们将扩展模块和程序链接在一起时，程序就可以正常使用；如果我们去掉了某些模块，那么程序也可以正常链接，只是缺少了某些功能，这使得程序的功能更加容易<strong>裁剪和组合</strong>。</p>
 <h3 id="c语言模块化编程中的头文件">C语言模块化编程中的头文件</h3>
 <p>头文件可以包含如下的内容：<br />
 * 可以声明函数，但不可以定义函数。<br />
@@ -371,7 +369,6 @@ extern datatype name = value;<br />
 <p>实际上我们一般不直接向用户提供目标文件，而是将多个相关的目标文件<strong>打包</strong>成一个静态链接库（Static Link Library），例如 Linux 下的 .a 和 Windows 下的 .lib。</p>
 <p>打包静态库的过程很容易理解，就是将多个目标文件捆绑在一起形成一个新的文件，然后再加上一些索引，方便链接器找到，这和压缩文件的过程非常类似。<br />
 C语言在发布的时候已经将标准库打包到了静态库，并提供了相应的头文件，例如 stdio.h、stdlib.h、string.h 等。</p>
-<h3 id="c语言标准库以及标准头文件">C语言标准库以及标准头文件</h3>
 <p>在实际开发中，我们都是将头文件放在当前工程目录下，非常建议大家使用相对路径，这样即使后来改变了工程所在目录，也无需修改包含语句，因为源文件的相对位置没有改变。</p>
 <h3 id="防止c语言头文件被重复包含">防止C语言头文件被重复包含</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#ifndef _INC_STDIO</span></span>
@@ -380,18 +377,18 @@ C语言在发布的时候已经将标准库打包到了静态库，并提供了�
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="pp">#endif</span></span></code></pre></div>
 <h3 id="关于声明定义类的定义头文件不具名空间">关于声明，定义，类的定义，头文件，不具名空间</h3>
 <h4 id="头文件的由来">头文件的由来</h4>
-<p>那是一个被遗忘的年代，那时，编译器只认识.c(或.cpp)文件，而不知道.h是何物的年代。<br />
-那时的人们写了很多的.c(或.cpp)文件，渐渐地，人们发现在很多.c文件中的声明变量或函数原型是相同的，但他们却不得不一个字一个字地重复地将这些内容敲入每个.c文件。但更为恐怖的是，当其中一个声明有变更时，就需要检查所有的.c(或.cpp)文件，并修改其中的声明，啊~，简直是世界末日降临!<br />
-终于，有人再不能忍受这样的折磨，他（们）将重复的部分提取出来，放在一个新文件里，然后在需要的.c(或.cpp)文件中敲入#include XXXX这样的语句。这样即使某个声明发生了变更，也再不需要到处寻找与修改了。<br />
+<p>那是一个被遗忘的年代，那时，编译器只认识.c(或.cpp)文件，而<strong>不知道.h是何物的年代</strong>。<br />
+那时的人们写了很多的.c(或.cpp)文件，渐渐地，人们发现在很多.c文件中的声明变量或函数原型是相同的，但他们却不得不一个字一个字地重复地将这些内容敲入每个.c文件。但更为恐怖的是，当其中一个声明有变更时，就需要检查所有的.c(或.cpp)文件，并修改其中的声明。<br />
+终于，有人再不能忍受这样的折磨，他（们）将重复的部分提取出来，放在一个新文件里，然后在需要的.c(或.cpp)文件中敲<code>入#include XXXX</code>这样的语句。这样即使某个声明发生了变更，也再不需要到处寻找与修改了。<br />
 因为这个新文件，经常被放在.c(或.cpp)文件的头部，所以就给它起名叫做“头文件”。</p>
 <h4 id="编译单元">1.编译单元</h4>
 <p>一个.cc，或.cpp作为一个编译单元.生成.o</p>
 <h4 id="数据的定义声明">2.数据的定义，声明</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>extern int x; <span class="co">//变量是声明，并未实际分配地址，未产生实际目标代码，可以有多个重复声明的存在。</span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>extern int x;  <span class="co">//变量是声明，并未实际分配地址，未产生实际目标代码，可以有多个重复声明的存在。</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>void print(); <span class="co">//函数声明，未产生实际目标代码</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>int x; int x = <span class="dv">3</span> ; void print() {}; <span class="co">//定义,产生了实际目标代码。</span></span></code></pre></div>
-<p>声明不产生实际的目标代码，它的作用是告诉编译器，OK，我在该编译单元后面会有这个x变量或函数的定义。<br />
-否则编译器如果发现程序用到x，print，而前面没有声明会报错。<br />
+<p>声明不产生实际的目标代码，它的作用是告诉编译器，我在该编译单元后面会有这个x变量或函数的定义。<br />
+否则编译器如果发现程序用到x，print，而前面没有声明会报错，不知道如何分配空间了。<br />
 如果有声明，而没有定义，那么链接的时候会报错未定义。<br />
 在c语言的早期，没有头文件，为了减少重复各种extern的变量和函数的声明，才加上了头文件</p>
 <h4 id="符号重复">3. 符号重复</h4>
@@ -419,8 +416,7 @@ google编程规范鼓励使用不具名空间,没有名字的namespace，<strong
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>namespace {</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>    int x;</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>}</span></code></pre></div>
-<p>OK,现在不会链接出错了因为两个x不重名了，当然对于这个简单的例子只在source1.cc中用不具名命名空间就可<br />
-避免链接出差了。</p>
+<p>OK,现在不会链接出错了因为两个x不重名了，当然对于这个简单的例子只在source1.cc中用不具名命名空间就可避免链接出错了。</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co">//source1.cc</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>namespace {</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    int x;</span>

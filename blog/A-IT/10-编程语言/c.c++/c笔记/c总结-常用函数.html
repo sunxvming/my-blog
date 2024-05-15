@@ -342,7 +342,7 @@ system(&quot;explorer.exe  C:\\Program Files&quot;); 打开资源管理器�
 <p>system()、popen()给我们处理了fork、exec、waitpid等一系列的处理流程，让我们只需要关注最后的返回结果(函数的返回值)即可。</p>
 <p><strong>popen如何获取命令执行的结果？</strong><br />
 命令执行时会将命令的结果输出到标准输出中，通过在父进程中创建一个管道，然后将标准输出到这个管道中，然后父进程从这个管道中读取结果。</p>
-<p>从上面的源码可以看到system和popen都是执行了类似的运行流程，大致是<code>fork-&gt;execl-&gt;return</code>。但是我们看到system在执行期间调用进程会一直等待shell命令执行完成(waitpid等待子进程结束)才返回，但是popen无须等待shell命令执行完成就返回了。我们可以理解system为串行执行，在执行期间调用进程放弃了”控制权”，popen为并行执行。<br />
+<p>从上面的源码可以看到system和popen都是执行了类似的运行流程，大致是<code>fork-&gt;execl-&gt;return</code>。但是我们看到system在执行期间调用进程会一直等待shell命令执行完成(waitpid等待子进程结束)才返回，但是<strong>popen无须等待shell命令执行完成就返回了</strong>。我们可以理解system为串行执行，在执行期间调用进程放弃了”控制权”，popen为并行执行。<br />
 popen中的子进程没人给它”收尸”了啊？是的，如果你没有在调用popen后调用pclose那么这个子进程就可能变成”僵尸”。<br />
 上面我们没有给出pclose的源码，其实我们根据system的源码差不多可以猜测出pclose的源码就是system中第4部分的内容。</p>
 <h3 id="systempopen源码">system()、popen()源码</h3>

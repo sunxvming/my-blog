@@ -185,8 +185,8 @@ jQuery(document).ready(function(){
 </div>
  <!--if(toc)-->
 
-<p>用python编写好一个工程，在第一次运行后，总会发现工程根目录下生成了一个__pycache__文件夹，里面是和py文件同名的各种 <code>*.pyc</code>或者 <code>*.pyo</code> 文件。</p>
-<p>Python程序运行时不需要编译成二进制代码，而直接从源码运行程序，简单来说是，Python解释器将源码转换为字节码，然后再由解释器来执行这些字节码。</p>
+<p>用python编写好一个工程，在第一次运行后，总会发现工程根目录下生成了一个<code>__pycache__</code>文件夹，里面是和py文件同名的各种 <code>*.pyc</code>或者 <code>*.pyo</code> 文件。</p>
+<p>Python程序运行时不需要编译成二进制代码，简单来说是，Python解释器将源码转换为<strong>字节码</strong>，然后再由解释器来执行这些字节码。</p>
 <p>解释器的具体工作：<br />
 1 完成模块的加载和链接；<br />
 2 将源代码编译为PyCodeObject对象(即字节码)，写入内存中，供CPU读取；<br />
@@ -200,7 +200,7 @@ jQuery(document).ready(function(){
 <p>这样工程较大时就可以大大缩短项目运行前的准备时间；如果你只需执行一个小工程，没关系 忽略这个文件夹就行。</p>
 <h2 id="什么时候会出现__pycache__文件夹">什么时候会出现__pycache__文件夹？</h2>
 <p>工程目录下有__main__.py文件，和其他将要调用的模块时。如果只有当前运行的脚本 "<code>__main__</code>"，则不会生成 <code>__pycache__</code> 的文件。</p>
-<p>当 import导入另一个模块的时候会生成 python3会生成 <code>__pycache__</code></p>
+<p>当 import导入另一个模块的时候会生成, python3会生成 <code>__pycache__</code></p>
 <h2 id="如何不生成pyc文件">如何不生成pyc文件</h2>
 <p>设置环境变量</p>
 <pre><code>export PYTHONDONTWRITEBYTECODE=1</code></pre>

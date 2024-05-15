@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/机器学习/语音识别</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#whisper">Whisper</a></li>
+<li><a href="#faster-whisper">faster-whisper</a>
+<ul>
+<li><a href="#模型下载">模型下载</a></li>
+</ul></li>
+<li><a href="#其他语音识别服务">其他语音识别服务</a></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="whisper">Whisper</h2>
+<p>Whisper 是 OpenAI 研发并开源的一个自动语音识别（ASR，Automatic Speech Recognition）模型，他们通过从网络上收集了 68 万小时的多语言（98 种语言）和多任务（multitask）监督数据对 Whisper 进行了训练，支持 <strong>99</strong> 种语言，对英文的表现更是强无敌。OpenAI 认为使用这样一个庞大而多样的数据集，可以提高模型对口音、背景==噪音==和技术术语的识别能力。除了可以用于==语音识别==，Whisper 还能实现多种语言的转录，以及将这些语言翻译成英语。</p>
+<p>最近，来自 HuggingFace 的团队提出了一种新变体 —— Distil-Whisper。这个变体是 Whisper 模型的蒸馏版，特点是模型小、速度快，而且准确度还很高，非常适合在要求低延迟或资源有限的环境中运行。不过，与能够处理多种语言的原始 Whisper 模型不同，Distil-Whisper 只能处理英文。</p>
+<p>有项测试结果表明，在处理 150 分钟的音频时，Distil-Whisper 的速度可以达到 Faster-Whisper 的 2.5 倍。</p>
+<p>为应对不同的语音转录需求，Whipser 推出了 <strong>tiny、base、small、medium、larg</strong>e 5 个档次的模型。<br />
+<strong>转录效果依次增加，但相应花费的时间也会增加。</strong><br />
+<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240204095700.png" alt="image.png" /></p>
+<h2 id="faster-whisper">faster-whisper</h2>
+<p>faster-whisper是基于OpenAI的Whisper模型的高效实现，faster-whisper的核心优势在于其能够在保持原有模型准确度的同时，大幅提升处理速度，这使得它在处理大规模语音数据时更加高效。<br />
+faster-whisper是具有完全的 whsiper 模型参数，且自带 VAD加持的 whisper 版本，该版本使用了 CTranslate2 来重新实现 whsiper 模型，CT2 对 transformer 类网络进行了优化，使模型推理效率更高。 相比于 openai/whisper，该实现在相同准确性下速度提高了 4 倍以上，同时使用的内存更少。</p>
+<p>所谓 VAD 即 Voice Activity Detection —— 声音活动检测，在语音信号处理中，例如语音增强，语音识别等领域有着非常重要的作用。它的作用是从一段语音（纯净或带噪）信号中标识出语音片段与非语音片段。在语音转写任务中，可以提前将语音和非语音部分分离出来，从而提升 whisper 网络识别速度，并减少模型幻听。</p>
+<h3 id="模型下载">模型下载</h3>
+<p>large-v3模型：https://huggingface.co/Systran/faster-whisper-large-v3/tree/main<br />
+large-v2模型：https://huggingface.co/guillaumekln/faster-whisper-large-v2/tree/main<br />
+large-v2模型：https://huggingface.co/guillaumekln/faster-whisper-large-v1/tree/main<br />
+medium模型：https://huggingface.co/guillaumekln/faster-whisper-medium/tree/main<br />
+small模型：https://huggingface.co/guillaumekln/faster-whisper-small/tree/main<br />
+base模型：https://huggingface.co/guillaumekln/faster-whisper-base/tree/main</p>
+<h2 id="其他语音识别服务">其他语音识别服务</h2>
+<p><a href="https://www.feishu.cn/product/minutes">飞书妙记</a><br />
+抖音旗下产品，注册登陆后就直接上传音频和视频即可转文字。支持<strong>中英日 3 种语言</strong>，能自动添加标点符号和章节分段，支持免费导出为 TXT 和 SRT 格式。</p>
+<p><a href="https://www.capcut.cn/">剪映</a><br />
+<strong>抖音</strong>旗下产品，它是一款桌面视频剪辑软件，但同时提供了识别语音功能，使用时需要<strong>联网使用</strong>。使用方法也很简单，点击导航栏“<strong>文本</strong>”，然后选择“<strong>智能字幕</strong>”，即可一键生成字幕。</p>
+<p>目前国内能与剪映对标的，当属 B 站推出的“<strong>必剪</strong>”。它的产品逻辑一样，也是为了方便用户创作视频，然后上传到 <strong>B 站</strong>。</p>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://sspai.com/post/79977">5 分钟 Whisper 测评，看完没有人比你更懂「语音识别」 - 少数派</a></li>
+<li><a href="https://blog.csdn.net/lsb2002/article/details/135286666">基于OpenAI的Whisper构建的高效语音识别模型：faster-whisper_faster_whisper-CSDN博客</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

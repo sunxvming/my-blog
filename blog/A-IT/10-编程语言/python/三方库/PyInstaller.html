@@ -184,6 +184,7 @@ jQuery(document).ready(function(){
 <li><a href="#在包中导入其他资源">在包中导入其他资源：</a></li>
 <li><a href="#兼容问题">兼容问题</a></li>
 <li><a href="#其他问题">其他问题</a></li>
+<li><a href="#linux下使用">linux下使用</a></li>
 <li><a href="#参考链接">参考链接</a></li>
 </ul>
 </div>
@@ -243,6 +244,16 @@ a = Analysis([&#39;helloworld.py&#39;],
 <pre class="shell"><code> pip install -r requirements.txt</code></pre>
 <h2 id="其他问题">其他问题</h2>
 <p>在打了一个从视频流中进行物体识别的包，因为依赖的库有opencv、pytorch等，而他们有依赖很多其他的库，导致打完的包体有三百多M，在运行的时候前边有一段时间没有反应。后来发现是在运行打包的程序时，python的打包程序会先把python程序依赖的解释器、库、三方的python包解压到类似 <code>C:\Users\sunxv\AppData\Local\Temp\_MEI676042</code> 这样的目录。所以会导致程序有一段解压的时间消耗。</p>
+<h2 id="linux下使用">linux下使用</h2>
+<pre><code>pyinstaller -D -F -n main -c &quot;main.py&quot;</code></pre>
+<ul>
+<li><code>-D</code>：这个参数告诉PyInstaller生成一个包含所有依赖项的目录，而不是单个的可执行文件。生成的文件夹通常在<code>dist</code>目录下。</li>
+<li><code>-F</code>：这个参数告诉PyInstaller生成一个单个的可执行文件，而不是一个包含多个文件的目录。</li>
+<li><code>-n main</code>：这个参数指定了生成的可执行文件的名称为"main"。如果没有指定该参数，默认情况下，PyInstaller会使用脚本文件的名称来命名生成的可执行文件。</li>
+<li><code>-c</code>：这个参数告诉PyInstaller在控制台窗口中打开生成的可执行文件。</li>
+</ul>
+<p>pyinstaller -D -F -c "gen_proto_data_from_file.py"<br />
+pyinstaller -F  "gen_proto_data_from_file.py"</p>
 <h2 id="参考链接">参考链接</h2>
 <ul>
 <li><a href="https://blog.csdn.net/zengxiantao1994/article/details/76578421">Python程序打包成exe可执行文件</a></li>

@@ -316,7 +316,7 @@ Python 解释器在遇到 import 的时候，它会在1.一个特定的列表中
 <p>3. 导入模块中的所有内容</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>from mypackage import <span class="op">*</span></span></code></pre></div>
 <p><code>__init__.py</code> 中还有一个重要的变量，叫做 <code>__all__</code>。<br />
-<code>__all__</code> 关联了一个模块列表，当执行 <code>from xx import *</code> 时，就会导入列表中的模块。<br />
+<code>__all__</code> 关联了一个模块列表，当执行 <code>from xx import *</code> 时，就会导入<code>__all__</code>列表中的模块。<br />
 比如：</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>__all__ <span class="op">=</span> [<span class="st">&#39;subpackage_1&#39;</span>, <span class="st">&#39;subpackage_2&#39;</span>]</span></code></pre></div>
 <p>可以去python的内置库看例子，windows下位于：<code>Python311\Lib</code></p>

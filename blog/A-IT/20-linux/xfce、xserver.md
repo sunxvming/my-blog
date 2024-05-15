@@ -10,3 +10,21 @@ X Window System，通常简称为X11或X，是一个用于图形显示的软件�
 启动xfce命令`sudo sudo startxfce4
 
 
+
+
+## vnc远程linux
+
+**VNC简介**
+VNC (Virtual Network Console)，即虚拟网络控制台，它是一款基于 UNIX 和 Linux 操作系统的优秀远程控制工具软件，由著名的 AT&T 的欧洲研究实验室开发，远程控制能力强大，高效实用，并且免费开源。
+
+VNC基本上是由两部分组成：一部分是客户端的应用程序(vncviewer)；另外一部分是服务器端的应用程序(vncserver)。
+
+**vncserver使用**
+第一次运行vncserver时，它会创建一个默认启动脚本。按照提示进行配置密码什么的。
+配置完成后就可以用`vncserver`进行启动
+启动后可以用`ps aux|grep vnc` 查看启动的端口
+
+
+**vncviewer的使用**
+输入`ip:port`, 然后再按提示输入密码就可以连接了。
+

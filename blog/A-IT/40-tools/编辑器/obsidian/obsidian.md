@@ -37,21 +37,21 @@ ctrl + shift + 上/下   移动行
 
 
 
-## picGo
-```
-"aliyun": {
-  "accessKeyId": "LTAI5t5nByDxou9Hfs4FnCXU",
-  "accessKeySecret": "TPn88pB2GoffHkU44Uixijfqv3oRO0",
-  "bucket": "sxm-upload",
-  "area": "oss-cn-beijing",
-  "path": "imgs",
-  "customUrl": "",
-  "options": ""
-}
-```
+##  Callouts 语法 
+Callouts 以前是第三方插件 Admonitions 的功能，现在被内置到OB自身，在 Publish 中也可使用
+
+最方便的使用方式，是安装第三方插件—— Admonitions
+ctrl+p 命令 ，输入 admontion
+
+可以实现如下效果
+
+> [!note]
+> 
+这是文本
 
 
 ## 参考链接
 - [【Obsidian绝配！】为你的OB搭建专属图床，保姆级教程！ - 知乎](https://zhuanlan.zhihu.com/p/565218725)
 - [Obsidian群分享](http://jackiegeek.gitee.io/obsidian-chinese-help/)
 - [pkmer知识社区-首页](https://pkmer.cn/page/)
+

@@ -176,6 +176,12 @@ jQuery(document).ready(function(){
 </div> <!--id="header"-->
  <!--if(title)-->
 
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#vnc远程linux">vnc远程linux</a></li>
+</ul>
+</div>
  <!--if(toc)-->
 
 <p>XFCE和Xserver都是与桌面环境和图形显示相关的软件。</p>
@@ -183,6 +189,16 @@ jQuery(document).ready(function(){
 <p>X Window System，通常简称为X11或X，是一个用于图形显示的软件系统。它提供了图形显示、窗口管理和用户输入的功能，允许在不同的计算机上运行图形应用程序并显示到本地或远程的显示设备上。X Window System使用Xserver作为图形服务器，负责管理图形显示、窗口和用户输入。</p>
 <p>因此，Xserver是X Window System的一个重要组成部分，它负责接收和处理来自应用程序的图形请求，并将图形数据发送到显示设备上。XFCE作为一个桌面环境，依赖于Xserver来提供图形显示功能。</p>
 <p>启动xfce命令`sudo sudo startxfce4</p>
+<h2 id="vnc远程linux">vnc远程linux</h2>
+<p><strong>VNC简介</strong><br />
+VNC (Virtual Network Console)，即虚拟网络控制台，它是一款基于 UNIX 和 Linux 操作系统的优秀远程控制工具软件，由著名的 AT&amp;T 的欧洲研究实验室开发，远程控制能力强大，高效实用，并且免费开源。</p>
+<p>VNC基本上是由两部分组成：一部分是客户端的应用程序(vncviewer)；另外一部分是服务器端的应用程序(vncserver)。</p>
+<p><strong>vncserver使用</strong><br />
+第一次运行vncserver时，它会创建一个默认启动脚本。按照提示进行配置密码什么的。<br />
+配置完成后就可以用<code>vncserver</code>进行启动<br />
+启动后可以用<code>ps aux|grep vnc</code> 查看启动的端口</p>
+<p><strong>vncviewer的使用</strong><br />
+输入<code>ip:port</code>, 然后再按提示输入密码就可以连接了。</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

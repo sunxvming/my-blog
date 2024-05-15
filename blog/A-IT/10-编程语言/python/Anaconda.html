@@ -263,7 +263,9 @@ jQuery(document).ready(function(){
 <p>windows下安装完成后需要配置环境变量</p>
 <pre><code>C:\ProgramData\anaconda3
 C:\ProgramData\anaconda3\Scripts</code></pre>
-<p>之后用conda下载或更新包的时候可能会出现错误。</p>
+<p>虚拟环境安装的目录为：</p>
+<pre><code>C:\Users\sunxv\.conda</code></pre>
+<p>anaconda会非常吃硬盘空间，用过一段时间后，其中安装目录<code>C:\ProgramData\anaconda3</code>的大小为：10G作用，有三个虚拟环境大概也是10G左右</p>
 <h3 id="httperror">HttpError</h3>
 <p>出现HttpError的时候可能是下载地址的channel有问题，在conda安装好之后，默认的镜像是官方的，由于官网的镜像在境外,访问太慢或者不能访问，为了能够加快访问的速度，这里选择了清华的的镜像。在命令行中运行(设置清华的镜像)</p>
 <pre><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
@@ -288,9 +290,9 @@ deactivate 环境名</p>
 conda remove -n 环境名 --all</p>
 <h2 id="包含依赖项的环境文件">包含依赖项的环境文件</h2>
 <p><strong>使用conda</strong>：如果您使用的是conda环境管理器，您可以使用以下命令创建一个包含依赖项的环境文件：</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="ex">conda</span> list --export <span class="op">&gt;</span> environment.yml</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="ex">conda</span> list --export <span class="op">&gt;</span> environment.yml</span></code></pre></div>
 <p>这将生成一个<code>environment.yml</code>文件，其中包含了当前环境中的所有包及其版本。然后，您可以在其他机器上使用conda创建相同的环境：</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="ex">conda</span> env create -f environment.yml</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="ex">conda</span> env create -f environment.yml</span></code></pre></div>
 <p>这将根据<code>environment.yml</code>文件创建一个新的conda环境，其中包含了与原始环境相同的依赖项。</p>
 <h2 id="在bat脚本中运行">在bat脚本中运行</h2>
 <pre><code>@echo off

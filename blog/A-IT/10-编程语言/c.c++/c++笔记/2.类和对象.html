@@ -244,13 +244,10 @@ jQuery(document).ready(function(){
 <div id="TOC">
 <ul>
 <li><a href="#类的定义和对象的创建">类的定义和对象的创建</a></li>
-<li><a href="#类的成员变量和成员函数">类的成员变量和成员函数</a></li>
+<li><a href="#成员变量和成员函数内联函数">成员变量和成员函数、内联函数</a></li>
 <li><a href="#类成员的访问权限以及类的封装">类成员的访问权限以及类的封装</a></li>
-<li><a href="#对象的内存模型">对象的内存模型</a></li>
 <li><a href="#函数编译原理和成员函数的实现">函数编译原理和成员函数的实现</a></li>
 <li><a href="#this指针">this指针</a></li>
-<li><a href="#static静态成员函数">static静态成员函数</a></li>
-<li><a href="#static静态成员变量">static静态成员变量</a></li>
 <li><a href="#构造函数">构造函数</a></li>
 <li><a href="#默认初始化和值初始化">默认初始化和值初始化</a></li>
 <li><a href="#构造函数初始化列表">构造函数初始化列表</a></li>
@@ -260,7 +257,7 @@ jQuery(document).ready(function(){
 </ul></li>
 <li><a href="#new-和-new">new 和 new</a></li>
 <li><a href="#delete-和-delete">delete 和 delete</a></li>
-<li><a href="#全局静态全局对象">全局静态全局对象</a></li>
+<li><a href="#全局静态对象">全局静态对象</a></li>
 <li><a href="#成员对象和封闭类">成员对象和封闭类</a>
 <ul>
 <li><a href="#成员对象的初始化">成员对象的初始化</a></li>
@@ -287,33 +284,29 @@ jQuery(document).ready(function(){
 <h2 id="类的定义和对象的创建">类的定义和对象的创建</h2>
 <p>类只是一个模板（Template），<strong>编译后不占用内存空间</strong>，只有在<strong>创建对象以后</strong>才会给成员变量分配内存。<br />
 使用 new 在堆上创建出来的对象是<strong>匿名的</strong>，没法直接使用，必须要用一个指针指向它，再借助指针来访问它的成员变量或成员函数。<br />
-用new要自己delete释放，用不好很危险，用好了功能强大，因为他可以赋值给全局的变量，一下子<strong>从局部变量变成全局变量</strong>，还能把对象作为函数返回值。<br />
-另外使用多态的时候也要用到new和指针<br />
+用new要自己delete释放，用不好很危险，用好了功能强大，因为他可以赋值给全局的变量，一下子<strong>从局部变量变成全局变量</strong>，还能把对象作为函数返回值。</p>
+<p>另外使用多态的时候也要用到new和指针<br />
 在一般开发里，常规定义(栈空间)与指针定义(堆空间)的区别不是很大。<strong>一般都是建议能不使用指针对象的时候不要使用</strong>。</p>
-<h2 id="类的成员变量和成员函数">类的成员变量和成员函数</h2>
+<h2 id="成员变量和成员函数内联函数">成员变量和成员函数、内联函数</h2>
 <p>在类体中定义的成员函数会自动成为<strong>内联函数</strong>，在类体外定义的不会。若内联函数变了，引用它的文件得重新编译，若不是内联的，只有函数签名改变了，引用此对象的c++文件才需要需重新编译</p>
 <h2 id="类成员的访问权限以及类的封装">类成员的访问权限以及类的封装</h2>
 <p>public：类内、类外、继承可见<br />
 protected：类内、继承可见<br />
 private：类内可见</p>
 <p>成员变量大都以<code>m_</code>开头，这是约定成俗的写法。<br />
-以m_开头 1. 既可以一眼看出这是成员变量，2. 又可以和成员函数中的形参名字区分开</p>
+以<code>m_</code>开头 1. 既可以一眼看出这是成员变量，2. 又可以和成员函数中的形参名字区分开</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">//以 setname() 为例，如果将成员变量m_name的名字修改为name，那么 setname() 的形参就不能再叫name了，得换成诸如name1、_name这样没有明显含义的名字，否则name=name;这样的语句就是给形参name赋值，而不是给成员变量name赋值。</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>void Student::setname(char *name){</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    m_name = name;</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>}</span></code></pre></div>
 <p>根据C++软件设计规范，实际项目开发中的<strong>成员变量以及只在类内部使用的成员函数</strong>都建议声明为 private，而只将允许通过对象调用的成员函数声明为 public。</p>
-<h2 id="对象的内存模型">对象的内存模型</h2>
-<p>对象所占用的存储空间的大小等于各<strong>成员变量</strong>所占用的存储空间的大小之和（如果不考虑成员变量对齐问题的话）。<br />
-对象的大小只受<strong>成员变量的影响</strong>，和成员函数没有关系。成员函数放在代码区。<br />
-和结构体非常类似，对象也会有内存对齐的问题</p>
 <h2 id="函数编译原理和成员函数的实现">函数编译原理和成员函数的实现</h2>
 <p>C++和C语言的编译方式不同。C语言中的函数在编译时名字不变，或者只是简单的加一个下划线</p>
-<p>而C++中的函数在编译时会根据它所在的1.命名空间、2.所属的类、3.参数列表（也叫参数签名）等信息进行重新命名，形成一个<strong>新的函数名</strong>。这个新的函数名只有编译器知道，对用户是不可见的。对函数重命名的过程叫做<strong>名字编码（Name Mangling）</strong>。</p>
+<p>而C++中的函数在编译时会根据它所在的 1.<strong>命名空间</strong>、2.<strong>所属的类</strong>、3.<strong>参数列表</strong>（也叫参数签名）等信息进行重新命名，形成一个<strong>新的函数名</strong>。这个新的函数名只有编译器知道，对用户是不可见的。对函数重命名的过程叫做<strong>名字编码（Name Mangling）</strong>。</p>
 <p>Name Mangling 的算法是可逆的，既可以通过现有函数名计算出新函数名，也可以通过新函数名逆向推演出原有函数名。<br />
 Name Mangling 可以<strong>确保新函数名的唯一性</strong>，只要函数所在的命名空间、所属的类、包含的参数列表等有一个不同，最后产生的新函数名也不同。<br />
 <strong>成员函数最终被编译成与对象无关的全局函数</strong>，如果函数体中没有成员变量，那问题就很简单，不用对函数做任何处理，直接调用即可。<br />
-C++规定，编译成员函数时要<strong>额外添加一个参数，把当前对象的指针传递进去</strong>，通过指针来访问成员变量。</p>
+C++规定，编译<strong>成员函数</strong>时要<strong>额外添加一个参数，把当前对象的指针传递进去</strong>，通过指针来访问成员变量。</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>void Demo::display(){</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    cout&lt;&lt;a&lt;&lt;endl;</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    cout&lt;&lt;b&lt;&lt;endl;</span>
@@ -333,16 +326,6 @@ C++规定，编译成员函数时要<strong>额外添加一个参数，把当前
 <li>this 只能在成员函数内部使用，用在其他地方没有意义，也是非法的。</li>
 <li>只有当对象被创建后 this 才有意义，因此不能在 static 成员函数中使用。</li>
 </ul>
-<h2 id="static静态成员函数">static静态成员函数</h2>
-<p>普通成员函数有 this 指针，可以访问类中的任意成员；而<strong>静态成员函数没有 this 指针</strong>，只能访问静态成员（包括静态成员变量和静态成员函数）。<br />
-静态成员函数的主要目的是访问静态成员,静态成员函数可以通过类来调用（一般都是这样做），也可以通过对象来调用.</p>
-<h2 id="static静态成员变量">static静态成员变量</h2>
-<p>1) 一个类中可以有一个或多个静态成员变量，所有的对象都共享这些静态成员变量，都可以引用它。<br />
-2) static 成员变量和普通 static 变量一样，都在内存分区中的<strong>全局数据区</strong>分配内存，<strong>到程序结束时才释放</strong>。这就意味着，static 成员变量不随对象的创建而分配内存，也不随对象的销毁而释放内存。<br />
-static成员变量的内存既<strong>不是在声明类时分配</strong>，也<strong>不是在创建对象时分配</strong>，而是在<strong>类外初始化时分配</strong>。反过来说，没有在类外初始化的 static 成员变量不能使用。<br />
-3) 静态成员变量<strong>必须初始化</strong>，而且只能在类体外进行。例如： <code>int Student::m_total = 10;</code><br />
-初始化时可以赋初值，也可以不赋值。如果不赋值，那么会被默认初始化为 0。全局数据区的变量都有默认的初始值 0，而动态数据区（堆区、栈区）变量的默认值是不确定的，一般认为是垃圾值。<br />
-4) 静态成员变量既可以通过<strong>对象名</strong>访问，也可以通过<strong>类名</strong>访问，但要遵循 private、protected 和 public 关键字的访问权限限制。当通过对象名访问时，对于不同的对象，访问的是同一份内存。</p>
 <h2 id="构造函数">构造函数</h2>
 <p><strong>什么是默认构造函数</strong>？<br />
 默认构造函数是可以不用实参进行调用的构造函数，它包括了以下两种情况：<br />
@@ -386,7 +369,7 @@ static成员变量的内存既<strong>不是在声明类时分配</strong>，也
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>     std::string *pia2 = new int[<span class="dv">10</span>]; <span class="co">//动态分配10个未初始化的int</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>}</span></code></pre></div></li>
 </ol>
-<p>总结起来，区别在于默认初始化只分配内存而不对其进行初始化，而值初始化会将对象初始化为一些特定的默认值，这些值可能是零、空或者通过类的默认构造函数产生的值。在编写代码时，建议总是显式初始化对象，以避免不确定行为。</p>
+<p>总结起来，区别在于默认初始化只分配内存而不对其进行初始化，而值初始化会将对象初始化为一些特定的默认值，这些值可能是零、空或者通过类的默认构造函数产生的值。在编写代码时，<strong>建议总是显式初始化对象，以避免不确定行为。</strong></p>
 <p>理论上： <code>A *pa1 = new A;</code> 和 <code>A *pa2 = new A();</code> 之间是有差别的，前一个应该不会调用默认构造函数而后一个会。<br />
 但是在 GCC 和 VS2010 的实验中发现，这 2 个写法是完全没有区别的，默认的构造函数都被调用了。</p>
 <h2 id="构造函数初始化列表">构造函数初始化列表</h2>
@@ -397,9 +380,9 @@ static成员变量的内存既<strong>不是在声明类时分配</strong>，也
 析构函数没有参数，不能被重载，因此一个类只能有一个析构函数。如果用户没有定义，编译器会自动生成一个默认的析构函数</p>
 <p>它们与C语言中 malloc()、free() 最大的一个不同之处在于：用 new 分配内存时会<strong>调用构造函数</strong>，用 delete 释放内存时会<strong>调用析构函数</strong>。</p>
 <h3 id="析构函数的执行时机">析构函数的执行时机</h3>
-<p>1. 在所有函数之外创建的对象是全局对象，它和全局变量类似，位于内存分区中的全局数据区，程序在结束执行时会调用这些对象的析构函数。<br />
-2. 在函数内部创建的对象是局部对象，它和局部变量类似，位于栈区，函数执行结束时会调用这些对象的析构函数。<br />
-3. new 创建的对象位于堆区，通过 delete 删除时才会调用析构函数；如果没有 delete，析构函数就不会被执行。</p>
+<p>1. 在<strong>所有函数之外</strong>创建的对象是全局对象，它和全局变量类似，位于内存分区中的全局数据区，程序在结束执行时会调用这些对象的析构函数。<br />
+2. 在<strong>函数内部</strong>创建的对象是局部对象，它和局部变量类似，位于栈区，函数执行结束时会调用这些对象的析构函数。<br />
+3. new 创建的对象位于<strong>堆区</strong>，通过 delete 删除时才会调用析构函数；如果没有 delete，析构函数就不会被执行。</p>
 <h2 id="new-和-new">new 和 new</h2>
 <ul>
 <li><code>new</code> 运算符用于动态分配单个对象的内存，并调用对象的构造函数来初始化对象。</li>
@@ -416,16 +399,16 @@ static成员变量的内存既<strong>不是在声明类时分配</strong>，也
 <ol>
 <li><strong><code>delete</code> 运算符：</strong> 当使用 <code>delete</code> 运算符删除一个动态分配的单个对象时，它会调用该对象的析构函数然后释放内存。没有数组维度的寻找，因为你只是删除了一个对象。</li>
 <li><strong><code>delete []</code> 运算符：</strong> 当使用 <code>delete []</code> 运算符删除一个动态分配的数组时，情况会稍微复杂一些。这是因为编译器需要知道要删除的是一个数组，以便可以正确地调用数组中每个元素的析构函数。但是，由于C++中并没有提供一种内建的方法来存储数组的大小，编译器必须从某个地方获取这个信息。<br />
-为了解决这个问题，通常的做法是在动态分配数组的时候，将数组的大小保存在内存块之前（通常是作为额外的信息）。这样，在执行 <code>delete []</code> 时，编译器可以从该信息中获得数组的大小，然后依次调用每个元素的析构函数，最后释放整个内存块。<br />
-由于这种需要寻找数组维度的额外步骤，<code>delete []</code> 运算符相对于 <code>delete</code> 运算符来说，可能会稍微慢一些。这就是为什么在某些情况下，使用 <code>delete</code> 运算符删除单个对象可能会更有效率。</li>
+为了解决这个问题，通常的做法是在动态分配数组的时候，<strong>将数组的大小保存在内存块之前</strong>（通常是作为额外的信息）。这样，在执行 <code>delete []</code> 时，编译器可以从该信息中获得数组的大小，然后依次调用每个元素的析构函数，最后释放整个内存块。<br />
+由于这种需要寻找数组维度的额外步骤，<code>delete []</code> 运算符相对于 <code>delete</code> 运算符来说，可能会稍微慢一些。</li>
 <li><strong><code>delete []</code> 单个对象：</strong> 关于这一点，C++标准并没有定义 <code>delete []</code> 用于单个对象的行为，而且这在很多编译器上都是未定义行为。这意味着使用 <code>delete []</code> 来删除单个对象可能会导致不确定的结果，甚至程序崩溃。正确的做法是，对于单个对象，应该使用普通的 <code>delete</code> 运算符。</li>
 </ol>
 <p><strong>数组和多态行为的天生不兼容性：</strong><br />
 永远不要把数组和多态扯到一起，他们天生是不兼容的。当你对一个指向派生类的基类指针进行<br />
-delete [] pbase; 操作时，它是不会有正确的语意的。<br />
+<code>delete [] pbase;</code> 操作时，它是不会有正确的语意的。<br />
 这是由于 delete [] 实际上会使用 vec_delete() 类似的函数调用代替，而在 vec_delete() 的参<br />
 数中已经传递了元素的大小，在 vec_delete 中的迭代删除时，会在删除一个指针之后将指针向<br />
-后移动 item_size 个位置，如果 DerivedClass 的 size 比 BaseClass 要大的话（通常都是如<br />
+后移动 <code>item_size</code> 个位置，如果 DerivedClass 的 size 比 BaseClass 要大的话（通常都是如<br />
 此），指针就已经指向了一个未知的区域了（如果 Derived 与 Base 大小相同，那碰巧不会发生<br />
 错误， delete [] 可以正确的执行）。</p>
 <p>例子：</p>
@@ -450,7 +433,7 @@ delete [] pbase; 操作时，它是不会有正确的语意的。<br />
 <span id="cb10-19"><a href="#cb10-19" aria-hidden="true"></a>    <span class="kw">delete</span>[] array; <span class="co">// 错误：可能会导致未定义行为</span></span>
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
 <span id="cb10-21"><a href="#cb10-21" aria-hidden="true"></a>}</span></code></pre></div>
-<h2 id="全局静态全局对象">全局静态全局对象</h2>
+<h2 id="全局静态对象">全局静态对象</h2>
 <p>静态初始化是指在程序启动时，全局对象或静态对象的构造函数在main函数之前就已经被调用。而动态初始化是在对象首次使用时才调用构造函数。<br />
 使用静态初始化的全局对象在不同编译单元（源文件）中可能会引发静态初始化顺序的问题，这可能导致不可预测的行为，因为C++标准并没有明确定义不同编译单元中全局对象的初始化顺序。<br />
 Google C++编程规范以及像Lippman这样的C++专家建议避免使用需要静态初始化的全局对象，原因包括：<br />
@@ -460,7 +443,7 @@ Google C++编程规范以及像Lippman这样的C++专家建议避免使用需要
 <p>为了避免这些问题，一些最佳实践包括：<br />
 - 避免使用全局对象，尤其是在不同编译单元中。<br />
 - 将对象的生命周期限制在需要的作用域内，避免过早或过晚的初始化。<br />
-- 使用局部静态对象（函数内的静态对象），因为它们会在第一次使用时进行动态初始化，避免了全局静态对象的问题。</p>
+- 使用<strong>局部静态对象</strong>（函数内的静态对象），因为它们会在第一次使用时进行动态初始化，避免了全局静态对象的问题。</p>
 <p><strong>局部静态对象的例子</strong></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a></span>
@@ -560,7 +543,7 @@ Google C++编程规范以及像Lippman这样的C++专家建议避免使用需要
 内部类可以访问外部类的私有成员，但外部类不能直接访问内部类的私有成员。<br />
 注意内部类可以直接访问外部类中的static、枚举成员，不需要外部类的对象/类名。<br />
 内部类和友元类很像很像。只是内部类比友元类多了一点权限：可以不加类名的访问外部类中的static、枚举成员。其他的都和友元类一样。</p>
-<p>内部类的一个常见应用场景是实现一些辅助类或数据结构，这些类在外部类内部具有紧密关联，但不需要在外部类之外使用。内部类有助于代码的模块化和封装。</p>
+<p>内部类的一个常见应用场景是实现一些<strong>辅助类或数据结构</strong>，这些类在外部类内部具有紧密关联，但不需要在外部类之外使用。内部类有助于代码的模块化和封装。</p>
 <p>内部类的使用场景包括：<br />
 1. <strong>封装性：</strong> 内部类可以更好地实现封装，因为它可以访问外部类的私有成员，同时将相关功能组织在一起。<br />
 2. <strong>实现细节隐藏：</strong> 内部类可以用于隐藏外部类的某些实现细节，从而提供更清晰的接口。<br />
@@ -612,12 +595,12 @@ Google C++编程规范以及像Lippman这样的C++专家建议避免使用需要
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true"></a>cout&lt;&lt;c&lt;&lt;endl; <span class="co">//输出：abcd</span></span></code></pre></div>
 <p>上面如果继续用c指针的话，导致的错误将是不可想象的。就如：1234变为abcd<br />
 其实上面的<code>c = s.c_str();</code> 不是一个好习惯。<strong>既然c指针指向的内容容易失效</strong>，我们就应该把数据复制出来,这就要用到strcpy等函数（推荐）。</p>
-<pre><code>char* c=new char[20];
-string s=&quot;1234&quot;;
-strcpy(c,s.c_str());
-cout&lt;&lt;c&lt;&lt;endl; //输出：1234
-s=&quot;abcd&quot;;
-cout&lt;&lt;c&lt;&lt;endl; //输出：1234</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="dt">char</span>* c=new char[<span class="dv">20</span>];</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a>string s=<span class="st">&quot;1234&quot;</span>;</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a>strcpy(c,s.c_str());</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a>cout&lt;&lt;c&lt;&lt;endl; <span class="co">//输出：1234</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a>s=<span class="st">&quot;abcd&quot;</span>;</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a>cout&lt;&lt;c&lt;&lt;endl; <span class="co">//输出：1234</span></span></code></pre></div>
 <p>data():与c_str()类似，但是返回的数组不<strong>以空字符终止</strong>.</p>
 <ul>
 <li>访问字符串中的字符</li>
@@ -678,7 +661,7 @@ C++ string 的这种做法，极大地减少了C语言编程中三种最常见�
 <h2 id="c-stl-中的-stdstring-类以字符-0结尾么">C++ STL 中的 std：string 类以字符 <code>\0</code>结尾么</h2>
 <p>无规定，但是我认为内部没有理由不以零结尾或不预留结尾零的位置<br />
 原因在于<code>c_str()</code>这个函数的调用<br />
-这个函数会返回c风格的字符串，是以零结尾的。如果内部不以零结尾或不预留结尾零的位置，那么这个函数的实现会比较低效率，因为意味着要重新分配更大的缓冲区来盛放数据。因此（或还有其他原因），主流实现都会以零结尾或预留结尾零的位置。</p>
+这个函数会返回c风格的字符串，是以零结尾的。如果内部不以零结尾或不预留结尾零的位置，那么这个函数的实现会比较低效率，因为意味着要重新分配更大的缓冲区来盛放数据。因此，主流实现都会以零结尾或预留结尾零的位置。</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

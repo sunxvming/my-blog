@@ -1,6 +1,6 @@
 `__typeof__()`并且`__typeof()`是C语言的编译器专用扩展，因为标准C不包含这样的运算符。标准C要求编译器用双下划线前缀语言扩展（这也是为什么你不应该为自己的函数，变量等做这些）
 
-C++ 程序员偏向于使用 for(;;) 结构来表示一个无限循环。
+C++ 程序员偏向于使用 `for(;;) `结构来表示一个无限循环。
 
 ### vs中查看string的中文字
 在获取包含中文变量的时候，查看std::string字符串变量，提示：字符串中的字符无效
@@ -20,7 +20,7 @@ vs中显示winsock2.h 找不到，于是搜索了下发现在
 
 
 ### VS命令行编译
-在tools下有个bat文件VsDevCmd.bat，运行后就可以把编译的命令设置到环境变量中，然后就可以在命令行中编译了
+在tools下有个bat文件VsDevCmd.bat，运行后就可以把编译的命令设置到**环境变量中**，然后就可以在命令行中编译了
 ![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/277f4bd4-0fbc-46e5-96df-e3864abaa6f6.png)
 
 
@@ -40,7 +40,7 @@ String^ path
 ### linux man
 man fopen  在linux下就可以查看到c函数的用法
 
-c函数（尤其linux下）正确情况一般返回0 ，错误的话则返回错误码
+c函数（尤其linux下）正确情况一般返回 **0** ，错误的话则返回**错误码**
 
 
 
@@ -60,8 +60,10 @@ _declspec(dllexport) void goA() 不需要main函数
 }
 要编译成dll的文件，注入到其他程序中
 ```
+
+
 ### CGI
-CGI：早期动态网页技术使用最多的，发展的比较成熟并且功能强大，但是效率比较低，编程比较困难。目前很少使用CGI做动态网页。CGI就是web服务器提供的一个可以执行服务器端程序接口的东西，可以用c c++ python 等各来写种语言
+CGI：早期动态网页技术使用最多的，发展的比较成熟并且功能强大，但是效率比较低，编程比较困难。目前很少使用CGI做动态网页。CGI就是**web服务器**提供的一个**可以执行服务器端程序接口**的东西，可以用`c c++ python` 等各来写种语言
 一个网站的后门cgi程序，可以执行各种系统的命令，当然用php也可以这样做的
 ```c
 void main()
@@ -97,8 +99,7 @@ void main()
 
 ### 外挂的思路
 植物大战僵尸外挂的思路
-知道那些地址代表那些属性，然后修改之，（属性包括游戏运行暂停状态，分数，生命值……）这就是外挂可以通过使用Cheat Engine 来扫描比如阳光的地址，然后修改地址，最重要的是**扫描出基址**，和各个属性的偏移地址。然后根据这些地址写一个修改地址的dll，然后注入到游戏中
-
+知道那些地址代表那些属性，然后修改之，（属性包括游戏运行暂停状态，分数，生命值……）这就是外挂可以通过使用**Cheat Engine** 来扫描比如阳光的地址，然后修改地址，最重要的是**扫描出基址**，和各个属性的偏移地址。然后根据这些地址写一个修改地址的dll，然后注入到游戏中
 
 
 
@@ -137,7 +138,7 @@ void main12()
 int main()
 {
     char *p1 = "111111";
-    char *p2 = malloc(100);   //sizeof(p2) = 4
+    char *p2 = malloc(100);   //sizeof(p2) = 4   32位 = 4   64位 = 8
     strcpy(p2, "3333");
 }
 
@@ -151,7 +152,7 @@ void main()
 
     while (p = strstr(p, "abcd"))
     {
-        p = p + strlen("abcd");
+        p = p + strlen("abcd");  // 未找到则返回 NULL。
         ncout ++;
         if (*p == '\0')
         {
@@ -188,8 +189,6 @@ int getCout(char *str, char *substr, int *count)
             ncout++;
             p = p + strlen(substr);
         }
-
-
     } while (*p != '\0');
 
 
@@ -199,7 +198,6 @@ int getCout(char *str, char *substr, int *count)
 
 
 --------------字符串复制-------------------
-
 
 //因为后缀++的优先级,高于，*p;
 void copy_str3(char *from , char *to)
@@ -328,7 +326,7 @@ int trimSpace(char *mybuf, char *outbuf)
 void main()
 {
     //char *str = "abcdefg";   因为他是在全局区，没法改变的
-    char str[] = "abcdefg";   //在栈区的
+    char str[] = "abcdefg";   //在栈区的可以修改
     int len = strlen(str);
     char *p1 = str;
     char *p2 = str + len -1;
@@ -442,9 +440,10 @@ void main02()
 
     system("pause");
 }
+
+
+
 --------------指向数组类型的指针变量----------
-
-
 void main022()
 {
     int a;
@@ -583,9 +582,6 @@ void writelog(const char *log)
     }
     return;
 }
-
-
-
 
 ```
 

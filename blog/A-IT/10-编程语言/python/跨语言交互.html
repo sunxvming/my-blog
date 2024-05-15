@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/python/跨语言交互</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#python-api">python API</a>
+<ul>
+<li><a href="#参考链接">参考链接</a></li>
+</ul></li>
+<li><a href="#pybind11">pybind11</a></li>
+<li><a href="#ctypes">ctypes</a>
+<ul>
+<li><a href="#参考链接-1">参考链接</a></li>
+</ul></li>
+<li><a href="#cffi">CFFI</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="python-api">python API</h2>
+<p>为了支持扩展，Python API（应用程序编程接口）定义了一系列函数、宏和变量，可以访问 Python 运行时系统的大部分内容。Python 的 API 可以通过在一个 C 源文件中引用 "Python.h" 头文件来使用。</p>
+<blockquote>
+<p>[!note]</p>
+<p>C扩展接口特指CPython，扩展模块无法在其他Python实现上工作。在大多数情况下，应该避免写C扩展，来保持可移植性。举个例子，如果你的用例调用了C库或系统调用，你应该考虑使用 <a href="https://docs.python.org/zh-cn/3/library/ctypes.html#module-ctypes">ctypes</a> 模块或 cffi 库，而不是自己写C代码。这些模块允许你写Python代码来接口C代码，而且可移植性更好。</p>
+</blockquote>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;Python.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="at">static</span> PyObject* sum(PyObject* self, PyObject* args) {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    <span class="dt">int</span> a, b;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    <span class="cf">if</span> (!PyArg_ParseTuple(args, <span class="st">&quot;ii&quot;</span>, &amp;a, &amp;b)) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>        <span class="cf">return</span> NULL;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    }</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>    <span class="cf">return</span> PyLong_FromLong(a + b);</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a><span class="at">static</span> PyMethodDef methods[] = {</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>    {<span class="st">&quot;sum&quot;</span>, sum, METH_VARARGS, <span class="st">&quot;Add two integers.&quot;</span>},</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>    {NULL, NULL, <span class="dv">0</span>, NULL}</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>};</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a><span class="at">static</span> <span class="kw">struct</span> PyModuleDef <span class="kw">module</span> = {</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>    PyModuleDef_HEAD_INIT,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>    <span class="st">&quot;mymodule&quot;</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>    NULL,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>    -<span class="dv">1</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a>    methods</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>};</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a>PyMODINIT_FUNC PyInit_mymodule(<span class="dt">void</span>) {</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a>    <span class="cf">return</span> PyModule_Create(&amp;<span class="kw">module</span>);</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a>}</span></code></pre></div>
+<p>编译</p>
+<pre><code>g++ -o mymodule.so -shared -fPIC sum.cpp -I/usr/include/python3.8 -lpython3.8</code></pre>
+<p>python中调用</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="im">import</span> mymodule</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>result <span class="op">=</span> mymodule.<span class="bu">sum</span>(<span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="bu">print</span>(<span class="st">&quot;Sum:&quot;</span>, result)</span></code></pre></div>
+<h3 id="参考链接">参考链接</h3>
+<ul>
+<li><a href="https://docs.python.org/zh-cn/3/extending/extending.html">1. 使用 C 或 C++ 扩展 Python — Python 3.12.2 文档</a></li>
+</ul>
+<h2 id="pybind11">pybind11</h2>
+<p>pybind11 — Seamless operability between C++11 and Python<br />
+本质上是对Python API的易用化的封装。</p>
+<p>pybind的cmake的官方的简单的例子：<a href="https://github.com/pybind/cmake_example">cmake_example</a></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;pybind11/pybind11.h&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="pp">#define STRINGIFY</span>(x)<span class="pp"> #</span>x</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="pp">#define MACRO_STRINGIFY</span>(x)<span class="pp"> </span>STRINGIFY(x)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="dt">int</span> add(<span class="dt">int</span> i, <span class="dt">int</span> j) {</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>    <span class="cf">return</span> i + j;</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>}</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a><span class="kw">namespace</span> py = pybind11;</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a>PYBIND11_MODULE(cmake_example, m) {</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a>    m.doc() = <span class="st">R&quot;pbdoc(</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a><span class="st">        Pybind11 example plugin</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a><span class="st">        -----------------------</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true"></a><span class="st">        .. currentmodule:: cmake_example</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true"></a><span class="st">        .. autosummary::</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true"></a><span class="st">           :toctree: _generate</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true"></a><span class="st">           add</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true"></a><span class="st">           subtract</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true"></a><span class="st">    )pbdoc&quot;</span>;</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true"></a>    m.def(<span class="st">&quot;add&quot;</span>, &amp;add, <span class="st">R&quot;pbdoc(</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true"></a><span class="st">        Add two numbers</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true"></a><span class="st">        Some other explanation about the add function.</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true"></a><span class="st">    )pbdoc&quot;</span>);</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true"></a>    m.def(<span class="st">&quot;subtract&quot;</span>, [](<span class="dt">int</span> i, <span class="dt">int</span> j) { <span class="cf">return</span> i - j; }, <span class="st">R&quot;pbdoc(</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true"></a><span class="st">        Subtract two numbers</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true"></a><span class="st">        Some other explanation about the subtract function.</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true"></a><span class="st">    )pbdoc&quot;</span>);</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true"></a><span class="pp">#ifdef VERSION_INFO</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true"></a>    m.attr(<span class="st">&quot;__version__&quot;</span>) = <span class="st">&quot;dev&quot;</span>;</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true"></a><span class="pp">#else</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true"></a>    m.attr(<span class="st">&quot;__version__&quot;</span>) = <span class="st">&quot;dev&quot;</span>;</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true"></a><span class="pp">#endif</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true"></a>}</span></code></pre></div>
+<p>windows下经过编译后会生成：<code>cmake_example.cp311-win_amd64.pyd</code>, linux下回生成<code>.so</code>文件， 把这个文件放到引用这个模块的python文件的目录中或python三方包的路径中，便可使用这个模块</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="im">import</span> cmake_example <span class="im">as</span> m</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="kw">def</span> test_main():</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    <span class="cf">assert</span> m.__version__ <span class="op">==</span> <span class="st">&quot;0.0.1&quot;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    <span class="cf">assert</span> m.add(<span class="dv">1</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="dv">3</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    <span class="cf">assert</span> m.subtract(<span class="dv">1</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="op">-</span><span class="dv">1</span></span></code></pre></div>
+<h2 id="ctypes">ctypes</h2>
+<p>ctypes 是 Python 的外部函数库。它提供了与 C 兼容的数据类型，并允许调用 DLL 或共享库中的函数。可使用该模块以纯 Python 形式对这些库进行封装。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co">//hello_module.c</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="dt">int</span> hello(<span class="at">const</span> <span class="dt">char</span>* name) {</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>    printf(<span class="st">&quot;hello </span><span class="sc">%s</span><span class="st">!</span><span class="sc">\n</span><span class="st">&quot;</span>, name);</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>}</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a><span class="dt">int</span> sum(<span class="dt">int</span> a[], <span class="dt">size_t</span> len) {</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>    <span class="dt">int</span> ret = <span class="dv">0</span>;</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="dt">size_t</span> i = <span class="dv">0</span>; i &lt; len; i++) {</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>        ret += a[i];</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>    }</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>    <span class="cf">return</span> ret;</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="im">import</span> ctypes</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="co"># hello</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>lib <span class="op">=</span> ctypes.cdll.LoadLibrary(<span class="st">&quot;hello_module.so&quot;</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>lib.hello(<span class="st">&quot;world&quot;</span>)  <span class="co"># hello world!</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a><span class="co"># sum</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>lib <span class="op">=</span> ctypes.cdll.LoadLibrary(<span class="st">&quot;sum_module.so&quot;</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a>array <span class="op">=</span> (ctypes.c_int <span class="op">*</span> <span class="dv">3</span>)(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a><span class="bu">print</span> lib.<span class="bu">sum</span>(array, <span class="bu">len</span>(array))</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a>i <span class="op">=</span> ctypes.c_int(<span class="dv">5</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true"></a><span class="bu">print</span> lib.<span class="bu">sum</span>(i, <span class="dv">1</span>)</span></code></pre></div>
+<p><strong>优点</strong><br />
+原生支持，不需要依赖其他函式库<br />
+被呼叫的库不需要重新编译<br />
+<strong>缺点</strong><br />
+对 C++ 的支持度不好<br />
+存取与变更 C 结构麻烦又容易出错<br />
+无法反方向从 C 程序呼叫 python</p>
+<h3 id="参考链接-1">参考链接</h3>
+<ul>
+<li><a href="http://icejoywoo.github.io/2018/12/10/intro-python-ctyps.html">Python ctypes 使用总结</a></li>
+</ul>
+<h2 id="cffi">CFFI</h2>
+<p>CFFI（C Foreign Function Interface）是一个 Python 库，用于调用和提供 C 语言函数接口。它允许 Python 代码直接调用本地 C 代码中的函数，或者让 C 代码调用 Python 中的函数。CFFI 是 Python 的外部函数接口（FFI）的一种实现，旨在提供简单、跨平台的方法来与 C 语言进行交互。</p>
+<p>CFFI 通常用于以下几个方面：</p>
+<ol>
+<li><p><strong>调用本地 C 代码</strong>: 使用 CFFI，Python 可以调用本地编译的 C 函数，这些函数可能是为了性能或者与底层系统进行交互而编写的。</p></li>
+<li><p><strong>提供 C 函数接口</strong>: CFFI 允许 Python 将自己的函数暴露给 C 代码，使得 C 代码可以直接调用 Python 函数。</p></li>
+<li><p><strong>跨平台性</strong>: CFFI 在不同的操作系统上都提供一致的接口，因此可以轻松地编写跨平台的 Python 代码，与本地 C 代码进行交互。</p></li>
+</ol>
+<p>CFFI 支持两种主要的调用模式：ABI（Application Binary Interface）和 API（Application Programming Interface）。ABI 模式允许 Python 直接调用 C 函数，而 API 模式则允许 Python 使用 C 函数指针进行间接调用。这使得 CFFI 非常灵活，可以满足不同场景下的需求。</p>
+<p>下面的代码是soundcard库中的，pulseaudio.py中加载pulse声卡驱动的代码</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>_ffi <span class="op">=</span> cffi.FFI()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>_package_dir, _ <span class="op">=</span> os.path.split(<span class="va">__file__</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a><span class="cf">with</span> <span class="bu">open</span>(os.path.join(_package_dir, <span class="st">&#39;pulseaudio.py.h&#39;</span>), <span class="st">&#39;rt&#39;</span>) <span class="im">as</span> f:</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>    _ffi.cdef(f.read())   <span class="co"># 相当于把头文件的定义都载入了进去</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a><span class="cf">try</span>:</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>    _pa <span class="op">=</span> _ffi.dlopen(<span class="st">&#39;pulse&#39;</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a><span class="cf">except</span> <span class="pp">OSError</span>:</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>    <span class="co"># Try explicit file name, if the general does not work (e.g. on nixos)</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>    _pa <span class="op">=</span> _ffi.dlopen(<span class="st">&#39;libpulse.so&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="im">import</span> cffi</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="co"># 创建一个 cffi.FFI() 对象</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>ffi <span class="op">=</span> cffi.FFI()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a><span class="co"># 定义动态库的接口</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>ffi.cdef(<span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a><span class="st">    int sum(int a, int b);</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a><span class="st">&quot;&quot;&quot;</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a><span class="co"># 加载动态库</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a>lib <span class="op">=</span> ffi.dlopen(<span class="st">&#39;./libsum.so&#39;</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a><span class="co"># 调用动态库中的 sum 函数</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a>result <span class="op">=</span> lib.<span class="bu">sum</span>(<span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a><span class="bu">print</span>(<span class="st">&quot;Sum:&quot;</span>, result)</span></code></pre></div>
+<p><strong>优点</strong><br />
+支持 pypy<br />
+可以把 c library 包装成 python module 来维护<br />
+<strong>缺点</strong><br />
+不支持 C++<br />
+无法反方向从 C 程序呼叫 python</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

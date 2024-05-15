@@ -186,6 +186,7 @@ jQuery(document).ready(function(){
 </ul></li>
 <li><a href="#配置语法">配置语法：</a></li>
 <li><a href="#示例说明">示例说明</a></li>
+<li><a href="#追踪的文件加忽略文件">追踪的文件加忽略文件</a></li>
 </ul>
 </div>
  <!--if(toc)-->
@@ -266,6 +267,10 @@ fd1/*
 !/fw/bin/
 !/fw/sf/
 说明：忽略全部内容，但是不忽略 .gitignore 文件、根目录下的 /fw/bin/ 和 /fw/sf/ 目录；注意要先对bin/的父目录使用!规则，使其不被排除。</code></pre>
+<h2 id="追踪的文件加忽略文件">追踪的文件加忽略文件</h2>
+<p><code>git rm --cached</code> 是一个 Git 命令，用于从 Git 跟踪中删除文件，但保留在工作目录中。这个命令将文件从 Git 的索引（也称为缓存）中移除，但不会从物理磁盘中删除该文件。</p>
+<pre><code>git rm --cached myfile.txt</code></pre>
+<p>执行以上命令后，Git 将不再跟踪 myfile.txt 文件的更改。</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

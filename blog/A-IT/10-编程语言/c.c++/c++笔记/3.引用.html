@@ -269,25 +269,31 @@ jQuery(document).ready(function(){
 <ul>
 <li>引用作为函数参数</li>
 <li>引用作为函数返回值</li>
-<li>不能返回局部数据（例如局部变量、局部对象、局部数组等）的引用，因为当函数调用完成后局部数据就会被销毁</li>
+<li>不能返回局部数据（例如局部变量、局部对象、局部数组等）的引用，因为当函数调用完成后局部数据就会被销毁，可返回全局、静态的</li>
 </ul>
 <h2 id="返回一个引用意味着什么">返回一个引用，意味着什么？</h2>
 <p>意味着该函数调用可以出现在赋值运算符的左边。<br />
 最初这种能力看起来有些古怪。例如，没有人会认为表达式 f() = 7 有意义。然而，如果 a 是一个 Array 类，大多数人会认为 a[i] = 7 有意义，即使 a[i] 实际上是一个函数调用的伪装（它调用了 如下的 Array 类的 Array::operator<a href="int"></a>）。</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a> class Array {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a> public:</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>   int size() const;</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>   float&amp; operator[] (int index);</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>   <span class="co">// ...</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a> };</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a> int main()</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a> {</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>   Array a;</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>   for (int i = <span class="dv">0</span>; i &lt; a.size(); ++i)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>     a[i] = <span class="dv">7</span>; <span class="co">// 这行调用了 Array::operator[](int)</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a> }</span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    int size() const;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    <span class="dt">float</span>&amp; operator[](<span class="dt">int</span> index) {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>        <span class="cf">if</span> (index &lt; <span class="dv">0</span> || index &gt;= size()) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>            <span class="co">// 处理越界情况，这里可以抛出异常或者采取其他处理方式</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>            throw std::out_of_range(<span class="st">&quot;Index out of range&quot;</span>);</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>        }</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>        <span class="cf">return</span> data[index];</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>    }</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>   <span class="co">// ...</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a> };</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a> int main()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a> {</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>   Array a;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>   for (int i = <span class="dv">0</span>; i &lt; a.size(); ++i)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>     a[i] = <span class="dv">7</span>; <span class="co">// 这行调用了 Array::operator[](int)</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a> }</span></code></pre></div>
 <h2 id="object.method1.method2-是什么意思">object.method1().method2() 是什么意思? </h2>
-<p>第一个被执行的是 object.method1()。它返回对象，可能是对象的引用（如，method1()可能以 return <code>*this</code> 结束），或可能是一些其他对象。我们姑且把返回的对象称为objectB。然后objectB成为method2()的this对象。<br />
+<p>第一个被执行的是 object.method1()。它返回对象，可能是<strong>对象的引用</strong>（如，method1()可能以 return <code>*this</code> 结束），或可能是一些其他对象。我们姑且把返回的对象称为objectB。然后objectB成为method2()的this对象。<br />
 方法链最常用的地方是iostream库。例如，cout &lt;&lt; x &lt;&lt; y 可以执行因为 cout &lt;&lt; x是一个返回cout.的函数</p>
 <h2 id="引用在本质上是什么它和指针到底有什么区别">引用在本质上是什么，它和指针到底有什么区别？</h2>
 <p><strong>其实引用只是对指针进行了简单的封装，它的底层依然是通过指针实现的</strong>，引用在C++中的内部实现是一个<strong>常量指针</strong><br />

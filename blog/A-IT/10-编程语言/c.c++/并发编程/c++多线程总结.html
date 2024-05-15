@@ -321,6 +321,10 @@ jQuery(document).ready(function(){
 不过要特别注意，get() 只能调一次，再次获取结果会发生错误，抛出异常   <code>std::future_error</code>。<br />
 另外，这里还有一个很隐蔽的“坑”，如果你<strong>不显式获取 async() 的返回值</strong>（即 future 对象），它就会同步阻塞直至任务完成（由于临时对象的析构函数），于是“async”就变成了“sync”。<br />
 所以，即使我们不关心返回值，也总要用 auto 来配合 async()，避免同步阻塞</p>
+<ul>
+<li><code>std::async</code>返回一个<code>std::future</code>对象，该对象可以用于获取异步任务的结果或者等待任务完成。</li>
+<li><code>std::thread</code>则直接创建一个新线程并返回，不提供异步任务的结果获取机制，需要使用其他方式来进行线程同步和通信。</li>
+</ul>
 <h3 id="call_once">call_once</h3>
 <p>程序免不了要初始化数据，这在多线程里却是一个不大不小的麻烦。因为线程并发，如果没有某种同步手段来控制，会导致初始化函数多次运行。<br />
 C++ 提供了“仅调用一次”的功能，可以很轻松地解决这个问题</p>

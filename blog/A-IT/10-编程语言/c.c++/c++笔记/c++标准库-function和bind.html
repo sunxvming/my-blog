@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.com">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.com/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/c++笔记/c++标准库-function和bind</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#可调用对象">1. 可调用对象</a></li>
+<li><a href="#stdfunction">2. std::function</a></li>
+<li><a href="#stdbind">3. std::bind</a>
+<ul>
+<li><a href="#stdbind绑定普通函数">3.1 std::bind绑定普通函数</a></li>
+<li><a href="#stdbind绑定一个成员函数">3.2 std::bind绑定一个成员函数</a></li>
+<li><a href="#绑定一个引用参数">3.3 绑定一个引用参数</a></li>
+</ul></li>
+<li><a href="#指向成员函数的指针">4. 指向成员函数的指针</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="可调用对象">1. 可调用对象</h2>
+<p>可调用对象有一下几种定义：<br />
+* 是一个函数指针<br />
+*  lambda表达式<br />
+* 是一个具有operator()成员函数的类的对象，函数对象<br />
+* 可被转换成函数指针的类对象；<br />
+* 一个类成员函数指针；</p>
+<p>C++中可调用对象的虽然都有一个比较统一的<strong>操作形式</strong>，但是<strong>定义方法</strong>五花八门，这样就导致使用统一的方式<strong>保存</strong>可调用对象或者<strong>传递</strong>可调用对象时，会十分繁琐。C++11中提供了std::function和std::bind统一了可调用对象的各种操作。</p>
+<p>不同类型可能具有相同的调用形式，如：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">// 普通函数</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>int add(int a, int b){return a+b;} </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="co">// lambda表达式</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>auto mod = [](int a, int b){ return a % b;}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="co">// 函数对象类</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>struct divide{</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>    int <span class="kw">operator</span>()(int denominator, int divisor){</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>        return denominator/divisor;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>    }</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>};</span></code></pre></div>
+<p>上述三种可调用对象虽然类型不同，但是共享了一种调用形式：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="dt">int</span>(int ,<span class="dt">int</span>)</span></code></pre></div>
+<p>std::function就可以将上述类型保存起来，如下：</p>
+<pre><code>std::function&lt;int(int ,int)&gt; a = add; 
+std::function&lt;int(int ,int)&gt; b = mod ; 
+std::function&lt;int(int ,int)&gt; c = divide(); </code></pre>
+<h2 id="stdfunction">2. std::function</h2>
+<p>std::function 是一个<strong>可调用对象包装器，是一个类模板</strong>，它可以用统一的方式处理函数、函数对象、函数指针，并允许保存和延迟它们的执行。</p>
+<pre><code>template&lt; class R, class... Args &gt;
+class function&lt;R(Args...)&gt;;</code></pre>
+<p>std::function可以取代<strong>函数指针的作用</strong>，因为它可以<strong>延迟函数的执行</strong>，特别适合作为<strong>回调函数</strong>使用。它比普通函数指针更加的灵活和便利。</p>
+<h2 id="stdbind">3. std::bind</h2>
+<p>可将std::bind函数看作一个<strong>通用的函数适配器</strong>，它接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表。<br />
+<strong>输入</strong>是一个可调用对象，<strong>输出</strong>是一个变了参数个数新的可调用对象</p>
+<p>std::bind将可调用对象与其参数一起进行绑定，绑定后的结果可以使用std::function保存。std::bind主要有以下两个作用：<br />
+* 将可调用对象和其参数绑定成一个防函数；<br />
+* 只绑定部分参数，减少可调用对象传入的参数。</p>
+<h3 id="stdbind绑定普通函数">3.1 std::bind绑定普通函数</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>double my_divide (double x, double y) {return x/y;}</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>auto fn_half = <span class="bu">std::</span>bind (my_divide,_1,<span class="dv">2</span>);</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="bu">std::</span>cout &lt;&lt; fn_half(<span class="dv">10</span>) &lt;&lt; <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>; <span class="co">// 5</span></span></code></pre></div>
+<p>bind的第一个参数是函数名，普通函数做实参时，会隐式转换成函数指针。因此<code>std::bind (my_divide,_1,2)</code>等价于<code>std::bind (&amp;my_divide,_1,2)；</code><br />
+<code>_1</code>表示占位符，，<code>2</code>表示被绑定的参数<br />
+占位符表示新的函数对象中参数的位置，在调用新的函数对象时会调用bind的可调用对象，然后占位符就会传递给旧的可调用对象。</p>
+<h3 id="stdbind绑定一个成员函数">3.2 std::bind绑定一个成员函数</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>struct Foo {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>    void print_sum(int n1, int n2)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>    {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; n1+n2 &lt;&lt; <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>;</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>    }</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>    int data = <span class="dv">10</span>;</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>};</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>int main() </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>{</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>    Foo foo;</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>    auto f = <span class="bu">std::</span>bind(&amp;Foo::print_sum, &amp;foo, <span class="dv">95</span>, <span class="bu">std::</span>placeholders<span class="bu">::</span>_1);</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>    f(<span class="dv">5</span>); <span class="co">// 100</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>}</span></code></pre></div>
+<p>bind绑定类成员函数时，第一个参数表示对象的成员函数的指针，第二个参数表示对象的地址。<br />
+必须显示的指定&amp;Foo::print_sum，因为编译器不会将对象的成员函数隐式转换成函数指针，所以必须在Foo::print_sum前添加&amp;；<br />
+使用对象成员函数的指针时，必须要知道该指针属于哪个对象，因此第二个参数为对象的地址 &amp;foo；</p>
+<h3 id="绑定一个引用参数">3.3 绑定一个引用参数</h3>
+<p>默认情况下，bind的那些不是占位符的参数被<strong>拷贝</strong>到bind返回的可调用对象中。但是，与lambda类似，有时：1. 对有些绑定的参数希望以<strong>引用</strong>的方式传递，2. 或是要绑定参数的类型<strong>无法拷贝</strong>。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;iostream&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;functional&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;vector&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;algorithm&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;sstream&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>using namespace <span class="bu">std::</span>placeholders;</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>using namespace std;</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a>ostream &amp; print(ostream &amp;os, const string&amp; s, char c)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a>{</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a>    os &lt;&lt; s &lt;&lt; c;</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true"></a>    return os;</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true"></a>}</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true"></a>int main()</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true"></a>{</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true"></a>    vector&lt;string&gt; words{<span class="st">&quot;helo&quot;</span>, <span class="st">&quot;world&quot;</span>, <span class="st">&quot;this&quot;</span>, <span class="st">&quot;is&quot;</span>, <span class="st">&quot;C++11&quot;</span>};</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true"></a>    ostringstream os;</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true"></a>    char c = <span class="ch">&#39; &#39;</span>;</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true"></a>    for_each(words.begin(), words.end(), </span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true"></a>                   [&amp;os, c](const string &amp; s){os &lt;&lt; s &lt;&lt; c;} );</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true"></a>    cout &lt;&lt; os.str() &lt;&lt; endl;</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true"></a>    ostringstream os1;</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true"></a>    <span class="co">// ostream不能拷贝，若希望传递给bind一个对象，</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true"></a>    <span class="co">// 而不拷贝它，就必须使用标准库提供的ref函数</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true"></a>    for_each(words.begin(), words.end(),</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true"></a>                   bind(print, ref(os1), _1, c));</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true"></a>    cout &lt;&lt; os1.str() &lt;&lt; endl;</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="指向成员函数的指针">4. 指向成员函数的指针</h2>
+<p>通过下面的例子，熟悉一下指向成员函数的指针的定义方法。</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;iostream&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>struct Foo {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    int value;</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>    void f() { <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;f(&quot;</span> &lt;&lt; this-&gt;value &lt;&lt; <span class="st">&quot;)</span><span class="sc">\n</span><span class="st">&quot;</span>; }</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>    void g() { <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;g(&quot;</span> &lt;&lt; this-&gt;value &lt;&lt; <span class="st">&quot;)</span><span class="sc">\n</span><span class="st">&quot;</span>; }</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>};</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>void apply(Foo* foo1, Foo* foo2, void (Foo::*fun)()) {</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>    (foo1-&gt;*fun)(); <span class="co">// call fun on the object foo1</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>    (foo2-&gt;*fun)(); <span class="co">// call fun on the object foo2</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a>}</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a>int main() {</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a>    Foo foo1{<span class="dv">1</span>};</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a>    Foo foo2{<span class="dv">2</span>};</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a>    apply(&amp;foo1, &amp;foo2, &amp;Foo::f);</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a>    apply(&amp;foo1, &amp;foo2, &amp;Foo::g);</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true"></a>}</span></code></pre></div>
+<p>成员函数指针的定义：<code>void (Foo::*fun)()</code><br />
+调用时传递的实参: <code>&amp;Foo::f；</code><br />
+fun为类成员函数指针，所以调用是要通过解引用的方式获取成员函数<code>*fun</code>,即<code>(foo1-&gt;*fun)()</code>;</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

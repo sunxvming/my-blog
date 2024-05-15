@@ -179,7 +179,11 @@ jQuery(document).ready(function(){
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#协议格式">协议格式</a></li>
+<li><a href="#协议格式">协议格式</a>
+<ul>
+<li><a href="#自定义格式">自定义格式</a></li>
+<li><a href="#协议模拟发送工具">协议模拟发送工具</a></li>
+</ul></li>
 <li><a href="#参考资料">参考资料</a></li>
 </ul>
 </div>
@@ -232,6 +236,11 @@ $GNGLL,&lt;纬度&gt;,&lt;纬度方向&gt;,&lt;经度&gt;,&lt;经度方向&gt;,&
 - <code>&lt;UTC时间&gt;</code>：协调世界时（UTC）时间，格式为HHMMSS.SSS。<br />
 - <code>&lt;状态&gt;</code>：定位状态，表示GPS定位的质量和状态。<br />
 - <code>&lt;校验和&gt;</code>：校验和，用于数据完整性验证。</p>
+<h3 id="自定义格式">自定义格式</h3>
+<p>aipov heading pitch roll utctime<br />
+罗经信息</p>
+<h3 id="协议模拟发送工具">协议模拟发送工具</h3>
+<p><a href="https://www.sailsoft.nl/ais_simulator.html">NemaStudio</a>,通过模拟各种航海仪器和目标对象包括GPS，AIS和雷达的输出非常强大的开发和测试工具</p>
 <h2 id="参考资料">参考资料</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Automatic_identification_system">Automatic identification system - Wikipedia</a></li>
