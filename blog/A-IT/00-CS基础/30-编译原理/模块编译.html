@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/00-CS基础/30-编译原理/模块编译</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#模块编译的基本原理">1. 模块编译的基本原理</a></li>
+<li><a href="#模块编译的步骤">2. 模块编译的步骤</a>
+<ul>
+<li><a href="#模块接口单元的编译">2.1. 模块接口单元的编译</a></li>
+<li><a href="#模块实现单元的编译">2.2. 模块实现单元的编译</a></li>
+<li><a href="#模块的导入与使用">2.3. 模块的导入与使用</a></li>
+</ul></li>
+<li><a href="#模块机制编译与链接的整体流程">3. 模块机制编译与链接的整体流程</a></li>
+<li><a href="#编译器支持与模块缓存">4. 编译器支持与模块缓存</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>C++至今（包括C++11）没有模块机制，不能像其他现代编程语言那样用import或using 来引入当前源文件用到的库（含其他package/module里的函数或类），而必须用include头文 件的方式来机械地将库的接口声明以文本替换的方式载入，再重新parse一遍。<br />
+这种方式有几个显著的缺点：<br />
+1. <strong>重复解析</strong>：每次 <code>#include</code> 一个头文件时，编译器都会重新解析并处理这个头文件中的所有内容，即使它已经在其他地方被包含过。这会导致编译时间的增加，特别是在大型项目中。<br />
+2. <strong>缺乏封装</strong>：<code>#include</code> 头文件实际上只是简单的文本替换，所有包含的代码都会被直接引入到当前编译单元中，缺乏封装性和独立性。头文件的任何更改都会导致相关文件重新编译，这也增加了维护的复杂性。<br />
+3. <strong>命名冲突</strong>：由于所有包含的代码都在同一命名空间内，这也容易导致命名冲突。虽然可以使用命名空间（<code>namespace</code>）来部分解决这个问题，但这不是模块化的根本解决办法。</p>
+<p>[[加快C++代码的编译速度方法]]。<br />
+好消息是，<strong>C++20</strong> 引入了模块（Modules）机制，旨在解决上述问题。C++ 模块允许将代码和接口封装在一个独立的模块中，这样可以减少重复解析，缩短编译时间，并提高代码的封装性。</p>
+<p>C++20 引入的模块机制与传统的 <code>#include</code> 机制有着根本性的不同，模块机制的引入旨在提高编译效率、减少代码耦合和增强封装性。以下是 C++ 模块机制的编译原理及所涉及的主要步骤。</p>
+<h3 id="模块编译的基本原理">1. 模块编译的基本原理</h3>
+<p>模块机制将代码分为接口单元（interface unit）和实现单元（implementation unit），并将它们组织在模块中。模块通过明确的导出和导入机制<strong>来控制符号的可见性和使用范围</strong>，从而实现更好的封装。</p>
+<p>在传统的 <code>#include</code> 机制中，头文件的内容会在每个包含它的编译单元中被重新解析，而在模块机制中，模块接口会被编译为二进制格式的“模块接口文件”（通常称为 <strong>BMI</strong>，即 <strong>Binary Module Interface</strong>），其他编译单元可以直接引用这些 BMI 文件，从而避免了重复解析。</p>
+<h3 id="模块编译的步骤">2. 模块编译的步骤</h3>
+<p>编译 C++ 模块时，通常分为以下几个步骤：</p>
+<h4 id="模块接口单元的编译">2.1. 模块接口单元的编译</h4>
+<ul>
+<li><p><strong>模块声明</strong>：在模块接口单元中，使用 <code>export module module_name;</code> 声明一个模块，并使用 <code>export</code> 关键字导出模块中的符号。</p></li>
+<li><p><strong>编译接口</strong>：编译器将接口单元中的代码编译为一个 BMI 文件。这个文件包含模块中导出符号的编译信息，如函数签名、类定义等。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">// example.cpp</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">export</span> <span class="kw">module</span> mymodule; <span class="co">// 声明模块</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="kw">export</span> <span class="dt">void</span> myFunction(); <span class="co">// 导出函数</span></span></code></pre></div>
+<p>该代码在编译时，会生成一个与 <code>mymodule</code> 相关的 <strong>BMI</strong> 文件。</p></li>
+</ul>
+<h4 id="模块实现单元的编译">2.2. 模块实现单元的编译</h4>
+<ul>
+<li><p><strong>实现单元</strong>：模块的实现单元使用 <code>module module_name;</code> 来引用模块，可以选择不导出符号（这些符号只在模块内部可见）。</p></li>
+<li><p><strong>编译实现单元</strong>：实现单元中包含的具体实现代码会被编译为目标文件（<code>.o</code> 或 <code>.obj</code>），但它不会生成额外的 BMI 文件。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">module</span> mymodule; <span class="co">// 引用模块</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="dt">void</span> myFunction() {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    <span class="co">// 实现函数</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>}</span></code></pre></div></li>
+</ul>
+<h4 id="模块的导入与使用">2.3. 模块的导入与使用</h4>
+<ul>
+<li><p><strong>导入模块</strong>：在其他编译单元中使用 <code>import module_name;</code> 导入模块，<strong>编译器会查找并加载对应的 BMI 文件</strong>，而不需要重新解析模块接口的源代码。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">import</span> mymodule; <span class="co">// 导入模块</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>    myFunction(); <span class="co">// 使用模块中的函数</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>}</span></code></pre></div></li>
+<li><p><strong>编译用户代码</strong>：编译器使用已编译好的 BMI 文件来解析导入的模块，并生成最终的目标文件。</p></li>
+</ul>
+<h3 id="模块机制编译与链接的整体流程">3. 模块机制编译与链接的整体流程</h3>
+<ol>
+<li><strong>模块接口单元</strong>被编译成 BMI 文件和目标文件。</li>
+<li><strong>模块实现单元</strong>被编译成目标文件。</li>
+<li>其他<strong>用户代码单元</strong>导入 BMI 文件，并生成目标文件。</li>
+<li>最后，通过链接器将所有目标文件链接成可执行文件或库。</li>
+</ol>
+<h3 id="编译器支持与模块缓存">4. 编译器支持与模块缓存</h3>
+<p>大多数现代 C++ 编译器（如 GCC、Clang 和 MSVC）在支持 C++20 模块时，都会实现模块的缓存机制。编译器会将已编译好的 BMI 文件缓存起来，以避免在多次编译中重复生成这些文件，这可以显著提升编译速度。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

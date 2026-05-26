@@ -89,7 +89,7 @@ pandoc input.md -c github-pandoc.css  -f markdown -t html -s -o input
 
 ### markdown列表无法解析
 用pandoc将markdown导出成html的时候，无法解析列表，最后发现是空格格式的问题，正常的空格在notepad++中显示的为一个小点，而不正常的就啥也不显示，只是单纯的空白。最终原因是不同的空格形式导致markdown的列表无法解析。如下：
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/a2596fdb-317f-4c7c-80c5-b4c19f2bb851.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/a2596fdb-317f-4c7c-80c5-b4c19f2bb851.png)
 
 
 

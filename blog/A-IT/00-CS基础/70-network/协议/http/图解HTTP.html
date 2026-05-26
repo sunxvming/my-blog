@@ -1,0 +1,999 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/00-CS基础/70-network/协议/http/图解HTTP</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#第一章">第一章</a>
+<ul>
+<li><a href="#网络基础-tcpip">网络基础 TCP/IP</a>
+<ul>
+<li><a href="#tcpip-协议族">TCP/IP 协议族</a></li>
+<li><a href="#tcpip-的分层管理">TCP/IP 的分层管理</a></li>
+<li><a href="#tcpip-通信传输流">TCP/IP 通信传输流</a></li>
+</ul></li>
+<li><a href="#uri和url">URI和URL</a></li>
+</ul></li>
+<li><a href="#第二章-简单的http协议">第二章 简单的HTTP协议</a>
+<ul>
+<li><a href="#http是不保存状态的协议">HTTP是不保存状态的协议</a></li>
+<li><a href="#告知服务器意图的http方法">告知服务器意图的HTTP方法</a></li>
+<li><a href="#持久连接节省通信量">持久连接节省通信量</a>
+<ul>
+<li><a href="#持久连接">持久连接</a></li>
+<li><a href="#管线化">管线化</a></li>
+</ul></li>
+<li><a href="#使用cookie的状态管理">使用Cookie的状态管理</a></li>
+</ul></li>
+<li><a href="#第三章-http报文内的http信息">第三章 HTTP报文内的HTTP信息</a>
+<ul>
+<li><a href="#编码提升传输速率">编码提升传输速率</a>
+<ul>
+<li><a href="#压缩传输的内容编码">压缩传输的内容编码</a></li>
+<li><a href="#分隔发送的分块传输编码">分隔发送的分块传输编码</a></li>
+</ul></li>
+<li><a href="#发送多种数据的多部分对象集合">发送多种数据的多部分对象集合</a></li>
+<li><a href="#获取部分内容的范围请求">获取部分内容的范围请求</a></li>
+<li><a href="#内容协商返回最合适的内容">内容协商返回最合适的内容</a></li>
+</ul></li>
+<li><a href="#第四章-返回结果的http状态码">第四章 返回结果的HTTP状态码</a>
+<ul>
+<li><a href="#常用的状态码14种">常用的状态码14种：</a>
+<ul>
+<li><a href="#xx-成功">2XX 成功</a></li>
+<li><a href="#xx-重定向">3XX 重定向</a></li>
+<li><a href="#xx-客户端错误">4XX 客户端错误</a></li>
+<li><a href="#xx-服务器错误">5XX 服务器错误</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#第五章-与http协作的web服务器">第五章 与HTTP协作的Web服务器</a>
+<ul>
+<li><a href="#用单台虚拟主机实现多个域名">用单台虚拟主机实现多个域名</a></li>
+<li><a href="#通信数据转发程序代理网关隧道">通信数据转发程序：代理、网关、隧道</a></li>
+<li><a href="#保存资源的缓存">保存资源的缓存</a>
+<ul>
+<li><a href="#缓存的有效期限">缓存的有效期限</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#第六章-http首部">第六章 HTTP首部</a>
+<ul>
+<li><a href="#http首部字段">HTTP首部字段</a>
+<ul>
+<li><a href="#种http首部字段类型">4种HTTP首部字段类型</a></li>
+<li><a href="#http1.1首部字段一览">HTTP/1.1首部字段一览</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#第七章-确保web安全的https">第七章 确保Web安全的HTTPS</a></li>
+<li><a href="#第八章-确认访问用户身份的认证">第八章 确认访问用户身份的认证</a></li>
+<li><a href="#第九章-基于http的功能追加协议">第九章 基于HTTP的功能追加协议</a>
+<ul>
+<li><a href="#http的瓶颈">HTTP的瓶颈</a>
+<ul>
+<li><a href="#comet-的解决方法">Comet 的解决方法</a></li>
+<li><a href="#spdy">SPDY</a></li>
+</ul></li>
+<li><a href="#使用浏览器进行全双工通信的-websocket">使用浏览器进行全双工通信的 WebSocket</a></li>
+</ul></li>
+<li><a href="#第十一章-web攻击技术">第十一章 Web攻击技术</a>
+<ul>
+<li><a href="#因输出值转义不完全引发的安全漏洞">因输出值转义不完全引发的安全漏洞</a></li>
+<li><a href="#因设置或设计上的缺陷引发的安全漏洞">因设置或设计上的缺陷引发的安全漏洞</a></li>
+<li><a href="#因会话管理疏忽引发的安全漏洞">因会话管理疏忽引发的安全漏洞</a></li>
+<li><a href="#其它安全漏洞">其它安全漏洞</a></li>
+</ul></li>
+<li><a href="#自问自答">自问自答：</a>
+<ul>
+<li><a href="#第二章-简单的http协议-1">第二章 简单的HTTP协议</a></li>
+<li><a href="#第三章-http报文内的http信息-1">第三章 HTTP报文内的HTTP信息</a></li>
+<li><a href="#第四章-返回结果的http状态码-1">第四章 返回结果的HTTP状态码</a></li>
+<li><a href="#第五章-与http协作的web服务器-1">第五章 与HTTP协作的Web服务器</a></li>
+<li><a href="#第六章-http首部-1">第六章 HTTP首部</a></li>
+<li><a href="#第七章-确保web安全的https-1">第七章 确保Web安全的HTTPS</a></li>
+<li><a href="#第八章-确认访问用户身份的认证-1">第八章 确认访问用户身份的认证</a></li>
+<li><a href="#第九章-基于http的功能追加协议-1">第九章 基于HTTP的功能追加协议</a></li>
+<li><a href="#第十章-构建web内容的技术">第十章 构建Web内容的技术</a></li>
+<li><a href="#第十一章-web的攻击技术">第十一章 Web的攻击技术</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="第一章">第一章</h2>
+<p>HTTP（HyperText Transfer Protocol，超文转移协议，超文本传输协议的译法并不严谨。）</p>
+<h3 id="网络基础-tcpip">网络基础 TCP/IP</h3>
+<h4 id="tcpip-协议族">TCP/IP 协议族</h4>
+<p>TCP/IP 协议族是互联网相关联的协议的集合。从电缆的规格到IP地址的选定方法、寻找异地用户的方法、双方建立通信的顺序，以及Web页面显示需要处理的步骤，等等。而HTTP是属于它内部的一个子集。</p>
+<h4 id="tcpip-的分层管理">TCP/IP 的分层管理</h4>
+<p>TCP/IP 协议族按层次分别分为以下 4 层：应用层、传输层、网络层和数据链路层。<br />
+分层的好处：把各层之间的接口部分规划好之后，每个层次内部的设计就能够自由改动了。而且，层次化之后，设计也变得相对简单。处于应用层上的应用可以只考虑分派给自己的任务，而无需弄清对方在地球上哪个地方、对方的传输路线、是否能确保传输送达等问题。</p>
+<ul>
+<li>应用层：决定了向用户提供应用服务时通信的活动。</li>
+<li>传输层：该层对上层应用层，提供处于网络连接中的两台计算机之间的数据传输。TCP（Transmission Control Protocol）和 UDP（User Data Protocol，用户数据报协议）。</li>
+<li>网络层：网络层用来处理在网络上流动的数据包。数据包是网络传输的最小数据单位。该层规定了通过怎么样的路径到达对方计算机，并把数据包传送给对方。</li>
+<li>链路层：用来处理网络的硬件部分。</li>
+</ul>
+<h4 id="tcpip-通信传输流">TCP/IP 通信传输流</h4>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240902105548.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="uri和url">URI和URL</h3>
+<p>URI（uniform Resource Identifier）<br />
+Uniform：规定统一的格式可方便处理多种不同类型的资源。<br />
+Resource：可标识的任何东西<br />
+Identifier：标识符</p>
+<p>URI就是某个协议方案表示的资源的定位标识符。协议方案是指访问资源所使用的协议类型名称，如http、ftp。</p>
+<p>URI 用字符串标识某一个互联网资源，而URL表示资源的地点。URL是URI的子集。</p>
+<p>表示指定的URI，要使用涵盖全部必要信息的绝对URI、绝对URL以及相对URL。相对URL是指从浏览器中基本URI处指定的URL，如 <code>/image/logo.gif</code>。</p>
+<p>绝对URI的格式如下：<br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240902105117.png" alt="image.png" /></p>
+<h2 id="第二章-简单的http协议">第二章 简单的HTTP协议</h2>
+<p>HTTP协议规定，先从客户端开始建立通信，服务端在没有接收到请求之前不会发送响应。</p>
+<p>请求报文由请求方法、请求URI、协议版本、可选的请求首部字段和内容实体构成的。</p>
+<p>响应报文基本上由协议版本、状态码、用以解释状态码的原因短语、可选的响应首部字段以及实体主体构成。</p>
+<h3 id="http是不保存状态的协议">HTTP是不保存状态的协议</h3>
+<p>HTTP是无状态协议。自身不对请求和响应之间通信状态进行保存（即不做持久化处理）。<br />
+HTTP之所以设计得如此简单，是为了更快地处理大量事物，确保协议的可伸缩性。<br />
+HTTP/1.1 随时无状态协议，但可通过 <strong>Cookie</strong> 技术保存状态。</p>
+<h3 id="告知服务器意图的http方法">告知服务器意图的HTTP方法</h3>
+<ul>
+<li>GET：获取资源</li>
+<li>POST：传输实体主体</li>
+<li>PUT：传输文件</li>
+<li>HEAD：获得报文首部，与GET方法一样，只是不返回报文主体内容。用于确认URI的有效性及资源更新的日期时间等。</li>
+<li>DELETE：删除文件，与PUT相反（响应返回204 No Content）。</li>
+<li>OPTIONS：询问支持的方法，查询针对请求URI指定的资源支持的方法（Allow:GET、POST、HEAD、OPTIONS）。</li>
+<li>TRACE：追踪路径</li>
+<li>CONNECT：要求用隧道协议连接代理（主要使用SSL（Secure Sockets Layer，安全套接层）和TLS（Transport Layer Security，传输层安全）协议把通信内容加密后经网络隧道传输）。</li>
+</ul>
+<h3 id="持久连接节省通信量">持久连接节省通信量</h3>
+<h4 id="持久连接">持久连接</h4>
+<p>HTTP协议的初始版本中，每进行一次HTTP通信就要断开一次TCP连接。<br />
+发送请求一份包含多张图片的HTML文档对应的Web页面，会产生大量通信开销。</p>
+<p>为了解决上述TCP连接的问题，HTTP/1.1和一部分的HTTP/1.0想出了持久连接（HTTP Persistent Connections，也称为HTTP keep-alive 或 HTTP Connection resue）的方法。<br />
+<strong>持久连接的特点</strong>是，只要任意一端<strong>没有明确提出断开连接，则保持TCP连接状态</strong>。</p>
+<p>持久连接的好处在于减少了TCP连接的重复建立和断开所造成的额外开销，减轻了服务器端的负载。另外，减少开销的那部分时间，使HTTP请求和响应能够更早地结束，这样Web页面的显示速度也相应提高了。</p>
+<p>在HTTP/1.1中，<strong>所有连接默认都是持久连接</strong>，但在HTTP/1.0内并未标准化。<br />
+毫无疑问，除了服务器端，客户端也需要支持持久连接。</p>
+<h4 id="管线化">管线化</h4>
+<p>持久连接使得多数请求<strong>以管线化方式</strong>发送成为可能。以前发送请求后需等待并收到响应，才能发送下一个请求。管线化技术出现后，不用等待响应亦可直接发送下一个请求（并行发送多个请求）。</p>
+<p>注意：尽管HTTP管线化可以克服同域并行请求限制带来的阻塞， 但HTTP/1.x 有严格的串行返回响应机制，服务器通过 TCP 连接返回响应时，就是必须 按照客户端的请求顺序进行响应 ，前一个响应没有完成，下一个响应就不能返回。所以使用“ HTTP 管道”技术时，万一第一个响应时间很长，那么后面的响应处理完了也无法发送，只能被缓存起来，占用服务器内存，这就是传说中的“队首阻塞”。</p>
+<blockquote>
+<p>每个浏览器支持的请求并发数不同，但可在页面中使用多个域名加大并发量（因为浏览器是基于domain的并发控制，而不是page），不过过多的散布会导致DNS解析上付出额外的代价。</p>
+</blockquote>
+<h3 id="使用cookie的状态管理">使用Cookie的状态管理</h3>
+<p>Cookie技术通过在请求和响应报文中写入cookie信息来控制客户端的状态。<br />
+Cookie会根据<strong>从服务器端</strong>发送的响应报文内的一个叫做 <code>Set-Cookie</code> 的首部字段信息，通知客户端保存 Cookie。当下次客户端再往该服务器发送请求时，客户端会自动在请求报文中加入Cookie值后发送出去。</p>
+<p>如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击。</p>
+<h2 id="第三章-http报文内的http信息">第三章 HTTP报文内的HTTP信息</h2>
+<p>用于HTTP协议交互的信息被称为HTTP报文。请求端的HTTP报文叫做<strong>请求报文</strong>，响应端的叫做<strong>响应报文</strong>。HTTP报文本身是由多行（用CR+LF做换行符）数据构成的字符串文本。</p>
+<p>HTTP报文大致可分为<strong>报文首部</strong>和<strong>报文主体</strong>两部块。两者由最初出现的空行（CR+LF、回车符+换行符）来划分。通常，并不一定要有报文主体。<br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240910095357.png" alt="image.png" /></p>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240910095514.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="编码提升传输速率">编码提升传输速率</h3>
+<p>HTTP在传输数据时可以按照数据原貌直接传输，但也可以在传输过程中通过编码提升传输速率，但这会消耗更多的CPU等资源。</p>
+<h4 id="压缩传输的内容编码">压缩传输的内容编码</h4>
+<p>内容编码指明应用在实体内容上的编码格式，并保持实体信息原样压缩。内容编码后的实体由客户端接收并负责解码。<br />
+常见的内容编码有：gzip（GNU zip）、compress（UNIX系统的标准压缩）、deflate（zlib）、identity（不进行编码）</p>
+<h4 id="分隔发送的分块传输编码">分隔发送的分块传输编码</h4>
+<p>在HTTP通信过程中，请求的编码实体资源尚未全部传输完成之前，浏览器无法显示请求页面。在传输大容量数据时，通过把数据分割成多块，能够让浏览器逐步显示页面。<br />
+这种把实体主体分块的功能称为<strong>分块传输编码</strong>（Chunked Transfer Coding）。</p>
+<p>分块传输编码会将实体主体分成多个部分（块）。每一块都会用十六进制来标记块的大小，而实体主体的最后一块会使用“0（CR+LF）”来标记。</p>
+<p>使用分块传输编码的实体主体会由接收的客户端负责解码，恢复到编码前的实体主体。</p>
+<h3 id="发送多种数据的多部分对象集合">发送多种数据的多部分对象集合</h3>
+<p>HTTP协议中采纳了多部分对象集合，发送的一份报文主体内可含有多类型实体。通常实在图片或文本文件等上传时使用。</p>
+<h3 id="获取部分内容的范围请求">获取部分内容的范围请求</h3>
+<p>下载大尺寸的图片的过程中，如果网络中断，则需要重新下载。因此需要一种可恢复的机制。<br />
+实现该功能需要指定下载的实体范围，像这样，指定范围发送的请求叫做<strong>范围请求</strong>。<br />
+执行范围请求时，会用到首部字段Range来指定资源的byte范围。响应会返回状态码206 Partial Content。</p>
+<p>如果服务器端无法响应范围请求，则会返回状态码200 OK和完整的实体内容。</p>
+<h3 id="内容协商返回最合适的内容">内容协商返回最合适的内容</h3>
+<p>内容协商机制是指客户端和服务器端就响应的资源内容进行交涉，然后提供给客户端最为适合的资源。内容协商会以响应资源的语言、字符集、编码方式等作为判断的基准。</p>
+<h2 id="第四章-返回结果的http状态码">第四章 返回结果的HTTP状态码</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">类别</th>
+<th style="text-align: center;">原因短语</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1XX</td>
+<td style="text-align: center;">Informational(信息性状态码)</td>
+<td style="text-align: center;">接收的请求正在处理</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2XX</td>
+<td style="text-align: center;">Success（成功状态码）</td>
+<td style="text-align: center;">请求正常处理完毕</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3XX</td>
+<td style="text-align: center;">Redirection（重定向状态码）</td>
+<td style="text-align: center;">需要进行附加操作以完成请求</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4XX</td>
+<td style="text-align: center;">Client Error（客户端错误状态码）</td>
+<td style="text-align: center;">服务器无法处理请求</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5XX</td>
+<td style="text-align: center;">Server Error（服务器错误状态码）</td>
+<td style="text-align: center;">服务器处理请求出错</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用的状态码14种">常用的状态码14种：</h3>
+<h4 id="xx-成功">2XX 成功</h4>
+<ul>
+<li>200 OK：请求被正常处理</li>
+<li>204 No Content：一般在只需从客户端往服务器发送信息，而对客户端不需要发送新信息内容的情况下使用。</li>
+<li>206 Partial Content：客户端进行范围请求</li>
+</ul>
+<h4 id="xx-重定向">3XX 重定向</h4>
+<ul>
+<li>301 Moved Permanently：永久重定向。表示请求的资源已被分配了新的URI，以后应使用资源现在所指的URI。<br />
+也就是说，如果已经把资源对应的URI保存为书签了，这时应该按Location首部字段提示的URI重新保存。</li>
+<li>302 Found：临时性重定向。表示请求的资源已被分配了新的URI，希望用户（本次）能使用新的URI访问。和301 Moved Permanently状态码相似，但302状态码代表的资源不是被永久移动，只是临时性质的。换句话说，已移动的资源对应的URI将来还有可能发生改变。比如，用户把URI保存成书签，但不会像301状态码出现时那样去更新书签，而是仍旧保留返回302状态码的页面对应的URI（在Chrome中，还是会保存为重定向后的URI，不解）。</li>
+<li>303 See Other：表示由于请求对应的资源存在着另一个URI，应使用GET方法定向获取请求的资源。这与302类似，但303明确表示客户端应当采用GET方法获取资源。</li>
+<li>304 Not Modified：该状态码表示客户端发送附带条件的请求（指采用GET方法的请求报文中包含If-Match,If-Modified-Since，If-None-March，If-Range，If-Unmodified-Since中任一首部。）时，服务器端允许请求访问资源，但因发生请求为满足条件的情况后，直接返回304（服务器端资源未改变，可直接使用客户端未过期的缓存）。304状态码返回时，不包含任何响应的主体部分。 304虽被划分在3XX类别，但是和重定向没有关系。</li>
+<li>307 Temporary Redirect：临时重定向。与302有相同含义。307遵守浏览器标准，不会从POST变成GET。</li>
+</ul>
+<blockquote>
+<p>就算是304，也需要发出请求与接收响应，也会耗费资源和时间。</p>
+</blockquote>
+<h4 id="xx-客户端错误">4XX 客户端错误</h4>
+<ul>
+<li>400 Bad Request：表示请求报文中存在语法错误。</li>
+<li>401 Unauthorized：表示发送的请求需要有通过HTTP认证（BASIC认证、DIGEST认证）的认证信息。</li>
+<li>403 Forbidden：表明对请求资源的访问被服务器拒绝了。服务器端可在实体的主体部分对原因进行描述（可选）</li>
+<li>404 Not Found：表明服务器上无法找到请求的资源。除此之外，也可以在服务器端拒绝请求且不想说明理由时时用。</li>
+</ul>
+<h4 id="xx-服务器错误">5XX 服务器错误</h4>
+<ul>
+<li>500 Interval Server Error：表明服务器端在执行请求时发生了错误。也有可能是Web应用存在的bug或某些临时的故障。</li>
+<li>503 Service Unavailable：表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。如果事先得知解除以上状况需要的时间，最好写入Retry-After首部字段再返回给客户端。</li>
+</ul>
+<h2 id="第五章-与http协作的web服务器">第五章 与HTTP协作的Web服务器</h2>
+<h3 id="用单台虚拟主机实现多个域名">用单台虚拟主机实现多个域名</h3>
+<p>HTTP/1.1 规范允许一台HTTP服务器搭建多个Web站点。这是利用虚拟主机（Virtual Host，又称虚拟服务器）的功能。</p>
+<p>在互联网上，域名通过DNS服务映射到IP地址之后访问目标网站。可见，当请求发送到服务器时，已经是以IP地址形式访问了。所以，当一台托管了两个域名的服务器接收到请求时就需要弄清楚究竟要访问哪个域名。<br />
+在相同的IP地址下，由于虚拟主机可以寄存多个不同主机名和域名的Web网站，因此在发送HTTP请求时，必须在Host首部内完整指定主机名或域名的URI。</p>
+<h3 id="通信数据转发程序代理网关隧道">通信数据转发程序：代理、网关、隧道</h3>
+<p>HTTP通信时，除客户端和服务器以外，还有一些用于通信数据转发的应用程序，例如代理、网关、隧道。它们可以配合服务器工作。</p>
+<ul>
+<li>代理：是一种有转发功能的应用程序，扮演了位于服务器和客户端“中间人”的角色，接收由客户端发送的请求并转发给服务器，同时也接收服务器返回的响应并转发给客户端。</li>
+<li>网关：是转发其他服务器通信数据的服务器，接收从客户端发送来的请求时，它就像自己拥有资源的源服务器一样对请求进行处理。</li>
+<li>隧道：是在相隔甚远的客户端和服务器两者之间进行中转，并保持双方通信连接的应用程序。</li>
+</ul>
+<h3 id="保存资源的缓存">保存资源的缓存</h3>
+<p>缓存是指代理服务器或客户端本地磁盘内保存的资源副本。利用缓存可减少对源服务器的访问，节省通信流量和时间。</p>
+<p>缓存服务器是代理服务器的一种。当代理转发从服务器返回的响应时，代理服务器将会保存一份资源的副本。</p>
+<p>缓存服务器的优势在于利用缓存可避免多次从源服务器转发资源。因此客户端可就近从缓存服务器上获取资源，而源服务器也不必多次处理相同的请求了。</p>
+<h4 id="缓存的有效期限">缓存的有效期限</h4>
+<p>对于缓存服务器和客户端浏览器，当判定缓存过期或客户端要求，会向源服务器确认资源的有效性。若失效，浏览器会再次请求新资源。</p>
+<h2 id="第六章-http首部">第六章 HTTP首部</h2>
+<p>HTTP协议的请求和响应报文中必定包含HTTP首部。首部内容为客户端和服务器端分别处理请求和响应提供所需要的信息。</p>
+<p>HTTP请求报文：由方法、URI、HTTP版本、HTTP首部字段等构成。<br />
+HTTP响应报文：由HTTP版本、状态码（数字和原因短语）、HTTP首部字段 3 部分组成。</p>
+<h3 id="http首部字段">HTTP首部字段</h3>
+<p>使用首部字段是为了给浏览器和服务器提供报文主体大小、所使用的语言、认证信息等内容。</p>
+<h4 id="种http首部字段类型">4种HTTP首部字段类型</h4>
+<p>HTTP首部字段根据实际通途被分为以下4种类型：</p>
+<ul>
+<li>通用首部字段（General Header Fileds）：请求报文和响应报文两方都会使用的首部</li>
+<li>请求首都字段（Request Header Fields）：从客服端向服务器端发送请求报文时使用的首部。补充了请求的附加内容、客户端信息、响应内容相关优先级等信息。</li>
+<li>响应首部字段（Response Header Fields）：从服务器端向客户端返回响应报文时使用的首部。补充了响应的附加内容，也会要求客户端附加额外的内容信息。</li>
+<li>实体首部字段（Entity Header Fields）：针对请求报文和响应报文的实体部分使用的首部。补充了资源内容更新时间等与实体有关的信息。</li>
+</ul>
+<h4 id="http1.1首部字段一览">HTTP/1.1首部字段一览</h4>
+<p>通用首部字段</p>
+<table>
+<thead>
+<tr class="header">
+<th>首部字段名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cache-Control</td>
+<td>控制缓存行为</td>
+</tr>
+<tr class="even">
+<td>Connection</td>
+<td>逐跳首部、连接的管理</td>
+</tr>
+<tr class="odd">
+<td>Date</td>
+<td>创建报文的日期时间</td>
+</tr>
+<tr class="even">
+<td>Pragma</td>
+<td>报文指令</td>
+</tr>
+<tr class="odd">
+<td>Trailer</td>
+<td>报文末端的首部一览</td>
+</tr>
+<tr class="even">
+<td>Transfer-Encoding</td>
+<td>指定报文主体的传输编码方式</td>
+</tr>
+<tr class="odd">
+<td>Upgrade</td>
+<td>升级为其他协议</td>
+</tr>
+<tr class="even">
+<td>Via</td>
+<td>代理服务器的相关信息</td>
+</tr>
+<tr class="odd">
+<td>Warning</td>
+<td>错误通知</td>
+</tr>
+</tbody>
+</table>
+<p>Cache-Control的no-cache指令代表不缓存过期的资源，而不是不缓存。no-store才是真正不进行缓存。<br />
+Connection首部字段的值为close时，代表服务器想明确断开连接（HTTP/1.1默认都是持久连接）</p>
+<p>请求首部字段</p>
+<table>
+<thead>
+<tr class="header">
+<th>首部字段名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Accept</td>
+<td>用户代理可处理的媒体类型</td>
+</tr>
+<tr class="even">
+<td>Accept-Charset</td>
+<td>优先的字符集</td>
+</tr>
+<tr class="odd">
+<td>Accept-Encoding</td>
+<td>优先的内容编码</td>
+</tr>
+<tr class="even">
+<td>Accept-Language</td>
+<td>优先的语言</td>
+</tr>
+<tr class="odd">
+<td>Authorization</td>
+<td>Web认证信息</td>
+</tr>
+<tr class="even">
+<td>Expect</td>
+<td>期待服务器的行为</td>
+</tr>
+<tr class="odd">
+<td>From</td>
+<td>用户的电子邮箱地址</td>
+</tr>
+<tr class="even">
+<td>Host</td>
+<td>请求资源所在服务器</td>
+</tr>
+<tr class="odd">
+<td>If-Match</td>
+<td>比较实体标记（ETag）</td>
+</tr>
+<tr class="even">
+<td>If-Modified-Since</td>
+<td>比较资源的更新时间</td>
+</tr>
+<tr class="odd">
+<td>If-Node-Match</td>
+<td>比较实体标记（与If-Match相反）</td>
+</tr>
+<tr class="even">
+<td>If-Range</td>
+<td>资源未更新时发送实体Byte的范围请求</td>
+</tr>
+<tr class="odd">
+<td>If-Unmodified-Since</td>
+<td>比较资源的更新时间（与If-Modified-Since相反）</td>
+</tr>
+<tr class="even">
+<td>Max-Forwards</td>
+<td>最大传输逐跳数</td>
+</tr>
+<tr class="odd">
+<td>Proxy-Authorization</td>
+<td>代理服务器要求客户端的认证信息</td>
+</tr>
+<tr class="even">
+<td>Range</td>
+<td>实体的字节范围请求</td>
+</tr>
+<tr class="odd">
+<td>Referer</td>
+<td>对请求中URI的原始获取方</td>
+</tr>
+<tr class="even">
+<td>TE</td>
+<td>传输编码的优先级</td>
+</tr>
+<tr class="odd">
+<td>User-Agent</td>
+<td>HTTP客户端程序的信息</td>
+</tr>
+</tbody>
+</table>
+<p>响应首部字段</p>
+<table>
+<thead>
+<tr class="header">
+<th>首部字段名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Accept-Ranges</td>
+<td>是否接受字节范围请求</td>
+</tr>
+<tr class="even">
+<td>Age</td>
+<td>推算资源创建经过时间</td>
+</tr>
+<tr class="odd">
+<td>ETag</td>
+<td>资源的匹配信息</td>
+</tr>
+<tr class="even">
+<td>Location</td>
+<td>令客户端重定向至指定URI</td>
+</tr>
+<tr class="odd">
+<td>Proxy-Authenticate</td>
+<td>代理服务器对客户端的认证信息</td>
+</tr>
+<tr class="even">
+<td>Retry-After</td>
+<td>对再次发起请求的时机要求</td>
+</tr>
+<tr class="odd">
+<td>Server</td>
+<td>HTTP服务器的安装信息</td>
+</tr>
+<tr class="even">
+<td>Vary</td>
+<td>代理服务器缓存的管理信息</td>
+</tr>
+<tr class="odd">
+<td>WWW-Authenticate</td>
+<td>服务器对客户端的认证信息</td>
+</tr>
+</tbody>
+</table>
+<p>几乎所有浏览器在接收到包含首部字段Location的响应后，都会强制性地尝试对已提示的重定向资源的访问。</p>
+<p>实体首部字段</p>
+<table>
+<thead>
+<tr class="header">
+<th>首部字段名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Allow</td>
+<td>资源可支持的HTTP方法</td>
+</tr>
+<tr class="even">
+<td>Content-Encoding</td>
+<td>实体主体适用的编码方式</td>
+</tr>
+<tr class="odd">
+<td>Content-Language</td>
+<td>实体主体的自然语言</td>
+</tr>
+<tr class="even">
+<td>Content-Length</td>
+<td>实体主体的大小（字节）</td>
+</tr>
+<tr class="odd">
+<td>Content-Location</td>
+<td>替代对应资源的URI</td>
+</tr>
+<tr class="even">
+<td>Content-MD5</td>
+<td>实体主体的报文摘要</td>
+</tr>
+<tr class="odd">
+<td>Content-Range</td>
+<td>实体主体的位置范围</td>
+</tr>
+<tr class="even">
+<td>Content-Type</td>
+<td>实体主体的媒体类型</td>
+</tr>
+<tr class="odd">
+<td>Expires</td>
+<td>实体主体过期的日期时间</td>
+</tr>
+<tr class="even">
+<td>Last-Modified</td>
+<td>资源的最后修改日期时间</td>
+</tr>
+</tbody>
+</table>
+<p>为Cookie服务的首部字段</p>
+<table>
+<thead>
+<tr class="header">
+<th>首部字段名</th>
+<th>说明</th>
+<th>首部类型</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Set-Cookie</td>
+<td>开始状态管理所使用的Cookie信息</td>
+<td>响应首部字段</td>
+</tr>
+<tr class="even">
+<td>Cookie</td>
+<td>服务器接收到的Cookie信息</td>
+<td>请求首部字段</td>
+</tr>
+</tbody>
+</table>
+<p>Set-Cookie字段的属性</p>
+<table>
+<thead>
+<tr class="header">
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NAME=VALUE</td>
+<td>赋予Cookie的名称和其值（必需项）</td>
+</tr>
+<tr class="even">
+<td>expires=DATE</td>
+<td>Cookie的有效期（若不明确指定则默认为浏览器关闭前为止）</td>
+</tr>
+<tr class="odd">
+<td>path=Path</td>
+<td>将服务器上的文件目录作为Cookie的适用对象（若不指定则默认为文档所在的文件目录）</td>
+</tr>
+<tr class="even">
+<td>domain=域名</td>
+<td>作为Cookie适用对象的域名（若不指定则默认为创建Cookie的服务器的域名）</td>
+</tr>
+<tr class="odd">
+<td>Secure</td>
+<td>仅在HTTPS安全通信时才会发送Cookie</td>
+</tr>
+<tr class="even">
+<td>HttpOnly</td>
+<td>加以限制，使Cookie不能被JavaSript脚本访问</td>
+</tr>
+</tbody>
+</table>
+<p>expires：一旦Cookie从服务器端发送至客户端，服务器端就不存在可以显示删除Cookie的方法。但可通过覆盖已过期的Cookie，实现对客户端Cookie的实质性删除操作。<br />
+path：用来指定cookie被发送到服务器的哪一个目录路径下（即被服务器哪个路径接收cookie），其中"/"指的是站点根目录，可在同一台服务器（即使有多个应用）内共享该cookie。</p>
+<h2 id="第七章-确保web安全的https">第七章 确保Web安全的HTTPS</h2>
+<p>HTTP的缺点<br />
+- 通信使用明文可能会被窃听<br />
+- 不验证通信方的身份就可能遭受伪装<br />
+- 无法验证报文完整性，可能已遭篡改</p>
+<p>HTTP+加密+认证+完整性保护 = HTTPS</p>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240902165946.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240902170128.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h2 id="第八章-确认访问用户身份的认证">第八章 确认访问用户身份的认证</h2>
+<p>核对的信息通常是指以下这些：</p>
+<ul>
+<li>密码：只有本人才会知道的字符串信息</li>
+<li>动态令牌：仅限本人持有的设备内显示的一次性密码</li>
+<li>数字证书：仅限本人（终端）持有的信息</li>
+<li>生物认证：指纹和虹膜等本人的生理信息</li>
+<li>IC卡等：仅限本人持有的信息</li>
+</ul>
+<p>HTTP/1.1 使用的认证方式如下所示：</p>
+<ul>
+<li>BASIC认证（基本认证）</li>
+<li>DIGEST 认证（摘要认证）w</li>
+<li>SSL 客户端认证</li>
+<li>FormBase认证（基于表单认证）</li>
+</ul>
+<h2 id="第九章-基于http的功能追加协议">第九章 基于HTTP的功能追加协议</h2>
+<h3 id="http的瓶颈">HTTP的瓶颈</h3>
+<p>使用HTTP协议探知服务器上是否有内容更新，就必须频繁地从客户端到服务器端进行确认。如果服务器上没有内容更新，那么就会产生徒劳的通信。<br />
+若想在现有Web实现所需的功能，一下这些HTTP标准就会成为瓶颈：</p>
+<ul>
+<li>一条连接上只可发送一个请求（前面讲到，持久化可保持TCP连接状态，但仍完成一次请求/响应后才能进行下一次请求/响应，而管线化方式可让一个TCP连接并行发送多个请求。）</li>
+<li>请求只能从客户端开始。客户端不可以接收除响应以外的指令</li>
+<li>请求/响应首部未经压缩就发送。首部信息越多延迟越大</li>
+<li>发送冗长的首部。每次互相发送相同的首部造成的浪费较多</li>
+<li>可任意选择数据压缩格式。非强制压缩发送</li>
+</ul>
+<h4 id="comet-的解决方法">Comet 的解决方法</h4>
+<p>通常，服务器接收到请求，在处理完毕后就立即返回响应，但为了实现推送功能，Comet会先将响应置于<strong>挂起状态</strong>，当服务器端有内容更新时，再返回该响应。<br />
+内容上虽然可以做到实时更新，但为了保留响应，一次连接的持续时间也变长了。期间，为了维持连接会消耗更多的资源。另外，Comet仍未解决HTTP协议的本身存在的问题。</p>
+<h4 id="spdy">SPDY</h4>
+<p>Google 在2010年发布了 SPDY，其开发目标旨在解决HTTP的性能瓶颈，缩短Web页面的加载时间。<br />
+SPDY没有完全改写HTTP协议，而是在TCP/IP的应用层与运输层之间通过新加会话层的形式运作。同时，考虑到安全性问题，SPDY规定通信中使用SSL。</p>
+<p>SPDY以会话层的形式加入，控制对数据的流动，但还是采用HTTP建立通信连接。因此，可照常使用HTTP的GET和POST等方法、Cookie以及HTTP报文等。</p>
+<p>使用 SPDY后，HTTP协议额外获得以下功能。</p>
+<ul>
+<li>多路复用流：通过单一的TCP连接，可以无限制处理多个HTTP请求。所有请求的处理都在一条TCP连接上完成，因此TCP的处理效率得到提高。</li>
+<li>赋予请求优先级：SPDY不仅可以无限制地并发处理请求，还可以给请求逐个分配优先级顺序。这样主要是为了在发送多个请求时，解决因带宽低而导致响应变慢的问题。</li>
+<li>压缩HTTP首部：压缩HTTP请求和响应的首部。</li>
+<li>推送功能：支持服务器主动向客户端推送数据的功能。</li>
+<li>服务器提示功能：服务器可以主动提示客户端请求所需的资源。由于在客户端发现资源之前就可以获知资源的存在，因此在资源已缓存等情况下，可以避免发送不必要的请求。</li>
+</ul>
+<h3 id="使用浏览器进行全双工通信的-websocket">使用浏览器进行全双工通信的 WebSocket</h3>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240902170250.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>利用Ajax和Comet技术进行通信可以提升Web的浏览速度。但问题在于通信若使用HTTP协议，就无法彻底解决瓶颈问题。</p>
+<p>WebSocket技术主要是为了解决Ajax和Comet里XMLHttpRequst附带的缺陷所引起的问题。</p>
+<p>一旦Web服务器与客户端之间建立起WebSocket协议的通信连接，之后所有的通信都依靠这个专用协议进行。通信过程中可互相发送JSON、XML、HTML或图片等任意格式的数据。</p>
+<p>WebSocket的主要特点：</p>
+<ul>
+<li>推送功能：支持由服务器向客户端推送数据。</li>
+<li>减少通信量：和HTTP相比，不但每次连接时的总开销减少，而且由于WebSocket的首部信息很小，通信量也相应较少。</li>
+</ul>
+<p>为了实现WebSocket通信，在HTTP连接建立之后，需要完成一次“握手”的步骤。</p>
+<ul>
+<li>握手·请求：为了实现WebSocket通信，需要用到HTTP的Upgrade首部字段，告知服务器通信协议发生改变，以达到握手的目的。</li>
+<li>握手·响应：对于之前的请求，返回状态码101 Switching Protocols 的响应。</li>
+</ul>
+<p>成功握手确立WebSocket连接后，通信时不再使用HTTP的数据帧，而采用WebSocket独立的数据帧。</p>
+<p><strong>由于是建立在HTTP基础上的协议，因此连接的发起方仍是客户端</strong>，而一旦确立WebSocket通信连接，不论服务器端还是客户端，任意一方都可直接向对方发送报文。</p>
+<h2 id="第十一章-web攻击技术">第十一章 Web攻击技术</h2>
+<p>简单的HTTP协议本身并不存在安全性问题，因此协议本身几乎不会成为攻击的对象。应用HTTP协议的服务器和客户端，以及运行在服务器上的Web应用等资源才是攻击目标。</p>
+<p>HTTP不具备必要的安全功能，就拿远程登录时会用到的SSH协议来说，SSH具备协议级别的认证及会话管理等功能，HTTP协议则没有。另外在架设SSH服务方面，任何人都可以轻易地创建安全等级高的服务。而HTTP即使已假设好服务器，但开发者需要自行设计并开发认证及会话管理功能来满足Web应用的安全。而自行设计就意味着会出现各种形形色色的实现，可仍在运作的Web应用背后就会隐藏着各种容易被攻击者滥用的安全漏洞的Bug。</p>
+<h3 id="因输出值转义不完全引发的安全漏洞">因输出值转义不完全引发的安全漏洞</h3>
+<ul>
+<li>跨站脚本攻击（Cross-Site Scripting, XSS）：主要是指在用户浏览器内运行了非法的 HTML 标签或 JavaScript 脚本。比如富文本编辑器，如果不过滤用户输入的数据直接显示用户输入的HTML内容的话，就会有可能运行恶意的 JavaScript 脚本，导致页面结构错乱，Cookies 信息被窃取等问题。</li>
+<li>SQL注入攻击（SQL Injection）：是指针对 Web 应用使用的数据库，通过运行非法的SQL而产生的攻击。</li>
+<li>OS命令攻击（OS Command Injection）：是指通过 Web 应用，执行非法的操作系统命令达到攻击的目的。 只要在能调用 Shell 函数的地方就有存在被攻击的风险。</li>
+<li>HTTP首部注入攻击（HTTP Header Injection）：是指攻击者通过在响应首部字段内插入换行，添加任意响应首部或主体的一种攻击。</li>
+<li>HTTP 响应截断攻击：是用在 HTTP 首部注入的一种攻击。攻击顺序相同，但是要将两个 %0D%0A%0D%0A 并排插入字符串后 发送。利用两个连续的换行就可作出 HTTP 首部与主体分隔所需的空行了，这样 就能显示伪造的主体，达到攻击的目的。</li>
+<li>邮件首部注入攻击（Mail Header Injection）：是指 Web 应用中的邮件发送功能，攻击者通过向邮件首部 To 或 Subject 内任意添加非法内容发起的攻击。利用存在安全漏洞的Web网站，可对任意邮件地址发送广告邮件或 病毒邮件。</li>
+<li>目录遍历攻击（Directory Traversal）：是指对本无意公开的文件目录，通过非法截断其目录路径后，达成访问目的的一种攻击。比如，通过 ../ 等相对路径定位到 /etc/passwd 等绝对路径上。</li>
+<li>远程文件包含漏洞（Remote File Inclusion）： 是指当部分脚本内容需要从其他文件读入时，攻击者利用指定外部服务器的URL充当依赖文件，让脚本读取之后，就可运行任意脚本的一种攻击。</li>
+</ul>
+<h3 id="因设置或设计上的缺陷引发的安全漏洞">因设置或设计上的缺陷引发的安全漏洞</h3>
+<ul>
+<li>强制浏览（Forced Browsing）：是指，从安置在Web服务器的公开目录下的文件中，浏览那些原本非自愿公开的文件。比如，没有对那些需要保护的静态资源增加权限控制。</li>
+<li>不正确的错误消息处理（Error Handling Vulerability）：指Web应用的错误信息内包含对攻击者有用 的信息。</li>
+<li>开放重定向（Open Redirect）：是一种对指定的任意URL作重定向跳转的功能。而于此功能相关联的安全漏洞是指， 假如指定的重定向 URL 到某个具有恶意的 Web 网站，那么用户就会被诱导至那个 Web 网站。</li>
+</ul>
+<h3 id="因会话管理疏忽引发的安全漏洞">因会话管理疏忽引发的安全漏洞</h3>
+<ul>
+<li>会话劫持（Session Hijiack）：是指攻击者通过某种手段拿到了用户的会话 ID，并非法使用此会话 ID 伪装成用户，达到攻击的目的。</li>
+<li>会话固定攻击（Session Fixation）：对以窃取目标会话ID为主动攻击手段的会话劫持而言，会强制用户使用攻击者指定的会话 ID，属于被动攻击。</li>
+<li>跨站点请求伪造（Cross-Site Request Forgeries, CSRF）：是指攻击者通过设置好陷阱，强制对已完成认证的用户进行非预期的个人信息或设定等某些状态更新，属于被动攻击。</li>
+</ul>
+<h3 id="其它安全漏洞">其它安全漏洞</h3>
+<ul>
+<li>密码破解：①通过网络进行密码试错（穷举法和字典攻击）；②对已加密密码的破解（通过穷举法·字典攻击进行类推、彩虹表、拿到加密时使用的密钥、加密算法的漏洞）</li>
+<li>点击劫持：是指利用透明的按钮或链接做成陷阱，覆盖在Web页面之上。然后诱使用户在不知情的情况下， 单击那个链接访问内容的一种攻击手段。这种行为又称为界面伪装（UI Redressing）。</li>
+<li>Dos攻击：是一种让运行中的服务呈停止状态的攻击。有时也叫做服务停止攻击或拒绝服务攻击。多台计算机发起的 Dos 攻击称为 DDoS 攻击（Distributed Denial of Service attach） 。</li>
+<li>后门程序：是指开发设置的隐藏入口（如开发阶段作为Debug调用的后门程序），可不按正常步骤使用受限功能。利用后门程序就能够使用原本受限的功能。</li>
+</ul>
+<h2 id="自问自答">自问自答：</h2>
+<ol>
+<li>URI与URL的区别<br />
+答：URI 用字符串（包括地址）标识某一个互联网资源，而URL表示资源的地点。因此URL是URI的子集。</li>
+<li>输入URL后，浏览器发生哪些变化<br />
+下图需要补充：在从DNS服务器获取IP后，进行3次握手。<br />
+[P15 + 三次握手][19]<br />
+从服务器获取相应资源后，浏览器就会对这些资源进行相应的解析，具体可看[Google Developers][20]。</li>
+<li>GET与POST的区别<br />
+可以看看这篇文章 [浅谈HTTP中Get与Post的区别][21]。我个人认为主要的一点是：<strong>URL不存在参数上限的问题，HTTP协议规范没有对URL长度进行限制。这个限制是特定的浏览器及服务器对它的限制。</strong><br />
+关于URL和queryString长度限制的相关链接：</li>
+</ol>
+<ul>
+<li>[What is the maximum length of a URL in different browsers?][22]</li>
+<li>[What is the maximum possible length of a query string?][23]<br />
+因此对于GET请求时，URL超出浏览器或者服务器限制的情况，建议改成POST请求。</li>
+</ul>
+<ol>
+<li>301与302区别<br />
+答：301是永久性重定向，搜索引擎在抓取新内容的同时也将旧的网址替换为重定向之后的网址。<br />
+302是临时性重定向，搜索引擎会抓取新的内容而保留旧的网址。因为服务器返回302代码，搜索引擎认为新的网址只是暂时的。</li>
+<li>为什么三次握手，二次不可以吗？<br />
+答：不可以，只有完成3次才能进行后续操作，若在握手过程中某个阶段中断，TCP协议会再次以相同的顺序发送相同的数据包。而且，第三次握手是客户端为了让服务器知道它是否接收到响应，确保连接建立成功。</li>
+<li>为什么有时候下载高清大图时，图片会一块一块地加载。<br />
+答：这就是因为设置了http请求的长度，这样就可以分块的加载资源文件。<br />
+　　在请求报文中使用Range属性，在响应报文中使用Content-Type属性都可以指定一定字节范围的http请求。</li>
+</ol>
+<p>“自问自答”仅是我个人的理解，如果你有不同的观点，可以一起讨论。当然，如果你有认为不错的问答，可以联系我，我会不断完善。</p>
+<h4 id="第二章-简单的http协议-1">第二章 简单的HTTP协议</h4>
+<ul>
+<li>2.1.HTTP协议用于客户端和服务器端之间的通信</li>
+<li>2.2.通过请求和响应的的交换达成通信：1. 请求必定由客户端发出的，而服务端回复响应；2. 请求报文是由请求方法、请求URI、协议版本、可选的请求首部字段和内容实体构成的</li>
+<li>2.3.HTTP是不保存状态的协议：1. HTTP协议自身不对请求和响应之间的通信状态进行保存；2. 为了实现期望的保持状态功能，于是引入了Cookie技术</li>
+<li>2.4.请求URI定位资源</li>
+<li>2.5.告知服务器意图的HTTP方法：1. GET：获取资源；2. POST：传输实体主体；3. PUT：传输文件；4. HEAD：获取报文首部；5. DELETE：删除文件；6. OPTIONS：询问支持的方法；7. TRACE：追踪路径；8. CONNECT：要求用隧道协议连接代理；9. LINK：建立和资源之间的联系；10. UNLINK：断开连接关系</li>
+<li>2.6.使用方法下达命令：1. 方法的作用在于，可以指定请求的资源按期望产生某种行为</li>
+<li>2.7.持久连接节省通信量：1. 持久连接：特点是只要连接一端没有明确提出断开连接，则保持TCP连接状态；好处在于减少了TCP连接的重复建立和断开所造成的额外开销，减轻服务器端的负载；HTTP/1.1中，所有连接默认都是持久连接；2. 管线化：不用等待响应就可以直接发送下一个请求</li>
+<li>2.8.使用Cookie的状态管理：1. Cookie技术通过在请求和响应报文中写入Cookie信息来控制客户端的状态</li>
+</ul>
+<h4 id="第三章-http报文内的http信息-1">第三章 HTTP报文内的HTTP信息</h4>
+<ul>
+<li>3.1.HTTP报文：1. 大致可以分为报文首部和报文主体两块；2. 两者由最初出现的空行（CR+LF）来划分</li>
+<li>3.2.请求报文及响应报文的结构：1. 请求行、状态行、首部字段、其他；2. 一般有4种首部，分别是：通用首部、请求首部、响应首部和实体首部</li>
+<li>3.3.编码提升传输速率：1. 压缩传输的内容编码：gzip（GNU zip）、compress（UNIX系统的标准压缩）、deflate（zlib）、identity（不进行编码）；2. 分割发送的分块传输编码：每一块都会用十六进制来标记块的大小</li>
+<li>3.4.发送多种数据的多部分对象集合：1. MIME（多用途因特网邮件扩展）机制：允许邮件处理文本、图片、视频等多个不同类型的数据；2. 多部分对象集合包含：multipart/form-data、multipart/byteranges、multipart/form-data、multipart/byteranges；3. http中使用boundary字符串来划分多部分对象集合指明的各类实体</li>
+<li>3.5.获取部分内容的范围请求：1. 执行范围请求时，会用到首部字段Range来指定资源的byte范围</li>
+<li>3.6.内容协商返回最合适的内容：1. 内容协商机制是指客户端和服务器端就响应的资源内容进行交涉、然后提供给客户端最为适合的资源；2. 内容协商会以语言、字符集、编码方式等为基准判断响应的资源；3. 涉及的首部字段：Accept、Accept-Chartset、Accept-Encoding、Accept-Language、Content-Language；4. 3种类型的内容协商技术：服务器驱动协商、客户端驱动协商、透明协商</li>
+</ul>
+<h4 id="第四章-返回结果的http状态码-1">第四章 返回结果的HTTP状态码</h4>
+<ul>
+<li>4.1.状态码告知从服务器端返回的请求结果：1. 状态码中的第一位指定了响应类别</li>
+<li>4.2.2XX成功：1. 200 OK，从客户端发来的请求在服务器端被正常处理；2. 204 No Content，成功处理，返回的响应报文中不含实体的主体部分；3. 206 Partial Content，客户端进行了范围请求，服务器成功执行</li>
+<li>4.3.3XX重定向：1. 301 Moved Permanently，永久性重定向，请求的资源已被分配了新的URI，以后应该使用资源现在所指的URI。指定资源路径最后忘记添加斜杠“/”，会产生301状态码；2. 302 Found，临时重定向，请求的资源已被分配了新的URI，希望用户（本次）能使用新的URI访问；3. 303 See Other，请求的资源存在着另一个URI，应使用GET方法定向获取请求的资源；4. 304 Not Modified，服务器资源未改变，可直接使用客户端未过期的缓存；5. 307 Temporary Redirect，临时重定向，与302 Found 有着相同的含义</li>
+<li>4.4.4XX客户端错误：1. 400 Bad Request，请求报文中存在语法错误；2. 401 Unauthorized，发送的请求需要有通过HTTP认证（BASIC 认证、DIGEST认证）的认证信息；3. 403 Forbidden，请求资源的访问被服务器拒绝了；4. 404 Not Found，无法找到请求的资源。也可以在服务器端拒绝请求且不想说明理由时使用</li>
+<li>4.5.5XX服务器错误：1. 500 Internal Server Error，服务端在执行请求时发生了错误；2. 503 Service Unavailable，服务器暂时处于超负载或正在停机维护，现在无法处理请求</li>
+</ul>
+<h4 id="第五章-与http协作的web服务器-1">第五章 与HTTP协作的Web服务器</h4>
+<ul>
+<li>5.1.用单台虚拟主机实现多个域名</li>
+<li>5.2.通信数据转发程序：代理、网关、隧道：1. 代理：接收客户端发送的请求后转发给其他服务器；每次转发请求或响应时，都会追加写入Via首部信息；2. 网关：能使通信线路上的服务器提供非HTTP协议服务；3. 隧道：确保客户端能与服务器进行安全通信</li>
+<li>5.3.保存资源的缓存：1. 缓存服务器的优势在于利用缓存可以避免多次从源服务器转发资源</li>
+</ul>
+<h4 id="第六章-http首部-1">第六章 HTTP首部</h4>
+<ul>
+<li>6.1.HTTP报文首部：1. 首部字段同时存在于请求和响应报文中，并涵盖HTTP报文相关的内容信息</li>
+<li>6.2.HTTP首部字段：1. HTTP首部字段传递重要信息；2. 使用首部字段是为了给浏览器和服务器提供报文主体大小、所使用的语言、认证信息等内容；3. HTTP首部字段结构：字段名+字段值；4. 4种HTTP首部字段类型：通用首部字段、请求首部字段、响应首部字段、实体首部字段</li>
+<li>6.2.5. HTTP/1.1首部字段一览（47种）</li>
+<li>6.2.5.1. 通用首部字段：1. Cache-Control：控制缓存的行为；2. Connection：逐跳首部、连接的管理；3. Date：创建报文的日期时间；4. Pragma：报文指令；5. Trailer：报文末端的首部一览；6. Transfer-Encoding：指定报文主体的传输编码方式；7. Upgrade：升级为其他协议；8. Via：代理服务器的相关信息；9. Warning：错误通知</li>
+<li>6.2.5.2. 请求首部字段：1. Accept：用户代理可处理的媒体类型；2. Accept-Charset：优先的字符集；3. Accept-Encoding：优先的内容编码；4. Accept-Language：优先的语言（自然语言）；5. Authorization：Web认证信息；6. Expect：期待服务器的特定行为；7. From：用户的电子邮箱地址；8. Host：请求资源的所在服务器；9. If-Match：比较实体标记（ETag）；10. If-None-Match：比较实体标记（与If-Match相反）；11. If-Range：资源未更新时发送实体Byte的范围请求；12. If-Unmodified-Since：比较资源的更新时间（与If-Modified-Since相反）；13. Max-Forwards：最大传输逐跳数；14. Proxy-Authorization：代理服务器要求客户端的认证信息；15. Range：实体的字节范围请求；16. Referer：对请求中的URI的原始获取方；17. TE：传输编码的优先级；18. User-Agent：HTTP客户端程序的信息</li>
+<li>6.2.5.3. 响应首部字段：1. Accept-Ranges：是否接受字节范围请求；2. Age：推算资源创建经过时间；3. ETag：资源的匹配信息；4. Location：令客户端重定向至指定URI；5. Proxy-Authenticate：代理服务器对客户端的认证信息；6. Retry-After：对再次发起请求的时机要求；7. Server：HTTP服务器的安装信息；8. Vary：代理服务器缓存的管理信息；9. WWW-Authenticate：服务器对客户端的认证信息</li>
+<li>6.2.5.4. 实体首部字段：1. Allow：资源可支持的HTTP方法；2. Content-Encoding：实体主体适用的编码方式；3. Content-Language：实体主体的自然语言；4. Content-Length：实体主体的大小（单位：字节）；5. Content-Location：替代对应资源的URI；6. Content-MD5：实体主体的报文摘要；7. Content-Range：实体主体的位置范围；8. Content-Type：实体主体的媒体类型；9. Expires：实体主体过期的日期时间；10. Last-Modified：资源的最后修改日期时间</li>
+<li>6.2.6. 非HTTP/1.1 首部字段：1. 还有Cookie、Set-Cookie和Content-Disposition等在其他RFC中定义的首部字段</li>
+<li>6.2.7. End-to-End首部和Hop-by-Hop首部：1. 端到端首部：必须被转发；2. 逐跳首部：只对单次转发有效；3. HTTP/1.1中的逐跳首部字段：Connection、Keep-Alive、Proxy-Authenticate、Proxy-Authorization、Trailer、TE、Transfer-Encoding、Upgrade</li>
+<li>6.3.HTTP/1.1 通用首部字段：1. Cache-Control；2. Connection；3. Date；4. Pragma；5. Trailer；6. Transfer-Encoding；7. Upgrade；8. Via；9. Warning</li>
+<li>6.4.请求首部字段：1. Accept；2. Accept-Charset；3. Accept-Encoding；4. Accept-Language；5. Authorization；6. Expect；7. From；8. Host；9. If-Match；10. If-Range；11. If-Unmodified-Since；12. Max-Forwards；13. Proxy-Authorization；14. Range；15. Referer；16. TE；17. User-Agent</li>
+<li>6.5.响应首部字段：1. Accept-Ranges；2. Age；3. ETag；4. Location；5. Proxy-Authenticate；6. Retry-After；7. Server；8. Vary；9. WWW-Authenticate</li>
+<li>6.6.实体首部字段：1. Allow；2. Content-Encoding；3. Content-Language；4. Content-Length；5. Content-Location；6. Content-MD5；7. Content-Range；8. Content-Type；9. Expires；10. Last-Modified</li>
+<li>6.7.为Cookie服务的首部字段：1. Cookie的工作机制是用户识别及状态管理；2. Set-Cookie：开始状态管理所使用的Cookie信息；3. Cookie：服务器接收到的Cookie信息</li>
+<li>6.8.其他首部字段：1. X-Frame-Options：用于控制网站内容在其他Web网站的Frame标签内的显示问题。目的是为了防止点击劫持攻击；2. X-XSS-Protection：针对跨站脚本攻击（XSS）的一种对策，用于控制浏览器XSS防护机制的开关；3. DNT：拒绝个人信息被收集，表示拒绝精准广告追踪的一种方法；4. P3P：通过利用P3P（在线隐私偏好平台）技术，可以让Web网站上的个人隐私变成一种仅供程序可理解的形式，以达到保护用户隐私的目的</li>
+</ul>
+<h4 id="第七章-确保web安全的https-1">第七章 确保Web安全的HTTPS</h4>
+<ul>
+<li>7.1.HTTP的缺点：1. 通信使用明文（不加密），内容可能会被窃听（1. TCP/IP是可能被窃听的网络；2. 加密处理防止被窃听：通信加密（SSL安全套接层或TLS安全传输层协议的组合使用）、内容加密）；2. 不验证通信方的身份，因此有可能遭遇伪装（1. 任何人都可发起请求；2. 查明对手的证书）；3. 无法证明报文的完整性，所以有可能已遭篡改（1. 接收到的内容可能有误；2. 如何防止篡改（常用的MD5和SHA-1等散列指校验的方法，以及用来确认文件的数字签名方法））</li>
+<li>7.2.HTTP+加密+认证+完整性保护=HTTPS：1. HTTPS并非应用层的一种新协议。只是HTTP通信接口部分用SSL和TLS协议代替而已；2. SSL是当今世界上应用最为广泛的网络安全技术；3. HTTPS采用共享密钥加密和公开密钥加密两者并用的混合加密机制；4. SSL的慢分两种：一种是指通信慢。另一种是指由于大量消耗CPU及内存等资源，导致处理速度慢</li>
+</ul>
+<h4 id="第八章-确认访问用户身份的认证-1">第八章 确认访问用户身份的认证</h4>
+<ul>
+<li>8.0.何为认证：1. 密码：只有本人才会知道的字符串信息；2. 动态令牌：仅限本人持有的设备内显示的一次性密码<br />
+；3. 数字证书：仅限本人（终端）持有的信息；4. 生物认证：指纹和虹膜等本人的生理信息；5. IC卡等：仅限本人持有的信息</li>
+<li>8.1.BASIC认证：1. 从HTTP1.0就定义的认证方式；2. 采用Base64编码方式；3. 不够灵活，且达不到多数Web网站期望的安全性等级</li>
+<li>8.2.DIGEST认证：1. 同样使用质询/响应的方式，但不会像BASIC认证那样直接发送明文密码；2. 提供防止密码被窃听的保护机制，但不存在防止用户伪装的保护机制</li>
+<li>8.3.SSL客户端认证：1. 借由HTTPS的客户端证书完成的方式；2. SSL客户端认证采用双因素认证：依靠证书和基于表单认证组合的形式；3. SSL客户端认证必要的费用</li>
+<li>8.4.基于表单认证：1. 认证多半为基于表单认证；2. Session管理及Cookie应用；3. 一种安全的保存方法，先利用给密码加盐（salt）的方式增加额外信息，再使用散列（hash）函数计算出散列值后保存</li>
+</ul>
+<h4 id="第九章-基于http的功能追加协议-1">第九章 基于HTTP的功能追加协议</h4>
+<ul>
+<li>9.1.基于HTTP的协议</li>
+<li>9.2.消除HTTP瓶颈的SPDY：1. 探知服务器上是否有内容更新，就必须频繁地从客户端到服务器端进行确认；2. Ajax的解决方法；3. Comet的解决方法；4. SPDY以会话层的形式加入，控制对数据的流动；5. 使用SPDY额外获得的功能：多路复用流、赋予请求优先级、压缩HTTP首部、推送功能、服务器提示功能</li>
+<li>9.3.使用浏览器进行全双工通信的WebSocket：1. WebSocket协议由IETF定为标准，WebSocket API由W3C定为标准；2. 主要特点：推送功能、减少通信量</li>
+<li>9.4.期盼已久的HTTP/2.0：1. 目标是改善用户在使用Web时的速度体验；2. 7项技术及讨论：多路复用、TLS义务化、协商、客户端拉/服务器推、流量控制、WebSocket</li>
+<li>9.5.Web服务器管理文件的WebDAV：1. 可对Web服务器上的内容直接进行文件复制、编辑等操作的分布式文件系统<br />
+；2. 新增的一些概念：集合、资源、属性、锁</li>
+</ul>
+<h4 id="第十章-构建web内容的技术">第十章 构建Web内容的技术</h4>
+<ul>
+<li>10.1.HTML</li>
+<li>10.2.动态HTML</li>
+<li>10.3.Web应用</li>
+<li>10.4.数据发布的格式及语言</li>
+</ul>
+<h4 id="第十一章-web的攻击技术">第十一章 Web的攻击技术</h4>
+<ul>
+<li>11.1.针对Web的攻击技术：1. HTTP不具备必要的安全功能；2. 在客户端即可篡改请求；3. 针对Web应用的攻击模式</li>
+<li>11.2.因输出值转义不完全引发的安全漏洞：1. 跨站脚本攻击XSS；2. SQL注入攻击；3. OS命令注入攻击；4. HTTP首部注入攻击；5. 邮件首部注入攻击；6. 目录遍历攻击；7. 远程文件包含漏洞</li>
+<li>11.3.因设置或设计上的缺陷引发的安全漏洞：1. 强制浏览；2. 不正确的错误消息处理；3. 开放重定向</li>
+<li>11.4.因会话管理疏忽引发的安全漏洞：1. 会话劫持；2. 会话固定攻击；3. 跨站点请求伪造</li>
+<li>11.5.其他安全漏洞：1. 密码破解；2. 点击劫持；3. Dos攻击</li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

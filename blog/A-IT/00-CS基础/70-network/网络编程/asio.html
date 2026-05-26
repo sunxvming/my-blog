@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -199,7 +199,7 @@ jQuery(document).ready(function(){
 <p>简单来说，Boost.Asio是一个跨平台的、主要用于网络和其他一些底层输入/输出编程的C++库。</p>
 <h3 id="同步vs异步">同步VS异步</h3>
 <p>在同步编程中，所有的操作都是顺序执行的，比如从socket中读取（请求），然后写入（回应）到socket中。每一个操作都是阻塞的。<br />
-异步编程是事件驱动的。虽然启动了一个操作，但是你不知道它何时会结束；它只是提供一个回调给你，当操作结束时，它会调用这个API，并返回操作结果。</p>
+异步编程是事件驱动的。虽然启动了一个操作，但是你不知道它何时会结束；它只是提供一个<strong>回调</strong>，当操作结束时，它会调用这个API，并返回操作结果。</p>
 <p><strong>异步的客户端例子</strong></p>
 <pre><code>using boost::asio;
 io_service service;
@@ -230,7 +230,7 @@ err) {
     socket_ptr sock(new ip::tcp::socket(service));
     start_accept(sock);
 }</code></pre>
-<p>在上述代码片段中，首先，你创建一个io_service实例，指定监听的端口。然后，你创建接收器acc——一个接受客户端连接，创建虚拟的socket，异步等待客户端连接的对象。</p>
+<p>在上述代码片段中，首先，你创建一个 <code>io_service</code> 实例，指定监听的端口。然后，你创建接收器acc——一个接受客户端连接，创建虚拟的socket，异步等待客户端连接的对象。</p>
 <p>最后，运行异步service.run()循环。当接收到客户端连接时，handle_accept被调用（调用async_accept的完成处理程序）。如果没有错误，这个socket就可以用来做读写操作。</p>
 <p>在使用这个socket之后，你创建了一个新的socket，然后再次调用start_accept()，用来创建另外一个“等待客户端连接”的异步操作，从而使service.run()循环一直保持忙碌状态。</p>
 <h3 id="异常处理vs错误代码">异常处理VS错误代码</h3>

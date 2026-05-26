@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -187,6 +187,7 @@ jQuery(document).ready(function(){
 <li><a href="#配置语法">配置语法：</a></li>
 <li><a href="#示例说明">示例说明</a></li>
 <li><a href="#追踪的文件加忽略文件">追踪的文件加忽略文件</a></li>
+<li><a href="#让-git-停止追踪整个目录">让 Git 停止追踪整个目录</a></li>
 </ul>
 </div>
  <!--if(toc)-->
@@ -271,6 +272,14 @@ fd1/*
 <p><code>git rm --cached</code> 是一个 Git 命令，用于从 Git 跟踪中删除文件，但保留在工作目录中。这个命令将文件从 Git 的索引（也称为缓存）中移除，但不会从物理磁盘中删除该文件。</p>
 <pre><code>git rm --cached myfile.txt</code></pre>
 <p>执行以上命令后，Git 将不再跟踪 myfile.txt 文件的更改。</p>
+<h2 id="让-git-停止追踪整个目录">让 Git 停止追踪整个目录</h2>
+<p>1.让 Git 停止追踪这个目录</p>
+<pre><code>git rm -r --cached build/</code></pre>
+<ul>
+<li><code>--cached</code>：只从 Git 索引中删除，不会删你本地文件</li>
+<li><code>-r</code>：递归删除目录</li>
+</ul>
+<p>2.在.gitignore中添加此目录</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

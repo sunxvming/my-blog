@@ -1,0 +1,30 @@
+{
+	"nodes":[
+		{"id":"8623b99187d66631","type":"text","text":"震级计算","x":1340,"y":-240,"width":180,"height":60},
+		{"id":"01cbde03f385aaec","type":"text","text":"定位页","x":814,"y":-243,"width":114,"height":61},
+		{"id":"5e34ebb68a3e3a8e","type":"text","text":"AlphaList","x":497,"y":-254,"width":148,"height":72},
+		{"id":"70942cb31ede0d5b","type":"text","text":"QC\n- 不同的步骤和页面QC的检查项有那些","x":454,"y":166,"width":234,"height":185},
+		{"id":"7fab3388aa44cf52","type":"text","text":"滤波参数选择页\n- 双击参数应用波形","x":55,"y":460,"width":212,"height":108},
+		{"id":"e7b870fd1e5c38a0","type":"text","text":"allocate","x":-800,"y":-254,"width":220,"height":127},
+		{"id":"b9c75a7078ee22ff","type":"text","text":"wave page\n- 工具条：Sav  保存事件","x":-292,"y":-420,"width":450,"height":447},
+		{"id":"11059eeb388bf23b","type":"text","text":"拒绝理由输入\n弹框页\n","x":-152,"y":-790,"width":170,"height":100},
+		{"id":"9074e2a6c6364c24","type":"text","text":"Map\n","x":797,"y":-740,"width":148,"height":120},
+		{"id":"cf3af1507b8a0d24","type":"text","text":"REB QC页\n- QC Complete\n- Bulletin Complete","x":-1265,"y":-60,"width":260,"height":149},
+		{"id":"8beda7901049ed59","type":"text","text":"rebpc output页\n- 数据库核查的文本输出","x":-1040,"y":-520,"width":169,"height":110},
+		{"id":"2eecb1611d4d3f48","type":"text","text":"时间范围弹框页","x":-520,"y":200,"width":206,"height":131}
+	],
+	"edges":[
+		{"id":"9808be5efd3c436f","fromNode":"e7b870fd1e5c38a0","fromSide":"left","toNode":"8beda7901049ed59","toSide":"bottom","label":"Run RebQC"},
+		{"id":"cc775ffa26c9c73f","fromNode":"e7b870fd1e5c38a0","fromSide":"left","toNode":"cf3af1507b8a0d24","toSide":"right","label":"QC\n\n"},
+		{"id":"f7d6502bd857ca7d","fromNode":"e7b870fd1e5c38a0","fromSide":"right","toNode":"b9c75a7078ee22ff","toSide":"left"},
+		{"id":"54fa1d3b793cd08f","fromNode":"b9c75a7078ee22ff","fromSide":"bottom","toNode":"7fab3388aa44cf52","toSide":"top"},
+		{"id":"964b66488c2972a6","fromNode":"b9c75a7078ee22ff","fromSide":"right","toNode":"5e34ebb68a3e3a8e","toSide":"left"},
+		{"id":"ce43d6c5ff85b51f","fromNode":"5e34ebb68a3e3a8e","fromSide":"bottom","toNode":"70942cb31ede0d5b","toSide":"top"},
+		{"id":"570f6b69fb2c0827","fromNode":"e7b870fd1e5c38a0","fromSide":"bottom","toNode":"2eecb1611d4d3f48","toSide":"left","label":"选定时间段后ARS-scan\nARS.load文件"},
+		{"id":"05f66ce5010e034f","fromNode":"5e34ebb68a3e3a8e","fromSide":"right","toNode":"01cbde03f385aaec","toSide":"left"},
+		{"id":"d80f9bcba287f465","fromNode":"01cbde03f385aaec","fromSide":"right","toNode":"8623b99187d66631","toSide":"left"},
+		{"id":"3f7a4c0fae9c1276","fromNode":"b9c75a7078ee22ff","fromSide":"top","toNode":"11059eeb388bf23b","toSide":"bottom","label":"工具条：Rej"},
+		{"id":"95fa118426e1e194","fromNode":"01cbde03f385aaec","fromSide":"top","toNode":"9074e2a6c6364c24","toSide":"bottom","label":"显示震中"},
+		{"id":"45a6cebc4b47b91c","fromNode":"2eecb1611d4d3f48","fromSide":"top","toNode":"b9c75a7078ee22ff","toSide":"bottom","label":"加载数据"}
+	]
+}

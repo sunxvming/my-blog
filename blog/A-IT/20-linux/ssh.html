@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -180,7 +180,6 @@ jQuery(document).ready(function(){
 <div id="TOC">
 <ul>
 <li><a href="#配置ssh免登陆">配置ssh免登陆</a></li>
-<li><a href="#enabling-ssh-on-ubuntu">Enabling SSH on Ubuntu</a></li>
 <li><a href="#ssh通过代理连接">SSH通过代理连接</a>
 <ul>
 <li><a href="#ssh-over-corkscrew">1. ssh over corkscrew</a></li>
@@ -203,16 +202,7 @@ cd .ssh/</p>
 # 或者
 ssh-copy-id user@host</code></pre>
 <p>核心是：B公钥加密，A私钥解密，B再进行验证<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/12731350.png" />     </p>
-<h2 id="enabling-ssh-on-ubuntu">Enabling SSH on Ubuntu</h2>
-<p>By default, when Ubuntu is first installed, remote access via SSH is not allowed. Enabling SSH on Ubuntu is fairly straightforward.</p>
-<pre><code>sudo apt update
-sudo apt install openssh-server -y
-sudo service ssh start</code></pre>
-<p>Ubuntu ships with a firewall configuration tool called UFW. If the firewall is enabled on your system, make sure to open the SSH port:</p>
-<pre><code>sudo ufw allow ssh</code></pre>
-<p>sshd: no hostkeys available – exiting.</p>
-<pre><code>ssh-keygen -A</code></pre>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/12731350.png" />     </p>
 <h2 id="ssh通过代理连接">SSH通过代理连接</h2>
 <h3 id="ssh-over-corkscrew">1. ssh over corkscrew</h3>
 <p><a href="https://github.com/bryanpkc/corkscrew">corkscrew</a>是专门为ssh提供http代理的软件，要使用corkscrew需要http代理支持HTTP CONNECT方法</p>

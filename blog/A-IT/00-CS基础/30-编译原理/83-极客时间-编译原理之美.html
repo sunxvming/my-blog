@@ -206,11 +206,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -222,13 +222,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -406,7 +406,7 @@ jQuery(document).ready(function(){
 <li>很多国外厂商的软件，普遍都具备<strong>二次编程能力</strong>，比如 Office、CAD、GIS、Mathematica 等等。德国 SAP 公司的企业应用软件也是用自己的业务级语言编写的。</li>
 </ul>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231221091740.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231221091740.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <ul>
 <li><p>课程的第一部分主要聚焦编译器前端技术，也就是通常说的词法分析、语法分析和语义分析。我会带你了解它们的原理，<strong>实现一门脚本语言</strong>。我也会教你用工具提升编译工作的效率，还会在几个应用场景中检验我们的学习成果。</p></li>
@@ -416,7 +416,7 @@ jQuery(document).ready(function(){
 <h2 id="理解代码编译器的前端技术">01 | 理解代码：编译器的前端技术</h2>
 <p>这里的“前端”指的是编译器<strong>对程序代码的分析和理解过程</strong>。<br />
 它通常只跟语言的语法有关，跟目标机器无关。而与之对应的“后端”则是生成目标代码的过程，跟目标机器有关。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/50d447ee-b192-4f7d-b236-fbf070db87e1.jpg" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/50d447ee-b192-4f7d-b236-fbf070db87e1.jpg" /></p>
 <h3 id="词法分析">词法分析</h3>
 <p>文章是由一个个的单词组成的。程序处理也一样，只不过这里不叫单词，而是叫做“<strong>词法记号</strong>”，英文叫 <strong>Token</strong>。词法分析是识别一个个的token，即<strong>分词程序</strong>。</p>
 <p>分词是按照一定规则来写的。<br />
@@ -424,7 +424,7 @@ jQuery(document).ready(function(){
 如果嫌手写麻烦，也可以偷点儿懒，用<strong>词法分析器</strong>的生成工具来生成，比如 Lex（或其 GNU 版本，Flex）。这些工具是按照<strong>正则表达式</strong>来分词的。生成工具可以读入正则表达式，生成一种叫“<strong>有限自动机</strong>”的算法，来完成具体的词法分析工作。</p>
 <p><strong>有限自动机</strong>是有限个状态的自动机器。我们可以拿抽水马桶举例，它分为两个状态：“注水”和“水满”。摁下冲马桶的按钮，它转到“注水”的状态，而浮球上升到一定高度，就会把注水阀门关闭，它转到“水满”状态。<br />
 词法分析器也是一样，它分析整个程序的字符串，<strong>当遇到不同的字符时，会驱使它迁移到不同的状态</strong>。例如，词法分析程序在扫描 age 的时候，处于“标识符”状态，等它遇到一个 &gt; 符号，就切换到“比较操作符”的状态。词法分析过程，就是这样一个个状态迁移的过程。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231221093656.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231221093656.png" alt="image.png" /></p>
 <h3 id="语法分析">语法分析</h3>
 <p>词法分析是识别一个个的单词，而语法分析就是在词法分析的基础上识别出程序的<strong>语法结构</strong>。这个结构是一个<strong>树状结构</strong>，是<strong>计算机容易理解和执行的</strong>。</p>
 <p>程序有定义良好的语法结构，它的语法分析过程，就是构造这么一棵树。一个程序就是一棵树，这棵树叫做<strong>抽象语法树</strong>（Abstract Syntax Tree，<strong>AST</strong>）。树的每个节点（子树）是一个<strong>语法单元</strong>，这个单元的构成规则就叫“语法”。每个节点还可以有下级节点。<br />
@@ -456,7 +456,7 @@ jQuery(document).ready(function(){
 要实现一个词法分析器，首先需要写出每个词法的<strong>正则表达式</strong>，并画出<strong>有限自动机</strong>，之后，只要用代码表示这种状态迁移过程就可以了。</p>
 <h3 id="解析-age-45">解析 age &gt;= 45</h3>
 <p>上述解析式的状态机如下：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231221103011.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231221103011.png" alt="image.png" /><br />
 每种状态解析完都会<strong>再回到初始状态</strong>进行下一步工作。<br />
 上面的例子虽然简单，但其实已经讲清楚了词法原理，就是依据构造好的<strong>有限自动机</strong>，在不同的状态中<strong>迁移</strong>，从而解析出 Token 来。</p>
 <h3 id="初识正则表达式">初识正则表达式</h3>
@@ -535,7 +535,7 @@ jQuery(document).ready(function(){
 <pre><code>additiveExpression: multiplicativeExpression | additiveExpression Plus multiplicativeExpression;
 multiplicativeExpression: IntLiteral | multiplicativeExpression Star IntLiteral;</code></pre>
 <p>我们可以通过文法的嵌套，实现对运算优先级的支持。这样我们在解析“2 + 3 * 5”这个算术表达式时会形成类似下面的 AST：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231221111932.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231221111932.png" alt="image.png" /><br />
 有了这个认知，我们在解析算术表达式的时候，便能拿加法规则去匹配。在加法规则中，会嵌套地匹配乘法规则。我们通过文法的嵌套，实现了计算的优先级。</p>
 <p>这种文法已经没有办法改写成正则文法了，它比正则文法的表达能力更强，叫做“<strong>上下文无关文法</strong>”。正则文法是上下文无关文法的一个<strong>子集</strong>。它们的区别呢，就是<strong>上下文无关文法允许递归调用</strong>，而正则文法不允许。</p>
 <p>上下文无关的意思是，无论在任何情况下，<strong>文法的推导规则都是一样的</strong>。比如，在变量声明语句中可能要用到一个算术表达式来做变量初始化，而在其他地方可能也会用到算术表达式。不管在什么地方，算术表达式的语法都一样，都允许用加法和乘法，计算优先级也不变。好在你见到的大多数计算机语言，都能用上下文无关文法来表达它的语法。</p>
@@ -585,7 +585,7 @@ mul -&gt; pri | mul * pri
 pri -&gt; Id | Num | (add) </code></pre>
 <p>按照上面的产生式，add 可以替换成 mul，或者 add + mul。这样的替换过程又叫做“<strong>推导</strong>”<br />
 以“<code>2+3*5</code>” 和 “<code>2+3+4</code>”这两个算术表达式为例，这两个算术表达式的推导过程分别如下图所示：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231221135247.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231221135247.png" alt="image.png" /><br />
 上图中两颗树的叶子节点有哪些呢？Num、+ 和 * 都是终结符，终结符都是词法分析中产生的 Token。而那些非叶子节点，就是非终结符。<strong>文法的推导过程，就是把非终结符不断替换的过程，让最后的结果没有非终结符，只有终结符</strong>。</p>
 <p>而在实际应用中，语法规则经常写成下面这种形式，这种写法叫做“<strong>巴科斯范式</strong>”，简称 BNF。Antlr 和 Yacc 这两个工具都用这种写法。</p>
 <pre><code>add ::= mul | add + mul
@@ -640,7 +640,7 @@ add&#39; -&gt; + mul add&#39; | ε</code></pre>
 <p>在写编译程序的时候，我们不仅仅要能够解析正确的语法，还要尽可能针对语法错误提供友好的提示，帮助用户迅速定位错误。错误定位越是准确、提示越是友好，我们就越喜欢它。</p>
 <h2 id="编译器前端工具一用antlr生成词法语法分析器">06 | 编译器前端工具（一）：用Antlr生成词法、语法分析器</h2>
 <p>一个完善的编译程序还要在词法方面以及语法方面实现很多工作，我这里特意画了一张图，你可以直观地看一下。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231221172207.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231221172207.png" alt="image.png" /><br />
 如果让编译程序实现上面这么多工作，完全手写效率会有点儿低，那么我们有什么方法可以提升效率呢？答案是借助工具。<br />
 编译器前端工具有很多，比如 Lex（以及 GNU 的版本 Flex）、Yacc（以及 GNU 的版本 Bison）、JavaCC 等等。你可能会问了：“那为什么我们这节课只讲 Antlr，不选别的工具呢？”主要有两个原因。<br />
 - 第一个原因是 Antlr <strong>支持更广泛的目标语言</strong>，包括 Java、C#、JavaScript、Python、Go、C++、Swift。无论你用上面哪种语言，都可以用它生成词法和语法分析的功能。而我们就使用它生成了 Java 语言和 C++ 语言两个版本的代码。<br />
@@ -674,7 +674,7 @@ java org.antlr.v4.gui.TestRig %*</code></pre>
 <p>生成Hello.class</p>
 <pre><code>grun Hello tokens -tokens hello.play</code></pre>
 <p>上面的命令会把hello.play文件生成token流并打印出来<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231222105304.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231222105304.png" alt="image.png" /></p>
 <p>我们再来回顾一下在“02 | 正则文法和有限自动机：纯手工打造词法分析器”里做词法分析时遇到的一个问题。当时，我们分析了词法冲突的问题，即标识符和关键字的规则是有重叠的。Antlr 是怎么解决这个问题的呢？很简单，它<strong>引入了优先级的概念</strong>。在 Antlr 的规则文件中，越是前面声明的规则，<strong>优先级越高</strong>。所以，我们把关键字的规则放在 ID 的规则前面。算法在执行的时候，会首先检查是否为关键字，然后才会检查是否为 ID，也就是标识符。<br />
 这跟我们当时构造有限自动机做词法分析是一样的。那时，我们先判断是不是关键字，如果不是关键字，才识别为标识符。而在 Antlr 里，仅仅通过声明的顺序就解决了这个问题，省了很多事儿啊！</p>
 <h3 id="用-antlr-生成语法分析器">用 Antlr 生成语法分析器</h3>
@@ -825,20 +825,20 @@ primary → integer [ primary.value = strToInt(integer.str) ]</code></pre>
 - <strong>第二个子任务</strong>, 就是把表示正则表达式的数据结构，转换成一个 NFA。这个过程比较简单，因为针对正则表达式中的每一个结构，我们都可以按照一个固定的规则做转换。</p>
 <p>测试的正则表达式可以是 int 关键字、标识符，或者数字字面量：</p>
 <pre><code>int | [a-zA-Z][a-zA-Z0-9]* | [0-9]*</code></pre>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240103105124.png" alt="image.png" /><br />
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240103105124.png" alt="image.png" /><br />
 以上图为例，当我们解析 intA 这个字符串时，首先选择最上面的路径去匹配，匹配完 int 这三个字符以后，来到状态 7，若后面没有其他字符，就可以到达接受状态 1，返回匹配成功的信息。可实际上，int 后面是有 A 的，所以第一条路径匹配失败。</p>
 <p>失败之后不能直接返回“匹配失败”的结果，因为还有其他路径，所以我们要回溯到状态 0，去尝试第二条路径，在第二条路径中，尝试成功了</p>
 <p><strong>NFA 算法的特点：</strong> 因为存在多条可能的路径，所以需要试探和回溯，在比较极端的情况下，回溯次数会非常多，性能会变得非常慢。特别是当处理类似 <code>s*</code> 这样的语句时，因为 s 可以重复 0 到无穷次，所以在匹配字符串时，可能需要尝试很多次。</p>
 <p>NFA 的运行可能导致大量的回溯，所以能否将 NFA 转换成 DFA，让字符串的匹配过程更简单呢？如果能的话，那整个过程都可以自动化，从正则表达式到 NFA，再从 NFA 到 DFA。</p>
 <h3 id="把-nfa-转换成-dfa">把 NFA 转换成 DFA</h3>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240103112310.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240103112310.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240103112320.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240103112320.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240103112329.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240103112329.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <p>在上面的推导过程中，我们有两个主要的计算：</p>
 <p>1.ε-closure(s)，即集合 s 的ε闭包。也就是从集合 s 中的每个节点，加上从这个节点出发通过ε转换所能到达的所有状态。<br />
@@ -866,7 +866,7 @@ primary → integer [ primary.value = strToInt(integer.str) ]</code></pre>
 <p>LR 算法是一种自底向上的算法，它能够支持更多的语法，而且没有左递归的问题。第一个字母 L，与 LL 算法的第一个 L 一样，代表从左向右读入程序。第二个字母 R，指的是 RightMost（最右推导），也就是在使用产生式的时候，是从右往左依次展开非终结符。<br />
 自顶向下的算法，是递归地做模式匹配，从而逐步地构造出 AST。那么自底向上的算法是如何构造出 AST 的呢？答案是用<strong>移进 - 规约</strong>的算法。</p>
 <p>整个语法解析过程，实质是<strong>反向最右推导（Reverse RightMost Derivation）。</strong> 什么意思呢？如果把 AST 节点根据创建顺序编号，就是下面这张图呈现的样子，根节点编号最大是 13：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240103143650.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240103143650.png" alt="image.png" /><br />
 但这是规约的过程，如果是从根节点开始的推导过程，顺序恰好是反过来的，先是 13 号，再是右子节点 12 号，再是 12 号的右子节点 11 号，以此类推。<br />
 在语法解析的时候，我们是从底下反推回去，所以叫做反向的最右推导过程。从这个意义上讲，LR 算法中的 R，带有反向（Reverse）和最右（Reightmost）这两层含义。</p>
 <p>今天，我们讲了自底向上的 LR 算法的原理，包括移进 - 规约，如何寻找正确的句柄，如果基于 NFA 和 DFA 决定如何做移进和规约。</p>
@@ -933,7 +933,7 @@ add-&gt;add + Int</code></pre>
 你写程序时，尽量把某个操作所需的数据都放在内存中的连续区域中，不要零零散散地到处放，这样有利于充分利用高速缓存。<strong>这种优化思路，叫做数据的局部性。</strong></p>
 <p>这里提一句， 在写系统级的程序时，你要对<strong>各种 IO 的时间有基本的概念</strong>，比如高速缓存、内存、磁盘、网络的 IO 大致都是什么数量级的。因为这都影响到系统的整体性能，也影响到你如何做程序优化。如果你需要对程序做更多的优化，还需要了解更多的 CPU 运行机制，包括流水线机制、并行机制等等，这里就不展开了</p>
 <p>大多数语言还是会采用一些通用的内存管理模式。以 C 语言为例，会把内存划分为代码区、静态数据区、栈和堆。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240103170308.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240103170308.png" alt="image.png" /></p>
 <h3 id="程序和操作系统的关系"> 程序和操作系统的关系</h3>
 <p>程序跟操作系统的关系比较微妙：<br />
 - 一方面我们的程序可以编译成不需要操作系统也能运行，就像一些物联网应用那样，完全跑在裸设备上。<br />
@@ -943,7 +943,7 @@ add-&gt;add + Int</code></pre>
 <p>所以，我们编译程序的时候，要知道需要遵守哪些约定。因为就算是使用同样的 CPU，针对不同的操作系统，编译的结果也是非常不同的。</p>
 <h3 id="程序运行的过程">程序运行的过程</h3>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240103171217.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240103171217.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <h2 id="生成汇编代码一汇编语言其实不难学">22 | 生成汇编代码（一）：汇编语言其实不难学</h2>
 <p>就算像 JavaScript 这样的解释执行的语言，也要在运行时利用类似的机制生成机器码，以便调高执行的速度。Java 的字节码，在运行时通常也会通过 JIT 机制编译成机器码。<strong>而汇编语言是完成这些工作的基础。</strong></p>
@@ -1094,7 +1094,7 @@ LLVM 程序是由模块构成的，这个文件就是一个模块。模块里可
 - 在人工智能领域炙手可热的 TensorFlow 框架，在后端也是用 LLVM 来编译。它把机器学习的 IR 翻译成 LLVM 的 IR，然后再翻译成支持 CPU、GPU 和 TPU 的程序</p>
 <p><strong>GCC</strong>（GNU Compiler Collection，GNU 编译器套件）。它支持了 GNU Linux 上的很多语言，例如 C、C++、Objective-C、Fortran、Go 语言和 Java 语言等。其实，它最初只是一个 C 语言的编译器，后来把公共的后端功能也提炼了出来，形成了框架，支持多种前端语言和后端平台。最近华为发布的方舟编译器，据说也是建立在 GCC 基础上的。</p>
 <h3 id="llvm入门">LLVM入门</h3>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240104141228.png" alt="image.png" /><br />
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240104141228.png" alt="image.png" /><br />
 LLVM 项目包含了很多组成部分：<br />
 - LLVM 核心（core）。就是上图中的优化和分析工具，还包括了为各种 CPU 生成目标代码的功能；这些库采用的是 LLVM IR，一个良好定义的中间语言，在上一讲，我们已经初步了解它了。<br />
 - Clang 前端（是基于 LLVM 的 C、C++、Objective-C 编译器）。<br />
@@ -1111,7 +1111,7 @@ LLVM 项目包含了很多组成部分：<br />
 <p><strong>LLVM 的 IR 有两种格式。</strong> 第一种文本格式，文件名一般以.ll 结尾。第二种格式是字节码（bitcode）格式，文件名以.bc 结尾。<strong>为什么要用两种格式呢？</strong> 因为文本格式的文件便于程序员阅读，而字节码格式的是二进制文件，便于机器处理，比如即时编译和执行。生成字节码格式之后，所占空间会小很多，所以可以快速加载进内存，并转换为内存中的对象格式。而如果加载文本文件，则还需要一个解析的过程，才能变成内存中的格式，效率比较慢。</p>
 <p>LLVM 的一个优点，就是可以即时编译运行字节码，不一定非要编译生成汇编码和可执行文件才能运行（这一点有点儿像 Java 语言），这也让 LLVM 具有极高的灵活性，比如，可以在运行时根据收集的性能信息，改变优化策略，生成更高效的机器码。</p>
 <p>实际上，使用 LLVM 从源代码到生成可执行文件有两条可能的路径：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240104143024.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240104143024.png" alt="image.png" /></p>
 <ul>
 <li>第一条路径，是把每个源文件分别编译成字节码文件，然后再编译成目标文件，最后链接成可执行文件。</li>
 <li>第二条路径，是先把编译好的字节码文件链接在一起，形成一个更大的字节码文件，然后对这个字节码文件进行进一步的优化，之后再生成目标文件和可执行文件。</li>
@@ -1127,7 +1127,7 @@ LLVM 项目包含了很多组成部分：<br />
 好在 LLVM 项目已经帮我们考虑到了这一点，它提供了代表 LLVM IR 的一组对象模型，我们只要生成这些对象，就相当于生成了 IR，这个难度就低多了。而且，LLVM 还提供了一个工具类，IRBuilder，我们可以利用它，进一步提升创建 LLVM IR 的对象模型的效率，让生成 IR 的过程变得更加简单！</p>
 <h3 id="llvm-ir-的对象模型">LLVM IR 的对象模型</h3>
 <p>LLVM 在内部有用 C++ 实现的对象模型，能够完整表示 LLVM IR，当我们把字节码读入内存时，LLVM 就会在内存中构建出这个模型。只有基于这个对象模型，我们才可以做进一步的工作，包括代码优化，实现即时编译和运行，以及静态编译生成目标文件。所以说，这个对象模型是 LLVM 运行时的核心。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240104151435.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240104151435.png" alt="image.png" /></p>
 <p>本节课，我们我们完成了从生成 IR 到编译执行的完整过程，同时，也初步熟悉了 LLVM 的接口。当然了，完全熟悉 LLVM 的接口还需要多做练习，掌握更多的细节。就本节课而言，我希望你掌握的重点如下：<br />
 - LLVM 用一套对象模型在内存中表示 IR，包括模块、函数、基本块和指令，你可以通过 API 来生成这些对象。这些对象一旦生成，就可以编译和执行。<br />
 - 对于 if 语句和循环语句，需要生成多个基本块，并通过跳转指令形成正确的控制流图（CFG）。当存在多个前序节点可能改变某个变量的值的时候，使用 phi 指令来确定正确的值。<br />
@@ -1224,7 +1224,7 @@ TheFPM-&gt;run(*fun);</code></pre>
 <h2 id="目标代码的生成和优化二如何适应各种硬件架构">30 | 目标代码的生成和优化（二）：如何适应各种硬件架构？</h2>
 <h3 id="llvm-的实现">LLVM 的实现</h3>
 <p>LLVM 的后端需要多个处理步骤来生成目标代码：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240104172455.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240104172455.png" alt="image.png" /><br />
 图中<strong>橙色</strong>的部分是重要的步骤，它本身包含了多个 Pass，所以也叫做超级 Pass。图中<strong>蓝框</strong>的 Pass，是用来做一些额外的优化处理</p>
 <p><strong>课程小结</strong><br />
 本节课，我讲解了目标代码生成的第三个主题：指令重排序。<br />

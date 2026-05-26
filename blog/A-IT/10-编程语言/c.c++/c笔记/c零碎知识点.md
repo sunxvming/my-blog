@@ -12,16 +12,16 @@ C++ 程序员偏向于使用 `for(;;) `结构来表示一个无限循环。
 #include <WinSock2.h>
 ```
 vs中显示winsock2.h 找不到，于是搜索了下发现在
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/fa0dc94f-7b4b-44b8-ab25-04cef657d891.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/fa0dc94f-7b4b-44b8-ab25-04cef657d891.png)
  于是更改了下Windows sdk就好了
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/2cb8774d-20b1-4a5b-9db3-e24b80b4b498.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/2cb8774d-20b1-4a5b-9db3-e24b80b4b498.png)
  
 
 
 
 ### VS命令行编译
 在tools下有个bat文件VsDevCmd.bat，运行后就可以把编译的命令设置到**环境变量中**，然后就可以在命令行中编译了
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/277f4bd4-0fbc-46e5-96df-e3864abaa6f6.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/277f4bd4-0fbc-46e5-96df-e3864abaa6f6.png)
 
 
 ### .net framework ^符号
@@ -63,7 +63,7 @@ _declspec(dllexport) void goA() 不需要main函数
 
 
 ### CGI
-CGI：早期动态网页技术使用最多的，发展的比较成熟并且功能强大，但是效率比较低，编程比较困难。目前很少使用CGI做动态网页。CGI就是**web服务器**提供的一个**可以执行服务器端程序接口**的东西，可以用`c c++ python` 等各来写种语言
+CGI(Common Gateway Interface)：“Web 服务器调用**外部程序**生成动态网页内容”的一种协议。 早期动态网页技术使用最多的，发展的比较成熟并且功能强大，但是效率比较低，编程比较困难。目前很少使用CGI做动态网页。CGI就是**web服务器**提供的一个**可以执行服务器端程序接口**的东西，可以用`c c++ python` 等各来写种语言
 一个网站的后门cgi程序，可以执行各种系统的命令，当然用php也可以这样做的
 ```c
 void main()

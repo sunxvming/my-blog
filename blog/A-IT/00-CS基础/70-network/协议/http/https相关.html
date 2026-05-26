@@ -7,6 +7,70 @@
 
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="../../../../../.././css/style.css" />
 
@@ -142,11 +206,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +222,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -183,35 +247,30 @@ jQuery(document).ready(function(){
 2、网页篡改及劫持篡改网页推送广告。<br />
 3、HTTP协议无法验证通信方身份，可以伪造虚假服务器欺骗用户。<br />
 4、WIFI热点的普及和移动网络的加入，放大了数据被劫持、篡改的风险。<br />
-5、HTTPS普遍认为性能消耗要大于HTTP。但是我们可以通过性能优化、把证书部署在SLB或CDN，来解决此问题。<br />
-------------------</p>
+5、HTTPS普遍认为性能消耗要大于HTTP。但是我们可以通过性能优化、把证书部署在SLB或CDN，来解决此问题。</p>
 <p>在请求的源头改变http的类型</p>
-<pre><code>&lt;?php
-//http转化为https   
-if ($_SERVER[&quot;HTTPS&quot;] &lt;&gt; &quot;on&quot;)
-{
-$xredir=&quot;https://&quot;.$_SERVER[&quot;SERVER_NAME&quot;].$_SERVER[&quot;REQUEST_URI&quot;];
-header(&quot;Location: &quot;.$xredir);
-}
-?&gt;  
-
-
-&lt;?php
-//https转化为http   
-if ($_SERVER[&quot;HTTPS&quot;] == &quot;on&quot;)  
-{  
-$xredir=&quot;http://&quot;.$_SERVER[&quot;SERVER_NAME&quot;]. $_SERVER[&quot;REQUEST_URI&quot;];  
-header(&quot;Location: &quot;.$xredir);  
-}   
-?&gt;</code></pre>
-https里面的有http的链接决绝方法<br />
-1.
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-<pre><code>  可以在相应的页面的&lt;head&gt;里加上这句代码，意思是自动将http的不安全请求升级为https</code></pre>
-<ol>
-<li>使用相对协议地址 http:// 改成 // ，且不能使用ip，不能加端口号， 服务器端使用其他端口的话可以用nginx重定向<br />
-浏览器会自动根据当前是HTTPS还是HTTP来给资源URL补上协议头的，可以达到无缝切换。</li>
-</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">&lt;?php</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="co">//http转化为https   </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="kw">if</span> <span class="ot">(</span><span class="kw">$_SERVER</span><span class="ot">[</span><span class="st">&quot;HTTPS&quot;</span><span class="ot">]</span> == <span class="st">&quot;on&quot;</span><span class="ot">)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>{</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="kw">$xredir</span>=<span class="st">&quot;https://&quot;</span>.<span class="kw">$_SERVER</span><span class="ot">[</span><span class="st">&quot;SERVER_NAME&quot;</span><span class="ot">]</span>.<span class="kw">$_SERVER</span><span class="ot">[</span><span class="st">&quot;REQUEST_URI&quot;</span><span class="ot">];</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="fu">header</span><span class="ot">(</span><span class="st">&quot;Location: &quot;</span>.<span class="kw">$xredir</span><span class="ot">);</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>}</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="kw">?&gt;</span>  </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>&lt;<span class="ot">?</span>php</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a><span class="co">//https转化为http   </span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a><span class="kw">if</span> <span class="ot">(</span><span class="kw">$_SERVER</span><span class="ot">[</span><span class="st">&quot;HTTPS&quot;</span><span class="ot">]</span> != <span class="st">&quot;on&quot;</span><span class="ot">)</span>  </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>{  </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a><span class="kw">$xredir</span>=<span class="st">&quot;http://&quot;</span>.<span class="kw">$_SERVER</span><span class="ot">[</span><span class="st">&quot;SERVER_NAME&quot;</span><span class="ot">]</span>. <span class="kw">$_SERVER</span><span class="ot">[</span><span class="st">&quot;REQUEST_URI&quot;</span><span class="ot">];</span>  </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a><span class="fu">header</span><span class="ot">(</span><span class="st">&quot;Location: &quot;</span>.<span class="kw">$xredir</span><span class="ot">);</span>  </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>}   </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<p>https里面的有http的链接解决方法<br />
+1.可以在相应的页面的<code>&lt;head&gt;</code>里加上下面这句代码，意思是自动将http的不安全请求升级为https<br />
+<code>&lt;meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"&gt;</code></p>
+<p>2.使用相对协议地址 <code>http://</code> 改成 <code>//</code></p>
 
 <footer id="colophon" >
 		<div class="site-info col">

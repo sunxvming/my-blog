@@ -206,11 +206,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -222,13 +222,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -387,7 +387,7 @@ jQuery(document).ready(function(){
   y = 5a^2 + 3b^3
   z = 2x + 3y</code></pre>
 <p>计算图如下：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231211170126.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231211170126.png" alt="image.png" /><br />
 可以轻易地通过z到a的路径计算出梯度dz/da。实际上，从z到a有两条路径，一条通过x，另一条通过y，我们只需要把两条路径的表达式相加即可。这么做是合理的，因为从a到z的两条路径都影响了z的值，这也与我们用微积分的链式法则计算出的dz/da的结果一致。</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co"># set up simple graph relating x, y and z</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a></span>
@@ -434,7 +434,7 @@ jQuery(document).ready(function(){
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true"></a>plt.show()</span></code></pre></div>
 <h4 id="简单的神经网络">简单的神经网络</h4>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231211172346.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231211172346.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <p>网络中任何一层的所有节点，都会连接到下一层中的所有节点。这种网络层也被称为<strong>全连接层</strong>（fully connected layer）</p>
 <p>当创建神经网络类时，我们需要继承PyTorch的<code>torch.nn</code>模块,<code>nn</code>是“neural networks”的缩写。这样一来，新的神经网络就具备了许多PyTorch的功能，如自动构建计算图、查看权重以及在训练期间更新权重等。</p>
@@ -444,7 +444,7 @@ jQuery(document).ready(function(){
 <h4 id="可视化训练">可视化训练</h4>
 <p>跟踪训练的一种方法是监控损失<br />
 在train()中，我们在每次计算损失值时，将副本保存在一个列表里。这意味着该表会变得非常大，因为训练神经网络通常会运行成千上万、甚至百万个样本。MNIST数据集有60 000个训练样本，而且我们可能需要运行好几个周期（epoch）。一种更好的方法是，在每完成10个训练样本之后保留一份损失副本。这就需要我们记录train() 的运行频率。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231212114306.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231212114306.png" alt="image.png" /></p>
 <p>损失图真的很实用，它让我们了解到网络训练是否有效。它也告诉我们训练是平稳的，还是不稳定的、混乱的。</p>
 <h4 id="mnist数据集类">MNIST数据集类</h4>
 <p>PyTorch使用<code>torch.utils.data.DataLoader</code>实现了一些实用的功能，比如自动打乱数据顺序、多个进程并行加载、分批处理等，需要先将数据载入一个torch.utils.data.Dataset对象。</p>
@@ -471,14 +471,14 @@ jQuery(document).ready(function(){
 <h4 id="nvidia-cuda">NVIDIA CUDA</h4>
 <p>与通用的CPU不同，GPU是专门针对一些特定任务而设计的。其中一个就是数值计算，包括以高度并行化的方式实现矩阵乘法。</p>
 <p>下图解释了CPU和GPU的主要区别:<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231212161836.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231212161836.png" alt="image.png" /></p>
 <p>如果要进行很多计算，CPU需要一个接一个地运行。现代CPU可能会用到2或4个甚至8或16个内核来进行计算。最近，最强大的消费级CPU已经配备了64个内核。<br />
 GPU配备了更多计算内核，普遍有上千个。这意味着一个负荷较大的任务可以被分割并分配给所有内核，进而大大缩短整个任务的完成时间</p>
 <p>在很长一段时间里，英伟达（NVIDIA）的GPU市场份额一直保持领先。同时，它也是机器学习研究标准的制定者之一。因为他们有一套成熟的软件工具，可以充分利用硬件加速。这套软件框架就是CUDA<br />
 CUDA的缺点在于，它只适用于NVIDIA的GPU，造成了我们在硬件选择上的局限性。NVIDIA的竞争对手是AMD，而后者才刚刚开始针对自己的GPU研发类似的框架。不久之后，可能会出现一个跨平台的标准并得到普及。但是，现在我们必须同时使用NVIDIA和CUDA。</p>
 <h4 id="安装cuda">安装CUDA</h4>
 <p>桌面右键打开英伟达控制面板，点击帮助-&gt;系统信息-&gt;组件<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213095142.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213095142.png" alt="image.png" /><br />
 可以看到本机支持的是CUDA 10.2 版本，表示是不支持更高版本的。如果你升级了驱动，可能会支持更高版本，也可能不会提升。<br />
 所以就必须安装 10.2 及以下的版本。</p>
 <h4 id="安装pytorch">安装PyTorch</h4>
@@ -546,7 +546,7 @@ CUDA的缺点在于，它只适用于NVIDIA的GPU，造成了我们在硬件选�
 ● 生成的图像看起来像训练数据中的一个样本，而不是数据集的平滑平均值。</p>
 <h4 id="对抗训练">对抗训练</h4>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213101957.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213101957.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <p>鉴别器和生成器是竞争对手（adversary）关系，双方都试图超越对方，并在这个过程中逐步提高。我们称这种架构为<strong>生成对抗网络</strong> （Generative Adversarial Network，GAN）<br />
 这是一个非常巧妙的设计，不仅因为它利用竞争来驱动进步，也因为我们不需要定义具体的规则来描述要编码到损失函数中的真实图像。机器学习的历史告诉我们，我们并不擅长定义这样的规则。相反，我们让GAN自己来学习什么是真正的图像。</p>
@@ -554,11 +554,11 @@ CUDA的缺点在于，它只适用于NVIDIA的GPU，造成了我们在硬件选�
 <p>在GAN的架构中，生成器和鉴别器都需要训练。我们不希望先用所有的训练数据训练其中任何一方，再训练另一方。我们希望它们能一起学习，任何一方都不应该超过另一方太多。</p>
 <p>下面的三步训练循环是实现这一目标的一种方法。<br />
 ● 第1步——向鉴别器展示一个真实的数据样本，告诉它该样本的分类应该是1.0。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213111904.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213111904.png" alt="image.png" /></p>
 <p>● 第2步——向鉴别器显示一个生成器的输出，告诉它该样本的分类应该是0.0。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213111941.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213111941.png" alt="image.png" /></p>
 <p>● 第3步——向鉴别器显示一个生成器的输出，告诉生成器结果应该是1.0。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213111957.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213111957.png" alt="image.png" /></p>
 <h4 id="训练gan的挑战">训练GAN的挑战</h4>
 <p>刚才，我们讲解了GAN的原理。在现实中，训练GAN可能很困难。如果我们把生成器和鉴别器对立起来，不难发现，只有当它们之间达到微妙的平衡时，它们才会互相提高。如果鉴别器进步得太快，生成器可能永远也追不上。另一方面，如果鉴别器的学习速度太慢，生成器则会因为不断生成质量较差的图像而受到奖励。</p>
 <h3 id="生成1010格式规律">2.2 生成1010格式规律</h3>
@@ -671,7 +671,7 @@ CUDA的缺点在于，它只适用于NVIDIA的GPU，造成了我们在硬件选�
 <span id="cb12-14"><a href="#cb12-14" aria-hidden="true"></a><span class="bu">print</span>( D.forward( generate_random(<span class="dv">4</span>) ).item() )</span></code></pre></div>
 <h4 id="构建生成器">构建生成器</h4>
 <p>生成器的隐藏层应该有多大? 输入层呢? 我们不需要局限于一个特定的大小，不过这个大小应该足以学习。但也不要太大，因为训练很大的网络需要花很长时间。同时，我们需要配合鉴别器的学习速度。因为我们不希望生成器和鉴别器中的任何一个领先另一个太多。基于这些考量，许多人从复制鉴别器的构造入手来设计生成器。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213105435.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213105435.png" alt="image.png" /></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="co"># generator class</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a><span class="kw">class</span> Generator(nn.Module):</span>
@@ -765,9 +765,9 @@ CUDA的缺点在于，它只适用于NVIDIA的GPU，造成了我们在硬件选�
 <span id="cb15-23"><a href="#cb15-23" aria-hidden="true"></a></span>
 <span id="cb15-24"><a href="#cb15-24" aria-hidden="true"></a>D.plot_progress()</span>
 <span id="cb15-25"><a href="#cb15-25" aria-hidden="true"></a>G.plot_progress()</span></code></pre></div>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213135545.png" alt="image.png" /><br />
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213135545.png" alt="image.png" /><br />
 在这里，随着训练的进行，损失值略有下降，但幅度并不大。这说明网络有了一些进步。目前还不清楚，它是在识别真实的1010格式规律方面做得更好，还是在识别生成的伪造数据方面做得更好，或者两方面都很出色。在训练的后期，损失值回升到0.25。这是一个好现象，说明生成器已经学会生成1010格式的数据，从而使鉴别器无法区分。换句话说，鉴别器的输出是0.5，介于0～1。这也正是损失值反弹到0.25的原因。</p>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213135602.png" alt="image.png" /><br />
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213135602.png" alt="image.png" /><br />
 刚开始，鉴别器在区分真假模式时并不是很确定。在训练进行到一半时，损失值略有增加，这表明生成器在进步，开始可以骗过鉴别器了。在训练后期，我们看到生成器和鉴别器达到平衡</p>
 <p>通过观察训练过程中的损失值变化来了解训练的进展是一个好习惯。<br />
 从上面的两个图中，我们看到训练没有完全失败，也没有看到损失值的剧烈振荡，那是学习不稳定的一种表现。</p>
@@ -856,15 +856,15 @@ CUDA的缺点在于，它只适用于NVIDIA的GPU，造成了我们在硬件选�
 我们可以再应用一层卷积核，得到更高层次的特征。这些特征是中层次特征的组合。眼睛和鼻子特征的正确组合，加上方向，很可能代表一张人脸。</p>
 <h4 id="mnist-cnn">MNIST CNN</h4>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231214105016.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231214105016.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <h4 id="celeba-cnn">CelebA CNN</h4>
 <p><strong>鉴别器</strong><br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231214105055.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231214105055.png" alt="image.png" /></p>
 <p><strong>生成器</strong><br />
 接着，让我们来思考一下生成器网络，这意味着我们的笔和纸又要派上用场了。我们将遵循一个原则，即<strong>生成器应该是鉴别器的镜像</strong>。这样一来，它们谁也不比谁强，谁也不比谁弱。<br />
 在开始画设计图时，我们可能会问，什么是卷积计算的反义词？卷积将较大的张量缩减成较小的张量，而反卷积则需要将较小的张量扩展成较大的张量。PyTorch将这种反向卷积称为<strong>转置卷积</strong>（transposed convolution），需要调用的模块是nn.ConvTranspose2d。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231214113050.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231214113050.png" alt="image.png" /></p>
 <h3 id="条件式gan">3.2 条件式GAN</h3>
 <p>如果能通过某种方式引导GAN生成多样化的图像，同时又仅限于生成训练数据中的一类图像，那将是非常有价值的。例如，我们可以要求GAN生成不同的、但都代表数字3的图像。又如，我们用人脸图像进行训练，如果情绪是训练数据中的一个类别，那么我们可以要求GAN只生成具有快乐表情的人脸图像</p>
 <p><strong>学习要点:</strong><br />
@@ -873,7 +873,7 @@ CUDA的缺点在于，它只适用于NVIDIA的GPU，造成了我们在硬件选�
 ● 由条件式GAN生成图像的质量，通常优于由不使用标签信息的同等GAN生成的图像。</p>
 <h4 id="条件式gan架构">条件式GAN架构</h4>
 <p>下图显示的架构是条件式（conditional）GAN。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231214132702.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231214132702.png" alt="image.png" /><br />
 主要的改变在于，现在生成器和鉴别器的输入都在图像数据的基础上<strong>加入了类型标签</strong>。</p>
 <h4 id="鉴别器-1">鉴别器</h4>
 <h4 id="生成器-1">生成器</h4>

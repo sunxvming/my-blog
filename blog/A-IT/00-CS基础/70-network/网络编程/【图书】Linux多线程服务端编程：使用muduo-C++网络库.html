@@ -7,6 +7,70 @@
 
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="../../../../.././css/style.css" />
 
@@ -142,11 +206,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +222,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -176,26 +240,832 @@ jQuery(document).ready(function(){
 </div> <!--id="header"-->
  <!--if(title)-->
 
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#常见问题">常见问题</a>
+<ul>
+<li><a href="#为什么需要buffer">为什么需要buffer</a></li>
+<li><a href="#连接建立过程">连接建立过程</a></li>
+<li><a href="#连接断开过程">连接断开过程</a></li>
+<li><a href="#对象的生命周期">对象的生命周期</a></li>
+<li><a href="#tcp分包解码器">TCP分包，解码器</a></li>
+<li><a href="#消息分发器dispatcher">消息分发器（dispatcher）</a></li>
+<li><a href="#子线程启动eventloop主线程send">子线程启动eventLoop，主线程send</a></li>
+</ul></li>
+<li><a href="#base模块">base模块</a>
+<ul>
+<li><a href="#通用">通用</a></li>
+<li><a href="#线程">线程</a></li>
+</ul></li>
+<li><a href="#事件循环">事件循环</a></li>
+<li><a href="#定时器模块">定时器模块</a></li>
+<li><a href="#线程模块">线程模块</a></li>
+<li><a href="#网络模块">网络模块</a>
+<ul>
+<li><a href="#服务器端">服务器端</a></li>
+<li><a href="#客户端">客户端</a></li>
+</ul></li>
+<li><a href="#protobuf">protobuf</a></li>
+<li><a href="#http服务器">Http服务器</a></li>
+</ul>
+</div>
  <!--if(toc)-->
 
 <p><a href="https://github.com/zhaozhengcoder/muduo">学习muduo库</a></p>
-<p>EventLoopThreadPool</p>
-<p>TcpServer<br />
-管理accept获得的TcpConnection<br />
-为用户直接使用的</p>
-<p>TcpConnection<br />
-负责连接的 状态、 发送、接受、关闭，事件又是通过Channel来获得的</p>
-<p>Acceptor<br />
-供 TcpServer使用，负责socket bind listen accept和有了listen事件后的回调</p>
-<p>EventLoop<br />
-里面维护者所有的 Channel，EventLoop不关心Pooler是如何维护Channel列表的。只关心有了activeChannels_就回调用户的方法。</p>
-<p>Poller<br />
-poll epoll的封装，声明周期和 EventLoop相等</p>
-<p>Channel<br />
-每个 Channel，自始至终都属于一个 EventLoop（不用为线程安全问题烦恼）， 每个Channel对应一个fd，它存着各种回调函数以及各种事件，负责各种事件的回调</p>
-<p>Buffer</p>
-<p>定时器模块<br />
-TimerId Timer TimerQueue</p>
+<p>TCP网络编程最本质的是处理三个半事件：<br />
+1．连接的建立，包括服务端接受（accept）新连接和客户端成功发起（connect）连接。TCP连接一旦建立，客户端和服务端是平等的，可以各自收发数据。<br />
+2．连接的断开，包括主动断开（close、shutdown）和被动断开（read(2)返回0）。<br />
+3．消息到达，文件描述符可读。这是<strong>最为重要的一个事件</strong>，对它的处理方式决定了网络编程的风格（阻塞还是非阻塞，如何处理分包，应用层的缓冲如何设计，等等）。<br />
+3.5　消息发送完毕，这算半个。对于低流量的服务，可以不必关心这个事件；另外，这里的“发送完毕”是指<strong>将数据写入操作系统的缓冲区</strong>，将由TCP协议栈负责数据的发送与重传，不代表对方已经收到数据。</p>
+<h2 id="常见问题">常见问题</h2>
+<ul>
+<li>如果主动发起连接，但是对方主动拒绝，如何定期（带back-off地）重试？</li>
+<li>如果是水平触发，那么什么时候关注EPOLLOUT事件？会不会造成busy-loop？</li>
+<li>如果是边沿触发，如何防止漏读造成的饥饿？</li>
+<li>非阻塞网络编程中正确处理数据发送比接收数据要困难，因为要应对对方接收缓慢的情况。</li>
+</ul>
+<ol>
+<li>用户的回调是如何一步一步传到框架代码并被调用的</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>conn-&gt;setConnectionCallback(<span class="va">connectionCallback_</span>);        <span class="co">//用户传</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>conn-&gt;setMessageCallback(<span class="va">messageCallback_</span>);              <span class="co">//用户传</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>conn-&gt;setWriteCompleteCallback(<span class="va">writeCompleteCallback_</span>);  <span class="co">//用户传</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>conn-&gt;setCloseCallback(<span class="bu">std::</span>bind(&amp;TcpServer::removeConnection, <span class="kw">this</span>, _1)); <span class="co">// </span><span class="al">FIXME</span><span class="co">: unsafe</span></span></code></pre></div>
+<h3 id="为什么需要buffer">为什么需要buffer</h3>
+<p><strong>int buffer</strong><br />
+- TCP是一个无边界的字节流协议，接收方必须要处理“收到的数据尚不构成一条完整的消息"</p>
+<p><strong>output buffer</strong><br />
+- 发送数据时，一次发很多，发不完，不能阻塞，得根据滑动TCP窗口得等对端收了后再发<br />
+- 如果buffer里还有待发送的20kB数据，程序又写入了50kB，那么网络库不应该直接调用write()，而应该把这50kB数据append在那20kB数据之后<br />
+- 如果output buffer里还有待发送的数据，而程序又想关闭连接，得等数据发送完毕再关</p>
+<p><strong>如何设计并使用缓冲区？</strong><br />
+Buffer的设计要点：<br />
+·对外表现为一块连续的内存(char* p, int len)，以方便客户代码的编写。<br />
+·其size()可以自动增长，以适应不同大小的消息。</p>
+<p><strong>Buffer大小的设计？</strong><br />
+一方面我们希望减少系统调用，一次读的数据越多越划算。另一方面希望减少内存占用。如果有10000个并发连接，每个连接一建立就分配各50kB的读写缓冲区的话，将占用1GB内存。<br />
+在栈上准备一个65536字节的extrabuf，然后利用readv()来读取数据，iovec有两块，第一块指向muduo Buffer中的writable字节，另一块指向栈上的extrabuf。这样如果读入的数据不多，那么全部都读到Buffer中去了；如果长度超过Buffer的writable字节数，就会读到栈上的extrabuf里，然后程序再把extrabuf里的数据append()到Buffer中<br />
+这么做利用了临时栈上空间 14 ，避免每个连接的初始Buffer过大造成的内存浪费，也避免反复调用read()的系统开销</p>
+<h3 id="连接建立过程">连接建立过程</h3>
+<p>一个连接的生命周期过程，如何被创建，如何被销毁？</p>
+<h3 id="连接断开过程">连接断开过程</h3>
+<ul>
+<li><p>如果要主动关闭连接，如何保证先发送完缓冲区中的数据，保证对方已经收到全部数据？</p></li>
+<li><p><strong>本端</strong>主动断开</p>
+<ul>
+<li>过程
+<ol>
+<li>把自己output buffer中的数据都发完</li>
+<li>调用 <code>shutdown(sockfd, SHUT_WR)</code>, 关闭写端，但是还能读对方的数据</li>
+<li>对端收到 <code>\0</code>后对端调用 <code>close()</code> 或 <code>shutdown()</code></li>
+<li>本端<code>TcpConnection::handleRead</code>收到 <code>\0</code>后, <code>handleClose()</code> -&gt;<code>TcpServer::removeConnection()</code> -&gt; 从 <code>TcpServer::connections_</code>移除此<code>TcpConnection</code> -&gt; 移出 <code>channel_</code>监听的事件</li>
+<li><code>TcpConnection</code>被移除后，生命周期结束，起成员<code>Socket</code> 在析构时调用<code>close()</code></li>
+</ol></li>
+<li>目的：
+<ul>
+<li>muduo把“主动关闭连接”这件事情分成两步来做，如果要主动关闭连接，它会先关本地“写”端，等对方关闭之后，再关本地“读”端。这是解决如果对方已经发送了数据，这些数据还“在路上”，那么muduo不会漏收这些数据。</li>
+</ul></li>
+</ul></li>
+<li><p><strong>对端</strong>主动断开</p>
+<ul>
+<li>执行主动断开的3、4、5步骤</li>
+</ul></li>
+</ul>
+<h3 id="对象的生命周期">对象的生命周期</h3>
+<p>对于使用muduo库而言，只需要掌握5个关键类：EventLoop、TcpServer、TcpClient 、TcpConnection、Buffer。<br />
+<code>TcpConnection</code> 的生命期依靠shared_ptr管理（即用户和库<strong>共同控制</strong>）。<br />
+<code>Buffer</code> 的生命期由 <code>TcpConnection</code> 控制。<br />
+其余类的生命期由<strong>用户控制</strong>。</p>
+<p>Buffer和InetAddress具有值语义，可以拷贝；其他class都是对象语义，不可以拷贝</p>
+<h3 id="tcp分包解码器">TCP分包，解码器</h3>
+<p>常见分包方法；<br />
+1．消息长度固定，比如muduo的roundtrip示例就采用了固定的16字节消息。<br />
+2．使用特殊的字符或字符串作为消息的边界，例如HTTP协议的headers以“<code>\r\n</code>”为字段的分隔符。<br />
+3．在每条消息的头部加一个长度字段。<br />
+4．利用消息本身的格式来分包，例如XML格式的消息中<code>&lt;root&gt;...&lt;/root&gt;</code>的配对，或者JSON格式中的<code>{ ... }</code>的配对。解析这种消息格式通常会用到状态机（state machine）。</p>
+<p>以第三种方式为例:<br />
+增加一个 <code>LengthHeaderCodec</code> 的<strong>中间层</strong>来进行编码解码，真正的逻辑通过设置回调函数设置到 <code>LengthHeaderCodec</code> 中。<br />
+- 当消息来时：<br />
+1. <code>TcpServer</code> 的 <code>setMessageCallback</code> 设置成 <code>LengthHeaderCodec</code> 的 <code>onMessage</code>， 业务逻辑的 <code>onMessage</code>回调设置到 <code>LengthHeaderCodec</code> 中<br />
+2. 先回调 <code>LengthHeaderCodec</code> 的 <code>onMessage</code>， 再调用业务逻辑的 <code>onMessage</code><br />
+- 当发消息时：先调用 <code>LengthHeaderCodec</code> 的 <code>send</code> ， 封好包之后再调用网络的 <code>send</code></p>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240829163208.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="消息分发器dispatcher">消息分发器（dispatcher）</h3>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240829163232.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240829163754.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="子线程启动eventloop主线程send">子线程启动eventLoop，主线程send</h3>
+<p>例子代码：example/asio/chat/client.cc<br />
+比如：客户端的例子。它要读取键盘输入，而EventLoop是独占线程的，所以需要两个线程：main()函数所在的线程负责读键盘，另外用一个EventLoopThread来处理网络IO。</p>
+<ol>
+<li>当<code>onConnection</code>回调时，把 <code>TcpConnectionPtr</code> 保存起来</li>
+<li>当有键盘输入时，在主线程调用 <code>TcpConnectionPtr</code> 进行消息的发送 <code>conn-&gt;send(&amp;buf);</code></li>
+<li>调用 <code>loop_-&gt;runInLoop( )</code>， 把可调用对象插入到 <code>eventLoop</code> 的 <code>pendingFunctors_</code> 中</li>
+<li>在loop循环的最后调用可调用对象进行真正的发送逻辑</li>
+</ol>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240808152253.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h2 id="base模块">base模块</h2>
+<ul>
+<li><strong>ClassName</strong>
+<ul>
+<li>作用：简短说明作用</li>
+<li>成员:
+<ul>
+<li><code>member1</code></li>
+<li><code>member2</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>method1()</code></li>
+</ul></li>
+<li>备注:
+<ul>
+<li>备注说明1</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="通用">通用</h3>
+<ul>
+<li><strong>StringPiece</strong>
+<ul>
+<li>作用：Google发明的专门用于传递字符串参数的class，这样程序里就不必为<code>const char*</code>和<code>const std::string&amp;</code>提供两份重载了</li>
+<li>成员:
+<ul>
+<li><code>const char*   ptr_;</code></li>
+<li><code>int        length_;</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li>主要是不同的构造函数</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="线程">线程</h3>
+<ul>
+<li><strong>CurrentThread</strong>
+<ul>
+<li>作用：当前线程的信息，这个不是类，是一个<strong>命名空间</strong></li>
+<li>成员</li>
+<li>方法：
+<ul>
+<li><code>tid()</code> 返回线程id</li>
+<li><code>name()</code> 返回线程名字</li>
+<li><code>isMainThread()</code> 实现<code>return tid() == ::getpid();</code></li>
+</ul></li>
+</ul></li>
+<li><strong>MutexLock</strong>
+<ul>
+<li>作用：对互斥锁的封装</li>
+<li>成员：
+<ul>
+<li><code>pthread_mutex_t mutex_;</code></li>
+<li><code>pid_t holder_;</code> 持有当前锁的线程的id，通过<code>CurrentThread::tid();</code>来获得</li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>lock()</code> 调用<code>pthread_mutex_lock()</code></li>
+<li><code>unlock()</code> 调用<code>pthread_mutex_unlock()</code></li>
+<li>构造：调用<code>pthread_mutex_init()</code></li>
+<li>析构：调用<code>pthread_mutex_destroy()</code></li>
+</ul></li>
+</ul></li>
+<li><strong>MutexLockGuard</strong>
+<ul>
+<li>作用：互斥锁的RAII类</li>
+<li>成员：
+<ul>
+<li><code>MutexLock&amp; mutex_;</code><br />
+</li>
+</ul></li>
+<li>方法：
+<ul>
+<li>构造：调用<code>MutexLock</code> 的 <code>lock()</code></li>
+<li>析构：调用<code>MutexLock</code> 的 <code>unlock()</code></li>
+</ul></li>
+</ul></li>
+<li><strong>Condition</strong>
+<ul>
+<li>作用：对条件变量的封装</li>
+<li>成员：
+<ul>
+<li><code>MutexLock&amp; mutex_;</code> 锁</li>
+<li><code>pthread_cond_t pcond_;</code> 条件变量</li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>wait()</code> 调用<code>pthread_cond_wait()</code></li>
+<li><code>notify()</code> 调用<code>pthread_cond_signal()</code></li>
+<li><code>notifyAll()</code> 调用<code>pthread_cond_broadcast()</code></li>
+<li>构造：调用<code>pthread_cond_init</code></li>
+<li>析构：调用<code>pthread_cond_destroy</code></li>
+</ul></li>
+</ul></li>
+<li><strong>CountDownLatch</strong>
+<ul>
+<li>作用：把</li>
+<li>成员：
+<ul>
+<li><code>MutexLock mutex_;</code><br />
+</li>
+<li><code>Condition condition_</code></li>
+<li><code>int count_</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>wait()</code> 当<code>count_ &gt; 0</code>时，调用<code>wait()</code>等待</li>
+<li><code>countDown()</code> <code>count_--</code>, 若<code>count_ == 0</code>, 则调用<code>notifyAll()</code></li>
+</ul></li>
+</ul></li>
+<li><strong>ThreadData</strong>
+<ul>
+<li>作用：把线程执行的逻辑封装在这个里面，即把<code>std::function</code>封装到里面</li>
+<li>成员：
+<ul>
+<li><code>std::function&lt;void ()&gt; func_;</code> 执行的函数体</li>
+<li><code>string name_;</code></li>
+<li><code>CountDownLatch* latch_;</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>runInThread()</code> 执行<code>func_</code>并处理相关异常</li>
+</ul></li>
+<li>注意：
+<ul>
+<li>ThreadData对象是在<strong>堆内存</strong>上创建的，其指针会传给<code>pthread_create</code>, 从而传到子线程中</li>
+</ul></li>
+</ul></li>
+<li><strong>Thread</strong>
+<ul>
+<li>作用：线程封装类</li>
+<li>成员：
+<ul>
+<li><code>pthread_t  pthreadId_;</code> 线程id</li>
+<li><code>CountDownLatch latch_;</code> 作用是真正创建并执行了线程函数后通知主线程创建成功</li>
+</ul></li>
+<li>方法：
+<ul>
+<li>构造：最主要的是传入可调用对象 <code>std::function</code></li>
+<li>析构：调用<code>pthread_detach()</code></li>
+<li><code>start()</code> 调用<code>pthread_create()</code>创建线程，传的函数指针是<code>startThread()</code>, 数据指针是 <code>ThreadData</code>， 最终是启线程执行<code>func_</code></li>
+<li><code>join()</code> 调用<code>pthread_join()</code></li>
+</ul></li>
+</ul></li>
+<li><strong>ThreadPool</strong>
+<ul>
+<li>作用：线程池</li>
+<li>成员：
+<ul>
+<li><code>typedef std::function&lt;void ()&gt; Task;</code></li>
+<li><code>std::vector&lt;std::unique_ptr&lt;muduo::Thread&gt;&gt; threads_;</code> 线程的容器</li>
+<li><code>std::deque&lt;Task&gt; queue_</code> 任务队列 <code>Condition notEmpty_  notFull_</code> 用来控制队列的空或满的等待</li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>start(numThreads_)</code> 启动线程池，创建numThreads_个<code>Thread</code>对象，开启numThreads_个线程，设置的可执行对象为<code>runInThread()</code></li>
+<li><code>runInThread()</code> 在while循环，从队列中取task并执行</li>
+<li><code>run(Task task)</code> 把Task放到队列中</li>
+<li><code>stop()</code> 把<code>threads_</code>中的线程挨个<code>join</code>掉</li>
+</ul></li>
+</ul></li>
+<li><strong>ThreadLocal</strong>
+<ul>
+<li>作用：线程局部存储（Thread-Local Storage, TLS）的模板类</li>
+<li>成员：
+<ul>
+<li><code>typedef std::function&lt;void ()&gt; Task;</code></li>
+<li><code>std::vector&lt;std::unique_ptr&lt;muduo::Thread&gt;&gt; threads_;</code> 线程的容器</li>
+<li><code>std::deque&lt;Task&gt; queue_</code> 任务队列 <code>Condition notEmpty_  notFull_</code> 用来控制队列的空或满的等待</li>
+</ul></li>
+<li>方法：
+<ul>
+<li>构造：调用了<code>pthread_key_create</code>函数来创建一个线程局部键（<code>pkey_</code>）,它有神奇的作用，通过此key，不同的线程可以<strong>设置</strong>和<strong>获取</strong>本线程独一份的数据</li>
+<li>析构：调用了<code>pthread_key_delete</code>函数来删除之前创建的线程局部键</li>
+<li><code>value()</code>: 神奇的功能都在这里，当局部键为空的时候，new一个对象并把其指针赋给局部键，非空的时候把局部键转成对象返回</li>
+<li><code>destructor(void *x)</code>: 此deletor会传给<code>pthread_key_create</code>，用于在线程结束时自动调用，清理线程局部存储中的资源</li>
+</ul></li>
+</ul></li>
+<li><strong>ThreadLocalSingleton</strong>
+<ul>
+<li>作用：线程局部存储的单例类</li>
+<li>方法：
+<ul>
+<li><code>instance()</code>: 返回线程单例对象</li>
+</ul></li>
+<li>备注：
+<ul>
+<li>当某个线程第一次调用 <code>instance()</code> 时，<code>ThreadLocalSingleton</code> 会检查该线程是否已经拥有 <code>T</code> 类型的实例。</li>
+<li>如果没有，则创建一个实例，并通过 <code>Deleter</code> 将其与当前线程的 TLS 键关联。</li>
+<li>在线程结束时，<code>pthread_key_t</code> 关联的 <code>destructor</code> 函数会被调用，清理 <code>T</code> 类型的实例。</li>
+<li>这确保了每个线程都有自己独立的 <code>T</code> 实例，并且不会与其他线程的实例冲突。</li>
+<li>使用例子：<code>server_threaded_highperformance.cc</code></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="事件循环">事件循环</h2>
+<ul>
+<li><strong>EventLoop</strong>
+<ul>
+<li>作用：里面维护者所有的 <code>Channel</code>，<code>EventLoop</code> 不关心 <code>Pooler</code> 是如何维护 <code>Channel</code> 列表的。只关心获得了 <code>activeChannels_</code> 就回调用户的方法</li>
+<li>成员：
+<ul>
+<li><code>std::unique_ptr&lt;EPoller&gt; poller_;</code></li>
+<li><code>std::vector&lt;Channel*&gt; activeChannels_</code></li>
+<li><code>std::unique_ptr&lt;TimerQueue&gt; timerQueue_;</code> 处理定时任务,和其他事件的逻辑一样</li>
+<li><code>std::vector&lt;Functor&gt; pendingFunctors_;</code> 在主循环的末尾执行，其他线程内调用<code>EventLoop</code>可以把执行的方法</li>
+<li><code>std::unique_ptr&lt;Channel&gt; wakeupChannel_;</code> 用于唤醒被阻塞住的主循环</li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>loop();</code>
+<ul>
+<li>主循环，调用 <code>Poller::poll()</code> 获得当前活动事件的Channel列表，然后依次调用每个Channel的handleEvent()函数。</li>
+<li>即：1.取出活动的事件 2.处理事件</li>
+</ul></li>
+<li><code>updateChannel()</code>、<code>removeChannel()</code> 调用 <code>poller</code> 来更新 <code>Channel</code></li>
+<li><code>wakeup();</code> 当阻塞到<code>poll()</code>调用中，它用<code>eventfd(2)</code>来异步唤醒</li>
+<li><code>queueInLoop()</code> 将cb放入队列，并在必要时唤醒IO线程</li>
+<li><code>runAt()</code>, <code>runAfter()</code>, <code>runEvery()</code></li>
+</ul></li>
+<li>备注：</li>
+</ul></li>
+<li><strong>Poller</strong>
+<ul>
+<li>作用：poll epoll的封装，生命周期和 EventLoop相等，采用水平触发</li>
+<li>成员：
+<ul>
+<li><code>std::map&lt;int, Channel*&gt; channels_</code> 维护着所有 <code>fd</code> 的Channel, 此Channel是所有的，EventLoop中的是活跃的</li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>virtual poll() = 0</code> 、 <code>virtual updateChannel() = 0</code> 、 <code>virtual removeChannel() = 0</code></li>
+<li><code>newDefaultPoller()</code> 根据设置创建具体的poller</li>
+</ul></li>
+<li>备注：
+<ul>
+<li>拥有EventLoop指针的作用：判断是否再loop线程中 <code>assertInLoopThread</code></li>
+</ul></li>
+</ul></li>
+<li><strong>PollPoller</strong> : Poller
+<ul>
+<li>作用：维护底层的事件结构 <code>pollfds_</code> 和 上层的事件结构 <code>channels_</code></li>
+<li>成员：
+<ul>
+<li><code>std::vector&lt;struct pollfd&gt; pollfds_</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>poll();</code> 调用系统的 <code>poll()</code>, 把实际发生的事件填充到 <code>pollfds_</code> 中， 并调用 <code>fillActiveChannels()</code></li>
+<li><code>fillActiveChannels()</code> 通过<code>pollfds_</code> 从 <code>channels_</code> 获取发生的事件的 <code>fd</code> 的 <code>Channel</code>， 并将其设置到 <code>EventLoop</code> 的 <code>activeChannels_</code> 中</li>
+<li><code>updateChannel()</code> 向 <code>pollfds_</code> 和 <code>channels_</code> 中添加或更新其中的数据</li>
+<li><code>removeChannel()</code> 从 <code>pollfds_</code> 和 <code>channels_</code> 中删除数据</li>
+</ul></li>
+</ul></li>
+<li><strong>EPollPoller</strong> : Poller
+<ul>
+<li>作用：维护底层的事件数据结构 <code>events_</code> 和 上层的事件数据结构 <code>channels_</code></li>
+<li>成员：
+<ul>
+<li><code>std::vector&lt;struct epoll_event&gt; events_</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>poll();</code> 调用系统的 <code>poll()</code>, 把实际发生的事件填充到 <code>events_</code> 中， 并调用 <code>fillActiveChannels()</code></li>
+<li><code>fillActiveChannels()</code> 通过<code>events_</code> 从 <code>channels_</code> 获取发生的事件的 <code>fd</code> 的 <code>Channel</code>， 并将其设置到 <code>EventLoop</code> 的 <code>activeChannels_</code> 中</li>
+<li><code>updateChannel()</code> 向 <code>events_</code> 和 <code>channels_</code> 中添加或更新其中的数据</li>
+<li><code>removeChannel()</code> 从 <code>events_</code> 和 <code>channels_</code> 中删除数据</li>
+</ul></li>
+</ul></li>
+<li><strong>Channel</strong>
+<ul>
+<li>作用：负责注册与响应IO事件。每个Channel对应一个fd，它存着各种关注的事件及回调函数，负责各种事件的回调。 相当一个对监听对象的各种事件的封装</li>
+<li>成员：
+<ul>
+<li><code>const int fd_;</code> 底层关注的fd</li>
+<li><code>int events_</code> 关注那些事件，读、写事件。按位进行设置的, 如 <code>enableReading() { events_ |= kReadEvent; update(); }</code></li>
+<li><code>int revents_</code> 调用 <code>poll()</code> 后返回的那些事件</li>
+<li><code>std::function&lt;void()&gt; readCallback_, writeCallback_, closeCallback_,errorCallback_</code> 各个回调函数</li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>handleEvent()</code> 根据 <code>revents_</code> 返回的事件调相应的回调函数</li>
+<li><code>enableReading()</code> events_设置监听读，再调用update()</li>
+<li><code>update()</code>、<code>remove()</code> 调用 <code>EventLoop</code> 的 <code>updateChannel()</code>、<code>removeChannel()</code></li>
+</ul></li>
+<li>备注：
+<ul>
+<li>每个 Channel，自始至终都属于一个 EventLoop（不用为线程安全问题烦恼）</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="定时器模块">定时器模块</h2>
+<ul>
+<li><strong>TimerId</strong>
+<ul>
+<li>作用：定时器的id，主要用于标识timer、取消timer，id是通过全局原子类型 AtomicInt64 自增得到的</li>
+<li>成员：
+<ul>
+<li>  <code>Timer* timer_;</code> 、 <code>int64_t sequence_;</code></li>
+</ul></li>
+</ul></li>
+<li><strong>Timer</strong>
+<ul>
+<li>作用：对定时器的时间点和事件的封装</li>
+<li>成员：
+<ul>
+<li><code>std::function&lt;void()&gt; callback_</code></li>
+<li><code>Timestamp expiration_;</code> 过期时间</li>
+<li><code>const double interval_;</code> 间隔</li>
+<li><code>const bool repeat_</code> 是否重复执行</li>
+</ul></li>
+<li>备注：
+<ul>
+<li>此class是内部实现细节，用户看不到</li>
+</ul></li>
+</ul></li>
+<li><strong>TimerQueue</strong>
+<ul>
+<li>作用：对定时器的时间点和事件的封装</li>
+<li>成员：
+<ul>
+<li><code>Channel timerfdChannel_</code>, 使用了一个Channel来观察timerfd_上的readable事件</li>
+<li><code>std::set&lt;std::pair&lt;Timestamp, Timer*&gt;&gt; timers_</code> 按照时间排序，使用二叉搜索树维护timer，方便按时间查找</li>
+<li><code>std::set&lt;std::pair&lt;Timer*, int64_t&gt;&gt; activeTimers_</code> 按照timerId排序，方便通过id进行查找</li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>addTimer()</code> 有更早的timer会重置<code>timerfd</code>， 供EventLoop使用，EventLoop会把它封装为更好用的runAt()、runAfter()、runEvery()等函数</li>
+<li><code>cancel()</code> 通过传入<code>TimerId</code>参数，从而在维护的数据timer结构中找到timer并删除掉</li>
+<li><code>handleRead()</code> 1. timer到期事件发生时调用 2. 调用 <code>getExpired()</code> 获取超时的timer 3. 回调timer的用户函数 4. 调用 <code>reset()</code></li>
+<li><code>getExpired()</code> 从<code>timers_</code>中得到过期的，并把过期的删除</li>
+<li><code>reset()</code> 1.若到期的timer是定时执行的，则重新添加timer，否则删除 2. 从<code>timers_</code>获取最早到期的时间，并重置<code>timerfd</code></li>
+</ul></li>
+<li>备注：
+<ul>
+<li>此class是内部实现细节，用户看不到</li>
+<li>为什么存在 <code>timers_</code> 和 <code>activeTimers_</code> 两个结构来维护timer？
+<ul>
+<li><code>timers_</code> 按过期时间排序的集合，可以高效地找到最早需要触发的定时器。而 <code>activeTimers_</code> 则是根据对象地址和timerid排序的，通过<code>TimerId</code>可以在 <code>activeTimers_</code> 中快速找到，但是无法在 <code>timers_</code> 中快速找到</li>
+<li>在代码中，<code>timers_</code> 和 <code>activeTimers_</code> 的大小始终保持一致，通过这个约束来确保数据结构的一致性和操作的正确性</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="线程模块">线程模块</h2>
+<ul>
+<li><strong>EventLoopThread</strong>
+<ul>
+<li>作用：本对象创建时，会启动子线程，并在其中运行EventLoop::loop()</li>
+<li>成员：
+<ul>
+<li><code>Thread thread_;</code></li>
+<li><code>EventLoop* loop_</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>EventLoopThread()</code> 创建<code>Thread</code>对象，并设置 <code>threadFunc()</code>为线程函数</li>
+<li><code>threadFunc()</code> 线程体函数， 创建 <code>EventLoop</code> 对象，并执行其 <code>loop()</code> 成员函数</li>
+<li><code>startLoop()</code> 启动线程并返回<code>EventLoop</code> 对象</li>
+</ul></li>
+</ul></li>
+<li><strong>EventLoopThreadPooll</strong>
+<ul>
+<li>作用：</li>
+<li>成员：
+<ul>
+<li><code>int numThreads_;</code></li>
+<li><code>std::vector&lt;std::unique_ptr&lt;EventLoopThread&gt;&gt; threads_;</code></li>
+<li><code>std::vector&lt;EventLoop*&gt; loops_;</code></li>
+<li><code>EventLoop* baseLoop_;</code> 当<code>numThreads_ == 0</code> 是才使用baseLoop_， 好像是用处不大</li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>start()</code> 1. 创建 <code>numThreads_</code>个<code>EventLoopThread</code>对象，并启动 <code>EventLoop</code> 对象 2. 填充 <code>threads_</code>、<code>loops_</code></li>
+<li><code>getNextLoop()</code> 轮训返回loop对象</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="网络模块">网络模块</h2>
+<h3 id="服务器端">服务器端</h3>
+<ul>
+<li><strong>Socket</strong>
+<ul>
+<li>作用：一个RAIIhandle，封装一个filedescriptor，并在析构时关闭fd</li>
+<li>成员：
+<ul>
+<li><code>const int sockfd_;</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>bindAddress()</code><br />
+</li>
+<li><code>listen()</code></li>
+<li><code>accept()</code></li>
+</ul></li>
+</ul></li>
+<li><strong>SocketsOps</strong>
+<ul>
+<li>作用：封装各种Sockets系统调用</li>
+</ul></li>
+<li><strong>TcpServer</strong>
+<ul>
+<li>作用：管理 <code>Acceptor</code> 获得的 <code>TcpConnection</code></li>
+<li>成员：
+<ul>
+<li><code>EventLoop* loop_;  // the acceptor loop</code><br />
+</li>
+<li><code>std::shared_ptr&lt;EventLoopThreadPool&gt; threadPool_;</code> 线程池,里面时 ioLoop</li>
+<li><code>std::unique_ptr&lt;Acceptor&gt; acceptor_;</code></li>
+<li><code>std::map&lt;string, TcpConnectionPtr&gt; connections_</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>start()</code>
+<ul>
+<li><ol>
+<li>本线程的<code>EventLoop</code>中增加<code>Acceptor</code>的读事件，开启网络监听</li>
+</ol></li>
+<li><ol>
+<li>执行<code>threadPool_</code>的<code>start()</code>, 开启IO线程池</li>
+</ol></li>
+</ul></li>
+<li><code>newConnection()</code>
+<ul>
+<li><ol>
+<li>在构造时便把<code>newConnection()</code>设置到<code>Acceptor</code>的<code>newConnectionCallback_</code>上了</li>
+</ol></li>
+<li><ol>
+<li>从<code>threadPool_</code>中获取<code>ioLoop</code></li>
+</ol></li>
+<li><ol>
+<li>创建<code>TcpConnection</code> 对象，设置4个回调函数，并放到 <code>connections_</code> 容器中</li>
+</ol></li>
+<li><ol>
+<li>ioLoop中开启对此 <code>TcpConnection</code> 对象的事件的监听</li>
+</ol></li>
+</ul></li>
+<li><code>removeConnection()</code>
+<ul>
+<li><ol>
+<li>从 <code>connections_</code> 容器中移出</li>
+</ol></li>
+<li><ol>
+<li>调用 <code>TcpConnection::connectDestroyed</code></li>
+</ol></li>
+</ul></li>
+</ul></li>
+<li>备注：
+<ul>
+<li>供用户直接使用的，生命期由用户控制</li>
+</ul></li>
+</ul></li>
+<li><strong>Acceptor</strong>
+<ul>
+<li>作用：对内class，供TcpServer使用，生命期由后者控制，负责socket bind listen accept和有了<code>accept</code>事件后的回调</li>
+<li>成员：
+<ul>
+<li><code>Channel acceptChannel_;</code></li>
+<li><code>Socket acceptSocket_;</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>listen()</code> 1.调网络API开始listen 2. <code>acceptChannel_</code> 启用监听可读事件</li>
+<li><code>handleRead()</code> 1.调网络API accept() 2. accpet到后回调 TcpServer 传过来的 <code>newConnectionCallback_</code></li>
+</ul></li>
+</ul></li>
+<li><strong>TcpConnection</strong>
+<ul>
+<li>作用：负责连接的状态、 发送数据、接收数据、连接关闭，事件又是通过Channel来获得的</li>
+<li>成员：
+<ul>
+<li><code>std::unique_ptr&lt;Socket&gt; socket_;</code> 拥有TCP socket，它的析构函数会close(fd)</li>
+<li>`std::unique_ptr<Channel> channel_;</li>
+<li><code>connectionCallback_</code>， <code>messageCallback_</code>, <code>writeCompleteCallback_</code>, <code>closeCallback_</code> 各种回调</li>
+<li><code>Buffer inputBuffer_;</code>, <code>Buffer outputBuffer_;</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>Constructor</code> 把<code>handleXXX()</code>系列函数设置到 <code>channel_</code> 的回调中</li>
+<li><code>handleRead();</code></li>
+<li><code>handleWrite();</code></li>
+<li><code>handleClose();</code></li>
+<li><code>handleError();</code></li>
+</ul></li>
+<li>备注：
+<ul>
+<li>没有发起连接的功能，其构造函数的参数是已经建立好连接的socket fd</li>
+</ul></li>
+</ul></li>
+<li><strong>Buffer</strong>
+<ul>
+<li>作用：数据的读写通过buffer进行。用户代码不需要调用read(2)/write(2)，只需要处理收到的数据和准备好要发送的数据</li>
+<li>成员：
+<ul>
+<li><code>std::vector&lt;char&gt; buffer_;</code></li>
+<li><code>size_t readerIndex_;</code></li>
+<li><code>size_t writerIndex_;</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li>主要的就是各种取数据、写数据的方法</li>
+</ul></li>
+<li>备注：
+<ul>
+<li>| prependable bytes |  readable bytes  |  writable bytes  |</li>
+<li>0      &lt;=       readerIndex   &lt;=   writerIndex    &lt;=   size</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="客户端">客户端</h3>
+<ul>
+<li><strong>Connector</strong>
+<ul>
+<li>作用：只 负 责 建 立 socket 连 接， 不 负 责 创 建 TcpConnection</li>
+<li>成员：
+<ul>
+<li><code>std::function&lt;void (int sockfd)&gt; newConnectionCallback_</code> 连接成功后的回调</li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>connect()</code> 建立连接，失败会进行重试</li>
+<li><code>connecting()</code> 通过上一步的调用操作系统的<code>connect()</code>接口的返回值获得返回状态，若是连接中，则设置socket可写的回调</li>
+<li><code>handleWrite()</code> 当连接可写时再通过<code>sockets::getSocketError(sockfd);</code>获取socket的状态判断是否连接成功</li>
+</ul></li>
+<li>备注：</li>
+</ul></li>
+<li><strong>TcpClient</strong>
+<ul>
+<li>作用：它的代码与TcpServer甚至有几分相似（都有newConnection和removeConnection()这两个成员函数），只不过每个TcpClient只管理一个TcpConnection</li>
+<li>成员：
+<ul>
+<li><code>EventLoop* loop_;</code></li>
+<li><code>ConnectorPtr connector_;</code></li>
+<li><code>connectionCallback_;</code>、<code>messageCallback_;</code>、<code>writeCompleteCallback_;</code> 提供给用户的回调</li>
+</ul></li>
+<li>方法：</li>
+<li>备注：</li>
+</ul></li>
+</ul>
+<h2 id="protobuf">protobuf</h2>
+<ul>
+<li><strong>ProtobufCodecLite</strong>
+<ul>
+<li>作用：protobuf网络格式的编码解码的中间层</li>
+<li>成员：
+<ul>
+<li><code>typedef std::function&lt;void (const TcpConnectionPtr&amp;,const MessagePtr&amp;,Timestamp)&gt; ProtobufMessageCallback</code></li>
+<li><code>ProtobufMessageCallback messageCallback_;</code> 用户业务逻辑的回调，回调经过 <code>ProtobufDispatcher</code> 后拿到的直接就是具体的protobuf消息格式</li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>onMessage(const TcpConnectionPtr&amp; conn,Buffer* buf,Timestamp receiveTime);</code> 解码解析的主要逻辑，解析完回调上层传过来的用户回调</li>
+<li><code>send(TcpConnectionPtr&amp; conn,Message&amp; message)</code> 编码并进行发生的逻辑</li>
+</ul></li>
+</ul></li>
+<li><strong>ProtobufDispatcher</strong>
+<ul>
+<li>作用：注册消息处理的函数并进行消息处理的分发</li>
+<li>成员：
+<ul>
+<li><code>std::map&lt;string key, Callback&gt; callbacks_</code> 保存所有的处理函数</li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>onProtobufMessage()</code> 收到数据解析成<code>protobuf::Message</code>的数据后，根据名字查找相应的处理函数</li>
+<li><code>registerMessageCallback()</code> 注册消息处理的函数</li>
+</ul></li>
+<li>备注：
+<ul>
+<li>解析创建的类型是protobuf的Message类型，handle处理函数接收的如何变成具体类型？
+<ol>
+<li><p>在注册出处理函数的时候，把类型模板参数传进去</p></li>
+<li><p>注册回调函数的时候根据传入的模板类型进行向下转型</p>
+<h2 id="protorpc">protorpc</h2></li>
+</ol></li>
+</ul></li>
+</ul></li>
+<li><strong>RpcMessage</strong>
+<ul>
+<li>作用：rpc传输的protobuf消息体，在<code>.proto</code> 中定义并由protoc自动生成</li>
+<li>成员：
+<ul>
+<li><code>MessageType type</code> <code>REQUEST</code> or <code>RESPONSE</code></li>
+<li><code>fixed64 id</code></li>
+<li><code>string service</code></li>
+<li><code>string method</code></li>
+<li><code>bytes request</code></li>
+<li><code>bytes response</code></li>
+<li><code>ErrorCode error</code></li>
+</ul></li>
+</ul></li>
+<li><strong>RpcServer</strong>
+<ul>
+<li>作用：注册消息处理的函数并进行消息处理的分发</li>
+<li>成员：
+<ul>
+<li><code>TcpServer server_;</code></li>
+<li><code>std::map&lt;std::string, ::google::protobuf::Service*&gt; services_;</code><br />
+</li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>registerService(::google::protobuf::Service*);</code> 注册rpc服务， 并调用<code>channel-&gt;setServices(&amp;services_);</code> 设置到channel中</li>
+<li><code>onConnection(const TcpConnectionPtr&amp; conn)</code> 连接来了后设置<code>RpcChannel::onMessage</code>为MessageCallback</li>
+</ul></li>
+</ul></li>
+<li><strong>RpcChannel</strong>
+<ul>
+<li>作用：继承 <code>::google::protobuf::RpcChannel</code> 并实现其中的 <code>CallMethod()</code> 方法</li>
+<li>成员：
+<ul>
+<li><code>std::map&lt;int64_t, OutstandingCall&gt; outstandings_</code> 发送rpc后把rpc返回的回调放在此结构中，用于结果返回时的调用</li>
+<li><code>std::map&lt;std::string, ::google::protobuf::Service*&gt;* services_;</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>CallMethod()</code> 构造 <code>RpcMessage</code> 对象， 设置 service、method、request，并调用<code>RpcCodec</code>的send方法进行发送</li>
+<li><code>onMessage()</code> 调用 <code>RpcCodec</code> 的 onMessage 方法，在构造时把 <code>onRpcMessage()</code> 回调传入到 RpcCodec中</li>
+<li><code>onRpcMessage()</code> 使用 <code>RpcCodec</code> 解码后的 <code>RpcMessage</code> 对象
+<ul>
+<li>若是 RESPONSE：根据message id从 outstandings_ 找到相应的回调并执行</li>
+<li>若是 REQUEST：根据serive名字找到相应的server并调用相应的方法，最后执行 <code>CallMethod()</code>方法</li>
+</ul></li>
+</ul></li>
+<li>备注：</li>
+</ul></li>
+<li><strong>RpcCodec</strong>
+<ul>
+<li>作用：<code>typedef ProtobufCodecLiteT&lt;RpcMessage, rpctag&gt; RpcCodec;</code> 用的就是 <code>ProtobufCodecLiteT</code> 的编码解码</li>
+</ul></li>
+</ul>
+<h2 id="http服务器">Http服务器</h2>
+<ul>
+<li><strong>HttpServer</strong>
+<ul>
+<li>作用：提供http服务</li>
+<li>成员：
+<ul>
+<li><code>HttpCallback httpCallback_;</code> 用户传的回调函数，所有http逻辑都写在这个里面。传入的函数类型为<code>void onRequest(const HttpRequest&amp; req, HttpResponse* resp)</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>setHttpCallback(const HttpCallback&amp; cb)</code> 设置用户的回调</li>
+<li><code>onMessage()</code> 1. 调用<code>context-&gt;parseRequest()</code> 2. 调用<code>onRequest()</code></li>
+<li><code>onRequest()</code> 1.调用 httpCallback_ 回调 2. 根据 HttpResponse 对象，生成http报文，并发送</li>
+</ul></li>
+</ul></li>
+<li><strong>HttpContext</strong>
+<ul>
+<li>作用：</li>
+<li>成员：
+<ul>
+<li><code>HttpRequest request_;</code></li>
+<li><code>HttpRequestParseState state_;</code> 标识当前解析的状态，用于解析http请求</li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>parseRequest(Buffer* buf, Timestamp receiveTime)</code> 解析首行的请求体</li>
+<li><code>processRequestLine(const char* begin, const char* end)</code> 解析请求行</li>
+</ul></li>
+</ul></li>
+<li><strong>HttpRequest</strong>
+<ul>
+<li>作用：代表请求对象，<code>onConnection()</code> 建立连接的时候创建</li>
+<li>成员：
+<ul>
+<li><code>Method method_;</code></li>
+<li><code>string path_;</code></li>
+<li><code>string query_;</code></li>
+<li><code>std::map&lt;string, string&gt; headers_;</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>o;</code></li>
+</ul></li>
+</ul></li>
+<li><strong>HttpResponse</strong>
+<ul>
+<li>作用：代表响应对象，在调用 <code>HttpServer</code> 的 <code>httpCallback_</code> 之前创建，并将其引用传递给 <code>httpCallback_</code> 的参数</li>
+<li>成员：
+<ul>
+<li><code>std::map&lt;string, string&gt; headers_;</code></li>
+<li><code>HttpStatusCode statusCode_;</code></li>
+<li><code>string statusMessage_;</code></li>
+<li><code>string body_;</code></li>
+</ul></li>
+<li>方法：
+<ul>
+<li><code>appendToBuffer(Buffer* output)</code> 根据<code>HttpResponse</code>对象构造http相应报文，并设置到 <code>buffer</code> 中，</li>
+</ul></li>
+</ul></li>
+</ul>
 
 <footer id="colophon" >
 		<div class="site-info col">

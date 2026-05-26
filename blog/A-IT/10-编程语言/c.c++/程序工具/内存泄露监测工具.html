@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/程序工具/内存泄露监测工具</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#valgrind">Valgrind</a></li>
+<li><a href="#visual-leak-detector">Visual Leak Detector</a>
+<ul>
+<li><a href="#vld的使用">VLD的使用</a></li>
+<li><a href="#vld的工作机制">VLD的工作机制</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="valgrind">Valgrind</h2>
+<p>Valgrind 是个开源的工具，功能很多，但只能在linux下使用。例如检查内存泄漏工具---memcheck。<br />
+用法: <code>valgrind [options] prog-and-args</code><br />
+<code>[options]</code>: 常用选项，适用于所有Valgrind工具<br />
+<code>-tool=&lt;name&gt;</code> 最常用的选项。运行 valgrind中名为toolname的工具。默认memcheck。</p>
+<ul>
+<li>memcheck ------&gt; 这是valgrind应用最广泛的工具，一个重量级的内存检查器，能够发现开发中绝大多数内存错误使用情况。</li>
+<li>callgrind ------&gt; 它主要用来检查程序中函数调用过程中出现的问题。</li>
+<li>cachegrind ------&gt; 它主要用来检查程序中缓存使用出现的问题。</li>
+<li>helgrind ------&gt; 它主要用来检查多线程程序中出现的竞争问题。</li>
+<li>massif ------&gt; 它主要用来检查程序中堆栈使用中出现的问题。</li>
+<li>extension ------&gt; 可以利用core提供的功能，自己编写特定的内存调试工具</li>
+</ul>
+<p>检查内存泄漏</p>
+<pre><code>valgrind --tool=memcheck --leak-check=full ./test</code></pre>
+<p>例如：</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main()
+{
+        for(int i = 0; i &lt; 1000000; i++)
+        {
+                new int(2);
+        }
+    return 0;
+}</code></pre>
+<pre><code>valgrind --tool=memcheck --leak-check=full ./a.out</code></pre>
+<p>运行后会进行进行相应的报告输出：<br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20251104143743.png" alt="image.png" /></p>
+<h2 id="visual-leak-detector">Visual Leak Detector</h2>
+<p>Visual Leak Detector（VLD）是为C++编程环境设计的内存泄漏检测工具，它通过监控程序运行时的内存分配和释放行为来帮助开发者发现内存泄漏问题。VLD在程序结束时检查未释放的内存块，生成报告揭示泄漏源头，从而让开发者能针对性地修复问题，提升软件的稳定性和资源利用效率。</p>
+<h3 id="vld的使用">VLD的使用</h3>
+<p>1.下载并安装VLD，安装后如下：<br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20251104144624.png" alt="image.png" /></p>
+<p>2.在自己的c++程序中引入include path 并链接vld的库<br />
+3.无需修改程序中的代码，程序运行是会自动打印相关的内存报告</p>
+<h3 id="vld的工作机制">VLD的工作机制</h3>
+<p>在Windows操作系统中，C/C++编程语言通常使用动态内存分配函数如 malloc 、 calloc 、 realloc 和 free 进行内存的分配与释放。</p>
+<p>VLD正是通过挂钩到这些函数来检测内存分配和释放是否匹配。挂钩机制(Hooking)是一种广泛应用于软件开发中，用于修改或增强操作系统或软件系统功能的技术。VLD利用这一技术，将自己“插入”到标准的内存管理函数中，使得每当程序进行内存分配或释放操作时，VLD都能够记录相关信息，实现对内存使用情况的监控。</p>
+<p>VLD在跟踪内存分配时，记录了每次内存分配请求的详细信息，如分配的地址、大小和调用堆栈。<br />
+这些信息会被保存在内存泄漏检测器内部的一个数据结构中。</p>
+<p>以下是VLD实现内存分配跟踪的基本原理：<br />
+- 初始化 ：VLD在程序启动时初始化其内部数据结构，为捕获内存分配请求做准备。<br />
+- 挂钩内存管理函数 ：VLD挂钩到内存管理函数，使得每当这些函数被调用时，相应的VLD函数也会被触发。<br />
+- 记录分配信息 ：当 malloc 、 calloc 等函数被调用时，VLD<strong>记录内存分配的详细信息</strong>，如调用源代码的位置和分配的字节数。<br />
+- 跟踪内存释放 ：每当 free 函数被调用来释放内存时，VLD检查之前记录的分配信息，并<strong>清除对应的条目</strong>。<br />
+- 分析内存泄漏 ：如果程序结束时，VLD发现内存分配记录中还有未被释放的条目，则这些未释放的内存被视为泄漏。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

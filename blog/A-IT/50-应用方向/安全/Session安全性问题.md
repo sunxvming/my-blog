@@ -18,9 +18,9 @@ Session ID 如同我们前面所说的，就如同是会员卡的编号。只�
 3.透过Referer 取得：若网站允许Session ID 使用URL 传递，便可能从Referer 取得Session ID
 
 受害者已经登入网站伺服器，并且取得Session ID，在连线过程中攻击者用窃听的方式获取受害者Session ID。
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/3581a09b-582d-4e27-bda4-a2377a3a2132.jpg)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/3581a09b-582d-4e27-bda4-a2377a3a2132.jpg)
 攻击者直接使用窃取到的Session ID 送至伺服器，伪造受害者身分。若伺服器没有检查Session ID 的使用者身分，则可以让攻击者得逞。
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/3fcaca3a-a59b-4912-8e00-ed694b602ad0.jpg)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/3fcaca3a-a59b-4912-8e00-ed694b602ad0.jpg)
 
 **防护措施**
 * 禁止将Session ID 使用URL (GET) 方式来传递

@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/QT/类库</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 21%" />
+<col style="width: 22%" />
+<col style="width: 13%" />
+<col style="width: 9%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">分类</th>
+<th style="text-align: left;">Qt 集合类</th>
+<th style="text-align: left;">对应的 C++ STL 类</th>
+<th style="text-align: left;">主要特点（Qt）</th>
+<th style="text-align: left;">主要特点（STL）</th>
+<th style="text-align: left;">使用建议</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>顺序容器（Sequence）</strong></td>
+<td style="text-align: left;"><code>QVector&lt;T&gt;</code></td>
+<td style="text-align: left;"><code>std::vector&lt;T&gt;</code></td>
+<td style="text-align: left;">连续内存、支持隐式共享、快速随机访问</td>
+<td style="text-align: left;">连续内存、标准性能最高、支持算法库</td>
+<td style="text-align: left;">Qt 环境下优选 <code>QVector</code>，算法模块用 <code>std::vector</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><code>QList&lt;T&gt;</code> (Qt6≈<code>QVector</code>)</td>
+<td style="text-align: left;"><code>std::vector&lt;T&gt;</code> / <code>std::deque&lt;T&gt;</code></td>
+<td style="text-align: left;">Qt5 时为混合结构、Qt6 改为连续数组、兼容性好</td>
+<td style="text-align: left;">动态数组或双端队列实现、性能稳定</td>
+<td style="text-align: left;">建议新代码使用 <code>QVector</code> 替代 <code>QList</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><code>QLinkedList&lt;T&gt;</code>（Qt6 已弃用）</td>
+<td style="text-align: left;"><code>std::list&lt;T&gt;</code> / <code>std::forward_list&lt;T&gt;</code></td>
+<td style="text-align: left;">传统链表实现，随机访问慢</td>
+<td style="text-align: left;">双向/单向链表，插入删除快</td>
+<td style="text-align: left;">推荐使用 <code>std::list</code>，Qt 已弃用</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><code>QStringList</code></td>
+<td style="text-align: left;"><code>std::vector&lt;std::string&gt;</code></td>
+<td style="text-align: left;">方便字符串处理，与 <code>QString</code> 无缝集成</td>
+<td style="text-align: left;">需手动转换字符串类型</td>
+<td style="text-align: left;">GUI 程序推荐使用</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><code>QByteArray</code></td>
+<td style="text-align: left;"><code>std::vector&lt;char&gt;</code> / <code>std::string</code></td>
+<td style="text-align: left;">专为字节流、二进制数据设计</td>
+<td style="text-align: left;">可通用但语义不清晰</td>
+<td style="text-align: left;">处理二进制/网络数据优选</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>关联容器（Associative）</strong></td>
+<td style="text-align: left;"><code>QMap&lt;Key,Val&gt;</code></td>
+<td style="text-align: left;"><code>std::map&lt;Key,Val&gt;</code></td>
+<td style="text-align: left;">有序映射、基于红黑树、隐式共享</td>
+<td style="text-align: left;">有序映射、红黑树实现、STL标准兼容</td>
+<td style="text-align: left;">对 Qt 对象映射使用 <code>QMap</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><code>QMultiMap&lt;Key,Val&gt;</code></td>
+<td style="text-align: left;"><code>std::multimap&lt;Key,Val&gt;</code></td>
+<td style="text-align: left;">支持键重复、有序</td>
+<td style="text-align: left;">同上</td>
+<td style="text-align: left;">同上</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><code>QHash&lt;Key,Val&gt;</code></td>
+<td style="text-align: left;"><code>std::unordered_map&lt;Key,Val&gt;</code></td>
+<td style="text-align: left;">哈希表实现、平均 O(1) 查找</td>
+<td style="text-align: left;">哈希表、平均 O(1)、泛型算法兼容</td>
+<td style="text-align: left;">性能敏感时两者皆可</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><code>QMultiHash&lt;Key,Val&gt;</code></td>
+<td style="text-align: left;"><code>std::unordered_multimap&lt;Key,Val&gt;</code></td>
+<td style="text-align: left;">支持键重复、无序</td>
+<td style="text-align: left;">支持键重复、无序</td>
+<td style="text-align: left;">同上</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><code>QSet&lt;Key&gt;</code></td>
+<td style="text-align: left;"><code>std::unordered_set&lt;Key&gt;</code> / <code>std::set&lt;Key&gt;</code></td>
+<td style="text-align: left;">基于 <code>QHash</code> 实现、无序集合</td>
+<td style="text-align: left;">有序或无序集合可选</td>
+<td style="text-align: left;">通常选 <code>QSet</code> 或 <code>std::unordered_set</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>特殊容器</strong></td>
+<td style="text-align: left;"><code>QVarLengthArray&lt;T,N&gt;</code></td>
+<td style="text-align: left;">无直接对应（类似 <code>std::array</code> + 动态扩展）</td>
+<td style="text-align: left;">小型动态数组，性能极高</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">嵌入式或高性能代码推荐</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><code>QCache&lt;Key,Val&gt;</code></td>
+<td style="text-align: left;">无直接对应</td>
+<td style="text-align: left;">带缓存回收机制（LRU）</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">缓存场景专用</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>内存与拷贝机制</strong></td>
+<td style="text-align: left;">隐式共享（<strong>Copy-on-Write</strong>）</td>
+<td style="text-align: left;">深拷贝（值语义）</td>
+<td style="text-align: left;">拷贝开销小、写时复制</td>
+<td style="text-align: left;">拷贝立即复制数据</td>
+<td style="text-align: left;">Qt 容器更适合频繁拷贝场景</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>线程安全性</strong></td>
+<td style="text-align: left;">读操作线程安全（原子引用计数）</td>
+<td style="text-align: left;">非线程安全</td>
+<td style="text-align: left;">可多线程读、写需加锁</td>
+<td style="text-align: left;">用户手动加锁</td>
+<td style="text-align: left;">Qt 多线程环境更友好</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>算法兼容性</strong></td>
+<td style="text-align: left;">不兼容 <code>&lt;algorithm&gt;</code> 泛型算法</td>
+<td style="text-align: left;">完全兼容 <code>&lt;algorithm&gt;</code></td>
+<td style="text-align: left;">使用方便但灵活性低</td>
+<td style="text-align: left;">泛型算法强大</td>
+<td style="text-align: left;">算法部分推荐使用 STL</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>迭代器风格</strong></td>
+<td style="text-align: left;"><code>QListIterator</code>, <code>QMutableListIterator</code> 等</td>
+<td style="text-align: left;"><code>iterator</code>, <code>const_iterator</code></td>
+<td style="text-align: left;">Qt 风格接口更直观</td>
+<td style="text-align: left;">STL 标准语法、通用性强</td>
+<td style="text-align: left;">依使用习惯选择</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>API 风格</strong></td>
+<td style="text-align: left;"><code>append()</code>, <code>removeAt()</code>, <code>contains()</code></td>
+<td style="text-align: left;"><code>push_back()</code>, <code>erase()</code>, <code>find()</code></td>
+<td style="text-align: left;">更接近自然语言</td>
+<td style="text-align: left;">更贴近标准库规范</td>
+<td style="text-align: left;">Qt GUI 推荐 Qt 风格</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>性能取向</strong></td>
+<td style="text-align: left;">兼顾易用性与 Qt 兼容性</td>
+<td style="text-align: left;">注重性能与算法泛用性</td>
+<td style="text-align: left;">内存稳定、二进制兼容</td>
+<td style="text-align: left;">性能更优、标准一致</td>
+<td style="text-align: left;">综合考虑使用场景</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>典型使用场景</strong></td>
+<td style="text-align: left;">GUI、信号槽、QML、QVariant 集成</td>
+<td style="text-align: left;">算法库、数值计算、第三方库交互</td>
+<td style="text-align: left;">与 Qt 框架无缝衔接</td>
+<td style="text-align: left;">跨平台兼容性与性能更强</td>
+<td style="text-align: left;">GUI → Qt，逻辑层 → STL</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>互操作</strong></td>
+<td style="text-align: left;">提供 <code>toStdVector()</code>, <code>fromStdVector()</code> 等函数</td>
+<td style="text-align: left;">手动转换</td>
+<td style="text-align: left;">与 STL 可互转</td>
+<td style="text-align: left;">与 Qt 可互转</td>
+<td style="text-align: left;">模块边界处灵活切换</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://doc.qt.io/archives/qt-5.15/containers.html">Container Classes | Qt Core 5.15.19</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

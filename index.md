@@ -6,8 +6,9 @@
      - **00-CS基础/**
        - **00-硬件/**
          - [串口并口](./blog/A-IT/00-CS基础/00-硬件/串口并口.md)
-         - [数字电子技术(第十一版)--Floyd](./blog/A-IT/00-CS基础/00-硬件/数字电子技术(第十一版)--Floyd.md)
-         - [数字电子技术基础(第六版)--阎石](./blog/A-IT/00-CS基础/00-硬件/数字电子技术基础(第六版)--阎石.md)
+         - [数字电子技术(第十一版)--Floyd](./blog/A-IT/00-CS基础/00-硬件/数字电子技术(第十一版)--Floyd.txt)
+         - [数字电子技术基础(第六版)--阎石](./blog/A-IT/00-CS基础/00-硬件/数字电子技术基础(第六版)--阎石.txt)
+         - [移动硬盘](./blog/A-IT/00-CS基础/00-硬件/移动硬盘.md)
          - [说透芯片-极客时间](./blog/A-IT/00-CS基础/00-硬件/说透芯片-极客时间.md)
        - **10-组成原理&体系结构/**
          - [图灵机](./blog/A-IT/00-CS基础/10-组成原理&体系结构/图灵机.md)
@@ -25,37 +26,39 @@
          - [136-极客时间-编译原理实战课](./blog/A-IT/00-CS基础/30-编译原理/136-极客时间-编译原理实战课.md)
          - [205-极客时间-手把手带你写一门编程语言](./blog/A-IT/00-CS基础/30-编译原理/205-极客时间-手把手带你写一门编程语言.md)
          - [83-极客时间-编译原理之美](./blog/A-IT/00-CS基础/30-编译原理/83-极客时间-编译原理之美.md)
+         - [go编译速度为什么比c++快](./blog/A-IT/00-CS基础/30-编译原理/go编译速度为什么比c++快.md)
          - [llvm](./blog/A-IT/00-CS基础/30-编译原理/llvm.md)
+         - [模块编译](./blog/A-IT/00-CS基础/30-编译原理/模块编译.md)
          - [程序员的自我修养——链接装载与库-读书笔记](./blog/A-IT/00-CS基础/30-编译原理/程序员的自我修养——链接装载与库-读书笔记.md)
-         - [编程语言方方面面](./blog/A-IT/00-CS基础/30-编译原理/编程语言方方面面.md)
-         - [编译原理-龙书](./blog/A-IT/00-CS基础/30-编译原理/编译原理-龙书.md)
          - [编译原理及实践教程(第3版)](./blog/A-IT/00-CS基础/30-编译原理/编译原理及实践教程(第3版).txt)
        - **40-操作系统/**
          - [操作系统](./blog/A-IT/00-CS基础/40-操作系统/操作系统.txt)
        - **50-algorithm/**
-         - [LeetCode](./blog/A-IT/00-CS基础/50-algorithm/LeetCode.md)
-         - [人工势场法](./blog/A-IT/00-CS基础/50-algorithm/人工势场法.md)
-         - [导航网格寻路C++实现版(入门级)](./blog/A-IT/00-CS基础/50-algorithm/导航网格寻路C++实现版(入门级).md)
-         - [导航网格寻路C++实现版(进阶版)](./blog/A-IT/00-CS基础/50-algorithm/导航网格寻路C++实现版(进阶版).md)
-         - [拐点算法](./blog/A-IT/00-CS基础/50-algorithm/拐点算法.md)
          - [数据结构与算法之美](./blog/A-IT/00-CS基础/50-algorithm/数据结构与算法之美.md)
          - [数据结构和算法](./blog/A-IT/00-CS基础/50-algorithm/数据结构和算法.txt)
          - [概率算法--通过权重返回index](./blog/A-IT/00-CS基础/50-algorithm/概率算法--通过权重返回index.md)
          - [计算几何](./blog/A-IT/00-CS基础/50-algorithm/计算几何.md)
-         - [路径二次优化](./blog/A-IT/00-CS基础/50-algorithm/路径二次优化.md)
-         - [路径规划算法](./blog/A-IT/00-CS基础/50-algorithm/路径规划算法.md)
          - **code/**
            - [factorial](./blog/A-IT/00-CS基础/50-algorithm/code/factorial.cpp)
            - [qsort](./blog/A-IT/00-CS基础/50-algorithm/code/qsort.cpp)
          - **设计模式/**
            - [代码模式](./blog/A-IT/00-CS基础/50-algorithm/设计模式/代码模式.md)
            - [消息队列](./blog/A-IT/00-CS基础/50-algorithm/设计模式/消息队列.md)
+           - [相关资源](./blog/A-IT/00-CS基础/50-algorithm/设计模式/相关资源.md)
            - [设计模式](./blog/A-IT/00-CS基础/50-algorithm/设计模式/设计模式.md)
+         - **路径规划/**
+           - [人工势场法](./blog/A-IT/00-CS基础/50-algorithm/路径规划/人工势场法.md)
+           - [导航网格寻路C++实现版(入门级)](./blog/A-IT/00-CS基础/50-algorithm/路径规划/导航网格寻路C++实现版(入门级).md)
+           - [导航网格寻路C++实现版(进阶版)](./blog/A-IT/00-CS基础/50-algorithm/路径规划/导航网格寻路C++实现版(进阶版).md)
+           - [拐点算法](./blog/A-IT/00-CS基础/50-algorithm/路径规划/拐点算法.md)
+           - [路径二次优化](./blog/A-IT/00-CS基础/50-algorithm/路径规划/路径二次优化.md)
+           - [路径规划文档](./blog/A-IT/00-CS基础/50-algorithm/路径规划/路径规划文档.txt)
+           - [路径规划算法](./blog/A-IT/00-CS基础/50-algorithm/路径规划/路径规划算法.md)
        - **70-network/**
+         - [Netperf网络性能测试](./blog/A-IT/00-CS基础/70-network/Netperf网络性能测试.md)
+         - [代理和反向代理](./blog/A-IT/00-CS基础/70-network/代理和反向代理.md)
          - [扫盲VPN](./blog/A-IT/00-CS基础/70-network/扫盲VPN.md)
-         - [网络连接问题](./blog/A-IT/00-CS基础/70-network/网络连接问题.md)
          - [趣谈网络](./blog/A-IT/00-CS基础/70-network/趣谈网络.md)
-         - [通过SSH反向代理连接学校内网服务器](./blog/A-IT/00-CS基础/70-network/通过SSH反向代理连接学校内网服务器.md)
          - **协议/**
            - [jsonrpc](./blog/A-IT/00-CS基础/70-network/协议/jsonrpc.md)
            - [tcp](./blog/A-IT/00-CS基础/70-network/协议/tcp.md)
@@ -64,10 +67,13 @@
            - **http/**
              - [JWT](./blog/A-IT/00-CS基础/70-network/协议/http/JWT.md)
              - [OAuth](./blog/A-IT/00-CS基础/70-network/协议/http/OAuth.md)
+             - [cookie和session](./blog/A-IT/00-CS基础/70-network/协议/http/cookie和session.md)
              - [http](./blog/A-IT/00-CS基础/70-network/协议/http/http.md)
              - [https相关](./blog/A-IT/00-CS基础/70-network/协议/http/https相关.md)
              - [http状态码](./blog/A-IT/00-CS基础/70-network/协议/http/http状态码.md)
+             - [图解HTTP](./blog/A-IT/00-CS基础/70-network/协议/http/图解HTTP.md)
              - [糟糕的restful设计](./blog/A-IT/00-CS基础/70-network/协议/http/糟糕的restful设计.md)
+             - [跨域请求](./blog/A-IT/00-CS基础/70-network/协议/http/跨域请求.md)
          - **工具/**
            - [curl](./blog/A-IT/00-CS基础/70-network/工具/curl.md)
            - [tcpdump](./blog/A-IT/00-CS基础/70-network/工具/tcpdump.md)
@@ -77,10 +83,11 @@
            - [asio](./blog/A-IT/00-CS基础/70-network/网络编程/asio.md)
            - [libp2p](./blog/A-IT/00-CS基础/70-network/网络编程/libp2p.md)
            - [libuv](./blog/A-IT/00-CS基础/70-network/网络编程/libuv.md)
-           - [linux-c之网络编程](./blog/A-IT/00-CS基础/70-network/网络编程/linux-c之网络编程.md)
            - [【图书】Linux多线程服务端编程：使用muduo-C++网络库](./blog/A-IT/00-CS基础/70-network/网络编程/【图书】Linux多线程服务端编程：使用muduo-C++网络库.md)
            - [网络编程实战](./blog/A-IT/00-CS基础/70-network/网络编程/网络编程实战.md)
+           - [网络编程总结](./blog/A-IT/00-CS基础/70-network/网络编程/网络编程总结.md)
        - **80-软件实践/**
+         - [97-Things-Every-Programmer-Should-Know](./blog/A-IT/00-CS基础/80-软件实践/97-Things-Every-Programmer-Should-Know.md)
          - [code-review-list](./blog/A-IT/00-CS基础/80-软件实践/code-review-list.md)
          - [事故报告](./blog/A-IT/00-CS基础/80-软件实践/事故报告.md)
          - [人月神话](./blog/A-IT/00-CS基础/80-软件实践/人月神话.md)
@@ -103,8 +110,23 @@
          - [黑客](./blog/A-IT/00-CS基础/80-软件实践/黑客.md)
      - **10-编程语言/**
        - **c.c++/**
-         - [共享库](./blog/A-IT/10-编程语言/c.c++/共享库.md)
          - [工具类库](./blog/A-IT/10-编程语言/c.c++/工具类库.md)
+         - **QT/**
+           - [Qt开发环境](./blog/A-IT/10-编程语言/c.c++/QT/Qt开发环境.md)
+           - [Qt打包相关](./blog/A-IT/10-编程语言/c.c++/QT/Qt打包相关.md)
+           - [Qt样式表使用说明](./blog/A-IT/10-编程语言/c.c++/QT/Qt样式表使用说明.pdf)
+           - [Qt笔记总结](./blog/A-IT/10-编程语言/c.c++/QT/Qt笔记总结.md)
+           - [centos7编译](./blog/A-IT/10-编程语言/c.c++/QT/centos7编译.md)
+           - [qt样式](./blog/A-IT/10-编程语言/c.c++/QT/qt样式.md)
+           - [ubuntu编译](./blog/A-IT/10-编程语言/c.c++/QT/ubuntu编译.md)
+           - [ui适配](./blog/A-IT/10-编程语言/c.c++/QT/ui适配.md)
+           - [学习资源](./blog/A-IT/10-编程语言/c.c++/QT/学习资源.md)
+           - [常用控件](./blog/A-IT/10-编程语言/c.c++/QT/常用控件.md)
+           - [常见错误](./blog/A-IT/10-编程语言/c.c++/QT/常见错误.md)
+           - [性能](./blog/A-IT/10-编程语言/c.c++/QT/性能.md)
+           - [类库](./blog/A-IT/10-编程语言/c.c++/QT/类库.md)
+           - [自定义委托](./blog/A-IT/10-编程语言/c.c++/QT/自定义委托.md)
+           - [调试](./blog/A-IT/10-编程语言/c.c++/QT/调试.md)
          - **c++笔记/**
            - [1.从C到C++](./blog/A-IT/10-编程语言/c.c++/c++笔记/1.从C到C++.md)
            - [10.输入输出流](./blog/A-IT/10-编程语言/c.c++/c++笔记/10.输入输出流.md)
@@ -163,21 +185,10 @@
            - [mysql++](./blog/A-IT/10-编程语言/c.c++/工具类库/mysql++.md)
            - [mysql](./blog/A-IT/10-编程语言/c.c++/工具类库/mysql.md)
            - [protobuf](./blog/A-IT/10-编程语言/c.c++/工具类库/protobuf.md)
-           - [rocksdb](./blog/A-IT/10-编程语言/c.c++/工具类库/rocksdb.md)
            - [vcpkg](./blog/A-IT/10-编程语言/c.c++/工具类库/vcpkg.md)
            - [websocket++](./blog/A-IT/10-编程语言/c.c++/工具类库/websocket++.md)
            - [使用NTP协议获取网络时间戳](./blog/A-IT/10-编程语言/c.c++/工具类库/使用NTP协议获取网络时间戳.md)
            - [命令行参数处理](./blog/A-IT/10-编程语言/c.c++/工具类库/命令行参数处理.md)
-           - **QT/**
-             - [QT-C语音中文网](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/QT-C语音中文网.md)
-             - [Qt 教程2](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/Qt&#32;教程2.docx)
-             - [Qt和wxWidgets](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/Qt和wxWidgets.md)
-             - [Qt开发环境](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/Qt开发环境.md)
-             - [Qt打包相关](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/Qt打包相关.md)
-             - [Qt样式表使用说明](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/Qt样式表使用说明.pdf)
-             - [qt笔记](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/qt笔记.md)
-             - [ui适配](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/ui适配.md)
-             - [播放视频](./blog/A-IT/10-编程语言/c.c++/工具类库/QT/播放视频.md)
            - **boost/**
              - [Getting-Started](./blog/A-IT/10-编程语言/c.c++/工具类库/boost/Getting-Started.md)
              - [boost-test](./blog/A-IT/10-编程语言/c.c++/工具类库/boost/boost-test.md)
@@ -197,13 +208,13 @@
            - [gcov](./blog/A-IT/10-编程语言/c.c++/程序工具/gcov.md)
            - [gdb](./blog/A-IT/10-编程语言/c.c++/程序工具/gdb.md)
            - [perf](./blog/A-IT/10-编程语言/c.c++/程序工具/perf.md)
-           - [valgrind](./blog/A-IT/10-编程语言/c.c++/程序工具/valgrind.md)
+           - [内存泄露监测工具](./blog/A-IT/10-编程语言/c.c++/程序工具/内存泄露监测工具.md)
            - **cmake/**
+             - [CMake-Presets](./blog/A-IT/10-编程语言/c.c++/程序工具/cmake/CMake-Presets.md)
              - [CMake的CTest](./blog/A-IT/10-编程语言/c.c++/程序工具/cmake/CMake的CTest.md)
              - [cmake-find-package](./blog/A-IT/10-编程语言/c.c++/程序工具/cmake/cmake-find-package.md)
              - [cmake](./blog/A-IT/10-编程语言/c.c++/程序工具/cmake/cmake.md)
              - [cmake修改__FILE__宏为相对路径](./blog/A-IT/10-编程语言/c.c++/程序工具/cmake/cmake修改__FILE__宏为相对路径.md)
-             - [premake和cmake比较](./blog/A-IT/10-编程语言/c.c++/程序工具/cmake/premake和cmake比较.md)
              - [vscode-cmake插件](./blog/A-IT/10-编程语言/c.c++/程序工具/cmake/vscode-cmake插件.md)
        - **go/**
          - [0-c语言中文网-Go语言入门教程](./blog/A-IT/10-编程语言/go/0-c语言中文网-Go语言入门教程.md)
@@ -214,21 +225,20 @@
          - [go交叉编译](./blog/A-IT/10-编程语言/go/go交叉编译.md)
          - [go安装升级](./blog/A-IT/10-编程语言/go/go安装升级.md)
          - [go导出excel](./blog/A-IT/10-编程语言/go/go导出excel.md)
-         - [go总结](./blog/A-IT/10-编程语言/go/go总结.txt)
          - [go数据库迁移](./blog/A-IT/10-编程语言/go/go数据库迁移.md)
          - [go断点调试](./blog/A-IT/10-编程语言/go/go断点调试.md)
          - [go测试](./blog/A-IT/10-编程语言/go/go测试.md)
          - [go第三方工具](./blog/A-IT/10-编程语言/go/go第三方工具.md)
          - [go结构体struct标签tag标记](./blog/A-IT/10-编程语言/go/go结构体struct标签tag标记.md)
-         - [go编译速度为什么比c++快](./blog/A-IT/10-编程语言/go/go编译速度为什么比c++快.md)
-         - [package](./blog/A-IT/10-编程语言/go/package.md)
          - [question](./blog/A-IT/10-编程语言/go/question.md)
+         - [常用package](./blog/A-IT/10-编程语言/go/常用package.md)
          - [惯用法](./blog/A-IT/10-编程语言/go/惯用法.md)
          - [编码规范](./blog/A-IT/10-编程语言/go/编码规范.md)
          - [编译器](./blog/A-IT/10-编程语言/go/编译器.md)
          - [设计模式](./blog/A-IT/10-编程语言/go/设计模式.md)
          - [语言特性](./blog/A-IT/10-编程语言/go/语言特性.md)
          - **web框架/**
+           - [web框架](./blog/A-IT/10-编程语言/go/web框架/web框架.md)
            - [手把手带你写一个Web框架-代码梳理](./blog/A-IT/10-编程语言/go/web框架/手把手带你写一个Web框架-代码梳理.txt)
            - [手把手带你写一个Web框架](./blog/A-IT/10-编程语言/go/web框架/手把手带你写一个Web框架.md)
            - **goframe/**
@@ -237,7 +247,6 @@
            - [Go-Programming-Cookbook-Second-Edition](./blog/A-IT/10-编程语言/go/书籍/Go-Programming-Cookbook-Second-Edition.md)
        - **java/**
          - [java教程-c语言中文网](./blog/A-IT/10-编程语言/java/java教程-c语言中文网.md)
-         - [阿里巴巴 Java 开发手册](./blog/A-IT/10-编程语言/java/阿里巴巴&#32;Java&#32;开发手册.pdf)
        - **js/**
          - [electron](./blog/A-IT/10-编程语言/js/electron.md)
          - [es6](./blog/A-IT/10-编程语言/js/es6.md)
@@ -248,47 +257,21 @@
          - [浏览器对象](./blog/A-IT/10-编程语言/js/浏览器对象.md)
          - [玩转Vue3全家桶](./blog/A-IT/10-编程语言/js/玩转Vue3全家桶.md)
        - **lua/**
+         - [code](./blog/A-IT/10-编程语言/lua/code.lua)
          - [lualib静态库的编译](./blog/A-IT/10-编程语言/lua/lualib静态库的编译.md)
+         - [lua基础知识](./blog/A-IT/10-编程语言/lua/lua基础知识.md)
          - [lua死循环检查](./blog/A-IT/10-编程语言/lua/lua死循环检查.md)
          - [lua的sethook和内存统计](./blog/A-IT/10-编程语言/lua/lua的sethook和内存统计.md)
          - [lua编码规范](./blog/A-IT/10-编程语言/lua/lua编码规范.md)
          - [lua闭包](./blog/A-IT/10-编程语言/lua/lua闭包.md)
          - [tolua](./blog/A-IT/10-编程语言/lua/tolua.md)
-         - [基础知识](./blog/A-IT/10-编程语言/lua/基础知识.md)
-         - **code/**
-           - [code](./blog/A-IT/10-编程语言/lua/code/code.lua)
        - **php/**
          - [Composer](./blog/A-IT/10-编程语言/php/Composer.md)
          - [PHP-FPM](./blog/A-IT/10-编程语言/php/PHP-FPM.md)
-         - [apple登录支付](./blog/A-IT/10-编程语言/php/apple登录支付.md)
-         - [aws服务的php接口](./blog/A-IT/10-编程语言/php/aws服务的php接口.md)
-         - [cookie和session](./blog/A-IT/10-编程语言/php/cookie和session.md)
-         - [google支付](./blog/A-IT/10-编程语言/php/google支付.md)
+         - [laravel入门](./blog/A-IT/10-编程语言/php/laravel入门.md)
          - [nginx](./blog/A-IT/10-编程语言/php/nginx.md)
          - [nginx高可用性](./blog/A-IT/10-编程语言/php/nginx高可用性.md)
          - [php的mysql驱动](./blog/A-IT/10-编程语言/php/php的mysql驱动.md)
-         - [php面向对象代码片段](./blog/A-IT/10-编程语言/php/php面向对象代码片段.md)
-         - [代码片段](./blog/A-IT/10-编程语言/php/代码片段.md)
-         - **code/**
-           - [deletepart](./blog/A-IT/10-编程语言/php/code/deletepart.php)
-           - [gamelog](./blog/A-IT/10-编程语言/php/code/gamelog.sql)
-           - [getcsv](./blog/A-IT/10-编程语言/php/code/getcsv.php)
-           - [logapi](./blog/A-IT/10-编程语言/php/code/logapi.php)
-           - [mongodb实验](./blog/A-IT/10-编程语言/php/code/mongodb实验.txt)
-           - [readfile-mongo](./blog/A-IT/10-编程语言/php/code/readfile-mongo.php)
-           - [readfile-mysql](./blog/A-IT/10-编程语言/php/code/readfile-mysql.php)
-           - [scantime](./blog/A-IT/10-编程语言/php/code/scantime.php)
-           - [tz](./blog/A-IT/10-编程语言/php/code/tz.php)
-           - [文件说明](./blog/A-IT/10-编程语言/php/code/文件说明.txt)
-         - **php框架/**
-           - [laravel入门](./blog/A-IT/10-编程语言/php/php框架/laravel入门.md)
-           - [lavarel中使用redis](./blog/A-IT/10-编程语言/php/php框架/lavarel中使用redis.md)
-           - [lavarel依赖注入](./blog/A-IT/10-编程语言/php/php框架/lavarel依赖注入.md)
-           - [lavarel常用功能](./blog/A-IT/10-编程语言/php/php框架/lavarel常用功能.md)
-           - [lavarel框架](./blog/A-IT/10-编程语言/php/php框架/lavarel框架.md)
-           - [lavarel调试](./blog/A-IT/10-编程语言/php/php框架/lavarel调试.md)
-           - [单元测试](./blog/A-IT/10-编程语言/php/php框架/单元测试.md)
-           - [框架功能](./blog/A-IT/10-编程语言/php/php框架/框架功能.md)
        - **python/**
          - [Anaconda](./blog/A-IT/10-编程语言/python/Anaconda.md)
          - [CentOS7升级Python至3.x](./blog/A-IT/10-编程语言/python/CentOS7升级Python至3.x.md)
@@ -300,6 +283,7 @@
          - [多线程](./blog/A-IT/10-编程语言/python/多线程.md)
          - [极客时间-python核心技术与实战](./blog/A-IT/10-编程语言/python/极客时间-python核心技术与实战.md)
          - [编码规范](./blog/A-IT/10-编程语言/python/编码规范.md)
+         - [视频识别项目在arm64平台的麒麟系统上的移植](./blog/A-IT/10-编程语言/python/视频识别项目在arm64平台的麒麟系统上的移植.md)
          - [跨语言交互](./blog/A-IT/10-编程语言/python/跨语言交互.md)
          - **三方库/**
            - [PyInstaller](./blog/A-IT/10-编程语言/python/三方库/PyInstaller.md)
@@ -310,18 +294,19 @@
          - [rust语言之道](./blog/A-IT/10-编程语言/rust/rust语言之道.txt)
          - [学习资源](./blog/A-IT/10-编程语言/rust/学习资源.md)
        - **通用概念/**
+         - [代码优化](./blog/A-IT/10-编程语言/通用概念/代码优化.md)
+         - [常见的类](./blog/A-IT/10-编程语言/通用概念/常见的类.md)
+         - [编程语言方方面面](./blog/A-IT/10-编程语言/通用概念/编程语言方方面面.md)
+         - [调试](./blog/A-IT/10-编程语言/通用概念/调试.md)
          - [错误处理](./blog/A-IT/10-编程语言/通用概念/错误处理.md)
      - **20-linux/**
        - [1list](./blog/A-IT/20-linux/1list.md)
-       - [Centos7升级GCC8版本](./blog/A-IT/20-linux/Centos7升级GCC8版本.md)
        - [Linux安装、卸载软件](./blog/A-IT/20-linux/Linux安装、卸载软件.md)
-       - [Netperf网络性能测试](./blog/A-IT/20-linux/Netperf网络性能测试.md)
        - [Squid](./blog/A-IT/20-linux/Squid.md)
-       - [VMware共享文件夹](./blog/A-IT/20-linux/VMware共享文件夹.md)
        - [alias](./blog/A-IT/20-linux/alias.md)
        - [awk](./blog/A-IT/20-linux/awk.md)
        - [cdn](./blog/A-IT/20-linux/cdn.md)
-       - [centos修改ip地址](./blog/A-IT/20-linux/centos修改ip地址.md)
+       - [centos7常见问题](./blog/A-IT/20-linux/centos7常见问题.md)
        - [enca转换编码](./blog/A-IT/20-linux/enca转换编码.md)
        - [fish](./blog/A-IT/20-linux/fish.md)
        - [grep](./blog/A-IT/20-linux/grep.md)
@@ -332,6 +317,7 @@
        - [linux常见的英文缩写](./blog/A-IT/20-linux/linux常见的英文缩写.md)
        - [linux服务器的性能能分析](./blog/A-IT/20-linux/linux服务器的性能能分析.md)
        - [lsof](./blog/A-IT/20-linux/lsof.md)
+       - [redhat](./blog/A-IT/20-linux/redhat.md)
        - [rsync](./blog/A-IT/20-linux/rsync.md)
        - [samba](./blog/A-IT/20-linux/samba.md)
        - [sed](./blog/A-IT/20-linux/sed.md)
@@ -342,16 +328,11 @@
        - [supervisor](./blog/A-IT/20-linux/supervisor.md)
        - [tmpfs](./blog/A-IT/20-linux/tmpfs.md)
        - [ubuntu](./blog/A-IT/20-linux/ubuntu.md)
-       - [xampp](./blog/A-IT/20-linux/xampp.md)
        - [xfce、xserver](./blog/A-IT/20-linux/xfce、xserver.md)
-       - [yum源配置](./blog/A-IT/20-linux/yum源配置.md)
-       - [使用webbench进行网站压力测试](./blog/A-IT/20-linux/使用webbench进行网站压力测试.md)
        - [修改服务器时间](./blog/A-IT/20-linux/修改服务器时间.md)
        - [操作系统不常见问题](./blog/A-IT/20-linux/操作系统不常见问题.md)
        - [极客时间-趣谈Linux操作系统](./blog/A-IT/20-linux/极客时间-趣谈Linux操作系统.md)
-       - [网站部署checklist](./blog/A-IT/20-linux/网站部署checklist.md)
        - [装硬盘-分区-格式化-挂载](./blog/A-IT/20-linux/装硬盘-分区-格式化-挂载.md)
-       - [运维](./blog/A-IT/20-linux/运维.md)
        - [零碎知识](./blog/A-IT/20-linux/零碎知识.md)
        - **docker/**
          - [arm架构服务器docker离线安装](./blog/A-IT/20-linux/docker/arm架构服务器docker离线安装.md)
@@ -377,6 +358,9 @@
      - **30-database/**
        - **Elasticsearch/**
          - [Elasticsearch入门教程](./blog/A-IT/30-database/Elasticsearch/Elasticsearch入门教程.md)
+       - **Oracle/**
+         - [Oracle入门](./blog/A-IT/30-database/Oracle/Oracle入门.md)
+         - [oracle表空间、用户、表](./blog/A-IT/30-database/Oracle/oracle表空间、用户、表.md)
        - **mysql/**
          - [mysql分组topN](./blog/A-IT/30-database/mysql/mysql分组topN.md)
          - [mysql密码使用配置文件](./blog/A-IT/30-database/mysql/mysql密码使用配置文件.md)
@@ -386,10 +370,8 @@
          - [mysql统计某个字段在数值区间内出现的次数](./blog/A-IT/30-database/mysql/mysql统计某个字段在数值区间内出现的次数.md)
          - [mysql调优](./blog/A-IT/30-database/mysql/mysql调优.md)
          - [navicat连接远程内网mysql](./blog/A-IT/30-database/mysql/navicat连接远程内网mysql.md)
-         - [php数据库连接池](./blog/A-IT/30-database/mysql/php数据库连接池.md)
          - [数据分区的维护&&行为道具日志](./blog/A-IT/30-database/mysql/数据分区的维护&&行为道具日志.md)
          - [数据库“长连接”与“短连接”](./blog/A-IT/30-database/mysql/数据库“长连接”与“短连接”.md)
-         - [有关mysql的innodb_flush_log_at_trx_commit参数](./blog/A-IT/30-database/mysql/有关mysql的innodb_flush_log_at_trx_commit参数.md)
        - **postgresql/**
          - [PostgreSQL新手入门](./blog/A-IT/30-database/postgresql/PostgreSQL新手入门.md)
          - [yum安装postgresql](./blog/A-IT/30-database/postgresql/yum安装postgresql.md)
@@ -398,12 +380,9 @@
        - **数仓/**
          - [redshift](./blog/A-IT/30-database/数仓/redshift.md)
      - **40-tools/**
-       - [ChatGPT](./blog/A-IT/40-tools/ChatGPT.md)
        - [Sphinx](./blog/A-IT/40-tools/Sphinx.md)
-       - [UML](./blog/A-IT/40-tools/UML.md)
        - [chrome](./blog/A-IT/40-tools/chrome.md)
        - [markdown工具](./blog/A-IT/40-tools/markdown工具.md)
-       - [markdown演示](./blog/A-IT/40-tools/markdown演示.md)
        - [postman](./blog/A-IT/40-tools/postman.md)
        - [qemu](./blog/A-IT/40-tools/qemu.md)
        - [vmware](./blog/A-IT/40-tools/vmware.md)
@@ -415,12 +394,6 @@
        - [正则](./blog/A-IT/40-tools/正则.md)
        - [看板工具](./blog/A-IT/40-tools/看板工具.md)
        - [翻译行业工具](./blog/A-IT/40-tools/翻译行业工具.md)
-       - **plantuml/**
-         - [plantuml例子](./blog/A-IT/40-tools/plantuml/plantuml例子.docx)
-         - [时序图](./blog/A-IT/40-tools/plantuml/时序图.plantuml)
-         - [状态图](./blog/A-IT/40-tools/plantuml/状态图.plantuml)
-         - [用况图](./blog/A-IT/40-tools/plantuml/用况图.plantuml)
-         - [类图](./blog/A-IT/40-tools/plantuml/类图.wsd)
        - **xshell/**
          - [xshell](./blog/A-IT/40-tools/xshell/xshell.md)
          - **xshell配色方案/**
@@ -433,20 +406,21 @@
          - [git命令](./blog/A-IT/40-tools/版本管理/git命令.md)
          - [git工作流](./blog/A-IT/40-tools/版本管理/git工作流.md)
          - [git忽略文件](./blog/A-IT/40-tools/版本管理/git忽略文件.md)
-         - [svn服务器搭建](./blog/A-IT/40-tools/版本管理/svn服务器搭建.md)
-         - [命令行svn](./blog/A-IT/40-tools/版本管理/命令行svn.md)
+       - **绘图/**
+         - **plantuml/**
+           - [plantuml](./blog/A-IT/40-tools/绘图/plantuml/plantuml.md)
+           - [plantuml例子](./blog/A-IT/40-tools/绘图/plantuml/plantuml例子.docx)
+           - [时序图](./blog/A-IT/40-tools/绘图/plantuml/时序图.plantuml)
+           - [状态图](./blog/A-IT/40-tools/绘图/plantuml/状态图.plantuml)
+           - [用况图](./blog/A-IT/40-tools/绘图/plantuml/用况图.plantuml)
+           - [类图](./blog/A-IT/40-tools/绘图/plantuml/类图.wsd)
        - **编辑器/**
-         - [emeditor](./blog/A-IT/40-tools/编辑器/emeditor.md)
          - [intellji](./blog/A-IT/40-tools/编辑器/intellji.md)
          - [notepad++](./blog/A-IT/40-tools/编辑器/notepad++.md)
          - [visual-studio](./blog/A-IT/40-tools/编辑器/visual-studio.md)
          - **emacs/**
            - [Survive.in.Emacs](./blog/A-IT/40-tools/编辑器/emacs/Survive.in.Emacs.pdf)
-           - [elisp](./blog/A-IT/40-tools/编辑器/emacs/elisp.md)
-           - [emacs-config](./blog/A-IT/40-tools/编辑器/emacs/emacs-config)
-           - [emacs](./blog/A-IT/40-tools/编辑器/emacs/emacs.md)
            - [emacs](./blog/A-IT/40-tools/编辑器/emacs/emacs.txt)
-           - [init](./blog/A-IT/40-tools/编辑器/emacs/init.el)
          - **obsidian/**
            - [obsidian](./blog/A-IT/40-tools/编辑器/obsidian/obsidian.md)
            - **vscode-editor/**
@@ -455,8 +429,8 @@
          - **vim/**
            - [vim基本操作](./blog/A-IT/40-tools/编辑器/vim/vim基本操作.md)
            - [vim寄存器](./blog/A-IT/40-tools/编辑器/vim/vim寄存器.md)
-           - [极客时间-Vim实用技巧必知必会](./blog/A-IT/40-tools/编辑器/vim/极客时间-Vim实用技巧必知必会.md)
          - **vscode/**
+           - [code-server](./blog/A-IT/40-tools/编辑器/vscode/code-server.md)
            - [vscode-cpp](./blog/A-IT/40-tools/编辑器/vscode/vscode-cpp.md)
            - [vscode-go](./blog/A-IT/40-tools/编辑器/vscode/vscode-go.md)
            - [vscode-java](./blog/A-IT/40-tools/编辑器/vscode/vscode-java.md)
@@ -465,6 +439,11 @@
            - [vscode-rust](./blog/A-IT/40-tools/编辑器/vscode/vscode-rust.md)
            - [vscode](./blog/A-IT/40-tools/编辑器/vscode/vscode.md)
      - **50-应用方向/**
+       - **AI/**
+         - [ChatGPT](./blog/A-IT/50-应用方向/AI/ChatGPT.md)
+         - [ai工具](./blog/A-IT/50-应用方向/AI/ai工具.md)
+         - [华为推理卡](./blog/A-IT/50-应用方向/AI/华为推理卡.md)
+         - [基于昇腾处理器的人工智能应用开发(目标检测应用](./blog/A-IT/50-应用方向/AI/基于昇腾处理器的人工智能应用开发(目标检测应用.pptx)
        - **game/**
          - [Unity-Android模拟器调试](./blog/A-IT/50-应用方向/game/Unity-Android模拟器调试.md)
          - [aws游戏行业数据分析业务技术栈](./blog/A-IT/50-应用方向/game/aws游戏行业数据分析业务技术栈.pdf)
@@ -487,19 +466,25 @@
            - [环境搭建](./blog/A-IT/50-应用方向/web前端/VUE/环境搭建.md)
            - [项目创建](./blog/A-IT/50-应用方向/web前端/VUE/项目创建.md)
          - **blog/**
+           - [github-pages-域名解析](./blog/A-IT/50-应用方向/web前端/blog/github-pages-域名解析.md)
            - [wordpress实用插件](./blog/A-IT/50-应用方向/web前端/blog/wordpress实用插件.md)
            - [关于俺](./blog/A-IT/50-应用方向/web前端/blog/关于俺.md)
            - [博客历险记](./blog/A-IT/50-应用方向/web前端/blog/博客历险记.md)
            - [博客搭建工具](./blog/A-IT/50-应用方向/web前端/blog/博客搭建工具.md)
        - **web后端/**
          - [Kafka核心技术与实战](./blog/A-IT/50-应用方向/web后端/Kafka核心技术与实战.md)
+         - [apple登录支付](./blog/A-IT/50-应用方向/web后端/apple登录支付.md)
+         - [aws服务接口](./blog/A-IT/50-应用方向/web后端/aws服务接口.md)
+         - [google支付](./blog/A-IT/50-应用方向/web后端/google支付.md)
+         - [中台是什么](./blog/A-IT/50-应用方向/web后端/中台是什么.md)
+         - [使用webbench进行网站压力测试](./blog/A-IT/50-应用方向/web后端/使用webbench进行网站压力测试.md)
          - [压缩解压缩](./blog/A-IT/50-应用方向/web后端/压缩解压缩.md)
-         - [服务器打点](./blog/A-IT/50-应用方向/web后端/服务器打点.txt)
-         - [说透中台](./blog/A-IT/50-应用方向/web后端/说透中台.md)
+         - [登录token](./blog/A-IT/50-应用方向/web后端/登录token.md)
+         - [网站访问不了问题排查](./blog/A-IT/50-应用方向/web后端/网站访问不了问题排查.md)
+         - [网站部署checklist](./blog/A-IT/50-应用方向/web后端/网站部署checklist.md)
          - [阿里云运维架构实践秘籍](./blog/A-IT/50-应用方向/web后端/阿里云运维架构实践秘籍.md)
          - [高并发系统设计40问](./blog/A-IT/50-应用方向/web后端/高并发系统设计40问.md)
        - **windows&mac/**
-         - [MSYS2](./blog/A-IT/50-应用方向/windows&mac/MSYS2.md)
          - [cmd命令总结](./blog/A-IT/50-应用方向/windows&mac/cmd命令总结.md)
          - [office](./blog/A-IT/50-应用方向/windows&mac/office.md)
          - [win11](./blog/A-IT/50-应用方向/windows&mac/win11.md)
@@ -533,14 +518,21 @@
              - [webassembly](./blog/A-IT/50-应用方向/区块链/智能合约/webassembly/webassembly.md)
              - [内存指令](./blog/A-IT/50-应用方向/区块链/智能合约/webassembly/内存指令.md)
        - **图形/**
-         - [glut消息事件处理函数glutMainLoop](./blog/A-IT/50-应用方向/图形/glut消息事件处理函数glutMainLoop.md)
-         - [osg](./blog/A-IT/50-应用方向/图形/osg.md)
-         - [osgEarth](./blog/A-IT/50-应用方向/图形/osgEarth.md)
-         - [【图书】openGL-红宝书](./blog/A-IT/50-应用方向/图形/【图书】openGL-红宝书.md)
+         - [glut](./blog/A-IT/50-应用方向/图形/glut.md)
          - [【图书】交互式计算机图形学-webGL](./blog/A-IT/50-应用方向/图形/【图书】交互式计算机图形学-webGL.md)
-         - [【图书】计算机图形学编程（使用OpenGL和C++）（第2版）](./blog/A-IT/50-应用方向/图形/【图书】计算机图形学编程（使用OpenGL和C++）（第2版）.md)
          - [图形学知识点](./blog/A-IT/50-应用方向/图形/图形学知识点.md)
          - [相机模型](./blog/A-IT/50-应用方向/图形/相机模型.md)
+       - **地震/**
+         - [CTBTO](./blog/A-IT/50-应用方向/地震/CTBTO.md)
+         - [地震学基础](./blog/A-IT/50-应用方向/地震/地震学基础.md)
+         - [地震学实践](./blog/A-IT/50-应用方向/地震/地震学实践.md)
+         - [开源项目](./blog/A-IT/50-应用方向/地震/开源项目.md)
+         - **文档/**
+           - [功能整理](./blog/A-IT/50-应用方向/地震/文档/功能整理.md)
+           - [数据库关系](./blog/A-IT/50-应用方向/地震/文档/数据库关系.canvas)
+           - [页面关系](./blog/A-IT/50-应用方向/地震/文档/页面关系.canvas)
+         - **算法/**
+           - [滤波](./blog/A-IT/50-应用方向/地震/算法/滤波.md)
        - **安全/**
          - [DDOS攻击](./blog/A-IT/50-应用方向/安全/DDOS攻击.md)
          - [Session安全性问题](./blog/A-IT/50-应用方向/安全/Session安全性问题.md)
@@ -550,6 +542,11 @@
          - [如何隐藏你的踪迹](./blog/A-IT/50-应用方向/安全/如何隐藏你的踪迹.md)
          - [用图片隐藏信息的技术实现](./blog/A-IT/50-应用方向/安全/用图片隐藏信息的技术实现.md)
          - [社会工程学](./blog/A-IT/50-应用方向/安全/社会工程学.md)
+       - **常见服务/**
+         - **地图/**
+           - [osg](./blog/A-IT/50-应用方向/常见服务/地图/osg.md)
+           - [osgEarth](./blog/A-IT/50-应用方向/常见服务/地图/osgEarth.md)
+           - [地图](./blog/A-IT/50-应用方向/常见服务/地图/地图.md)
        - **机器学习/**
          - [GPU推理卡和训练卡](./blog/A-IT/50-应用方向/机器学习/GPU推理卡和训练卡.md)
          - [OpenCL和CUDA](./blog/A-IT/50-应用方向/机器学习/OpenCL和CUDA.md)
@@ -559,7 +556,6 @@
          - [目标追踪](./blog/A-IT/50-应用方向/机器学习/目标追踪.md)
          - [视频识别](./blog/A-IT/50-应用方向/机器学习/视频识别.txt)
          - [计算机视觉](./blog/A-IT/50-应用方向/机器学习/计算机视觉.md)
-         - [语音识别](./blog/A-IT/50-应用方向/机器学习/语音识别.md)
          - **书籍/**
            - [Make-Your-First-GAN-With-PyTorch](./blog/A-IT/50-应用方向/机器学习/书籍/Make-Your-First-GAN-With-PyTorch.md)
            - [Make-Your-Own-Neural-Network](./blog/A-IT/50-应用方向/机器学习/书籍/Make-Your-Own-Neural-Network.md)
@@ -572,13 +568,15 @@
          - [deeplink](./blog/A-IT/50-应用方向/移动/deeplink.md)
        - **航海/**
          - [AIS](./blog/A-IT/50-应用方向/航海/AIS.md)
-         - [AR航行](./blog/A-IT/50-应用方向/航海/AR航行.md)
+         - [AR程序移植](./blog/A-IT/50-应用方向/航海/AR程序移植.txt)
+         - [古野-AR-Manual](./blog/A-IT/50-应用方向/航海/古野-AR-Manual.pdf)
          - [电子海图](./blog/A-IT/50-应用方向/航海/电子海图.md)
-         - [自主航行控制系统](./blog/A-IT/50-应用方向/航海/自主航行控制系统.md)
        - **音视频/**
          - [rtsp](./blog/A-IT/50-应用方向/音视频/rtsp.md)
+         - [图像](./blog/A-IT/50-应用方向/音视频/图像.md)
          - [攻克视频技术](./blog/A-IT/50-应用方向/音视频/攻克视频技术.md)
          - [语音合成](./blog/A-IT/50-应用方向/音视频/语音合成.md)
+         - [语音识别](./blog/A-IT/50-应用方向/音视频/语音识别.md)
          - [音频](./blog/A-IT/50-应用方向/音视频/音频.md)
 
 <!-- filetreestop -->

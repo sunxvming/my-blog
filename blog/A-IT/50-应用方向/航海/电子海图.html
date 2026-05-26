@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -179,16 +179,589 @@ jQuery(document).ready(function(){
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
+<li><a href="#在线电子海图">在线电子海图</a></li>
 <li><a href="#opencpn">OpenCPN</a></li>
 </ul>
 </div>
  <!--if(toc)-->
 
+<h2 id="在线电子海图">在线电子海图</h2>
+<ul>
+<li><a href="https://www.shipxy.com/">船讯网</a></li>
+</ul>
 <h2 id="opencpn">OpenCPN</h2>
 <ul>
 <li><a href="https://github.com/OpenCPN/OpenCPN">github repo</a></li>
 <li><a href="https://opencpn-manuals.github.io/main/opencpn-dev/windows.html">OpenCPN官方文档</a></li>
 </ul>
+<p>OpenCPN<br />
+gdal</p>
+<p>在本地环境中源码编译openCPN<br />
+什么平台<br />
+需要哪些工具<br />
+依赖什么库<br />
+查询OpenCPN中如何读取海图文件、形成相应的数据结构、进行绘制</p>
+<p>openCPN使用的UI框架是<code>wxWidgets</code></p>
+<p>其git工程里面的 <code>buildwin/winConfig.bat</code> 脚本写的不错，它可以用来下载编译依赖库，生成windows下的工程和编译工程等</p>
+<p>````batch<br />
+@echo off<br />
+setlocal enableextensions<br />
+goto :main<br />
+:: ***************************************************************************<br />
+:: <em><br />
+:: </em> Project: OpenCPN<br />
+:: * Purpose: Windows local build script<br />
+:: * Author: Dan Dickey<br />
+:: <em><br />
+:: </em>**************************************************************************<br />
+:: * Copyright (C) 2010-2023 by David S. Register <em><br />
+:: </em> <em><br />
+:: </em> This program is free software; you can redistribute it and/or modify <em><br />
+:: </em> it under the terms of the GNU General Public License as published by <em><br />
+:: </em> the Free Software Foundation; either version 2 of the License, or <em><br />
+:: </em> (at your option) any later version. <em><br />
+:: </em> <em><br />
+:: </em> This program is distributed in the hope that it will be useful, <em><br />
+:: </em> but WITHOUT ANY WARRANTY; without even the implied warranty of <em><br />
+:: </em> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the <em><br />
+:: </em> GNU General Public License for more details. <em><br />
+:: </em> <em><br />
+:: </em> You should have received a copy of the GNU General Public License <em><br />
+:: </em> along with this program; if not, write to the <em><br />
+:: </em> Free Software Foundation, Inc., <em><br />
+:: </em> 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA. <em><br />
+:: </em>**************************************************************************<br />
+:: <em><br />
+::<br />
+:: Revision 2&gt; 2023/08/19 Dan Dickey<br />
+:: - Add support for auto rebuilding. To rebuild just run winConfig.bat with<br />
+:: no arguments<br />
+::<br />
+:usage<br />
+@echo </em>***************************************************************************<br />
+@echo * This script can be used to create a local build environment for OpenCPN.<em><br />
+@echo </em> Here are some basic steps that are known to work. There are <em><br />
+@echo </em> probably other ways to do this, but this is the way that works for me. <em><br />
+@echo </em> <em><br />
+@echo </em> 1. Install Visual Studio 2022 Community Edition. <em><br />
+@echo </em> https://visualstudio.microsoft.com/downloads/ <em><br />
+@echo </em> 2. Install git for Windows <em><br />
+@echo </em> https://git-scm.com/download/win <em><br />
+@echo </em> 3. Open 'x86 Native Tools Command Prompt for Visual Studio 2022' <em><br />
+@echo </em> 4. Create folder where you want to work with OpenCPN sources <em><br />
+@echo </em> Example: mkdir \Users\myname\source\repos <em><br />
+@echo </em> cd \Users\myname\source\repos <em><br />
+@echo </em> 5. Clone Opencpn <em><br />
+@echo </em> Example: clone https://github.com/opencpn/opencpn <em><br />
+@echo </em> cd \Users\myname\source\repos\opencpn <em><br />
+@echo </em> git checkout master <em><br />
+@echo </em> 6. Set up local build environment by executing this script <em><br />
+@echo </em> Example: .\buildwin\winConfig.bat <em><br />
+@echo </em> 7. Open solution file <em><br />
+@echo </em> (type the solution file name at VS command prompt) <em><br />
+@echo </em> Example: .\build\opencpn.sln <em><br />
+@echo </em> 8. Start building and debugging in Visual Studio. <em><br />
+@echo </em> <em><br />
+@echo </em> Command line options: <em><br />
+@echo </em> --clean Remove build folder entirely before building <em><br />
+@echo </em> MUST HAVE INTERNET CONNECTION FOR clean OPTION! <em><br />
+@echo </em> --rebuild Rebuild all sources <em><br />
+@echo </em> <em><br />
+@echo </em> --release Build Release configuration <em><br />
+@echo </em> --relwithdebinfo Build RelWithDebInfo configuration <em><br />
+@echo </em> --minsizerel Build MinSizeRel configuration <em><br />
+@echo </em> --debug Build Debug configuration <em><br />
+@echo </em> <em><br />
+@echo </em> --all Build all 4 configurations (default) <em><br />
+@echo </em> <em><br />
+@echo </em> --help Print this message <em><br />
+@echo </em> <em><br />
+@echo </em>***************************************************************************<br />
+exit /b 1<br />
+:main<br />
+::-------------------------------------------------------------<br />
+:: Initialize local environment<br />
+::-------------------------------------------------------------<br />
+set "OD=%~dp0.."<br />
+@echo OD=%OD%<br />
+cd %OD%<br />
+set "OCPN_Dir=%CD%"<br />
+set "wxDIR=%OCPN_DIR%\cache\buildwxWidgets"<br />
+set "wxWidgets_ROOT_DIR=%wxDIR%"<br />
+set "wxWidgets_LIB_DIR=%wxDIR%\lib\vc_dll"<br />
+if [%VisualStudioVersion%]==[16.0] (^<br />
+set VCver=16<br />
+set "VCstr=Visual Studio 16"<br />
+)<br />
+if [%VisualStudioVersion%]==[17.0] (^<br />
+set VCver=17<br />
+set "VCstr=Visual Studio 17"<br />
+)<br />
+::-------------------------------------------------------------<br />
+:: Initialize local helper script that can reinitialize environment<br />
+::-------------------------------------------------------------<br />
+@echo set "wxDIR=%wxDIR%" &gt; "%OCPN_Dir%\buildwin\configdev.bat"<br />
+@echo set "wxWidgets_ROOT_DIR=%wxWidgets_ROOT_DIR%" &gt;&gt; "%OCPN_DIR%\buildwin\configdev.bat"<br />
+@echo set "wxWidgets_LIB_DIR=%wxWidgets_LIB_DIR%" &gt;&gt; "%OCPN_DIR%\buildwin\configdev.bat"<br />
+@echo set "VCver=%VCver%" &gt;&gt; "%OCPN_DIR%\buildwin\configdev.bat"<br />
+@echo set "VCstr=%VCstr%" &gt;&gt; "%OCPN_DIR%\buildwin\configdev.bat"<br />
+::-------------------------------------------------------------<br />
+:: Initialize local variables<br />
+::-------------------------------------------------------------<br />
+SET "CACHE_DIR=%OCPN_DIR%\cache"<br />
+SET "buildWINtmp=%CACHE_DIR%\buildwintemp"<br />
+set PSH=powershell<br />
+where pwsh &gt; NUL 2&gt; NUL &amp;&amp; set PSH=pwsh<br />
+where %PSH% &gt; NUL 2&gt; NUL || @echo PowerShell is not installed &amp;&amp; exit /b 1<br />
+where msbuild &amp;&amp; goto :vsok<br />
+@echo Please run this from "x86 Native Tools Command Prompt for VS2022<br />
+goto :usage<br />
+:vsok<br />
+set ocpn_clean=0<br />
+set ocpn_rebuild=0<br />
+:: By default build all 4 possible configurations the first time<br />
+:: Edit and set to 1 at least one configuration<br />
+set ocpn_all=1<br />
+set ocpn_minsizerel=0<br />
+set ocpn_release=0<br />
+set ocpn_relwithdebinfo=0<br />
+set ocpn_debug=0<br />
+:: If this is a rebuild then build existing configurations<br />
+if exist "%OCPN_DIR%\build\Debug" (<br />
+set ocpn_all=0<br />
+set ocpn_debug=1<br />
+)<br />
+if exist "%OCPN_DIR%\build\Release" (<br />
+set ocpn_all=0<br />
+set ocpn_release=1<br />
+)<br />
+if exist "%OCPN_DIR%\build\relwithdebinfo" (<br />
+set ocpn_all=0<br />
+set ocpn_relwithdebinfo=1<br />
+)<br />
+if exist "%OCPN_DIR%\build\minsizerel" (<br />
+set ocpn_all=0<br />
+set ocpn_minsizerel=1<br />
+)<br />
+:parse<br />
+if [%1]==[--clean] (shift /1 &amp;&amp; set ocpn_clean=1&amp;&amp; set ocpn_rebuild=0&amp;&amp; goto :parse)<br />
+if [%1]==[--rebuild] (shift /1 &amp;&amp; set ocpn_rebuild=1&amp;&amp; set ocpn_clean=0&amp;&amp; goto :parse)<br />
+if [%1]==[--help] (shift /1 &amp;&amp; goto :usage)<br />
+if [%1]==[--all] (shift /1 &amp;&amp; set ocpn_all=1&amp;&amp; goto :parse)<br />
+if [%1]==[--minsizerel] (shift /1 &amp;&amp; set ocpn_all=0&amp;&amp; set ocpn_minsizerel=1&amp;&amp; goto :parse)<br />
+if [%1]==[--release] (shift /1 &amp;&amp; set ocpn_all=0&amp;&amp; set ocpn_release=1&amp;&amp; goto :parse)<br />
+if [%1]==[--relwithdebinfo] (shift /1 &amp;&amp; set ocpn_all=0&amp;&amp; set ocpn_relwithdebinfo=1&amp;&amp; goto :parse)<br />
+if [%1]==[--debug] (shift /1 &amp;&amp; set ocpn_all=0&amp;&amp; set ocpn_debug=1&amp;&amp; goto :parse)<br />
+if [%1]==[] (goto :begin) else (^<br />
+@echo Unknown option: %1<br />
+shift /1<br />
+goto :usage<br />
+)<br />
+:begin<br />
+if [%ocpn_all%]==[1] (<br />
+set ocpn_minsizerel=1<br />
+set ocpn_release=1<br />
+set ocpn_relwithdebinfo=1<br />
+set ocpn_debug=1<br />
+)<br />
+::-------------------------------------------------------------<br />
+:: If this is the first build then initialize all build types<br />
+::-------------------------------------------------------------<br />
+if not exist "%OCPN_DIR%\build" (^<br />
+set ocpn_clean=1<br />
+)<br />
+::-------------------------------------------------------------<br />
+:: Save user configuration data and clean build folders but<br />
+:: do not delete downloaded tools. Use this option if no internet<br />
+:: connectivity available.<br />
+::-------------------------------------------------------------<br />
+if [%ocpn_rebuild%]==[1] (<br />
+@echo Beginning rebuild cleanout<br />
+set folder=Release<br />
+call :backup<br />
+set folder=RelWithDebInfo<br />
+call :backup<br />
+set folder=Debug<br />
+call :backup<br />
+set folder=MinSizeRel<br />
+call :backup<br />
+set folder=<br />
+@echo Backup complete<br />
+if exist "%OCPN_DIR%\build\Release" rmdir /s /q "%OCPN_DIR%\build\Release"<br />
+if exist "%OCPN_DIR%\build\Release" @echo Could not remove "%OCPN_DIR%\build\Release" folder<br />
+if exist "%OCPN_DIR%\build\RelWithDebInfo" rmdir /s /q "%OCPN_DIR%\build\RelWithDebInfo"<br />
+if exist "%OCPN_DIR%\build\RelWithDebInfo" @echo Could not remove "%OCPN_DIR%\build\RelWithDebInfo" folder<br />
+if exist "%OCPN_DIR%\build\Debug" rmdir /s /q "%OCPN_DIR%\build\Debug"<br />
+if exist "%OCPN_DIR%\build\Debug" @echo Could not remove "%OCPN_DIR%\build\Debug" folder<br />
+if exist "%OCPN_DIR%\build\MinSizeRel" rmdir /s /q "%OCPN_DIR%\build\MinSizeRel"<br />
+if exist "%OCPN_DIR%\build\MinSizeRel" @echo Could not remove "%OCPN_DIR%\build\MinSizeRel" folder<br />
+if exist "%OCPN_DIR%\build\CMakeFiles" rmdir /s /q "%OCPN_DIR%\build\CMakeFiles"<br />
+if exist "%OCPN_DIR%\build\CMakeFiles" @echo Could not remove "%OCPN_DIR%\build\CMakeFiles" folder<br />
+if exist "%OCPN_DIR%\build.vs" rmdir /s /q "%OCPN_DIR%\build.vs"<br />
+if exist "%OCPN_DIR%\build.vs" (<br />
+@echo Could not remove "%OCPN_DIR%\build.vs" folder<br />
+@echo Is Visual Studio IDE open? If so, please close it so we can try again.<br />
+pause<br />
+@echo Retrying...<br />
+rmdir /s /q "%OCPN_DIR%\build.vs"<br />
+if exist "%OCPN_DIR%\build.vs" (<br />
+@echo Could not remove "%OCPN_DIR%.vs". Continuing...<br />
+) else (<br />
+@echo Ok, removed "%OCPN_DIR%\build.vs"<br />
+)<br />
+)<br />
+@echo Finished rebuild cleanout<br />
+)<br />
+::-------------------------------------------------------------<br />
+:: Save user configuration data and wipe the build folder<br />
+::-------------------------------------------------------------<br />
+if [%ocpn_clean%]==[1] (<br />
+@echo [101;93mThe --clean option requires an internet connection.[0m<br />
+choice /C YN /T 10 /M "Remove entire build folder including downloaded tools? [yN]" /D N<br />
+if ERRORLEVEL==2 goto :usage<br />
+:clean<br />
+set folder=Release<br />
+call :backup<br />
+set folder=RelWithDebInfo<br />
+call :backup<br />
+set folder=Debug<br />
+call :backup<br />
+set folder=MinSizeRel<br />
+call :backup<br />
+set folder=<br />
+@echo Backup complete<br />
+if exist "%OCPN_DIR%\build" rmdir /s /q "%OCPN_DIR%\build"<br />
+if exist "%OCPN_DIR%\build" (<br />
+@echo Could not remove "%OCPN_DIR%\build" folder<br />
+@echo Is Visual Studio IDE open? If so, please close it so we can try again.<br />
+pause<br />
+@echo Retrying...<br />
+rmdir /s /q "%OCPN_DIR%\build"<br />
+)<br />
+if exist "%OCPN_DIR%\build" (<br />
+@echo Could not remove "%OCPN_DIR%\build". Continuing...<br />
+) else (<br />
+@echo Cleared %OCPN_DIR%\build OK.<br />
+)<br />
+if exist "%CACHE_DIR%" (rmdir /s /q "%CACHE_DIR%" &amp;&amp; @echo Cleared %CACHE_DIR%)<br />
+if exist "%buildWINtmp%" (rmdir /s /q "%buildWINtmp%" &amp;&amp; @echo Cleared %buildWINtmp%)<br />
+timeout /T 5<br />
+)<br />
+::-------------------------------------------------------------<br />
+:: Create needed folders<br />
+::-------------------------------------------------------------<br />
+if not exist "%OCPN_DIR%\build" (mkdir "%OCPN_DIR%\build")<br />
+if not exist "%CACHE_DIR%" (mkdir "%CACHE_DIR%")<br />
+if not exist "%CACHE_DIR%\buildwin" (mkdir "%CACHE_DIR%\buildwin")<br />
+if not exist "%buildWINtmp%" (mkdir "%buildWINtmp%")</p>
+<p>::-------------------------------------------------------------<br />
+:: Install nuget<br />
+::-------------------------------------------------------------<br />
+where /Q /R %buildWINtmp% nuget.exe &amp;&amp; goto :skipnuget<br />
+@echo Downloading nuget<br />
+set "URL=https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"<br />
+set "DEST=%buildWINtmp%\nuget.exe"<br />
+call :download<br />
+where /Q /R %buildWINtmp% nuget.exe &amp;&amp; goto :skipnuget<br />
+@echo Error: Could not download nuget.exe<br />
+goto :usage<br />
+:skipnuget</p>
+<p>::-------------------------------------------------------------<br />
+:: Download OpenCPN Core dependencies<br />
+::-------------------------------------------------------------<br />
+if exist "%buildWINtmp%\OCPNWindowsCoreBuildSupport.zip" (goto :skipbuildwin)<br />
+@echo Downloading Windows depencencies from OpenCPN repository<br />
+set "URL=https://github.com/OpenCPN/OCPNWindowsCoreBuildSupport/archive/refs/tags/v0.3.zip"<br />
+set "DEST=%buildWINtmp%\OCPNWindowsCoreBuildSupport.zip"<br />
+call :download</p>
+<p>@echo Exploding Windows dependencies<br />
+set "SOURCE=%DEST%"<br />
+set "DEST=%buildWINtmp%"<br />
+call :explode<br />
+if errorlevel 1 (@echo [101;93mNOT OK[0m) else (<br />
+xcopy /e /q /y "%buildWINtmp%\OCPNWindowsCoreBuildSupport-0.3\buildwin" "%CACHE_DIR%\buildwin"<br />
+if errorlevel 1 (@echo [101;93mNOT OK[0m) else (echo OK))<br />
+:skipbuildwin<br />
+::-------------------------------------------------------------<br />
+:: Download wxWidgets 3.2.2 sources<br />
+::-------------------------------------------------------------<br />
+if exist "%wxDIR%\build\msw\wx_vc%VCver%.sln" (goto :skipwxDL)<br />
+@echo Downloading wxWidgets sources<br />
+mkdir "%wxDIR%"<br />
+set "URL=https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.2.1/wxWidgets-3.2.2.1.zip"<br />
+set "DEST=%wxDIR%\wxWidgets-3.2.2.1.zip"<br />
+call :download<br />
+if errorlevel 1 (@echo [101;93mNOT OK[0m) else (echo OK)</p>
+<p>@echo exploding wxWidgets<br />
+set "SOURCE=%wxDIR%\wxWidgets-3.2.2.1.zip"<br />
+set "DEST=%wxDIR%"<br />
+call :explode<br />
+if errorlevel 1 (@echo [101;93mNOT OK[0m) else (echo OK)</p>
+<p>@echo Downloading Windows WebView2 kit<br />
+set "URL=https://www.nuget.org/api/v2/package/Microsoft.Web.WebView2"<br />
+set "DEST=%wxDIR%\webview2.zip"<br />
+call :download<br />
+if errorlevel 1 (@echo [101;93mNOT OK[0m) else (echo OK)</p>
+<p>@echo Exploding WebView2<br />
+set "SOURCE=%wxDIR%\webview2.zip"<br />
+set "DEST=%wxDIR%\build\3rdparty\webview2"<br />
+call :explode<br />
+if errorlevel 1 (@echo [101;93mNOT OK[0m) else (echo OK)</p>
+<p>::-------------------------------------------------------------<br />
+:: Build wxWidgets from sources<br />
+::-------------------------------------------------------------<br />
+@echo Building wxWidgets</p>
+<p>msbuild -noLogo -verbosity:minimal -maxCpuCount ^<br />
+-property:"Configuration=DLL Debug";Platform=Win32 ^<br />
+-property:wxVendor=14x;wxVersionString=32;wxToolkitDllNameSuffix=_vc14x ^<br />
+-logger:FileLogger,Microsoft.Build.Engine;logfile="%CACHE_DIR%\buildwin\wxWidgets\MSBuild_DEBUG_WIN32_Debug.log" ^<br />
+"%wxDIR%\build\msw\wx_vc%VCver%.sln"</p>
+<p>msbuild -noLogo -verbosity:minimal -maxCpuCount ^<br />
+-property:"Configuration=DLL Release";Platform=Win32 ^<br />
+-property:wxVendor=14x;wxVersionString=32;wxToolkitDllNameSuffix=_vc14x ^<br />
+-logger:FileLogger,Microsoft.Build.Engine;logfile="%CACHE_DIR%\buildwin\wxWidgets\MSBuild_RELEASE_WIN32_Debug.log" ^<br />
+"%wxDIR%\build\msw\wx_vc%VCver%.sln"</p>
+<p>:skipwxDL<br />
+if not exist "%CACHE_DIR%\buildwin\wxWidgets" (<br />
+mkdir "%CACHE_DIR%\buildwin\wxWidgets"<br />
+)<br />
+xcopy /e /q /y "%WXDIR%\lib\vc_dll" "%CACHE_DIR%\buildwin\wxWidgets"<br />
+if not exist "%CACHE_DIR%\buildwin\wxWidgets\locale" (<br />
+mkdir "%CACHE_DIR%\buildwin\wxWidgets\locale"<br />
+)<br />
+xcopy /e /q /y "%WXDIR%\locale" "%CACHE_DIR%\buildwin\wxWidgets\locale"<br />
+::-------------------------------------------------------------<br />
+:: Initialize folders needed to run OpenCPN<br />
+::-------------------------------------------------------------<br />
+@echo ocpn_relwithdebinfo=%ocpn_relwithdebinfo%<br />
+@echo ocpn_release=%ocpn_release%<br />
+@echo ocpn_debug=%ocpn_debug%<br />
+@echo ocpn_minsizerel=%ocpn_minsizerel%</p>
+<p>if [%ocpn_debug%]==[1] (^<br />
+if not exist "%OCPN_DIR%\build\Debug" (mkdir "%OCPN_DIR%\build\Debug")<br />
+if not exist "%OCPN_DIR%\build\Debug\plugins" (mkdir "%OCPN_DIR%\build\Debug\plugins")<br />
+)<br />
+if [%ocpn_release%]==[1] (^<br />
+if not exist "%OCPN_DIR%\build\Release" (mkdir "%OCPN_DIR%\build\Release")<br />
+if not exist "%OCPN_DIR%\build\Release\plugins" (mkdir "%OCPN_DIR%\build\Release\plugins")<br />
+)<br />
+if [%ocpn_relwithdebinfo%]==[1] (^<br />
+if not exist "%OCPN_DIR%\build\RelWithDebInfo" (mkdir "%OCPN_DIR%\build\RelWithDebInfo")<br />
+if not exist "%OCPN_DIR%\build\RelWithDebInfo\plugins" (mkdir "%OCPN_DIR%\build\RelWithDebInfo\plugins")<br />
+)<br />
+if [%ocpn_minsizerel%]==[1] (^<br />
+if not exist "%OCPN_DIR%\build\MinSizeRel" (mkdir "%OCPN_DIR%\build\MinSizeRel")<br />
+if not exist "%OCPN_DIR%\build\MinSizeRel\plugins" (mkdir "%OCPN_DIR%\build\MinSizeRel\plugins")<br />
+)<br />
+::-------------------------------------------------------------<br />
+:: Download and initialize build dependencies<br />
+::-------------------------------------------------------------<br />
+cd %OCPN_DIR%\build<br />
+where /Q xgettext.exe &amp;&amp; goto :skipgettext<br />
+%buildWINtmp%\nuget install Gettext.Tools<br />
+where /Q /R . xgettext.exe &amp;&amp; @echo Found Gettext.Tools &amp;&amp; goto :skipgettext<br />
+@echo Error: Could not install GetText tools.<br />
+goto :usage<br />
+:skipgettext<br />
+where /Q makensisw.exe &amp;&amp; goto :skipnsis<br />
+%buildWINtmp%\nuget install NSIS-Package<br />
+where /Q /R . makensisw.exe &amp;&amp; @echo Found NSIS-Package &amp;&amp; goto :skipnsis<br />
+@echo Error: Could not install NSIS installer.<br />
+goto :usage<br />
+:skipnsis<br />
+for /D %%D in (Gettext<em>) do (set "gettextpath=%%~fD")<br />
+for /D %%D in (NSIS-Package</em>) do (set "nsispath=%%~fD")<br />
+@echo gettext=%gettextpath%<br />
+@echo nsis=%nsispath%<br />
+cd %OCPN_DIR%<br />
+::-------------------------------------------------------------<br />
+:: Finalize local environment helper script<br />
+::-------------------------------------------------------------<br />
+@echo Finishing %OCPN_DIR%\buildwin\configdev.bat<br />
+if [%nsispath%]==[] (goto :addGettext)<br />
+set "_addpath=%nsispath%\NSIS;%nsispath%\NSIS\bin"<br />
+:addGettext<br />
+if [%gettext%]==[] (goto :addPath)<br />
+set "_addpath=%_addpath%;%gettextpath%\tools\bin"<br />
+:addPath<br />
+:if [%_addpath%]==[] (goto :skipAddPath)<br />
+@echo path^|find /i "%_addpath%" ^&gt;nul <sup>|</sup>| set "path=%path%;%_addpath%" &gt;&gt; "%OCPN_DIR%\buildwin\configdev.bat"<br />
+set <em>addpath=<br />
+:skipAddPath<br />
+endlocal<br />
+::-------------------------------------------------------------<br />
+:: Setup environment<br />
+::-------------------------------------------------------------<br />
+cd /D "%~dp0.."<br />
+@echo In folder %CD%<br />
+if exist .\buildwin\configdev.bat (call .\buildwin\configdev.bat) else (goto :hint)<br />
+:: @echo path=%path%<br />
+::-------------------------------------------------------------<br />
+:: Build Release and Debug executables<br />
+::-------------------------------------------------------------<br />
+pushd build<br />
+@echo In folder %CD%<br />
+if exist .\Debug (^<br />
+@echo Building Debug<br />
+set build_type=Debug<br />
+call :config_build<br />
+if errorlevel 1 goto :buildErr<br />
+call :restore<br />
+)<br />
+if exist .\RelWithDebInfo (^<br />
+@echo Building RelWithDebInfo<br />
+set build_type=RelWithDebInfo<br />
+call :config_build<br />
+if errorlevel 1 goto :buildErr<br />
+call :restore<br />
+)<br />
+if exist .\Release (^<br />
+@echo Building Release<br />
+set build_type=Release<br />
+call :config_build<br />
+if errorlevel 1 goto :buildErr<br />
+call :restore<br />
+)<br />
+if exist .\MinSizeRel (^<br />
+@echo Building MinSizeRel<br />
+set build_type=MinSizeRel<br />
+call :config_build<br />
+if errorlevel 1 goto :buildErr<br />
+call :restore<br />
+)<br />
+popd<br />
+set build_type=<br />
+goto :hint<br />
+::-------------------------------------------------------------<br />
+:: Offer some helpful hints<br />
+::-------------------------------------------------------------<br />
+:hint<br />
+@echo To build OpenCPN for debugging at command line do this in the folder<br />
+@echo %CD%<br />
+@echo.<br />
+@echo .\buildwin\configdev.bat<br />
+@echo cd build<br />
+@echo msbuild /noLogo /m -p:Configuration=Debug;Platform=Win32 opencpn.sln<br />
+@echo .\opencpn.sln<br />
+@echo.<br />
+@echo Now you are ready to start debugging<br />
+@echo.<br />
+@echo [101;93mIf you close this CMD prompt and open another be sure to run:[0m<br />
+@echo %CD%\buildwin\configdev.bat<br />
+@echo [101;93mfirst, before starting Visual Studio[0m.<br />
+goto :EOF<br />
+::-------------------------------------------------------------<br />
+:: Local subroutines<br />
+::-------------------------------------------------------------<br />
+::-------------------------------------------------------------<br />
+:: Config and build<br />
+::-------------------------------------------------------------<br />
+:config_build<br />
+cmake -A Win32 -G "%VCstr%" ^<br />
+-DCMAKE_GENERATOR_PLATFORM=Win32 ^<br />
+-DwxWidgets_LIB_DIR="%wxWidgets_LIB_DIR%" ^<br />
+-DwxWidgets_ROOT_DIR="%wxWidgets_ROOT_DIR%" ^<br />
+-DCMAKE_CXX_FLAGS="/MP /EHsc /DWIN32" ^<br />
+-DCMAKE_C_FLAGS="/MP" ^<br />
+-DOCPN_CI_BUILD:BOOL=OFF ^<br />
+-DOCPN_TARGET_TUPLE=msvc-wx32;10;x86_64 ^<br />
+-DOCPN_BUNDLE_WXDLLS:BOOL=ON ^<br />
+-DOCPN_BUILD_TEST:BOOL=OFF ^<br />
+-DOCPN_BUNDLE_GSHHS:BOOL=ON ^<br />
+-DOCPN_BUNDLE_TCDATA:BOOL=ON ^<br />
+-DOCPN_BUNDLE_DOCS:BOOL=ON ^<br />
+-DCMAKE_INSTALL_PREFIX="%CD%%build_type%" ^<br />
+..<br />
+if errorlevel 1 goto :cmakeErr<br />
+msbuild /noLogo /v:m /m -p:Configuration=%build_type%;Platform=Win32 ^<br />
+/l:FileLogger,Microsoft.Build.Engine;logfile=%CD%\MSBuild</em>%build_type%_WIN32_Debug.log ^<br />
+INSTALL.vcxproj<br />
+if errorlevel 1 goto :buildErr<br />
+@echo OpenCPN %build_type% build successful!<br />
+@echo.<br />
+exit /b 0<br />
+::-------------------------------------------------------------<br />
+:: CMake failed<br />
+::-------------------------------------------------------------<br />
+:cmakeErr<br />
+@echo CMake failed to configure OpenCPN build folder.<br />
+@echo Review the error messages and read the OpenCPN<br />
+@echo Developer Manual for help.<br />
+pause<br />
+exit /b 1<br />
+::-------------------------------------------------------------<br />
+:: Build failed<br />
+::-------------------------------------------------------------<br />
+:buildErr<br />
+@echo Build using msbuild failed.<br />
+@echo Review the error messages and read the OpenCPN<br />
+@echo Developer Manual for help.<br />
+pause<br />
+exit /b 1<br />
+::-------------------------------------------------------------<br />
+:: Backup user configuration<br />
+::-------------------------------------------------------------<br />
+:backup<br />
+@echo "Backing up %~dp0..\build%folder%"<br />
+if not exist "%~dp0..\build%folder%" goto :breturn<br />
+if not exist "%~dp0..\tmp" (mkdir "%~dp0..\tmp")<br />
+if not exist "%~dp0..\tmp%folder%" (mkdir "%~dp0..\tmp%folder%")<br />
+@echo backing up %folder%<br />
+xcopy /Q /Y "%~dp0..\build%folder%\opencpn.ini" "%~dp0..\tmp%folder%"<br />
+xcopy /Q /Y "%~dp0..\build%folder%*.log.log" "%~dp0..\tmp%folder%"<br />
+xcopy /Q /Y "%~dp0..\build%folder%*.log" "%~dp0..\tmp%folder%"<br />
+xcopy /Q /Y "%~dp0..\build%folder%*.dat" "%~dp0..\tmp%folder%"<br />
+xcopy /Q /Y "%~dp0..\build%folder%*.csv" "%~dp0..\tmp%folder%"<br />
+xcopy /Q /Y "%~dp0..\build%folder%\navobj.*" "%~dp0..\tmp%folder%"<br />
+xcopy /Q /Y "%~dp0..\build%folder%\navobj.xml.?" "%~dp0..\tmp%folder%"<br />
+@echo cmake -E copy_directory "%~dp0..\build%folder%\plugins" "%~dp0..\tmp%folder%"<br />
+cmake -E copy_directory "%~dp0..\build%folder%\plugins" "%~dp0..\tmp%folder%"<br />
+if not exist "%~dp0..\build%folder%\Charts" goto :breturn<br />
+@echo cmake -E copy_directory "%~dp0..\build%folder%\Charts" "%~dp0..\tmp%folder%"<br />
+cmake -E copy_directory "%~dp0..\build%folder%\Charts" "%~dp0..\tmp%folder%"<br />
+:breturn<br />
+@echo backup returning<br />
+exit /b 0<br />
+::-------------------------------------------------------------<br />
+:: Restore user configuration to build folder<br />
+::-------------------------------------------------------------<br />
+:restore<br />
+:: Called from withing build folder<br />
+if not exist "%~dp0..\tmp%build_type%" (<br />
+@echo INFO: Did not find "%~dp0..\tmp%build_type%"<br />
+exit /b 1<br />
+)<br />
+@echo Restoring %build_type% settings from "%~dp0..\tmp%build_type%"<br />
+cmake -E copy_directory "%~dp0..\tmp%build_type%" "%~dp0..\build%build_type%"<br />
+if errorlevel 1 (<br />
+@echo Restore %build_type% failed<br />
+pause<br />
+goto ::rreturn<br />
+) else (<br />
+@echo Restore successful<br />
+rmdir /s /q "%~dp0..\tmp%build_type%"<br />
+)<br />
+:rreturn<br />
+@echo restore returning<br />
+exit /b 0<br />
+::-------------------------------------------------------------<br />
+:: Download URL to a DEST folder<br />
+::-------------------------------------------------------------<br />
+:download<br />
+@echo URL=%URL%<br />
+@echo DEST=%DEST%<br />
+if exist %DEST% (<br />
+@echo Download %DEST% already exists.<br />
+exit /b 0<br />
+)<br />
+%PSH% -Command [System.Net.ServicePointManager]::MaxServicePointIdleTime = 5000000; ^<br />
+if ($PSVersionTable.PSVersion.Major -lt 6) { $ProgressPreference = 'SilentlyContinue' }; ^<br />
+Invoke-WebRequest "%URL%" -OutFile '%DEST%'; ^<br />
+exit <span class="math inline">$LASTEXITCODE if errorlevel 1 (@echo Download failed &amp;&amp; pause &amp;&amp; exit /b 1) else (@echo Download OK) exit /b 0 ::------------------------------------------------------------- :: Explode SOURCE zip file to DEST folder ::------------------------------------------------------------- :explode @echo SOURCE=%SOURCE% @echo DEST=%DEST% %PSH% -Command if ($</span>PSVersionTable.PSVersion.Major -lt 6) { $ProgressPreference = 'SilentlyContinue' }; ^<br />
+Expand-Archive -Force -Path '%SOURCE%' -DestinationPath '%DEST%'<br />
+if errorlevel 1 (@echo Explode failed &amp;&amp; pause &amp;&amp; exit /b 1) else (@echo Unzip OK)<br />
+exit /b 0<br />
+```</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

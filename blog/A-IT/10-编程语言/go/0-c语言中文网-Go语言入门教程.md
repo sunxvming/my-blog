@@ -877,6 +877,17 @@ func MyPrintf(args ...interface{}) {
 ### 5.10 Go语言defer（延迟执行语句）
 代码的延迟顺序与最终的执行顺序是反向的。
 延迟调用是在 defer 所在函数结束时进行，函数结束可以是正常返回时，也可以是发生宕机时。
+`defer` 语句会将其后面的函数调用推迟到包含它的函数即将返回之前执行。这非常有用于资源清理，如文件关闭、解锁互斥锁、记录时间等。
+```
+func a() {  
+    defer fmt.Println("world")  
+    fmt.Println("hello")  
+}  
+  
+func main() {  
+    a() // 输出: hello world  
+}
+```
 
 处理锁的情况
 ```
@@ -965,7 +976,7 @@ Go语言的设计者认为其他语言的异常机制已被过度使用，上层
 
 ### 5.13 Go语言宕机（panic）
 例子
-```
+```go
 func MustCompile(str string) *Regexp {
     regexp, error := Compile(str)
     if error != nil {
@@ -978,7 +989,7 @@ func MustCompile(str string) *Regexp {
 ### 5.14 Go语言宕机恢复（recover）
 Recover 是一个Go语言的内建函数，可以让进入宕机流程中的 goroutine 恢复过来，recover 仅在延迟函数 defer 中有效
 
-```
+```go
 // 保护方式允许一个函数
 func ProtectRun(entry func()) {
     // 延迟处理的函数
@@ -986,10 +997,10 @@ func ProtectRun(entry func()) {
         // 发生宕机时，获取panic传递的上下文并打印
         err := recover()
         switch err.(type) {
-        case runtime.Error: // 运行时错误
-            fmt.Println("runtime error:", err)
-        default: // 非运行时错误
-            fmt.Println("error:", err)
+	        case runtime.Error: // 运行时错误
+	            fmt.Println("runtime error:", err)
+	        default: // 非运行时错误
+	            fmt.Println("error:", err)
         }
     }()
     entry()

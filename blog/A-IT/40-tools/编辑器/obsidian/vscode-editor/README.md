@@ -39,55 +39,55 @@ You no longer have to open another editor just to view or edit a certain code fi
 
 ## How to support different code file
 The default support code file's extensions is `ts, js, py, css, c, cpp, go, rs, java, lua, php`. you can configure for which file extensions to support in the plugin's setting panel.
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231103094237.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231103094237.png)
 
 
 
 ## Supported Shortcuts
 Most of the shortcuts are consistent with VS Code. Here are some of the supported shortcuts:
 
-| Category      | Shortcut               | Action                 |
-|---------------|------------------------|-------------------------|
-| Ctrl          | `ctrl + c`             | Copy                   |
-|               | `ctrl + x`             | Cut                    |
-|               | `ctrl + v`             | Paste                  |
-|               | `ctrl + s`             | Save                   |
-|               | `ctrl + a`             | Select All             |
-|               | `ctrl + f`             | Find                   |
-|               | `ctrl + h`             | Replace                |
-|               | `ctrl + z`             | Undo                   |
-|               | `ctrl + y`             | Redo                   |
-|               | `ctrl + /`             | Toggle Comment         |
-|               | `ctrl + d`             | Duplicate Line         |
-|               | `ctrl + [`             | Decrease Indent        |
-|               | `ctrl + ]`             | Increase Indent        |
-|               | `ctrl + ↑`       | Move Line Up           |
-|               | `ctrl + ↓`     | Move Line Down         |
-|               | `ctrl + ←`     | Move Cursor Left by Word|
-|               | `ctrl + →`    | Move Cursor Right by Word|
-|               | `ctrl + Backspace`     | Delete Word Left       |
-|               | `ctrl + Delete`        | Delete Word Right      |
-| Ctrl + Shift  | `ctrl + shift + z`     | Redo                   |
-|               | `ctrl + shift + k`     | Delete Current Line    |
-|               | `ctrl + shift + [`     | Fold Code Block        |
-|               | `ctrl + shift + ]`     | Unfold Code Block      |
-|               | `ctrl + shift + enter` | Insert Line Above      |
-|               | `ctrl + enter`         | Insert Line Below      |
-| Alt           | `alt + z`              | Toggle Word Wrap       |
+| Category     | Shortcut               | Action                    |
+| ------------ | ---------------------- | ------------------------- |
+| Ctrl         | `ctrl + c`             | Copy                      |
+|              | `ctrl + x`             | Cut                       |
+|              | `ctrl + v`             | Paste                     |
+|              | `ctrl + s`             | Save                      |
+|              | `ctrl + a`             | Select All                |
+|              | `ctrl + f`             | Find                      |
+|              | `ctrl + h`             | Replace                   |
+|              | `ctrl + z`             | Undo                      |
+|              | `ctrl + y`             | Redo                      |
+|              | `ctrl + /`             | Toggle Comment            |
+|              | `ctrl + d`             | Duplicate Line            |
+|              | `ctrl + [`             | Decrease Indent           |
+|              | `ctrl + ]`             | Increase Indent           |
+|              | `ctrl + ↑`             | Move Line Up              |
+|              | `ctrl + ↓`             | Move Line Down            |
+|              | `ctrl + ←`             | Move Cursor Left by Word  |
+|              | `ctrl + →`             | Move Cursor Right by Word |
+|              | `ctrl + Backspace`     | Delete Word Left          |
+|              | `ctrl + Delete`        | Delete Word Right         |
+| Ctrl + Shift | `ctrl + shift + z`     | Redo                      |
+|              | `ctrl + shift + k`     | Delete Current Line       |
+|              | `ctrl + shift + [`     | Fold Code Block           |
+|              | `ctrl + shift + ]`     | Unfold Code Block         |
+|              | `ctrl + shift + enter` | Insert Line Above         |
+|              | `ctrl + enter`         | Insert Line Below         |
+| Alt          | `alt + z`              | Toggle Word Wrap          |
 
 
 
 ## Use screenshot
 
 - **Light color theme**
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230921184929.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230921184929.png)
 
 - **Dark color theme**
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230921184840.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230921184840.png)
 
 
 - **Create code file**
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230921185107.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230921185107.png)
 
 
 ## Supported Code Block Editing
@@ -96,15 +96,15 @@ Most of the shortcuts are consistent with VS Code. Here are some of the supporte
  
  This will open a new modal with a Monaco Editor instance in which you can edit the code block, which will automatically sync back to the block in your document when you close the modal.
  
-![GIF 2023-11-3 10-25-01.gif](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/GIF%202023-11-3%2010-25-01.gif)
+![GIF 2023-11-3 10-25-01.gif](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/GIF%202023-11-3%2010-25-01.gif)
 
 
 ## Supported Internal links quick preview
 You can add a internal link to a code file in obsidian, and hovering the cursor over the link for **quick preview**.
-![GIF 2023-11-2 19-48-55.gif](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/GIF%202023-11-2%2019-48-55.gif)
+![GIF 2023-11-2 19-48-55.gif](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/GIF%202023-11-2%2019-48-55.gif)
 
 Code file will not appear  in file prompt list when intert Internal links. You need open `Detect all file extensions` setting.
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231103095138.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231103095138.png)
 
 ## Installation
 

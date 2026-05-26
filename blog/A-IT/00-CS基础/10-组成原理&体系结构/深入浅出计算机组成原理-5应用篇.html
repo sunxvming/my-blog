@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -217,11 +217,11 @@ jQuery(document).ready(function(){
 <h3 id="dmp数据管理平台">DMP：数据管理平台</h3>
 <p>DMP 系统的全称叫作<strong>数据管理平台（Data Management Platform）</strong>，目前广泛应用在互联网的广告定向（Ad Targeting）、个性化推荐（Recommendation）这些领域。</p>
 <p>通常来说，DMP 系统会通过处理海量的互联网访问数据以及机器学习算法，给一个用户标注上各种各样的标签。然后，在我们做个性化推荐和广告投放的时候，再利用这些这些标签，去做实际的广告排序、推荐等工作。无论是 Google 的搜索广告、淘宝里千人千面的商品信息，还是抖音里面的信息流推荐，背后都会有一个 DMP 系统。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/10b6f009-2d75-4c99-99de-43e48861066b.jpg" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/10b6f009-2d75-4c99-99de-43e48861066b.jpg" /></p>
 <p>那么，一个 DMP 系统应该怎么搭建呢？对于外部使用 DMP 的系统或者用户来说，可以简单地把 DMP 看成是一个键 - 值对（Key-Value）数据库。我们的广告系统或者推荐系统，可以通过一个客户端输入用户的唯一标识（ID），然后拿到这个用户的各种信息。</p>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/45653b6c-b244-45db-92ff-17a9e801225c.jpg" /></p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/45653b6c-b244-45db-92ff-17a9e801225c.jpg" /></p>
 <h3 id="mongodb-真的万能吗">MongoDB 真的万能吗？</h3>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/d89348aa-fe7c-422e-8b96-a4374dae6c27.jpg" /></p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/d89348aa-fe7c-422e-8b96-a4374dae6c27.jpg" /></p>
 <h3 id="总结延伸">总结延伸</h3>
 <p>好了，相信到这里，你应该对怎么从最基本的原理出发，来选择技术栈有些感觉了。你应该更多地从底层的存储系统的特性和原理去考虑问题。一旦能够从这个角度去考虑问题，那么你对各类新的技术项目和产品的公关稿，自然会有一定的免疫力了，而不会轻易根据商业公司的宣传来做技术选型了。</p>
 <p>因为<strong>低延时、高并发、写少读多</strong>的 DMP 的 KV 数据库，最适合用 SSD 硬盘，并且采用专门的 KV 数据库是最合适的。我们可以选择之前文章里提过的 AeroSpike，也可以用开源的 Cassandra 来提供服务。</p>
@@ -235,13 +235,13 @@ jQuery(document).ready(function(){
 <h3 id="cassandra顺序写和随机读">Cassandra：顺序写和随机读</h3>
 <h4 id="cassandra-的写操作">1.Cassandra 的写操作</h4>
 <p>Cassandra 只有顺序写入，没有随机写入<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/a18f2eef-838f-4f3f-aebc-80d44d57e4a3.jpg" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/a18f2eef-838f-4f3f-aebc-80d44d57e4a3.jpg" /><br />
 Cassandra 解决随机写入数据的解决方案，简单来说，就叫作“不随机写，只顺序写”。对于 Cassandra 数据库的写操作，通常包含两个动作。第一个是往磁盘上写入一条提交日志（Commit Log）。另一个操作，则是直接在内存的数据结构上去更新数据。后面这个往内存的数据结构里面的数据更新，只有在提交日志写成功之后才会进行。每台机器上，都有一个可靠的硬盘可以让我们去写入提交日志。写入提交日志都是顺序写（Sequential Write），而不是随机写（Random Write），这使得我们最大化了写入的吞吐量。</p>
 <p>内存的空间比较有限，一旦内存里面的数据量或者条目超过一定的限额，Cassandra 就会把内存里面的数据结构 dump 到硬盘上。这个 Dump 的操作，也是顺序写而不是随机写，所以性能也不会是一个问题。除了 Dump 的数据结构文件，Cassandra 还会根据 row key 来生成一个索引文件，方便后续基于索引来进行快速查询。</p>
 <p>随着硬盘上的 Dump 出来的文件越来越多，Cassandra 会在后台进行文件的对比合并。在很多别的 KV 数据库系统里面，也有类似这种的合并动作，比如 AeroSpike 或者 Google 的 BigTable。这些操作我们一般称之为 Compaction。合并动作同样是顺序读取多个文件，在内存里面合并完成，再 Dump 出来一个新的文件。整个操作过程中，在硬盘层面仍然是顺序读写。</p>
 <h4 id="cassandra-的读操作">2.Cassandra 的读操作</h4>
 <p>Cassandra 的读请求，会通过缓存、BloomFilter 进行两道过滤，尽可能避免数据请求命中硬盘<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/abbfa8e4-db4d-414d-ae9c-299102580591.jpg" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/abbfa8e4-db4d-414d-ae9c-299102580591.jpg" /></p>
 <p>当我们要从 Cassandra 读数据的时候，会从内存里面找数据，再从硬盘读数据，然后把两部分的数据合并成最终结果。这些硬盘上的文件，在内存里面会有对应的 Cache，只有在 Cache 里面找不到，我们才会去请求硬盘里面的数据。</p>
 <p>如果不得不访问硬盘，因为硬盘里面可能 Dump 了很多个不同时间点的内存数据的快照。所以，找数据的时候，我们也是按照时间从新的往旧的里面找。</p>
 <p>这也就带来另外一个问题，我们可能要查询很多个 Dump 文件，才能找到我们想要的数据。所以，Cassandra 在这一点上又做了一个优化。那就是，它会为每一个 Dump 的文件里面所有 Row Key 生成一个 BloomFilter，然后把这个 BloomFilter 放在内存里面。这样，如果想要查询的 Row Key 在数据文件里面不存在，那么 99% 以上的情况下，它会被 BloomFilter 过滤掉，而不需要访问硬盘。</p>

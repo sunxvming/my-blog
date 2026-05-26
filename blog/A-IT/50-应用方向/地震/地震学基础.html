@@ -1,0 +1,716 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/地震/地震学基础</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#震源">震源</a>
+<ul>
+<li><a href="#地震三要素">地震三要素</a></li>
+<li><a href="#地震目录">地震目录</a></li>
+</ul></li>
+<li><a href="#地震波">地震波</a></li>
+<li><a href="#地震震相">地震震相</a>
+<ul>
+<li><a href="#地球圈层结构">地球圈层结构</a></li>
+<li><a href="#震相">震相</a></li>
+<li><a href="#走时">走时</a></li>
+</ul></li>
+<li><a href="#地震图">地震图</a></li>
+<li><a href="#地震仪">地震仪</a></li>
+<li><a href="#地震台站台阵通道">地震台站、台阵、通道</a></li>
+<li><a href="#波形数据格式">波形数据格式</a>
+<ul>
+<li><a href="#sac">SAC</a></li>
+<li><a href="#miniseed">miniSEED</a></li>
+<li><a href="#格式转换">格式转换</a></li>
+<li><a href="#miniseed-.mseed">1. MiniSEED (.mseed)</a></li>
+<li><a href="#sac格式-.sac">2. SAC格式 (.SAC)</a></li>
+<li><a href="#css">3. CSS</a></li>
+<li><a href="#开源库">开源库</a></li>
+</ul></li>
+<li><a href="#震级">震级</a>
+<ul>
+<li><a href="#震级种类">震级种类</a></li>
+<li><a href="#震级计算">震级计算</a></li>
+</ul></li>
+<li><a href="#频谱分析spectral-analysis">频谱分析（Spectral Analysis）</a></li>
+<li><a href="#极化分析polarization-analysis">极化分析（Polarization Analysis）</a></li>
+<li><a href="#学习资料">学习资料</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="简介">简介</h2>
+<p><strong>地球科学</strong>的研究对象主要包括： 地球的固体部分（固体地球）、地球表面上下的水（水圈）、生态系统（生物圈）、大气层（大气圈） 以及地球至太阳的行星际空间。<br />
+使用物理方法研究地球的学科称为<strong>地球物理学</strong>。<br />
+而固体地球物理学则是其中研究固体地球的分支学科。<strong>固体地球物理学</strong>的研究方法有很多， 如遥感、GPS、重力、电磁、地震波、地热等，不同方法代表了不同专业方向。<br />
+因此，从整个地球科学研究的角度来看，<strong>地震学</strong>只是一个 很窄的专业方向。</p>
+<p><strong>地震学</strong>(Seismology )是研究地球机械振动的科学。定量地震学基于记录着这些振动的观测资料，即地震图。 这些振动可能是由人工爆炸等人为因素引起的，也可能是地震和火山喷发等自然活动造成的。</p>
+<p>地震学是研究地球机械振动的科学。<br />
+- 产生这些振动的源可能是地震、火山喷发、海浪、台风或飓风、 人工爆炸、交通活动等，一般称为<a href="https://seismo-learn.org/seismology101/seismology/seismic-source/"><strong>震源</strong></a>（seismic source）， 也常被称为<strong>地震事件</strong>（seismic event）或<strong>事件</strong>（event）。<br />
+- 震源激发的地球机械振动以<a href="https://seismo-learn.org/seismology101/seismology/seismic-wave/"><strong>地震波</strong></a>（seismic wave）的形式 在地球内部传播，并被布设在地表或地下的<a href="https://seismo-learn.org/seismology101/seismology/seismograph/"><strong>地震仪</strong></a>（seismograph）记录下来。<br />
+- 地震仪加上一些辅助设备则构成了<a href="https://seismo-learn.org/seismology101/seismology/station/"><strong>地震台站</strong></a>（seismic station）或<strong>台站</strong>（station）。<br />
+- 地震仪记录的地球机械振动称为<a href="https://seismo-learn.org/seismology101/seismology/seismogram/"><strong>地震图</strong></a>（seismogram）。<br />
+- 地震图包含了具有不同特征的<a href="https://seismo-learn.org/seismology101/seismology/seismic-phase/"><strong>地震震相</strong></a>，是地震学的主要研究工具。</p>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250902143004.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>1994 年 1 月 17 日，美国加利福尼亚州 Northridge 附近发生了 <a href="https://earthquake.usgs.gov/earthquakes/eventpage/ci3144585/">6.7 级地震</a>， 其释放出的能量相当于将近 20 亿千克高爆炸药。该地震产生的地震波经过地球内部传播后， 被世界各地的地震台站记录到。上图左侧展示了不同地震波在地下的传播路径，右侧展示了地震波到达 地表后，全球台站记录到的地表振动，即地震图。</p>
+<p>地震图携带了震源和地球内部结构的信息。地震学家正是通过分析地震图来研究产生这些振动的 震源以及地球内部结构。地球平均半径约为 6371 公里，现在很难直接观测地球内部， 历史上最深的钻探深度也不过只有十多公里。因此，地震学是目前人类探测地球深部结构的主要手段， 许多重大的地球内部发现都是地震学首先研究报道的。</p>
+<p>地震学研究的基本原理包括震源和地震波理论两个部分。<br />
+前者主要关于震源和地震波的激发， 后者主要关于地震波如何在地下传播。<br />
+地震学理论背后的大部分物理知识不过是牛顿第二定律 F=ma， 当然实际问题的复杂性促使了地震学家利用复杂的数学技巧以及高性能计算机。<br />
+一般而言，地震学 <strong>是观测驱动的学科</strong>，仪器和数据可用性的改进常常会导致地震学理论和地球内部结构研究的重大突破。</p>
+<h2 id="震源">震源</h2>
+<h3 id="地震三要素">地震三要素</h3>
+<p>对于地震，人们最关心的基本参数有三个（俗称地震三要素），即时间、地点、强度（简称时空强）：<br />
+- 时间：地震发震时刻（origin time）<br />
+- 地点：地震震源位置（hypocenter），即地震发生位置的经纬度和深度。震源位置（hypocenter） 向上垂直投影到地面的位置称为震中（epicenter）<br />
+- 强度：地震的大小，常用震级（magnitude）度量。震级增加一级，地震释放的能量增加 32 倍。</p>
+<ul>
+<li>空间上看，地震大部分发生在不同板块的边界处。板块内部也有一些地震发生。</li>
+<li>深度方向上看，地震主要发生在脆性地壳中。在 300 公里以上，地震数目整体上随着深度增加而减少。 300 公里以下，地震数目略有增加。最大的地震深度约为 700 多公里。</li>
+<li>震级越大的地震，数目越少</li>
+</ul>
+<h3 id="地震目录">地震目录</h3>
+<p>将大量地震事件的参数进行汇总整理得到的目录资料，称之为地震目录。地震目录对于研究 地震活动性、地震灾害评估等具有重要的意义。<br />
+地震目录至少应包含地震的时空强信息，即：<br />
+- 发震时刻<br />
+- 震中经纬度<br />
+- 地震深度<br />
+- 地震震级<br />
+除此之外，有些地震目录还提供了地震的破裂时间和震源机制等其他参数。</p>
+<p>根据所包含地震的区域范围，地震目录可以分成两类：全球地震目录和区域地震目录。<br />
+- <strong>全球地震目录</strong>包含了全球范围内的地震，但通常只包含比较大的地震，小地震多有遗漏；<br />
+- <strong>区域地震目录</strong>则只关注某个特定区域内的地震，通常包含更多的小地震。</p>
+<p>常见的全球地震目录包括：</p>
+<ul>
+<li><p><a href="http://www.isc.ac.uk/iscbulletin/">International Seismological Center 地震目录</a><br />
+ISC 地震目录是全球地震的最终版本，涵盖了 1900 年至今的地震信息。所有地震信息通过程序自动确定，并由 ISC 的分析人员对其 进行人工检查和重定位。经过人工审核的 ISC 地震目录通常有 24 个月的延迟。</p></li>
+<li><p><a href="https://earthquake.usgs.gov/data/comcat/">ANSS ComCat 地震目录</a><br />
+ANSS Comprehensive Earthquake Catalog (ComCat) 是 ANSS (Advanced National Seismic System) 制作的地震目录。该目录专注于提供全球 5.0 级以上地震事件的权威、近实时信息。 地震位置和震级的初始报告通常可在地震发生后 10 到 30 分钟内获得，并在几天、几周和 几个月后进一步修订。</p></li>
+</ul>
+<p>区域地震目录有很多，通常由各个国家或区域的地震相关机构维护，比如：<br />
+- 中国: <a href="https://data.earthquake.cn/datashare/report.shtml?PAGEID=earthquake_zhengshi">中国台网正式地震目录</a></p>
+<h2 id="地震波">地震波</h2>
+<p><strong>震源</strong>激发的机械振动以<strong>地震波</strong>的形式在地球内部传播。<br />
+地震波分为<strong>体波</strong>（body wave） 和<strong>面波</strong>（surface wave）两种类型。体波是指在地球内部传播的波，而面波是指在地球表面 附近传播的波。</p>
+<p>体波分为 P 波（P-wave）和 S 波（S-wave）两种。<br />
+从传播速度的角度看，P 波比 S 波传播速度快。因而 P 波总是最先到达观测者所在的位置， S 波则在 P 波后到达。因而，P 波和 S 波也分别被称为 <strong>p</strong>rimary wave 和 <strong>s</strong>econdary wave。</p>
+<p>从物理属性上来说，P 波是一种纵波（longitudinal wave），P 波在介质中传播时，介质的 运动方向与波传播的方向相同或相反，介质交替压缩和膨胀导致介质的体积发生变化（如下图所示）， 因而 P 波也称为压缩波（com<strong>p</strong>ressional wave）。<br />
+S 波是一种横波（transverse wave）， S 波在介质中传播时，介质的运动方向与波传播的方向垂直，会造成介质的剪切变形，但 不改变介质的体积（如下图示），因而 S 波也称为剪切波（<strong>s</strong>hear wave）。<br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250902144830.png" alt="image.png" /></p>
+<p>面波<br />
+沿着地球表面附近传播的面波也有两种，即瑞利波（Rayleigh wave）和勒夫波（Love wave）。</p>
+<h2 id="地震震相">地震震相</h2>
+<h3 id="地球圈层结构">地球圈层结构</h3>
+<p>在介绍地震震相之间，有必要先介绍地球的分层结构。</p>
+<p>固体地球的半径约为 6371 公里，具有明显的圈层结构。地球从外到内可以分为如下几个圈层：</p>
+<ul>
+<li>地壳（crust）：地球的最表层，大陆地壳的平均厚度为 30-50 km，大洋地壳的平均厚度约为 6 km</li>
+<li>地幔（mantle）：地壳以下的固态岩石层，最大深度为 2891 km</li>
+<li>外核（outer core）：液态铁合金层，深度范围为 2891 到 5150 km</li>
+<li>内核（inner core）：固态铁合金层，半径约 1221 km</li>
+</ul>
+<p>各个圈层之间的分界面为：<br />
+- 地壳与地幔的界面：莫霍洛维奇间断面（<strong>Moho</strong>rovičić discontinuity），或简称莫霍面（Moho discontinuity）<br />
+- 地幔和外核的界面：核幔边界（<strong>c</strong>ore-<strong>m</strong>antle <strong>b</strong>oundary，简写 CMB）<br />
+- 外核与内核的界面：内核边界（<strong>i</strong>nner-<strong>c</strong>ore <strong>b</strong>oundary，简写 ICB）</p>
+<h3 id="震相">震相</h3>
+<p>地震体波是在地球内部传播的机械波。<br />
+与光类似，地震波在遇到介质界面时也会出现反射、 折射和衍射等现象。<br />
+与光不同的是，地震波既有横波（S 波）又有纵波（P 波）， 地震波在介质界面发生反射或折射时还会发生波的转换，即横波可以转换为纵波，纵波也 可以转换为横波。<br />
+地震波在地球内部传播时，会遇到地球内部的多个界面，并在界面处 发生反射、折射以及横波/纵波的互相转换。<br />
+因而，震源激发的地震波在地球内部传播时 会有<strong>很多可能的传播路径</strong>，沿着不同路径传播的地震波<strong>走时</strong>也不同，<strong>在观测记录上表现为 不同特征的信号</strong>，称之为<strong>地震震相</strong>（seismic phase）。</p>
+<p>地震波在地球内部传播时会穿过不同的地球内部结构，相应的地震波射线路径和走时也会不同， 在观测记录上也显示出不同的波形特征，称之为<strong>地震震相</strong>（seismic phase）。<br />
+震相的特征包括到时、波形、振幅、周期及质点运动方式等，这些特征受震源机制、传播介质和接收仪器的影响。</p>
+<p>为了区分不同的地震震相，地震学领域制定了一套标准地震震相命名规则。每条射线路径 都可以对应一个震相名；同样的，每个震相名都可以对应特定的射线路径。</p>
+<p>在标准地震震相命名规则中，规定了用以下简写符号分别表示在地壳、地幔、外核以及内核中 传播的 P 波和 S 波：</p>
+<ul>
+<li><strong>P</strong>：从震源出发向下在地壳和地幔中传播的 P 波</li>
+<li><strong>p</strong>：从震源出发向上在地壳和地幔中传播的 P 波</li>
+<li><strong>K</strong>：外核中传播的 P 波</li>
+<li><strong>I</strong>：内核中传播的 P 波</li>
+<li><strong>S</strong>：地壳和地幔中传播的 S 波</li>
+<li><strong>J</strong>：内核中传播的 S 波</li>
+<li><strong>c</strong>：核幔边界处的反射波</li>
+<li><strong>i</strong>：内核边界处的反射波</li>
+</ul>
+<p>地震波从震源出发，穿过地球内部，并被位于地表的地震仪器记录到。地球内部主要分界面 将地震波走过的射线分割成多个小段，将射线路径里每段对应的简写符号拼接起来， 即得到了射线对应的<strong>震相名</strong>。以下图中的几个地震震相为例：</p>
+<ul>
+<li><p>PcP 震相表示震源激发的 P 波从震源向下出发在地壳/地幔中传播（<strong>P</strong>）， 并在核幔边界处反射（<strong>c</strong>），反射 P 波在地幔中向上传播至台站（<strong>P</strong>）</p></li>
+<li><p>SKS 震相表示震源激发的 S 波从震源向下出发在地壳/地幔中传播（<strong>S</strong>）， 在核幔边界处转换为 P 波并在外核中传播（<strong>K</strong>），然后再次在核幔边界处转换成 S 波并在地幔中传播（<strong>S</strong>），最终传播回台站</p></li>
+</ul>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250902150459.png" alt="image.png" /><br />
+全球震相的射线路径及其震相名。实线表示 P 波路径，摆动线表示 S 波路径。</p>
+<h3 id="走时">走时</h3>
+<p><strong>走时</strong>是指地震波从震源传播到观测点所需的时间。不同震相的走时差异由传播路径和介质性质决定，是地震学研究的核心数据之一。</p>
+<p>走时的关键特性：<br />
+- <strong>依赖因素</strong>：波速、传播路径（震中距、震源深度）、介质分层结构（如地壳、地幔、地核）。<br />
+- <strong>走时表与走时曲线</strong>：<br />
+- <strong>走时表</strong>：记录不同震中距、震源深度下各震相的走时数据，是分析地震图和识别震相的基础工具。<br />
+- <strong>走时曲线</strong>：描述走时与震中距的关系，P波和S波的曲线斜率差异反映波速差异。</p>
+<p>震源定位<br />
+- <strong>方法</strong>：通过多台站记录的P波和S波到时差，结合走时曲线反推震中距，利用几何交汇法确定震源位置（经度、纬度、深度）。<br />
+- <strong>精度</strong>：现代技术（如神经网络）可实现秒级预警，如日本气象厅的紧急地震速报系统。</p>
+<h2 id="地震图">地震图</h2>
+<p>地震图（seismogram）是指地震仪记录到的带有计时信息的地面质点运动（位移、速度、加速度、转动等）， 也称为地震波形（seismic waveform），其本质是时间序列。一般有三个正交分量， 如南北、东西和垂直分量。</p>
+<p>地震图 U(t) 由三部分的卷积组成，即震源项 S(t)、 结构项 G(t)、仪器项 I(t)： <code>U(t)=S(t) ∗ G(t) ∗ I(t)</code></p>
+<p>地震图包含了震源、结构以及仪器的信息。地震学科研工作者正是通过解读地震图， 得到相关信息的。一般而言，仪器项（即仪器响应）已知，所以地震图通常用于反演震源和 结构信息。其中，结构项一般称为格林函数，只与地球内部结构有关。</p>
+<p>地震图与元数据（metadata）共同构成了完备的地震学观测数据。<br />
+元数据包含与地震图相关的重要信息，如<strong>台站位置</strong>、<strong>仪器响应</strong>等。<br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250902152009.png" alt="image.png" /></p>
+<h2 id="地震仪">地震仪</h2>
+<p>地震仪（seismograph）是检测和记录地面质点运动（位移、速度、加速度、转动等）的仪器， 主要由地震计（seismometer）和数据记录系统组成。其中，地震计用于直接拾取地面运动并将其转换 为符合数据记录系统需要的能量形式，而数据记录系统用于记录地面运动。<br />
+如以下卡通图所示，固定在地表的框架上挂有弹簧，并将重物悬挂在弹簧上，可以形象表示<strong>地震计</strong>； 固定在框架上的旋转的鼓形象地代表了<strong>数据记录系统</strong>。当地球表面振动时，框架、弹簧、鼓随之移动， 而重物悬浮不动。若在重物上固定一支笔，则地表和重物之间的相对运动就会被笔在旋转的鼓面上描绘出来， 鼓面记录到的运动轨迹代表了地面质点运动，即地震图（seismogram）。可以看出，地震仪的基本原理 是惯性定律。</p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250902153443.png" alt="image.png" /><br />
+地震学研究中使用的地震仪对地面运动高度敏感，在非常安静的地区，甚至可以检测到 1 纳米的位移， 几乎与原子间距一样小。大地震（如 2004 年印度尼西亚的苏门答腊地震）产生的地震波可以被全球范围 的地震仪记录到，振幅高达到几厘米。</p>
+<h2 id="地震台站台阵通道">地震台站、台阵、通道</h2>
+<p>地震学工作者在全球范围布设了许多地震仪，有的布设在地表，有的布设在地下。 有的地震仪配备了充电设备（如太阳能面板）、网络通讯设备，以便长期稳定地运行，并实时传输数据。</p>
+<p>地震发生后，其激发的地震波会在地球内部传播。地震波传播至地震仪位置时，地震仪会随即将其记录下来， 并将其转换为数字记录，存储起来。配有蜂窝电话、宽带网络或卫星通信系统的台站，还可以将数据实时 传输到<strong>数据处理中心</strong>。最后，科研人员和大众可以利用互联网在数据中心下载数据，开展研究工作。</p>
+<p>台站命名ID：NET.STA.LOC.CHN<br />
+这是一个标准的、全球通用的地震台站唯一标识符，用于精确指定<strong>哪一个</strong>台站的<strong>哪一个</strong>传感器记录的数据。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">层级</th>
+<th style="text-align: left;">英文</th>
+<th style="text-align: left;">中文</th>
+<th style="text-align: left;">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>NET</strong></td>
+<td style="text-align: left;"><strong>Network</strong></td>
+<td style="text-align: left;"><strong>网络</strong></td>
+<td style="text-align: left;">负责管理和维护一组台站的<strong>机构或项目</strong>。不同机构有自己唯一的网络代码。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>STA</strong></td>
+<td style="text-align: left;"><strong>Station</strong></td>
+<td style="text-align: left;"><strong>台站</strong></td>
+<td style="text-align: left;">在一个具体地理位置安装的一套地震 recording 设备的总称。它是<strong>网络</strong>下的一个具体站点。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>LOC</strong></td>
+<td style="text-align: left;"><strong>Location</strong></td>
+<td style="text-align: left;"><strong>位置</strong></td>
+<td style="text-align: left;">在同一<strong>台站</strong>内，用于区分不同的<strong>采集设备组</strong>。例如，台站有多个测点、多个仪器舱。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CHN</strong></td>
+<td style="text-align: left;"><strong>Channel</strong></td>
+<td style="text-align: left;"><strong>通道</strong></td>
+<td style="text-align: left;">指一个具体的<strong>传感器（或数据流）</strong>。它精确说明了数据的物理量、仪器类型和方向。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关于位置代码（LOC）的进一步说明：</strong><br />
+* 它通常由两个数字组成（如 <code>00</code>, <code>01</code>, <code>10</code>）。<br />
+* <strong><code>00</code> 是最常见的情况</strong>，表示该台站只有一套主要的采集系统，或者位置信息不适用。<br />
+* 如果一个台站布设了多套独立的仪器（例如，一口深井的井底和井口各有一套地震仪），则会用不同的LOC代码来区分它们（如井底用 <code>00</code>，井口用 <code>10</code>）。</p>
+<p>例如：<code>IU.ANMO.00.BHZ</code> 表示的是：<br />
+- <strong>网络（NET）</strong>: <code>IU</code> (Global Seismograph Network - IRIS/USGS)<br />
+- <strong>台站（STA）</strong>: <code>ANMO</code> (Albuquerque, New Mexico, USA)<br />
+- <strong>位置（LOC）</strong>: <code>00</code><br />
+- <strong>通道（CHN）</strong>: <code>BHZ</code></p>
+<p><strong>台站(Seismic Station)</strong><br />
+地震台站是用于监测地震活动的专业设施，通常配备地震仪、强震仪等设备，24小时不间断运行，以捕捉地震信号并记录相关数据。这些数据对于地震预警、科学研究以及防灾减灾具有重要意义。</p>
+<p><strong>台阵 (Seismic Array)</strong><br />
+台阵是由多个地震台站（通常几十到上百个） 按照特定的几何图案（如圆形、十字形、L形等）密集布设在一起而组成的观测系统。这些台站之间的间距（孔径）从几百米到几十公里不等。</p>
+<p><strong>台网 (Seismic Network)</strong><br />
+台网是由分布在一个广阔区域（如全国、全省或一个断裂带）的许多地震台站通过通信网络连接起来，并由一个数据中心统一管理、处理和发布数据的系统。</p>
+<p><strong>通道</strong><br />
+在地震监测里，<strong>台站的地震计一般都有三个基本通道</strong>，对应三分量的地面运动：</p>
+<ol>
+<li><strong>Z 通道</strong>：垂直分量（Vertical）
+<ul>
+<li>记录地面上下方向的运动。</li>
+<li>对应波种：对 <strong>P 波（纵波）</strong> 尤其敏感，因为 P 波入射时通常有明显的垂直分量。</li>
+</ul></li>
+<li><strong>N 通道</strong>：北-南分量（North-South）
+<ul>
+<li>记录地面南北方向的水平运动。</li>
+</ul></li>
+<li><strong>E 通道</strong>：东-西分量（East-West）
+<ul>
+<li>记录地面东西方向的水平运动。<br />
+有时 N、E 也会标为 <strong>H1、H2</strong> 或 <strong>X、Y</strong>，代表两个正交的水平分量。</li>
+</ul></li>
+</ol>
+<p>地震波通道代码<br />
+是地震监测中用于标识不同观测通道的标准化命名<br />
+地震通道代码由<strong>三个字母</strong>组成，遵循“频带代码+仪器类型代码+方向代码”的规则：<br />
+- <strong>第一个字母（频带代码）</strong>：表示传感器的频带范围和采样率。<br />
+- <strong>第二个字母（仪器类型代码）</strong>：表示传感器的测量类型（如速度、加速度等）。<br />
+- <strong>第三个字母（方向代码）</strong>：表示传感器的方向 (Z, N, E ...)。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">特征</th>
+<th style="text-align: left;"><strong>台站 (Station)</strong></th>
+<th style="text-align: left;"><strong>台阵 (Array)</strong></th>
+<th style="text-align: left;"><strong>台网 (Network)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>基本单位</strong></td>
+<td style="text-align: left;">单个观测点</td>
+<td style="text-align: left;"><strong>一组（密集）</strong> 台站的集合</td>
+<td style="text-align: left;"><strong>多组（分散）</strong> 台站/台阵的集合</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>空间尺度</strong></td>
+<td style="text-align: left;">点 (Point)</td>
+<td style="text-align: left;">局部小区域 (Local Area)</td>
+<td style="text-align: left;">大区域、全国性 (Regional/Nationwide)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>布设方式</strong></td>
+<td style="text-align: left;">独立</td>
+<td style="text-align: left;"><strong>规则几何形状</strong>，高密度</td>
+<td style="text-align: left;"><strong>根据地质构造和需求布设</strong>，覆盖范围广</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>主要功能</strong></td>
+<td style="text-align: left;">记录振动信号</td>
+<td style="text-align: left;"><strong>增强微弱信号</strong>，<strong>精确测定波的方向</strong></td>
+<td style="text-align: left;"><strong>精确定位震中</strong>，<strong>测定震级</strong>，<strong>实时监测</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>核心技术</strong></td>
+<td style="text-align: left;">数据采集</td>
+<td style="text-align: left;"><strong>信号处理</strong>（如波束形成）</td>
+<td style="text-align: left;"><strong>数据融合、定位算法、快速发布</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>好比是</strong></td>
+<td style="text-align: left;">一个<strong>哨兵</strong></td>
+<td style="text-align: left;">一个<strong>定向麦克风阵列</strong>或<strong>相控阵雷达</strong></td>
+<td style="text-align: left;"><strong>全国性的气象监测网</strong>或<strong>交通监控网</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>主要用途</strong></td>
+<td style="text-align: left;">基础数据来源</td>
+<td style="text-align: left;"><strong>科学研究</strong>（如核试验监测、深部探测）</td>
+<td style="text-align: left;"><strong>灾害预防、公共服务、日常监测</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="波形数据格式">波形数据格式</h2>
+<p>经常会接触不同格式的波形数据，最常见的是 SAC 和 miniSEED 格式。 每种数据格式都有各自的优点和缺点。<br />
+例如，SAC 格式有利于数据处理和分析， 但不利于大批量数据的存储和交换。<br />
+miniSEED 格式有利于波形数据的存档和交换， 近几年也常用于数据处理和分析，因此，miniSEED 格式是目前地震学领域<strong>最流行</strong>的波形数据格式。</p>
+<h3 id="sac">SAC</h3>
+<p>SAC 格式由 <a href="https://ds.iris.edu/ds/nodes/dmc/software/downloads/SAC/">SAC</a> （Seismic Analysis Codes）软件定义，但许多其他软件也支持该格式。每个 SAC 文件包含<strong>头段区</strong> 和<strong>时间序列数据区</strong>，其中头段区定义了与台站、事件、走时以及用户自定义信息等相关的变量。</p>
+<p>SAC 是一款常用的地震学波形处理和分析软件，同时，SAC 格式的数据中可以保存一些元数据和事件信息， 使得 SAC 格式是日常科研中的常用数据格式。但若选择该格式来存储数据，则需要很大的硬盘空间。</p>
+<h3 id="miniseed">miniSEED</h3>
+<p><strong>SEED</strong> 全称 Standard for the Exchange of Earthquake Data（地震数据交换标准）， 主要用于地震学时间序列数据和相关元数据的归档和交换。最新的 SEED 标准是 2012 年发布的 <a href="http://www.fdsn.org/pdf/SEEDManual_V2.4.pdf">SEED v2.4</a>。 虽然该格式包含了完备的地震学观测数据，但一般需要利用 <a href="https://github.com/iris-edu-legacy/rdseed">rdseed</a> 软件 转换成其他格式，再进行数据处理和分析。</p>
+<p><strong>miniSEED</strong> 是 SEED 格式的子集，一般用于地震学时间序列数据的归档和交换。 其包含的时间序列的元数据非常有限，一般只有时间序列标识和简单的运行状况标识， 不包含台站地理坐标、仪器响应以及其他解释数据所需的信息。</p>
+<p>近几年，由于地震学数据处理和分析软件的快速发展 （如 <a href="https://github.com/obspy/obspy/wiki">ObsPy</a>）， miniseed 格式也常用于数据处理和分析。此时，所需的元数据要从一定格式的 元数据文件中提取。例如，目前比较流行的组合方式是 miniSEED 格式的时间序列数据和 <a href="https://www.fdsn.org/xml/station/">StationXML</a> 格式的元数据。</p>
+<h3 id="格式转换">格式转换</h3>
+<p>不同波形数据格式经常要互相转换，以实现不同的目的。<br />
+- <a href="https://github.com/obspy/obspy/wiki">ObsPy</a> 软件提供的<a href="https://docs.obspy.org/master/packages/index.html">波形数据读写模块</a>几乎可以实现目前所有波形数据格式的互相转换。<br />
+- <a href="https://github.com/iris-edu/mseed2sac">mseed2sac</a> 软件可以 将 miniSEED 格式转成 SAC 格式。</p>
+<h3 id="miniseed-.mseed">1. MiniSEED (.mseed)</h3>
+<ul>
+<li><strong>定位</strong>：<strong>数据存储与传输标准</strong>，专为高效存储和实时流传输设计。</li>
+<li><strong>开发者</strong>：国际地震学界合作制定（IRIS、GEOFON等）。</li>
+<li><strong>核心特点</strong>：
+<ul>
+<li><strong>高压缩比</strong>：使用<code>Steim1/2/3</code>编码压缩，节省存储空间（适合长期归档）。</li>
+<li><strong>分块结构</strong>：数据按固定时长分块（如1分钟/块），每块独立存储采样值、时间戳、元数据。</li>
+<li><strong>轻量级元数据</strong>：仅包含台站、通道、采样率等基础信息。</li>
+</ul></li>
+<li><strong>典型用途</strong>：
+<ul>
+<li>地震台网实时数据流（如IRIS DMC）。</li>
+<li>大规模地震数据归档。</li>
+</ul></li>
+</ul>
+<h3 id="sac格式-.sac">2. SAC格式 (.SAC)</h3>
+<ul>
+<li><strong>定位</strong>：<strong>地震分析专用格式</strong>，为科研人员交互式分析优化。</li>
+<li><strong>开发者</strong>：美国洛斯阿拉莫斯国家实验室（LANL）。</li>
+<li><strong>核心特点</strong>：
+<ul>
+<li><strong>丰富头段</strong>：包含70+个预定义字段（如台站经纬度、事件震级、震中距等），支持自定义扩展。</li>
+<li><strong>时间-振幅对</strong>：直接存储时间序列和振幅值，无压缩（保留原始精度）。</li>
+<li><strong>配套软件</strong>：专为<code>SAC</code>命令行工具设计，支持复杂信号处理（滤波、互相关等）。</li>
+</ul></li>
+<li><strong>典型用途</strong>：
+<ul>
+<li>地震学研究中的波形分析（如震源机制解、走时测量）。</li>
+<li>人工交互式数据处理和绘图。</li>
+</ul></li>
+</ul>
+<h3 id="css">3. CSS</h3>
+<p><strong>定位</strong>：核爆监测与地震事件数据库存储格式，为多事件关联分析和长期数据管理优化。<br />
+<strong>开发者</strong>：美国空军技术应用中心（AFTAC）和圣地亚国家实验室（Sandia National Laboratories）。<br />
+<strong>核心特点</strong>：<br />
+- <strong>关系型数据库结构</strong>：数据分散在多个关联表中（如 <code>wfdisc</code>波形索引、<code>origin</code>震源参数、<code>event</code>事件分类、<code>arrival</code>震相到时），通过主键（<code>evid/orid/arid</code>）动态关联。<br />
+- <strong>事件驱动设计</strong>：以事件（如地震、核爆）为核心，整合波形、震源、台站、震相数据（如存储核爆当量、事件置信度）。<br />
+- <strong>完整性约束</strong>：内置事务锁机制，确保跨表操作的数据一致性（如删除事件时自动级联删除关联波形）。<br />
+- <strong>军用级扩展字段</strong>：包含 <code>event.etype</code>（事件类型：地震/核爆/化爆）、<code>origin.mb</code>（体波震级）等军控专用参数。</p>
+<p><strong>典型用途</strong>：<br />
+- <strong>核爆炸监测</strong>：鉴别天然地震与人为爆炸事件（如全面禁止核试验条约组织CTBTO数据归档）。<br />
+- <strong>事件关联分析</strong>：管理余震序列（如通过 <code>event.pref_orid</code> 关联主震与余震）。<br />
+- <strong>台网数据治理</strong>：长期存储带完整元数据的地震波形库（如USGS国家地震信息中心NEIC）。</p>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250701144256.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="开源库">开源库</h3>
+<ul>
+<li><a href="https://github.com/earthscope/libmseed">EarthScope/libmseed: libmseed - The miniSEED data format library</a></li>
+<li><a href="https://github.com/EarthScope/msi">EarthScope/msi: miniSEED inspector, print details of data in miniSEED format</a></li>
+<li><a href="https://github.com/EarthScope/mseed2sac">EarthScope/mseed2sac</a></li>
+<li>rdseed</li>
+<li>ObsPy，python库</li>
+<li>PySAC，python库</li>
+<li><a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/sacio/sacio-in-c.rst">SAC_Docs_zh/source/sacio/sacio-in-c.rst at master · seisman/SAC_Docs_zh</a>， 读取SAC格式</li>
+<li><a href="https://seisman.github.io/SAC_Docs_zh/">SAC参考手册 — SAC参考手册 5.0-dev 文档</a></li>
+<li><a href="https://github.com/uofuseismo/sff">uofuseismo/sff: Seismic File Formats: Utilities for reading different seismic data formats from C++.</a></li>
+</ul>
+<h2 id="震级">震级</h2>
+<h3 id="震级种类">震级种类</h3>
+<table>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 23%" />
+<col style="width: 16%" />
+<col style="width: 33%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">震级类型</th>
+<th style="text-align: left;">英文全称</th>
+<th style="text-align: left;">主要测量波种</th>
+<th style="text-align: left;">特征与用途</th>
+<th style="text-align: left;">适用范围</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Mb</strong></td>
+<td style="text-align: left;"><em>Body-wave magnitude</em>（体波震级）</td>
+<td style="text-align: left;"><strong>P 波</strong>（纵波，体波）</td>
+<td style="text-align: left;">由远震台站测量初至 P 波的振幅计算，反映震源深处能量释放。</td>
+<td style="text-align: left;">中远震（震中距 &gt; 20°）对中小地震有效（M≈3–6）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Ms</strong></td>
+<td style="text-align: left;"><em>Surface-wave magnitude</em>（面波震级）</td>
+<td style="text-align: left;"><strong>Rayleigh 面波（长周期面波）</strong></td>
+<td style="text-align: left;">由 20 秒左右周期的面波振幅计算，反映浅源地震的地表能量。</td>
+<td style="text-align: left;">适合浅源大地震（M&gt;5）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Ml</strong></td>
+<td style="text-align: left;"><em>Local magnitude</em>（局地震级 / 里氏震级）</td>
+<td style="text-align: left;"><strong>地震波混合</strong>（通常 S 波主导）</td>
+<td style="text-align: left;">最早由 Charles F. Richter 定义（1935），以距离修正后的振幅计算。</td>
+<td style="text-align: left;">局地小震（M&lt;5），常用于区域台网</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">项目</th>
+<th style="text-align: left;"><strong>Mb（体波震级）</strong></th>
+<th style="text-align: left;"><strong>Ms（面波震级）</strong></th>
+<th style="text-align: left;"><strong>Ml（局地震级）</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>主要波种</strong></td>
+<td style="text-align: left;">P 波（纵波）</td>
+<td style="text-align: left;">Rayleigh 面波</td>
+<td style="text-align: left;">S 波（剪切波）主导</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>优点</strong></td>
+<td style="text-align: left;">受震源机制影响小，可用于深源地震</td>
+<td style="text-align: left;">对浅源大震灵敏</td>
+<td style="text-align: left;">设备要求低，适合区域台网</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>缺点</strong></td>
+<td style="text-align: left;">大地震易饱和（M&gt;6 时变化不明显）</td>
+<td style="text-align: left;">深源地震面波弱，不适用</td>
+<td style="text-align: left;">距离远或深震误差大</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>适用范围</strong></td>
+<td style="text-align: left;">远震、深震、中震</td>
+<td style="text-align: left;">浅震、大震</td>
+<td style="text-align: left;">局地小震</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>典型用途</strong></td>
+<td style="text-align: left;">国际地震台网常用</td>
+<td style="text-align: left;">浅震能量估计</td>
+<td style="text-align: left;">区域小震监测</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="震级计算">震级计算</h3>
+<p>① <strong>幅值测量</strong>（Amplitude Measurement）<br />
+这一步就是——<strong>量地震波“抖动”的幅度有多大，为计算震级打基础</strong>。<br />
+- 当地震发生时，地震台站会记录到波形（就像声音波形那样的曲线）。<br />
+- 不同类型的地震波（比如体波、面波）在仪器上会有不同的“振幅”（波峰波谷的大小）。<br />
+- “幅值测量”就是按照一定标准（比如国家标准、美国USGS、国际监测中心IDC等）来量出这些波的最大振幅。</p>
+<p>② <strong>震级计算</strong>（Magnitude Computation）<br />
+这一步就是——<strong>根据振幅计算出震级（也就是“几级地震”）</strong>。<br />
+- 不同的震级类型（Mb、Ms、Ml等）对应不同的波、不同的计算方式。<br />
+- 系统会根据地震台站到震中之间的距离（叫“<strong>震中距</strong>”），选择合适的“修正函数”（类似校准曲线）。<br />
+- 然后根据相应机构的公式，把测到的幅值换算成震级。</p>
+<p>👉 举个例子：<br />
+就像测声音大小，麦克风离声源远近会影响结果，所以要根据距离修正，再换算成一个标准“分贝值”。<br />
+同理，这里是<strong>根据距离修正波幅，然后计算出标准震级值</strong>。</p>
+<p>③ <strong>当量估算</strong>（Yield Estimation）<br />
+这一步就是——<strong>把震级换算成爆炸释放的能量（或TNT当量）</strong>。<br />
+- “当量”就是能量大小的一个直观单位，比如“相当于多少吨TNT爆炸”。<br />
+- 系统根据震级和能量的经验公式，先算出一个初步的当量。<br />
+- 然后还会结合更深入的信息，这些因素都会影响能量估计。比如：<br />
+- <strong>震源机制反演结果</strong>：地壳是怎么破裂的，释放能量的方向和方式。<br />
+- <strong>区域速度模型</strong>：地震波在当地岩层中传播的速度。<br />
+- <strong>震源模型</strong>：震源深度、破裂面积等。</p>
+<p>👉 简单说，这一步就是：<strong>根据震级推算地震释放了多少能量（相当于多少爆炸威力）</strong>。</p>
+<h2 id="频谱分析spectral-analysis">频谱分析（Spectral Analysis）</h2>
+<p>当地震或爆炸发生时，地面会<strong>震动</strong>，这种震动其实是<strong>复杂的波动信号</strong>。<br />
+它不是只有一种频率，而是由<strong>很多不同频率的波叠加</strong>组成的，就像音乐里的和弦一样。</p>
+<p>频谱（spectrum）这个词的意思就是： 把一个复杂的波形信号，分解成不同频率的成分，看每个频率上能量有多强。<br />
+比如：<br />
+- 低频（像低音鼓）代表慢的、大的地面运动；<br />
+- 高频（像尖锐的铃声）代表快的、小的震动变化。</p>
+<p>在地震学中，<strong>频谱分析</strong>就是对地震波记录（波形数据）做<strong>傅里叶变换（Fourier Transform）</strong>，<br />
+把它从“时间域”转到“频率域”，从而得到：</p>
+<blockquote>
+<p>不同频率下的能量分布图，也就是地震波的“能量指纹”。</p>
+</blockquote>
+<p>为什么要做地震波的频谱分析？</p>
+<p>地震波的频谱相当于“事件的指纹”：<br />
+- 自然地震：频谱宽、低频能量强；<br />
+- 地下爆炸：高频成分多、能量集中；<br />
+- 小震或噪声：高频快速衰减。</p>
+<p>因此，频谱分析可用于：<br />
+🔹 区分地震与爆炸<br />
+🔹 分析震源机制<br />
+🔹 估算震源参数（震源半径、应力降、能量释放）<br />
+🔹 研究地下介质结构</p>
+<p>通俗总结一句话<br />
+地震波的频谱分析，就是“把地震波拆开来看不同频率的能量分布”，<br />
+就像分析音乐的低音和高音强度，来判断“是谁发出的声音、怎么发出的、传得有多远”。</p>
+<h2 id="极化分析polarization-analysis">极化分析（Polarization Analysis）</h2>
+<h2 id="学习资料">学习资料</h2>
+<ul>
+<li><a href="https://blog.seisman.info/categories/">分类 - SeisMan</a></li>
+<li><a href="https://seismo-learn.org/">地震“学”</a></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

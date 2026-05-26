@@ -1,1 +1,0 @@
-M-x lisp-interaction-mode   切换模式 C-j    C-x C-e   执行程序 C-h f   查看函数文档   C-h v 查看变量说明

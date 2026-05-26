@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/web前端/blog/github-pages-域名解析</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#一a-记录方式根域名">一、A 记录方式（根域名）</a></li>
+<li><a href="#二cname-方式www-子域名">二、CNAME 方式（www 子域名）</a></li>
+<li><a href="#三https-比-http-多了什么">三、HTTPS 比 HTTP 多了什么？</a></li>
+<li><a href="#四sni-是-https-能共享-ip-的关键">四、SNI 是 HTTPS 能共享 IP 的关键</a></li>
+<li><a href="#五host-与-sni-的区别">五、Host 与 SNI 的区别</a></li>
+<li><a href="#六完整-https-请求实际上是这样">六、完整 HTTPS 请求实际上是这样</a></li>
+<li><a href="#七为什么-github-pages-必须正确配置域名才能开启-https">七、为什么 GitHub Pages 必须“正确配置域名”才能开启 HTTPS</a></li>
+<li><a href="#八最终你的网站实际上是这样的">八、最终你的网站实际上是这样的</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h1 id="一a-记录方式根域名">一、A 记录方式（根域名）</h1>
+<p>例如：</p>
+<pre class="text"><code>sunxvming.cn
+    A
+→ 185.199.108.153</code></pre>
+<p>加入 HTTPS 后，完整链路：</p>
+<pre class="text"><code>浏览器访问：
+https://sunxvming.cn
+        ↓
+DNS 查询：
+sunxvming.cn 的 IP 是什么？
+        ↓
+DNS 返回：
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+        ↓
+浏览器连接：
+185.199.xxx.xxx:443
+        ↓
+TLS 握手（HTTPS）
+        ↓
+浏览器发送 SNI：
+sunxvming.cn
+        ↓
+GitHub Pages 返回：
+sunxvming.cn 的 HTTPS 证书
+        ↓
+TLS 建立成功
+        ↓
+浏览器发送 HTTP 请求：
+Host: sunxvming.cn
+        ↓
+GitHub Pages 根据 Host 找到你的博客
+        ↓
+返回网页内容</code></pre>
+<hr />
+<h1 id="二cname-方式www-子域名">二、CNAME 方式（www 子域名）</h1>
+<p>例如：</p>
+<pre class="text"><code>www.sunxvming.cn
+    CNAME
+→ sunxvming.github.io</code></pre>
+<p>加入 HTTPS 后：</p>
+<pre class="text"><code>浏览器访问：
+https://www.sunxvming.cn
+        ↓
+DNS 查询：
+www.sunxvming.cn 的 IP 是什么？
+        ↓
+DNS 返回：
+CNAME → sunxvming.github.io
+        ↓
+浏览器继续查询：
+sunxvming.github.io 的 IP 是什么？
+        ↓
+GitHub DNS 返回：
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+        ↓
+浏览器连接：
+185.199.xxx.xxx:443
+        ↓
+TLS 握手（HTTPS）
+        ↓
+浏览器发送 SNI：
+www.sunxvming.cn
+        ↓
+GitHub Pages 返回：
+www.sunxvming.cn 的 HTTPS 证书
+        ↓
+TLS 建立成功
+        ↓
+浏览器发送 HTTP 请求：
+Host: www.sunxvming.cn
+        ↓
+GitHub Pages 根据 Host 找到你的博客
+        ↓
+返回网页内容</code></pre>
+<hr />
+<h1 id="三https-比-http-多了什么">三、HTTPS 比 HTTP 多了什么？</h1>
+<p>相比普通 HTTP：</p>
+<pre class="text"><code>浏览器
+↓
+TCP连接
+↓
+直接发 HTTP 请求</code></pre>
+<p>HTTPS 会多一层：</p>
+<pre class="text"><code>TLS 握手</code></pre>
+<p>即：</p>
+<pre class="text"><code>TCP连接
+↓
+TLS 握手
+↓
+验证证书
+↓
+协商加密密钥
+↓
+再发送 HTTP 请求</code></pre>
+<hr />
+<h1 id="四sni-是-https-能共享-ip-的关键">四、SNI 是 HTTPS 能共享 IP 的关键</h1>
+<p>HTTPS 时代最大的变化是：</p>
+<p>服务器必须在 TLS 阶段就知道：</p>
+<pre class="text"><code>你访问的是哪个域名</code></pre>
+<p>否则：</p>
+<p>服务器不知道该返回哪个证书。</p>
+<p>所以现代浏览器会在 TLS 握手时发送：</p>
+<pre class="text"><code>SNI (Server Name Indication)</code></pre>
+<p>例如：</p>
+<pre class="text"><code>SNI: www.sunxvming.cn</code></pre>
+<p>GitHub Pages 才知道：</p>
+<pre class="text"><code>应该返回：
+www.sunxvming.cn 的证书</code></pre>
+<hr />
+<h1 id="五host-与-sni-的区别">五、Host 与 SNI 的区别</h1>
+<p>很多人容易混。</p>
+<p>实际上：</p>
+<table>
+<thead>
+<tr class="header">
+<th>阶段</th>
+<th>字段</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TLS 阶段</td>
+<td>SNI</td>
+<td>选择 HTTPS 证书</td>
+</tr>
+<tr class="even">
+<td>HTTP 阶段</td>
+<td>Host</td>
+<td>选择具体网站</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="六完整-https-请求实际上是这样">六、完整 HTTPS 请求实际上是这样</h1>
+<pre class="text"><code>1. DNS解析
+2. TCP连接
+3. TLS ClientHello
+      SNI=www.sunxvming.cn
+4. 服务器返回证书
+5. TLS建立完成
+6. HTTP请求
+      Host: www.sunxvming.cn
+7. 返回网页</code></pre>
+<hr />
+<h1 id="七为什么-github-pages-必须正确配置域名才能开启-https">七、为什么 GitHub Pages 必须“正确配置域名”才能开启 HTTPS</h1>
+<p>因为 GitHub 在签发证书前，需要验证：</p>
+<pre class="text"><code>这个域名确实指向 GitHub Pages</code></pre>
+<p>GitHub 会检查：</p>
+<ul>
+<li><p>DNS 是否正确</p></li>
+<li><p>是否解析到 GitHub IP</p></li>
+<li><p>Host 是否匹配</p></li>
+<li><p>是否存在冲突记录</p></li>
+</ul>
+<p>只有验证成功：</p>
+<p>GitHub 才会：</p>
+<ul>
+<li><p>自动申请 Let's Encrypt</p></li>
+<li><p>自动部署证书</p></li>
+</ul>
+<p>否则就会出现你看到的：</p>
+<pre class="text"><code>Enforce HTTPS — Unavailable</code></pre>
+<hr />
+<h1 id="八最终你的网站实际上是这样的">八、最终你的网站实际上是这样的</h1>
+<pre class="text"><code>用户
+ ↓
+DNS
+ ↓
+GitHub Pages 共享IP
+ ↓
+TLS(SNI区分网站)
+ ↓
+HTTP(Host区分网站)
+ ↓
+你的博客</code></pre>
+<p>所以：</p>
+<p>即使全球几百万 GitHub Pages 网站：</p>
+<pre class="text"><code>都共享同一批 IP</code></pre>
+<p>仍然能正确工作。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

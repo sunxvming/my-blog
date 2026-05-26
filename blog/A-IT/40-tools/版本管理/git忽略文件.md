@@ -102,3 +102,15 @@ git rm --cached myfile.txt
 ```
 
 执行以上命令后，Git 将不再跟踪 myfile.txt 文件的更改。
+
+
+## 让 Git 停止追踪整个目录
+1.让 Git 停止追踪这个目录
+```
+git rm -r --cached build/
+```
+
+- `--cached`：只从 Git 索引中删除，不会删你本地文件
+- `-r`：递归删除目录
+
+2.在.gitignore中添加此目录

@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -179,35 +179,44 @@ jQuery(document).ready(function(){
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#todo">todo</a></li>
-<li><a href="#代码编辑器插件">代码编辑器插件</a></li>
+<li><a href="#插件开发">插件开发</a>
+<ul>
+<li><a href="#开发调试工具">开发调试工具</a></li>
+</ul></li>
+<li><a href="#插件发布">插件发布</a></li>
 <li><a href="#monaco-editor">Monaco Editor</a></li>
 <li><a href="#参考的其他插件">参考的其他插件</a></li>
-<li><a href="#工具">工具</a></li>
 <li><a href="#插件的推广">插件的推广</a></li>
 <li><a href="#参考链接">参考链接</a></li>
 </ul>
 </div>
  <!--if(toc)-->
 
-<h2 id="todo">todo</h2>
-<ul>
-<li>增加插件冲突的提示</li>
-<li>在代码块中打开editor</li>
-</ul>
-<h2 id="代码编辑器插件">代码编辑器插件</h2>
-<ul>
-<li>代码文件文本预览、编辑</li>
-<li>支持的语言</li>
-<li>调整字体大小
-<ul>
-<li>滚轮事件+键盘按下抬起事件</li>
-</ul></li>
-<li>亮暗主题</li>
-<li>自动保存</li>
-<li>显示大纲</li>
-<li>多语言</li>
-</ul>
+<h2 id="插件开发">插件开发</h2>
+<ol>
+<li>新建一个测试的obsidian的仓库，在仓库的<code>.obsidian\plugins</code>路径下面创建obsidian插件的工程</li>
+<li>执行<code>npm run dev</code>，这个命令会监控源码的改动，并编译main.js</li>
+<li>执行 <code>npm run build</code>, 这个会编译最终需要的 <code>main.js</code>, <code>styles.css</code></li>
+<li>执行<code>npm run version</code>, 这个会把<code>package.json</code>中的文件的版本号复制到<code>manifest.json</code>中</li>
+</ol>
+<p>obsidian插件最终需要的文件有如下几个：<br />
+- main.js： 插件的主程序<br />
+- styles.css： 插件的样式文件<br />
+- manifest.json： 插件的信息，包括名字、描述、版本、github地址等</p>
+<h3 id="开发调试工具">开发调试工具</h3>
+<p><a href="https://github.com/pjeby/hot-reload">Hot-Reload</a> 插件会在您的源码发生改变时重新加载插件。就是自动加载插件，不用手动去重新加载插件</p>
+<h2 id="插件发布">插件发布</h2>
+<p>插件发布是在github上进行的，步骤如下：</p>
+<ol>
+<li>所有代码都提交完了之后，修改下面文件的版本号，版本号+1</li>
+</ol>
+<pre><code>manifest.json
+package.json</code></pre>
+<ol>
+<li><p>代码提交后分支，分支的名字就是上面的版本号</p></li>
+<li><p>推送分支后会在github后台自动执行<code>.github/workflows/release.yml</code>，这个工作流文件会自动创建一个草稿的release，并打包上传最终的发布版本文件。</p></li>
+<li><p>编辑release的草稿，填写Release title和Release notes 并提交就完成最终的发布了</p></li>
+</ol>
 <h2 id="monaco-editor">Monaco Editor</h2>
 <p><a href="https://microsoft.github.io/monaco-editor/typedoc/interfaces/editor.IStandaloneEditorConstructionOptions.html#unicodeHighlight">IStandaloneEditorConstructionOptions | Monaco Editor API</a>，编辑器的相关设置<br />
 <a href="https://zhuanlan.zhihu.com/p/590230766">monaco-editor 编辑器 - 知乎</a></p>
@@ -218,8 +227,6 @@ jQuery(document).ready(function(){
 ini-obsidian<br />
 obsidian-code-files<br />
 obsidian-image-toolkit</p>
-<h2 id="工具">工具</h2>
-<p><a href="https://github.com/pjeby/hot-reload">Hot-Reload</a> 插件会在您的源码发生改变时重新加载插件。</p>
 <h2 id="插件的推广">插件的推广</h2>
 <ul>
 <li><a href="https://forum.obsidian.md/c/share-showcase/9">官方社区(英文) Obsidian Forum</a></li>

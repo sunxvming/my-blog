@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -179,6 +179,7 @@ jQuery(document).ready(function(){
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
+<li><a href="#windows上运行">windows上运行</a></li>
 <li><a href="#nginx-的安装">1.nginx 的安装</a></li>
 <li><a href="#nginx的信号控制">2.Nginx的信号控制</a></li>
 <li><a href="#nginx配置段">3.Nginx配置段</a></li>
@@ -189,12 +190,22 @@ jQuery(document).ready(function(){
 <li><a href="#网页内容的压缩编码与传输速度优化">8.网页内容的压缩编码与传输速度优化</a></li>
 <li><a href="#nginx的缓存设置-提高网站性能">9.nginx的缓存设置 提高网站性能</a></li>
 <li><a href="#nginx反向代理服务器负载均衡">10.nginx反向代理服务器+负载均衡</a></li>
-<li><a href="#nginx----php-fpm之间的优化">Nginx----&gt;php-fpm之间的优化</a></li>
 <li><a href="#常见问题">常见问题</a></li>
 </ul>
 </div>
  <!--if(toc)-->
 
+<h2 id="windows上运行">windows上运行</h2>
+<p>启动：</p>
+<pre><code>start nginx</code></pre>
+<p>查看是否运行</p>
+<pre><code>tasklist /fi &quot;imagename eq nginx.exe&quot;</code></pre>
+<p>其他命令</p>
+<pre><code>nginx -s stop   fast shutdown
+nginx -s quit   graceful shutdown
+nginx -s reload changing configuration, starting new worker processes with a new configuration, graceful shutdown of old worker processes
+nginx -s reopen re-opening log files</code></pre>
+<p><a href="https://nginx.org/en/docs/windows.html">nginx for Windows</a></p>
 <h2 id="nginx-的安装">1.nginx 的安装</h2>
 <p>Nginx ("engine x") 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。</p>
 <p>安装准备: nginx依赖于pcre库,要先安装pcre(Perl Compatible Regular Expressions, 正则表达式的库)</p>
@@ -451,7 +462,7 @@ location /foo {
 <p>即 '/'能从左前缀匹配 '/foo', '/foo'也能左前缀匹配'/foo',<br />
 此时, 真正访问 /var/www/html/index.html<br />
 原因:'/foo'匹配的更长,因此使用之.;<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/95ad9212-77d6-482c-a04e-7781a2b96137.jpg" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/95ad9212-77d6-482c-a04e-7781a2b96137.jpg" /></p>
 <h2 id="rewrite-重写">6.rewrite 重写</h2>
 <p><strong>重写中用到的指令</strong></p>
 <pre><code>if  (条件) {}  设定条件,再进行重写
@@ -669,7 +680,7 @@ location ~ \.js$ {
 Js,css等小时级的缓存.<br />
 如果信息流动比较快,也可以不用expires指令,</p>
 <h2 id="nginx反向代理服务器负载均衡">10.nginx反向代理服务器+负载均衡</h2>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/25d33256-aa03-4a0d-941c-bdab559d7ca7.jpg" /></p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/25d33256-aa03-4a0d-941c-bdab559d7ca7.jpg" /></p>
 <p>用户A始终认为它访问的是原始服务器B而不是代理服务器Z，但实用际上反向代理服务器接 受用户A的应答，<br />
 从原始资源服务器B中取得用户A的需求资源，然后发送给用户A。由于防火墙的作用，只允<br />
 许代理服务器Z访问原始资源服务器B。尽管在这个虚拟的环境下，防火墙和反向代理的共同<br />
@@ -697,12 +708,6 @@ Js,css等小时级的缓存.<br />
 <p>然后proxy_pass指向该组</p>
 <p>默认的均衡的算法很简单,就是针对后端服务器的顺序,逐个请求.</p>
 <p>也有其他负载均衡算法,如一致性哈希,需要安装第3方模块.</p>
-<h2 id="nginx----php-fpm之间的优化">Nginx----&gt;php-fpm之间的优化</h2>
-<p>在很多个nginx来访问fpm时, fpm的进程要是不够用, 会生成子进程.(不用了会自动消失，对高并发的网站，时刻都需要子进程，）</p>
-<p>生成子进程需要内核来调度,比较耗时, 如果网站并发比较大, 我们可以用静态方式一次性生成若干子进程,保持在内存中.</p>
-<p>方法 -- 修改php-fpm.conf</p>
-<pre><code>Pm = static  让fpm进程始终保持,不要动态生成
-Pm.max_children= 32  始终保持的子进程数量</code></pre>
 <h2 id="常见问题">常见问题</h2>
 <p>权限问题导致Nginx 403 Forbidden错误的解决方法</p>
 <p>系统中的路径查询结果：<br />

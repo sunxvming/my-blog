@@ -1,5 +1,4 @@
-# 加快C++代码的编译速度方法
-----------------
+
 
 ## 为什么C++它就编译的这么慢呢？
 最重要的一个原因应该是C++基本的"头文件-源文件"的编译模型：
@@ -265,10 +264,10 @@ set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK "${CMAKE_COMMAND} -E time")
 ⑤ 可以计算出编译并行度（总编译时间/(各个文件编译时间+链接时间)）。
 
 通过这几个数据的输入我们考虑可以做个自动化分析工具，找出优化点以及界面化展示。基于这个目的，我们建设了全流程自动化分析工具，能够自动分析耗时共性问题以及TopN耗时文件。分析工具处理流程如下图所示：
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/_u5FAE_u4FE1_u622A_u56FE_20210407161402.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/_u5FAE_u4FE1_u622A_u56FE_20210407161402.png)
 
 整体统计分析效果
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/_u5FAE_u4FE1_u622A_u56FE_20210407161822.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/_u5FAE_u4FE1_u622A_u56FE_20210407161822.png)
 
 具体字段说明：
 

@@ -42,7 +42,7 @@ Kafka 使用的是纯二进制的字节序列。当然消息还是结构化的�
 * 重平衡：Rebalance。消费者组内某个消费者实例挂掉后，其他消费者实例自动重新分配订阅主题分区的过程。Rebalance 是 Kafka 消费者端实现高可用的重要手段。
 
 
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/68769419-1ad4-429e-8589-a532abba3920.jpg)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/68769419-1ad4-429e-8589-a532abba3920.jpg)
 
 
 
@@ -80,7 +80,7 @@ Kafka 不再是一个单纯的消息引擎系统，而是能够实现精确一�
 
 
 ## 06 | Kafka线上集群部署方案怎么做？
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/8fc65ca6-8505-4f69-ab63-c2514939ca49.jpg)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/8fc65ca6-8505-4f69-ab63-c2514939ca49.jpg)
 
 
 

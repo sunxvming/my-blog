@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -176,9 +176,24 @@ jQuery(document).ready(function(){
 </div> <!--id="header"-->
  <!--if(title)-->
 
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#json-rpc-协议字段描述">JSON-RPC 协议字段描述</a>
+<ul>
+<li><a href="#请求request">请求（Request）</a></li>
+<li><a href="#成功响应success-response">成功响应（Success Response）</a></li>
+<li><a href="#错误响应error-response">错误响应（Error Response）</a></li>
+</ul></li>
+<li><a href="#error-对象字段">error 对象字段</a></li>
+<li><a href="#常见标准错误码">常见标准错误码</a></li>
+</ul>
+</div>
  <!--if(toc)-->
 
 <p>jsonrpc协议描述官网： https://www.jsonrpc.org/</p>
+<p>A light weight remote procedure call protocol.<br />
+It is designed to be simple!</p>
 <ul>
 <li>用curl请求jsonrpc</li>
 </ul>
@@ -188,6 +203,189 @@ http://192.168.1.11:8080</code></pre>
 <li>用postman请求<br />
 方式选择post，Body中选raw的方式</li>
 </ul>
+<h2 id="json-rpc-协议字段描述">JSON-RPC 协议字段描述</h2>
+<h3 id="请求request">请求（Request）</h3>
+<table>
+<thead>
+<tr class="header">
+<th>字段</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>jsonrpc</td>
+<td>string</td>
+<td>是</td>
+<td>JSON-RPC 协议版本，通常为 <code>"2.0"</code></td>
+</tr>
+<tr class="even">
+<td>method</td>
+<td>string</td>
+<td>是</td>
+<td>要调用的远程方法名</td>
+</tr>
+<tr class="odd">
+<td>params</td>
+<td>object / array</td>
+<td>否</td>
+<td>调用方法的参数，可以是对象或数组</td>
+</tr>
+<tr class="even">
+<td>id</td>
+<td>string / number / null</td>
+<td>否</td>
+<td>请求编号，用于匹配响应结果</td>
+</tr>
+</tbody>
+</table>
+<h3 id="成功响应success-response">成功响应（Success Response）</h3>
+<table>
+<thead>
+<tr class="header">
+<th>字段</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>jsonrpc</td>
+<td>string</td>
+<td>是</td>
+<td>JSON-RPC 协议版本，通常为 <code>"2.0"</code></td>
+</tr>
+<tr class="even">
+<td>result</td>
+<td>any</td>
+<td>是</td>
+<td>方法调用成功后的返回结果</td>
+</tr>
+<tr class="odd">
+<td>id</td>
+<td>string / number / null</td>
+<td>是</td>
+<td>与请求中的 id 保持一致</td>
+</tr>
+</tbody>
+</table>
+<h3 id="错误响应error-response">错误响应（Error Response）</h3>
+<table>
+<thead>
+<tr class="header">
+<th>字段</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>jsonrpc</td>
+<td>string</td>
+<td>是</td>
+<td>JSON-RPC 协议版本，通常为 <code>"2.0"</code></td>
+</tr>
+<tr class="even">
+<td>error</td>
+<td>object</td>
+<td>是</td>
+<td>错误对象</td>
+</tr>
+<tr class="odd">
+<td>id</td>
+<td>string / number / null</td>
+<td>是</td>
+<td>与请求中的 id 保持一致</td>
+</tr>
+</tbody>
+</table>
+<h2 id="error-对象字段">error 对象字段</h2>
+<table>
+<thead>
+<tr class="header">
+<th>字段</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>code</td>
+<td>int</td>
+<td>是</td>
+<td>错误码</td>
+</tr>
+<tr class="even">
+<td>message</td>
+<td>string</td>
+<td>是</td>
+<td>错误描述</td>
+</tr>
+<tr class="odd">
+<td>data</td>
+<td>any</td>
+<td>否</td>
+<td>附加错误信息</td>
+</tr>
+</tbody>
+</table>
+<h2 id="常见标准错误码">常见标准错误码</h2>
+<table>
+<thead>
+<tr class="header">
+<th>错误码</th>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-32700</td>
+<td>Parse error</td>
+<td>JSON 解析错误</td>
+</tr>
+<tr class="even">
+<td>-32600</td>
+<td>Invalid Request</td>
+<td>非法请求</td>
+</tr>
+<tr class="odd">
+<td>-32601</td>
+<td>Method not found</td>
+<td>方法不存在</td>
+</tr>
+<tr class="even">
+<td>-32602</td>
+<td>Invalid params</td>
+<td>参数错误</td>
+</tr>
+<tr class="odd">
+<td>-32603</td>
+<td>Internal error</td>
+<td>内部错误</td>
+</tr>
+<tr class="even">
+<td>-32000 ~ -32099</td>
+<td>Server error</td>
+<td>服务端自定义错误</td>
+</tr>
+</tbody>
+</table>
+<p>正常情况：</p>
+<pre><code>--&gt; {&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;subtract&quot;, &quot;params&quot;: {&quot;minuend&quot;: 42, &quot;subtrahend&quot;: 23}, &quot;id&quot;: 3}
+&lt;-- {&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;result&quot;: 19, &quot;id&quot;: 3}</code></pre>
+<p>异常情况</p>
+<pre><code>--&gt; {&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;subtract&quot;, &quot;params&quot;:
+&lt;-- {&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;error&quot;: {&quot;code&quot;: -32700, &quot;message&quot;: &quot;Parse error&quot;}, &quot;id&quot;: null}</code></pre>
+<pre><code>--&gt; {&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: 1, &quot;params&quot;: &quot;bar&quot;}
+&lt;-- {&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;error&quot;: {&quot;code&quot;: -32600, &quot;message&quot;: &quot;Invalid Request&quot;}, &quot;id&quot;: null}</code></pre>
+<pre><code>--&gt; {&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;foobar&quot;, &quot;id&quot;: 1}
+&lt;-- {&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;error&quot;: {&quot;code&quot;: -32601, &quot;message&quot;: &quot;Method not found&quot;}, &quot;id&quot;: 1}</code></pre>
 
 <footer id="colophon" >
 		<div class="site-info col">

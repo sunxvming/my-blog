@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -181,8 +181,10 @@ jQuery(document).ready(function(){
 <ul>
 <li><a href="#快捷键">快捷键</a></li>
 <li><a href="#为root用户设置密码">为root用户设置密码</a></li>
+<li><a href="#enabling-ssh-on-ubuntu">Enabling SSH on Ubuntu</a></li>
 <li><a href="#安装c开发环境">安装c++开发环境</a></li>
 <li><a href="#安装cc的库">安装c/c++的库</a></li>
+<li><a href="#ubuntu22阿里云镜像源">ubuntu22阿里云镜像源</a></li>
 <li><a href="#其他工具">其他工具</a></li>
 </ul>
 </div>
@@ -197,6 +199,15 @@ Password: &lt;--- 输入你当前用户的密码<br />
 Enter new UNIX password: &lt;--- 新的Root用户密码<br />
 Retype new UNIX password: &lt;--- 重复新的Root用户密码<br />
 passwd：已成功更新密码</p>
+<h2 id="enabling-ssh-on-ubuntu">Enabling SSH on Ubuntu</h2>
+<p>By default, when Ubuntu is first installed, remote access via SSH is not allowed. Enabling SSH on Ubuntu is fairly straightforward.</p>
+<pre><code>sudo apt update
+sudo apt install openssh-server -y
+sudo service ssh start</code></pre>
+<p>Ubuntu ships with a firewall configuration tool called UFW. If the firewall is enabled on your system, make sure to open the SSH port:</p>
+<pre><code>sudo ufw allow ssh</code></pre>
+<p>sshd: no hostkeys available – exiting.</p>
+<pre><code>ssh-keygen -A</code></pre>
 <h2 id="安装c开发环境">安装c++开发环境</h2>
 <p>Ubuntu缺省情况下，并没有提供C/C++的编译环境，因此还需要手动安装。但是如果单独安装gcc以及g++比较麻烦，幸运的是，Ubuntu提供了一个build-essential软件包。查看该软件包的依赖关系：</p>
 <pre><code>root@sxm-virtual-machine:/home/sxm# apt depends build-essential
@@ -216,6 +227,21 @@ build-essential
 比如在程序中你要用到openssl的东西，那你需要下载openssl的程序，还需要openssl的开发包<br />
 sudo apt-get install openssl<br />
 sudo apt-get install libssl-dev</p>
+<h2 id="ubuntu22阿里云镜像源">ubuntu22阿里云镜像源</h2>
+<p><strong>备份现有源列表</strong></p>
+<pre><code>sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</code></pre>
+<p><strong>替换源地址</strong><br />
+sudo vi /etc/apt/sources.list</p>
+<pre><code>deb http://mirrors.aliyun.com/ubuntu/ jammy main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ jammy-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ jammy-security main restricted universe multiverse</code></pre>
+<blockquote>
+<p>注意：不同的ubuntu版本，源的地址也不相同，请根据对应的版本来进行替换</p>
+</blockquote>
+<p><strong>更新软件包列表</strong></p>
+<pre><code>sudo apt update</code></pre>
+<p>如果命令执行后显示的下载地址来自<code>mirrors.aliyun.com</code>，就说明配置成功了。</p>
 <h2 id="其他工具">其他工具</h2>
 <ul>
 <li>终端的加强版<br />

@@ -41,7 +41,7 @@ extern datatype name;
 另外，动态链接库（DLL，Dynamic Linking Library）（Windows 下的.dll和 Linux 下的.so）和静态链接库（Static Linking Library）（Windows 下的.lib和 Linux 下的.a）也是按照可执行文件的格式存储的。
 
 #### 目标文件的组织形式
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0.6569474214992366.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/0.6569474214992366.png)
 
 #### 可执行文件的组织形式
 **Section && Segment**
@@ -67,7 +67,7 @@ extern datatype name;
 #### 段（Section）的合并
 编译器生成的是目标文件，而我们最终需要的是可执行文件，链接（Linking）的作用就是将多个目标文件合并成一个可执行文件
 在链接过程中，链接器会将多个目标文件中的代码段、数据段、调试信息等合并成可执行文件中的一个段。段的合并仅仅是一个简单的叠加过程
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0.8095789479712292.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/0.8095789479712292.png)
 
 
 ### 到底什么是链接，它起到了什么作用？

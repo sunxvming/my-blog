@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -185,6 +185,17 @@ jQuery(document).ready(function(){
 <li><a href="#vpn的优点">VPN的优点</a></li>
 <li><a href="#vpn的缺点">VPN的缺点</a></li>
 </ul></li>
+<li><a href="#代理proxy翻墙原理">代理（Proxy）翻墙原理</a>
+<ul>
+<li><a href="#工作流程">1️⃣ 工作流程</a></li>
+<li><a href="#常见类型">2️⃣ 常见类型</a></li>
+</ul></li>
+<li><a href="#vpn虚拟专用网络翻墙原理">VPN（虚拟专用网络）翻墙原理</a>
+<ul>
+<li><a href="#工作流程-1">1️⃣ 工作流程</a></li>
+<li><a href="#vpn-加密隧道的本质">2️⃣ VPN 加密隧道的本质</a></li>
+</ul></li>
+<li><a href="#vpn-与-代理的对比总结">VPN 与 代理的对比总结</a></li>
 </ul>
 </div>
  <!--if(toc)-->
@@ -192,14 +203,116 @@ jQuery(document).ready(function(){
 <h3 id="vpn-简介">VPN 简介</h3>
 <p>VPN的学名叫虚拟专用网，洋文叫“Virtual Private Network”。本来这玩意儿主要是用于商业公司，为了让那些不在公司里的员工（比如出差在外的）能够方便地访问公司的内部网络。为了防止黑客冒充公司的员工，从外部访问公司的内部网络，VPN 软件都会提供强大的加密功能。而这个加密功能，也就让它顺便成为翻墙的利器。</p>
 <h4 id="vpn-的翻墙原理">VPN 的翻墙原理</h4>
-<p>使用 VPN 通常需要先安装客户端软件。当你运行 VPN 客户端，它会尝试联到 VPN 服务器（这点跟加密代理类似）。一旦和 VPN 服务器建立连接，VPN 客户端就会在你的系统中建立了一个虚拟局域网。而且，你的系统中也会多出一个虚拟网卡（在 Windows 下，可以用 ipconfig /all 命令，看到这多出来的网卡）。这样一来，你的系统中就有不止一块网卡。这就引出一个问题：那些访问网络的程序，它的数据流应该通过哪个网卡进出？<br />
-为了解决此问题，VPN 客户端通常会修改你系统的路由表，让那些数据流，优先从虚拟的网卡进出。由于虚拟的网卡是通往 VPN 服务器的，当数据流到达 VPN 服务器之后，VPN 服务器再帮你把数据流转向到真正的目的地。<br />
+<p>使用 VPN 通常需要先安装<strong>客户端软件</strong>。当你运行 VPN 客户端，它会尝试联到 <strong>VPN 服务器</strong>（这点跟加密代理类似）。一旦和 VPN 服务器建立连接，<strong>VPN 客户端就会在你的系统中建立了一个虚拟局域网</strong>。而且，你的系统中也会<strong>多出一个虚拟网卡</strong>（在 Windows 下，可以用 ipconfig /all 命令，看到这多出来的网卡）。这样一来，你的系统中就有不止一块网卡。<br />
+这就引出一个问题：那些访问网络的程序，它的数据流应该通过哪个网卡进出？<br />
+为了解决此问题，VPN 客户端通常会修改你系统的<strong>路由表</strong>，让那些数据流，优先从虚拟的网卡进出。由于虚拟的网卡是通往 VPN 服务器的，当数据流到达 VPN 服务器之后，VPN 服务器再帮你把数据流转向到真正的目的地。<br />
 前面说了，VPN 为了保证安全，都采用强加密的方式传输数据。这样一来，GFW 就无法分析你的网络数据流，进行敏感词过滤。所以，使用墙外的VPN服务器，无形中就能达到翻墙的效果。</p>
 <h4 id="vpn的优点">VPN的优点</h4>
 <p>由于 VPN 客户端会建立虚拟局域网并修改路由表，所以系统中所有涉及到网络的应用程序（比如：浏览器、邮件客户端、聊天工具）都会通过这个虚拟局域网来访问互联网。也就是说，你无需进行额外的配置，就可以让各种软件翻墙。这就是 VPN 翻墙同加密代理翻墙，最主要的区别。</p>
 <h4 id="vpn的缺点">VPN的缺点</h4>
 <p>其一。很多 VPN 是通过客户端软件来建立虚拟局域网的。这些客户端软件通常都需要在系统中装驱动。因此，这类 VPN 的客户端软件都不是绿色软件，而且还需要管理员权限才能安装。这样一来，那些通过网吧上网的同学，就无福享用此类VPN了。像俺这样，非常偏爱绿色软件的，估计也不太喜欢这类 VPN。<br />
 其二。虽然 GFW 对 VPN 加密的数据流无可奈何。但是别忘了，GFW 还有另外的招数——域名封锁和 IP 封锁。如果某个 VPN 用的人太多，GFW会针对这个VPN的服务器进行域名封锁和 IP 封锁。让这 个VPN 彻底用不了。</p>
+<h2 id="代理proxy翻墙原理">代理（Proxy）翻墙原理</h2>
+<p>代理的本质是一个“<strong>中转服务器</strong>”。</p>
+<h3 id="工作流程">1️⃣ 工作流程</h3>
+<p>以访问 Google 为例：<br />
+1. 你访问代理服务器（位于海外）。<br />
+2. 代理服务器帮你去访问 Google。<br />
+3. Google 的返回数据再经由代理返回给你。</p>
+<h3 id="常见类型">2️⃣ 常见类型</h3>
+<table>
+<thead>
+<tr class="header">
+<th>类型</th>
+<th>工作层级</th>
+<th>是否加密</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>HTTP 代理</td>
+<td>应用层（仅支持HTTP）</td>
+<td>❌ 否</td>
+<td>速度快，但无法加密，易被识别</td>
+</tr>
+<tr class="even">
+<td>HTTPS / SSL 代理</td>
+<td>应用层</td>
+<td>✅ 是</td>
+<td>支持 HTTPS 加密，安全性更好</td>
+</tr>
+<tr class="odd">
+<td>SOCKS5 代理</td>
+<td>传输层（支持任意协议）</td>
+<td>❌ 否（但可与TLS结合）</td>
+<td>更通用，支持 TCP/UDP，常被用作翻墙基础组件</td>
+</tr>
+</tbody>
+</table>
+<p>例如：<br />
+<code>浏览器 → SOCKS5代理 → 国外网站</code><br />
+你的数据包经过代理服务器转发，因此在国内的网络出口看起来你只是访问了代理，而不是被封的网站。</p>
+<h2 id="vpn虚拟专用网络翻墙原理">VPN（虚拟专用网络）翻墙原理</h2>
+<p>VPN 的本质是：<br />
+<strong>在你的设备与国外服务器之间建立一个加密“隧道”</strong>，所有数据都通过这条隧道传输。</p>
+<h3 id="工作流程-1">1️⃣ 工作流程</h3>
+<ol>
+<li>你连接到国外的 VPN 服务器（通常通过 OpenVPN、WireGuard、IKEv2 等协议）。</li>
+<li>VPN 建立一条加密隧道（通常使用 SSL/TLS 或 IPsec）。</li>
+<li>所有网络流量（不仅是浏览器流量）都通过这条加密隧道中转。</li>
+<li>在国外服务器出口处，数据再与外部网站通信。</li>
+</ol>
+<p>这样：<br />
+- GFW 只看到你访问了一个加密通道；<br />
+- 它看不到你访问的真实网站；<br />
+- 出口在国外，因此可以访问被封的网站。</p>
+<h3 id="vpn-加密隧道的本质">2️⃣ VPN 加密隧道的本质</h3>
+<p>VPN 运行在 <strong>网络层或传输层</strong>，它封装了原始 IP 数据包。<br />
+例如：<br />
+<code>原始数据包: [IP头][TCP头][HTTP数据] VPN封装后: [新IP头][VPN头][原始数据包(加密)]</code></p>
+<h2 id="vpn-与-代理的对比总结">VPN 与 代理的对比总结</h2>
+<table>
+<thead>
+<tr class="header">
+<th>对比项</th>
+<th>VPN</th>
+<th>代理</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>加密范围</td>
+<td>整个系统所有流量</td>
+<td>一般是特定应用（如浏览器）</td>
+</tr>
+<tr class="even">
+<td>工作层级</td>
+<td>网络层 / 传输层</td>
+<td>应用层</td>
+</tr>
+<tr class="odd">
+<td>匿名性</td>
+<td>高（隐藏真实IP）</td>
+<td>中（取决于实现）</td>
+</tr>
+<tr class="even">
+<td>配置复杂度</td>
+<td>略高</td>
+<td>较简单</td>
+</tr>
+<tr class="odd">
+<td>被识别风险</td>
+<td>高端VPN可伪装为普通HTTPS流量</td>
+<td>某些代理容易被识别、封锁</td>
+</tr>
+<tr class="even">
+<td>典型协议</td>
+<td>OpenVPN、WireGuard、L2TP/IPSec</td>
+<td>HTTP、HTTPS、SOCKS5</td>
+</tr>
+</tbody>
+</table>
 
 <footer id="colophon" >
 		<div class="site-info col">

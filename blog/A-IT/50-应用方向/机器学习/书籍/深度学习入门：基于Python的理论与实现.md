@@ -12,10 +12,10 @@
 • 多层感知机（在理论上）可以表示计算机。
 
 感知机的图的表示
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231205141155.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231205141155.png)
 
 感知机的公式
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231205141147.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231205141147.png)
 
 神经元会计算传送过来的信号的总和，只有当这个总和超过了某个界限值时，才会输出1。这也称为“神经元被激活” 。这里将这个界限值称为**阈值**，用符号θ表示。 阈值可以移到不等式的左边，−θ命名为**偏置**b
 
@@ -63,22 +63,22 @@ def XOR(x1, x2):
 
 ### 多层感知机
 OR的图，分割线是一个线性函数
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231205143022.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231205143022.png)
 
 XOR的图，分割线是多个进行分割
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231205141727.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231205141727.png)
 
 上图中中的○和△无法用一条直线分开，但是如果将“直线”这个限制条件去掉，就可以实现了。
 感知机的局限性就在于它只能表示由一条直线分割的空间。上图这样弯曲的曲线无法用感知机表示。另外，上图这样的曲线分割而成的空间称为**非线性空间**，由直线分割而成的空间称为**线性空间**
 感知机不能表示异或门让人深感遗憾，但也无需悲观。实际上，感知机的绝妙之处在于它可以“**叠加层**”
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231205145510.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231205145510.png)
 上图表示的含义为：先求出NAND为1的区域，再求出OR的区域，两者重叠(AND)的区域便是XOR的区域。
 因为没有用非线性的sigmoid函数的感知机，所以上面的区域依然是线性围起来的空间
 
 
 实际上，与门、或门是单层感知机，而异或门是2层感知机。叠加了多层的感知机也称为**多层感知机**（multi-layered perceptron）。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231205142155.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231205142155.png)
 s1相当于NAND，s2相当于OR，y相当于AND
 
 
@@ -94,7 +94,7 @@ s1相当于NAND，s2相当于OR，y相当于AND
 • 输入数据的集合称为批。通过以批为单位进行推理处理，能够实现高速的运算。
 
 ### 从感知机到神经网络	
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231205171553.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231205171553.png)
 区别在于激活函数的不同
 可以说感知机中使用了**阶跃函数**作为激活函数, 在激活函数的众多候选函数中，感知机使用了阶跃函数
 而神经网络则使用其他的激活函数
@@ -142,11 +142,11 @@ def relu(x):
  	
 	
 ### 3层神经网络的实现	
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206091710.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231206091710.png)
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206093619.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231206093619.png)
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206093844.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231206093844.png)
 
 **代码实现**
 ```python
@@ -189,13 +189,13 @@ print(y) # [ 0.31682708 0.69627909]
 恒等函数会将输入按原样输出，对于输入的信息，不加以任何改动地直接输出
 
 #### softmax函数	
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206094900.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231206094900.png)
 exp(x)是表示e x 的指数函数（e是纳皮尔常数2.7182 ... ）。表示假设输出层共有n个神经元，计算第k个神经元的输出y k 。如式所示，softmax函数的分子是输入信号ak 的指数函数，分母是所有输入信号的指数函数的和。
 
 
 **实现softmax函数时的注意事项**	
 softmax函数的实现中要进行指数函数的运算，但是此时指数函数的值很容易变得非常大，从而造成溢出问题。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206095533.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231206095533.png)
 上式说明，在进行softmax的指数函数的运算时，加上（或者减去）某个常数并不会改变运算的结果。这里的C可以使用任何值，但是为了防止溢出，一般会使用输入信号中的最大值。
 
 ```python
@@ -225,10 +225,10 @@ softmax函数的输出是0.0到1.0之间的实数。并且，softmax函数的输
 对于**分类问题**，输出层的神经元数量一般设定为类别的数量。比如，对于某个输入图像，预测是图中的数字0到9中的哪一个的问题（10类别分类问题），可以像图3-23这样，将输出层的神经元设定为10个。
 
 #### 手写数字识别	
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206104237.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231206104237.png)
 输入一个由784个元素（原本是一个28 × 28的二维数组）构成的一维数组后，输出一个有10个元素的一维数组。这是只输入一张图像数据时的处理流程。
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206104329.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231206104329.png)
 批处理：输入数据的形状为100 × 784，输出数据的形状为100 × 10。这表示输入的100张图像的结果被一次性输出了
 		
 ## 第4章　神经网络的学习
@@ -243,7 +243,7 @@ softmax函数的输出是0.0到1.0之间的实数。并且，softmax函数的输
 ### 从数据中学习	
 先从图像中提取特征量，再用机器学习技术学习这些特征量的模式。这里所说的“特征量”是指可以从输入数据（输入图像）中准确地提取本质数据（重要的数据）的转换器。图像的特征量通常表示为向量的形式。在计算机视觉领域，常用的特征量包括SIFT、SURF和HOG等。使用这些特征量将图像数据转换为向量，然后对转换后的向量使用机器学习中的SVM、KNN等分类器进行学习。
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206140347.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231206140347.png)
 
 神经网络的优点是对所有的问题都可以用同样的流程来解决。比如，不管要求解的问题是识别5，还是识别狗，抑或是识别人脸，神经网络都是通过不断地学习所提供的数据，尝试发现待求解的问题的模式。
 
@@ -253,7 +253,7 @@ softmax函数的输出是0.0到1.0之间的实数。并且，softmax函数的输
 损失函数是表示神经网络性能的“恶劣程度”的指标，即当前的神经网络对监督数据在多大程度上不拟合，在多大程度上不一致。
 
 #### 均方误差（mean squared error）	
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206141443.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231206141443.png)
 
 **代码实现**：
 ```python
@@ -270,9 +270,9 @@ def mean_squared_error(y, t):
 ```
 
 #### 交叉熵误差（cross entropy error）
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206141939.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231206141939.png)
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231206142358.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231206142358.png)
 
 **代码实现**:
 ```python
@@ -568,11 +568,11 @@ for i in range(iters_num):
 
 ### 计算图	
 计算图将计算过程用图形表示出来
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207140346.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231207140346.png)
 
 ### 计算图的局部计算	
 计算图的特征是可以通过传递“局部计算”获得最终结果。“局部”这个词的意思是“与自己相关的某个小范围”。局部计算是指，无论全局发生了什么，都能只根据与自己相关的信息输出接下来的结果。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207140453.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231207140453.png)
 综上，计算图可以集中精力于局部计算。无论全局的计算有多么复杂，各个步骤所要做的就是对象节点的局部计算。虽然局部计算非常简单，但是通过传递它的计算结果，可以获得全局的复杂计算的结果。
 另一个优点是，利用计算图可以将**中间的计算结果**全部保存起来
 实际上，使用计算图最大的原因是，可以通过反向传播高效计算导数。
@@ -580,9 +580,9 @@ for i in range(iters_num):
 
 ### 链式法则和计算图	
 计算图的**反向传播**从右到左传播信号。反向传播的计算顺序是，先将节点的**输入信号**乘以节点的局部导数（偏导数），然后再传递给下一个节点。最右边的节点的输入信号为dz/dz = 1
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207141822.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231207141822.png)
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207142016.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231207142016.png)
 
 
 
@@ -650,7 +650,7 @@ class Relu:
 ```
 
 #### 激活函数层-Sigmoid层	
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207145715.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231207145715.png)
 
 ```python
 class Sigmoid:
@@ -671,17 +671,17 @@ class Sigmoid:
 #### Affine层	
 神经网络的正向传播中，为了计算加权信号的总和，使用了矩阵的乘积运算。神经网络的正向传播中进行的矩阵的乘积运算在几何学领域被称为“**仿射变换**”。因此，这里将进行仿射变换的处理实现为“Affine层”。
 几何中，仿射变换包括一次线性变换和一次平移，分别对应神经网络的加权和运算与加偏置运算。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207150536.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231207150536.png)
 
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207151313.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231207151313.png)
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207151423.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231207151423.png)
 
 
 
 #### 批版本的Affine层	
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207151559.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231207151559.png)
 
 代码实现：
 ```python
@@ -708,10 +708,10 @@ class Affine:
 
 #### Softmax-with-Loss层	
 softmax函数会将输入值正规化之后再输出
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207154222.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231207154222.png)
 神经网络中进行的处理有推理（inference）和学习两个阶段。神经网络的**推理**通常不使用Softmax层。
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231207154945.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231207154945.png)
 Softmax层的反向传播得到了（y1 − t1 , y2 − t2 , y3 − t3 ）这样“漂亮”的结果。由于（y1 ,y2 ,y3 ）是Softmax层的
 输出，（t1 , t2 , t3 ）是监督数据，所以（y1 − t1 ,y2 − t2 ,y3 − t3 ）是Softmax层的输出和教师标签的差分。神经网络的反向传播会把这个差分表示的误差传递给前面的层，这是神经网络学习中的重要性质
 

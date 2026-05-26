@@ -47,7 +47,7 @@ print(x.grad)  # 梯度dz/dx在张量x中被存储为x.grad
 ```
 
 计算图如下：
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231211170126.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231211170126.png)
 可以轻易地通过z到a的路径计算出梯度dz/da。实际上，从z到a有两条路径，一条通过x，另一条通过y，我们只需要把两条路径的表达式相加即可。这么做是合理的，因为从a到z的两条路径都影响了z的值，这也与我们用微积分的链式法则计算出的dz/da的结果一致。
 
 ```python
@@ -105,7 +105,7 @@ plt.show()
 
 #### 简单的神经网络
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231211172346.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231211172346.png)
 
 网络中任何一层的所有节点，都会连接到下一层中的所有节点。这种网络层也被称为**全连接层**（fully connected layer）
 
@@ -120,7 +120,7 @@ plt.show()
 #### 可视化训练
 跟踪训练的一种方法是监控损失
 在train()中，我们在每次计算损失值时，将副本保存在一个列表里。这意味着该表会变得非常大，因为训练神经网络通常会运行成千上万、甚至百万个样本。MNIST数据集有60 000个训练样本，而且我们可能需要运行好几个周期（epoch）。一种更好的方法是，在每完成10个训练样本之后保留一份损失副本。这就需要我们记录train() 的运行频率。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231212114306.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231212114306.png)
 
 损失图真的很实用，它让我们了解到网络训练是否有效。它也告诉我们训练是平稳的，还是不稳定的、混乱的。
 
@@ -158,7 +158,7 @@ PyTorch使用`torch.utils.data.DataLoader`实现了一些实用的功能，比�
 与通用的CPU不同，GPU是专门针对一些特定任务而设计的。其中一个就是数值计算，包括以高度并行化的方式实现矩阵乘法。
 
 下图解释了CPU和GPU的主要区别:
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231212161836.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231212161836.png)
 
 
 如果要进行很多计算，CPU需要一个接一个地运行。现代CPU可能会用到2或4个甚至8或16个内核来进行计算。最近，最强大的消费级CPU已经配备了64个内核。
@@ -170,7 +170,7 @@ CUDA的缺点在于，它只适用于NVIDIA的GPU，造成了我们在硬件选�
 
 #### 安装CUDA
 桌面右键打开英伟达控制面板，点击帮助->系统信息->组件
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213095142.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213095142.png)
 可以看到本机支持的是CUDA 10.2 版本，表示是不支持更高版本的。如果你升级了驱动，可能会支持更高版本，也可能不会提升。
 所以就必须安装 10.2 及以下的版本。
 
@@ -263,7 +263,7 @@ device
 
 #### 对抗训练
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213101957.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213101957.png)
 
 鉴别器和生成器是竞争对手（adversary）关系，双方都试图超越对方，并在这个过程中逐步提高。我们称这种架构为**生成对抗网络** （Generative Adversarial Network，GAN）
 这是一个非常巧妙的设计，不仅因为它利用竞争来驱动进步，也因为我们不需要定义具体的规则来描述要编码到损失函数中的真实图像。机器学习的历史告诉我们，我们并不擅长定义这样的规则。相反，我们让GAN自己来学习什么是真正的图像。
@@ -274,13 +274,13 @@ device
 
 下面的三步训练循环是实现这一目标的一种方法。
 ● 第1步——向鉴别器展示一个真实的数据样本，告诉它该样本的分类应该是1.0。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213111904.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213111904.png)
 
 ● 第2步——向鉴别器显示一个生成器的输出，告诉它该样本的分类应该是0.0。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213111941.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213111941.png)
 
 ● 第3步——向鉴别器显示一个生成器的输出，告诉生成器结果应该是1.0。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213111957.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213111957.png)
 
 
 #### 训练GAN的挑战
@@ -405,7 +405,7 @@ print( D.forward( generate_random(4) ).item() )
 ```
 #### 构建生成器
 生成器的隐藏层应该有多大? 输入层呢? 我们不需要局限于一个特定的大小，不过这个大小应该足以学习。但也不要太大，因为训练很大的网络需要花很长时间。同时，我们需要配合鉴别器的学习速度。因为我们不希望生成器和鉴别器中的任何一个领先另一个太多。基于这些考量，许多人从复制鉴别器的构造入手来设计生成器。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213105435.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213105435.png)
 
 
 ```python
@@ -510,10 +510,10 @@ D.plot_progress()
 G.plot_progress()
 ```
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213135545.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213135545.png)
 在这里，随着训练的进行，损失值略有下降，但幅度并不大。这说明网络有了一些进步。目前还不清楚，它是在识别真实的1010格式规律方面做得更好，还是在识别生成的伪造数据方面做得更好，或者两方面都很出色。在训练的后期，损失值回升到0.25。这是一个好现象，说明生成器已经学会生成1010格式的数据，从而使鉴别器无法区分。换句话说，鉴别器的输出是0.5，介于0～1。这也正是损失值反弹到0.25的原因。
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231213135602.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231213135602.png)
 刚开始，鉴别器在区分真假模式时并不是很确定。在训练进行到一半时，损失值略有增加，这表明生成器在进步，开始可以骗过鉴别器了。在训练后期，我们看到生成器和鉴别器达到平衡
 
 通过观察训练过程中的损失值变化来了解训练的进展是一个好习惯。
@@ -622,18 +622,18 @@ HDF5格式和用于访问该格式数据的库有许多实用的特性，可以�
 我们可以再应用一层卷积核，得到更高层次的特征。这些特征是中层次特征的组合。眼睛和鼻子特征的正确组合，加上方向，很可能代表一张人脸。
 
 #### MNIST CNN
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231214105016.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231214105016.png)
 
 #### CelebA CNN
 
 **鉴别器**
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231214105055.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231214105055.png)
 
 
 **生成器**
 接着，让我们来思考一下生成器网络，这意味着我们的笔和纸又要派上用场了。我们将遵循一个原则，即**生成器应该是鉴别器的镜像**。这样一来，它们谁也不比谁强，谁也不比谁弱。
 在开始画设计图时，我们可能会问，什么是卷积计算的反义词？卷积将较大的张量缩减成较小的张量，而反卷积则需要将较小的张量扩展成较大的张量。PyTorch将这种反向卷积称为**转置卷积**（transposed convolution），需要调用的模块是nn.ConvTranspose2d。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231214113050.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231214113050.png)
 
 
 ### 3.2 条件式GAN
@@ -645,7 +645,7 @@ HDF5格式和用于访问该格式数据的库有许多实用的特性，可以�
 ● 由条件式GAN生成图像的质量，通常优于由不使用标签信息的同等GAN生成的图像。
 #### 条件式GAN架构
 下图显示的架构是条件式（conditional）GAN。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231214132702.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231214132702.png)
 主要的改变在于，现在生成器和鉴别器的输入都在图像数据的基础上**加入了类型标签**。
 
 #### 鉴别器

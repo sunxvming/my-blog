@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/AI/华为推理卡</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#容器部署">容器部署</a></li>
+<li><a href="#华为ascend">华为ascend</a>
+<ul>
+<li><a href="#遇到问题">遇到问题</a></li>
+</ul></li>
+<li><a href="#官方示例">官方示例</a></li>
+<li><a href="#acl">ACL</a></li>
+<li><a href="#mindx-sdk">MindX SDK</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p><a href="https://www.hiascend.com/document/detail/zh/quick-installation/23.0.0/quickinstg/800_3000/quickinstg_800_3000_0001.html">7.0.0-快速部署-文档首页-昇腾社区</a></p>
+<ul>
+<li><p>推理卡驱动</p>
+<ul>
+<li>推理卡固件及驱动程序：https://www.hiascend.com/hardware/firmware-drivers/community?product=2&amp;model=29&amp;cann=8.0.RC1.alpha001&amp;driver=1.0.RC2.alpha</li>
+<li>先装驱动</li>
+<li>再装固件</li>
+</ul></li>
+<li><p>CANN</p>
+<ul>
+<li>CANN：一种异构计算架构，位于芯片使能层，功能类似于英伟达 CUDA，可实现硬件加速。
+<ul>
+<li>通过 AscendCL 对外提供 Device 管理、Context 管理、Stream管理、内存管理、模型加载与执行、算子加载与执行、媒体数据处理等 API。，帮助开发者实现在 CANN 平台上进行深度学习推理计算、图像预处理</li>
+</ul></li>
+</ul></li>
+<li><p>AI框架，MindSpore</p>
+<ul>
+<li>MindStudio
+<ul>
+<li>一套开发工具链平台，其提供了应用开发、调试、模型转换、网络移植、优化和分析功能</li>
+</ul></li>
+</ul></li>
+<li><p>MindX SDK</p></li>
+<li><p><a href="https://www.huaweicloud.com/product/modelarts.html">ModelArts AI开发平台</a></p></li>
+<li><p>pytorch 针对推理卡的插件</p>
+<ul>
+<li>昇腾开发PyTorch Ascend Adapter插件（torch_npu）用于适配PyTorch框架</li>
+<li>对cpu版本做了一个补充</li>
+</ul></li>
+<li><p>模型适配</p>
+<ul>
+<li>针对昇腾迁移模型必要的转换和改造。把pytorch、tensorflow的训练好的模型转换成om来使用</li>
+<li>ATC（Ascend Tensor Compiler）是华为昇腾软件栈提供的一个编译工具，它的主要功能是将基于开源框架的网络模型（如Caffe、TensorFlow等）以及单算子Json文件，转换成昇腾AI处理器支持的离线模型Offline-Model文件（简称OM文件）</li>
+<li>pt模型转onnx模型， yolo提供的功能 export.py</li>
+<li>onnx转om模型， ascend提供
+<ul>
+<li>ATC工具进行转换</li>
+<li><a href="https://zhuanlan.zhihu.com/p/393169777">onnx转om模型及推理流程 - 知乎</a></li>
+</ul></li>
+</ul></li>
+<li><p>推理代码段代码的更改</p>
+<ul>
+<li>所有cpu的地方改成npu</li>
+</ul></li>
+</ul>
+<h2 id="容器部署">容器部署</h2>
+<ul>
+<li><a href="https://ascendhub.huawei.com/#/index">AI环境操作系统镜像</a></li>
+</ul>
+<p>使用前提<br />
+物理机上有Ascend 310/Ascend 310P芯片<br />
+物理机已安装对应CANN版本的驱动和固件<br />
+物理机已安装Docker，且Docker网络可用</p>
+<p>安装docker<br />
+安装Ascend-Docker（容器引擎插件）<br />
+下载ascend基础镜像</p>
+<h2 id="华为ascend">华为ascend</h2>
+<p>云服务器类型 AI推理加速型 Ai1s</p>
+<p>驱动包driver<br />
+固件包firmware<br />
+cann toolkit包<br />
+nnae 训练软件包<br />
+nnrt 推理软件包</p>
+<p>安装驱动包后查看命令</p>
+<pre><code>npu-smi info</code></pre>
+<p><a href="https://www.hiascend.com/zh/document">昇腾文档-昇腾社区</a></p>
+<p><a href="https://blog.csdn.net/KingGugu/article/details/120732803">华为Ascend众智计划项目--3DMPPE_ROOTNET--Pytorch模型迁移至NPU（一）_模型迁移npu-CSDN博客</a><br />
+<a href="https://blog.csdn.net/clever101/article/details/134603562">yolov5从英伟达平台移植到华为昇腾开发板上的思路_yolo移植昇腾-CSDN博客</a><br />
+<a href="https://blog.csdn.net/qq_39939374/article/details/111561437">Atlas200DK部署YOLOV5_【深度学习】【atlas 200dk】yolov3和yolov5部署-CSDN博客</a><br />
+<a href="https://github.com/jackhanyuan/yolov5-ascend">jackhanyuan/yolov5-ascend: YOLOv5 om model inference program on the Huawei Ascend platform</a></p>
+<p><a href="https://blog.csdn.net/bmfire/article/details/134583456">基于昇腾平台的llm+pytorch推理环境搭建_ascend-cann-toolkit 和 ascend-cann-nnrt-CSDN博客</a></p>
+<h3 id="遇到问题">遇到问题</h3>
+<p>执行 <code>npu-smi info</code> 后报以下的错误：</p>
+<pre><code>call drvMngGetConsoleLogLevel failed ,G_conLogLevel = 3
+dcmi module initialize failed. fet is -8005</code></pre>
+<p><strong>异常分析</strong>：当前客户运行命令用户为普通用户，而npu-smi命令默认配置只有root和HwHiAiUser用户可以使用</p>
+<p><strong>解决方案</strong>：<br />
+1.切换到root或HwHiAiUser用户下执行npu-smi命令<br />
+2.添加普通用户到root或HwHiAiUser用户组后执行npu-smi命令</p>
+<h2 id="官方示例">官方示例</h2>
+<p>resnet50_imagenet_classification</p>
+<p><a href="https://gitee.com/ascend/samples">samples: CANN Samples</a></p>
+<h2 id="acl">ACL</h2>
+<ul>
+<li><a href="https://www.hiascend.com/edu/certification/detail/3ab3446282784e5181f45dbebca0c10c">使用昇腾弹性云服务器实现目标检测应用-昇腾社区</a></li>
+<li><a href="https://gitee.com/qingcheng21/Atlas200DK_YoloV5_Python3">yoloV5 使用acl的方式加载模型的例子</a></li>
+<li><a href="https://gitcode.com/jackhanyuan/yolov5-ascend/overview?utm_source=csdn_github_accelerator&amp;isLogin=1">项目首页 - yolov5-ascend - GitCode</a></li>
+<li></li>
+</ul>
+<h2 id="mindx-sdk">MindX SDK</h2>
+<ul>
+<li><a href="https://www.hiascend.com/zh/developer/courses/detail/2203141624362940996">昇腾MindX系列教程-MindX SDK开发套件介绍-昇腾社区</a></li>
+<li><a href="https://www.hiascend.com/document/detail/zh/Atlas200IDKA2DeveloperKit/23.0.RC1/Getting%20Started%20with%20Application%20Development/gswmsad/gswmsad_0002.html">图像分类应用样例开发介绍（Python）-MindX SDK 应用开发入门-应用开发入门-...-文档首页-昇腾社区</a></li>
+</ul>
+<p>3000 arm<br />
+3010 x86</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

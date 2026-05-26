@@ -13,12 +13,12 @@
 
 ### 1.3 分类器与预测器并无太大差别
 也是根据真实示例来动态的调整分类边界的参数，核心是分类器斜率和真实值的误差。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201155317.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201155317.png)
 
 
 
 ### 1.4 训练简单的分类器
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201155712.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201155712.png)
 
 看着这幅图，我们似乎并没有做到让直线以我们所希望的方式倾斜。这条直线没有整齐地划分出瓢虫和毛虫。
 好了，我们理解了先前的诉求。改进直线，以得出各个所需的y 值。这种想法有什么错误呢？如果我们继续这样操作，使用各个训练数据样本进行改进，那么我们所得到的是，**最终改进的直线与最后一次训练样本非常匹配**。实际上，最终改进的直线**不会顾及所有先前的训练样本**，而是抛弃了所有先前训练样本的学习结果，只是对最近的一个实例进行了学习。
@@ -32,7 +32,7 @@
 调节系数通常被称为学习率（learning rate），在此，我们称之为L。我们就挑L = 0.5作为一个合理的系数开始学习过程。简单说来，这就意味着我们只更新原更新值的一半。
 
 最终学习到的结果如下所示：
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201160250.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201160250.png)
 
 
 - 我们使用简单的数学，理解了线性分类器输出误差值和可调节斜率参数之间的关系。也就是说，我们知道了在何种程度上调整斜率，可以消除输出误差值。
@@ -43,9 +43,9 @@
 我们将使用一个简单而鲜明的实例，来说明线性分类器的局限性。我们为什么要说明线性分类器的局限性，而不直接跳转到讨论神经网络呢？原因就是，神经网络的一个重要的设计特征来源于对这个局限性的理解
 
 单个的线性分类器能处理AND、OR，但是不能处理XOR
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201160802.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201160802.png)
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201161008.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201161008.png)
 
 
 - 如果数据本身不是由单一线性过程支配，那么一个简单的线性分类器不能对数据进行划分。例如，由逻辑XOR运算符支配的数据说明了这一点。
@@ -54,10 +54,10 @@
 ### 1.6 神经元——大自然的计算机器
 
 单个神经元，跟感知机类似
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201162526.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201162526.png)
 
 多个神经元按层次组合
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201162844.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201162844.png)
 
 
 这看起来很酷的体系架构，哪一部分能够执行学习功能呢？针对训练样本，我们应该如何调整做出反应呢？有没有和先前线性分类器中的斜率类似的参数供我们调整呢？
@@ -75,13 +75,13 @@
 
 ### 1.7 在神经网络中追踪信号
 即如何通过输入计算出网络的输出：输出 = S激活函数(sum(输入 x 权重))
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201163330.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201163330.png)
 从一个非常简化的网络得到两个输出值，这个工作量相对较小。对于一个相对较大的网络，我不希望使用手工进行计算！好在计算机在进行大量计算方面表现非常出色，并且不知疲倦和厌烦。
 
 
 ### 1.8 凭心而论，矩阵乘法大有用途
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201163830.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201163830.png)
 
 使用矩阵非常简洁地表示：`X = W •I`
 此处，W 是权重矩阵，I 是输入矩阵，X 是组合调节后的信号
@@ -91,9 +91,9 @@
 - 更重要的是，一些计算机编程语言理解矩阵计算，并认识到潜在的计算方法的相似性。这允许计算机高速高效地进行这些计算。
 
 ### 1.9 使用矩阵乘法的三层神经网络示例
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201164209.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201164209.png)
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201164227.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201164227.png)
 
 
 
@@ -101,7 +101,7 @@
 如果有两个节点，我们如何使用输出误差值呢？
 一种思想就是在所有造成误差的节点中平分误差
 另一种思想是不等分误差。与前一种思想相反，我们为较大链接权重的连接分配更多的误差。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201164743.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201164743.png)
 
 你可以观察到，我们在两件事情上使用了权重。
 第一件事情，在神经网络中，我们使用权重，将信号从输入**向前传播**到输出层。此前，我们就是在大量地做这个工作。
@@ -109,7 +109,7 @@
 
 
 ### 1.11 多个输出节点反向传播误差
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201164943.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201164943.png)
 我们拥有多个节点这一事实并没有改变任何事情。对于第二个输出节点，我们只是简单地重复第一个节点所做的事情。为什么如此简单呢？这是由于进入输出节点的链接不依赖于到另一个输出节点的链接，因此事情就变得非常简单，在两组的链接之间也**不存在依赖关系**。
 
 ### 1.12 反向传播误差到更多层中
@@ -118,18 +118,18 @@
 
 然而，与内部节点相关联的误差并不显而易见。一种方法是按照链路权重的比例来**分割**输出层的误差，然后在每个内部节点处**重组**这些误差
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201165415.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201165415.png)
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201165429.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201165429.png)
 
 
 ### 1.13 使用矩阵乘法进行反向传播误差
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201170833.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201170833.png)
 
 观察上面的表达式。你可以观察到，最重要的事情是输出误差与链接权重Wij 的乘法。较大的权重就意味着携带较多的输出误差给隐藏层。
 这是非常重要的一点。这些分数的分母是一种归一化因子。如果我们忽略了这个因子，那么我们仅仅失去后馈误差的大小。也就是说，我们使用简单得多的e1 * w1,1 来代替e1 * w1,1 / ( w1,1 + w2,1 )。
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231201170850.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231201170850.png)
 
 简化之后的矩阵刚好是权重矩阵的**逆矩阵**。
 
@@ -154,12 +154,12 @@
 
 要使用梯度下降的方法，现在我们需要计算出误差函数相对于权重的斜率。
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204101403.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231204101403.png)
 
 梯度公式如下：
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204134316.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231204134316.png)
 最后计算的梯度的结果如下，是通过微积分的公式计算得到的。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204134340.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231204134340.png)
 
 - 神经网络的误差是内部链接权重的函数。
 - 改进神经网络，意味着通过改变权重减少这种误差。
@@ -185,16 +185,16 @@
 ### 2.5 手写数字的数据集MNIST
 
 #### 一些改进：调整学习率
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204153704.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231204153704.png)
 上图表明，学习率在0.1和0.3之间可能会有较好的表现，因此，尝试0.2的学习率，得到0.9537的性能得分。比起0.1或0.3，这个表现确实好了一些。我们可以绘制图表，对所发生的事情得到一种较好的认识，在其他情况下，你也应该考虑这种方法——和一串数字相比，图表有助于更好地理解！
 
 #### 一些改进：多次运行
 有些人把训练一次称为一个世代。因此，具有10个世代的训练，意味着使用整个训练数据集运行程序10次。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204153857.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231204153857.png)
 
 就像调整学习率一样，让我们使用几个不同的世代进行实验并绘图，以可视化这些效果。直觉告诉我们，所做的训练越多，所得到的性能越好。有人可能会注意到，太多的训练实际上会**过犹不及**，这是由于网络**过度拟合**训练数据，因此网络在先前没有见到过的新数据上表现不佳。不仅是神经网络，在各种类型的机器学习中，这种过度拟合也是需要注意的。
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204154103.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231204154103.png)
 在更多世代的情况下，减小学习率确实能够得到更好的性能。**学习率要和世代相匹配**
 
 直观上，如果你打算使用更长的时间（多个世代）探索梯度下降，那么你可以承受采用较短的步长（学习率），并且在总体上可以找到更好的路径，这是有道理的。确实，对于MNIST学习任务，我们的神经网络的甜蜜点看起来是5个世代。请再次记住，我们在使用一种相当不科学的方式来进行实验。要正确、科学地做到这一点，就必须为每个学习率和世代组合进行多次实验，尽量减少在梯度下降过程中随机性的影响。
@@ -204,21 +204,21 @@
 
 如果隐藏层节点太少，比如说3个，那么你可以想象，这不可能有足够的空间让网络学习任何知识，并将所有输入转换为正确的输出。
 如果有10 000个隐藏层节点，会发生什么情况呢？虽然我们不会缺少学习容量，但是由于目前有太多的路径供学习选择，因此可能难以训练网络。这也许需要使用10 000个世代来训练这样的网络。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204155100.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231204155100.png)
 随着增加隐藏层节点的数量，结果有所改善，但是不显著。由于增加一个隐藏层节点意味着增加了到前后层的每个节点的新网络链接，这一切都会产生额外较多的计算，因此训练网络所用的时间也显著增加了！因此，必须在可容忍的运行时间内选择某个数目的隐藏层节点。
 ## 三、趣味盎然
 ###  3.1 自己的手写数字
 ###  3.2 神经网络大脑内部
 
 我们已经知道如何通过网络传播信号，使用链接权重调节信号，在应用激活函数之前在节点处重新组合信号。除了使用的是逆激活函数以外，所有这一切操作也都适用于反向传播信号。如果y = f(x ) 是正向激活函数，那么这个函数的逆就是x = g(y )。使用简单的代数，求出逻辑函数的逆，也并非难事
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204161629.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231204161629.png)
 
 
 来看看如果我们使用标签“0”进行反向查询，会发生什么情况。也就是说，我们向输出节点展示了一些值，除了使用值0.99展示给第一个节点表示标签“0”，其余节点都展示了0.01。换句话说，也就是数组[0.99, 0.01,0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01,0.01]。
 下图显示了输入节点弹出的图像。
 我们注意到最主要的特征是，图像中的圆形。我们是在询问神经网络——对于答案“0”，**最理想的问题是什么**，因此，这个图像是有道理的。
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231204161810.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231204161810.png)
 
 ###  3.3 创建新的训练数据：旋转图像
 

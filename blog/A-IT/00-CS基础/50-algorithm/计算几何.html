@@ -206,11 +206,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -222,13 +222,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -249,6 +249,17 @@ jQuery(document).ready(function(){
 <li><a href="#二同向法">二、同向法</a></li>
 <li><a href="#三重心法">三、重心法</a></li>
 </ul></li>
+<li><a href="#相交检测">相交检测</a>
+<ul>
+<li><a href="#射线与球体的交点">射线与球体的交点</a>
+<ul>
+<li><a href="#解释">解释</a></li>
+<li><a href="#输入参数">输入参数</a></li>
+<li><a href="#输出参数">输出参数</a></li>
+<li><a href="#算法步骤">算法步骤</a></li>
+<li><a href="#完整代码">完整代码</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </div>
  <!--if(toc)-->
@@ -259,11 +270,11 @@ jQuery(document).ready(function(){
 <h3 id="一内角和法">一、内角和法</h3>
 <p>连接点P和三角形的三个顶点得到三条线段PA，PB和PC，求出这三条线段与三角形各边的夹角，如果所有夹角之和为180度，那么点P在三角形内，否则不在，此法直观，但效率低下。</p>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231114100003.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231114100003.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <h3 id="二同向法">二、同向法</h3>
 <p>假设点P位于三角形内，会有这样一个规律，当我们沿着ABCA的方向在三条边上行走时，你会发现点P始终位于边AB，BC和CA的右侧。我们就利用这一点，但是如何判断一个点在线段的左侧还是右侧呢？我们可以从另一个角度来思考，当选定线段AB时，点C位于AB的右侧，同理选定BC时，点A位于BC的右侧，最后选定CA时，点B位于CA的右侧，所以当选择某一条边时，我们只需验证点P与该边所对的点在同一侧即可。问题又来了，如何判断两个点在某条线段的同一侧呢？可以通过叉积来实现，连接PA，将PA和AB做叉积，再将CA和AB做叉积，如果两个叉积的结果方向一致，那么两个点在同一测。判断两个向量的是否同向可以用点积实现，如果点积大于0，则两向量夹角是锐角，否则是钝角。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231114100027.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231114100027.png" alt="image.png" /></p>
 <p>代码如下，为了实现程序功能，添加了一个Vector3类，该类表示三维空间中的一个向量。</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">// 3D vector  </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">class</span> Vector3  </span>
@@ -326,7 +337,7 @@ jQuery(document).ready(function(){
 <p>上面这个方法简单易懂，速度也快，下面这个方法速度更快，只是稍微多了一点数学而已</p>
 <p>三角形的三个点在同一个平面上，如果选中其中一个点，其他两个点不过是相对该点的位移而已，比如选择点A作为起点，那么点B相当于在AB方向移动一段距离得到，而点C相当于在AC方向移动一段距离得到。</p>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231114100049.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231114100049.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <p>所以对于平面内任意一点，都可以由如下方程来表示</p>
 <p>P = A + u * (C – A) + v * (B - A) // 方程1</p>
@@ -375,6 +386,129 @@ jQuery(document).ready(function(){
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true"></a>  </span>
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true"></a>    <span class="cf">return</span> u + v &lt;= <span class="dv">1</span> ;  </span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="相交检测">相交检测</h2>
+<h3 id="射线与球体的交点">射线与球体的交点</h3>
+<p><code>intersectRaySphere</code> 算法用于计算射线与球体的交点。以下是该算法的详细解释：</p>
+<h4 id="解释">解释</h4>
+<p>这个算法首先通过向量计算和点积操作，判断射线是否与球体相交，并计算出射线与球体的交点（如果存在）。通过这样的操作，可以在3D场景中实现从屏幕坐标到世界坐标的射线投射，并确定射线与地球模型的交点。</p>
+<h4 id="输入参数">输入参数</h4>
+<ul>
+<li><code>rayOrigin</code>: 射线的起点（世界坐标）。</li>
+<li><code>rayDirection</code>: 射线的方向（已归一化）。</li>
+<li><code>sphereCenter</code>: 球体的中心（世界坐标）。</li>
+<li><code>sphereRadius</code>: 球体的半径。</li>
+<li><code>intersectionPoint</code>: 交点（如果存在）。</li>
+</ul>
+<h4 id="输出参数">输出参数</h4>
+<ul>
+<li>返回值: 布尔值，表示是否有交点。</li>
+<li><code>intersectionPoint</code>: 交点坐标（如果有交点）。</li>
+</ul>
+<h4 id="算法步骤">算法步骤</h4>
+<ol>
+<li><p><strong>向量 L</strong>:<br />
+计算从射线起点到球体中心的向量 <code>L</code>。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>glm::vec3 L = sphereCenter - rayOrigin;</span></code></pre></div></li>
+<li><p><strong>投影 tca</strong>:<br />
+计算 <code>L</code> 在射线方向上的投影长度 <code>tca</code>，即 <code>L</code> 在射线方向 <code>rayDirection</code> 上的投影。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="dt">float</span> tca = glm::dot(L, rayDirection);</span></code></pre></div>
+<ul>
+<li>如果 <code>tca</code> 小于 0，说明球体在射线的后面，不会有交点。</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="cf">if</span> (tca &lt; <span class="dv">0</span>) <span class="cf">return</span> <span class="kw">false</span>;</span></code></pre></div></li>
+<li><p><strong>距离 d2</strong>:<br />
+计算 <code>L</code> 的长度平方减去 <code>tca</code> 的平方，得到球体中心到射线的最短距离的平方 <code>d2</code>。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="dt">float</span> d2 = glm::dot(L, L) - tca * tca;</span></code></pre></div></li>
+<li><p><strong>球体半径平方 radius2</strong>:<br />
+计算球体半径的平方 <code>radius2</code>。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="dt">float</span> radius2 = sphereRadius * sphereRadius;</span></code></pre></div></li>
+<li><p><strong>检查 d2 与 radius2</strong>:</p>
+<ul>
+<li>如果 <code>d2</code> 大于 <code>radius2</code>，说明射线与球体没有相交，因为射线与球体的最短距离大于球体半径。</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="cf">if</span> (d2 &gt; radius2) <span class="cf">return</span> <span class="kw">false</span>;</span></code></pre></div></li>
+<li><p><strong>计算 thc</strong>:<br />
+计算 <code>thc</code>，即射线与球体相交点到 <code>tca</code> 的距离。</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="dt">float</span> thc = sqrt(radius2 - d2);</span></code></pre></div></li>
+<li><p><strong>计算交点 t0 和 t1</strong>:<br />
+计算射线与球体相交点的参数 <code>t0</code> 和 <code>t1</code>。</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="dt">float</span> t0 = tca - thc;</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="dt">float</span> t1 = tca + thc;</span></code></pre></div></li>
+<li><p><strong>调整 t0 和 t1</strong>:</p>
+<ul>
+<li>如果 <code>t0</code> 大于 <code>t1</code>，交换它们。</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="cf">if</span> (t0 &gt; t1) <span class="bu">std::</span>swap(t0, t1);</span></code></pre></div></li>
+<li><p><strong>检查 t0 和 t1</strong>:</p>
+<ul>
+<li>如果 <code>t0</code> 小于 0，说明 <code>t0</code> 在射线起点的后方，使用 <code>t1</code>。</li>
+<li>如果 <code>t1</code> 也小于 0，说明交点都在射线起点的后方，射线与球体不相交。</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="cf">if</span> (t0 &lt; <span class="dv">0</span>) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>    t0 = t1;</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>    <span class="cf">if</span> (t0 &lt; <span class="dv">0</span>) <span class="cf">return</span> <span class="kw">false</span>;</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>}</span></code></pre></div></li>
+<li><p><strong>计算交点</strong>:<br />
+使用 <code>t0</code> 计算射线与球体的交点 <code>intersectionPoint</code>。<br />
+<code>cpp     intersectionPoint = rayOrigin + t0 * rayDirection;</code></p></li>
+</ol>
+<h4 id="完整代码">完整代码</h4>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;glm/glm.hpp&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;glm/gtc/matrix_transform.hpp&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;glm/gtc/type_ptr.hpp&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;glm/gtx/intersect.hpp&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;glm/gtx/transform.hpp&gt;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true"></a><span class="co">// 检查射线与球体的交点</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true"></a><span class="dt">bool</span> intersectRaySphere(</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true"></a>    <span class="at">const</span> glm::vec3&amp; rayOrigin, </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true"></a>    <span class="at">const</span> glm::vec3&amp; rayDirection, </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true"></a>    <span class="at">const</span> glm::vec3&amp; sphereCenter, </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true"></a>    <span class="dt">float</span> sphereRadius, </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true"></a>    glm::vec3&amp; intersectionPoint) </span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true"></a>{</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true"></a>    <span class="dt">float</span> t0, t1;  <span class="co">// 解</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true"></a>    glm::vec3 L = sphereCenter - rayOrigin;</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true"></a>    <span class="dt">float</span> tca = glm::dot(L, rayDirection);</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true"></a>    <span class="cf">if</span> (tca &lt; <span class="dv">0</span>) <span class="cf">return</span> <span class="kw">false</span>;</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true"></a>    <span class="dt">float</span> d2 = glm::dot(L, L) - tca * tca;</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true"></a>    <span class="dt">float</span> radius2 = sphereRadius * sphereRadius;</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true"></a>    <span class="cf">if</span> (d2 &gt; radius2) <span class="cf">return</span> <span class="kw">false</span>;</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true"></a>    <span class="dt">float</span> thc = sqrt(radius2 - d2);</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true"></a>    t0 = tca - thc;</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true"></a>    t1 = tca + thc;</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true"></a></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true"></a>    <span class="cf">if</span> (t0 &gt; t1) <span class="bu">std::</span>swap(t0, t1);</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true"></a></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true"></a>    <span class="cf">if</span> (t0 &lt; <span class="dv">0</span>) {</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true"></a>        t0 = t1;  <span class="co">// 如果 t0 是负数，则使用 t1</span></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true"></a>        <span class="cf">if</span> (t0 &lt; <span class="dv">0</span>) <span class="cf">return</span> <span class="kw">false</span>;  <span class="co">// 如果 t1 也小于零，则射线在球体之后</span></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true"></a>    }</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true"></a></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true"></a>    intersectionPoint = rayOrigin + t0 * rayDirection;</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true"></a>    <span class="cf">return</span> <span class="kw">true</span>;</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true"></a>}</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true"></a></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true"></a><span class="dt">int</span> main() {</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true"></a>    <span class="co">// 示例参数</span></span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true"></a>    glm::vec3 rayOrigin(<span class="fl">0.0</span><span class="bu">f</span>, <span class="fl">0.0</span><span class="bu">f</span>, <span class="fl">5.0</span><span class="bu">f</span>);</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true"></a>    glm::vec3 rayDirection(<span class="fl">0.0</span><span class="bu">f</span>, <span class="fl">0.0</span><span class="bu">f</span>, -<span class="fl">1.0</span><span class="bu">f</span>);</span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true"></a>    glm::vec3 sphereCenter(<span class="fl">0.0</span><span class="bu">f</span>, <span class="fl">0.0</span><span class="bu">f</span>, <span class="fl">0.0</span><span class="bu">f</span>);</span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true"></a>    <span class="dt">float</span> sphereRadius = <span class="fl">1.0</span><span class="bu">f</span>;</span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true"></a></span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true"></a>    <span class="co">// 检查射线与球体的交点</span></span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true"></a>    glm::vec3 intersectionPoint;</span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true"></a>    <span class="cf">if</span> (intersectRaySphere(rayOrigin, rayDirection, sphereCenter, sphereRadius, intersectionPoint)) {</span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Intersection Point: &quot;</span> &lt;&lt; glm::to_string(intersectionPoint) &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true"></a>    } <span class="cf">else</span> {</span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;No intersection&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true"></a>    }</span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true"></a></span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true"></a>}</span></code></pre></div>
+<p>glm中也有射线和球的相交计算，函数名字为<code>intersectRaySphere</code>。</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -179,93 +179,886 @@ jQuery(document).ready(function(){
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#第一部分简介">第一部分：简介</a>
+<li><a href="#编译">编译</a></li>
+<li><a href="#目标文件">目标文件</a>
 <ul>
-<li><a href="#第1章温故而知新">第1章、温故而知新</a></li>
+<li><a href="#windows-pe-文件格式">Windows PE 文件格式</a></li>
 </ul></li>
-<li><a href="#第二部分静态链接">第二部分：静态链接</a>
+<li><a href="#静态链接">静态链接</a></li>
+<li><a href="#装载">装载</a>
 <ul>
-<li><a href="#第2章编译和链接">第2章、编译和链接</a></li>
-<li><a href="#第3章目标文件里有什么">第3章、目标文件里有什么</a></li>
-<li><a href="#第4章静态链接">第4章、静态链接</a></li>
-<li><a href="#第5章windows-pecoff">第5章、Windows PE/COFF</a></li>
+<li><a href="#程序装载面临的挑战">程序装载面临的挑战</a></li>
+<li><a href="#虚拟内存">虚拟内存</a></li>
+<li><a href="#内存分段">内存分段</a></li>
+<li><a href="#内存分页">内存分页</a></li>
+<li><a href="#进程虚存空间分布">进程虚存空间分布</a></li>
+<li><a href="#装载过程">装载过程</a></li>
+<li><a href="#linux内核装载elf过程">Linux内核装载ELF过程</a></li>
+<li><a href="#windows-pe的装载">Windows PE的装载</a></li>
 </ul></li>
-<li><a href="#第三部分装载与动态链接">第三部分：装载与动态链接</a>
+<li><a href="#动态链接">动态链接</a>
 <ul>
-<li><a href="#第6章可执行文件的装载与进程">第6章、可执行文件的装载与进程</a></li>
-<li><a href="#第7章动态链接">第7章、动态链接</a></li>
-<li><a href="#第8章linux共享库的组织">第8章、Linux共享库的组织</a></li>
-<li><a href="#第9章windows下的动态链接">第9章、Windows下的动态链接</a></li>
+<li><a href="#问题及解决方案">问题及解决方案</a></li>
+<li><a href="#动态链接相关结构">动态链接相关结构</a></li>
+<li><a href="#动态链接的步骤">动态链接的步骤</a></li>
+<li><a href="#显式运行时链接">显式运行时链接</a></li>
 </ul></li>
-<li><a href="#第四部分库与运行库">第四部分：库与运行库</a>
+<li><a href="#共享库">共享库</a>
 <ul>
-<li><a href="#第10章内存">第10章、内存</a></li>
-<li><a href="#第11章运行库">第11章、运行库</a></li>
-<li><a href="#第12章系统调用与api">第12章、系统调用与API</a></li>
-<li><a href="#第13章运行库与实现">第13章、运行库与实现</a></li>
+<li><a href="#共享库版本">共享库版本</a></li>
+<li><a href="#符号版本">符号版本</a></li>
+<li><a href="#共享库的组织和路径">共享库的组织和路径</a></li>
+<li><a href="#共享库查找过程">共享库查找过程</a></li>
 </ul></li>
+<li><a href="#windows下共享库">windows下共享库</a>
+<ul>
+<li><a href="#动态库相关的文件">动态库相关的文件</a></li>
+<li><a href="#dumpbin查看库文件">dumpbin查看库文件</a></li>
+<li><a href="#查看lib库是32位还是64位">查看lib库是32位还是64位</a></li>
+</ul></li>
+<li><a href="#vs中编译共享库">VS中编译共享库</a></li>
+<li><a href="#linux下共享库">Linux下共享库</a>
+<ul>
+<li><a href="#编译静态库">编译静态库</a></li>
+<li><a href="#使用静态库">使用静态库</a></li>
+<li><a href="#编译动态库">编译动态库</a></li>
+<li><a href="#使用动态库">使用动态库</a></li>
+<li><a href="#动态库找不到的问题">动态库找不到的问题</a></li>
+<li><a href="#显示调用cc动态链接库">显示调用C/C++动态链接库</a></li>
+<li><a href="#debug-or-release">debug or release</a>
+<ul>
+<li><a href="#使用gdb命令">使用gdb命令</a></li>
+<li><a href="#使用file命令">使用file命令</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#程序运行">程序运行</a>
+<ul>
+<li><a href="#程序的内存布局">程序的内存布局</a></li>
+<li><a href="#栈与调用惯例">栈与调用惯例</a></li>
+<li><a href="#函数返回值的处理">函数返回值的处理</a></li>
+<li><a href="#堆与内存管理">堆与内存管理</a></li>
+</ul></li>
+<li><a href="#运行库">运行库</a>
+<ul>
+<li><a href="#入口函数和程序初始化">入口函数和程序初始化</a></li>
+<li><a href="#cc运行库">C/C++运行库</a></li>
+</ul></li>
+<li><a href="#系统调用">系统调用</a>
+<ul>
+<li><a href="#系统中断">系统中断</a></li>
+<li><a href="#系统调用-1">系统调用</a></li>
+</ul></li>
+<li><a href="#参考连接">参考连接</a></li>
 </ul>
 </div>
  <!--if(toc)-->
 
-<h3 id="第一部分简介">第一部分：简介</h3>
-<h4 id="第1章温故而知新">第1章、温故而知新</h4>
-<p>主要介绍一些操作系统的基本知识，简述了设备驱动、操作系统、虚拟空间、物理空间、页映射、线程等基本概念。</p>
+<h2 id="编译">编译</h2>
+<p>c++new 和 delete 在编译时生成如下内容：1.创建和释放内存 2.调用构造和析构函数</p>
+<h2 id="目标文件">目标文件</h2>
+<p>COFF<br />
+ELF<br />
+PE</p>
+<p>类型<br />
+- 目标文件 <code>.o</code> <code>.obj</code><br />
+- 可执行文件<br />
+- 静态库 <code>.a</code> <code>.lib</code><br />
+- 动态库 <code>.so</code> <code>.dll</code><br />
+- 核心转储 <code>core dump</code></p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/e4cf9aa9-c7cf-4497-8a52-0b647202b097.jpg" /></p>
+<p>Linux：ELF<br />
+文件头<br />
+描述文件属性<br />
+段表<br />
+保存各个段的基本属性<br />
+代码段<br />
+指令<br />
+符号表<br />
+与Symbol相关的信息<br />
+数据段<br />
+初始化的变量<br />
+.bss段<br />
+未初始化的变量，或初值为0的变量<br />
+重定位表<br />
+重定位的信息<br />
+字符串表<br />
+保存字符串<br />
+调试信息段</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 87%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>.bss</td>
+<td>未初始化数据（全局变量）</td>
+</tr>
+<tr class="even">
+<td>.comment</td>
+<td>编译器版本信息</td>
+</tr>
+<tr class="odd">
+<td>.ctors</td>
+<td>全局构造函数指针</td>
+</tr>
+<tr class="even">
+<td>.data</td>
+<td>已初始化数据（全局变量、静态变量）</td>
+</tr>
+<tr class="odd">
+<td>.data.rel.ro</td>
+<td>只读数据，与 .rodata 类似，不同的是它在重定位时会被改写，然后置为只读</td>
+</tr>
+<tr class="even">
+<td>.debug</td>
+<td>调试信息，使用 gcc 的 -g 或 -ggdb 参数</td>
+</tr>
+<tr class="odd">
+<td>.dtors</td>
+<td>全局析构函数指针</td>
+</tr>
+<tr class="even">
+<td>.dynamic</td>
+<td>动态链接信息，存储了动态链接的符号表地址、字符串表地址及大小、哈希表地址，共享对象的 SO-NAME、搜索路径，初始化代码地址，结束代码地址，依赖的共享对象文件名，动态链接重定位表地址、重定位入口数量等。</td>
+</tr>
+<tr class="odd">
+<td>.dynstr</td>
+<td>动态链接符号的符号名（字符串表）</td>
+</tr>
+<tr class="even">
+<td>.dynsym</td>
+<td>与动态链接相关的符号表。需要注意，.symtab 中往往保存了所有符号，而 .dynsym 中只保存动态链接时需要的符号，不保存仅在模块内部使用的符号。</td>
+</tr>
+<tr class="odd">
+<td>.eh_frame</td>
+<td>与 C++ 异常处理相关</td>
+</tr>
+<tr class="even">
+<td>.eh_frame_hdr</td>
+<td>与 C++ 异常处理相关</td>
+</tr>
+<tr class="odd">
+<td>.fini</td>
+<td>程序退出时执行的代码，相当于 main() 的“析构函数”</td>
+</tr>
+<tr class="even">
+<td>.fini_array</td>
+<td>程序或共享对象退出时需要执行的函数指针</td>
+</tr>
+<tr class="odd">
+<td>.gnu.version</td>
+<td>动态链接符号版本，.dynsym 中的每个符号对应一项（该符号所需版本在 .gnu.version_d 中的序号）</td>
+</tr>
+<tr class="even">
+<td>.gnu.version_d</td>
+<td>动态链接符号版本的定义（definitions），每个版本的标志位、序号、共享库名称、主次版本号</td>
+</tr>
+<tr class="odd">
+<td>.gnu.version_r</td>
+<td>动态链接符号版本的需求（requirements），依赖的共享库名称和版本序号</td>
+</tr>
+<tr class="even">
+<td>.got</td>
+<td>全局偏移量表（用于动态链接的间接跳转或引用）</td>
+</tr>
+<tr class="odd">
+<td>.got.plt</td>
+<td>Procedure Linkage Table，即运行时链接的“桩函数”</td>
+</tr>
+<tr class="even">
+<td>.hash</td>
+<td>符号表的 hash 表，用于加快符号查找</td>
+</tr>
+<tr class="odd">
+<td>.init</td>
+<td>main() 执行前的初始化代码，相当于 main() 的“构造函数”</td>
+</tr>
+<tr class="even">
+<td>.init_array</td>
+<td>程序或共享对象初始化时需要执行的函数指针</td>
+</tr>
+<tr class="odd">
+<td>.interp</td>
+<td>动态链接器的文件路径</td>
+</tr>
+<tr class="even">
+<td>.line</td>
+<td>调试用的行号信息，使用 gcc 的-g 或 -ggdb 参数</td>
+</tr>
+<tr class="odd">
+<td>.note</td>
+<td>编译器、链接器、操作系统加入的平台相关的额外信息</td>
+</tr>
+<tr class="even">
+<td>.note.ABI-tag</td>
+<td>指定程序的 ABI</td>
+</tr>
+<tr class="odd">
+<td>.preinit_array</td>
+<td>早于初始化阶段前执行的函数指针，在 .init_array 之前执行</td>
+</tr>
+<tr class="even">
+<td>.rel.data</td>
+<td>静态链接文件中，数据段的重定位表</td>
+</tr>
+<tr class="odd">
+<td>.rel.dyn</td>
+<td>动态链接文件中，对数据引用（.got、.data）的重定位表</td>
+</tr>
+<tr class="even">
+<td>.rel.plt</td>
+<td>动态链接文件中，对函数引用（.got.plt）的重定位表</td>
+</tr>
+<tr class="odd">
+<td>.rel.text</td>
+<td>静态链接文件中，代码段的重定位表</td>
+</tr>
+<tr class="even">
+<td>.rodata</td>
+<td>只读数据（常量、字符串常量）</td>
+</tr>
+<tr class="odd">
+<td>.shstrtab</td>
+<td>保存了各段名称的字符串表</td>
+</tr>
+<tr class="even">
+<td>.strtab</td>
+<td>字符串表，通常是符号表中的符号名对应的字符串</td>
+</tr>
+<tr class="odd">
+<td>.symtab</td>
+<td>符号表，静态链接时需要的符号信息</td>
+</tr>
+<tr class="even">
+<td>.tbss</td>
+<td>每个线程一份的未初始化数据（.bss 是各线程共享的）</td>
+</tr>
+<tr class="odd">
+<td>.tdata</td>
+<td>每个线程一份的已初始化数据（.data 是各线程共享的）</td>
+</tr>
+<tr class="even">
+<td>.text</td>
+<td>代码段（为什么不叫 .code？）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="windows-pe-文件格式">Windows PE 文件格式</h3>
+<p>PE 文件是 Windows 下的一种可执行文件格式，包括可执行文件（.exe）、动态链接库（.dll）等。一个 PE 文件由各种节（Sections）组成，每个节都有特定的功能和用途。以下是一些常见的 PE 文件格式中的节及其含义：</p>
+<p>PE 文件格式可能包含多个节，以下是一些常见的节及其可能的含义：<br />
+1. <strong>.text</strong>：包含程序的代码段。<br />
+2. <strong>.data</strong>：包含程序运行时使用的全局和静态变量的初始化数据。<br />
+3. <strong>.rdata</strong>：包含只读数据，如常量、字符串等。<br />
+4. <strong>.bss</strong>：包含未初始化的全局和静态变量（全局变量和静态变量的零初始化段）。<br />
+5. <strong>.edata</strong>：包含导出表，记录了程序内部的一些函数或符号，可以被其他程序或模块引用。<br />
+6. <strong>.idata</strong>：包含导入表，用于存储程序所需依赖的外部函数的引用信息。<br />
+7. <strong>.rsrc</strong>：包含资源数据，如图标、位图、字符串等。<br />
+8. <strong>.reloc</strong>：包含重定位表，记录了需要在加载时进行地址重定位的信息。<br />
+9. <strong>.tls</strong>：包含线程本地存储（Thread Local Storage）相关信息，用于多线程程序的线程本地数据存储。<br />
+10. <strong>.debug</strong>：包含调试信息，如符号表、源代码行号等。<br />
+11. <strong>.pdata</strong>：包含函数执行时异常处理相关的信息，如函数的异常处理程序。<br />
+12. <strong>.xdata</strong>：包含运行时异常处理的相关信息。<br />
+13. <strong>.arch</strong>：包含指定 CPU 架构信息的节。</p>
+<h2 id="静态链接">静态链接</h2>
+<p>链接的接口——符号<br />
+- 符号修饰(函数签名)<br />
+- Calling Convention 的一部分<br />
+- extern "C"<br />
+- 强符号;弱符号<br />
+- 强符号: 定义的符号<br />
+- 弱符号：未定义的符号<br />
+- 强引用：链接时符号不存在就报错<br />
+- 弱引用：符号不存在不报错<br />
+- 作用：设计插件用</p>
+<p>one-pass<br />
+- 只扫描一遍<br />
+- 需要程序员注意依赖库的顺序，被依赖的需要放在后边，即库的依赖关系的<strong>拓扑排序</strong></p>
+<p>two-pass<br />
+- 1.空间与地址分配：读取各目标文件-&gt;相似段合并-&gt;生成全局符号表.symbtab--&gt;生成重定位表<code>.rel.data</code>、<code>.rel.text</code><br />
+- 2.符号解析与重定位<br />
+- 根据<strong>重定位表</strong>，把所有不确定要跳转地址的代码，根据符号表里面存储的地址，进行一次修正</p>
+<p>在<strong>链接器</strong>把程序变成可执行文件之后，要<strong>装载器</strong>去执行程序就容易多了。</p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/95737ee6-79bd-4d45-8b57-4f410677580b.jpg" /></p>
+<p>COMMON块<br />
+- 作用：处理多个不同类型的弱符号<br />
+- 原因：链接器无法判断符号类型</p>
+<p>C++相关问题<br />
+- 重复代码消除<br />
+- 模版代码编译时会生成多份，链接时消除<br />
+- 全局构造与析构<br />
+- <code>.init</code> <code>.fini</code><br />
+- ABI（Application Binary Interface）<br />
+- 比api更加严格，二进制上层次上的接口约定，二进制兼容</p>
+<p>静态库链接<br />
+- 静态库：即把.o文件打包并建立索引<br />
+- 使用的工具 ar</p>
+<h2 id="装载">装载</h2>
+<p><strong>硬盘中的程序文件--&gt;内存中的进程</strong></p>
+<h3 id="程序装载面临的挑战">程序装载面临的挑战</h3>
+<p>装载主要面临的其实是一个<strong>内存的问题</strong>。</p>
+<p>装载器需要满足两个要求：<br />
+第一，可执行程序加载后占用的<strong>内存空间应该是连续的</strong>。执行指令的时候，程序计数器是顺序地一条一条指令执行下去。这也就意味着，这一条条指令需要连续地存储在一起。<br />
+第二，我们需要<strong>同时加载很多个程序</strong>，并且不能让程序自己规定在内存中加载的位置。</p>
+<h3 id="虚拟内存">虚拟内存</h3>
+<p>每个程序在自己来看都拥有连续的地址空间，独占整个操作的内存。<br />
+我们把指令里用到的内存地址叫作<strong>虚拟内存地址</strong>（Virtual Memory Address），实际在内存硬件里面的空间地址，我们叫<strong>物理内存地址</strong>（Physical Memory Address）**。</p>
+<p>程序里有指令和各种内存地址，我们只需要关心虚拟内存地址就行了。对于任何一个程序来说，它看到的都是同样的内存地址,比如说都是从某个固定地址开始的地址，而它编译的程序中是不可能知道程序中的物理地址的，因为你不知道程序会被装载到哪里。我们维护一个虚拟内存到物理内存的映射表，这样实际程序指令执行的时候，会通过<strong>虚拟内存地址，找到对应的物理内存地址</strong>，然后执行。</p>
+<h3 id="内存分段">内存分段</h3>
+<p>这种找出一段连续的物理内存和虚拟内存地址进行映射的方法，我们叫<strong>分段</strong>（Segmentation）**。<br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/5981afc0-3401-44c7-a685-18724ece529e.jpg" /></p>
+<p><strong>内存交换</strong>（Memory Swapping）: 把内存中的程序load到硬盘中，等到需要的时候再load到内存中。<br />
+虚拟内存、分段，再加上内存交换，看起来似乎已经解决了计算机同时装载运行很多个程序的问题。<br />
+不过，你千万不要大意，这三者的组合仍然会遇到一个性能瓶颈。硬盘的访问速度要比内存慢很多，而每一次内存交换，我们都<strong>需要把一大段连续的内存</strong>数据写到硬盘上。所以，如果内存交换的时候，交换的是一个很占内存空间的程序，这样整个机器都会显得卡顿。</p>
+<h3 id="内存分页">内存分页</h3>
+<p>既然问题出在内存碎片和内存交换的空间太大上，那么解决问题的办法就是，当需要进行内存交换的时候，让需要交换写入或者从磁盘装载的数据更少一点，这样就可以解决这个问题。这个办法，在现在计算机的内存管理里面，就叫作<strong>内存分页</strong>（Paging）。<br />
+<strong>和分段这样分配一整段连续的空间给到程序相比，分页是把整个物理内存空间切成一段段固定尺寸的大小</strong>。而对应的程序所需要占用的虚拟内存空间，也会同样切成一段段固定尺寸的大小。这样一个连续并且尺寸固定的内存空间，我们叫<strong>页</strong>（Page）。从虚拟内存到物理内存的映射，不再是拿整段连续的内存的物理地址，而是按照一个一个页来的。页的尺寸一般远远小于整个程序的大小。在 Linux 下，我们通常只设置成 <strong>4KB</strong>。你可以通过命令看看你手头的 Linux 系统设置的页的大小。<br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/b892a912-4c49-42a7-a557-a247c1cd32d5.jpg" /></p>
+<p>当要读取特定的页，却发现数据并没有加载到物理内存里的时候，就会触发一个来自于 CPU 的<strong>缺页错误</strong>（Page Fault）。我们的操作系统会捕捉到这个错误，然后将对应的页，从存放在硬盘上的虚拟内存里读取出来，加载到物理内存里。这种方式，使得我们可以运行那些远大于我们实际物理内存的程序。</p>
+<p>在<strong>虚拟内存、内存交换和内存分页</strong>这三者结合之下，你会发现，<strong>其实要运行一个程序，“必需”的内存是很少的</strong>。CPU 只需要执行当前的指令，极限情况下，内存也只需要加载一页就好了。再大的程序，也可以分成一页。每次，只在需要用到对应的数据和指令的时候，从硬盘上交换到内存里面来就好了。以我们现在 4K 内存一页的大小，640K 内存也能放下足足 160 页呢，也无怪乎在比尔·盖茨会说出“640K ought to be enough for anyone”这样的话。<br />
+不过呢，硬盘的访问速度比内存慢很多，所有大内存还是很有用的。</p>
+<h3 id="进程虚存空间分布">进程虚存空间分布</h3>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250429221538.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250501081518.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="装载过程">装载过程</h3>
+<p>Linux 下的装载器只能解析 ELF 格式而不能解析 PE 格式。<br />
+如果我们有一个可以能够解析 PE 格式的装载器，我们就有可能在 Linux 下运行 Windows程序了。<br />
+Linux 下著名的开源项目 <strong>Wine</strong>，就是通过兼容PE 格式的装载器，使得我们能直接在 Linux 下运行 Windows 程序的。<br />
+而现在微软的Windows 里面也提供了 <strong>WSL</strong>，也就是 Windows Subsystem for Linux，可以解析和加载ELF 格式的文件。</p>
+<ol>
+<li>创建一个独立的虚拟地址空间
 <ul>
-<li>虚拟地址<br />
-物理地址对应于物理内存，是实际存在的。虚拟地址是不存在的地址空间，每个进程有自己独立的虚拟空间，然后通过某些映射方式，将虚拟地址转化为实际的物理地址。<br />
-虚拟地址主要为了解决使用物理地址时，地址空间不隔离，内存使用效率低，运行地址不确定等问题。对于程序来说，它永远从 0x00000000 开始的连续地址，不需要考虑重定位。</li>
-</ul>
-<h3 id="第二部分静态链接">第二部分：静态链接</h3>
-<h4 id="第2章编译和链接">第2章、编译和链接</h4>
-<p>使用gcc编译程序生成目标文件中，经历了四个过程：预处理、编译、汇编、链接</p>
+<li>并不是创建空间而是创建映射函数所需要的相应的数据结构，在i386 的Linux下，创建虚拟地址空间实际上只是分配一个页目录（Page Directory）就可以了，甚至不设置页映射关系，这些映射关系等到后面程序发生<strong>页错误</strong>的时候再进行设置</li>
+</ul></li>
+<li>读取可执行文件头，并且建立虚拟空间与可执行文件的映射关系。</li>
+<li>将CPU的指令寄存器设置成可执行文件的入口地址，启动运行。</li>
+<li>通过<strong>页错误机制</strong>从可执行文件加载数据
 <ul>
-<li>预编译：处理源代码文件中以“#”开头的与编译指令（生成 .i 文件）</li>
-<li>编译：对预处理后的文件进行词法分析、语法分析、语义分析及优化，产生相应的汇编代码文件（生成 .s 文件）<br />
-（gcc把预编译和编译合成一个步骤，使用cc1程序完成，改程序位于 /usr/lib/gcc/x86_64-linux-gnu/4.7/ 中）</li>
-<li>汇编：将汇编代码转成机器可执行的指令，每一个汇编语句几乎对应着一条机器指令（使用汇编器 as 完成，生成 .o 目标文件）</li>
-<li>链接：链接需要用到的其他文件，生成最终可执行文件（使用ld程序，生成 .out 文件）（其过程包括地址和空间分配、符号决议、重定位）</li>
+<li>上面的步骤执行完以后，其实可执行文件的真正指令和数据都没有被装入到内存中。操作系统只是通过可执行文件头部的信息建立起可执行文件和进程虚存之间的映射关系而已</li>
+<li>CPU访问了空页面时产生页错误，并将控制权交给操作系统</li>
+<li><strong>操作系统</strong>找到空页所在的VMA--&gt;找出可执行文件的对应内容--&gt;读取文件--&gt;然后在物理内存分配一个页面并建立其和虚拟页的<strong>映射关系</strong></li>
+</ul></li>
+</ol>
+<h3 id="linux内核装载elf过程">Linux内核装载ELF过程</h3>
+<p>在linux系统的bash下执行一个命令到底做了什么？<br />
+1. 首先在用户层面，bash进程会调用<code>fork()</code>系统调用创建一个新的进程<br />
+2. 新的进程调用 <code>execxx()</code>系统的<strong>库函数</strong>，去执行程序<br />
+3. 再调用 <code>execve()</code> <strong>系统调用</strong>执行指定的ELF文件<br />
+1. 查找被执行的文件，如果找到文件，则读取文件的前128个字节。目的是判断文件的格式，如：可执行程序、shell脚本、python脚本等<br />
+2. 然后调用 <code>search_binary_handle()</code> 去搜索和匹配合适的可执行文件装载处理过程，即 load_elf_binary()<br />
+- ELF可执行文件的装载处理过程叫做 load_elf_binary()<br />
+- 装载可执行脚本程序的处理过程叫做 load_script()<br />
+3. 检查ELF可执行文件格式的有效性<br />
+4. 寻找动态链接的“.interp”段，设置动态链接器路径<br />
+5. 根据ELF可执行文件的程序头表的描述，对ELF文件进行映射，比如代码、数据、只读数据<br />
+6. 初始化ELF进程环境，比如进程启动时EDX寄存器的地址应该是DT_FINI的地址<br />
+7. 将系统调用的返回地址修改成ELF可执行文件的入口点，这个入口点取决于程序的链接方式，<br />
+- 对于静态链接的ELF可执行文件，这个程序入口就是ELF文件的文件头中 <code>e_entry</code> 所指的地址；<br />
+- 对于动态链接的ELF可执行文件，程序入口点是动态链接器<br />
+- 运行动态链接器，加载动态库，并进行动态链接<br />
+- 设置返回地址为入口地址，并开始执行程序<br />
+4. 原先的 <code>bash</code> 进程调用 <code>waitpid()</code>等待刚才启动的新进程结束，然后继续等待用户输入命令</p>
+<h3 id="windows-pe的装载">Windows PE的装载</h3>
+<ol>
+<li>先读取文件的第一个页，在这个页中，包含了DOS头、PE文件头和段表。</li>
+<li>检查进程地址空间中，目标地址是否可用，如果不可用，则另外选一个装载地址。这个问题对于可执行文件来说基本不存在，因为它往往是进程第一个装入的模块，所以目标地址不太可能被占用。主要是针对DLL文件的装载而言的</li>
+<li>使用段表中提供的信息，将PE文件中所有的段一一映射到地址空间中相应的位置。</li>
+<li>如果装载地址不是目标地址，则进行Rebasing。</li>
+<li>装载所有PE文件所需要的DLL文件。</li>
+<li>对PE文件中的所有导入符号进行解析。</li>
+<li>根据PE头中指定的参数，建立初始化栈和堆。</li>
+<li>建立主线程并且启动进程。</li>
+</ol>
+<h2 id="动态链接">动态链接</h2>
+<h3 id="问题及解决方案">问题及解决方案</h3>
+<p><strong>新问题</strong>：静态库的缺陷<br />
+- 静态库浪费内存和磁盘空间，模块在内存中有多个重复副本<br />
+- 静态库更新不方便，每个模块的改动都需要重新链接整个程序</p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/8121e766-35ab-45c8-922a-8b47680f0eec.jpg" /></p>
+<p>基本思想<br />
+- 将链接过程推迟到运行时再执行，代码段共享，数据段独享<br />
+- 在动态链接的过程中，我们想要“链接”的，不是存储在硬盘上的目标文件代码，而是加载到内存中的<strong>共享库</strong>（Shared Libraries）。</p>
+<p><strong>新问题</strong>：加载位置不固定<br />
+- 若动态的加载，则加载的位置会不固定，那动态库中就不能存在<strong>绝对地址</strong></p>
+<p>装载时重定位<br />
+- <code>-shared</code> 链接参数， 即动态库中的符号在确定加载后的位置后，再对符号进行重定位，规则为：<strong>基址 + 偏移量</strong></p>
+<p><strong>新问题</strong>：地址无关代码，绝对符号地址引用的问题<br />
+- 要想要在程序运行的时候共享代码，也有一定的要求，就是这些机器码必须是“<strong>地址无关</strong>”的。也就是说，我们编译出来的共享库文件的指令代码，是地址无关码（Position-Independent Code）,就是<strong>地址不能写死</strong>，比如分支的跳转地址，函数的调用地址等，不能像静态链接的地址一样是个绝对的地址。换句话说就是，这段代码，无论加载在哪个内存地址，都能够正常执行。如果不是这样的代码，就是地址相关的代码。<br />
+- 装载时重定位是解决动态模块中有<strong>绝对地址引用</strong>的办法之一，但是它有一个很大的缺点是<strong>指令部分无法在多个进程之间共享</strong>(因为不同的程序对同一库的加载的地址可能不一样)，这样就失去了动态链接节省内存的一大优势</p>
+<p><strong>地址无关代码</strong>(PIC,Position-independent Code)， 链接参数 <code>-fPIC</code><br />
+- 希望程序模块中共享的指令部分在装载时不需要因为装载地址的改变而改变，所以实现的基本想法就是把指令中那些需要被修改的部分分离出来，<strong>跟数据部分放在一起</strong>，这样指令部分就可以保持不变，而数据部分可以在每个进程中拥有一个副本<br />
+- 四种情况：<br />
+1. 模块<strong>内部</strong>的函数调用、跳转等。 <strong>--&gt; 使用相对寻址，即符号相对当前地址的偏移</strong><br />
+2. 模块<strong>内部</strong>的数据访问，比如模块中定义的全局变量、静态变量。<br />
+3. 模块<strong>外部</strong>的函数调用、跳转等。 <strong>--&gt; 间接访问，即增加GOT表，先访问GOT，再访问真正的地址</strong><br />
+4. 模块<strong>外部</strong>的数据访问，比如其他模块中定义的全局变量</p>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250501140617.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p><strong>新问题</strong>：加载速度问题<br />
+- 若把所有符号都在启动时动态链接，那么会增加程序<strong>启动的时间</strong>。于是就有了<strong>延迟绑定</strong></p>
+<p>延迟绑定（PLT）<br />
+目的：提升动态链接程序加载时的性能<br />
+当函数首次被使用时才进行绑定（符号查找、重定位等），否则不绑定，绑定以后，之后再访问此符号就相当于<strong>直接访问</strong>了。</p>
+<p>ELF将GOT拆分成了两个表叫做“.got”和“.got.plt”。其中“.got”用来保存全局变量引用的地址，“.got.plt”用来保存函数引用的地址，也就是说，所有对于外部函数的引用全部被分离出来放到了“.got.plt”中。</p>
+<p>当调用一个动态库的函数时</p>
+<pre><code>call   400550 &lt;show_me_the_money@plt&gt;</code></pre>
+<p>这里后面有一个 @plt 的关键字，代表了我们需要从 PLT，也就是<strong>程序链接表</strong>（Procedure Link Table）里面找要调用的函数。对应的地址呢，则是 400550 这个地址。程序链接表是在编译期间就确定的了。</p>
+<p>那当我们把目光挪到上面的 400550 这个地址，你又会看到里面进行了一次跳转，这个跳转指定的跳转地址，你可以在后面的注释里面可以看到，GLOBAL_OFFSET_TABLE+0x18。这里的 GLOBAL_OFFSET_TABLE，就是GOT。而 GOT 表里的数据，则是加载一个个共享库的时候写进去的。。</p>
+<pre><code>  400550:       ff 25 12 05 20 00       jmp    QWORD PTR [rip+0x200512]        # 600a68 &lt;_GLOBAL_OFFSET_TABLE_+0x18&gt;</code></pre>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/240e8ee3-0380-4b1e-873a-2d5079cf98d5.jpg" /><br />
+首次会走到第四步，当计算出动态库函数符号地址后，就把真正的地址写入到got表中，之后只需走到第三步就可以直接调用动态库中的函数了。</p>
+<h3 id="动态链接相关结构">动态链接相关结构</h3>
+<ul>
+<li><code>.interp</code>段 ：给出动态链接器的路径</li>
+<li><code>.dynamic</code> 段 ：最重要的结构， 保存动态链接器所需要的信息,比如依赖于哪些共享对象、动态链接符号表的位置、动态链接重定位表的位置、共享对象初始化代码的地址等</li>
+<li><code>.dynsym</code> 段 动态符号表，模块间的符号导入/导出的信息,与“.symtab”不同的是，“.dynsym”只保存了与动态链接相关的符号，对于那些模块内部的符号，比如模块私有变量则不保存</li>
+<li><code>.rel.plt</code>, <code>.rel.dyn</code> 重定位表 在运行时对导入符号的引用进行修正，需要重定位。“.rel.dyn”实际上是对数据引用的修正，它所修正的位置位于“.got”以及数据段；而“.rel.plt”是对函数引用的修正，它所修正的位置位于“.got.plt”</li>
+<li><code>.got</code> ：用来保存全局变量引用的地址</li>
+<li><code>.got.plt</code> ：用来保存函数引用的地址</li>
 </ul>
-<h4 id="第3章目标文件里有什么">第3章、目标文件里有什么</h4>
-<p>可执行文件格式：PE（windows下的Portable Executable）、ELF（linux下的 Executable Linkable Format），都是COFF（Common file firmat）格式的变种</p>
-<p>动态链接库（DLL，Dynamic Linking Library，windows下的.dll和linux下的.so）和静态链接文库（Static Linking Library，windows下的的.lib和linux下的.a）文件已 ELF 格式存储。</p>
-<p>linux下可用 file 指令查看文件格式<br />
-ELF文件结构：代码段、数据段、BSS段、文件头、段表、重定位表、字符串表、符号表、调试表</p>
-<h4 id="第4章静态链接">第4章、静态链接</h4>
-<p>空间与地址分配、符号解析和重定位</p>
-<h4 id="第5章windows-pecoff">第5章、Windows PE/COFF</h4>
-<p>因为基于Linux开发，windows相关的暂时跳过</p>
-<h3 id="第三部分装载与动态链接">第三部分：装载与动态链接</h3>
-<h4 id="第6章可执行文件的装载与进程">第6章、可执行文件的装载与进程</h4>
-<p>操作系统装载程序到内存：覆盖装入和页映射</p>
-<h4 id="第7章动态链接">第7章、动态链接</h4>
-<p>静态链接会浪费内存和磁盘空间、模块更新困难</p>
-<p>静态链接是链接时重定位，动态链接是装载时重定位</p>
-<p>地址无关代码（PIC）：解决共享对象指令中对绝对地址的重定位问题</p>
-<p>延迟绑定（PLT）：当函数第一次被调用时才进行绑定</p>
-<p>ldd：查看程序依赖库<br />
-readelf：查看ELF结构相关信息<br />
-objdump：打印对象信息</p>
-<h4 id="第8章linux共享库的组织">第8章、Linux共享库的组织</h4>
-<p>共享库版本命名：libname.so.x.y.z（主版本号x（重大升级，不兼容其他版本），次版本号y（增量升级），发布版本号z（修正、改进））</p>
-<p>SO-NAME：只保留主版本号的共享库名</p>
-<p>链接名：即libname.so.x.y.z中的name</p>
-<p>LD_LIBRARY_PATH：改变某程序的共享库查找路径<br />
-LD_PRELOAD：指定预先装载的一些共享库或目标文件<br />
-LD_DEBUG：打开动态链接器的调试功能</p>
-<h4 id="第9章windows下的动态链接">第9章、Windows下的动态链接</h4>
-<p>跳过</p>
-<h3 id="第四部分库与运行库">第四部分：库与运行库</h3>
-<h4 id="第10章内存">第10章、内存</h4>
-<p>调用惯例：约定的函数调用方式</p>
-<h4 id="第11章运行库">第11章、运行库</h4>
-<p>程序运行步骤：操作系统创建进程，把控制权交给程序入口（一般是运行库中某个入口函数）；入口函数对运行库和运行环境进行初始化，包括堆、I/O、线程、全局变量构造等；入口函数完成初始化后，调用main函数，执行程序主体部分；main函数执行完毕后，返回入口函数，进行清理工作，包括全局变量析构、堆销毁、关闭I/O等，然后进行系统调用结束进程</p>
-<p>线程私有存储空间：栈、线程局部存储、寄存器</p>
-<p>CRT（C语言运行库）：启动与退出、标准函数、I/O、堆、语言实现、调试</p>
-<h4 id="第12章系统调用与api">第12章、系统调用与API</h4>
-<p>系统调用：应用程序与操作系统内核之间的接口</p>
-<h4 id="第13章运行库与实现">第13章、运行库与实现</h4>
-<p>主要讲 Mini CRT的实现</p>
+<h3 id="动态链接的步骤">动态链接的步骤</h3>
+<ul>
+<li>链接器自举
+<ul>
+<li>动态链接器作为特殊的共享对象，不能依赖其他共享对象</li>
+<li>链接器完成自身所需的全局和静态变量的重定位</li>
+<li>自举代码中不能调用函数</li>
+</ul></li>
+<li>装载共享对象
+<ul>
+<li>全局符号表：合并了所有被加载的共享对象的符号表（包括动态链接器）</li>
+<li>符号优先级</li>
+<li>全局符号介入：共享对象的全局符号被同名符号覆盖
+<ul>
+<li>当一个符号需要被加入全局符号表时，如果相同的符号名已经存在，则<strong>后加入的符号被忽略</strong>。</li>
+<li>由于存在这种重名符号被直接忽略的问题，当程序使用大量共享对象时应该非常小心符号的重名问题，如果两个符号重名又执行不同的功能，那么程序运行时可能会将所有该符号名的引用解析到第一个被加入全局符号表的使用该符号名的符号，从而导致程序莫名其妙的错误。</li>
+</ul></li>
+</ul></li>
+<li>重定位
+<ul>
+<li>链接器开始重新遍历可执行文件和每个共享对象的重定位表，将它们的GOT/PLT中的每个需要重定位的位置进行修正。因为此时动态链接器已经拥有了进程的全局符号表，所以这个修正过程也显得比较容易</li>
+</ul></li>
+<li>初始化
+<ul>
+<li>如果某个共享对象有“.init”段，那么动态链接器会执行“.init”段中的代码，用以实现共享对象特有的初始化过程，比如最常见的，共享对象中的C++的全局/静态对象的构造就需要通过“.init”来初始化。</li>
+</ul></li>
+</ul>
+<h3 id="显式运行时链接">显式运行时链接</h3>
+<ul>
+<li>程序在运行时控制加载指定模块，不需要时可以卸载</li>
+<li>使用动态装载库，其本质和共享对象没有区别</li>
+<li>动态链接器API
+<ul>
+<li>dlopen()：打开一个动态库</li>
+<li>dlsym()：找到所需符号</li>
+<li>dlerror()：判断上一次调用是否成功</li>
+<li>dlclose()：卸载一个模块</li>
+</ul></li>
+</ul>
+<h2 id="共享库">共享库</h2>
+<p>核心问题：<strong>如何维护共享库</strong></p>
+<h3 id="共享库版本">共享库版本</h3>
+<ul>
+<li>共享库兼容性：兼容更新 / 不兼容更新</li>
+<li>命名规范 <code>libname.so.x.y.z</code> major.minor.release 主.次.发布版本号</li>
+<li>SO-NAME
+<ul>
+<li>只保留主版本号的一个命名机制，在Linux上通过<strong>软链接</strong>指向共享库的最新版本</li>
+<li>目的：使依赖于某个共享库的模块使用SO-NAME，而不是详细版本号。保证了所有的以SO-NAME为名的软链接都指向系统中最新版的共享库</li>
+</ul></li>
+</ul>
+<h3 id="符号版本">符号版本</h3>
+<ul>
+<li>解决问题：次版本号交汇问题
+<ul>
+<li>当某个程序依赖于较高的次版本号的共享库，而运行于较低次版本号的共享库系统时，就可能产生缺少某些符号的错误。因为次版本号只保证向后兼容，并不保证向前兼容，新版的次版本号的共享库可能添加了一些旧版没有的符号。这种次版本号交会问题并没有因为SO-NAME的存在而得到任何改善。对于这个问题，现代的系统通过一种更加精巧的方式来解决，那就是符号版本机制</li>
+</ul></li>
+<li>基本思路：每个导入导出的符号都有个相关联的版本号，<strong>链接时</strong>再对版本号进行判断，如不兼容，则报错</li>
+</ul>
+<h3 id="共享库的组织和路径">共享库的组织和路径</h3>
+<ul>
+<li><code>/lib</code>：系统中最关键和基础的共享库，比如动态链接器、C语言运行库、数学库等，这些库主要是那些/bin和/sbin下的程序所需要用到的库</li>
+<li><code>/usr/lib</code>：非系统运行时所需要的关键共享库（主要是开发时使用）</li>
+<li><code>/usr/local/lib</code>：和操作系统并不十分相关的库（第三方应用的库）。比如python语言的解释器，而它的可执行文件可能被放到/usr/local/bin下。GNU的标准推荐第三方的程序应该默认将库安装到/usr/local/lib下</li>
+</ul>
+<h3 id="共享库查找过程">共享库查找过程</h3>
+<p>动态链接的模块所依赖的模块路径保存在“.dynamic”段里面，由DT_NEED类型的项表示。动态链接器对于模块的查找有一定的规则：如果DT_NEED里面保存的是绝对路径，那么动态链接器就按照这个路径去查找；如果DT_NEED里面保存的是相对路径，那么动态链接器会在/lib、/usr/lib和由/etc/ld.so.conf配置文件指定的目录中查找共享库。为了程序的可移植性和兼容性，共享库的路径往往是相对的。</p>
+<p>如果动态链接器在每次查找共享库时都去遍历这些目录，那将会非常耗费时间。所以Linux系统中都有一个叫做 <code>ldconfig</code> 的程序，这个程序的作用是为共享库目录下的各个共享库创建、删除或更新相应的SO-NAME（即相应的符号链接），这样每个共享库的SO-NAME就能够指向正确的共享库文件；并且这个程序还会将这些SO-NAME收集起来，集中存放到 <code>/etc/ld.so.cache</code> 文件里面，并建立一个SO-NAME的缓存。当动态链接器要查找共享库时，它可以直接从 <code>/etc/ld.so.cache</code> 里面查找。而/etc/ld.so.cache 的结构是经过特殊设计的，非常适合查找，所以这个设计大大加快了共享库的查找过程</p>
+<p>所以理论上讲，如果我们在系统指定的共享库目录下添加、删除或更新任何一个共享库，或者我们更改了/etc/ld.so.conf的配置，都应该运行 <code>ldconfig</code> 这个程序，以便调整SO-NAME和/etc/ld.so.cache。</p>
+<p>环境变量<br />
+- <code>LD_LIBRARY_PATH</code>：共享库查找路径<br />
+- LD_LIBRARY_PATH对于共享库的开发和测试来说十分方便，但是它不应该被滥用。也就是说，普通用户在正常情况下不应该随意设置LD_LIBRARY_PATH来调整共享库搜索目录。随意修改LD_LIBRARY_PATH并且将其导出至全局范围，将可能引起其他应用程序运行出现的问题；<br />
+- LD_LIBRARY_PATH也会影响GCC编译时查找库的路径，它里面包含的目录相当于链接时GCC的“-L”参数。<br />
+- <code>LD_PRELOAD</code>：指定预先装载的共享库或者目标文件<br />
+- 在LD_PRELOAD里面指定的文件会在动态链接器按照固定规则搜索共享库之前装载，它比LD_LIBRARY_PATH里面所指定的目录中的共享库还要优先<br />
+- 由于全局符号介入这个机制的存在，LD_PRELOAD里面指定的共享库或目标文件中的全局符号就会覆盖后面加载的同名全局符号，这使得我们可以很方便地做到改写标准C库中的某个或某几个函数而不影响其他函数，对于程序的调试或测试非常有用。<br />
+- 系统配置文件中有一个文件是/etc/ld.so.preload，它的作用与LD_PRELOAD一样。<br />
+- <code>LD_DEBUG</code>：打开动态链接器的调试功能<br />
+- 当我们设置这个变量时，动态链接器会在运行时打印出各种有用的信息，对于我们开发和调试共享库有很大的帮助。可以为如下值：<br />
+- “bindings”显示动态链接的符号绑定过程。<br />
+- “libs”显示共享库的查找过程。<br />
+- “versions”显示符号的版本依赖关系。<br />
+- “reloc”显示重定位过程。<br />
+- “symbols”显示符号表查找过程。<br />
+- “statistics”显示动态链接过程中的各种统计信息</p>
+<h2 id="windows下共享库">windows下共享库</h2>
+<h3 id="动态库相关的文件">动态库相关的文件</h3>
+<p><strong>静态库</strong>(Static Library)：<br />
+函数和数据被编译进一个二进制文件(通常扩展名为.LIB)。在使用静态库的情况下，在编译链接可执行文件时，链接器从库中复制这些函数和数据并把它们和应用程序的其它模块组合起来创建最终的可执行文件(.EXE文件)。<br />
+- 使用静态库的优势在于依赖明确，不依赖于外部的 DLL 文件，但会增加程序的大小。</p>
+<p><strong>动态链接库</strong>(Dynamic Linked Library)：<br />
+Windows为应用程序提供了丰富的函数调用，这些函数调用都包含在动态链接库中。其中有3个最重要的DLL，<br />
+- Kernel32.dll，它包含用于管理内存、进程和线程的各个函数；<br />
+- User32.dll，它包含用于执行用户界面任务(如窗口的创建和消息的传送)的各个函数；<br />
+- GDI32.dll，它包含用于画图和显示文本的各个函数。</p>
+<p><strong>导入库</strong>(Import Library)：<br />
+在使用动态链接库的时候，往往提供两个文件：一个引入库和一个DLL。<strong>引入库</strong>包含被DLL导出的函数和变量的符号名，<strong>DLL</strong>包含实际的函数和数据。在编译链接可执行文件时，只需要<strong>链接引入库</strong>，DLL中的函数代码和数据并不复制到可执行文件中，在运行的时候，再去加载DLL，访问DLL中导出的函数。<br />
+- <strong>导入库</strong>是针对动态链接库的一种特殊类型的库文件，它是编译器用来在链接时定位和解析动态链接库中函数的符号的。<br />
+- 当你编译一个程序并使用动态链接库时，通常需要导入库文件来告诉编译器在链接时如何定位动态链接库中的函数。<br />
+- <code>.lib</code> 文件通常被称为导入库，它不包含实际的代码，而是包含了动态链接库中函数的符号信息以及程序运行时所需的元数据。</p>
+<p><strong>EXP文件</strong>（Export File）<br />
+- 作用：这是一个<strong>中间文件</strong>，用于存储DLL项目中所有导出函数的列表。该文件由链接器在创建DLL时使用，以建立函数导出表。<br />
+- 这个文件的主要使用者是链接器。在链接过程中，链接器使用<code>.exp</code>文件来解析DLL中哪些符号需要被外部访问，并据此构建DLL的导出表。<br />
+- 应用：主要用于链接过程中生成DLL文件，确保DLL中的导出表正确设置。<br />
+- 在项目发布的时候需要包含exp文件吗？<br />
+- 一旦DLL文件被成功构建，<code>.exp</code>文件在运行时就不再需要了。<br />
+- 在项目进行发布的时候，<code>.exp</code>文件（Export File）通常<strong>不需要</strong>被包含在发布包中。<code>.exp</code>文件是在链接（Linking）过程中生成的一个中间文件，其主要目的是在构建阶段帮助创建DLL（动态链接库）文件时使用，存储有关如何处理来自DLL的导出的信息。</p>
+<p><strong>PDB文件</strong>（Program Database）<br />
+- 作用：存储程序编译时生成的调试信息。如函数名、变量名和行号等。使得开发者在调试程序时可以进行源代码级的调试。<br />
+- 应用：非常关键的调试工具，用于程序崩溃分析、性能分析等。</p>
+<p><strong>发布时应包含哪些文件？</strong><br />
+当你发布一个项目（尤其是包含DLL的项目）时，通常需要包含以下类型的文件：<br />
+1. <strong>.dll 文件</strong> - 动态链接库文件本身，包含所有实现的代码，是程序运行所必需的。<br />
+2. <strong>.lib 文件</strong> - 如果你的DLL设计为由其他程序动态链接（dynamic linking）使用，那么相关的导入库（Import Library）文件<code>.lib</code>也需要被包含。这个文件是用来在编译时解析DLL中公开的符号的。<br />
+3. <strong>.pdb 文件</strong> - 如果你希望最终用户能够对程序进行调试（通常在beta测试阶段或开发者版中可能需要），那么程序数据库文件（Program Database）也可能被包含。这个文件包含了源代码级调试的信息。<br />
+4. <strong>相关的配置文件和资源</strong> - 根据项目的不同，可能还需要包括其他资源，如配置文件、数据文件、图像等。</p>
+<h3 id="dumpbin查看库文件">dumpbin查看库文件</h3>
+<p>下面是打印的例子：<br />
+如果库里面各个程序段都很全，那说明它是一个动态库或静态库。<br />
+如果是导入库，里面会有多个<code>.idata</code>节,它用于存储导入表（Import Table）信息。导入表是一个数据结构，用于描述程序需要从其他模块（通常是 DLL 文件）中导入的函数或符号。</p>
+<p>结论：一般成对出现的库(.dll .lib都有)为动态链接库，仅有一个.lib的库为静态库</p>
+<pre><code>######## 动态库 ########
+C:\Users\sunxv\Desktop\0\depends22_x64&gt;dumpbin OpenThreads.dll
+
+Dump of file OpenThreads.dll
+
+File Type: DLL
+  Summary
+        1000 .data
+        1000 .pdata
+        4000 .rdata
+        1000 .reloc
+        1000 .rsrc
+        3000 .text
+
+######## 导入库 ########
+C:\Users\sunxv\Desktop\0\depends22_x64&gt;dumpbin OpenThreads.lib
+
+Dump of file OpenThreads.lib
+
+File Type: LIBRARY
+  Summary
+          CF .debug$S
+          14 .idata$2
+          14 .idata$3
+           8 .idata$4
+           8 .idata$5
+          10 .idata$6
+
+######## 静态库 ########
+C:\Users\sunxv\Desktop\0\depends22_x64&gt;dumpbin mysqlclient.lib
+
+Dump of file mysqlclient.lib
+
+File Type: LIBRARY
+
+  Summary
+           8 .CRT$XCU
+        8EF8 .bss
+      117079 .data
+          30 .debug$F
+      58BC90 .debug$S
+        7580 .debug$T
+        4FD6 .drectve
+       116D7 .rdata
+        2623 .rdata$r
+           C .sxdata
+       78390 .text
+          18 .text$yc
+          54 .xdata$x</code></pre>
+<h3 id="查看lib库是32位还是64位">查看lib库是32位还是64位</h3>
+<pre><code>dumpbin /headers lua51.lib|findstr machine</code></pre>
+<h2 id="vs中编译共享库">VS中编译共享库</h2>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240212145334.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h2 id="linux下共享库">Linux下共享库</h2>
+<h3 id="编译静态库">编译静态库</h3>
+<p>将源文件打包为静态链接库的过程很简单，只需经历以下 2 个步骤：<br />
+1) 将所有指定的源文件，都编译成相应的目标文件：<br />
+2) 然后使用 ar 压缩指令，将生成的目标文件打包成静态链接库，其基本格式如下：</p>
+<pre class="shell"><code>ar rcs 静态链接库名称 目标文件1 目标文件2 ...</code></pre>
+<p>例子：</p>
+<pre class="shell"><code>gcc -c sub.c add.c div.c
+ar rcs libmymath.a add.o sub.o div.o</code></pre>
+<h3 id="使用静态库">使用静态库</h3>
+<p>GCC 编译器生成可执行文件时，默认情况下会优先使用动态链接库实现链接操作，除非当前系统环境中没有程序文件所需要的动态链接库，GCC 编译器才会选择相应的静态链接库。如果两种都没有（或者 GCC 编译器未找到），则链接失败。</p>
+<p>方式一：</p>
+<pre class="shell"><code>gcc -static main.o libmymath.a</code></pre>
+<p>其中，-static 选项<strong>强制</strong> GCC 编译器使用静态链接库。</p>
+<p>方式二：</p>
+<pre class="shell"><code>gcc main.o -static -L /root/demo/ -lmymath</code></pre>
+<p>其中，-L（大写的 L）选项用于向 GCC 编译器指明静态链接库的存储位置<br />
+-l（小写的 L）选项用于指明所需静态链接库的名称，libmymath.a要写出 -lmymath</p>
+<p>当以<strong>第一种写法完</strong>成链接操作时，GCC 编译器只会在当前目录中（这里为 demo 目录）查找 libmymath.a 静态链接库；反之，如果使用 -l（小写的 L）选项指明了要查找的静态库的文件名，则 GCC 编译器会按照如下顺序，依次到指定目录中查找所需库文件：<br />
+1. 如果 gcc 指令使用 -L 选项指定了查找路径，则 GCC 编译器会优先选择去该路径下查找所需要的库文件；<br />
+2. 再到 Linux 系统中 LIBRARY_PATH 环境变量指定的路径中搜索需要的库文件；<br />
+3. 最后到 GCC 编译器默认的搜索路径（比如 /lib、/lib64、/usr/lib、/usr/lib64、/usr/local/lib、/usr/local/lib64 等，不同系统环境略有差异）中查找。</p>
+<p>如果使用第一种方法完成链接操作，但 GCC 编译器提示找不到所需库文件，表明所用库文件并未存储在当前路径下，解决方案就是手动找到库文件并将其移至当前路径，然后重新执行链接操作。</p>
+<p>反之，如果使用的是<strong>第二种方法</strong>，也遇到了 GCC 编译器提示未找到所需库文件，表明库文件的存储路径不对，解决方案有以下 3 种：<br />
+- 手动找到该库文件，并在 gcc 指令中用 -L 选项明确指明其存储路径。比如 libmymath.a 静态库文件存储在 /usr 目录下，则完成链接操作的 gcc 指令应为<code>gcc -static main.c -L/usr -lmymath -o main.exe</code>；<br />
+- 将库文件的存储路径添加到 LIBRARY_PATH 环境变量中。仍以库文件存储在 /usr 目录下，则通过执行<code>export LIBRARY_PATH=$LIBRARY_PATH:/usr</code>指令，即可将 /usr 目录添加到该环境变量中（此方式仅在当前命令行窗口中有效）；<br />
+- 将库文件移动到 GCC 编译器默认的搜索路径中。</p>
+<h3 id="编译动态库">编译动态库</h3>
+<p>so文件的源文件中不需要有main函数，即使有也不会被执行<br />
+编译的时候gcc需要加<code>-fPIC</code>选项，这可以使gcc产生与位置无关的代码。<br />
+链接的时候gcc使用<code>-shared</code>选项，指示生成一个共享库文件。</p>
+<p>共享库文件名要以lib开头，扩展名为.so。按照命名惯例，每个共享库有三个文件名：real name、soname和linker name。<br />
+- <strong>真实名（Real Name）</strong>：共享库的实际文件名，包含完整的共享库版本号。<br />
+- <strong>共享库名（SONAME）</strong>：共享库的标识名，只包含主版本号，用于表示库的 API 兼容性，主版本号一致即可保证库函数的接口一致。<br />
+- <strong>链接器名（Linker Name）</strong>：一个符号链接，指向真实名或SONAME，用于方便链接器查找库。</p>
+<pre><code># 基础使用
+gcc -fPIC -c a.c
+gcc -fPIC -c b.c
+gcc -shared -Wl -o libmyab.so a.o b.o
+
+# 一步到位使用
+gcc -fpic -shared 源文件名... -o 动态链接库名
+
+# 加soname的使用
+gcc -shared -Wl -soname libmyab.so.1 -o libmyab.so.1.0.1 a.o b.o</code></pre>
+<p>编译动态库的makefile例子：</p>
+<pre><code>.SUFFIXES:.c .o
+
+CC=gcc
+SRCS=test.c
+
+EXEC=libtest.so
+
+OBJS=$(SRCS:.c=.o)
+
+start:$(OBJS)
+    $(CC) -shared -o $(EXEC) $(OBJS)
+
+.c.o:
+    $(CC) -g -fPIC -o $@ -c $&lt;
+
+clean:
+    rm -f $(OBJS)</code></pre>
+<h3 id="使用动态库">使用动态库</h3>
+<p>例子：</p>
+<pre><code>gcc main.c  libmymath.so -o main.exe
+gcc main.o  -L /root/demo/ -lmymath</code></pre>
+<ol>
+<li>为了让linux能找到so文件的位置，需要在.bash_profile中添加<code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.</code> 或者将so文件放入linux的系统目录<code>/usr/lib/</code></li>
+<li>在c文件中使用so文件，首先需要 <code>#inluce</code>相关头文件。</li>
+<li>gcc连接时添加 <code>–L</code> 参数指明so文件存放路径, <code>-l</code> 参数指明so文件名</li>
+<li>为了使我们编写的so文件同时可以被C或者C++调用，我们需要修改一下函数申明部分增加带有<code>__cplusplus</code>的预编译指令，<code>extern "C"{}</code></li>
+</ol>
+<h3 id="动态库找不到的问题">动态库找不到的问题</h3>
+<p>在linux系统下报如下的错误是因为公司库没找到：</p>
+<pre><code>error while loading shared libraries: libmysqlpp.so.3: cannot open shared object file: No such file or directory</code></pre>
+<p>事实上，当 GCC 编译器运行可执行文件时，会按照如下的路径顺序搜索所需的动态库文件：<br />
+1. 如果在生成可执行文件时，用户使用了<code>-Wl,-rpath=dir</code>（其中 dir 表示要查找的具体路径，如果查找路径有多个，中间用 : 冒号分隔）选项指定动态库的搜索路径，则运行该文件时 GCC 会首先到指定的路径中查找所需的库文件；<br />
+2. GCC 编译器会前往 LD_LIBRARY_PATH 环境变量指明的路径中查找所需的动态库文件；<br />
+3. GCC 编译器会前往 /ect/ld.so.conf 文件中指定的搜索路径查找动态库文件；<br />
+4. GCC 编译器会前往默认的搜索路径中（例如 /lib、/lib64、/usr/lib、/usr/lib64 等）中查找所需的动态库文件。</p>
+<blockquote>
+<p>注意，可执行文件的当前存储路径，并不在默认的搜索路径范围内，因此即便将动态库文件和可执行文件放在同一目录下，GCC 编译器也可能提示“找不到动态库”。</p>
+</blockquote>
+<p><strong>解决办法如下：</strong><br />
+0、最粗暴的方法，把缺失的动态库复制到可执行程序的目录，程序可能可能会在当前目录下查找动态库。但也不一定。或者把动态库复制到将系统库目录下（例如 /usr/lib、/usr/lib64、/lib、/lib64）</p>
+<p>1、如果共享库文件安装到了 <code>/lib</code>或 <code>/usr/lib</code> 目录下, 那么需执行一下 <code>ldconfig</code> 命令<br />
+<code>ldconfig</code>命令的用途, 主要是在默认搜寻目录( <code>/lib</code> 和 <code>/usr/lib</code> )以及动态库配置文件<code>/etc/ld.so.conf</code>内所列的目录下, 搜索出可共享的动态链接库(格式如lib<em>.so</em>), 进而创建出动态装入程序(<code>ld.so</code>)所需的连接和缓存文件. 缓存文件默认为<code>/etc/ld.so.cache</code>, 此文件保存已排好序的动态链接库名字列表,目的是来提高共享库的查找速度.</p>
+<p>如果不执行 ldconfig 或者没有 /etc/ld.so.cache 文件，系统将不会更新共享库的缓存，这可能导致一些问题，包括但不限于：<br />
+<strong>性能问题</strong>：<br />
+缓存的目的是提高共享库的查找速度。如果没有更新缓存，系统在运行时可能会花费更多时间来查找和加载共享库，从而导致性能下降。<br />
+<strong>共享库不可用</strong>：<br />
+如果新安装了共享库但没有运行 ldconfig，系统可能无法找到或加载新安装的库。这可能导致应用程序无法启动或者出现运行时错误，因为它们无法找到所需的库。</p>
+<p>2、如果共享库文件安装到了 <code>/usr/local/lib</code> (很多开源的共享库都会安装到该目录下)或其它"非/lib或/usr/lib"目录下, 那么在执行 ldconfig命令前, 还要把新共享库目录加入到共享库配置文件<code>/etc/ld.so.conf</code>中, 如下:</p>
+<pre><code># cat /etc/ld.so.conf
+include ld.so.conf.d/*.conf
+# echo &quot;/usr/local/lib&quot; &gt;&gt; /etc/ld.so.conf  
+# ldconfig</code></pre>
+<p>3、如果共享库文件安装到了其它"非/lib或/usr/lib" 目录下, 但是又不想在<code>/etc/ld.so.conf</code>中加路径(或者是没有权限加路径). 那可以<code>export</code>一个全局变量 <code>LD_LIBRARY_PATH</code> , 然后运行程序的时候就会去这个目录中找共享库。也可以在 <code>.bashrc</code> 或 <code>.bash_profile</code> 或shell里加入如下类似语句:</p>
+<pre><code>export LD_LIBRARY_PATH=/usr/local/mysql/lib:$LD_LIBRARY_PATH   </code></pre>
+<p>一般来讲这只是一种临时的解决方案, 在没有权限或临时需要的时候使用.</p>
+<h3 id="显示调用cc动态链接库">显示调用C/C++动态链接库</h3>
+<p>总的来讲，动态链接库的调用方式有 2 种，分别是：<br />
+- 隐式调用（静态调用）：将动态链接库和其它源程序文件（或者目标文件）一起参与链接；<br />
+- 显式调用（动态调用）：手动调用动态链接库中包含的资源，同时用完后要手动将资源释放。</p>
+<p>显式调用动态链接库的过程，类似于使用 malloc() 和 free()（C++ 中使用 new 和 delete）管理动态内存空间，需要时就申请，不需要时就将占用的资源释放。由此可见，显式调用动态链接库对内存的使用更加合理。</p>
+<p>使用步骤：<br />
+1、引入<code>&lt;dlfcn.h&gt;</code> 头文件</p>
+<p>2、打开该库文件</p>
+<pre><code>void *dlopen (const char *filename, int flag);</code></pre>
+<p>其中，filename 参数用于表明目标库文件的存储位置和库名；flag 参数的值有 2 种：<br />
+1.RTLD_NOW：将库文件中所有的资源都载入内存；<br />
+2.RTLD_LAZY：暂时不降库文件中的资源载入内存，使用时才载入。</p>
+<blockquote>
+<p>值得一提的是，对于 filename 参数，如果用户提供的是以 / 开头，即以绝对路径表示的文件名，则函数会前往该路径下查找库文件；反之，如果用户仅提供文件名，则该函数会依次前往 LD_LIBRARY_PATH 环境变量指定的目录、/etc/ld.so.cache 文件中指定的目录、/usr/lib、/usr/lib64、/lib、/lib64 等默认搜索路径中查找。</p>
+</blockquote>
+<p>3、借助 <code>dlsym()</code> 函数可以获得指定函数在内存中的位置</p>
+<pre><code>void *dlsym(void *handle, char *symbol);</code></pre>
+<p>4、和dlopen() 相对地，借助 dlclose() 函数可以关闭已打开的动态链接库。</p>
+<p>5、借助 dlerror() 函数，我们可以获得最近一次 dlopen()、dlsym() 或者 dlclose() 函数操作失败的错误信息</p>
+<p>6、编译时加上 <code>-ldl</code>，可执行程序需要 libdl.so 动态库的支持</p>
+<pre><code>gcc main.c -ldl -o main.exe</code></pre>
+<h3 id="debug-or-release">debug or release</h3>
+<p>linux 下编译，区分程序、库是debug还是release版本。<br />
+在linux里面，使用编译器的时候，默认没有 -g 的选项，也就是默认编译成release版本。</p>
+<h4 id="使用gdb命令">使用gdb命令</h4>
+<p>使用 gdb filename //filename这里指的是你想要产看的程序，或者库<br />
+如果是debug版本的话，最后会提示：Reading symbols from filename...done 相关信息 //filename这里指的是你想要产看的程序，或者库<br />
+如果是release版本的话，最后会提示：no debugging symbols found</p>
+<h4 id="使用file命令">使用file命令</h4>
+<pre><code>file &lt;your_program&gt;</code></pre>
+<p>通常情况下，如果程序是 release 版本，输出可能会包含 "stripped" 或 "not stripped" 等字样，表示调试信息被删除或保留。而 debug 版本则可能会包含 "debug" 或 "with debug_info" 等字样，表示调试信息被保留。</p>
+<h2 id="程序运行">程序运行</h2>
+<h3 id="程序的内存布局">程序的内存布局</h3>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250505143340.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="栈与调用惯例">栈与调用惯例</h3>
+<p>栈帧结构：<br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250505143426.png" alt="image.png" /></p>
+<p><strong>i386下的函数调用</strong><br />
+1. 把所有或一部分参数压入栈中，如果有其他参数没有入栈，那么使用某些特定的寄存器传递。<br />
+2. 把当前指令的下一条指令的地址压入栈中。<br />
+3. 跳转到函数体执行。</p>
+<p>其中第2步和第3步由指令call一起执行，跳转到函数体之后即开始执行函数。</p>
+<p><strong>i386函数体的标准开头</strong><br />
+1. push ebp：把ebp压入栈中（称为old ebp）。把ebp压入栈中，是为了在函数返回的时候便于恢复以前的ebp值<br />
+2. mov ebp, esp：ebp = esp（这时ebp指向栈顶，而此时栈顶就是oldebp）。<br />
+3. 【可选】sub esp, XXX：在栈上分配XXX字节的临时空间。<br />
+4. 【可选】push XXX：如有必要，保存名为XXX寄存器（可重复多个）。原因是：在于编译器可能要求某些寄存器在调用前后保持不变，那么函数就可以在调用开始时将这些寄存器的值压入栈中，在结束后再取出</p>
+<p><strong>i386函数体的标标准结尾</strong><br />
+1. 【可选】pop XXX：如有必要，恢复保存过的寄存器（可重复多个）。<br />
+2. mov esp, ebp：恢复ESP同时回收局部变量空间。<br />
+3. pop ebp：从栈中恢复保存的ebp的值。<br />
+4. ret：从栈中取得返回地址，并跳转到该位置。</p>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250505174826.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250505174920.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p><strong>调用约定</strong>（Calling Convention）”通常会规定如下几方面内容：<br />
+- 函数参数的传递顺序和方式（使用栈/寄存器传参？）；<br />
+- 栈的维护方式（由哪一方来清理栈？）；<br />
+- 名字修饰（Name-mangling）的策略（为了在链接时对不同的调用惯例进行区分）。</p>
+<p><strong>C++ thiscall 调用惯例</strong>：专用于<strong>类成员函数</strong>的调用。</p>
+<blockquote>
+<p>在调用 C++ 非静态成员函数时使用此约定。基于所使用的编译器和函数是否使用可变参数，有两个主流版本的 thiscall。 对于 GCC 编译器，thiscall 几乎与 cdecl 等同：调用者清理堆栈，参数从右到左传递。差别在于 this 指针，thiscall 会在最后把 this 指针推入栈中，即相当于在函数原型中是隐式的左数第一个参数。</p>
+</blockquote>
+<h3 id="函数返回值的处理">函数返回值的处理</h3>
+<ul>
+<li>对于小的对象，比如int，double类型，直接通过寄存器返回</li>
+<li>对于大的对象，比如大的结构体，类等，需要编译器生成特殊的代码</li>
+</ul>
+<p>大对象返回值的处理步骤：<br />
+1. 首先main函数在栈上额外开辟了一片空间，并将这块空间的一部分作为传递返回值的临时对象，这里称为temp。<br />
+2. 将temp对象的地址作为隐藏参数传递给return_test函数。<br />
+3. return_test函数将数据拷贝给temp对象，并将temp对象的地址用eax传出。<br />
+4. return_test返回之后，main函数将eax指向的temp对象的内容拷贝给n。</p>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250505175029.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="堆与内存管理">堆与内存管理</h3>
+<p>用来分配堆空间的系统调用：<br />
+- <strong>brk()</strong>：通过设置进程数据段的结束地址，即把数据段的结束地址向高地址移动，来扩大空间。并将这部分扩大出来的空间来作为堆空间使用；<br />
+- <strong>mmap()</strong>：向操作系统申请一段虚拟地址空间，这部分空间可以映射到某个文件。也可以不映射到具体文件而成为<strong>匿名空间</strong>，以作堆空间之用。</p>
+<p>常用的堆分配算法：<br />
+- <strong>空闲链表</strong>：把堆中各个空闲的块按照<strong>链表</strong>的方式连接起来，当用户请求一块空间时，可以遍历整个链表，直到找到大小合适的块并将它拆分。当用户释放空间时将它合并到空闲链表中；<br />
+- <strong>位图</strong>：将整个堆划分为大量的块，每个块大小相同。用户请求内存时，总是分配整数个块给用户，第一个块称为已分配区域的头，其余称为已分配区域的主体。可以用一个整数数组来记录块的使用情况，用两位数表示一个块的状态（头\主体\空闲）。<br />
+- <strong>对象池</strong>：如果每一次分配的空间大小都一样，那么就可以按照这个每次请求分配的大小作为一个单位，把整个堆空间划分为大量的小块，每次请求的时候只需要找到一个小块就可以了。</p>
+<h2 id="运行库">运行库</h2>
+<h3 id="入口函数和程序初始化">入口函数和程序初始化</h3>
+<p>一个典型的程序运行步骤：<br />
+- 操作系统创建进程后，把控制权交到了程序入口，<strong>该入口通常为运行库中的某个入口函数</strong>；<br />
+- 入口函数对运行库和程序运行环境进行初始化，包括：堆、IO、线程、全局变量构造等；<br />
+- 入口函数在完成初始化后，调用 <code>main()</code> 函数，正式开始执行程序主体部分；<br />
+- main 函数执行完毕后，返回到入口函数，入口函数进行清理工作，包括全局变量析构、堆销毁、关闭 IO 等，然后进行系统调用结束进程；</p>
+<h3 id="cc运行库">C/C++运行库</h3>
+<p>一个C语言运行库大致包含了如下功能：<br />
+- 启动与退出：包括入口函数及入口函数所依赖的其他函数等。<br />
+- 标准函数：由C语言标准规定的C语言标准库所拥有的函数实现。<br />
+- I/O：I/O功能的封装和实现，参见上一节中I/O初始化部分。<br />
+- 堆：堆的封装和实现，参见上一节中堆初始化部分。<br />
+- 语言实现：语言中一些特殊功能的实现。<br />
+- 调试：实现调试功能的代码</p>
+<h2 id="系统调用">系统调用</h2>
+<h3 id="系统中断">系统中断</h3>
+<p>现代的CPU常常可以在多种截然不同的<strong>特权级别</strong>下执行指令，分别为<strong>用户模式</strong>（UserMode）和<strong>内核模式</strong>（Kernel Mode），也被称为<strong>用户态</strong>和<strong>内核态</strong>。由于有多种特权模式的存在，操作系统就可以让不同的代码运行在不同的模式上，以限制它们的权力，提高稳定性和安全性。普通应用程序运行在用户态的模式下，诸多操作将受到限制，这些操作包括访问硬件设备、开关中断、改变特权模式等。</p>
+<p>系统调用是运行在内核态的，而应用程序基本都是运行在用户态的。</p>
+<p>用户态的程序如何运行内核态的代码呢？<br />
+操作系统一般是通过中断（Interrupt）来从用户态切换到内核态。</p>
+<p>什么是中断呢？<br />
+中断是一个硬件或软件发出的请求，要求CPU暂停当前的工作转手去处理更加重要的事情。举一个例子，当你在编辑文本文件的时候，键盘上的键不断地被按下，CPU如何获知这一点的呢？当键盘上有键被按下时，键盘上的芯片发送一个信号给CPU，CPU接收到信号之后就知道键盘被按下了，然后再去询问键盘被按下的键是哪一个。 这样的信号就是一种中断。<br />
+<strong>中断的时机</strong>：cpu每执行完一个指令后回去检查相应的中断相关的寄存器，有中断了则执行相应的中断程序。</p>
+<p>中断一般具有两个属性，一个称为<strong>中断号</strong>（从0开始），一个称为<strong>中断处理程序</strong>（Interrupt Service Routine, ISR）。<br />
+不同的中断具有不同的中断号，而同时一个中断处理程序一一对应一个中断号。在内核中，有一个数组称为<strong>中断向量表</strong>（Interrupt Vector Table），这个数组的第n项包含了指向第n号中断的中断处理程序的指针。<br />
+当中断到来时，CPU会暂停当前执行的代码，根据中断的中断号，在中断向量表中找到对应的中断处理程序，并调用它。中断处理程序执行完成之后，CPU会继续执行之前的代码。一个简单的示意图如图12-2所示</p>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250505175117.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>linux下中断处理流程</p>
+<ol>
+<li>触发中断， 即通过 <code>int $0x80</code> 的汇编代码来触发中断</li>
+<li>切换堆栈
+<ul>
+<li>用户态和内核态使用的是不同的栈，两者各自负责各自的函数调用，互不干扰。但在应用程序调用0x80号中断时，程序的执行流程从用户态切换到内核态，这时程序的当前栈必须也相应地从用户栈切换到内核栈。从中断处理函数中返回时，程序的当前栈还要从内核栈切换回用户栈</li>
+</ul></li>
+<li>中断处理程序</li>
+</ol>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250505175159.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250505175222.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250505175244.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h3 id="系统调用-1">系统调用</h3>
+<p>系统调用是应用程序（运行库也是应用程序的一部分）与操作系统内核之间的接口，它决定了应用程序是如何与内核打交道的。无论程序是直接进行系统调用，还是通过运行库，最终还是会到达系统调用这个层面上。</p>
+<p>Windows系统是完全基于DLL机制的，它通过DLL对系统调用进行了包装，形成了所谓的Windows API。应用程序所能看到的Windows系统的最底层的接口就是Windows API，比如fread最终还是到了 <code>ReadFile</code> 这个API。于是Windows的程序相当于在运行库与系统调用之间又多了一层API，不过无论如何，API最终还是通过系统调用.</p>
+<p>系统调用完成了应用程序和内核交流的工作，因此理论上只需要系统调用就可以完成一些程序，但是：<br />
+理论上，理论总是成立的。<br />
+事实上，包括Linux，大部分操作系统的系统调用都有两个特点：<br />
+- 使用不便。操作系统提供的系统调用接口往往过于原始，程序员须要了解很多与操作系统相关的细节。如果没有进行很好的包装，使用起来不方便。<br />
+- 各个操作系统之间系统调用不兼容。首先Windows系统和Linux系统之间的系统调用就基本上完全不同，虽然它们的内容很多都一样，但是定义和实现大不一样。即使是同系列的操作系统的系统调用都不一样，比如Linux和UNIX就不相同。</p>
+<p>为了解决这个问题，第1章中的“万能法则”又可以发挥它的作用了。“<strong>解决计算机的问题可以通过增加层来实现</strong>”，于是<strong>运行库</strong>挺身而出，它作为系统调用与程序之间的一个抽象层可以保持着这样的特点：<br />
+- 使用简便。因为运行库本身就是语言级别的，它一般都设计相对比较友好。<br />
+- 形式统一。运行库有它的标准，叫做标准库，凡是所有遵循这个标准的运行库理论上都是相互兼容的，不会随着操作系统或编译器的变化而变化。</p>
+<p>运行时库将不同的操作系统的系统调用包装为统一固定的接口，使得同样的代码，在不同的操作系统下都可以直接编译，并产生一致的效果。这就是源代码级上的可移植性。</p>
+<p>但是运行库也有运行库的缺陷，比如C语言的运行库为了保证多个平台之间能够相互通用，于是它只能取各个平台之间功能的交集。比如Windows和Linux都支持文件读写，那么运行库就可以有文件读写的功能；但是Windows原生支持图形和用户交互系统，而Linux却不是原生支持的（通过XWindows），那么CRT就只能把这部分功能省去。因此，一旦程序用到了那些CRT之外的接口，程序就很难保持各个平台之间的兼容性了</p>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250505175310.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h2 id="参考连接">参考连接</h2>
+<p><a href="https://github.com/youzhonghui/MiniCRT">youzhonghui/MiniCRT: 俞甲子的MiniCRT代码，以及我将他的代码修改，移植到64位linux系统上的源码</a></p>
 
 <footer id="colophon" >
 		<div class="site-info col">

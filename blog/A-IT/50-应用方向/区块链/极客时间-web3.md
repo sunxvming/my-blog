@@ -23,4 +23,4 @@ Web 3.0：一场自下而上的互联网革命！
 
 ## 02 | 公链：从计算分层开始
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230420112808.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230420112808.png)

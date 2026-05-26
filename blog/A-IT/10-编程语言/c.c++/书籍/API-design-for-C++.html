@@ -7,6 +7,70 @@
 
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="../../../../.././css/style.css" />
 
@@ -142,11 +206,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +222,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -176,9 +240,1681 @@ jQuery(document).ready(function(){
 </div> <!--id="header"-->
  <!--if(title)-->
 
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#introduction">1. Introduction</a>
+<ul>
+<li><a href="#what-are-apis">What are APIs?</a>
+<ul>
+<li><a href="#contracts-and-contractors">Contracts and contractors</a></li>
+<li><a href="#apis-in-c">APIs in C++</a></li>
+</ul></li>
+<li><a href="#whats-different-about-api-design">What's different about API design?</a></li>
+<li><a href="#why-should-you-use-apis">Why should you use APIs?</a>
+<ul>
+<li><a href="#more-robust-code">More robust code</a></li>
+</ul></li>
+<li><a href="#when-should-you-avoid-apis">When should you avoid APIs?</a></li>
+<li><a href="#api-examples">API examples</a>
+<ul>
+<li><a href="#layers-of-apis">Layers of APIs</a></li>
+</ul></li>
+<li><a href="#libraries-frameworks-and-software-development-kits">Libraries, frameworks, and software development kits</a></li>
+<li><a href="#file-formats-and-network-protocols">File formats and network protocols</a></li>
+</ul></li>
+<li><a href="#qualities">2. Qualities</a>
+<ul>
+<li><a href="#model-the-problem-domain">Model the problem domain</a>
+<ul>
+<li><a href="#provide-a-good-abstraction">Provide a good abstraction</a></li>
+<li><a href="#model-the-key-objects">Model the key objects</a></li>
+<li><a href="#solve-the-core-problems">Solve the core problems</a></li>
+</ul></li>
+<li><a href="#hide-implementation-details">Hide implementation details</a>
+<ul>
+<li><a href="#physical-hiding-declaration-versus-definition">Physical hiding: Declaration versus definition</a></li>
+<li><a href="#logical-hiding-encapsulation">Logical hiding: Encapsulation</a></li>
+<li><a href="#hide-member-variables">Hide member variables</a></li>
+<li><a href="#hide-implementation-methods">Hide implementation methods</a></li>
+<li><a href="#hide-implementation-classes">Hide implementation classes</a></li>
+</ul></li>
+<li><a href="#minimally-complete">Minimally complete</a>
+<ul>
+<li><a href="#dont-overpromise">Don't overpromise</a></li>
+<li><a href="#dont-repeat-yourself">Don't repeat yourself</a></li>
+<li><a href="#convenience-apis">Convenience APIs</a></li>
+<li><a href="#add-virtual-functions-judiciously">Add virtual functions judiciously</a></li>
+</ul></li>
+<li><a href="#easy-to-use">Easy to use</a>
+<ul>
+<li><a href="#discoverable">Discoverable</a></li>
+<li><a href="#difficult-to-misuse">Difficult to misuse</a></li>
+<li><a href="#consistent">Consistent</a></li>
+<li><a href="#orthogonal">Orthogonal</a></li>
+<li><a href="#robust-resource-allocation">Robust resource allocation</a></li>
+<li><a href="#platform-independent">Platform independent</a></li>
+</ul></li>
+<li><a href="#loosely-coupled">Loosely coupled</a>
+<ul>
+<li><a href="#coupling-by-name-only">Coupling by name only</a></li>
+<li><a href="#reducing-class-coupling">Reducing class coupling</a></li>
+<li><a href="#intentional-redundancy">Intentional redundancy</a></li>
+<li><a href="#manager-classes">Manager classes</a></li>
+<li><a href="#callbacks-observers-and-notifications">Callbacks, observers, and notifications</a></li>
+</ul></li>
+<li><a href="#stable-documented-and-tested">Stable, documented, and tested</a></li>
+</ul></li>
+<li><a href="#patterns">3. Patterns</a>
+<ul>
+<li><a href="#pimpl-idiom">Pimpl idiom</a>
+<ul>
+<li><a href="#using-pimpl">Using pimpl</a></li>
+<li><a href="#copy-semantics">Copy semantics</a></li>
+<li><a href="#pimpl-and-smart-pointers">Pimpl and smart pointers</a></li>
+<li><a href="#advantages-of-pimpl">Advantages of pimpl</a></li>
+<li><a href="#disadvantages-of-pimpl">Disadvantages of pimpl</a></li>
+<li><a href="#opaque-pointers-in-c">Opaque pointers in C</a></li>
+</ul></li>
+<li><a href="#singleton">Singleton</a>
+<ul>
+<li><a href="#implementing-singletons-in-c">Implementing singletons in C++</a></li>
+<li><a href="#singletons-and-thread-safety">Singletons and thread safety</a></li>
+<li><a href="#singleton-versus-dependency-injection">Singleton versus dependency injection</a></li>
+<li><a href="#singleton-versus-monostate">Singleton versus Monostate</a></li>
+<li><a href="#singleton-versus-session-state">Singleton versus session state</a></li>
+</ul></li>
+<li><a href="#factory-methods">Factory Methods</a>
+<ul>
+<li><a href="#abstract-base-classes-and-interfaces">Abstract base classes and interfaces</a></li>
+<li><a href="#simple-factory-example">Simple factory example</a></li>
+<li><a href="#extensible-factory-example">Extensible factory example</a></li>
+</ul></li>
+<li><a href="#api-wrapping-patterns">API wrapping patterns</a>
+<ul>
+<li><a href="#the-proxy-pattern">The Proxy pattern</a></li>
+<li><a href="#the-adapter-pattern">The Adapter pattern</a></li>
+<li><a href="#the-façade-pattern">The Façade pattern</a></li>
+</ul></li>
+<li><a href="#observer-pattern">Observer pattern</a>
+<ul>
+<li><a href="#modelviewcontroller">Model–View–Controller</a></li>
+<li><a href="#implementing-the-observer-pattern">Implementing the Observer pattern</a></li>
+<li><a href="#push-versus-pull-observers">Push versus pull observers</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#design">Design</a>
+<ul>
+<li><a href="#a-case-for-good-design">A case for good design</a>
+<ul>
+<li><a href="#accruing-technical-debt">Accruing technical debt</a></li>
+<li><a href="#paying-back-the-debt">Paying back the debt</a></li>
+<li><a href="#design-for-the-long-term">Design for the long term</a></li>
+</ul></li>
+<li><a href="#gathering-functional-requirements">Gathering functional requirements</a>
+<ul>
+<li><a href="#what-are-functional-requirements">What are functional requirements?</a></li>
+<li><a href="#example-functional-requirements">Example functional requirements</a></li>
+<li><a href="#maintaining-the-requirements">Maintaining the requirements</a></li>
+</ul></li>
+<li><a href="#creating-use-cases">Creating use cases</a>
+<ul>
+<li><a href="#developing-use-cases">Developing use cases</a></li>
+<li><a href="#use-case-templates">Use case templates</a></li>
+<li><a href="#writing-good-use-cases">Writing good use cases</a></li>
+<li><a href="#requirements-and-agile-development">Requirements and agile development</a></li>
+</ul></li>
+<li><a href="#elements-of-api-design">Elements of API design</a></li>
+<li><a href="#architecture-design">Architecture design</a>
+<ul>
+<li><a href="#developing-an-architecture">Developing an architecture</a></li>
+<li><a href="#architecture-constraints">Architecture constraints</a></li>
+<li><a href="#identifying-the-major-abstractions">Identifying the major abstractions</a></li>
+<li><a href="#inventing-the-key-objects">Inventing the key objects</a></li>
+<li><a href="#architectural-patterns">Architectural patterns</a></li>
+<li><a href="#communicating-the-architecture">Communicating the architecture</a></li>
+</ul></li>
+<li><a href="#class-design">Class design</a>
+<ul>
+<li><a href="#object-oriented-concepts">Object-oriented concepts</a></li>
+<li><a href="#class-design-options">Class design options</a></li>
+<li><a href="#the-solid-principles">The SOLID principles</a></li>
+<li><a href="#using-inheritance">Using inheritance</a></li>
+<li><a href="#liskov-substitution-principle">Liskov substitution principle</a></li>
+<li><a href="#private-inheritance">### Private inheritance</a></li>
+<li><a href="#composition">### Composition</a></li>
+<li><a href="#the-openclosed-principle">The open/closed principle</a></li>
+<li><a href="#the-law-of-demeter">The Law of Demeter</a></li>
+<li><a href="#class-naming">Class naming</a></li>
+</ul></li>
+<li><a href="#function-design">Function design</a>
+<ul>
+<li><a href="#function-design-options">Function design options</a></li>
+<li><a href="#function-naming">Function naming</a></li>
+<li><a href="#function-parameters">Function parameters</a></li>
+<li><a href="#error-handling">Error handling</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#styles">Styles</a>
+<ul>
+<li><a href="#flat-c-apis">Flat C APIs</a>
+<ul>
+<li><a href="#ansi-c-features">ANSI C features</a></li>
+<li><a href="#benefits-of-an-ansi-c-api">Benefits of an ANSI C API</a></li>
+<li><a href="#writing-an-api-in-ansi-c">Writing an API in ANSI C</a></li>
+<li><a href="#calling-c-functions-from-c">Calling C functions from C++</a></li>
+<li><a href="#case-study-fmod-c-api">Case study: FMOD C API</a></li>
+</ul></li>
+<li><a href="#object-oriented-c-apis">Object-oriented C++ APIs</a>
+<ul>
+<li><a href="#advantages-of-object-oriented-apis">Advantages of object-oriented APIs</a></li>
+<li><a href="#disadvantages-of-object-oriented-apis">Disadvantages of object-oriented APIs</a></li>
+<li><a href="#case-study-fmod-c-api-1">Case study: FMOD C++ API</a></li>
+</ul></li>
+<li><a href="#template-based-apis">Template-based APIs</a>
+<ul>
+<li><a href="#an-example-template-based-api">An example template-based API</a></li>
+<li><a href="#templates-versus-macros">Templates versus macros</a></li>
+<li><a href="#advantages-of-template-based-apis">Advantages of template-based APIs</a></li>
+<li><a href="#disadvantages-of-template-based-apis">Disadvantages of template-based APIs</a></li>
+</ul></li>
+<li><a href="#functional-apis">Functional APIs</a>
+<ul>
+<li><a href="#functional-programming-concepts">Functional programming concepts</a></li>
+<li><a href="#an-example-functional-api">An example functional API</a></li>
+<li><a href="#advantages-of-functional-apis">Advantages of functional APIs</a></li>
+<li><a href="#disadvantages-of-functional-apis">Disadvantages of functional APIs</a></li>
+</ul></li>
+<li><a href="#data-driven-apis">Data-driven APIs</a>
+<ul>
+<li><a href="#advantages-of-data-driven-apis">Advantages of data-driven APIs</a></li>
+<li><a href="#disadvantages-of-data-driven-apis">Disadvantages of data-driven APIs</a></li>
+<li><a href="#supporting-variant-argument-lists">Supporting variant argument lists</a></li>
+<li><a href="#case-study-fmod-data-driven-api">Case study: FMOD data-driven API</a></li>
+<li><a href="#data-driven-web-services">Data-driven Web services</a></li>
+<li><a href="#idempotency">Idempotency</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#c-usage">C++ usage</a>
+<ul>
+<li><a href="#namespaces">Namespaces</a></li>
+<li><a href="#constructors-and-assignment">Constructors and assignment</a>
+<ul>
+<li><a href="#defining-constructors-and-assignment">Defining constructors and assignment</a></li>
+<li><a href="#the-explicit-keyword">The explicit keyword</a></li>
+</ul></li>
+<li><a href="#const-correctness">Const correctness</a>
+<ul>
+<li><a href="#method-const-correctness">Method const correctness</a></li>
+<li><a href="#parameter-const-correctness">Parameter const correctness</a></li>
+<li><a href="#return-value-const-correctness">Return value const correctness</a></li>
+</ul></li>
+<li><a href="#templates">Templates</a>
+<ul>
+<li><a href="#template-terminology">Template terminology</a></li>
+<li><a href="#implicit-instantiation-api-design">Implicit instantiation API design</a></li>
+<li><a href="#explicit-instantiation-api-design">Explicit instantiation API design</a></li>
+</ul></li>
+<li><a href="#operator-overloading">Operator overloading</a>
+<ul>
+<li><a href="#overloadable-operators">Overloadable operators</a></li>
+<li><a href="#free-operators-versus-member-operators">Free operators versus member operators</a></li>
+<li><a href="#adding-operators-to-a-class">Adding operators to a class</a></li>
+<li><a href="#operator-syntax">Operator syntax</a></li>
+<li><a href="#conversion-operators">Conversion operators</a></li>
+</ul></li>
+<li><a href="#function-parameters-1">Function parameters</a>
+<ul>
+<li><a href="#pointer-versus-reference-parameters">Pointer versus reference parameters</a></li>
+<li><a href="#default-arguments">Default arguments</a></li>
+</ul></li>
+<li><a href="#avoid-define-for-constants">Avoid #define for constants</a></li>
+<li><a href="#avoid-using-friends">Avoid using friends</a></li>
+<li><a href="#exporting-symbols">Exporting symbols</a></li>
+<li><a href="#coding-conventions">Coding conventions</a></li>
+</ul></li>
+<li><a href="#c-revisions">C++ revisions</a>
+<ul>
+<li><a href="#which-c-revision-to-use">Which C++ revision to use</a></li>
+<li><a href="#c11-api-features">C++11 API features</a>
+<ul>
+<li><a href="#move-constructors-and-the-rule-of-five">Move constructors and the Rule of Five</a></li>
+<li><a href="#default-and-deleted-functions">Default and deleted functions</a></li>
+<li><a href="#object-construction">Object construction</a></li>
+<li><a href="#initializer-list-constructors">Initializer list constructors</a></li>
+<li><a href="#smart-pointers">Smart pointers</a></li>
+<li><a href="#enum-classes">Enum classes</a></li>
+<li><a href="#override-and-final-specifiers">Override and final specifiers</a></li>
+<li><a href="#the-noexcept-specifier">The noexcept specifier</a></li>
+<li><a href="#inline-namespaces">Inline namespaces</a></li>
+<li><a href="#type-aliases-with-using">Type aliases with using</a></li>
+<li><a href="#user-defined-literals">User-defined literals</a></li>
+<li><a href="#alternate-function-style">Alternate function style</a></li>
+<li><a href="#tuples">Tuples</a></li>
+<li><a href="#constant-expressions">Constant expressions</a></li>
+<li><a href="#the-nullptr-keyword">The nullptr keyword</a></li>
+<li><a href="#variadic-templates">Variadic templates</a></li>
+<li><a href="#migrating-to-c11">Migrating to C++11</a></li>
+</ul></li>
+<li><a href="#c14-api-features">C++14 API features</a>
+<ul>
+<li><a href="#the-auto-return-type">The auto return type</a></li>
+<li><a href="#the-deprecated-attribute">The deprecated attribute</a></li>
+<li><a href="#variable-templates">Variable templates</a></li>
+<li><a href="#const-expression-improvements">Const expression improvements</a></li>
+<li><a href="#binary-literals-and-digit-separators">Binary literals and digit separators</a></li>
+<li><a href="#migrating-to-c14">Migrating to C++14</a></li>
+</ul></li>
+<li><a href="#c17-api-features">C++17 API features</a>
+<ul>
+<li><a href="#inline-variables">Inline variables</a></li>
+<li><a href="#string-views">String views</a></li>
+<li><a href="#optional">Optional</a></li>
+<li><a href="#any">Any</a></li>
+<li><a href="#variant">Variant</a></li>
+<li><a href="#nested-namespaces">Nested namespaces</a></li>
+<li><a href="#fold-expressions">Fold expressions</a></li>
+<li><a href="#checking-for-header-availability">Checking for header availability</a></li>
+<li><a href="#byte-type">Byte type</a></li>
+<li><a href="#the-maybe_unused-attribute">The maybe_unused attribute</a></li>
+<li><a href="#migrating-to-c17">Migrating to C++17</a></li>
+</ul></li>
+<li><a href="#c20-api-features">C++20 API features</a>
+<ul>
+<li><a href="#modules">Modules</a></li>
+<li><a href="#named-modules">### Named Modules</a></li>
+<li><a href="#header-units">### Header units</a></li>
+<li><a href="#the-spaceship-operator">The spaceship operator</a></li>
+<li><a href="#constraints-and-concepts">Constraints and concepts</a></li>
+<li><a href="#abbreviated-function-templates">Abbreviated function templates</a></li>
+<li><a href="#the-consteval-specifier">The consteval specifier</a></li>
+<li><a href="#the-constinit-specifier">The constinit specifier</a></li>
+<li><a href="#migrating-to-c20">Migrating to C++20</a></li>
+</ul></li>
+<li><a href="#c23-api-features">C++23 API features</a>
+<ul>
+<li><a href="#expected-values">Expected values</a></li>
+<li><a href="#multidimensional-subscript-operator">Multidimensional subscript operator</a></li>
+<li><a href="#preprocessor-directives">Preprocessor directives</a></li>
+<li><a href="#migrating-to-c23">Migrating to C++23</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#performance">Performance</a>
+<ul>
+<li><a href="#pass-input-arguments-by-const-reference">Pass input arguments by const reference</a></li>
+<li><a href="#minimize-include-dependencies">Minimize #include dependencies</a>
+<ul>
+<li><a href="#avoid-winnebago-headers">Avoid “Winnebago” headers</a></li>
+<li><a href="#forward-declarations">Forward declarations</a></li>
+<li><a href="#redundant-include-guards">Redundant #include guards</a></li>
+</ul></li>
+<li><a href="#declaring-constants">Declaring constants</a>
+<ul>
+<li><a href="#the-constexpr-consteval-and-constinit-keywords">The constexpr, consteval, and constinit keywords</a></li>
+</ul></li>
+<li><a href="#initialization-lists">Initialization lists</a></li>
+<li><a href="#memory-optimization">Memory optimization</a></li>
+<li><a href="#dont-inline-functions-until-you-need-to">Don't inline functions until you need to</a></li>
+<li><a href="#copy-on-write">Copy on write</a></li>
+<li><a href="#iterating-over-elements">Iterating over elements</a>
+<ul>
+<li><a href="#iterators">Iterators</a></li>
+<li><a href="#random-access">Random access</a></li>
+<li><a href="#array-references">Array references</a></li>
+<li><a href="#extern-templates">Extern templates</a></li>
+</ul></li>
+<li><a href="#performance-analysis">Performance analysis</a>
+<ul>
+<li><a href="#time-based-analysis">Time-based analysis</a></li>
+<li><a href="#memory-based-analysis">Memory-based analysis</a></li>
+<li><a href="#multithreading-analysis">Multithreading analysis</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#concurrency">Concurrency</a>
+<ul>
+<li><a href="#multithreading-with-c">Multithreading with C++</a></li>
+<li><a href="#terminology">Terminology</a>
+<ul>
+<li><a href="#data-races-and-race-conditions">Data races and race conditions</a></li>
+<li><a href="#thread-safety">Thread safety</a></li>
+<li><a href="#reentrancy">Reentrancy</a></li>
+<li><a href="#asynchronous-tasks">Asynchronous tasks</a></li>
+<li><a href="#parallelism">Parallelism</a></li>
+</ul></li>
+<li><a href="#accessing-shared-data">Accessing shared data</a>
+<ul>
+<li><a href="#stateless-apis">Stateless APIs</a></li>
+<li><a href="#initializing-shared-data">Initializing shared data</a></li>
+<li><a href="#synchronized-data-access">Synchronized data access</a></li>
+</ul></li>
+<li><a href="#concurrent-api-design">Concurrent API design</a>
+<ul>
+<li><a href="#concurrency-best-practices">Concurrency best practices</a></li>
+<li><a href="#thread-safe-interface-pattern">Thread-Safe Interface pattern</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#versioning">Versioning</a>
+<ul>
+<li><a href="#version-numbers">Version numbers</a>
+<ul>
+<li><a href="#version-number-significance">Version number significance</a></li>
+<li><a href="#esoteric-numbering-schemes">Esoteric numbering schemes</a></li>
+<li><a href="#creating-a-version-api">Creating a version API</a></li>
+</ul></li>
+<li><a href="#software-branching-strategies">Software branching strategies</a>
+<ul>
+<li><a href="#branching-strategies">Branching strategies</a></li>
+<li><a href="#branching-policies">Branching policies</a></li>
+<li><a href="#apis-and-parallel-branches">APIs and parallel branches</a></li>
+<li><a href="#file-formats-and-parallel-products">File formats and parallel products</a></li>
+</ul></li>
+<li><a href="#life-cycle-of-an-api">Life cycle of an API</a></li>
+<li><a href="#levels-of-compatibility">Levels of compatibility</a>
+<ul>
+<li><a href="#backward-compatibility">Backward compatibility</a></li>
+<li><a href="#functional-compatibility">Functional compatibility</a></li>
+<li><a href="#source-compatibility">Source compatibility</a></li>
+<li><a href="#binaryapplication-binary-interface-compatibility">Binary/application binary interface compatibility</a></li>
+<li><a href="#binary-incompatible-api-changes">### Binary incompatible API changes</a></li>
+<li><a href="#binary-compatible-api-changes">### Binary compatible API changes</a></li>
+<li><a href="#forward-compatibility">Forward compatibility</a></li>
+</ul></li>
+<li><a href="#how-to-maintain-backward-compatibility">How to maintain backward compatibility</a>
+<ul>
+<li><a href="#adding-functionality">Adding functionality</a></li>
+<li><a href="#changing-functionality">Changing functionality</a></li>
+<li><a href="#deprecating-functionality">Deprecating functionality</a></li>
+<li><a href="#removing-functionality">Removing functionality</a></li>
+<li><a href="#inline-namespaces-for-versioning">Inline namespaces for versioning</a></li>
+</ul></li>
+<li><a href="#api-reviews">API reviews</a>
+<ul>
+<li><a href="#the-purpose-of-api-reviews">The purpose of API reviews</a></li>
+<li><a href="#prerelease-api-reviews">Prerelease API reviews</a></li>
+<li><a href="#precommit-api-reviews">Precommit API reviews</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#documentation">Documentation</a>
+<ul>
+<li><a href="#reasons-to-write-documentation">Reasons to write documentation</a>
+<ul>
+<li><a href="#defining-behavior">Defining behavior</a></li>
+<li><a href="#documenting-the-interfaces-contract">Documenting the interface's contract</a></li>
+<li><a href="#communicating-behavioral-changes">Communicating behavioral changes</a></li>
+<li><a href="#what-to-document">What to document</a></li>
+</ul></li>
+<li><a href="#types-of-documentation">Types of documentation</a>
+<ul>
+<li><a href="#automated-api-documentation">Automated API documentation</a></li>
+<li><a href="#overview-documentation">Overview documentation</a></li>
+<li><a href="#examples-and-tutorials">Examples and tutorials</a></li>
+<li><a href="#release-notes">Release notes</a></li>
+<li><a href="#license-information">License information</a></li>
+</ul></li>
+<li><a href="#documentation-usability">Documentation usability</a>
+<ul>
+<li><a href="#inclusive-language">Inclusive language</a></li>
+</ul></li>
+<li><a href="#using-doxygen">Using Doxygen</a>
+<ul>
+<li><a href="#the-configuration-file">The configuration file</a></li>
+<li><a href="#comment-style-and-commands">Comment style and commands</a></li>
+<li><a href="#api-comments">API comments</a></li>
+<li><a href="#file-comments">File comments</a></li>
+<li><a href="#class-comments">Class comments</a></li>
+<li><a href="#method-comments">Method comments</a></li>
+<li><a href="#enum-comments">Enum comments</a></li>
+<li><a href="#sample-header-with-documentation">### Sample header with documentation</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#testing">Testing</a>
+<ul>
+<li><a href="#reasons-to-write-tests">Reasons to write tests</a></li>
+<li><a href="#types-of-api-testing">Types of API testing</a>
+<ul>
+<li><a href="#unit-testing">Unit testing</a></li>
+<li><a href="#integration-testing">Integration testing</a></li>
+<li><a href="#performance-testing">Performance testing</a></li>
+</ul></li>
+<li><a href="#writing-good-tests">Writing good tests</a>
+<ul>
+<li><a href="#qualities-of-a-good-test">Qualities of a good test</a></li>
+<li><a href="#what-to-test">What to test</a></li>
+<li><a href="#focusing-the-testing-effort">Focusing the testing effort</a></li>
+<li><a href="#working-with-quality-assurance">Working with quality assurance</a></li>
+</ul></li>
+<li><a href="#writing-testable-code">Writing testable code</a>
+<ul>
+<li><a href="#test-driven-development">Test-driven development</a></li>
+<li><a href="#stub-and-mock-objects">Stub and mock objects</a></li>
+<li><a href="#testing-private-code">Testing private code</a></li>
+<li><a href="#using-assertions">Using assertions</a></li>
+<li><a href="#contract-programming">Contract programming</a></li>
+<li><a href="#record-and-playback-functionality">Record and playback functionality</a></li>
+<li><a href="#supporting-internationalization">Supporting internationalization</a></li>
+</ul></li>
+<li><a href="#automated-testing-tools">Automated testing tools</a>
+<ul>
+<li><a href="#test-harnesses">Test harnesses</a></li>
+<li><a href="#code-coverage">Code coverage</a></li>
+<li><a href="#bug-tracking">Bug tracking</a></li>
+<li><a href="#continuous-build-system">Continuous build system</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#objective-c-and-swift">Objective-C and Swift</a>
+<ul>
+<li><a href="#interface-design-in-c-and-objective-c">Interface design in C++ and Objective-C</a></li>
+<li><a href="#data-hiding-in-objective-c">Data hiding in Objective-C</a></li>
+<li><a href="#objective-c-behind-a-c-api">Objective-C behind a C++ API</a></li>
+<li><a href="#c-behind-an-objective-c-api">C++ behind an Objective-C API</a></li>
+<li><a href="#c-behind-a-swift-api">C++ behind a Swift API</a></li>
+</ul></li>
+<li><a href="#scripting">Scripting</a>
+<ul>
+<li><a href="#adding-script-bindings">Adding script bindings</a>
+<ul>
+<li><a href="#extending-versus-embedding">Extending versus embedding</a></li>
+<li><a href="#advantages-of-scripting">Advantages of scripting</a></li>
+<li><a href="#language-compatibility-issues">Language compatibility issues</a></li>
+<li><a href="#crossing-the-language-barrier">Crossing the language barrier</a></li>
+</ul></li>
+<li><a href="#script-binding-technologies">Script binding technologies</a>
+<ul>
+<li><a href="#boost-python">Boost Python</a></li>
+<li><a href="#simplified-wrapper-and-interface-generator">Simplified wrapper and interface generator</a></li>
+<li><a href="#python-sip">Python-SIP</a></li>
+<li><a href="#component-object-model-automation">Component object model automation</a></li>
+<li><a href="#common-object-request-broker-architecture">Common object request broker architecture</a></li>
+</ul></li>
+<li><a href="#adding-python-bindings-with-boost-python">Adding Python bindings with Boost Python</a>
+<ul>
+<li><a href="#building-boost-python">Building Boost Python</a></li>
+<li><a href="#wrapping-a-c-api-with-boost-python">Wrapping a C++ API with Boost Python</a></li>
+<li><a href="#constructors">Constructors</a></li>
+<li><a href="#extending-the-python-api">Extending the Python API</a></li>
+<li><a href="#inheritance-in-c">Inheritance in C++</a></li>
+<li><a href="#cross-language-polymorphism">Cross-language polymorphism</a></li>
+<li><a href="#supporting-iterators">Supporting iterators</a></li>
+<li><a href="#putting-it-all-together">Putting it all together</a></li>
+</ul></li>
+<li><a href="#adding-ruby-bindings-with-swig">Adding Ruby bindings with SWIG</a>
+<ul>
+<li><a href="#wrapping-a-c-api-with-swig">Wrapping a C++ API with SWIG</a></li>
+<li><a href="#tuning-the-ruby-api">Tuning the Ruby API</a></li>
+<li><a href="#constructors-1">Constructors</a></li>
+<li><a href="#extending-the-ruby-api">Extending the Ruby API</a></li>
+<li><a href="#inheritance-in-c-1">Inheritance in C++</a></li>
+<li><a href="#cross-language-polymorphism-1">Cross-language polymorphism</a></li>
+<li><a href="#putting-it-all-together-1">Putting it all together</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#extensibility">Extensibility</a>
+<ul>
+<li><a href="#extending-via-plugins">Extending via plugins</a>
+<ul>
+<li><a href="#plugin-model-overview">Plugin model overview</a></li>
+<li><a href="#plugin-system-design-issues">Plugin system design issues</a></li>
+<li><a href="#implementing-plugins-in-c">Implementing plugins in C++</a></li>
+<li><a href="#the-plugin-api">The plugin API</a></li>
+<li><a href="#an-example-plugin">An example plugin</a></li>
+<li><a href="#the-plugin-manager">The Plugin manager</a></li>
+<li><a href="#plugin-versioning">Plugin versioning</a></li>
+</ul></li>
+<li><a href="#extending-via-inheritance">Extending via inheritance</a>
+<ul>
+<li><a href="#adding-functionality-1">Adding functionality</a></li>
+<li><a href="#modifying-functionality">Modifying functionality</a></li>
+<li><a href="#inheritance-and-the-standard-library">Inheritance and the standard library</a></li>
+<li><a href="#inheritance-and-enums">Inheritance and enums</a></li>
+<li><a href="#the-visitor-pattern">The Visitor pattern</a></li>
+</ul></li>
+<li><a href="#extending-via-templates">Extending via templates</a>
+<ul>
+<li><a href="#policy-based-templates">Policy-based templates</a></li>
+<li><a href="#the-curiously-recurring-template-pattern">The curiously recurring template pattern</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#a-libraries">A: Libraries</a>
+<ul>
+<li><a href="#static-libraries">Static libraries</a></li>
+<li><a href="#dynamic-libraries">Dynamic libraries</a></li>
+<li><a href="#dynamic-libraries-as-plugins">Dynamic libraries as plugins</a></li>
+<li><a href="#importing-and-exporting-functions">Importing and exporting functions</a></li>
+<li><a href="#the-dynamic-link-library-entry-point">The Dynamic Link Library entry point</a></li>
+<li><a href="#creating-libraries-on-windows">Creating libraries on Windows</a></li>
+<li><a href="#useful-windows-utilities">Useful Windows utilities</a></li>
+<li><a href="#loading-plugins-on-windows">Loading plugins on Windows</a></li>
+<li><a href="#creating-static-libraries-on-linux">Creating static libraries on Linux</a></li>
+<li><a href="#creating-dynamic-libraries-on-linux">Creating dynamic libraries on Linux</a></li>
+<li><a href="#shared-library-entry-points">Shared library entry points</a></li>
+<li><a href="#useful-linux-utilities">Useful Linux utilities</a></li>
+<li><a href="#loading-plugins-on-linux">Loading plugins on Linux</a></li>
+<li><a href="#finding-dynamic-libraries-at-run-time">Finding dynamic libraries at run time</a></li>
+<li><a href="#creating-static-libraries-on-macos">Creating static libraries on macOS</a></li>
+<li><a href="#creating-dynamic-libraries-on-macos">Creating dynamic libraries on macOS</a></li>
+<li><a href="#frameworks-on-macos">Frameworks on macOS</a></li>
+<li><a href="#text-based-installapi">Text-based InstallAPI</a></li>
+<li><a href="#finding-dynamic-libraries-at-run-time-1">Finding dynamic libraries at run time</a></li>
+</ul></li>
+</ul>
+</div>
  <!--if(toc)-->
 
-
+<h2 id="introduction">1. Introduction</h2>
+<h3 id="what-are-apis">What are APIs?</h3>
+<h4 id="contracts-and-contractors">Contracts and contractors</h4>
+<p>The passage uses the analogy of hiring contractors to illustrate how APIs let developers delegate complex tasks, avoid dealing with low-level details, and integrate specialized components—much like building a house by coordinating experts rather than doing everything yourself.</p>
+<h4 id="apis-in-c">APIs in C++</h4>
+<p>A C++ API will therefore generally include the following elements:<br />
+1. Headers/Modules: A collection of .h header files or module interface units that define the interface and allow client code to be compiled against that interface.<br />
+2. Libraries: One or more static or dynamic library files that provide an implementation for the API (e.g., .a, .lib, .dll, .dylib, etc. files).<br />
+3. Documentation<br />
+4. Example(It's better to have it.)</p>
+<p>In fact, many software engineers prefer to expand the acronym API as <strong>abstract programming interface</strong> instead of application programming interface.</p>
+<blockquote>
+<p>TIP: An API is a logical interface to a software component that hides the internal details required to implement it.</p>
+</blockquote>
+<h3 id="whats-different-about-api-design">What's different about API design?</h3>
+<ul>
+<li>An API is an interface designed for developers, in much the same way that a GUI is an interface designed for end users.</li>
+<li>Multiple applications can share the same API.</li>
+<li>You must strive for backward compatibility whenever you change an API.</li>
+<li>Owing to the backward compatibility requirement, it is critical to have a change control process in place.</li>
+<li>APIs tend to live for a long time.</li>
+<li>The need for good documentation is paramount when writing an API, particularly if you don’t provide the source code for your implementation.</li>
+<li>The need for automated testing is similarly very high.</li>
+</ul>
+<blockquote>
+<p>TIP: An API describes software used by other engineers to build their applications. As such, it must be well-designed, documented, regression tested, and stable between releases.</p>
+</blockquote>
+<h3 id="why-should-you-use-apis">Why should you use APIs?</h3>
+<h4 id="more-robust-code">More robust code</h4>
+<ul>
+<li><p>Hides implementation. By hiding the implementation details of your module, you gain the flexibility to change the implementation at a future date without causing an upheaval for your users.</p></li>
+<li><p>Increases longevity.</p></li>
+<li><p>Promotes modularization.</p></li>
+<li><p>Reduces code duplication.</p></li>
+<li><p>Removes hardcoded assumptions.</p>
+<ul>
+<li>For example, a GetLogFilename() API call could be used to replace the hardcoded “myprogram.log” string.</li>
+</ul></li>
+<li><p>Easier to change the implementation.</p></li>
+<li><p>Easier to optimize.</p>
+<h4 id="code-reuse">Code reuse</h4>
+<p>Code reuse is the use of existing software to build new software. It’s one of the holy grails of modern software development. APIs provide a mechanism to enable code reuse.<br />
+In essence, software development has become a lot more modular with the use of distinct components that form the building blocks of an application and talk together via their published APIs.<br />
+One of the difficulties in achieving code reuse, however, is that you must often come up with a more general interface than you originally intended.</p>
+<h4 id="parallel-development">Parallel development</h4>
+<p>Good APIs let developers work independently by providing stable contracts that hide implementation details and support parallel development.</p></li>
+</ul>
+<p>For example, let's say that you are working on a string encryption algorithm that another developer wants to use to write data out to a configuration file.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;string.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">class</span> StringEncryptor</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>{</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    <span class="co">/// set the key to use for the Encrypt() and Decrypt() calls</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>    <span class="dt">void</span> SetKey(<span class="at">const</span> <span class="bu">std::</span>string &amp;key);</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    <span class="co">/// encrypt an input string based upon the current key</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>    <span class="bu">std::</span>string Encrypt(<span class="at">const</span> <span class="bu">std::</span>string &amp;str) <span class="at">const</span>;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>    <span class="co">/// decrypt a string using the current key - calling</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>    <span class="co">/// Decrypt() on a string returned by Encrypt() will</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>    <span class="co">/// return the original string for the same key.</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>    <span class="bu">std::</span>string Decrypt(<span class="at">const</span> <span class="bu">std::</span>string &amp;str) <span class="at">const</span>;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>};</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a><span class="dt">void</span> StringEncryptor::SetKey(<span class="at">const</span> <span class="bu">std::</span>string &amp;key)  </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>{}  </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a><span class="bu">std::</span>string StringEncryptor::Encrypt(<span class="at">const</span> <span class="bu">std::</span>string &amp;str)  </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>{  </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>    <span class="cf">return</span> str;  </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>}  </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a><span class="bu">std::</span>string StringEncryptor::Decrypt(<span class="at">const</span> <span class="bu">std::</span>string &amp;str)  </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>{  </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>    <span class="cf">return</span> str;  </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a>}</span></code></pre></div>
+<p>In this way, your colleague can use this API and proceed with the work without being held up by your progress.<br />
+The important point is that you have a stable interfaceda contractdon which you both agree, and that it behaves appropriately, such as Decrypt(Encypt("Hello")) == "Hello".</p>
+<h3 id="when-should-you-avoid-apis">When should you avoid APIs?</h3>
+<ul>
+<li><strong>License restrictions.</strong> An API may provide everything you need for functionality, but the license restrictions may be prohibitive for your needs.</li>
+<li><strong>Functionality mismatch</strong>. An API may appear to solve a problem that you have but may do it in a way that doesn’t match the constraints or functional requirements of your application.</li>
+<li><strong>Lack of source code.</strong> Although there are many open source APIs, sometimes the best API for your case may be a closed source offering.</li>
+<li><strong>Lack of documentation</strong>. An API may appear to fulfill a need that you have in your application, but if the API has poor or nonexistent documentation, then you may decide to look elsewhere for a solution.</li>
+</ul>
+<h3 id="api-examples">API examples</h3>
+<h4 id="layers-of-apis">Layers of APIs</h4>
+<ul>
+<li><p>OS APIs. Every OS must provide a set of standard APIs to allow programs to access OS-level services.</p></li>
+<li><p>Language APIs. The C language is supported by the C Standard Library, implemented as the libc library and associated man pages.</p></li>
+<li><p>Image APIs. Gone are the days when developers needed to write their own image reading and writing routines.</p></li>
+<li><p>3D graphics APIs. The two classic real-time 3D graphics APIs are OpenGL and DirectX.</p></li>
+<li><p>GUI APIs. Any application that wants to open its own window needs to use a GUI tool kit. This is an API that provides the ability to create windows, buttons, text fields, dialogues, icons, menus, and so on.Some popular C/C++ GUI APIs include the wxWidgets library, Qt Company’s Qt API, GTKþ, and X/Motif.</p>
+<h4 id="a-real-life-example">A real-life example</h4>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20251128155643.png" alt="" /><figcaption>image.png</figcaption>
+</figure></li>
+</ul>
+<h3 id="libraries-frameworks-and-software-development-kits">Libraries, frameworks, and software development kits</h3>
+<ul>
+<li>Library : reusable code you call.</li>
+<li>Framework : structured environment that calls your code.</li>
+<li>SDK : full kit containing libraries, frameworks, tools, and documentation.</li>
+</ul>
+<h3 id="file-formats-and-network-protocols">File formats and network protocols</h3>
+<p><strong>File Formats</strong> = Rules for Saving and Loading Data<br />
+A file format defines a standard way to store data on disk.<br />
+Example: JPEG/JFIF defines exactly how image data and headers are arranged in a .jpg file.</p>
+<p><strong>Network Protocols</strong> = Rules for Sending Data Over the Network<br />
+Client–server systems or peer-to-peer systems exchange data using an agreed-upon network protocol.<br />
+Examples:HTTP、FTP</p>
+<p>How File Formats / Protocols resemble APIs?<br />
+They look like APIs because they define a standard interface for information exchange:<br />
+- They specify what data looks like.<br />
+- They must remain backward compatible.<br />
+- Changes must respect existing users.</p>
+<p>But they are not APIs because they are not code you link into your program.</p>
+<blockquote>
+<p>TIP: Whenever you create a file format or client/server protocol, you should also create an API for it(创建对应的API接口去操作他们). This allows the details of the specification, and any future changes to it, to be centralized and hidden.</p>
+</blockquote>
+<h2 id="qualities">2. Qualities</h2>
+<h3 id="model-the-problem-domain">Model the problem domain</h3>
+<h4 id="provide-a-good-abstraction">Provide a good abstraction</h4>
+<p>An API should provide a logical abstraction for the problem that it solves. That is, it should be formulated in terms of high-level concepts that make sense in the chosen problem domain, rather than exposing low-level implementation issues. You should be able to give your API documentation to a nonprogrammer, and that person should be able to understand the concepts of the interface and how it’s meant to work.</p>
+<p>For example, let’s consider an API for a simple address book program. Conceptually, an address book is a container for the details of multiple people.<br />
+It seems logical, then, that our API should provide an AddressBook object that contains a collection of Person objects.</p>
+<p>This initial design can be represented visually using a notation called Unified Modeling Language (UML)<br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20251128161930.png" alt="image.png" /></p>
+<h4 id="model-the-key-objects">Model the key objects</h4>
+<p>An API should also model the key objects for the problem domain. This process is often called object-oriented design or object modeling because it aims to describe the hierarchy of objects in the specific problem domain. The goal of object modeling is to identify the collection of major objects, the operations they provide, and how they relate to each other.</p>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20251128171718.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h4 id="solve-the-core-problems">Solve the core problems</h4>
+<p>The main reason to develop an API is to solve some related set of problems. So, it must be clear to your users how they can apply your design to achieve that goal. We just saw how you can model the key objects for your problem domain, but the users of your API also need to know how to create those objects and how to call the methods on those objects to complete their tasks.</p>
+<p>To design a good API, you must demonstrate how it solves the core problems of the domain. Sequence diagrams help by showing step-by-step how objects interact to achieve real tasks. This reveals missing functions and ensures the API is usable for its intended purpose.</p>
+<h3 id="hide-implementation-details">Hide implementation details</h3>
+<h4 id="physical-hiding-declaration-versus-definition">Physical hiding: Declaration versus definition</h4>
+<blockquote>
+<p>TIP: Physical hiding means storing internal details in a separate file (.cpp) from the public interface (.h).</p>
+</blockquote>
+<p>C++20. This feature modules provides an alternative to the use of header files. However, you can still perform physical hiding with modules by putting your declarations in your module interface unit and definitions in your module implementation unit.</p>
+<h4 id="logical-hiding-encapsulation">Logical hiding: Encapsulation</h4>
+<blockquote>
+<p>TIP: Encapsulation is the process of separating the public interface of an API from its underlying implementation.</p>
+</blockquote>
+<blockquote>
+<p>TIP: Logical hiding means using the C++ language features of protected and private to restrict access to internal details</p>
+</blockquote>
+<h4 id="hide-member-variables">Hide member variables</h4>
+<p>Someof the additionalbenefits of using getter/setter routines, rather than directly exposing member variables, include:<br />
+* Validation.<br />
+* Lazy evaluation.<br />
+* Caching.<br />
+* Extra computation.<br />
+* Notifications. 数据变了可以通知其他模块<br />
+* Debugging.<br />
+* Synchronization.<br />
+* Finer access control.<br />
+* Maintaining invariant relationships.</p>
+<p>If you make a variable protected, then it can be accessed directly by any clients that subclass your class, and then exactly the same arguments apply as for the public case.</p>
+<blockquote>
+<p>TIP: Data members of a class should always be declared <strong>private</strong>, never public or protected.</p>
+</blockquote>
+<h4 id="hide-implementation-methods">Hide implementation methods</h4>
+<ul>
+<li>APIs should expose <strong>only what the client needs</strong>.</li>
+<li>Hide all implementation details and helper functions.</li>
+<li>Never return non-const pointers/references to private members.</li>
+<li>Use the <strong>Pimpl idiom</strong> to hide private data completely.</li>
+<li>This makes your API easier to maintain, modify, and evolve without breaking clients.</li>
+</ul>
+<blockquote>
+<p>TIP: Never return non-const pointers or references to private data members. This breaks encapsulation.</p>
+</blockquote>
+<blockquote>
+<p>TIP: Prefer declaring private functionality as static functions within the .cpp file rather than exposing them in public headers as private methods. (Using the Pimpl idiom is even better, though).</p>
+</blockquote>
+<h4 id="hide-implementation-classes">Hide implementation classes</h4>
+<p>Some classes exist <strong>only to support your implementation</strong> and should not be exposed in the public API. Exposing them:<br />
+- Increases API complexity<br />
+- Risks users depending on internal details<br />
+- Makes future refactoring harder<br />
+- Hiding implementation classes keeps your API <strong>clean, maintainable, and stable</strong>.<br />
+- Users should only see <strong>what they need to use</strong>, not internal helpers.<br />
+- This allows you to <strong>change internal structures</strong> freely without breaking client code.</p>
+<h3 id="minimally-complete">Minimally complete</h3>
+<blockquote>
+<p>TIP: Remember Occam’s razor: plurality should not be posited without necessity.</p>
+</blockquote>
+<h4 id="dont-overpromise">Don't overpromise</h4>
+<p>The key point is that once you release an API and have clients using it, adding new functionality is easy but removing functionality is really difficult. The best advice then is: when in doubt, leave it out</p>
+<blockquote>
+<p>TIP: When in doubt, leave it out! Minimize the number of public classes and functions in your API</p>
+</blockquote>
+<h4 id="dont-repeat-yourself">Don't repeat yourself</h4>
+<p>Some common ways to address code duplication are:<br />
+- Function Refactoring<br />
+- Class Abstractions<br />
+- Dependency Injection: This is where the functionality is defined in a single object and that object is passed into the method calls where the functionality is needed.<br />
+- Automation: In cases where duplication is unavoidable, you can define a single source of truth for the functionality and write automation tools to generate the other code from that source of truth.</p>
+<p>A good way to think about this is to ask yourself: if you needed to make a change to how something works, would you have to update multiple places in your code to make that change?</p>
+<h4 id="convenience-apis">Convenience APIs</h4>
+<p>On the one hand, there’s the argument that an API should provide only one way to perform one task.This ensures that the API is minimal, singularly focused, consistent,and easy to understand.</p>
+<p>However, on the other hand, there is also the argument that an API should make simple things easy to do.</p>
+<p><strong>Real-world Example: OpenGL / GLU / GLUT</strong></p>
+<p>OpenGL (Core API)<br />
+- Low-level primitives: points, lines, polygons.<br />
+- Very powerful but verbose; e.g., creating a sphere requires manually defining polygons.</p>
+<p>GLU (Convenience API)<br />
+- Built on top of OpenGL.<br />
+- Provides higher-level functions like quadric surfaces, camera positioning, and sphere creation.</p>
+<p>GLUT (Even Higher-Level)<br />
+- Another layer on top of OpenGL/GLU.<br />
+- Provides window management, event handling, and pre-defined geometric primitives.</p>
+<p>Summary<br />
+- Core API: Minimal, primitive, consistent.<br />
+- Convenience API: Optional, higher-level wrappers for common tasks.<br />
+- Keep convenience separate to maintain focus and reduce complexity.<br />
+- This strategy improves usability for a wide range of clients without compromising maintainability.</p>
+<blockquote>
+<p>TIP: Add convenience APIs as separate modules or libraries that sit on top of your minimal core API.（接口的易用性和基础性的结合）</p>
+</blockquote>
+<h4 id="add-virtual-functions-judiciously">Add virtual functions judiciously</h4>
+<p>you should be aware of the potential pitfalls:<br />
+- You can implement seemingly innocuous changes to your base classes that have a detrimental impact on your clients.<br />
+- Your clients may use your API in ways that you never intended or imagined.<br />
+- Clients may extend your API in incorrect or error-prone ways. For example, you may have a thread-safe API but, depending upon your design, a client could override a virtual function and provide an implementation without performing the appropriate mutex locking operations, opening the potential for difficult-to-debug race conditions.<br />
+- Overridden functions may break the internal integrity of your class.</p>
+<p>In addition to these API-level behavioral concerns, there are the standard matters about which you should be aware when using virtual functions in C++:<br />
+- Virtual function calls must be resolved at runtime by performing a vtable lookup, whereas nonvirtual function calls can be resolved at compile time.<br />
+- The use of virtual functions increases the size of an object, typically by the size of a pointer to the vtable.（对创建的大量小对象有影响）<br />
+- Adding, reordering, or removing a virtual function will break binary compatibility.<br />
+- Virtual functions cannot always be inlined.</p>
+<blockquote>
+<p>TIP: Avoid declaring functions as overridable (virtual) until you have a valid and compelling need to do so</p>
+</blockquote>
+<h3 id="easy-to-use">Easy to use</h3>
+<p>A well-designed API should make simple tasks easy and obvious. For example, it should be possible for a client to look at the method signatures of your API and be able to glean how to use it without any additional documentation.</p>
+<h4 id="discoverable">Discoverable</h4>
+<p>A discoverable API is one in which users can work out how to use the API on their own without any accompanying explanation or documentation.</p>
+<h4 id="difficult-to-misuse">Difficult to misuse</h4>
+<blockquote>
+<p>TIP: Prefer the use of enums over Booleans and integers to improve code readability.</p>
+</blockquote>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">// bad</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="bu">std::</span>string FindString(<span class="at">const</span> <span class="bu">std::</span>string &amp;text,  </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    <span class="dt">bool</span> search_forward,  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    <span class="dt">bool</span> case_sensitive);</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>FindString(text, <span class="kw">true</span>, <span class="kw">false</span>);</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>    </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="co">// good</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="kw">enum</span> <span class="kw">class</span> SearchDirection {  </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>    Forward,  </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>    Backward  </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>};  </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a><span class="kw">enum</span> <span class="kw">class</span> CaseSensitivity {  </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>    Sensitive,  </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>    Insensitive  </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>};  </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a><span class="bu">std::</span>string FindString(<span class="at">const</span> <span class="bu">std::</span>string &amp;text,  </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>    SearchDirection direction,  </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>    CaseSensitivity case_sensitivity);</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>    </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a>FindString(text, SearchDirection::Forward, CaseSensitivity::Insensitive);</span></code></pre></div>
+<blockquote>
+<p>TIP: Avoid functions with multiple parameters of the same type.</p>
+</blockquote>
+<p>Using this design, clients can create a new Date object with the following unambiguous and easy to understand syntax. Also, any attempts to specify the values in a different order will result in a <strong>compile-time error</strong>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co">// bad</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="kw">class</span> Date</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>{</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>    Date(<span class="dt">int</span> year, <span class="dt">int</span> month, <span class="dt">int</span> day);</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>    ...</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>};</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>Data(<span class="dv">2012</span>,<span class="dv">12</span>,<span class="dv">12</span>);</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a><span class="co">// good</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a><span class="kw">class</span> Year</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>{</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>    <span class="kw">explicit</span> Year(<span class="dt">int</span> y) :</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>    mYear(y)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a>    {}</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a>    <span class="dt">int</span> GetYear() <span class="at">const</span> { <span class="cf">return</span> mYear; }</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a>    <span class="dt">int</span> mYear;</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true"></a>};</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true"></a><span class="kw">class</span> Month</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true"></a>{</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true"></a>    <span class="kw">explicit</span> Month(<span class="dt">int</span> m) :</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true"></a>    mMonth(m)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true"></a>    {}</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true"></a>    </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true"></a>    <span class="dt">int</span> GetMonth() <span class="at">const</span> { <span class="cf">return</span> mMonth; }</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true"></a>    <span class="at">static</span> Month Jan() { <span class="cf">return</span> Month(<span class="dv">1</span>); }</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true"></a>    <span class="at">static</span> Month Feb() { <span class="cf">return</span> Month(<span class="dv">2</span>); }</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true"></a>    <span class="at">static</span> Month Mar() { <span class="cf">return</span> Month(<span class="dv">3</span>); }</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true"></a>    <span class="at">static</span> Month Apr() { <span class="cf">return</span> Month(<span class="dv">4</span>); }</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true"></a>    <span class="at">static</span> Month May() { <span class="cf">return</span> Month(<span class="dv">5</span>); }</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true"></a>    <span class="at">static</span> Month Jun() { <span class="cf">return</span> Month(<span class="dv">6</span>); }</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true"></a>    <span class="at">static</span> Month Jul() { <span class="cf">return</span> Month(<span class="dv">7</span>); }</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true"></a>    <span class="at">static</span> Month Aug() { <span class="cf">return</span> Month(<span class="dv">8</span>); }</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true"></a>    <span class="at">static</span> Month Sep() { <span class="cf">return</span> Month(<span class="dv">9</span>); }</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true"></a>    <span class="at">static</span> Month Oct() { <span class="cf">return</span> Month(<span class="dv">10</span>); }</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true"></a>    <span class="at">static</span> Month Nov() { <span class="cf">return</span> Month(<span class="dv">11</span>); }</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true"></a>    <span class="at">static</span> Month Dec() { <span class="cf">return</span> Month(<span class="dv">12</span>); }</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true"></a>    <span class="dt">int</span> mMonth;</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true"></a>};</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true"></a><span class="kw">class</span> Day</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true"></a>{</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true"></a>    <span class="kw">explicit</span> Day(<span class="dt">int</span> d) :</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true"></a>    mDay(d)</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true"></a>    {}</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true"></a>    <span class="dt">int</span> GetDay() <span class="at">const</span> { <span class="cf">return</span> mDay; }</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true"></a>    <span class="dt">int</span> mDay;</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true"></a>};</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true"></a><span class="kw">class</span> Date  </span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true"></a>{  </span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true"></a><span class="kw">public</span>:  </span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true"></a>    Date(<span class="at">const</span> Year &amp;y, <span class="at">const</span> Month &amp;m, <span class="at">const</span> Day &amp;d);  </span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true"></a>    ...  </span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true"></a>};</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true"></a></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true"></a>Date birthday(Year(<span class="dv">1976</span>), Month::Jul(), Day(<span class="dv">7</span>));</span></code></pre></div>
+<h4 id="consistent">Consistent</h4>
+<p>A consistent API:<br />
+* Uses uniform naming<br />
+* Keeps parameter order predictable<br />
+* Provides consistent interfaces across related classes<br />
+* Follows familiar language/platform idioms<br />
+* Avoids duplicate ways to perform the same task</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co">// 两个函数的srd dist参数的顺序不一致，很容易出错</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="dt">void</span> bcopy(<span class="at">const</span> <span class="dt">void</span> *s1, <span class="dt">void</span> *s2, <span class="dt">size_t</span> n);</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="dt">char</span> *strncpy(<span class="dt">char</span> *restrict s1, <span class="at">const</span> <span class="dt">char</span> *restrict s2, <span class="dt">size_t</span> n);</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="co">// 一个是size bytes，一个是(count * size) bytes，参数含义不连续</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="dt">void</span> *malloc(<span class="dt">size_t</span> size);</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a><span class="dt">void</span> *calloc(<span class="dt">size_t</span> count, <span class="dt">size_t</span> size);  </span></code></pre></div>
+<blockquote>
+<p>TIP: Use consistent function naming and parameter ordering.</p>
+</blockquote>
+<h4 id="orthogonal">Orthogonal</h4>
+<p>In terms of API design, orthogonality means that methods do not have side effects.<br />
+As a result, making a change to the implementation of one part of the API should have no effect on other parts of the API<br />
+Furthermore, code that does not create side effects, or relies upon the side effects of other code, is much easier to develop, test, debug, and change because its effects are more localized and bounded.</p>
+<p>An example:<br />
+Perhaps you’ve stayed in a motel where the controls of the shower are very unintuitive. You want to be able to set the power and the temperature of the water, but instead you have a single control that seems to affect both properties in a complex and nonobvious way.<br />
+也就是你调水量大小温度也会跟着变，反之亦然。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">class</span> CheapMotelShower  </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>{  </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="kw">public</span>:  </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    <span class="dt">float</span> GetTemperature() <span class="at">const</span>; <span class="co">// units = Fahrenheit  </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    <span class="dt">float</span> GetPower() <span class="at">const</span>; <span class="co">// units = percent, 0..100  </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    <span class="dt">void</span> SetPower(<span class="dt">float</span> p);  </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a><span class="kw">private</span>:  </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>    <span class="dt">float</span> mTemperature;  </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>    <span class="dt">float</span> mPower;  </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>};</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a><span class="dt">float</span> CheapMotelShower::GetTemperature() <span class="at">const</span>  </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>{  </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>    <span class="cf">return</span> mTemperature;  </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a>}  </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a><span class="dt">float</span> CheapMotelShower::GetPower() <span class="at">const</span>  </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true"></a>{  </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true"></a>    <span class="cf">return</span> mPower;  </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true"></a>}  </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true"></a><span class="dt">void</span> CheapMotelShower::SetPower(<span class="dt">float</span> p)  </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true"></a>{  </span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true"></a>    <span class="cf">if</span> (p &lt; <span class="dv">0</span>) {  </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true"></a>        p = <span class="dv">0</span>;  </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true"></a>    }  </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true"></a>    <span class="cf">if</span> (p &gt; <span class="dv">100</span>) {  </span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true"></a>        p = <span class="dv">100</span>;  </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true"></a>    }  </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true"></a>    mPower = p;  </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true"></a>    mTemperature = <span class="fl">42.0</span><span class="bu">f</span> + sin(p / <span class="fl">38.0</span><span class="bu">f</span>) * <span class="fl">45.0</span><span class="bu">f</span>;  </span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true"></a>}</span></code></pre></div>
+<blockquote>
+<p>TIP: An orthogonal API means that functions do not have side effects.</p>
+</blockquote>
+<h4 id="robust-resource-allocation">Robust resource allocation</h4>
+<p>One of the trickiest aspects of programming in Cþþ is memory management.<br />
+most C++ bugs arise from some kind of misuse of pointers or references, such as:<br />
+* Null dereferencing: trying to use -&gt; or * operators on a nullptr.<br />
+* Double freeing: calling delete or free() on a block of memory twice.<br />
+* Accessing invalid memory: trying to use -&gt; or * operators on a pointer that hasnot yet been allocated or that has already been freed.<br />
+* Mixing allocators: using delete to free memory that was allocated with malloc(), orusing free() to return memory allocated with new.<br />
+* Incorrect array deallocation: using the delete operator, instead of delete [], to freean array.<br />
+* Memory leaks: not freeing a block of memory when you are finished with it.</p>
+<p>If your API involves any resource allocation, you should:<br />
+- Provide a wrapper class where<br />
+<strong>constructor = acquire resource</strong><br />
+<strong>destructor = release resource</strong><br />
+- Optionally provide a <code>Release()</code> method for manual control.<br />
+- Keep destructors non-throwing (they must never raise exceptions).</p>
+<blockquote>
+<p>TIP: Return a dynamically allocated object using a smart pointer wherever possible.</p>
+</blockquote>
+<blockquote>
+<p>TIP: Think of resource allocation and deallocation as object construction and destruction.</p>
+</blockquote>
+<h4 id="platform-independent">Platform independent</h4>
+<p>A well-designed Cþþ API should always avoid platform-specific <code>#if/#ifdef</code> lines in its public headers that produce different APIs on different platforms or that produce different APIs in debug versus release builds.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co">// bad:This poor design creates a different API on different platforms.</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="kw">class</span> MobilePhone  </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>{  </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="kw">public</span>:  </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>    <span class="dt">bool</span> StartCall(<span class="at">const</span> <span class="bu">std::</span>string &amp;number);  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>    <span class="dt">bool</span> EndCall();  </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a><span class="co">// 下面的把现实给暴露出来了 </span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a><span class="pp">#if defined TARGET_OS_IPHONE   </span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>    <span class="dt">bool</span> GetGPSLocation(<span class="dt">double</span> &amp;lat, <span class="dt">double</span> &amp;lon);  </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a><span class="pp">#endif  </span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>};</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a><span class="co">// good</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a><span class="kw">class</span> MobilePhone  </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>{  </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a><span class="kw">public</span>:  </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a>    <span class="dt">bool</span> StartCall(<span class="at">const</span> <span class="bu">std::</span>string &amp;number);  </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true"></a>    <span class="dt">bool</span> EndCall();  </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true"></a>    <span class="dt">bool</span> HasGPS() <span class="at">const</span>;  </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true"></a>    <span class="dt">bool</span> GetGPSLocation(<span class="dt">double</span> &amp;lat, <span class="dt">double</span> &amp;lon);  </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true"></a>};</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true"></a><span class="dt">bool</span> MobilePhone::HasGPS() <span class="at">const</span>  </span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true"></a>{  </span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true"></a><span class="pp">#if defined TARGET_OS_IPHONE  </span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true"></a>    <span class="cf">return</span> <span class="kw">true</span>;  </span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true"></a><span class="pp">#else  </span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true"></a>    <span class="cf">return</span> <span class="kw">false</span>;  </span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true"></a><span class="pp">#endif  </span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true"></a>}</span></code></pre></div>
+<blockquote>
+<p>TIP: Never put platform-specific #if or #ifdef statements into your public APIs. It exposes implementation details and makes your API behave differently on differently platforms</p>
+</blockquote>
+<h3 id="loosely-coupled">Loosely coupled</h3>
+<blockquote>
+<p>TIP: Good APIs exhibit loose coupling and high cohesion.</p>
+</blockquote>
+<p>One way to think of coupling is that given two components, A and B, how much code in B must change if A changes.</p>
+<h4 id="coupling-by-name-only">Coupling by name only</h4>
+<p>If class A only needs to know the name of class B (i.e., it does not need to know the size of class B or call any methods in the class), then class A does not need to depend upon the full declaration of B.In these cases, you can use a forward declaration for class B rather than including the entire interface</p>
+<blockquote>
+<p>TIP: Use a forward declaration for a class unless you actually need to #include its full definition.</p>
+</blockquote>
+<h4 id="reducing-class-coupling">Reducing class coupling</h4>
+<blockquote>
+<p>TIP: Prefer using nonmember nonfriend functions instead of member functions to reduce coupling.</p>
+</blockquote>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co">// bad</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="kw">class</span> MyObject</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>{</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>    <span class="dt">void</span> PrintName() <span class="at">const</span>;</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>    <span class="bu">std::</span>string GetName() <span class="at">const</span>;</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>    ...</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a><span class="kw">protected</span>:</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a>    ...</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a>    <span class="bu">std::</span>string mName;</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a>    ...</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true"></a>};</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true"></a><span class="co">// good, PrintName()只需要用MyObject的接口，不需要知道它的实现</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true"></a><span class="kw">class</span> MyObject  </span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true"></a>{  </span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true"></a><span class="kw">public</span>:  </span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true"></a>    <span class="bu">std::</span>string GetName() <span class="at">const</span>;  </span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true"></a>    ...  </span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true"></a><span class="kw">protected</span>:  </span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true"></a>    ...  </span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true"></a><span class="kw">private</span>:  </span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true"></a>    <span class="bu">std::</span>string mName;  </span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true"></a>    ...  </span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true"></a>};  </span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true"></a><span class="dt">void</span> PrintName(<span class="at">const</span> MyObject &amp;obj);</span></code></pre></div>
+<h4 id="intentional-redundancy">Intentional redundancy</h4>
+<p>Normally, good software engineering practice aims to remove redundancy: to ensure that each significant piece of knowledge or behavior is implemented only once (Pierce, 2002). However, reuse of code implies coupling, and sometimes it’s worth the cost to add a small degree of duplication to sever an egregious coupling relationship</p>
+<blockquote>
+<p>TIP: Data redundancy can sometimes be justified to reduce coupling between classes.</p>
+</blockquote>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co">// bad, 依赖于ChatUser</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="kw">class</span> TextChatLog  </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>{  </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a><span class="kw">public</span>:  </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>    <span class="dt">bool</span> AddMessage(<span class="at">const</span> ChatUser &amp;user, <span class="at">const</span> <span class="bu">std::</span>string &amp;msg);  </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>    <span class="dt">int</span> GetCount() <span class="at">const</span>;  </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>    <span class="bu">std::</span>string GetMessage(<span class="dt">int</span> index);  </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a><span class="kw">private</span>:  </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>    <span class="kw">struct</span> ChatEvent  </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a>    {  </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a>        ChatUser mUser;  </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a>        <span class="bu">std::</span>string mMessage;  </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a>        <span class="dt">size_t</span> mTimestamp;  </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a>    };  </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a>    <span class="bu">std::</span>vector&lt;ChatEvent&gt; mChatEvents;  </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true"></a>};</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true"></a><span class="co">// good</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true"></a><span class="kw">class</span> TextChatLog  </span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true"></a>{  </span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true"></a><span class="kw">public</span>:  </span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true"></a>    <span class="dt">bool</span> AddMessage(<span class="at">const</span> <span class="bu">std::</span>string &amp;user, <span class="at">const</span> <span class="bu">std::</span>string &amp;msg);  </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true"></a>    <span class="dt">int</span> GetCount() <span class="at">const</span>;  </span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true"></a>    <span class="bu">std::</span>string GetMessage(<span class="dt">int</span> index);  </span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true"></a><span class="kw">private</span>:  </span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true"></a>    <span class="kw">struct</span> ChatEvent  </span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true"></a>    {  </span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true"></a>        <span class="bu">std::</span>string mUserName;    <span class="co">// 增加了冗余，但减少了耦合</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true"></a>        <span class="bu">std::</span>string mMessage;  </span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true"></a>        <span class="dt">size_t</span> mTimestamp;  </span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true"></a>    };  </span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true"></a>    <span class="bu">std::</span>vector&lt;ChatEvent&gt; mChatEvents;  </span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true"></a>};</span></code></pre></div>
+<h4 id="manager-classes">Manager classes</h4>
+<p>A manager class is one that owns and coordinates several lower-level classes. This can be used to break the dependency of one or more classes upon a collection of low-level. classes.<br />
+This is often implemented using a Facade design pattern, which I’ll cover in the chapter on Patterns, or a Mediator design pattern. The difference between the two is that a Fac¸ade exposes only existing functionality in a different way whereas a Mediator adds new functionality.</p>
+<p>before</p>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20251201163002.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>after<br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20251201163018.png" alt="image.png" /></p>
+<blockquote>
+<p>TIP: Manager classes can reduce coupling by encapsulating several lower-level classes. They can be implemented using the Fac¸ade or Mediator design patterns.</p>
+</blockquote>
+<h4 id="callbacks-observers-and-notifications">Callbacks, observers, and notifications</h4>
+<p>最主要的是可以让low-level的代码在适当时机调用high-leve的代码。<br />
+可以使两个模块的耦合更低</p>
+<p><strong>1. Callback Functions (C-Style)</strong></p>
+<p>A callback is simply a <strong>function pointer</strong> passed into another module.<br />
+Module A gives Module B a function pointer.<br />
+Module B calls it when needed, without depending on A's headers.<br />
+This breaks cyclic dependencies and keeps modules decoupled.</p>
+<p><strong>Basic C++11 callback example</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="kw">class</span> ModuleB {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>    <span class="kw">using</span> CallbackType = <span class="dt">void</span> (*)(<span class="at">const</span> <span class="bu">std::</span>string&amp;, <span class="dt">void</span>*);</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>    <span class="co">// The `closure` is arbitrary user data (context), passed through to the callback.</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>    <span class="dt">void</span> SetCallback(CallbackType cb, <span class="dt">void</span>* closure) {</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>        mCallback = cb;</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>        mClosure = closure;</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a>    }</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a>    <span class="dt">void</span> InvokeCallback(<span class="at">const</span> <span class="bu">std::</span>string&amp; name) {</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a>        <span class="cf">if</span> (mCallback) {</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>            mCallback(name, mClosure);</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a>        }</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a>    }</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true"></a>    CallbackType mCallback = <span class="kw">nullptr</span>;</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true"></a>    <span class="dt">void</span>* mClosure = <span class="kw">nullptr</span>;  </span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true"></a>};</span></code></pre></div>
+<p><strong>2. Observer Pattern (Object-Oriented Callbacks)</strong></p>
+<p>The observer pattern uses <strong>objects</strong>, not raw function pointers.<br />
+You define an abstract base class:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="kw">class</span> Observable {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>    <span class="kw">virtual</span> ~Observable() {}</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>    <span class="kw">virtual</span> <span class="dt">void</span> CallbackMethod(<span class="at">const</span> <span class="bu">std::</span>string&amp;) = <span class="dv">0</span>;</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>};</span></code></pre></div>
+<p>A concrete observer implements it:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">class</span> MyObserver : <span class="kw">public</span> Observable {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>    MyObserver(<span class="dt">int</span> data) : mData(data) {}</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>    <span class="dt">void</span> CallbackMethod(<span class="at">const</span> <span class="bu">std::</span>string&amp; name) <span class="kw">override</span> {</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; name &lt;&lt; <span class="st">&quot;: &quot;</span> &lt;&lt; mData &lt;&lt; <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>    }</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>    <span class="dt">int</span> mData;</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>};</span></code></pre></div>
+<p>Module B stores the observer:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="kw">class</span> ModuleB {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>    <span class="dt">void</span> SetObserver(<span class="bu">std::</span>shared_ptr&lt;Observable&gt; cb) {</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>        mObserver = cb;</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>    }</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>    <span class="dt">void</span> InvokeObserver(<span class="at">const</span> <span class="bu">std::</span>string&amp; name) {</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a>        <span class="cf">if</span> (mObserver) mObserver-&gt;CallbackMethod(name);</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>    }</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a>    <span class="bu">std::</span>shared_ptr&lt;Observable&gt; mObserver;</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a>};</span></code></pre></div>
+<p><strong>3. Notifications (Signals and Slots / Event Buses)</strong></p>
+<p>Callbacks and observers usually:<br />
+* involve one sender<br />
+* and one receiver</p>
+<p><strong>Example with <code>boost::signals2</code></strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="kw">class</span> MySlot {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a>    <span class="dt">void</span> <span class="kw">operator</span>()() <span class="at">const</span> {</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;MySlot called!&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a>    }</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a>};</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true"></a>MySlot slot;</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true"></a><span class="ex">boost::</span>signals2<span class="ex">::</span>signal&lt;<span class="dt">void</span>()&gt; signal;</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true"></a>signal.<span class="fu">connect</span>(slot); <span class="co">// register slot</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true"></a>signal();             <span class="co">// emit → calls all connected slots</span></span></code></pre></div>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 27%" />
+<col style="width: 19%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Technique</th>
+<th>Use Case</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Callback Function</strong></td>
+<td>Simple notifications, C-style APIs</td>
+<td>Fast, low overhead</td>
+<td>Unsafe <code>void*</code>, hard with objects</td>
+</tr>
+<tr class="even">
+<td><strong>Observer Pattern</strong></td>
+<td>OOP callback design</td>
+<td>Strongly typed, safe</td>
+<td>Slightly more boilerplate</td>
+</tr>
+<tr class="odd">
+<td><strong>Signals/Slots (Notifications)</strong></td>
+<td>Many listeners, large systems</td>
+<td>Very flexible, decoupled</td>
+<td>Extra library or framework needed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stable-documented-and-tested">Stable, documented, and tested</h3>
+<h2 id="patterns">3. Patterns</h2>
+<h3 id="pimpl-idiom">Pimpl idiom</h3>
+<h4 id="using-pimpl">Using pimpl</h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="co">// autotimer.h</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a><span class="kw">class</span> AutoTimer</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>{</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>    <span class="kw">explicit</span> AutoTimer(<span class="at">const</span> <span class="bu">std::</span>string &amp;name);</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a>    ~AutoTimer();</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a>    <span class="kw">class</span> Impl;    <span class="co">//内部类声明</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a>    Impl *mImpl;</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a>};</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a><span class="co">// ------------------------</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a><span class="kw">class</span> AutoTimer::Impl</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true"></a>{</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true"></a>    <span class="co">/// Return how long the object has been alive</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true"></a>    <span class="dt">double</span> GetElapsed() <span class="at">const</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true"></a>    {</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true"></a><span class="pp">#ifdef _WIN32</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true"></a>        <span class="cf">return</span> (GetTickCount() - mStartTime) / <span class="fl">1e3</span>;</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true"></a><span class="pp">#else</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true"></a>        <span class="kw">struct</span> timeval end_time;</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true"></a>        gettimeofday(&amp;end_time, <span class="kw">nullptr</span>);</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true"></a>        <span class="dt">double</span> t1 = mStartTime.tv_usec / <span class="fl">1e6</span> + mStartTime.tv_sec;</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true"></a>        <span class="dt">double</span> t2 = end_time.tv_usec / <span class="fl">1e6</span> + end_time.tv_sec;</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true"></a>        <span class="cf">return</span> t2 - t1;</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true"></a><span class="pp">#endif</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true"></a>    }</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true"></a>    <span class="bu">std::</span>string mName;</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true"></a><span class="pp">#ifdef _WIN32</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true"></a>    DWORD mStartTime;</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true"></a><span class="pp">#else</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true"></a>    <span class="kw">struct</span> timeval mStartTime;</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true"></a><span class="pp">#endif</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true"></a>};</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true"></a></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true"></a>AutoTimer::AutoTimer(<span class="at">const</span> <span class="bu">std::</span>string &amp;name) :</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true"></a>    mImpl(<span class="kw">new</span> AutoTimer::Impl())</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true"></a>{</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true"></a>    mImpl-&gt;mName = name;</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true"></a><span class="pp">#ifdef _WIN32</span></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true"></a>    mImpl-&gt;mStartTime = GetTickCount();</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true"></a><span class="pp">#else</span></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true"></a>    gettimeofday(&amp;mImpl-&gt;mStartTime, <span class="kw">nullptr</span>);</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true"></a><span class="pp">#endif</span></span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true"></a>}</span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true"></a></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true"></a>AutoTimer::~AutoTimer()</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true"></a>{</span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; mImpl-&gt;mName &lt;&lt; <span class="st">&quot;: took &quot;</span> &lt;&lt; mImpl-&gt;GetElapsed()</span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true"></a>              &lt;&lt; <span class="st">&quot; secs&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true"></a>    <span class="kw">delete</span> mImpl;</span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true"></a>}</span></code></pre></div>
+<blockquote>
+<p>TIP: When using the pimpl idiom, prefer to use a private nested implementation class. Only use a public nested Impl class (or a public nonnested class) if other classes or free functions in the .cpp must access Impl members.</p>
+</blockquote>
+<p>Another design question worth considering is how much logic to locate in the Impl class. Some options include:<br />
+1. Only private member variables,<br />
+2. Private member variables and methods, or <strong>recommend</strong><br />
+3. All methods of the public class, such that the public methods are simply thin wrappers on top of equivalent methods in the Impl class.</p>
+<h4 id="copy-semantics">Copy semantics</h4>
+<p>A Cþþ compiler will create a copy constructor and assignment operator for your class if you don’t explicitly define them.<br />
+so， 得处理Impl的指针的问题：<br />
+- Make your class uncopyable. 使用std::unique_ptr<br />
+- Explicitly define the copy semantics.<br />
+- 值语义：create a copy of the Impl object instead of just copying the pointer<br />
+- 引用语义：智能指针</p>
+<h4 id="pimpl-and-smart-pointers">Pimpl and smart pointers</h4>
+<p>One of the inconvenient and error-prone aspects of pimpl is the need to allocate and deallocate the implementation object.</p>
+<blockquote>
+<p>TIP: Think about the copy semantics of your pimpl classes, and favor the use of a shared or unique pointer to manage initialization and destruction of the implementation pointer.</p>
+</blockquote>
+<h4 id="advantages-of-pimpl">Advantages of pimpl</h4>
+<ul>
+<li>Information hiding.</li>
+<li>Reduced coupling.</li>
+<li>Faster compiles.</li>
+<li>Greater binary compatibility.</li>
+</ul>
+<h4 id="disadvantages-of-pimpl">Disadvantages of pimpl</h4>
+<h4 id="opaque-pointers-in-c">Opaque pointers in C</h4>
+<h3 id="singleton">Singleton</h3>
+<h4 id="implementing-singletons-in-c">Implementing singletons in C++</h4>
+<blockquote>
+<p>TIP: Declare the constructor, destructor, copy constructor, and assignment operator to be private (or protected) to enforce the Singleton property. Or delete the copy constructor and assignment operator with the delete specifier.</p>
+</blockquote>
+<h4 id="singletons-and-thread-safety">Singletons and thread safety</h4>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>Singleton &amp;Singleton::GetInstance()</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>{</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>    <span class="at">static</span> Singleton instance;</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a>    <span class="cf">return</span> instance;</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Under these early versions of the standard,if two threads happened to call our GetInstance() method at the same time, then the instance could be constructed twice, or it could be used by one thread before it had been fully initialized by the other thread.</p>
+<p>This issue was addressed in the Cþþ11 standard, which states that only one thread can enter the initialization of a static and that the compiler must not introduce any deadlocks around its initialization. So the previous implementation of GetInstance() is thread-safe as of Cþþ11.</p>
+<h4 id="singleton-versus-dependency-injection">Singleton versus dependency injection</h4>
+<p>Dependency injection is a technique in which an object is passed into a class (injected), rather than having the class create and store the object itself.</p>
+<p>Dependency injection can be viewed as a way to avoid the proliferation of singletons by encouraging interfaces that accept the single instance as an input rather than requesting it internally via a GetInstance() method.<br />
+依赖注入可以被看作是避免单例泛滥的一种方式通过鼓励接口接受单个实例作为输入，而不是通过GetInstance（）方法在内部请求它。</p>
+<blockquote>
+<p>TIP: Dependency injection reduces coupling between objects and makes it easier to support unit testing</p>
+</blockquote>
+<h4 id="singleton-versus-monostate">Singleton versus Monostate</h4>
+<p>The Monostate pattern allows multiple instances of a class to be created in which all of those instances use the same static data.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="co">// monostate.h</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="kw">class</span> Monostate</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a>{</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a>    <span class="dt">int</span> GetTheAnswer() <span class="at">const</span> { <span class="cf">return</span> sAnswer; }</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true"></a>    <span class="at">static</span> <span class="dt">int</span> sAnswer;</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true"></a>};</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true"></a><span class="co">// monostate.cpp</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true"></a><span class="dt">int</span> Monostate::sAnswer = <span class="dv">42</span>;</span></code></pre></div>
+<h4 id="singleton-versus-session-state">Singleton versus session state</h4>
+<p>In a recent retrospective interview, the authors of the original design patterns book stated that the only pattern they would consider removing from the original list is Singleton. This is because it’s essentially a way to store global data and tends to be an indicator of poor design</p>
+<blockquote>
+<p>TIP: There are several alternatives to the Singleton pattern, including dependency injection,the Monostate pattern, and the use of a session context</p>
+</blockquote>
+<h3 id="factory-methods">Factory Methods</h3>
+<h4 id="abstract-base-classes-and-interfaces">Abstract base classes and interfaces</h4>
+<h4 id="simple-factory-example">Simple factory example</h4>
+<h4 id="extensible-factory-example">Extensible factory example</h4>
+<h3 id="api-wrapping-patterns">API wrapping patterns</h3>
+<h4 id="the-proxy-pattern">The Proxy pattern</h4>
+<h4 id="the-adapter-pattern">The Adapter pattern</h4>
+<h4 id="the-façade-pattern">The Façade pattern</h4>
+<h3 id="observer-pattern">Observer pattern</h3>
+<h4 id="modelviewcontroller">Model–View–Controller</h4>
+<h4 id="implementing-the-observer-pattern">Implementing the Observer pattern</h4>
+<h4 id="push-versus-pull-observers">Push versus pull observers</h4>
+<h2 id="design">Design</h2>
+<h3 id="a-case-for-good-design">A case for good design</h3>
+<h4 id="accruing-technical-debt">Accruing technical debt</h4>
+<h4 id="paying-back-the-debt">Paying back the debt</h4>
+<h4 id="design-for-the-long-term">Design for the long term</h4>
+<h3 id="gathering-functional-requirements">Gathering functional requirements</h3>
+<h4 id="what-are-functional-requirements">What are functional requirements?</h4>
+<h4 id="example-functional-requirements">Example functional requirements</h4>
+<h4 id="maintaining-the-requirements">Maintaining the requirements</h4>
+<h3 id="creating-use-cases">Creating use cases</h3>
+<h4 id="developing-use-cases">Developing use cases</h4>
+<h4 id="use-case-templates">Use case templates</h4>
+<h4 id="writing-good-use-cases">Writing good use cases</h4>
+<h4 id="requirements-and-agile-development">Requirements and agile development</h4>
+<h3 id="elements-of-api-design">Elements of API design</h3>
+<h3 id="architecture-design">Architecture design</h3>
+<h4 id="developing-an-architecture">Developing an architecture</h4>
+<h4 id="architecture-constraints">Architecture constraints</h4>
+<h4 id="identifying-the-major-abstractions">Identifying the major abstractions</h4>
+<h4 id="inventing-the-key-objects">Inventing the key objects</h4>
+<h4 id="architectural-patterns">Architectural patterns</h4>
+<h4 id="communicating-the-architecture">Communicating the architecture</h4>
+<h3 id="class-design">Class design</h3>
+<h4 id="object-oriented-concepts">Object-oriented concepts</h4>
+<h4 id="class-design-options">Class design options</h4>
+<h4 id="the-solid-principles">The SOLID principles</h4>
+<h4 id="using-inheritance">Using inheritance</h4>
+<h4 id="liskov-substitution-principle">Liskov substitution principle</h4>
+<h4 id="private-inheritance">### Private inheritance</h4>
+<h4 id="composition">### Composition</h4>
+<h4 id="the-openclosed-principle">The open/closed principle</h4>
+<h4 id="the-law-of-demeter">The Law of Demeter</h4>
+<h4 id="class-naming">Class naming</h4>
+<h3 id="function-design">Function design</h3>
+<h4 id="function-design-options">Function design options</h4>
+<h4 id="function-naming">Function naming</h4>
+<h4 id="function-parameters">Function parameters</h4>
+<h4 id="error-handling">Error handling</h4>
+<h2 id="styles">Styles</h2>
+<h3 id="flat-c-apis">Flat C APIs</h3>
+<h4 id="ansi-c-features">ANSI C features</h4>
+<h4 id="benefits-of-an-ansi-c-api">Benefits of an ANSI C API</h4>
+<h4 id="writing-an-api-in-ansi-c">Writing an API in ANSI C</h4>
+<h4 id="calling-c-functions-from-c">Calling C functions from C++</h4>
+<h4 id="case-study-fmod-c-api">Case study: FMOD C API</h4>
+<h3 id="object-oriented-c-apis">Object-oriented C++ APIs</h3>
+<h4 id="advantages-of-object-oriented-apis">Advantages of object-oriented APIs</h4>
+<h4 id="disadvantages-of-object-oriented-apis">Disadvantages of object-oriented APIs</h4>
+<h4 id="case-study-fmod-c-api-1">Case study: FMOD C++ API</h4>
+<h3 id="template-based-apis">Template-based APIs</h3>
+<h4 id="an-example-template-based-api">An example template-based API</h4>
+<h4 id="templates-versus-macros">Templates versus macros</h4>
+<h4 id="advantages-of-template-based-apis">Advantages of template-based APIs</h4>
+<h4 id="disadvantages-of-template-based-apis">Disadvantages of template-based APIs</h4>
+<h3 id="functional-apis">Functional APIs</h3>
+<h4 id="functional-programming-concepts">Functional programming concepts</h4>
+<h4 id="an-example-functional-api">An example functional API</h4>
+<h4 id="advantages-of-functional-apis">Advantages of functional APIs</h4>
+<h4 id="disadvantages-of-functional-apis">Disadvantages of functional APIs</h4>
+<h3 id="data-driven-apis">Data-driven APIs</h3>
+<h4 id="advantages-of-data-driven-apis">Advantages of data-driven APIs</h4>
+<h4 id="disadvantages-of-data-driven-apis">Disadvantages of data-driven APIs</h4>
+<h4 id="supporting-variant-argument-lists">Supporting variant argument lists</h4>
+<h4 id="case-study-fmod-data-driven-api">Case study: FMOD data-driven API</h4>
+<h4 id="data-driven-web-services">Data-driven Web services</h4>
+<h4 id="idempotency">Idempotency</h4>
+<h2 id="c-usage">C++ usage</h2>
+<h3 id="namespaces">Namespaces</h3>
+<h3 id="constructors-and-assignment">Constructors and assignment</h3>
+<h4 id="defining-constructors-and-assignment">Defining constructors and assignment</h4>
+<h4 id="the-explicit-keyword">The explicit keyword</h4>
+<h3 id="const-correctness">Const correctness</h3>
+<h4 id="method-const-correctness">Method const correctness</h4>
+<h4 id="parameter-const-correctness">Parameter const correctness</h4>
+<h4 id="return-value-const-correctness">Return value const correctness</h4>
+<h3 id="templates">Templates</h3>
+<h4 id="template-terminology">Template terminology</h4>
+<h4 id="implicit-instantiation-api-design">Implicit instantiation API design</h4>
+<h4 id="explicit-instantiation-api-design">Explicit instantiation API design</h4>
+<h3 id="operator-overloading">Operator overloading</h3>
+<h4 id="overloadable-operators">Overloadable operators</h4>
+<h4 id="free-operators-versus-member-operators">Free operators versus member operators</h4>
+<h4 id="adding-operators-to-a-class">Adding operators to a class</h4>
+<h4 id="operator-syntax">Operator syntax</h4>
+<h4 id="conversion-operators">Conversion operators</h4>
+<h3 id="function-parameters-1">Function parameters</h3>
+<h4 id="pointer-versus-reference-parameters">Pointer versus reference parameters</h4>
+<h4 id="default-arguments">Default arguments</h4>
+<h3 id="avoid-define-for-constants">Avoid #define for constants</h3>
+<h3 id="avoid-using-friends">Avoid using friends</h3>
+<h3 id="exporting-symbols">Exporting symbols</h3>
+<h3 id="coding-conventions">Coding conventions</h3>
+<h2 id="c-revisions">C++ revisions</h2>
+<h3 id="which-c-revision-to-use">Which C++ revision to use</h3>
+<h3 id="c11-api-features">C++11 API features</h3>
+<h4 id="move-constructors-and-the-rule-of-five">Move constructors and the Rule of Five</h4>
+<h4 id="default-and-deleted-functions">Default and deleted functions</h4>
+<h4 id="object-construction">Object construction</h4>
+<h4 id="initializer-list-constructors">Initializer list constructors</h4>
+<h4 id="smart-pointers">Smart pointers</h4>
+<h4 id="enum-classes">Enum classes</h4>
+<h4 id="override-and-final-specifiers">Override and final specifiers</h4>
+<h4 id="the-noexcept-specifier">The noexcept specifier</h4>
+<h4 id="inline-namespaces">Inline namespaces</h4>
+<h4 id="type-aliases-with-using">Type aliases with using</h4>
+<h4 id="user-defined-literals">User-defined literals</h4>
+<h4 id="alternate-function-style">Alternate function style</h4>
+<h4 id="tuples">Tuples</h4>
+<h4 id="constant-expressions">Constant expressions</h4>
+<h4 id="the-nullptr-keyword">The nullptr keyword</h4>
+<h4 id="variadic-templates">Variadic templates</h4>
+<h4 id="migrating-to-c11">Migrating to C++11</h4>
+<h3 id="c14-api-features">C++14 API features</h3>
+<h4 id="the-auto-return-type">The auto return type</h4>
+<h4 id="the-deprecated-attribute">The deprecated attribute</h4>
+<h4 id="variable-templates">Variable templates</h4>
+<h4 id="const-expression-improvements">Const expression improvements</h4>
+<h4 id="binary-literals-and-digit-separators">Binary literals and digit separators</h4>
+<h4 id="migrating-to-c14">Migrating to C++14</h4>
+<h3 id="c17-api-features">C++17 API features</h3>
+<h4 id="inline-variables">Inline variables</h4>
+<h4 id="string-views">String views</h4>
+<h4 id="optional">Optional</h4>
+<h4 id="any">Any</h4>
+<h4 id="variant">Variant</h4>
+<h4 id="nested-namespaces">Nested namespaces</h4>
+<h4 id="fold-expressions">Fold expressions</h4>
+<h4 id="checking-for-header-availability">Checking for header availability</h4>
+<h4 id="byte-type">Byte type</h4>
+<h4 id="the-maybe_unused-attribute">The maybe_unused attribute</h4>
+<h4 id="migrating-to-c17">Migrating to C++17</h4>
+<h3 id="c20-api-features">C++20 API features</h3>
+<h4 id="modules">Modules</h4>
+<h4 id="named-modules">### Named Modules</h4>
+<h4 id="header-units">### Header units</h4>
+<h4 id="the-spaceship-operator">The spaceship operator</h4>
+<h4 id="constraints-and-concepts">Constraints and concepts</h4>
+<h4 id="abbreviated-function-templates">Abbreviated function templates</h4>
+<h4 id="the-consteval-specifier">The consteval specifier</h4>
+<h4 id="the-constinit-specifier">The constinit specifier</h4>
+<h4 id="migrating-to-c20">Migrating to C++20</h4>
+<h3 id="c23-api-features">C++23 API features</h3>
+<h4 id="expected-values">Expected values</h4>
+<h4 id="multidimensional-subscript-operator">Multidimensional subscript operator</h4>
+<h4 id="preprocessor-directives">Preprocessor directives</h4>
+<h4 id="migrating-to-c23">Migrating to C++23</h4>
+<h2 id="performance">Performance</h2>
+<h3 id="pass-input-arguments-by-const-reference">Pass input arguments by const reference</h3>
+<h3 id="minimize-include-dependencies">Minimize #include dependencies</h3>
+<h4 id="avoid-winnebago-headers">Avoid “Winnebago” headers</h4>
+<h4 id="forward-declarations">Forward declarations</h4>
+<h4 id="redundant-include-guards">Redundant #include guards</h4>
+<h3 id="declaring-constants">Declaring constants</h3>
+<h4 id="the-constexpr-consteval-and-constinit-keywords">The constexpr, consteval, and constinit keywords</h4>
+<h3 id="initialization-lists">Initialization lists</h3>
+<h3 id="memory-optimization">Memory optimization</h3>
+<h3 id="dont-inline-functions-until-you-need-to">Don't inline functions until you need to</h3>
+<h3 id="copy-on-write">Copy on write</h3>
+<h3 id="iterating-over-elements">Iterating over elements</h3>
+<h4 id="iterators">Iterators</h4>
+<h4 id="random-access">Random access</h4>
+<h4 id="array-references">Array references</h4>
+<h4 id="extern-templates">Extern templates</h4>
+<h3 id="performance-analysis">Performance analysis</h3>
+<h4 id="time-based-analysis">Time-based analysis</h4>
+<h4 id="memory-based-analysis">Memory-based analysis</h4>
+<h4 id="multithreading-analysis">Multithreading analysis</h4>
+<h2 id="concurrency">Concurrency</h2>
+<h3 id="multithreading-with-c">Multithreading with C++</h3>
+<h3 id="terminology">Terminology</h3>
+<h4 id="data-races-and-race-conditions">Data races and race conditions</h4>
+<h4 id="thread-safety">Thread safety</h4>
+<h4 id="reentrancy">Reentrancy</h4>
+<h4 id="asynchronous-tasks">Asynchronous tasks</h4>
+<h4 id="parallelism">Parallelism</h4>
+<h3 id="accessing-shared-data">Accessing shared data</h3>
+<h4 id="stateless-apis">Stateless APIs</h4>
+<h4 id="initializing-shared-data">Initializing shared data</h4>
+<h4 id="synchronized-data-access">Synchronized data access</h4>
+<h3 id="concurrent-api-design">Concurrent API design</h3>
+<h4 id="concurrency-best-practices">Concurrency best practices</h4>
+<h4 id="thread-safe-interface-pattern">Thread-Safe Interface pattern</h4>
+<h2 id="versioning">Versioning</h2>
+<h3 id="version-numbers">Version numbers</h3>
+<h4 id="version-number-significance">Version number significance</h4>
+<h4 id="esoteric-numbering-schemes">Esoteric numbering schemes</h4>
+<h4 id="creating-a-version-api">Creating a version API</h4>
+<h3 id="software-branching-strategies">Software branching strategies</h3>
+<h4 id="branching-strategies">Branching strategies</h4>
+<h4 id="branching-policies">Branching policies</h4>
+<h4 id="apis-and-parallel-branches">APIs and parallel branches</h4>
+<h4 id="file-formats-and-parallel-products">File formats and parallel products</h4>
+<h3 id="life-cycle-of-an-api">Life cycle of an API</h3>
+<h3 id="levels-of-compatibility">Levels of compatibility</h3>
+<h4 id="backward-compatibility">Backward compatibility</h4>
+<h4 id="functional-compatibility">Functional compatibility</h4>
+<h4 id="source-compatibility">Source compatibility</h4>
+<h4 id="binaryapplication-binary-interface-compatibility">Binary/application binary interface compatibility</h4>
+<h4 id="binary-incompatible-api-changes">### Binary incompatible API changes</h4>
+<h4 id="binary-compatible-api-changes">### Binary compatible API changes</h4>
+<h4 id="forward-compatibility">Forward compatibility</h4>
+<h3 id="how-to-maintain-backward-compatibility">How to maintain backward compatibility</h3>
+<h4 id="adding-functionality">Adding functionality</h4>
+<h4 id="changing-functionality">Changing functionality</h4>
+<h4 id="deprecating-functionality">Deprecating functionality</h4>
+<h4 id="removing-functionality">Removing functionality</h4>
+<h4 id="inline-namespaces-for-versioning">Inline namespaces for versioning</h4>
+<h3 id="api-reviews">API reviews</h3>
+<h4 id="the-purpose-of-api-reviews">The purpose of API reviews</h4>
+<h4 id="prerelease-api-reviews">Prerelease API reviews</h4>
+<h4 id="precommit-api-reviews">Precommit API reviews</h4>
+<h2 id="documentation">Documentation</h2>
+<h3 id="reasons-to-write-documentation">Reasons to write documentation</h3>
+<h4 id="defining-behavior">Defining behavior</h4>
+<h4 id="documenting-the-interfaces-contract">Documenting the interface's contract</h4>
+<h4 id="communicating-behavioral-changes">Communicating behavioral changes</h4>
+<h4 id="what-to-document">What to document</h4>
+<h3 id="types-of-documentation">Types of documentation</h3>
+<h4 id="automated-api-documentation">Automated API documentation</h4>
+<h4 id="overview-documentation">Overview documentation</h4>
+<h4 id="examples-and-tutorials">Examples and tutorials</h4>
+<h4 id="release-notes">Release notes</h4>
+<h4 id="license-information">License information</h4>
+<h3 id="documentation-usability">Documentation usability</h3>
+<h4 id="inclusive-language">Inclusive language</h4>
+<h3 id="using-doxygen">Using Doxygen</h3>
+<h4 id="the-configuration-file">The configuration file</h4>
+<h4 id="comment-style-and-commands">Comment style and commands</h4>
+<h4 id="api-comments">API comments</h4>
+<h4 id="file-comments">File comments</h4>
+<h4 id="class-comments">Class comments</h4>
+<h4 id="method-comments">Method comments</h4>
+<h4 id="enum-comments">Enum comments</h4>
+<h4 id="sample-header-with-documentation">### Sample header with documentation</h4>
+<h2 id="testing">Testing</h2>
+<h3 id="reasons-to-write-tests">Reasons to write tests</h3>
+<h3 id="types-of-api-testing">Types of API testing</h3>
+<h4 id="unit-testing">Unit testing</h4>
+<h4 id="integration-testing">Integration testing</h4>
+<h4 id="performance-testing">Performance testing</h4>
+<h3 id="writing-good-tests">Writing good tests</h3>
+<h4 id="qualities-of-a-good-test">Qualities of a good test</h4>
+<h4 id="what-to-test">What to test</h4>
+<h4 id="focusing-the-testing-effort">Focusing the testing effort</h4>
+<h4 id="working-with-quality-assurance">Working with quality assurance</h4>
+<h3 id="writing-testable-code">Writing testable code</h3>
+<h4 id="test-driven-development">Test-driven development</h4>
+<h4 id="stub-and-mock-objects">Stub and mock objects</h4>
+<h4 id="testing-private-code">Testing private code</h4>
+<h4 id="using-assertions">Using assertions</h4>
+<h4 id="contract-programming">Contract programming</h4>
+<h4 id="record-and-playback-functionality">Record and playback functionality</h4>
+<h4 id="supporting-internationalization">Supporting internationalization</h4>
+<h3 id="automated-testing-tools">Automated testing tools</h3>
+<h4 id="test-harnesses">Test harnesses</h4>
+<h4 id="code-coverage">Code coverage</h4>
+<h4 id="bug-tracking">Bug tracking</h4>
+<h4 id="continuous-build-system">Continuous build system</h4>
+<h2 id="objective-c-and-swift">Objective-C and Swift</h2>
+<h3 id="interface-design-in-c-and-objective-c">Interface design in C++ and Objective-C</h3>
+<h3 id="data-hiding-in-objective-c">Data hiding in Objective-C</h3>
+<h3 id="objective-c-behind-a-c-api">Objective-C behind a C++ API</h3>
+<h3 id="c-behind-an-objective-c-api">C++ behind an Objective-C API</h3>
+<h3 id="c-behind-a-swift-api">C++ behind a Swift API</h3>
+<h2 id="scripting">Scripting</h2>
+<h3 id="adding-script-bindings">Adding script bindings</h3>
+<h4 id="extending-versus-embedding">Extending versus embedding</h4>
+<h4 id="advantages-of-scripting">Advantages of scripting</h4>
+<h4 id="language-compatibility-issues">Language compatibility issues</h4>
+<h4 id="crossing-the-language-barrier">Crossing the language barrier</h4>
+<h3 id="script-binding-technologies">Script binding technologies</h3>
+<h4 id="boost-python">Boost Python</h4>
+<h4 id="simplified-wrapper-and-interface-generator">Simplified wrapper and interface generator</h4>
+<h4 id="python-sip">Python-SIP</h4>
+<h4 id="component-object-model-automation">Component object model automation</h4>
+<h4 id="common-object-request-broker-architecture">Common object request broker architecture</h4>
+<h3 id="adding-python-bindings-with-boost-python">Adding Python bindings with Boost Python</h3>
+<h4 id="building-boost-python">Building Boost Python</h4>
+<h4 id="wrapping-a-c-api-with-boost-python">Wrapping a C++ API with Boost Python</h4>
+<h4 id="constructors">Constructors</h4>
+<h4 id="extending-the-python-api">Extending the Python API</h4>
+<h4 id="inheritance-in-c">Inheritance in C++</h4>
+<h4 id="cross-language-polymorphism">Cross-language polymorphism</h4>
+<h4 id="supporting-iterators">Supporting iterators</h4>
+<h4 id="putting-it-all-together">Putting it all together</h4>
+<h3 id="adding-ruby-bindings-with-swig">Adding Ruby bindings with SWIG</h3>
+<h4 id="wrapping-a-c-api-with-swig">Wrapping a C++ API with SWIG</h4>
+<h4 id="tuning-the-ruby-api">Tuning the Ruby API</h4>
+<h4 id="constructors-1">Constructors</h4>
+<h4 id="extending-the-ruby-api">Extending the Ruby API</h4>
+<h4 id="inheritance-in-c-1">Inheritance in C++</h4>
+<h4 id="cross-language-polymorphism-1">Cross-language polymorphism</h4>
+<h4 id="putting-it-all-together-1">Putting it all together</h4>
+<h2 id="extensibility">Extensibility</h2>
+<h3 id="extending-via-plugins">Extending via plugins</h3>
+<h4 id="plugin-model-overview">Plugin model overview</h4>
+<h4 id="plugin-system-design-issues">Plugin system design issues</h4>
+<h4 id="implementing-plugins-in-c">Implementing plugins in C++</h4>
+<h4 id="the-plugin-api">The plugin API</h4>
+<h4 id="an-example-plugin">An example plugin</h4>
+<h4 id="the-plugin-manager">The Plugin manager</h4>
+<h4 id="plugin-versioning">Plugin versioning</h4>
+<h3 id="extending-via-inheritance">Extending via inheritance</h3>
+<h4 id="adding-functionality-1">Adding functionality</h4>
+<h4 id="modifying-functionality">Modifying functionality</h4>
+<h4 id="inheritance-and-the-standard-library">Inheritance and the standard library</h4>
+<h4 id="inheritance-and-enums">Inheritance and enums</h4>
+<h4 id="the-visitor-pattern">The Visitor pattern</h4>
+<h3 id="extending-via-templates">Extending via templates</h3>
+<h4 id="policy-based-templates">Policy-based templates</h4>
+<h4 id="the-curiously-recurring-template-pattern">The curiously recurring template pattern</h4>
+<h2 id="a-libraries">A: Libraries</h2>
+<h3 id="static-libraries">Static libraries</h3>
+<h3 id="dynamic-libraries">Dynamic libraries</h3>
+<h3 id="dynamic-libraries-as-plugins">Dynamic libraries as plugins</h3>
+<h3 id="importing-and-exporting-functions">Importing and exporting functions</h3>
+<h3 id="the-dynamic-link-library-entry-point">The Dynamic Link Library entry point</h3>
+<h3 id="creating-libraries-on-windows">Creating libraries on Windows</h3>
+<h3 id="useful-windows-utilities">Useful Windows utilities</h3>
+<h3 id="loading-plugins-on-windows">Loading plugins on Windows</h3>
+<h3 id="creating-static-libraries-on-linux">Creating static libraries on Linux</h3>
+<h3 id="creating-dynamic-libraries-on-linux">Creating dynamic libraries on Linux</h3>
+<h3 id="shared-library-entry-points">Shared library entry points</h3>
+<h3 id="useful-linux-utilities">Useful Linux utilities</h3>
+<h3 id="loading-plugins-on-linux">Loading plugins on Linux</h3>
+<h3 id="finding-dynamic-libraries-at-run-time">Finding dynamic libraries at run time</h3>
+<h3 id="creating-static-libraries-on-macos">Creating static libraries on macOS</h3>
+<h3 id="creating-dynamic-libraries-on-macos">Creating dynamic libraries on macOS</h3>
+<h3 id="frameworks-on-macos">Frameworks on macOS</h3>
+<h3 id="text-based-installapi">Text-based InstallAPI</h3>
+<h3 id="finding-dynamic-libraries-at-run-time-1">Finding dynamic libraries at run time</h3>
 
 <footer id="colophon" >
 		<div class="site-info col">

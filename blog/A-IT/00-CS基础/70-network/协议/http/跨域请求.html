@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/00-CS基础/70-network/协议/http/跨域请求</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#跨域请求是什么">跨域请求是什么</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h3 id="跨域请求是什么">跨域请求是什么</h3>
+<p>跨域请求（Cross-Origin Request），简称CORS，是指在Web开发中，当一个Web页面向不同源（即协议、域名或端口三者中至少有一个不同）的服务器发起请求时，浏览器会遵循同源策略（Same-Origin Policy）的限制，对这些跨源请求进行限制。同源策略是一种安全策略，它限制了来自不同源的脚本在浏览器中运行，从而保护用户隐私信息，防止身份伪造等安全问题。</p>
+<p>当一个Web页面中的JavaScript代码通过Ajax等方式向不同源的服务器发送HTTP请求时，浏览器会拒绝该请求，因为它违反了同源策略。为了允许这种跨域请求，服务器需要在响应中包含特殊的HTTP头部信息，通过CORS机制来告知浏览器哪些源（域名）可以访问其资源。这样，如果请求符合服务器设置的规则，浏览器将允许跨域请求，否则仍会拒绝。</p>
+<blockquote>
+<p>域(0rigin)<br />
+Web 概念中 域(0rigin)的内容由 scheme(protocol)-协议， host(domain)- 主机 和用于访问它的 URL port - 端口 定义。仅仅当 scheme、host、port 都匹配时，两个对象才有相同的来源。这种协议相同，域名相同，端口相同的安全策略也被称为 同源策略(Same 0rigin Policy)某些操作仅限于具有相同来源的内容，可以使用 CORS 取消此限制。</p>
+</blockquote>
+<blockquote>
+<p>同源策略<br />
+处于安全的因素，浏览器限制了从脚本发起跨域的 HTTP 请求。 XLHttpRequest 和其他 Fetch接口 会遵循 同源策略(same-origin policy)。也就是说使用这些 API的应用程序想要请求相同的资源，那么他们应该具有相同的来源，除非来自其他来源的响应包括正确的 CORS 标头也可以。<br />
+同源策略是一种很重要的安全策略，它限制了从一个来源加载的文档或脚本如何与另一个来源的资源进行交互。 它有助于隔离潜在的恶意文档，减少可能的攻击媒介。</p>
+</blockquote>
+<p>CROS（通常应为CORS，即跨域资源共享）需要设置的HTTP头部主要有以下几个，它们共同作用于控制跨域请求的访问权限：</p>
+<ol>
+<li><strong>Access-Control-Allow-Origin</strong>：
+<ul>
+<li>这个头部字段指定了哪些源（域名、协议和端口）可以访问资源。可以设置为特定的源（如<code>https://example.com</code>），或者设置为<code>*</code>（表示允许任意源访问）。然而，当请求涉及敏感信息（如cookies或HTTP认证信息）时，不应将<code>Access-Control-Allow-Origin</code>设置为<code>*</code>，因为这可能导致安全风险。</li>
+</ul></li>
+<li><strong>Access-Control-Allow-Methods</strong>：
+<ul>
+<li>此字段列出了实际请求所允许使用的HTTP方法。例如，可以设置为<code>"GET, POST, PUT, DELETE"</code>等，表示允许这些方法的跨域请求。</li>
+</ul></li>
+<li><strong>Access-Control-Allow-Headers</strong>：
+<ul>
+<li>这个字段指定了客户端在跨域请求中可以发送哪些HTTP请求头。由于不能简单地将其设置为<code>*</code>（必须明确列出允许的头部类型），因此开发者需要根据实际需求来设置这个字段，如<code>"X-Requested-With, Content-Type, Accept, Authorization"</code>等。</li>
+</ul></li>
+<li><strong>Access-Control-Allow-Credentials</strong>：
+<ul>
+<li>当设置为<code>true</code>时，表示允许发送带凭证的请求（如cookies或HTTP认证信息）。需要注意的是，如果设置了<code>Access-Control-Allow-Credentials</code>为<code>true</code>，则不能将<code>Access-Control-Allow-Origin</code>设置为<code>*</code>，必须明确指定允许的源。</li>
+</ul></li>
+<li><strong>Access-Control-Expose-Headers</strong>（可选）：
+<ul>
+<li>默认情况下，XMLHttpRequest和Fetch API只能从响应中读取简单的头部字段（如Cache-Control、Content-Language、Content-Type、Expires、Last-Modified和Pragma）。如果需要暴露其他头部字段给客户端，可以使用<code>Access-Control-Expose-Headers</code>字段来指定。</li>
+</ul></li>
+<li><strong>Access-Control-Max-Age</strong>（可选）：
+<ul>
+<li>这个字段指定了预检请求的结果能够被缓存多久。这对于减少不必要的预检请求、优化性能很有帮助。</li>
+</ul></li>
+</ol>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

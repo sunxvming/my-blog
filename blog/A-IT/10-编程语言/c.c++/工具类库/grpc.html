@@ -7,6 +7,70 @@
 
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="../../../../.././css/style.css" />
 
@@ -142,11 +206,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +222,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -197,6 +261,10 @@ jQuery(document).ready(function(){
 <li><a href="#用protocol-buffer-编译器-protoc-生成客户端服务端的接口代码生成的代码包括客户端的存根和服务端要实现的抽象接口">3.  用protocol buffer 编译器 protoc 生成客户端、服务端的接口代码，生成的代码包括客户端的存根和服务端要实现的抽象接口</a></li>
 <li><a href="#编写grpc-server端代码">4.  编写gRPC server端代码</a></li>
 <li><a href="#编写grpc-client端代码">5.  编写gRPC client端代码</a></li>
+<li><a href="#具体生成的类">具体生成的类</a></li>
+<li><a href="#sudokuservicestub-类">1. <code>SudokuService::Stub</code> 类</a></li>
+<li><a href="#sudokuserviceservice-类">2. <code>SudokuService::Service</code> 类</a></li>
+<li><a href="#代码解释">代码解释</a></li>
 </ul></li>
 </ul>
 </div>
@@ -274,154 +342,253 @@ message HelloReply {
 <p>生成的文件的后缀为：grpc.pb.h、grpc.pb.cc  比如：helloworld.grpc.pb.h<br />
 在helloworld.grpc.pb.h文件中，include了helloworld.pb.h，因为在接口定义中用的数据类型是protobuf定义的</p>
 <h3 id="编写grpc-server端代码">4.  编写gRPC server端代码</h3>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;memory&gt;
-#include &lt;string&gt;
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;iostream&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;memory&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;string&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;grpcpp/grpcpp.h&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;grpcpp/health_check_service_interface.h&gt;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;grpcpp/ext/proto_server_reflection_plugin.h&gt;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a><span class="pp">#</span><span class="er">ifdef BAZEL_BUILD</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &quot;examples/protos/helloworld.grpc.pb.h&quot;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a><span class="pp">#else</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &quot;helloworld.grpc.pb.h&quot;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a><span class="pp">#endif</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a>using grpc::Server;</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true"></a>using grpc::ServerBuilder;</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true"></a>using grpc::ServerContext;</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true"></a>using grpc::Status;</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true"></a>using helloworld::HelloRequest;</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true"></a>using helloworld::HelloReply;</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true"></a>using helloworld::Greeter;</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true"></a><span class="co">// Logic and data behind the server&#39;s behavior.</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true"></a>class GreeterServiceImpl final : public Greeter::Service {</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true"></a>  Status SayHello(ServerContext* context, const HelloRequest* request,</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true"></a>                  HelloReply* reply) override {</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true"></a>    <span class="bu">std::</span>string prefix(<span class="st">&quot;Hello &quot;</span>);</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true"></a>    reply-&gt;set_message(prefix + request-&gt;name());</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true"></a>    return Status::OK;</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true"></a>  }</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true"></a>};</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true"></a></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true"></a>void RunServer() {</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true"></a>  <span class="bu">std::</span>string server_address(<span class="st">&quot;0.0.0.0:50051&quot;</span>);</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true"></a>  GreeterServiceImpl service;</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true"></a>  grpc::EnableDefaultHealthCheckService(<span class="kw">true</span>);</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true"></a>  grpc::reflection::InitProtoReflectionServerBuilderPlugin();</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true"></a>  ServerBuilder builder;</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true"></a>  <span class="co">// Listen on the given address without any authentication mechanism.</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true"></a>  builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true"></a>  <span class="co">// Register &quot;service&quot; as the instance through which we&#39;ll communicate with</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true"></a>  <span class="co">// clients. In this case it corresponds to an *synchronous* service.</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true"></a>  builder.RegisterService(&amp;service);  <span class="co">// 向rpc框架注册rpc接口</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true"></a>  <span class="co">// Finally assemble the server.</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true"></a>  <span class="bu">std::</span>unique_ptr&lt;Server&gt; server(builder.BuildAndStart());</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true"></a>  <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Server listening on &quot;</span> &lt;&lt; server_address &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true"></a></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true"></a>  <span class="co">// Wait for the server to shutdown. Note that some other thread must be</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true"></a>  <span class="co">// responsible for shutting down the server for this call to ever return.</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true"></a>  server-&gt;Wait();</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true"></a>}</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true"></a></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true"></a>int main(int argc, char** argv) {</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true"></a>  RunServer();</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true"></a></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true"></a>  return <span class="dv">0</span>;</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="编写grpc-client端代码">5.  编写gRPC client端代码</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;iostream&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;memory&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;string&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;grpcpp/grpcpp.h&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a><span class="pp">#</span><span class="er">ifdef BAZEL_BUILD</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &quot;examples/protos/helloworld.grpc.pb.h&quot;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a><span class="pp">#else</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &quot;helloworld.grpc.pb.h&quot;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a><span class="pp">#endif</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>using grpc::Channel;</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a>using grpc::ClientContext;</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a>using grpc::Status;</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a>using helloworld::HelloRequest;</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a>using helloworld::HelloReply;</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true"></a>using helloworld::Greeter;</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true"></a>class GreeterClient {</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true"></a> public:</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true"></a>  GreeterClient(<span class="bu">std::</span>shared_ptr&lt;Channel&gt; channel)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true"></a>      : <span class="va">stub_</span>(Greeter::NewStub(channel)) {}</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true"></a>  <span class="co">// Assembles the client&#39;s payload, sends it and presents the response back</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true"></a>  <span class="co">// from the server.</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true"></a>  <span class="bu">std::</span>string SayHello(const <span class="bu">std::</span>string&amp; user) {</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true"></a>    <span class="co">// Data we are sending to the server.</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true"></a>    HelloRequest request;</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true"></a>    request.set_name(user);</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true"></a></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true"></a>    <span class="co">// Container for the data we expect from the server.</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true"></a>    HelloReply reply;</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true"></a></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true"></a>    <span class="co">// Context for the client. It could be used to convey extra information to</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true"></a>    <span class="co">// the server and/or tweak certain RPC behaviors.</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true"></a>    ClientContext context;</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true"></a></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true"></a>    <span class="co">// The actual RPC.</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true"></a>    Status status = <span class="va">stub_</span>-&gt;SayHello(&amp;context, request, &amp;reply);</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true"></a></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true"></a>    <span class="co">// Act upon its status.</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true"></a>    if (status.ok()) {</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true"></a>      return reply.message();</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true"></a>    } else {</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true"></a>      <span class="bu">std::</span>cout &lt;&lt; status.error_code() &lt;&lt; <span class="st">&quot;: &quot;</span> &lt;&lt; status.error_message()</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true"></a>                &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true"></a>      return <span class="st">&quot;RPC failed&quot;</span>;</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true"></a>    }</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true"></a>  }</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true"></a></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true"></a> private:</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true"></a>  <span class="bu">std::</span>unique_ptr&lt;Greeter::Stub&gt; <span class="va">stub_</span>;</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true"></a>};</span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true"></a></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true"></a>int main(int argc, char** argv) {</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true"></a>  <span class="co">// Instantiate the client. It requires a channel, out of which the actual RPCs</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true"></a>  <span class="co">// are created. This channel models a connection to an endpoint specified by</span></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true"></a>  <span class="co">// the argument &quot;--target=&quot; which is the only expected argument.</span></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true"></a>  <span class="co">// We indicate that the channel isn&#39;t authenticated (use of</span></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true"></a>  <span class="co">// InsecureChannelCredentials()).</span></span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true"></a>  <span class="bu">std::</span>string target_str;</span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true"></a>  <span class="bu">std::</span>string arg_str(<span class="st">&quot;--target&quot;</span>);</span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true"></a>  if (argc &gt; <span class="dv">1</span>) {</span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true"></a>    <span class="bu">std::</span>string arg_val = argv[<span class="dv">1</span>];</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true"></a>    <span class="dt">size_t</span> start_pos = arg_val.find(arg_str);</span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true"></a>    if (start_pos != <span class="bu">std::</span>string<span class="bu">::</span>npos) {</span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true"></a>      start_pos += arg_str.size();</span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true"></a>      if (arg_val[start_pos] == <span class="ch">&#39;=&#39;</span>) {</span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true"></a>        target_str = arg_val.substr(start_pos + <span class="dv">1</span>);</span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true"></a>      } else {</span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;The only correct argument syntax is --target=&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true"></a>        return <span class="dv">0</span>;</span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true"></a>      }</span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true"></a>    } else {</span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true"></a>      <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;The only acceptable argument is --target=&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true"></a>      return <span class="dv">0</span>;</span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true"></a>    }</span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true"></a>  } else {</span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true"></a>    target_str = <span class="st">&quot;localhost:50051&quot;</span>;</span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true"></a>  }</span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true"></a>  GreeterClient greeter(grpc::CreateChannel(</span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true"></a>      target_str, grpc::InsecureChannelCredentials()));</span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true"></a>  <span class="bu">std::</span>string user(<span class="st">&quot;world&quot;</span>);</span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true"></a>  <span class="bu">std::</span>string reply = greeter.SayHello(user);</span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true"></a>  <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Greeter received: &quot;</span> &lt;&lt; reply &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true"></a></span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true"></a>  return <span class="dv">0</span>;</span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true"></a>}</span></code></pre></div>
+<pre><code>package sudoku;
+option cc_generic_services = true;
+option java_generic_services = true;
+option py_generic_services = true;
 
-#include &lt;grpcpp/grpcpp.h&gt;
-#include &lt;grpcpp/health_check_service_interface.h&gt;
-#include &lt;grpcpp/ext/proto_server_reflection_plugin.h&gt;
-
-#ifdef BAZEL_BUILD
-#include &quot;examples/protos/helloworld.grpc.pb.h&quot;
-#else
-#include &quot;helloworld.grpc.pb.h&quot;
-#endif
-
-using grpc::Server;
-using grpc::ServerBuilder;
-using grpc::ServerContext;
-using grpc::Status;
-using helloworld::HelloRequest;
-using helloworld::HelloReply;
-using helloworld::Greeter;
-
-// Logic and data behind the server&#39;s behavior.
-class GreeterServiceImpl final : public Greeter::Service {
-  Status SayHello(ServerContext* context, const HelloRequest* request,
-                  HelloReply* reply) override {
-    std::string prefix(&quot;Hello &quot;);
-    reply-&gt;set_message(prefix + request-&gt;name());
-    return Status::OK;
-  }
-};
-
-void RunServer() {
-  std::string server_address(&quot;0.0.0.0:50051&quot;);
-  GreeterServiceImpl service;
-
-  grpc::EnableDefaultHealthCheckService(true);
-  grpc::reflection::InitProtoReflectionServerBuilderPlugin();
-  ServerBuilder builder;
-  // Listen on the given address without any authentication mechanism.
-  builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
-  // Register &quot;service&quot; as the instance through which we&#39;ll communicate with
-  // clients. In this case it corresponds to an *synchronous* service.
-  builder.RegisterService(&amp;service);  // 向rpc框架注册rpc接口
-  // Finally assemble the server.
-  std::unique_ptr&lt;Server&gt; server(builder.BuildAndStart());
-  std::cout &lt;&lt; &quot;Server listening on &quot; &lt;&lt; server_address &lt;&lt; std::endl;
-
-  // Wait for the server to shutdown. Note that some other thread must be
-  // responsible for shutting down the server for this call to ever return.
-  server-&gt;Wait();
+message SudokuRequest {
+  required string checkerboard = 1;
 }
 
-int main(int argc, char** argv) {
-  RunServer();
+message SudokuResponse {
+  optional bool solved = 1 [default=false];
+  optional string checkerboard = 2;
+}
 
-  return 0;
+service SudokuService {
+  rpc Solve (SudokuRequest) returns (SudokuResponse);
 }</code></pre>
-<h3 id="编写grpc-client端代码">5.  编写gRPC client端代码</h3>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;memory&gt;
-#include &lt;string&gt;
-
-#include &lt;grpcpp/grpcpp.h&gt;
-
-#ifdef BAZEL_BUILD
-#include &quot;examples/protos/helloworld.grpc.pb.h&quot;
-#else
-#include &quot;helloworld.grpc.pb.h&quot;
-#endif
-
-using grpc::Channel;
-using grpc::ClientContext;
-using grpc::Status;
-using helloworld::HelloRequest;
-using helloworld::HelloReply;
-using helloworld::Greeter;
-
-class GreeterClient {
- public:
-  GreeterClient(std::shared_ptr&lt;Channel&gt; channel)
-      : stub_(Greeter::NewStub(channel)) {}
-
-  // Assembles the client&#39;s payload, sends it and presents the response back
-  // from the server.
-  std::string SayHello(const std::string&amp; user) {
-    // Data we are sending to the server.
-    HelloRequest request;
-    request.set_name(user);
-
-    // Container for the data we expect from the server.
-    HelloReply reply;
-
-    // Context for the client. It could be used to convey extra information to
-    // the server and/or tweak certain RPC behaviors.
-    ClientContext context;
-
-    // The actual RPC.
-    Status status = stub_-&gt;SayHello(&amp;context, request, &amp;reply);
-
-    // Act upon its status.
-    if (status.ok()) {
-      return reply.message();
-    } else {
-      std::cout &lt;&lt; status.error_code() &lt;&lt; &quot;: &quot; &lt;&lt; status.error_message()
-                &lt;&lt; std::endl;
-      return &quot;RPC failed&quot;;
-    }
-  }
-
- private:
-  std::unique_ptr&lt;Greeter::Stub&gt; stub_;
-};
-
-int main(int argc, char** argv) {
-  // Instantiate the client. It requires a channel, out of which the actual RPCs
-  // are created. This channel models a connection to an endpoint specified by
-  // the argument &quot;--target=&quot; which is the only expected argument.
-  // We indicate that the channel isn&#39;t authenticated (use of
-  // InsecureChannelCredentials()).
-  std::string target_str;
-  std::string arg_str(&quot;--target&quot;);
-  if (argc &gt; 1) {
-    std::string arg_val = argv[1];
-    size_t start_pos = arg_val.find(arg_str);
-    if (start_pos != std::string::npos) {
-      start_pos += arg_str.size();
-      if (arg_val[start_pos] == &#39;=&#39;) {
-        target_str = arg_val.substr(start_pos + 1);
-      } else {
-        std::cout &lt;&lt; &quot;The only correct argument syntax is --target=&quot; &lt;&lt; std::endl;
-        return 0;
-      }
-    } else {
-      std::cout &lt;&lt; &quot;The only acceptable argument is --target=&quot; &lt;&lt; std::endl;
-      return 0;
-    }
-  } else {
-    target_str = &quot;localhost:50051&quot;;
-  }
-  GreeterClient greeter(grpc::CreateChannel(
-      target_str, grpc::InsecureChannelCredentials()));
-  std::string user(&quot;world&quot;);
-  std::string reply = greeter.SayHello(user);
-  std::cout &lt;&lt; &quot;Greeter received: &quot; &lt;&lt; reply &lt;&lt; std::endl;
-
-  return 0;
-}</code></pre>
+<p>在使用 Protocol Buffers (protobuf) 的 gRPC 中，<code>service</code> 定义会在 C++ 中生成两个主要的类：<br />
+1. <strong>服务接口类 (Stub Interface Class)</strong>:<br />
+- 这是客户端使用的类，通常以 <code>Stub</code> 为后缀。这个类提供了与服务交互的方法，每个 RPC 方法在 <code>service</code> 中都会有对应的函数。<br />
+- 例如，对于你定义的 <code>SudokuService</code> 服务，protobuf 编译器会生成一个 <code>SudokuService::Stub</code> 类。这个类提供了 <code>Solve</code> 方法，客户端可以通过这个方法来调用远程的 gRPC 服务。<br />
+2. <strong>服务基类 (Service Base Class)</strong>:<br />
+- 这是服务端使用的类，通常以 <code>Service</code> 为后缀。这个类定义了一个虚方法 (virtual method) 对应每个 RPC 方法，服务端可以继承这个类并实现这些虚方法来处理请求。<br />
+- 例如，protobuf 编译器会生成一个 <code>SudokuService::Service</code> 类。服务端可以继承这个类并实现 <code>Solve</code> 方法，用于处理数独求解的逻辑。</p>
+<ul>
+<li><strong>存根（Stub）</strong>：在RPC中，存根是一个客户端代理，它代表了服务端的一个实例。客户端通过调用存根的方法来间接调用服务端的方法。存根负责将客户端的请求序列化为网络可传输的格式，发送到服务端，然后接收服务端的响应并反序列化，最后将结果返回给客户端。</li>
+</ul>
+<h3 id="具体生成的类">具体生成的类</h3>
+<ul>
+<li><strong><code>SudokuService::Stub</code></strong>:
+<ul>
+<li>客户端使用的类。它提供了同步和异步两种方式来调用远程的 <code>Solve</code> 方法。客户端可以使用这个类的实例与远程服务器进行通信。</li>
+</ul></li>
+<li><strong><code>SudokuService::Service</code></strong>:
+<ul>
+<li>服务端使用的类。服务端需要继承这个类，并重写 <code>Solve</code> 方法以实现实际的服务逻辑。</li>
+</ul></li>
+</ul>
+<p>当你使用 Protocol Buffers 编译器 (<code>protoc</code>) 生成 gRPC 代码时，它会为 <code>SudokuService</code> 生成 C++ 代码，包括 <code>SudokuService::Stub</code> 和 <code>SudokuService::Service</code> 类。虽然具体的生成代码可能会因 protobuf 和 gRPC 版本而有所不同，但下面是一个典型的 <code>SudokuService::Stub</code> 和 <code>SudokuService::Service</code> 类的代码结构示例。</p>
+<h3 id="sudokuservicestub-类">1. <code>SudokuService::Stub</code> 类</h3>
+<p><code>SudokuService::Stub</code> 类是客户端使用的，用于向服务器发起 RPC 请求。</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">class</span> SudokuService::Stub <span class="kw">final</span> : <span class="kw">public</span> ::grpc::internal::StubInterface {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>  <span class="co">// 创建 Stub 对象</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>  Stub(<span class="at">const</span> <span class="bu">std::</span>shared_ptr&lt; ::grpc::ChannelInterface&gt;&amp; channel) </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>    : ::grpc::internal::StubInterface(channel) {}</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>  <span class="co">// Solve 方法的同步调用版本</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>  ::grpc::Status Solve(::grpc::ClientContext* context, <span class="at">const</span> ::SudokuRequest&amp; request, ::SudokuResponse* response) {</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>    <span class="cf">return</span> ::grpc::internal::BlockingUnaryCall(<span class="va">channel_</span>.get(), <span class="va">rpcmethod_Solve_</span>, context, request, response);</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>  }</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a>  <span class="co">// Solve 方法的异步调用版本（客户端使用）</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a>  <span class="bu">std::</span>unique_ptr&lt; ::grpc::ClientAsyncResponseReader&lt; ::SudokuResponse&gt;&gt; AsyncSolve(::grpc::ClientContext* context, <span class="at">const</span> ::SudokuRequest&amp; request, ::grpc::CompletionQueue* cq) {</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true"></a>    <span class="cf">return</span> ::grpc::internal::ClientAsyncResponseReaderFactory&lt; ::SudokuResponse&gt;::Create(<span class="va">channel_</span>.get(), cq, <span class="va">rpcmethod_Solve_</span>, context, request, <span class="kw">true</span>);</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true"></a>  }</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true"></a>  <span class="co">// 异步调用版本的非阻塞方式</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true"></a>  <span class="bu">std::</span>unique_ptr&lt; ::grpc::ClientAsyncResponseReader&lt; ::SudokuResponse&gt;&gt; PrepareAsyncSolve(::grpc::ClientContext* context, <span class="at">const</span> ::SudokuRequest&amp; request, ::grpc::CompletionQueue* cq) {</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true"></a>    <span class="cf">return</span> ::grpc::internal::ClientAsyncResponseReaderFactory&lt; ::SudokuResponse&gt;::Create(<span class="va">channel_</span>.get(), cq, <span class="va">rpcmethod_Solve_</span>, context, request, <span class="kw">false</span>);</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true"></a>  }</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true"></a>  <span class="co">// Solve 方法的定义</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true"></a>  <span class="at">const</span> ::grpc::internal::RpcMethod <span class="va">rpcmethod_Solve_</span> = </span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true"></a>    ::grpc::internal::RpcMethod(<span class="st">&quot;SudokuService/Solve&quot;</span>, ::grpc::internal::RpcMethod::NORMAL_RPC, <span class="va">channel_</span>);</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true"></a>};</span></code></pre></div>
+<h3 id="sudokuserviceservice-类">2. <code>SudokuService::Service</code> 类</h3>
+<p><code>SudokuService::Service</code> 类是服务端使用的，服务端通过继承该类并实现虚方法来处理客户端的请求。</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="kw">class</span> SudokuService::Service : <span class="kw">public</span> ::grpc::Service {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>  Service() {</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>    AddMethod(<span class="kw">new</span> ::grpc::internal::RpcServiceMethod(</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>      <span class="st">&quot;SudokuService/Solve&quot;</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>      ::grpc::internal::RpcMethod::NORMAL_RPC,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a>      <span class="kw">new</span> ::grpc::internal::RpcMethodHandler&lt; SudokuService::Service, ::SudokuRequest, ::SudokuResponse&gt;(</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>        <span class="bu">std::</span>mem_fn(&amp;SudokuService::Service::Solve), <span class="kw">this</span>)));</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a>  }</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a>  <span class="co">// 需要服务端重写的虚方法</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true"></a>  <span class="kw">virtual</span> ::grpc::Status Solve(::grpc::ServerContext* context, <span class="at">const</span> ::SudokuRequest* request, ::SudokuResponse* response) {</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true"></a>    <span class="co">// 默认返回未实现状态，必须由服务端实现这个方法</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true"></a>    <span class="cf">return</span> ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, <span class="st">&quot;&quot;</span>);</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true"></a>  }</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true"></a>};</span></code></pre></div>
+<h3 id="代码解释">代码解释</h3>
+<ul>
+<li><p><strong><code>SudokuService::Stub</code> 类</strong>:</p>
+<ul>
+<li><strong><code>Stub</code> 构造函数</strong>: 用于初始化与 gRPC 服务器的通道（<code>channel</code>）。</li>
+<li><strong><code>Solve</code> 方法</strong>: 同步调用版本使用 <code>BlockingUnaryCall</code> 发起 gRPC 请求；异步版本有两种形式，一种是阻塞调用（等待结果），另一种是非阻塞调用（准备好后由用户处理结果）。</li>
+<li><strong><code>rpcmethod_Solve_</code></strong>: 定义了 RPC 方法的具体实现细节，包括方法名和调用类型。</li>
+</ul></li>
+<li><p><strong><code>SudokuService::Service</code> 类</strong>:</p>
+<ul>
+<li><strong><code>AddMethod</code> 方法</strong>: 将 <code>Solve</code> 方法添加到服务中，这里指定了该方法是一个普通的（同步的）RPC 调用。</li>
+<li><strong><code>Solve</code> 虚方法</strong>: 服务端需要重写这个虚方法，以实现具体的数独求解逻辑。如果服务端没有实现该方法，默认会返回未实现的状态。</li>
+</ul></li>
+</ul>
 
 <footer id="colophon" >
 		<div class="site-info col">

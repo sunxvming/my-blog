@@ -13,7 +13,7 @@ ADT（Android Development Tools）是一种安卓开发工具。
 
 adb shell  可进入手机系统的终端      sqlite3  xxx.db 进入sqlite的命令行终端
 第一个是android的test ，第二个是junit test
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/2523f016-8b19-49fd-b738-bda4d7d80390.png)   
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/2523f016-8b19-49fd-b738-bda4d7d80390.png)   
 
 
 

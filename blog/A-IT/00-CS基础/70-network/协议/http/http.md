@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 ## X-Forwarded-For
 简称XFF头，它代表客户端，也就是HTTP的请求端真实的IP，只有在通过了HTTP 代理或者负载均衡服务器时才会添加该项
 标准格式如下：
@@ -31,7 +39,10 @@ php中的全局变量`$_SERVER["HTTP_X_FORWARDED_FOR"]`获取的值也是用逗�
 
 
 ## http post
-Post提交的data在http协议的body中，Form表单有两种enctype类型：
+Post提交的data在http协议的 body 中，Form表单有两种 **enctype** 类型：
+在`Content-Type:` 中指定
+
+
 1、enctype=”application/x-www-form-urlencoded”
 ```
 <form action="user/login.do" method="post" >  
@@ -39,7 +50,6 @@ Post提交的data在http协议的body中，Form表单有两种enctype类型：
     密码:<input type="text" name="password"><br>  
     <input type="submit" value="登录"/>  
 </form> 
-
 
 
 
@@ -60,6 +70,7 @@ Accept-Language: zh-CN,zh;q=0.8
 
 username=xiaoming&password=123456789  
 ```
+
 2、enctype=”multipart/form-data”
 请求消息头中, Content-Type: multipart/form-data; boundary=- - - -WebKitFormBoundarykALcKBgBaI9xA79y
 boundary为分隔符.

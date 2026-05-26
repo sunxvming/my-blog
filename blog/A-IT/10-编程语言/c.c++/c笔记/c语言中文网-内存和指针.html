@@ -206,11 +206,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -222,13 +222,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -243,7 +243,7 @@ jQuery(document).ready(function(){
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#内存">## 内存</a>
+<li><a href="#内存">内存</a>
 <ul>
 <li><a href="#程序编译后的text段data段和bss段">程序编译后的text段、data段和bss段</a>
 <ul>
@@ -326,11 +326,11 @@ jQuery(document).ready(function(){
 </div>
  <!--if(toc)-->
 
-<h2 id="内存">## 内存</h2>
+<h2 id="内存">内存</h2>
 <h3 id="程序编译后的text段data段和bss段">程序编译后的text段、data段和bss段</h3>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/b999e8f0-9688-4037-80c7-e7f78147ddd4.jpg" /></p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/b999e8f0-9688-4037-80c7-e7f78147ddd4.jpg" /></p>
 <p>左边的是UNIX/LINUX系统的执行文件，右边是对应进程<strong>逻辑地址空间</strong>的划分情况。</p>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/ed58a4c2-2cfb-48cf-b255-3a7c5245afcf.jpg" /><br />
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/ed58a4c2-2cfb-48cf-b255-3a7c5245afcf.jpg" /><br />
 一般情况，一个程序本质上都是由 bss段、data段、text段三个段组成——这是计算机程序设计中重要的基本概念。</p>
 <ul>
 <li>bss<br />
@@ -407,7 +407,7 @@ Windows Server 2003 数据中心版专为大型企业或国家机构而设计，
 <h3 id="c语言内存对齐提高寻址效率">C语言内存对齐，提高寻址效率</h3>
 <p>CPU 通过<strong>地址总线</strong>来访问内存，一次能处理几个字节的数据，就命令地址总线读取几个字节的数据。32 位的 CPU 一次可以处理4个字节的数据，那么每次就从内存读取<strong>4个字节</strong>的数据；少了浪费主频，多了没有用。64位的处理器也是这个道理，每次读取<strong>8个字节</strong>。<br />
 以32位的CPU为例，实际寻址的步长为4个字节，也就是只对编号为 4 的倍数的内存寻址，例如 0、4、8、12、1000 等，而不会对编号为 1、3、11、1001 的内存寻址。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/08a85ae4-76a1-4e2e-ae39-27c6f8c4e330.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/08a85ae4-76a1-4e2e-ae39-27c6f8c4e330.png" /><br />
 将一个数据尽量放在一个步长之内，避免跨步长存储，这称为<strong>内存对齐</strong>。在32位编译模式下，默认以4字节对齐；在64位编译模式下，默认以8字节对齐。<br />
 为了提高存取效率，<strong>编译器会自动进行内存对齐</strong>。<br />
 经过笔者测试，对于<strong>全局变量</strong>，GCC在 Debug 和 Release 模式下都会进行内存对齐，而VS只有在 Release 模式下才会进行对齐。而对于<strong>局部变量</strong>，GCC和VS都不会进行对齐，不管是Debug模式还是Release模式。</p>
@@ -422,7 +422,7 @@ Windows Server 2003 数据中心版专为大型企业或国家机构而设计，
 <h3 id="mmu部件以及对内存权限的控制">MMU部件以及对内存权限的控制</h3>
 <p>通过<strong>页表</strong>完成虚拟地址和物理地址的映射时，要经过多次转换，还要进行计算，如果由操作系统来完成这项工作，那将会成倍降低程序的性能（比如cpu上下文的频繁切换），得不偿失，所以这种方式是不现实的。<br />
 在CPU内部，有一个部件叫做<strong>MMU</strong>（Memory Management Unit，内存管理单元），由它来负责将虚拟地址映射为物理地址<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/f6524dfd-c9ad-4e6b-a8c4-0072c06f558f.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/f6524dfd-c9ad-4e6b-a8c4-0072c06f558f.png" /><br />
 在页映射模式下，CPU 发出的是虚拟地址，也就是我们在程序中看到的地址，这个地址会先交给 MMU，经过 MMU 转换以后才能变成了物理地址。</p>
 <p>即便是这样，MMU也要访问好几次内存，性能依然堪忧，所以在MMU内部又增加了一个<strong>缓存</strong>，专门用来存储<strong>页目录和页表，这个便是快表</strong>。MMU内部的缓存有限，当页表过大时，也只能将部分常用页表加载到缓存，但这已经足够了，因为经过算法的巧妙设计，可以将<strong>缓存的命中率</strong>提高到 90%，剩下的10%的情况无法命中，再去物理内存中加载页表。</p>
 <p>MMU 只是通过页表来完成虚拟地址到物理地址的映射，但不会构建页表，<strong>构建页表是操作系统的任务</strong>。在<strong>程序加载到内存</strong>以及<strong>程序运行过程</strong>中，<strong>操作系统会不断更新程序对应的页表</strong>，并将页目录的物理地址保存到 CR3 寄存器。MMU 向缓存中加载页表时，会根据 CR3 寄存器找到页目录，再找到页表，最终通过软件和硬件的结合来完成内存映射。<br />
@@ -432,7 +432,7 @@ CR3 是CPU内部的一个<strong>寄存器</strong>，专门用来保存<strong>
 <p>程序内存<strong>在地址空间中的分布情况</strong>称为内存模型（Memory Model）<br />
 内存模型由操作系统构建，在Linux和Windows下有所差异，并且会受到编译模式的影响<br />
 Windows 在默认情况下会将高地址的 2GB 空间分配给内核（也可以配置为1GB），而 Linux 默认情况下会将高地址的 1GB 空间分配给内核。也就是说，应用程序只能使用剩下的 2GB 或 3GB 的地址空间，称为<strong>用户空间</strong>（User Space）。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/72f98ca8-61d8-4989-be0c-83de9d6708cf.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/72f98ca8-61d8-4989-be0c-83de9d6708cf.png" /><br />
 程序代码区、常量区、全局数据区在程序加载到内存后就分配好了，并且在程序运行期间一直存在，不能销毁也不能增加（大小已被固定），只能等到程序运行结束后由操作系统收回，所以全局变量、字符串常量等在程序的任何地方都能访问，因为它们的内存一直都在。<br />
 <strong>常量区</strong>和<strong>全局数据区</strong>有时也被合称为<strong>静态数据区</strong>，意思是这段内存专门用来保存数据，在程序运行期间一直存在。</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
@@ -459,10 +459,10 @@ Windows 在默认情况下会将高地址的 2GB 空间分配给内核（也可�
 * 2) 函数 func() 中的局部字符串常量"C语言中文网"也被存储到常量区，不会随着 func() 的运行结束而销毁，所以最后依然能够输出。<br />
 * 3) 字符数组 <code>arr[20]</code> 在栈区分配内存，字符串"56789"就保存在这块内存中，而不是在常量区，大家要注意区分。</p>
 <p>Linux下64位环境的用户空间内存分布情况：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/7245061e-e30f-4e07-ba23-adc137072761.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/7245061e-e30f-4e07-ba23-adc137072761.png" /></p>
 <h3 id="windows下c语言程序的内存布局内存模型">Windows下C语言程序的内存布局（内存模型）</h3>
 <p>不像 Linux，Windows 是闭源的，有版权保护，资料较少，不好深入研究每一个细节，至今仍有一些内部原理不被大家知晓。</p>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0eee47dc-9b67-4ca1-b789-562356b6a88b.png" /></p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/0eee47dc-9b67-4ca1-b789-562356b6a88b.png" /></p>
 <h3 id="用户模式和内核模式">用户模式和内核模式</h3>
 <p>前面一直说“程序的地址空间”，这其实是不严谨的，应该说“进程的地址空间”。<br />
 内核空间存放的是操作系统内核代码和数据，是被所有程序共享的<br />
@@ -482,7 +482,7 @@ Windows 在默认情况下会将高地址的 2GB 空间分配给内核（也可�
 extend是因为从16位扩展到32位的原因，64的叫做：rbp，rsp<br />
 对每个程序来说，栈能使用的内存是有限的，一般是 1M~8M，这在编译时就已经决定了，程序运行期间不能再改变。如果程序使用的栈内存超出最大值，就会发生栈溢出（Stack Overflow）错误。<br />
 在 Linux GCC 下，默认是 8M。<br />
-一个程序可以包含多个线程，每个线程都有自己的栈，严格来说，栈的最大值是<strong>针对线程来说的</strong>，而不是针对程序。</p>
+一个程序可以包含多个线程，<strong>每个线程都有自己的栈</strong>，严格来说，栈的最大值是<strong>针对线程来说的</strong>，而不是针对程序。</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co">//这个就会造成Stack Overflow</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="dt">int</span> main(){</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>    <span class="dt">char</span> str[<span class="dv">1024</span>*<span class="dv">1024</span>*<span class="dv">10</span>] = {<span class="dv">0</span>};</span>
@@ -496,7 +496,7 @@ extend是因为从16位扩展到32位的原因，64的叫做：rbp，rsp<br />
 * 3) 编译器自动生成的临时数据。例如，当函数<strong>返回值的长度较大</strong>（比如占用40个字节）时，会先将返回值压入栈中，然后再交给函数调用者。当返回值的长度较小（char、int、long 等）时，不会被压入栈中，而是先将返回值放入寄存器，再传递给函数调用者。<br />
 * 4) 一些需要保存的寄存器，例如 ebp、ebx、esi、edi 等。之所以要保存寄存器的值，是为了在函数退出时能够恢复到函数调用之前的场景，继续执行上层函数。<br />
 理论上 ebp 寄存器应该指向栈底，但在实际应用中，它却指向了old ebp。</p>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/782251db-a035-4d22-b31e-9a3b7bc806e3.png" /></p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/782251db-a035-4d22-b31e-9a3b7bc806e3.png" /></p>
 <h4 id="关于数据的定位">关于数据的定位</h4>
 <p>由于 esp 的值会随着数据的入栈而不断变化，要想根据 esp 找到参数、局部变量等数据是比较困难的，所以在实现上是根据 <code>ebp</code> 来定位栈内数据的。<strong>ebp 的值是固定的，数据相对 ebp 的偏移也是固定的，ebp 的值加上偏移量就是数据的地址</strong>。</p>
 <h3 id="函数调用惯例calling-convention">函数调用惯例(Calling Convention)</h3>
@@ -534,7 +534,7 @@ extend是因为从16位扩展到32位的原因，64的叫做：rbp，rsp<br />
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>    printf(<span class="st">&quot;str: %s</span><span class="sc">\n</span><span class="st">&quot;</span>, str);</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>}</span></code></pre></div>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/51905165-064e-4506-a4ad-9571f7bfd4c6.png" /><br />
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/51905165-064e-4506-a4ad-9571f7bfd4c6.png" /><br />
 局部数组也是在栈上分配内存，当输入"12345678901234567890" 时，会发生数组溢出，占用“4字节空白内存”、“old ebp”和“返回地址”所在的内存，并<strong>将原有的数据覆盖掉</strong>，这样当 main() 函数执行完成后，会取得一个错误的返回地址，该地址上的指令是不确定的，或者根本就没有指令，所以程序在返回时出错。<br />
 C语言不会对数组溢出做检测，这是一个典型的由于数组溢出导致<strong>覆盖了函数返回地址</strong>的例子，我们将这样的错误称为“<strong>栈溢出错误</strong>”。<br />
 这里的栈指的是当前的函数栈帧。<br />
@@ -572,8 +572,8 @@ malloc() 实现是向操作系统申请一块适当大小的堆空间，然后�
 <p>在程序运行过程中，堆内存从低地址向高地址连续分配，随着内存的释放，会出现不连续的空闲区域，<br />
 带阴影的方框是已被分配的内存，白色方框是空闲内存或已被释放的内存。程序需要内存时，malloc() 首先遍历空闲区域，看是否有大小合适的内存块，如果有，就分配，如果没有，就向操作系统申请（发生系统调用）。<br />
 内存块（包括已分配和空闲的）的结构类似于链表，它们之间通过指针连接在一起。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/51aea78a-564d-473c-8990-8e71752f433e.png" /><br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/fafc237b-1ef4-4a42-a807-1ce302f01570.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/51aea78a-564d-473c-8990-8e71752f433e.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/fafc237b-1ef4-4a42-a807-1ce302f01570.png" /><br />
 malloc() 和 free() 所做的工作主要是对已有内存块的<strong>分拆和合并</strong>，并没有频繁地向操作系统申请内存，这大大提高了内存分配的效率。</p>
 <h4 id="链表式内存管理缺点">链表式内存管理缺点：</h4>
 <ul>
@@ -653,7 +653,7 @@ p++可能引用得空间为非法的。编译时不会出错，但运行时会�
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>    p=(<span class="dt">char</span>*)realloc(q,<span class="dv">20</span>);    <span class="co">// realloc之后的内存</span></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a>    <span class="co">//…………………………</span></span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a>}</span></code></pre></div>
-<p>realloc时会把原来内存空间中的内容复制到新开辟的内存中，返回新的内存首地址。此时<strong>q就成了悬空指针</strong>。</p>
+<p>realloc 时会把原来内存空间中的内容复制到新开辟的内存中，返回新的内存首地址。此时<strong>q就成了悬空指针</strong>。</p>
 <h3 id="内存泄露">内存泄露</h3>
 <h4 id="函数中调用malloc返回分配的地址但是调用函数没用free">0.函数中调用malloc()返回分配的地址，但是调用函数没用free()</h4>
 <h4 id="malloc两次都指向同一个指针变量">1.malloc两次都指向同一个指针变量</h4>
@@ -827,7 +827,7 @@ int main(){
 }</code></pre>
 <h3 id="二维数组指针指向二维数组的指针详解">二维数组指针（指向二维数组的指针）详解</h3>
 <p>二维数组的三种形式：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/659b6b52-2b75-4a3a-acf1-fe40a0513e44.bmp" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/659b6b52-2b75-4a3a-acf1-fe40a0513e44.bmp" /></p>
 <pre><code>int *(p1[5]); //指针数组，可以去掉括号直接写作 int *p1[5];    还可以用由近到远的原则判断
 int (*p2)[5]; //二维数组指针，不能去掉括号，  它是一个指针，指向5个int数组的指针。</code></pre>
 <p><code>[ ]</code>的优先级高于<code>*</code>，<code>( )</code>是必须要加的，如果赤裸裸地写作<code>int *p[4]</code>，那么应该理解为<code>int *(p[4])</code>，p 就成了一个指针数组，而不是二维数组指针</p>
@@ -918,7 +918,7 @@ int main(int argc, char *argv[]);</code></pre>
 <span id="cb38-33"><a href="#cb38-33" aria-hidden="true"></a> strcpy(to-&gt;name, from-&gt;name);</span>
 <span id="cb38-34"><a href="#cb38-34" aria-hidden="true"></a>}</span></code></pre></div>
 <h2 id="段错误">段错误</h2>
-<p>段错误是指访问的内存超出了系统给这个程序所设定的内存空间，例如访问了不存在的内存地址、访问了系统保护的内存地址、访问了只读的内存地址等等情况</p>
+<p>段错误是指访问的内存<strong>超出了系统给这个程序所设定的内存空间</strong>，例如访问了不存在的内存地址、访问了系统保护的内存地址、访问了只读的内存地址等等情况</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

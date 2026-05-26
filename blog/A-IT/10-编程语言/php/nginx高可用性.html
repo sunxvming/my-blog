@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -191,19 +191,19 @@ jQuery(document).ready(function(){
  <!--if(toc)-->
 
 <p>如何保证Nginx的高可用呢？<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/efddf909-1abb-4f4a-9cec-848828e9498e.jpg" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/efddf909-1abb-4f4a-9cec-848828e9498e.jpg" /></p>
 <h2 id="dns保证高可用">1.DNS保证高可用</h2>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/59c9fa9d-844f-412d-b927-7e9bd186d104.jpg" /><br />
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/59c9fa9d-844f-412d-b927-7e9bd186d104.jpg" /><br />
 但这玩意有一个致命的问题，那就是故障的感知时间。</p>
 <p>我们的浏览器在访问到真正的Nginx之前，需要把域名转化为真正的IP地址，DNS就是干解析这个动作的，每次需要耗费20-20ms不等。</p>
 <p>为了加快解析速度，一般都会有多级的缓存。比如浏览器就有DNS的缓存；你使用的PC机上也有这样的缓存；IPS服务提供商，也会有缓存；再加上有的企业为了加速访问所自建的DNS服务器，中间的缓存层就更多了。</p>
 <p>只有所有的缓存都不命中的情况下，DNS才会查询真正的IP地址。所以，如果有一台Nginx当机了，这个故障的感知能力就会特别的差。总有一部分用户的请求，会落在这台已经死亡的机器上。</p>
 <h2 id="硬件保证高可用">2.硬件保证高可用</h2>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0ca53f98-51f8-4d9b-94fd-ba05fdec67c7.jpg" /><br />
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/0ca53f98-51f8-4d9b-94fd-ba05fdec67c7.jpg" /><br />
 这种架构一般的企业玩不起，只有那些采购有回扣有油水的公司，才会喜欢这个。互联网中用的很少，就不过多介绍了。</p>
 <p>当然，F5同样有单点的问题。虽然硬件肯定要比软件稳定上一点，但是总归是一个隐患。就像Oracle无论再厉害，它还是有出问题的时候，到时候备机是必须的。</p>
 <h2 id="主备模式">3.主备模式</h2>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/7529beb6-7596-4de9-a8ac-1b677f715f74.jpg" /><br />
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/7529beb6-7596-4de9-a8ac-1b677f715f74.jpg" /><br />
 如图，使用<code>keepalived</code>组件，通过<code>VRRP</code>协议，即可完成最简单的高可用配置。</p>
 <p>我们把<code>DNS</code>的地址绑定在<code>VIP</code>上，当正在服务的<code>Nginx</code>发生问题，<code>VIP</code>会发生<code>漂移</code>，转移到另外一台<code>Nginx</code>上。</p>
 <p>可以看到，备份的Nginx，正常情况下是无法进行服务的，它也叫做<code>影子节点</code>，只有主Nginx发生问题的时候才有用。如果你的节点非常多，这种模式下，会有非常大的浪费。</p>
@@ -212,11 +212,11 @@ jQuery(document).ready(function(){
 <h2 id="简单组合模式">4.简单组合模式</h2>
 <p>这个时候，我们就可以配合DNS解析，以及主备模式做文章了。如下图，DNS解析到两个VIP上，VIP本身也做了高可用。这样就能够缩短故障时间，同时也能够保证每个组件的高可用。<br />
 这种架构模式思路是非常清晰的，但依然存在影子节点的浪费。</p>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/1d9fc3de-04a0-43b0-91ec-9187d7cf02c0.jpg" /></p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/1d9fc3de-04a0-43b0-91ec-9187d7cf02c0.jpg" /></p>
 <h2 id="lvskeepalivednginx">5.LVS+KeepAlived+Nginx</h2>
 <p>LVS 是 Linux Virtual Server 的简称，也就是 Linux 虚拟服务器。现在 LVS 已经是 Linux 标准内核的一部分，从 Linux2.4 内核以后，已经完全内置了 LVS 的各个功能模块，无需给内核打任何补丁，可以直接使用 LVS 提供的各种功能。</p>
 <p>LVS工作在OSI模型的第4层：传输层，比如TCP/UDP，所以像7层网络的HTTP协议，它是识别不出来的。也就是说，我们不能拿HTTP协议的一些内容来控制路由，它的路由切入层次更低一些。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/d5d7abcc-725a-4b67-ae3e-42ce8321c980.jpg" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/d5d7abcc-725a-4b67-ae3e-42ce8321c980.jpg" /></p>
 <h2 id="负载均衡keepalive虚拟ip如何获得">负载均衡keepalive虚拟ip如何获得？</h2>
 <p>VIP是也是实实在在的IP地址，跟一般的IP地址是一样的，自己的理解是 ”可以漂移的IP地址“（不官方）。1、要配置keepalived服务，需要事先需要准备三个IP地址。主服务器上的IP，备服务器上的IP，对外提供服务的VIP。主、备服务机器的IP直接配置到各自的网卡上。VIP写到配置文件里面，keepalived会将VIP配置到主服务器的网卡上。2、用户访问的是VIP。只有主服务器的keepalived会将VIP配置到网卡上，容灾之后，主变备：keepalived将VIP从网卡上移走。备变主：keepalived将VIP配置到网卡上。3、用户访问域名如何防止单点瘫痪：配好DNS，{域名:VIP}。用户访问该域名，经过解析，拿到VIP。此时，数据包会走上面主备服务器中的主服务器，如果主服务器瘫痪，备服务器会自动接过VIP，备变主，对外提供服务。整个过程，对于用户来说是透明的，用的是同样的域名，解析到的是同样的VIP。</p>
 <h2 id="参考链接">参考链接</h2>

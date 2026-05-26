@@ -5,8 +5,6 @@ Ctrl+Alt+T
 
 
 
-
-
 ## 为root用户设置密码
 打开终端输入：sudo passwd
 Password: <--- 输入你当前用户的密码 
@@ -15,6 +13,22 @@ Retype new UNIX password: <--- 重复新的Root用户密码
 passwd：已成功更新密码
 
 
+
+## Enabling SSH on Ubuntu
+By default, when Ubuntu is first installed, remote access via SSH is not allowed. Enabling SSH on Ubuntu is fairly straightforward.
+```
+sudo apt update
+sudo apt install openssh-server -y
+sudo service ssh start
+```
+Ubuntu ships with a firewall configuration tool called UFW. If the firewall is enabled on your system, make sure to open the SSH port:
+```
+sudo ufw allow ssh
+```
+sshd: no hostkeys available – exiting.
+```
+ssh-keygen -A
+```
 
 
 ## 安装c++开发环境
@@ -40,6 +54,32 @@ build-essential
 sudo apt-get install openssl
 sudo apt-get install libssl-dev
 
+
+
+
+## ubuntu22阿里云镜像源
+
+**备份现有源列表**
+```
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+```
+
+**替换源地址**
+sudo vi /etc/apt/sources.list
+```
+deb http://mirrors.aliyun.com/ubuntu/ jammy main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ jammy-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ jammy-security main restricted universe multiverse
+```
+
+> 注意：不同的ubuntu版本，源的地址也不相同，请根据对应的版本来进行替换
+
+**更新软件包列表**
+```
+sudo apt update
+```
+如果命令执行后显示的下载地址来自`mirrors.aliyun.com`，就说明配置成功了。
 
 
 ## 其他工具

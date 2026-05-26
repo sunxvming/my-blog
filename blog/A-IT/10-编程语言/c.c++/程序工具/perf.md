@@ -53,7 +53,7 @@ sudo perf record -F 99 -a -g ./demo1
 # 生成报告的预览,不用加文件名，使用的是当前目录下的perf.data
 perf report
 ```
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230423134903.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230423134903.png)
 
 
 

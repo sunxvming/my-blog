@@ -93,7 +93,7 @@ protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto
 生成的文件的后缀为：grpc.pb.h、grpc.pb.cc  比如：helloworld.grpc.pb.h
 在helloworld.grpc.pb.h文件中，include了helloworld.pb.h，因为在接口定义中用的数据类型是protobuf定义的
 ### 4.  编写gRPC server端代码
-```
+```cpp
 #include <iostream>
 #include <memory>
 #include <string>
@@ -155,7 +155,7 @@ int main(int argc, char** argv) {
 ```
 
 ### 5.  编写gRPC client端代码
-```
+```cpp
 #include <iostream>
 #include <memory>
 #include <string>
@@ -249,3 +249,110 @@ int main(int argc, char** argv) {
 
 
 
+
+```
+package sudoku;
+option cc_generic_services = true;
+option java_generic_services = true;
+option py_generic_services = true;
+
+message SudokuRequest {
+  required string checkerboard = 1;
+}
+
+message SudokuResponse {
+  optional bool solved = 1 [default=false];
+  optional string checkerboard = 2;
+}
+
+service SudokuService {
+  rpc Solve (SudokuRequest) returns (SudokuResponse);
+}
+```
+
+
+在使用 Protocol Buffers (protobuf) 的 gRPC 中，`service` 定义会在 C++ 中生成两个主要的类：
+1. **服务接口类 (Stub Interface Class)**:
+    - 这是客户端使用的类，通常以 `Stub` 为后缀。这个类提供了与服务交互的方法，每个 RPC 方法在 `service` 中都会有对应的函数。
+    - 例如，对于你定义的 `SudokuService` 服务，protobuf 编译器会生成一个 `SudokuService::Stub` 类。这个类提供了 `Solve` 方法，客户端可以通过这个方法来调用远程的 gRPC 服务。
+2. **服务基类 (Service Base Class)**:
+    - 这是服务端使用的类，通常以 `Service` 为后缀。这个类定义了一个虚方法 (virtual method) 对应每个 RPC 方法，服务端可以继承这个类并实现这些虚方法来处理请求。
+    - 例如，protobuf 编译器会生成一个 `SudokuService::Service` 类。服务端可以继承这个类并实现 `Solve` 方法，用于处理数独求解的逻辑。
+
+- **存根（Stub）**：在RPC中，存根是一个客户端代理，它代表了服务端的一个实例。客户端通过调用存根的方法来间接调用服务端的方法。存根负责将客户端的请求序列化为网络可传输的格式，发送到服务端，然后接收服务端的响应并反序列化，最后将结果返回给客户端。
+
+### 具体生成的类
+- **`SudokuService::Stub`**:
+    - 客户端使用的类。它提供了同步和异步两种方式来调用远程的 `Solve` 方法。客户端可以使用这个类的实例与远程服务器进行通信。
+- **`SudokuService::Service`**:
+    - 服务端使用的类。服务端需要继承这个类，并重写 `Solve` 方法以实现实际的服务逻辑。
+
+
+
+当你使用 Protocol Buffers 编译器 (`protoc`) 生成 gRPC 代码时，它会为 `SudokuService` 生成 C++ 代码，包括 `SudokuService::Stub` 和 `SudokuService::Service` 类。虽然具体的生成代码可能会因 protobuf 和 gRPC 版本而有所不同，但下面是一个典型的 `SudokuService::Stub` 和 `SudokuService::Service` 类的代码结构示例。
+
+### 1. `SudokuService::Stub` 类
+
+`SudokuService::Stub` 类是客户端使用的，用于向服务器发起 RPC 请求。
+```cpp
+class SudokuService::Stub final : public ::grpc::internal::StubInterface {
+public:
+  // 创建 Stub 对象
+  Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel) 
+    : ::grpc::internal::StubInterface(channel) {}
+
+  // Solve 方法的同步调用版本
+  ::grpc::Status Solve(::grpc::ClientContext* context, const ::SudokuRequest& request, ::SudokuResponse* response) {
+    return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Solve_, context, request, response);
+  }
+
+  // Solve 方法的异步调用版本（客户端使用）
+  std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::SudokuResponse>> AsyncSolve(::grpc::ClientContext* context, const ::SudokuRequest& request, ::grpc::CompletionQueue* cq) {
+    return ::grpc::internal::ClientAsyncResponseReaderFactory< ::SudokuResponse>::Create(channel_.get(), cq, rpcmethod_Solve_, context, request, true);
+  }
+
+  // 异步调用版本的非阻塞方式
+  std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::SudokuResponse>> PrepareAsyncSolve(::grpc::ClientContext* context, const ::SudokuRequest& request, ::grpc::CompletionQueue* cq) {
+    return ::grpc::internal::ClientAsyncResponseReaderFactory< ::SudokuResponse>::Create(channel_.get(), cq, rpcmethod_Solve_, context, request, false);
+  }
+
+private:
+  // Solve 方法的定义
+  const ::grpc::internal::RpcMethod rpcmethod_Solve_ = 
+    ::grpc::internal::RpcMethod("SudokuService/Solve", ::grpc::internal::RpcMethod::NORMAL_RPC, channel_);
+};
+```
+
+### 2. `SudokuService::Service` 类
+
+`SudokuService::Service` 类是服务端使用的，服务端通过继承该类并实现虚方法来处理客户端的请求。
+
+```cpp
+class SudokuService::Service : public ::grpc::Service {
+public:
+  Service() {
+    AddMethod(new ::grpc::internal::RpcServiceMethod(
+      "SudokuService/Solve",
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SudokuService::Service, ::SudokuRequest, ::SudokuResponse>(
+        std::mem_fn(&SudokuService::Service::Solve), this)));
+  }
+
+  // 需要服务端重写的虚方法
+  virtual ::grpc::Status Solve(::grpc::ServerContext* context, const ::SudokuRequest* request, ::SudokuResponse* response) {
+    // 默认返回未实现状态，必须由服务端实现这个方法
+    return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+  }
+};
+```
+### 代码解释
+
+- **`SudokuService::Stub` 类**:
+    
+    - **`Stub` 构造函数**: 用于初始化与 gRPC 服务器的通道（`channel`）。
+    - **`Solve` 方法**: 同步调用版本使用 `BlockingUnaryCall` 发起 gRPC 请求；异步版本有两种形式，一种是阻塞调用（等待结果），另一种是非阻塞调用（准备好后由用户处理结果）。
+    - **`rpcmethod_Solve_`**: 定义了 RPC 方法的具体实现细节，包括方法名和调用类型。
+- **`SudokuService::Service` 类**:
+    
+    - **`AddMethod` 方法**: 将 `Solve` 方法添加到服务中，这里指定了该方法是一个普通的（同步的）RPC 调用。
+    - **`Solve` 虚方法**: 服务端需要重写这个虚方法，以实现具体的数独求解逻辑。如果服务端没有实现该方法，默认会返回未实现的状态。

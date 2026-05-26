@@ -1,7 +1,7 @@
 
 ## terminal中文乱码
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231114170455.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231114170455.png)
 
 
 ## win11改变右键风格
@@ -11,14 +11,6 @@
  ``` reg.exe delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /va /f ```
 
 
-
-## 浏览器无法打开本地md文件
-**解决浏览器打开本地md文件变成直接下载**
-换成win11后之前用的chrome的插件markdown viewer突然不能用了，如果用浏览器直接打开本地文件的话会变成直接下载了。
-原因是
-
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230117202228.png)
-注册表中的`.md`后缀的Content Type变成了`application/md`了，修改成`text/markdown`就好了。
 
 
 ## 微软UWP
@@ -31,7 +23,7 @@ UWP 是微软在 Windows 10 中引入的新概念，由于所有 UWP 应用均�
 
 
 微软在 Windows 8 以后就引入了 UWP 应用的概念，这些应用都运行在沙盘中，相比较来说确实是比较安全的，但又由于没法接触到系统，有些在系统里面的设置就没法沿用了，譬如网络。就像你本来科学上网好好的，用 UWP 就老是提示连接超时，这时候你需要 [EnableLoopback Utility](https://www.apprcn.com/enableloopback-utility.html) 这款工具了。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231011101513.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231011101513.png)
 
 **EnableLoopback Utility** 的时候方法很简单，找到需要联网的 UWP 应用，勾选前面的框框，再点击「Save Changes」就行了。
 
@@ -45,7 +37,7 @@ UWP 是微软在 Windows 10 中引入的新概念，由于所有 UWP 应用均�
 
 
 微软在 Windows 8 以后就引入了 UWP 应用的概念，这些应用都运行在沙盘中，相比较来说确实是比较安全的，但又由于没法接触到系统，有些在系统里面的设置就没法沿用了，譬如网络。就像你本来科学上网好好的，用 UWP 就老是提示连接超时，这时候你需要 [EnableLoopback Utility](https://www.apprcn.com/enableloopback-utility.html) 这款工具了。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231011101513.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231011101513.png)
 
 **EnableLoopback Utility** 的时候方法很简单，找到需要联网的 UWP 应用，勾选前面的框框，再点击「Save Changes」就行了。
 

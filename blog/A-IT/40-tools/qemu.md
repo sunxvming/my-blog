@@ -53,9 +53,9 @@ TAP-Windows Adapter V9 允许 VPN 软件在 Windows 操作系统上创建虚拟�
 ### 配置步骤
 1. 创建TAP-Windows Adapter V9网卡，命名为tap0
 2. 把连网的网卡共享给tap0，
-3. ![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230713112235.png)
+3. ![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230713112235.png)
 4. 设置共享后tap0的网卡会被设置成如下的ip
-5. ![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230713112452.png)
+5. ![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230713112452.png)
 6. 可以看到宿主机共享了网络后，tap0网卡的IP地址变为了192.168.137.1,这个地址即是虚拟机系统中网络的网关地址，掩码即是虚拟机系统中网络的子网掩码。
 7. 运行虚拟机，查看虚拟机的ip为192.168.137.xxx，和tap0在一个网段当中，说明在一个网络里面
 

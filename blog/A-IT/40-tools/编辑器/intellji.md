@@ -6,11 +6,11 @@
 
 file /reopen     打开另一个project
 
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/e7f5c249-f197-48c3-b03a-2e40db55a957.png)  
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/e7f5c249-f197-48c3-b03a-2e40db55a957.png)  
 
   
 
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/4258fa44-e86a-4bc1-a4ce-ea50b2856393.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/4258fa44-e86a-4bc1-a4ce-ea50b2856393.png)
 
 星星相当于一个文件夹，里面可以放常用的文件夹和文件，右键放入和拖动放入
 
@@ -84,7 +84,7 @@ crtl  alt  L   格式化代码
 
   
 
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/IntelliJ-IDEA-Hotkeys.jpg)  
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/IntelliJ-IDEA-Hotkeys.jpg)  
 
   
 
@@ -98,10 +98,10 @@ crtl  alt  L   格式化代码
 
 新建或打开一个lua项目，然后如下图操作：
 
-[![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0.34857841418124735.png)![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0.9355451865121722.png)](http://wiki.quick-x.com/lib/exe/detail.php?id=zh_cn%3Aget_started_install_intellij_idea&media=zh_cn:install_intellij_idea_4.jpg "zh_cn:install_intellij_idea_4.jpg")
+[![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/0.34857841418124735.png)![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/0.9355451865121722.png)](http://wiki.quick-x.com/lib/exe/detail.php?id=zh_cn%3Aget_started_install_intellij_idea&media=zh_cn:install_intellij_idea_4.jpg "zh_cn:install_intellij_idea_4.jpg")
 
 把代码提示包里的quick-lua目录加入到Classpath中。
 
 ## 测试是否成功
 
-[![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0.730932256905362.png)![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0.8624147030059248.png)](http://wiki.quick-x.com/lib/exe/detail.php?id=zh_cn%3Aget_started_install_intellij_idea&media=zh_cn:install_intellij_idea_6.jpg "zh_cn:install_intellij_idea_6.jpg")
+[![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/0.730932256905362.png)![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/0.8624147030059248.png)](http://wiki.quick-x.com/lib/exe/detail.php?id=zh_cn%3Aget_started_install_intellij_idea&media=zh_cn:install_intellij_idea_6.jpg "zh_cn:install_intellij_idea_6.jpg")

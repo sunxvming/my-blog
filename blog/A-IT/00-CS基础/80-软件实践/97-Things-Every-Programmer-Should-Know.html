@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/00-CS基础/80-软件实践/97-Things-Every-Programmer-Should-Know</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#act-with-prudence">Act with Prudence</a></li>
+<li><a href="#apply-functional-programming-principles">Apply Functional Programming Principles</a></li>
+<li><a href="#ask-what-would-the-user-do-you-are-not-the-user">Ask "What Would the User Do?" (You Are not the User)</a></li>
+<li><a href="#automate-your-coding-standard">Automate Your Coding Standard</a></li>
+<li><a href="#beauty-is-in-simplicity">Beauty Is in Simplicity</a></li>
+<li><a href="#before-you-refactor">Before You Refactor</a></li>
+<li><a href="#beware-the-share">Beware the Share</a></li>
+<li><a href="#the-boy-scout-rule">The Boy Scout Rule</a></li>
+<li><a href="#check-your-code-first-before-looking-to-blame-others">Check Your Code First before Looking to Blame Others</a></li>
+<li><a href="#choose-your-tools-with-care">Choose Your Tools with Care</a></li>
+<li><a href="#code-in-the-language-of-the-domain">Code in the Language of the Domain</a></li>
+<li><a href="#code-is-design">Code Is Design</a></li>
+<li><a href="#code-layout-matters">Code Layout Matters</a></li>
+<li><a href="#code-reviews">Code Reviews</a></li>
+<li><a href="#coding-with-reason">Coding with Reason</a></li>
+<li><a href="#a-comment-on-comments">A Comment on Comments</a></li>
+<li><a href="#comment-only-what-the-code-cannot-say">Comment Only What the Code Cannot Say</a></li>
+<li><a href="#continuous-learning">Continuous Learning</a></li>
+<li><a href="#convenience-is-not-an--ility">Convenience Is not an -ility</a></li>
+<li><a href="#deploy-early-and-often">Deploy Early and Often</a></li>
+<li><a href="#distinguish-business-exceptions-from-technical">Distinguish Business Exceptions from Technical</a></li>
+<li><a href="#do-lots-of-deliberate-practice">Do Lots of Deliberate Practice</a></li>
+<li><a href="#domain-specific-languages">Domain-Specific Languages</a></li>
+<li><a href="#dont-be-afraid-to-break-things">Don't Be Afraid to Break Things</a></li>
+<li><a href="#dont-be-cute-with-your-test-data">Don't Be Cute with Your Test Data</a></li>
+<li><a href="#dont-ignore-that-error">Don't Ignore that Error!</a></li>
+<li><a href="#dont-just-learn-the-language-understand-its-culture">Don't Just Learn the Language, Understand its Culture</a></li>
+<li><a href="#dont-nail-your-program-into-the-upright-position">Don't Nail Your Program into the Upright Position</a></li>
+<li><a href="#dont-rely-on-magic-happens-here">Don't Rely on "Magic Happens Here"</a></li>
+<li><a href="#dont-repeat-yourself">Don't Repeat Yourself</a></li>
+<li><a href="#dont-touch-that-code">Don't Touch that Code!</a></li>
+<li><a href="#encapsulate-behavior-not-just-state">Encapsulate Behavior, not Just State</a></li>
+<li><a href="#floating-point-numbers-arent-real">Floating-point Numbers Aren't Real</a></li>
+<li><a href="#fulfill-your-ambitions-with-open-source">Fulfill Your Ambitions with Open Source</a></li>
+<li><a href="#the-golden-rule-of-api-design">The Golden Rule of API Design</a></li>
+<li><a href="#the-guru-myth">The Guru Myth</a></li>
+<li><a href="#hard-work-does-not-pay-off">Hard Work Does not Pay Off</a></li>
+<li><a href="#how-to-use-a-bug-tracker">How to Use a Bug Tracker</a></li>
+<li><a href="#improve-code-by-removing-it">Improve Code by Removing It</a></li>
+<li><a href="#install-me">Install Me</a></li>
+<li><a href="#inter-process-communication-affects-application-response-time">Inter-Process Communication Affects Application Response Time</a></li>
+<li><a href="#keep-the-build-clean">Keep the Build Clean</a></li>
+<li><a href="#know-how-to-use-command-line-tools">Know How to Use Command-line Tools</a></li>
+<li><a href="#know-well-more-than-two-programming-languages">Know Well More than Two Programming Languages</a></li>
+<li><a href="#know-your-ide">Know Your IDE</a></li>
+<li><a href="#know-your-limits">Know Your Limits</a></li>
+<li><a href="#know-your-next-commit">Know Your Next Commit</a></li>
+<li><a href="#large-interconnected-data-belongs-to-a-database">Large Interconnected Data Belongs to a Database</a></li>
+<li><a href="#learn-foreign-languages">Learn Foreign Languages</a></li>
+<li><a href="#learn-to-estimate">Learn to Estimate</a></li>
+<li><a href="#learn-to-say-hello-world">Learn to Say "Hello, World"</a></li>
+<li><a href="#let-your-project-speak-for-itself">Let Your Project Speak for Itself</a></li>
+<li><a href="#the-linker-is-not-a-magical-program">The Linker Is not a Magical Program</a></li>
+<li><a href="#the-longevity-of-interim-solutions">The Longevity of Interim Solutions</a></li>
+<li><a href="#make-interfaces-easy-to-use-correctly-and-hard-to-use-incorrectly">Make Interfaces Easy to Use Correctly and Hard to Use Incorrectly</a></li>
+<li><a href="#make-the-invisible-more-visible">Make the Invisible More Visible</a></li>
+<li><a href="#message-passing-leads-to-better-scalability-in-parallel-systems">Message Passing Leads to Better Scalability in Parallel Systems</a></li>
+<li><a href="#a-message-to-the-future">A Message to the Future</a></li>
+<li><a href="#missing-opportunities-for-polymorphism">Missing Opportunities for Polymorphism</a></li>
+<li><a href="#news-of-the-weird-testers-are-your-friends">News of the Weird: Testers Are Your Friends</a></li>
+<li><a href="#one-binary">One Binary</a></li>
+<li><a href="#only-the-code-tells-the-truth">Only the Code Tells the Truth</a></li>
+<li><a href="#own-and-refactor-the-build">Own (and Refactor) the Build</a></li>
+<li><a href="#pair-program-and-feel-the-flow">Pair Program and Feel the Flow</a></li>
+<li><a href="#prefer-domain-specific-types-to-primitive-types">Prefer Domain-Specific Types to Primitive Types</a></li>
+<li><a href="#prevent-errors">Prevent Errors</a></li>
+<li><a href="#the-professional-programmer">The Professional Programmer</a></li>
+<li><a href="#put-everything-under-version-control">Put Everything Under Version Control</a></li>
+<li><a href="#put-the-mouse-down-and-step-away-from-the-keyboard">Put the Mouse Down and Step Away from the Keyboard</a></li>
+<li><a href="#read-code">Read Code</a></li>
+<li><a href="#read-the-humanities">Read the Humanities</a></li>
+<li><a href="#reinvent-the-wheel-often">Reinvent the Wheel Often</a></li>
+<li><a href="#resist-the-temptation-of-the-singleton-pattern">Resist the Temptation of the Singleton Pattern</a></li>
+<li><a href="#the-road-to-performance-is-littered-with-dirty-code-bombs">The Road to Performance Is Littered with Dirty Code Bombs</a></li>
+<li><a href="#simplicity-comes-from-reduction">Simplicity Comes from Reduction</a></li>
+<li><a href="#the-single-responsibility-principle">The Single Responsibility Principle</a></li>
+<li><a href="#start-from-yes">Start from Yes</a></li>
+<li><a href="#step-back-and-automate-automate-automate">Step Back and Automate, Automate, Automate</a></li>
+<li><a href="#take-advantage-of-code-analysis-tools">Take Advantage of Code Analysis Tools</a></li>
+<li><a href="#test-for-required-behavior-not-incidental-behavior">Test for Required Behavior, not Incidental Behavior</a></li>
+<li><a href="#test-precisely-and-concretely">Test Precisely and Concretely</a></li>
+<li><a href="#test-while-you-sleep-and-over-weekends">Test While You Sleep (and over Weekends)</a></li>
+<li><a href="#testing-is-the-engineering-rigor-of-software-development">Testing Is the Engineering Rigor of Software Development</a></li>
+<li><a href="#thinking-in-states">Thinking in States</a></li>
+<li><a href="#two-heads-are-often-better-than-one">Two Heads Are Often Better than One</a></li>
+<li><a href="#two-wrongs-can-make-a-right-and-are-difficult-to-fix">Two Wrongs Can Make a Right (and Are Difficult to Fix)</a></li>
+<li><a href="#ubuntu-coding-for-your-friends">Ubuntu Coding for Your Friends</a></li>
+<li><a href="#the-unix-tools-are-your-friends">The Unix Tools Are Your Friends</a></li>
+<li><a href="#use-the-right-algorithm-and-data-structure">Use the Right Algorithm and Data Structure</a></li>
+<li><a href="#verbose-logging-will-disturb-your-sleep">Verbose Logging Will Disturb Your Sleep</a></li>
+<li><a href="#wet-dilutes-performance-bottlenecks">WET Dilutes Performance Bottlenecks</a></li>
+<li><a href="#when-programmers-and-testers-collaborate">When Programmers and Testers Collaborate</a></li>
+<li><a href="#write-code-as-if-you-had-to-support-it-for-the-rest-of-your-life">Write Code as If You Had to Support It for the Rest of Your Life</a></li>
+<li><a href="#write-small-functions-using-examples">Write Small Functions Using Examples</a></li>
+<li><a href="#write-tests-for-people">Write Tests for People</a></li>
+<li><a href="#you-gotta-care-about-the-code">You Gotta Care about the Code</a></li>
+<li><a href="#your-customers-do-not-mean-what-they-say">Your Customers Do not Mean What They Say</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p><a href="https://github.com/97-things/97-things-every-programmer-should-know">【github】 97-things-every-programmer-should-know: Pearls of wisdom for programmers collected from leading practitioners.</a><br />
+<a href="https://97-things-every-x-should-know.gitbook.io/97-things-every-programmer-should-know/en">【gitbook】 97 Things Every Programmer Should Know</a></p>
+<h2 id="act-with-prudence">Act with Prudence</h2>
+<p>Pay off technical debt as soon as possible. It would be imprudent to do otherwise.</p>
+<p>Technical debt is like a loan: You benefit from it in the short-term, but you have to pay interest on it until it is fully paid off.<br />
+Shortcuts in the code make it harder to add features or refactor your code.<br />
+In fact, it is often only when things have got so bad that you must fix it, that you actually do go back to fix it. And by then it is often so hard to fix that you really can't afford the time or the risk.<br />
+If technical debt is incurred，you must <strong>track</strong> technical debt and pay it back quickly or things go rapidly downhill. As soon as you make the decision to compromise, write a task card or log it in your issue tracking system to ensure that it does not get forgotten.</p>
+<h2 id="apply-functional-programming-principles">Apply Functional Programming Principles</h2>
+<p>A leading cause of defects in imperative code is attributable to mutable variables. Everyone reading this will have investigated why some value is not as expected in a particular situation.</p>
+<h2 id="ask-what-would-the-user-do-you-are-not-the-user">Ask "What Would the User Do?" (You Are not the User)</h2>
+<p>We all tend to assume that other people think like us. But they don't. Psychologists call this the false consensus bias. When people think or act differently to us, we're quite likely to label them (subconsciously) as defective in some way.</p>
+<p>The best way to find out how users think is to watch one. Ask a user to complete a task using a similar piece of software to what you're developing.<br />
+Spending an hour watching users is more informative than spending a day guessing what they want.</p>
+<h2 id="automate-your-coding-standard">Automate Your Coding Standard</h2>
+<p>There exists a wealth of tools that can be used to produce code quality reports and to document and maintain the coding standard, but that isn't the whole solution. It should be automated and enforced where possible. Here are a few examples:<br />
+- Make sure code formatting is part of the build process, so that everybody runs it automatically every time they compile the code.<br />
+- Use static code analysis tools to scan the code for unwanted anti-patterns. If any are found, break the build.<br />
+- Learn to configure those tools so that you can scan for your own, project-specific anti-patterns.<br />
+- Do not only measure test coverage, but automatically check the results too. Again, break the build if test coverage is too low.</p>
+<h2 id="beauty-is-in-simplicity">Beauty Is in Simplicity</h2>
+<blockquote>
+<p><em>Beauty of style and harmony and grace and good rhythm depends on simplicity.</em> — Plato</p>
+</blockquote>
+<p>There are a number of things we strive for in our code:<br />
+- Readability<br />
+- Maintainability<br />
+- Speed of development<br />
+- The elusive quality of beauty</p>
+<p>Each individual part is kept simple with simple responsibilities and simple relationships with the other parts of the system. This is the way we can keep our systems maintainable over time, with clean, simple, testable code, keeping the speed of development high throughout the lifetime of the system.</p>
+<h2 id="before-you-refactor">Before You Refactor</h2>
+<ul>
+<li>The best approach for restructuring starts by taking stock of the existing codebase and the tests written against that code.</li>
+<li>Avoid the temptation to rewrite everything. It is best to reuse as much code as possible. No matter how ugly the code is, it has already been tested, reviewed, etc.</li>
+<li>Many incremental changes are better than one massive change. Incremental changes allows you to gauge the impact on the system more easily through feedback, such as from tests.</li>
+<li>After each iteration, it is important to ensure that the existing tests pass</li>
+<li>Personal preferences and ego shouldn't get in the way. If something isn't broken, why fix it? That the style or the structure of the code does not meet your personal preference is not a valid reason for restructuring. Thinking you could do a better job than the previous programmer is not a valid reason either.</li>
+<li>New technology is insufficient reason to refactor. Unless a cost–benefit analysis shows that a new language or framework will result in significant improvements in functionality, maintainability, or productivity, it is best to leave it as it is.</li>
+<li>Remember that humans make mistakes. Restructuring will not always guarantee that the new code will be better — or even as good as — the previous attempt.</li>
+</ul>
+<h2 id="beware-the-share">Beware the Share</h2>
+<p>When coming into an existing code base with no knowledge of the context where the various parts will be used, I'm much more careful these days about what is shared.</p>
+<h2 id="the-boy-scout-rule">The Boy Scout Rule</h2>
+<h2 id="check-your-code-first-before-looking-to-blame-others">Check Your Code First before Looking to Blame Others</h2>
+<h2 id="choose-your-tools-with-care">Choose Your Tools with Care</h2>
+<h2 id="code-in-the-language-of-the-domain">Code in the Language of the Domain</h2>
+<h2 id="code-is-design">Code Is Design</h2>
+<h2 id="code-layout-matters">Code Layout Matters</h2>
+<h2 id="code-reviews">Code Reviews</h2>
+<h2 id="coding-with-reason">Coding with Reason</h2>
+<h2 id="a-comment-on-comments">A Comment on Comments</h2>
+<h2 id="comment-only-what-the-code-cannot-say">Comment Only What the Code Cannot Say</h2>
+<h2 id="continuous-learning">Continuous Learning</h2>
+<h2 id="convenience-is-not-an--ility">Convenience Is not an -ility</h2>
+<h2 id="deploy-early-and-often">Deploy Early and Often</h2>
+<h2 id="distinguish-business-exceptions-from-technical">Distinguish Business Exceptions from Technical</h2>
+<h2 id="do-lots-of-deliberate-practice">Do Lots of Deliberate Practice</h2>
+<h2 id="domain-specific-languages">Domain-Specific Languages</h2>
+<h2 id="dont-be-afraid-to-break-things">Don't Be Afraid to Break Things</h2>
+<h2 id="dont-be-cute-with-your-test-data">Don't Be Cute with Your Test Data</h2>
+<h2 id="dont-ignore-that-error">Don't Ignore that Error!</h2>
+<h2 id="dont-just-learn-the-language-understand-its-culture">Don't Just Learn the Language, Understand its Culture</h2>
+<h2 id="dont-nail-your-program-into-the-upright-position">Don't Nail Your Program into the Upright Position</h2>
+<h2 id="dont-rely-on-magic-happens-here">Don't Rely on "Magic Happens Here"</h2>
+<h2 id="dont-repeat-yourself">Don't Repeat Yourself</h2>
+<h2 id="dont-touch-that-code">Don't Touch that Code!</h2>
+<h2 id="encapsulate-behavior-not-just-state">Encapsulate Behavior, not Just State</h2>
+<h2 id="floating-point-numbers-arent-real">Floating-point Numbers Aren't Real</h2>
+<h2 id="fulfill-your-ambitions-with-open-source">Fulfill Your Ambitions with Open Source</h2>
+<h2 id="the-golden-rule-of-api-design">The Golden Rule of API Design</h2>
+<h2 id="the-guru-myth">The Guru Myth</h2>
+<h2 id="hard-work-does-not-pay-off">Hard Work Does not Pay Off</h2>
+<h2 id="how-to-use-a-bug-tracker">How to Use a Bug Tracker</h2>
+<h2 id="improve-code-by-removing-it">Improve Code by Removing It</h2>
+<h2 id="install-me">Install Me</h2>
+<h2 id="inter-process-communication-affects-application-response-time">Inter-Process Communication Affects Application Response Time</h2>
+<h2 id="keep-the-build-clean">Keep the Build Clean</h2>
+<h2 id="know-how-to-use-command-line-tools">Know How to Use Command-line Tools</h2>
+<h2 id="know-well-more-than-two-programming-languages">Know Well More than Two Programming Languages</h2>
+<h2 id="know-your-ide">Know Your IDE</h2>
+<h2 id="know-your-limits">Know Your Limits</h2>
+<h2 id="know-your-next-commit">Know Your Next Commit</h2>
+<h2 id="large-interconnected-data-belongs-to-a-database">Large Interconnected Data Belongs to a Database</h2>
+<h2 id="learn-foreign-languages">Learn Foreign Languages</h2>
+<h2 id="learn-to-estimate">Learn to Estimate</h2>
+<h2 id="learn-to-say-hello-world">Learn to Say "Hello, World"</h2>
+<h2 id="let-your-project-speak-for-itself">Let Your Project Speak for Itself</h2>
+<h2 id="the-linker-is-not-a-magical-program">The Linker Is not a Magical Program</h2>
+<h2 id="the-longevity-of-interim-solutions">The Longevity of Interim Solutions</h2>
+<h2 id="make-interfaces-easy-to-use-correctly-and-hard-to-use-incorrectly">Make Interfaces Easy to Use Correctly and Hard to Use Incorrectly</h2>
+<h2 id="make-the-invisible-more-visible">Make the Invisible More Visible</h2>
+<h2 id="message-passing-leads-to-better-scalability-in-parallel-systems">Message Passing Leads to Better Scalability in Parallel Systems</h2>
+<h2 id="a-message-to-the-future">A Message to the Future</h2>
+<h2 id="missing-opportunities-for-polymorphism">Missing Opportunities for Polymorphism</h2>
+<h2 id="news-of-the-weird-testers-are-your-friends">News of the Weird: Testers Are Your Friends</h2>
+<h2 id="one-binary">One Binary</h2>
+<h2 id="only-the-code-tells-the-truth">Only the Code Tells the Truth</h2>
+<h2 id="own-and-refactor-the-build">Own (and Refactor) the Build</h2>
+<h2 id="pair-program-and-feel-the-flow">Pair Program and Feel the Flow</h2>
+<h2 id="prefer-domain-specific-types-to-primitive-types">Prefer Domain-Specific Types to Primitive Types</h2>
+<h2 id="prevent-errors">Prevent Errors</h2>
+<h2 id="the-professional-programmer">The Professional Programmer</h2>
+<h2 id="put-everything-under-version-control">Put Everything Under Version Control</h2>
+<h2 id="put-the-mouse-down-and-step-away-from-the-keyboard">Put the Mouse Down and Step Away from the Keyboard</h2>
+<h2 id="read-code">Read Code</h2>
+<h2 id="read-the-humanities">Read the Humanities</h2>
+<h2 id="reinvent-the-wheel-often">Reinvent the Wheel Often</h2>
+<h2 id="resist-the-temptation-of-the-singleton-pattern">Resist the Temptation of the Singleton Pattern</h2>
+<h2 id="the-road-to-performance-is-littered-with-dirty-code-bombs">The Road to Performance Is Littered with Dirty Code Bombs</h2>
+<h2 id="simplicity-comes-from-reduction">Simplicity Comes from Reduction</h2>
+<h2 id="the-single-responsibility-principle">The Single Responsibility Principle</h2>
+<h2 id="start-from-yes">Start from Yes</h2>
+<h2 id="step-back-and-automate-automate-automate">Step Back and Automate, Automate, Automate</h2>
+<h2 id="take-advantage-of-code-analysis-tools">Take Advantage of Code Analysis Tools</h2>
+<h2 id="test-for-required-behavior-not-incidental-behavior">Test for Required Behavior, not Incidental Behavior</h2>
+<h2 id="test-precisely-and-concretely">Test Precisely and Concretely</h2>
+<h2 id="test-while-you-sleep-and-over-weekends">Test While You Sleep (and over Weekends)</h2>
+<h2 id="testing-is-the-engineering-rigor-of-software-development">Testing Is the Engineering Rigor of Software Development</h2>
+<h2 id="thinking-in-states">Thinking in States</h2>
+<h2 id="two-heads-are-often-better-than-one">Two Heads Are Often Better than One</h2>
+<h2 id="two-wrongs-can-make-a-right-and-are-difficult-to-fix">Two Wrongs Can Make a Right (and Are Difficult to Fix)</h2>
+<h2 id="ubuntu-coding-for-your-friends">Ubuntu Coding for Your Friends</h2>
+<h2 id="the-unix-tools-are-your-friends">The Unix Tools Are Your Friends</h2>
+<h2 id="use-the-right-algorithm-and-data-structure">Use the Right Algorithm and Data Structure</h2>
+<h2 id="verbose-logging-will-disturb-your-sleep">Verbose Logging Will Disturb Your Sleep</h2>
+<h2 id="wet-dilutes-performance-bottlenecks">WET Dilutes Performance Bottlenecks</h2>
+<h2 id="when-programmers-and-testers-collaborate">When Programmers and Testers Collaborate</h2>
+<h2 id="write-code-as-if-you-had-to-support-it-for-the-rest-of-your-life">Write Code as If You Had to Support It for the Rest of Your Life</h2>
+<h2 id="write-small-functions-using-examples">Write Small Functions Using Examples</h2>
+<h2 id="write-tests-for-people">Write Tests for People</h2>
+<h2 id="you-gotta-care-about-the-code">You Gotta Care about the Code</h2>
+<h2 id="your-customers-do-not-mean-what-they-say">Your Customers Do not Mean What They Say</h2>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -206,11 +206,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -222,13 +222,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -416,10 +416,10 @@ jQuery(document).ready(function(){
 <p>在<strong>现代语言设计篇</strong>，我会带你分析和总结前面已经研究过的编译器，进一步提升你对相关编译技术的认知高度。学完这一模块以后，你对于如何设计编译器的前端、中端、后端、运行时，都会有比较全面的了解，知道如何在不同的技术路线之间做取舍。</p>
 <h2 id="编译的全过程都悄悄做了哪些事情">01 | 编译的全过程都悄悄做了哪些事情？</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240108134201.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240108134201.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240108144000.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240108144000.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <h3 id="语义分析semantic-analysis">语义分析（Semantic Analysis）</h3>
 <p>生成 AST 以后，程序的语法结构就很清晰了，编译工作往前迈进了一大步。但这棵树到底代表了什么意思，我们目前仍然不能完全确定。<br />
@@ -439,7 +439,7 @@ int foo(int a){ //参数里有另一个变量a
 <p>在语义分析阶段，编译器还会识别出数据的类型。比如int类型和浮点类型处理的方式是不一样的。<br />
 语义分析获得的一些信息（引用消解信息、类型信息等），会附加到 AST 上。这样的 AST 叫做<strong>带有标注信息的 AST</strong>（Annotated AST/Decorated AST），用于更全面地反映源代码的含义。</p>
 <p>带有标注信息的 AST：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240108142537.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240108142537.png" alt="image.png" /><br />
 总结起来，在语义分析阶段，编译器会做<strong>语义理解</strong>和<strong>语义检查</strong>这两方面的工作。词法分析、语法分析和语义分析，统称编译器的前端，它完成的是对源代码的理解工作。</p>
 <p>做完语义分析以后，接下来编译器要做什么呢？<br />
 本质上，编译器这时可以直接生成目标代码，<strong>因为编译器已经完全理解了程序的含义</strong>，并把它表示成了带有语义信息的 AST、符号表等数据结构。</p>
@@ -474,7 +474,7 @@ int foo(int a){ //参数里有另一个变量a
 - 第三，是在不改变运行结果的情况下，对指令做重新排序，从而充分运用 CPU 内部的多个功能部件的并行计算能力。</p>
 <h2 id="词法分析用两种方式构造有限自动机">02 | 词法分析：用两种方式构造有限自动机</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240109141551.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240109141551.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <h3 id="手写有限自动机">手写有限自动机</h3>
 <p>正则表达式也可以用来描述词法规则。这种描述方法，我们叫做<strong>正则文法</strong>（Regular Grammar）。<br />
@@ -504,7 +504,7 @@ NFA 算法的特点：因为存在多条可能的路径，所以需要试探和�
 - 两个基本功：第一，必须能够阅读和书写语法规则，也就是掌握上下文无关文法；第二，必须要掌握递归下降算法。<br />
 - 两种算法思路：一种是自顶向下的语法分析，另一种则是自底向上的语法分析。</p>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240108172027.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240108172027.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <h3 id="上下文无关文法context-free-grammar">上下文无关文法（Context-Free Grammar）</h3>
 <p>用上下文无关文法可以描述程序的语法结构</p>
@@ -569,7 +569,7 @@ Follow 的算法也比较简单，以非终结符 x 为例：<br />
 <p>最后我再提一下 LR 的意思，来帮你更完整地理解 LR 算法。L 还是代表从左到右读入 Token，而 R 是最右推导（Rightmost）的意思。</p>
 <h2 id="语义分析让程序符合语义规则">04 | 语义分析：让程序符合语义规则</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240109113928.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240109113928.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <p>语义，就是程序要表达的意思。因为计算机最终是用来做计算的，那么理解程序表达的意思，就是要知道让计算机去执行什么计算动作，这样才好翻译成目标代码。</p>
 <p>语义规则可以分为两大类。<br />
@@ -614,7 +614,7 @@ primary → integer [ primary.value = strToInt(integer.str) ]</code></pre>
 - 掌握属性计算这个工具，用于计算类型、值等属性；<br />
 - 最后，把获得的语义信息保存到符号表和 AST 里。</p>
 <h2 id="运行时机制程序如何运行你有发言权">05 | 运行时机制：程序如何运行，你有发言权</h2>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240109141634.png" alt="image.png" /><br />
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240109141634.png" alt="image.png" /><br />
 经过前端阶段的处理分析，编译器已经充分理解了源代码的含义，准备好把前端处理的结果（带有标注信息的 AST、符号表）翻译成目标代码了。<br />
 常情况下，程序有两种执行模式。<br />
 - 第一种执行模式是在物理机上运行。针对的是 C、C++、Go 这样的语言，编译器直接将源代码编译成汇编代码（或直接生成机器码），然后生成能够在操作系统上运行的可执行程序。为了实现它们的后端，编译器需要理解程序在底层的运行环境，包括 CPU、内存、操作系统跟程序的互动关系，并要能理解汇编代码。<br />
@@ -625,7 +625,7 @@ primary → integer [ primary.value = strToInt(integer.str) ]</code></pre>
 <h3 id="基于栈的虚拟机">基于栈的虚拟机</h3>
 <p>JVM 和 Python 中的解释器，都采用了栈机的模型。<br />
 JVM 中，每一个线程都有一个 JVM 栈，每次调用一个方法都会生成一个栈帧，来支持这个方法的运行。这跟 C 语言很相似。但 JVM 的栈帧比 C 语言的复杂，它包含了一个本地变量数组（包括方法的参数和本地变量）、操作数栈、到运行时常量池的引用等信息。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240109143704.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240109143704.png" alt="image.png" /><br />
 注意，我们这里提到了两个栈，一个是类似于 C 语言的栈的方法栈，另一个是方法栈里每个栈帧中的操作数栈。而我们说的栈机中的“栈”，指的是这个操作数栈，不要弄混了。<br />
 对于每个指令，解释器先要把它的操作数压到栈里。在执行指令时，从栈里弹出操作数，计算完毕以后，再把结果压回栈里。<br />
 以“<code>2+3*5</code>”为例，它对应的栈机的代码如下：</p>
@@ -645,7 +645,7 @@ iadd    //弹出15和2，执行整数加法运算，得到17，然后把结果�
 不过，寄存器机所指的寄存器，不一定是真正的物理寄存器，有可能只是栈帧中的一个位置。当然，有的寄存器机在实现的时候，确实会用到物理寄存器，从而提高计算性能。我们在后面研究 V8 的 Ignition 解释器时，会看到这种实现。</p>
 <h2 id="中间代码不是只有一副面孔">06 | 中间代码：不是只有一副面孔</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240109150038.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240109150038.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <h3 id="ir-的用途和层次">IR 的用途和层次</h3>
 <ul>
@@ -671,10 +671,10 @@ Java 的字节码就是这种 IR。除此之外，Python、Erlang 也有自己�
 <h3 id="ir-的数据结构">IR 的数据结构</h3>
 <p>第一种：类似 TAC（三地址码） 的线性结构（Linear Form），可以把代码表示成一行行的指令或语句，用数组或者列表保存就行了<br />
 第二种：树结构，AST 就是一种树结构。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240109153956.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240109153956.png" alt="image.png" /><br />
 第三种：有向无环图（Directed Acyclic Graph，DAG）<br />
 DAG 结构，是在树结构的基础上，消除了冗余的子树。比如，上面的例子转化成 DAG 以后，对 a 的内存访问只做一次就行了。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240109154017.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240109154017.png" alt="image.png" /><br />
 第四种：程序依赖图（Program Dependence Graph，PDG）<br />
 程序依赖图，是显式地把程序中的数据依赖和控制依赖表示出来，形成一个图状的数据结构。基于这个数据结构，我们再做一些优化算法的时候，会更容易实现。</p>
 <h3 id="ssa-格式的-ir">SSA 格式的 IR</h3>
@@ -706,7 +706,7 @@ BB4:
 <p>会根据控制流的实际情况确定 b4 的值。如果 BB4 的前序节点是 BB2，那么 b4 的取值是 b2；而如果 BB4 的前序节点是 BB3，那么 b4 的取值就是 b3。所以你会看到，如果要满足 SSA 的要求，也就是一个变量只能赋值一次，那么在遇到有程序分支的情况下，就必须引入 phi 指令。</p>
 <h2 id="代码优化跟编译器做朋友让你的代码飞起来">07 | 代码优化：跟编译器做朋友，让你的代码飞起来</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240109160032.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240109160032.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <h3 id="代码优化所依赖的分析方法">代码优化所依赖的分析方法</h3>
 <p>代码优化有的比较简单，比如常数折叠，依据 AST 或 MIR 做点处理就可以完成。但有些优化，就需要比较复杂的分析方法做支撑才能完成。这些分析方法包括控制流分析、数据流分析、依赖分析和别名分析等。</p>
@@ -719,8 +719,8 @@ BB4:
 <p>而有些优化，对于特定的语言更加重要。在课程后面分析像 Java、JavaScript 这样的面向对象的现代语言时，你会看到，内联优化和逃逸分析的收益就比较大。而对于某些频繁使用尾递归的函数式编程语言来说，尾递归的优化就必不可少，否则性能损失太大。</p>
 <p>至于优化的顺序，有的优化适合在早期做（基于 HIR 和 MIR），有的优化适合在后期做（基于 LIR 和机器代码）。并且，你通过前面的例子也可以看到，一般做完某个优化以后，会给别的优化带来机会，所以经常会在执行某个优化算法的时候，调用了另一个优化算法，而同样的优化算法也可能会运行好几遍。</p>
 <h2 id="代码生成如何实现机器相关的优化">08 | 代码生成：如何实现机器相关的优化？</h2>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240109172036.png" alt="image.png" /><br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240110110139.png" alt="image.png" /></p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240109172036.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240110110139.png" alt="image.png" /></p>
 <p><strong>寄存器分配</strong><br />
 寄存器分配的算法有很多种。一个使用比较广泛的算法是寄存器染色算法，它的特点是计算结果比较优化，但缺点是计算量比较大。</p>
 <p>另一个常见的算法是线性扫描算法，它的优点是计算速度快，但缺点是有可能不够优化，适合需要编译速度比较快的场景，比如即时编译。<br />
@@ -734,7 +734,7 @@ BB4:
 在实现编译器的时候，你可以发明自己的调用约定，比如哪些寄存器用来放参数、哪些用来放返回值，等等。但是，如果你要使用别的语言编译好的目标文件，或者你想让自己的编译器生成的目标文件被别人使用，那你就要遵守某种特定的 ABI 标准。</p>
 <h2 id="java编译器一手写的编译器有什么优势">09 | Java编译器（一）：手写的编译器有什么优势？</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240110155202.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240110155202.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <p>对于java这么一门成熟的、广泛普及的、又不断焕发新生机的语言来说，研究它的编译技术会带来两个好处：一方面，Java 编译器所采用的技术肯定是比较成熟的、靠谱的，你在实现自己的编译功能时，完全可以去参考和借鉴；另一方面，你可以借此深入了解 Java 的编译过程，借此去实现一些高级的功能，比方说，按需生成字节码，就像 Spring 这类工具一样。</p>
 <p>Java 的编译器是用什么语言编写的？</p>
@@ -757,14 +757,14 @@ BB4:
 <p>总结起来，Java 语言中与编译有关的功能放在了两个模块中：其中，java.compiler 模块主要是对外的接口，而 jdk.compiler 中有具体的实现。不过你要注意，像 <code>com.sun.tools.javac.parser</code> 包中的类，不是 Java 语言标准的组成部分，如果你直接使用这些类，可能导致代码在不同的 JDK 版本中不兼容。</p>
 <h2 id="java编译器二语法分析之后还要做些什么">10 | Java编译器（二）：语法分析之后，还要做些什么？</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240110163914.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240110163914.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <p>符号表是教科书上提到的一种数据结构，但它在 Java 编译器里是如何实现的？编译器如何建立符号表？<br />
 引用消解会涉及到作用域，那么作用域在 Java 编译器里又是怎么实现的？<br />
 在编译期是如何通过注解的方式生成新程序的？</p>
 <h2 id="java编译器三属性分析和数据流分析">11 | Java编译器（三）：属性分析和数据流分析</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240110170037.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240110170037.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <p><strong>常数折叠</strong><br />
 我们知道，优化工作通常是在编译器的后端去做的。但因为 javac 编译器只是个前端编译器，生成字节码就完成任务了。不过即使如此，也要保证字节码是比较优化的，减少解释执行的消耗。<br />
@@ -772,7 +772,7 @@ BB4:
 你能看出，常数折叠实质上是针对 AST 节点的常数值属性来做属性计算的。</p>
 <h2 id="java编译器四去除语法糖和生成字节码">12 | Java编译器（四）：去除语法糖和生成字节码</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240112100717.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240112100717.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <h3 id="去除语法糖syntactic-sugar">去除语法糖（Syntactic Sugar）</h3>
 <p>Java 里面提供了很多的语法糖，比如泛型、Lambda、自动装箱、自动拆箱、foreach 循环、变长参数、内部类、枚举类、断言（assert），等等。<br />
@@ -821,7 +821,7 @@ BB4:
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true"></a>     <span class="dv">2</span>: iadd        <span class="co">//执行加法操作</span></span>
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true"></a>     <span class="dv">3</span>: ireturn     <span class="co">//返回</span></span></code></pre></div>
 <p>生成字节码，基本上就是对 AST 做深度优先的遍历，逻辑特别简单。我们在第 5 讲曾经介绍过栈机的运行原理，也提到过栈机的一个优点，就是生成目标代码的算法比较简单。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240112103121.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240112103121.png" alt="image.png" /></p>
 <p>OK，到这里，我已经总结了<strong>影响指令生成的一些因素</strong>，包括字面量的长度、数据类型等。你能体会到，这些指令选择的逻辑都是很简单的，基于当前 AST 节点的属性，编译器就可以做成正确的翻译了，所以它们基本上属于“直译”。</p>
 <p>现在你对生成字节码的基本原理搞清楚了以后，再来看 Java 编译器的具体实现，就容易多了。<br />
 生成字节码的程序入口在 com.sun.tools.javac.jvm.Gen 类中。这个类也是 AST 的一个 visitor。这个 visitor 把 AST 深度遍历一遍，字节码就生成完毕了。</p>
@@ -834,7 +834,7 @@ BB4:
 - coerce()：强制类型转换。</p>
 <p>第二个辅助类是 Code 类。它里面有各种emitXXX() 方法，会生成各种字节码的指令。</p>
 <p>总结起来，字节码生成的总体框架如下面的类图所示：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240112105317.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240112105317.png" alt="image.png" /></p>
 <p>Gen 类以 visitor 模式访问 AST，生成字节码；最后生成的字节码保存在 Symbol 的 code 属性中。<br />
 在生成字节码的过程中，编译器会针对不同的 AST 节点，生成不同的 Item，并调用 Item 的 load()、store()、invoke() 等方法，这些方法会进一步调用 Code 对象的 emitXXX() 方法，生成实际的字节码。</p>
 <h3 id="代码优化">代码优化</h3>
@@ -848,13 +848,13 @@ BB4:
 <p>总结起来，Java 编译器在多个阶段都有一点代码优化工作，但总体来看，代码优化是很不足的。真正的高强度的优化，还是要去看 Java 的 JIT 编译器。这些侧重于做优化的编译器，有时就会被叫做“优化编译器（Optimizing Compiler）”。</p>
 <h2 id="java-jit编译器一动手修改graal编译器">13 | Java JIT编译器（一）：动手修改Graal编译器</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240112132417.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240112132417.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <h3 id="认识-java-的-jit-编译器">认识 Java 的 JIT 编译器</h3>
 <p>在 JDK 的源代码中，你能找到 <code>src/hotspot</code> 目录，这是 JVM 的运行时，它们都是用 C++ 编写的，其中就包括 JIT 编译器。标准 JDK 中的虚拟机呢，就叫做 HotSpot。</p>
 <p>实际上，HotSpot 带了两个 JIT 编译器，一个叫做 C1，又叫做客户端编译器，它的编译速度快，但优化程度低。另一个叫做 C2，又叫做服务端编译器，它的编译速度比较慢，但优化程度更高。这两个编译器在实际的编译过程中，是被结合起来使用的。而字节码解释器，我们可以叫做是 C0，它的运行速度是最慢的。<br />
 在运行过程中，HotSpot 首先会用 C0 解释执行；接着，HotSpot 会用 C1 快速编译，生成机器码，从而让运行效率提升。而对于运行频率高的热点（HotSpot）代码，则用 C2 深化编译，得到运行效率更高的代码，这叫做分层编译（Tiered Compilation）。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240112111727.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240112111727.png" alt="image.png" /><br />
 由于 C2 会做一些激进优化，比如说，它会根据程序运行的统计信息，认为某些程序分支根本不会被执行，从而根本不为这个分支生成代码。不过，有时做出这种激进优化的假设其实并不成立，那这个时候就要做一个逆优化（Deoptimization），退回到使用 C1 的代码，或退回到用解释器执行。</p>
 <p><strong>触发即时编译，需要检测热点代码</strong>。一般是以方法为单位，虚拟机会看看该方法的运行频次是否很高，如果运行特别频繁，那么就会被认定为是热点代码，从而就会被触发即时编译。甚至如果一个方法里，有一个循环块是热点代码（比如循环 1.5 万次以上），这个时候也会触发编译器去做即时编译，在这个方法还没运行完毕的时候，就被替换成了机器码的版本。由于这个时候，该方法的栈帧还在栈上，所以我们把这个技术叫做栈上替换（On-stack Replacement，OSR）。栈上替换的技术难点，在于让本地变量等数据无缝地迁移，让运行过程可以正确地衔接。</p>
 <h3 id="graal用-java-编写的-jit-编译器">Graal：用 Java 编写的 JIT 编译器</h3>
@@ -868,7 +868,7 @@ BB4:
 <p><a href="https://cloud.tencent.com/developer/article/2195033">过两年 JVM 可能就要被 GraalVM 替代了-腾讯云开发者社区-腾讯云</a></p>
 <h2 id="java-jit编译器二sea-of-nodes为何如此强大">14 | Java JIT编译器（二）：Sea of Nodes为何如此强大？</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240112145050.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240112145050.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <p>在上一讲中，我们发现 Graal 在执行过程中，创建了一个图的数据结构，这个数据结构就是 Graal 的 IR。之后的很多处理和优化算法，都是基于这个 IR 的。可以说，这个 IR 是 Graal 编译器的核心特性之一。</p>
 <p>Graal IR 其实受到了“程序依赖图”的影响。我们在第 6 讲中提到过程序依赖图（PDG），它是用图来表示程序中的数据依赖和控制依赖。并且你也知道了，这种 IR 还有一个别名，叫做节点之海（Sea of Nodes）。因为当程序稍微复杂一点以后，图里的节点就会变得非常多，我们用肉眼很难看得清。基于 Sea of Nodes 的 IR 呢，算是后起之秀。在 HotSpot 的编译器中，就采用了这种 IR，而且现在 Java 的 Graal 编译器和 JavaScript 的 V8 编译器中的 IR 的设计，都是基于了 Sea of Nodes 结构，所以我们必须重视它。</p>
@@ -900,7 +900,7 @@ BB4:
 <p>声明式和命令式是编程的两种风格，在 Graal 编译器里，我们可以看到声明式的 IR 会更加简洁，对概念的表达也更加清晰。我们在后面介绍 MySQL 编译器的实现机制当中，在讲 DSL 的时候，还会再回到这两个概念，到时你还会有更加深刻的认识。</p>
 <h2 id="java-jit编译器三探究内联和逃逸分析的算法原理">15 | Java JIT编译器（三）：探究内联和逃逸分析的算法原理</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240112153909.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240112153909.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <p>今天这一讲，我就带你来认识两个对 Java 来说很重要的优化算法。如果没有这两个优化算法，你的程序执行效率会大大下降。而如果你了解了这两个算法的机理，则有可能写出更方便编译器做优化的程序，从而让你在实际工作中受益。这两个算法，分别是<strong>内联</strong>和<strong>逃逸分析</strong>。<br />
 另外，我还会给你介绍一种 JIT 编译所特有的优化模式：基于推理的优化。这种优化模式会让某些程序比 AOT 编译的性能更高。这个知识点，可能会改变你对 JIT 和 AOT 的认知，因为通常来说，你可能会认为 AOT 生成的机器码速度更快</p>
@@ -910,7 +910,7 @@ BB4:
 在 Java 程序里，你经常会发现很多短方法，特别是访问类成员变量的 getter 和 setter 方法。这些调用如果不做优化的话，性能损失是很厉害的。</p>
 <p>而要想正确地计算字段的偏移量，我们还需要了解 Java 对象的内存布局。</p>
 <p>在 64 位平台下，每个 Java 对象头部都有 8 字节的标记字，里面有对象 ID 的哈希值、与内存收集有关的标记位、与锁有关的标记位；标记字后面是一个指向类定义的指针(知道定义了，也就知道如何进行偏移了)，在 64 位平台下也是 8 位，不过如果堆不是很大，我们可以采用压缩指针，只占 4 个字节；在这后面才是 x 和 y 字段。因此，x 和 y 的偏移量分别是 12 和 16。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240112150510.png" alt="image.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240112150510.png" alt="image.png" /><br />
 另外，方法的类型也会影响 inlining。如果方法是 final 的，或者是 private 的，那么它就不会被子类重载，所以可以大胆地内联。</p>
 <p>但如果存在着多重继承的类体系，方法就有可能被重载，这就会导致多态。在运行时，JVM 会根据对象的类型来确定到底采用哪个子类的具体实现。这种运行时确定具体方法的过程，叫做虚分派（Virtual Dispatch）。</p>
 <p>在存在多态的情况下，JIT 编译器做内联就会遇到困难了。因为它不知道把哪个版本的实现内联进来。不过编译器仍然没有放弃。这时候所采用的技术，就叫做“多态内联（Polymorphic inlining）”。</p>
@@ -951,7 +951,7 @@ BB4:
 - 从 LIR 生成目标代码：由于 LIR 已经跟目标代码很接近了，所以这个翻译过程已经比较简单，没有太难的算法了，需要的只是了解和熟悉汇编代码和调用约定。</p>
 <h2 id="python编译器一如何用工具生成编译器">17 | Python编译器（一）：如何用工具生成编译器？</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240112172944.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240112172944.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <p>首先，你会发现 Python 编译器是用 C 语言编写的。这跟 Java、Go 的编译器不同，Java 和 Go 语言的编译器是支持自举的编译器，也就是这两门语言的编译器是用这两门语言自身实现的。<br />
 实际上，用 C 语言实现的 Python 编译器叫做 CPython，是 Python 的几个编译器之一。它的标准库也是由 C 语言和 Python 混合编写的。我们课程中所讨论的就是 CPython，它是 Python 语言的参考实现，也是 macOS 和 Linux 缺省安装的版本。</p>
@@ -1030,9 +1030,9 @@ Node.js 就封装了一个 V8 引擎。<br />
 <p>对 JavaScript 编译器来说，它最大的挑战就在于，当我们打开一个页面的时候，源代码的下载、解析（Parse）、编译（Compile）和执行，都要在很短的时间内完成，否则就会影响到用户的体验。<br />
 那么，V8 是如何做到既编译得快，又要运行得快的呢？</p>
 <p>V8 是用 C++ 编写的。你可以重点关注这几个目录中的代码，它们是与编译有关的功能，而别的代码主要是运行时功能：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240115095434.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240115095434.png" alt="image.png" /></p>
 <p>V8 的编译器的构成跟 Java 的编译器很像，它们都有从源代码编译到字节码的编译器，也都有解释器（叫 Ignition），也都有 JIT 编译器（叫 TurboFan）。你可以看下 V8 的编译过程的图例。在这个图中，你能注意到两个陌生的节点：<strong>流处理节点</strong>（Stream）和 <strong>预解析器</strong>（PreParser），这是 V8 编译过程中比较有特色的两个处理阶段。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240115095555.png" alt="image.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240115095555.png" alt="image.png" /></p>
 <h3 id="超级快的解析过程词法分析和语法分析">超级快的解析过程（词法分析和语法分析）</h3>
 <p>首先，我们来了解一下 V8 解析源代码的过程。我在开头就已经说过，V8 解析源代码的速度必须要非常快才行。源代码边下载边解析完毕，在这个过程中，用户几乎感觉不到停顿。那它是如何实现的呢？</p>
 <p>第一个原因，是 V8 的整个解析过程是流（Stream）化的，也就是一边从网络下载源代码，一边解析。在下载后，各种不同的编码还被统一转化为 UTF-16 编码单位，这样词法解析器就不需要处理多种编码了。</p>
@@ -1091,7 +1091,7 @@ Node.js 就封装了一个 V8 引擎。<br />
 </ul>
 <h2 id="julia编译器一如何让动态语言性能很高">22 | Julia编译器（一）：如何让动态语言性能很高？</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240115104028.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240115104028.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <p>Julia 语言却声称同时兼具了静态编译型和动态解释型语言的优点：一方面它的性能很高，可以跟 Java 和 C 语言媲美；而另一方面，它又是动态类型的，编写程序时不需要指定类型。<br />
 一般来说，我们很难能期望一门语言同时具有动态类型和静态类型语言的优点的，那么 Julia 又是如何实现这一切的呢？<br />
@@ -1207,7 +1207,7 @@ Node.js 就封装了一个 V8 引擎。<br />
 第六，对于静态类型的语言，不同的编译器的优化程度也是不同的。</p>
 <h2 id="后端总结充分发挥硬件的能力">30 | 后端总结：充分发挥硬件的能力</h2>
 <figure>
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240116155619.png" alt="" /><figcaption>image.png</figcaption>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240116155619.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
 <h2 id="运行时一从0到语言级的虚拟化">31 | 运行时（一）：从0到语言级的虚拟化</h2>
 <p>到底什么是运行时？任何语言都有运行时吗？运行时和编译器是什么关系？</p>

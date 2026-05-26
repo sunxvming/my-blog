@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/QT/ubuntu编译</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#编译qt源码">编译QT源码</a>
+<ul>
+<li><a href="#安装依赖"><strong>1. 安装依赖</strong></a></li>
+<li><a href="#下载-qt-5.15.2-源码"><strong>2. 下载 Qt 5.15.2 源码</strong></a></li>
+<li><a href="#配置环境"><strong>3. 配置环境</strong></a></li>
+<li><a href="#配置-qt-构建选项"><strong>4. 配置 Qt 构建选项</strong></a></li>
+<li><a href="#编译-qt"><strong>5. 编译 Qt</strong></a></li>
+<li><a href="#安装-qt"><strong>6. 安装 Qt</strong></a></li>
+<li><a href="#配置环境变量"><strong>7. 配置环境变量</strong></a></li>
+<li><a href="#验证安装"><strong>8. 验证安装</strong></a></li>
+</ul></li>
+<li><a href="#单独安装qwebengine">单独安装qwebengine</a>
+<ul>
+<li><a href="#正确的做法qt-5.15.18">**正确的做法（Qt 5.15.18）：</a></li>
+<li><a href="#创建swapfile增加交换内存">创建swapfile增加交换内存</a></li>
+</ul></li>
+<li><a href="#qt-webengine-依赖nodejs">Qt WebEngine 依赖Nodejs</a>
+<ul>
+<li><a href="#必须安装的依赖"><strong>必须安装的依赖</strong></a></li>
+<li><a href="#安装-qt-webengine-必备的多媒体字体图形库">安装 Qt WebEngine 必备的多媒体、字体、图形库</a></li>
+<li><a href="#重新配置-qtwebengine关键步骤">重新配置 QtWebEngine（关键步骤）</a></li>
+<li><a href="#开始编译">开始编译</a></li>
+<li><a href="#安装">安装</a></li>
+<li><a href="#验证是否成功">验证是否成功</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="编译qt源码">编译QT源码</h2>
+<h3 id="安装依赖"><strong>1. 安装依赖</strong></h3>
+<p>Qt WebEngine 编译依赖较多，首先安装基本开发工具和依赖库：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="fu">sudo</span> apt install -y build-essential perl python3 git cmake <span class="kw">\</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    <span class="ex">libgl1-mesa-dev</span> libx11-dev libxext-dev libx11-xcb-dev libxcb1-dev <span class="kw">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    <span class="ex">libxcb-keysyms1-dev</span> libxcb-image0-dev libxcb-shm0-dev libxcb-icccm4-dev <span class="kw">\</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    <span class="ex">libxcb-sync-dev</span> libxcb-xfixes0-dev libxcb-shape0-dev libxcb-randr0-dev <span class="kw">\</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>    <span class="ex">libxcb-render-util0-dev</span> libxcb-glx0-dev libxrender-dev libxkbcommon-dev <span class="kw">\</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    <span class="ex">libfontconfig1-dev</span> libfreetype6-dev libdbus-1-dev libssl-dev <span class="kw">\</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>    <span class="ex">libasound2-dev</span> libpulse-dev libjpeg-dev libpng-dev libglib2.0-dev <span class="kw">\</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>    <span class="ex">libatk1.0-dev</span> libxcomposite-dev libxdamage-dev libxrandr-dev <span class="kw">\</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>    <span class="ex">libdrm-dev</span> bison flex gperf python3-pip ninja-build libnss3-dev <span class="kw">\</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>    <span class="ex">libxslt1-dev</span></span></code></pre></div>
+<blockquote>
+<p><strong>说明</strong>：<br />
+- <code>libnss3-dev</code>、<code>libxslt1-dev</code>、<code>ninja-build</code> 是 WebEngine 编译必备的。<br />
+- 其他是 Qt 基础模块和 OpenGL/X11 相关。</p>
+</blockquote>
+<h3 id="下载-qt-5.15.2-源码"><strong>2. 下载 Qt 5.15.2 源码</strong></h3>
+<p>你可以从官方 Qt 仓库或档案下载源码：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">wget</span> https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="fu">tar</span> xf qt-everywhere-src-5.15.2.tar.xz</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="bu">cd</span> qt-everywhere-src-5.15.2</span></code></pre></div>
+<h3 id="配置环境"><strong>3. 配置环境</strong></h3>
+<p>Qt WebEngine 需要 Python3 和 Ninja 构建工具：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="bu">export</span> <span class="va">PATH=</span>/usr/bin:<span class="va">$PATH</span></span></code></pre></div>
+<p>然后创建一个构建目录：</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="fu">mkdir</span> build</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="bu">cd</span> build</span></code></pre></div>
+<h3 id="配置-qt-构建选项"><strong>4. 配置 Qt 构建选项</strong></h3>
+<p>使用 <code>configure</code> 配置 Qt</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="ex">../configure</span> -prefix /opt/Qt5.15.2 <span class="kw">\</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>    <span class="ex">-opensource</span> -confirm-license <span class="kw">\</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>    <span class="ex">-nomake</span> tests -nomake examples <span class="kw">\</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    <span class="ex">-opengl</span> desktop <span class="kw">\</span></span></code></pre></div>
+<p>参数说明：<br />
+- <code>-prefix</code> ：安装路径<br />
+- <code>-opensource</code> ：开源版本<br />
+- <code>-nomake tests/examples</code> ：不编译测试和示例，加快编译<br />
+- <code>-opengl desktop</code> ：使用桌面 OpenGL</p>
+<h3 id="编译-qt"><strong>5. 编译 Qt</strong></h3>
+<p>推荐使用 Ninja 或 Make：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="fu">make</span> -j<span class="va">$(</span><span class="ex">nproc</span><span class="va">)</span></span></code></pre></div>
+<p>或如果你安装了 Ninja：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="ex">ninja</span></span></code></pre></div>
+<h3 id="安装-qt"><strong>6. 安装 Qt</strong></h3>
+<p>编译完成后：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="fu">sudo</span> make install</span></code></pre></div>
+<p>或者：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="fu">sudo</span> ninja install</span></code></pre></div>
+<p>安装完成后，Qt 会在 <code>/opt/Qt5.15.2</code> 下。</p>
+<h3 id="配置环境变量"><strong>7. 配置环境变量</strong></h3>
+<p>为了使用刚编译的 Qt：</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="bu">export</span> <span class="va">PATH=</span>/opt/Qt5.15.2/bin:<span class="va">$PATH</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="bu">export</span> <span class="va">LD_LIBRARY_PATH=</span>/opt/Qt5.15.2/lib:<span class="va">$LD_LIBRARY_PATH</span></span></code></pre></div>
+<p>可以加到 <code>~/.bashrc</code> 或 <code>~/.zshrc</code>，方便永久使用。</p>
+<h3 id="验证安装"><strong>8. 验证安装</strong></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="fu">qmake</span> -v</span></code></pre></div>
+<p>输出应该类似：</p>
+<pre><code>QMake version 3.1
+Using Qt version 5.15.2 in /opt/Qt5.15.2/lib</code></pre>
+<h2 id="单独安装qwebengine">单独安装qwebengine</h2>
+<p>你现在遇到的错误：</p>
+<pre><code>ERROR: Unknown command line option &#39;-webengine&#39;</code></pre>
+<p>说明在 <strong>Qt 5.15.18 的源码里，<code>configure</code> 不再直接接受 <code>-webengine</code> 参数</strong>了。</p>
+<p>从 Qt 5.15.x 后期版本开始，<strong>Qt WebEngine 被拆分成一个单独模块</strong>，不能像早期版本那样直接用 <code>-webengine</code> 启用。也就是说：</p>
+<ul>
+<li>你需要先编译 Qt 基础模块（<code>qtbase</code> 等），然后在 <strong>单独的构建目录</strong>里编译 Qt WebEngine。</li>
+<li><code>-webengine</code> 选项在 configure 中已经废弃，所以会报“Unknown command line option”。</li>
+</ul>
+<h3 id="正确的做法qt-5.15.18">**正确的做法（Qt 5.15.18）：</h3>
+<ol>
+<li>编译 Qt 基础模块（不加 <code>-webengine</code>）：</li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="bu">cd</span> ~/work/qt/qt-everywhere-src-5.15.18/build</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a><span class="ex">../configure</span> -prefix /opt/Qt5.15.18 <span class="kw">\</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>    <span class="ex">-opensource</span> -confirm-license <span class="kw">\</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>    <span class="ex">-nomake</span> tests -nomake examples <span class="kw">\</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a>    <span class="ex">-opengl</span> desktop</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a><span class="fu">make</span> -j<span class="va">$(</span><span class="ex">nproc</span><span class="va">)</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a><span class="fu">sudo</span> make install</span></code></pre></div>
+<ol>
+<li>单独编译 Qt WebEngine<br />
+Qt WebEngine 在 <code>qtwebengine</code> 子目录下，需要单独生成构建目录：</li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="bu">cd</span> ~/work/qt/qt-everywhere-src-5.15.18/qtwebengine</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="fu">mkdir</span> build-webengine</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="bu">cd</span> build-webengine</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a><span class="ex">/opt/Qt5.15.18/bin/qmake</span> ..  # 使用你刚安装的 Qt qmake</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a><span class="fu">make</span> -j<span class="va">$(</span><span class="ex">nproc</span><span class="va">)</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a><span class="fu">sudo</span> make install</span></code></pre></div>
+<h3 id="创建swapfile增加交换内存">创建swapfile增加交换内存</h3>
+<p>非常重要：Qt WebEngine 编译 Chromium，非常耗时间和内存（建议 16GB 内存以上）<br />
+内存不够会直接 OOM 崩溃。</p>
+<p>在我的ubuntu虚拟机上因为OOM，gcc进程被杀掉，后来用<code>make -j1</code> 一点点编译，编了得有三四个小时</p>
+<pre><code># 查看当前 swap 使用情况
+swapon -s
+# 停用swap
+sudo swapoff /swapfile
+
+# 重新创建swap
+sudo rm /swapfile            # 删除旧的
+sudo fallocate -l 16G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
+# 最后确认内存
+free -h</code></pre>
+<h2 id="qt-webengine-依赖nodejs">Qt WebEngine 依赖Nodejs</h2>
+<p>你这次的问题已经非常清楚了：</p>
+<pre><code>Note: The following modules are not being compiled in this configuration:
+    webenginecore
+    webengine
+    webenginewidgets
+
+WARNING: Nodejs is required to build QtWebEngine.
+WARNING: QtWebEngine will not be built.</code></pre>
+<p>也就是说：<strong>QtWebEngine 根本没开始编译</strong>，因为少关键依赖，尤其是 <strong>nodejs</strong>（必须）和一些媒体库（可选）。</p>
+<hr />
+<h3 id="必须安装的依赖"><strong>必须安装的依赖</strong></h3>
+<p>请先执行：</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a><span class="fu">sudo</span> apt install -y nodejs npm ninja-build python3</span></code></pre></div>
+<p>然后检查 nodejs 版本：</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="ex">node</span> -v</span></code></pre></div>
+<p>必须 ≥ <strong>v10</strong>，如果太低，直接装官方 node：</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="ex">curl</span> -fsSL https://deb.nodesource.com/setup_18.x <span class="kw">|</span> <span class="fu">sudo</span> -E bash -</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a><span class="fu">sudo</span> apt install -y nodejs</span></code></pre></div>
+<hr />
+<h3 id="安装-qt-webengine-必备的多媒体字体图形库">安装 Qt WebEngine 必备的多媒体、字体、图形库</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="fu">sudo</span> apt install -y <span class="kw">\</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a>    <span class="ex">libnss3-dev</span> libxss-dev libasound2-dev libx11-dev libx11-xcb-dev <span class="kw">\</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a>    <span class="ex">libxcomposite-dev</span> libxrandr-dev libxdamage-dev libxtst-dev <span class="kw">\</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a>    <span class="ex">libdbus-1-dev</span> libxt-dev libxfixes-dev libxext-dev libxrender-dev <span class="kw">\</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a>    <span class="ex">libjpeg-dev</span> libpng-dev libcups2-dev libxslt1-dev <span class="kw">\</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true"></a>    <span class="ex">libevent-dev</span> libminizip-dev libwebp-dev libopus-dev <span class="kw">\</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true"></a>    <span class="ex">libvpx-dev</span> libsnappy-dev liblcms2-dev libharfbuzz-dev</span></code></pre></div>
+<p>这些库会让 <code>Optional system libraries</code> 那一堆 <strong>从 no → yes</strong>，从而启用 webenginecore。</p>
+<hr />
+<h3 id="重新配置-qtwebengine关键步骤">重新配置 QtWebEngine（关键步骤）</h3>
+<p>你当前路径正确：<br />
+<code>~/work/qt/qt-everywhere-src-5.15.18/qtwebengine/build-webengine</code></p>
+<p>先清理旧缓存：</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a><span class="fu">rm</span> -rf ./*  # 清空 build-webengine 目录内容</span></code></pre></div>
+<p>重新执行 qmake：</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a><span class="ex">/opt/Qt5.15.18/bin/qmake</span> ..</span></code></pre></div>
+<p>如果输出里：<br />
+✅ <code>webenginecore = yes</code><br />
+✅ <code>webenginewidgets = yes</code><br />
+就成功了。</p>
+<hr />
+<h3 id="开始编译">开始编译</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a><span class="fu">make</span> -j<span class="va">$(</span><span class="ex">nproc</span><span class="va">)</span></span></code></pre></div>
+<h3 id="安装">安装</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="fu">sudo</span> make install</span></code></pre></div>
+<h3 id="验证是否成功">验证是否成功</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="fu">ls</span> /opt/Qt5.15.18/lib <span class="kw">|</span> <span class="fu">grep</span> WebEngine</span></code></pre></div>
+<p>如果有：</p>
+<pre><code>libQt5WebEngine.so
+libQt5WebEngineCore.so
+libQt5WebEngineWidgets.so</code></pre>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

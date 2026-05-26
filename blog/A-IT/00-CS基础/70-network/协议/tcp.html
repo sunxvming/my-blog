@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -206,9 +206,9 @@ jQuery(document).ready(function(){
 
 <h2 id="原理图">原理图</h2>
 <p><strong>TCP三次握手、四次挥手时序图</strong><br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/e463d1f7-4f0a-4e00-9929-442cdc8b1b2c.jpg" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/e463d1f7-4f0a-4e00-9929-442cdc8b1b2c.jpg" /></p>
 <p><strong>TCP协议状态机</strong><br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/cfc19903-682e-492e-983c-c5d7ec4baa78.jpg" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/cfc19903-682e-492e-983c-c5d7ec4baa78.jpg" /></p>
 <h2 id="建立连接">建立连接</h2>
 <h3 id="三次握手">三次握手</h3>
 <p>欲弄清TCP建立连接过程，须知道建立连接的目标是什么<br />
@@ -236,7 +236,7 @@ jQuery(document).ready(function(){
 4. Client收到后，就会回复一个ACK确认包说我知道了。</p>
 <h3 id="tcp的peer两端同时断开连接">TCP的Peer两端同时断开连接</h3>
 <p>由上面的”TCP协议状态机 “图可以看出，TCP的Peer端在收到对端的FIN包前发出了FIN包，那么该Peer的状态就变成了FIN_WAIT1，Peer在FIN_WAIT1状态下收到对端Peer对自己FIN包的ACK包的话，那么Peer状态就变成FIN_WAIT2，Peer在FIN_WAIT2下收到对端Peer的FIN包，在确认已经收到了对端Peer全部的Data数据包后，就响应一个ACK给对端Peer，然后自己进入TIME_WAIT状态；但是如果Peer在FIN_WAIT1状态下首先收到对端Peer的FIN包的话，那么该Peer在确认已经收到了对端Peer全部的Data数据包后，就响应一个ACK给对端Peer，然后自己进入CLOSEING状态，Peer在CLOSEING状态下收到自己FIN包的ACK包的话，那么就进入TIME WAIT状态。于是，TCP的Peer两端同时发起FIN包进行断开连接，那么两端Peer可能出现完全一样的状态转移FIN_WAIT1----&gt;CLOSEING-----&gt;TIME_WAIT，Client和Server也就会最后同时进入TIME_WAIT状态。同时关闭连接的状态转移如下图所示：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/3194002e-40b6-4fd9-a69f-c7d505c5cf50.jpg" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/3194002e-40b6-4fd9-a69f-c7d505c5cf50.jpg" /></p>
 <h3 id="四次挥手能否变成三次挥手">四次挥手能否变成三次挥手？</h3>
 <p>答案是可能的。TCP是全双工通信，Cliet在自己已经不会再有新的数据要发送给Server后，可以发送FIN信号告知Server，这边已经终止Client到对端Server的数据传输。但是，这个时候对端Server可以继续往Client这边发送数据包。于是，两端数据传输的终止在时序上独立并且可能会相隔比较长的时间，这个时候就必须最少需要2+2=4次挥手来完全终止这个连接。但是，如果Server在收到Client的FIN包后，再也没数据需要发送给Client了，那么对Client的ACK包和Server自己的FIN包就可以合并成一个包发送过去，这样四次挥手就可以变成三次了(似乎Linux协议栈就是这样实现的)。</p>
 <h3 id="tcp的头号疼症time_wait状态">TCP的头号疼症TIME_WAIT状态</h3>

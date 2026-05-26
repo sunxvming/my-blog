@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -215,13 +215,13 @@ jQuery(document).ready(function(){
 后来产品经理灵光一闪说我们可以搞个积分系统啊，也行吧，流程里面多了200ms去增减积分。<br />
 再后来后来隔壁的产品老王说：下单成功后我们要给用户发短信，也将就吧，100ms去发个短信。<br />
 再后来。。。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/5c14ab7a-5e72-420e-9640-35c563d04a91.jpg" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/5c14ab7a-5e72-420e-9640-35c563d04a91.jpg" /><br />
 嗯不错，链路长了就慢了，那你怎么解决的？<br />
 那链路长了就慢了，但是我们发现上面的流程其实可以同时做的呀，你支付成功后，我去校验优惠券的同时我可以去增减积分啊，还可以同时发个短信啊。<br />
 那正常的流程我们是没办法实现的呀，怎么办，<strong>异步</strong>。不仅是可以线程级别的异步，还可以是机器级别的异步。</p>
 <h4 id="解耦发布订阅模式">解耦（发布订阅模式）</h4>
 <p>你下单了，你就把你支付成功的消息告诉别的系统，他们收到了去处理就好了，你只用走完自己的流程，把自己的消息发出去，那后面要接入什么系统简单，直接订阅你发送的支付成功消息，你支付成功了我监听就好了。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/2c867084-f529-40d2-a976-e95ec8497dc8.jpg" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/2c867084-f529-40d2-a976-e95ec8497dc8.jpg" /><br />
 那你的流程走完了，你不用管别人是否成功么？比如你下单了积分没加，优惠券没扣怎么办？ 问题是个好问题，但是没必要考虑，业务系统本身就是自己的开发人员维护的，你积分扣失败关我下单的什么事情？你管好自己下单系统的就好了。Tip：话是这么说，但是这其实是用了消息队列的一个缺点，涉及到分布式事务的知识点，我下面会提到。</p>
 <h4 id="削峰">削峰</h4>
 <p>拿秒杀来说，你平时流量很低，但是你要做秒杀活动00 ：00的时候流量疯狂怼进来，你的服务器，Redis，MySQL各自的承受能力都不一样，你直接全部流量照单全收肯定有问题啊，直接就打挂了。<br />

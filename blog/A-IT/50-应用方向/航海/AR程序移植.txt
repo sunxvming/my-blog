@@ -1,0 +1,48 @@
+
+AR程序移植
+===================
+查看所有动态库的依赖ldd
+
+
+硬件
+    cpu
+        Phytium, FT-2000/4
+        arch=arm64
+    系统
+         Kylin-Desktop-V10-U1-Release   
+build tools
+    gcc g++ ld make
+cmake
+ffmpeg
+    有安装包
+opencv
+    源码编译
+    videoio模块依赖ffmpeg
+    在cmake构建的时候会打印依赖的模块，ffmpeg在其中
+
+    【遇到问题】
+    VideoCapture capture; 
+    bool suc =  capture.open("xxx.mp4");
+    上述代码总是返回false，无法成功读取
+    后来猜测是编译opencv的时候没有没有ffmpeg，后来加上ffmpeg依赖库后重新编译后便好了
+
+opengl
+    一般自带，但这台电脑缺失，用安装包进行了安装    
+osg
+    源码编译
+osgEarth
+    源码编译
+    依赖 gdal， gdal有安装包
+
+    【遇到问题】
+    aarch64架构编译osgearth过程中报错，找不到emmintrin.h
+    [aarch64架构编译osgearth2.10过程中报错，找不到emmintrin.h-CSDN博客](https://blog.csdn.net/baidu_31788709/article/details/120661708)
+    需要下载sse2neon.h,可以将其命名成emmintrin.h并放入到 /usr/include中    
+QT
+    Qt5.12
+        有安装包  也可源码编译
+        libqt5serialport
+    QtCreator
+        有安装包  也可源码编译
+    【注意】
+        先编译qt再编译qtCreator

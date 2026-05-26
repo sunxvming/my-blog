@@ -1,13 +1,13 @@
 
 ## 内存
-----------------------
+
 ### 程序编译后的text段、data段和bss段 
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/b999e8f0-9688-4037-80c7-e7f78147ddd4.jpg)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/b999e8f0-9688-4037-80c7-e7f78147ddd4.jpg)
 
 
 左边的是UNIX/LINUX系统的执行文件，右边是对应进程**逻辑地址空间**的划分情况。
 
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/ed58a4c2-2cfb-48cf-b255-3a7c5245afcf.jpg)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/ed58a4c2-2cfb-48cf-b255-3a7c5245afcf.jpg)
 一般情况，一个程序本质上都是由 bss段、data段、text段三个段组成——这是计算机程序设计中重要的基本概念。
 
 * bss
@@ -105,7 +105,7 @@ Windows Server 2003 数据中心版专为大型企业或国家机构而设计，
 ### C语言内存对齐，提高寻址效率
 CPU 通过**地址总线**来访问内存，一次能处理几个字节的数据，就命令地址总线读取几个字节的数据。32 位的 CPU 一次可以处理4个字节的数据，那么每次就从内存读取**4个字节**的数据；少了浪费主频，多了没有用。64位的处理器也是这个道理，每次读取**8个字节**。
 以32位的CPU为例，实际寻址的步长为4个字节，也就是只对编号为 4 的倍数的内存寻址，例如 0、4、8、12、1000 等，而不会对编号为 1、3、11、1001 的内存寻址。
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/08a85ae4-76a1-4e2e-ae39-27c6f8c4e330.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/08a85ae4-76a1-4e2e-ae39-27c6f8c4e330.png)
 将一个数据尽量放在一个步长之内，避免跨步长存储，这称为**内存对齐**。在32位编译模式下，默认以4字节对齐；在64位编译模式下，默认以8字节对齐。
 为了提高存取效率，**编译器会自动进行内存对齐**。
 经过笔者测试，对于**全局变量**，GCC在 Debug 和 Release 模式下都会进行内存对齐，而VS只有在 Release 模式下才会进行对齐。而对于**局部变量**，GCC和VS都不会进行对齐，不管是Debug模式还是Release模式。
@@ -126,7 +126,7 @@ CPU 通过**地址总线**来访问内存，一次能处理几个字节的数据
 ### MMU部件以及对内存权限的控制
 通过**页表**完成虚拟地址和物理地址的映射时，要经过多次转换，还要进行计算，如果由操作系统来完成这项工作，那将会成倍降低程序的性能（比如cpu上下文的频繁切换），得不偿失，所以这种方式是不现实的。
 在CPU内部，有一个部件叫做**MMU**（Memory Management Unit，内存管理单元），由它来负责将虚拟地址映射为物理地址
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/f6524dfd-c9ad-4e6b-a8c4-0072c06f558f.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/f6524dfd-c9ad-4e6b-a8c4-0072c06f558f.png)
 在页映射模式下，CPU 发出的是虚拟地址，也就是我们在程序中看到的地址，这个地址会先交给 MMU，经过 MMU 转换以后才能变成了物理地址。
 
 即便是这样，MMU也要访问好几次内存，性能依然堪忧，所以在MMU内部又增加了一个**缓存**，专门用来存储**页目录和页表，这个便是快表**。MMU内部的缓存有限，当页表过大时，也只能将部分常用页表加载到缓存，但这已经足够了，因为经过算法的巧妙设计，可以将**缓存的命中率**提高到 90%，剩下的10%的情况无法命中，再去物理内存中加载页表。
@@ -140,7 +140,7 @@ CR3 是CPU内部的一个**寄存器**，专门用来保存**页目录**的物�
 程序内存**在地址空间中的分布情况**称为内存模型（Memory Model）
 内存模型由操作系统构建，在Linux和Windows下有所差异，并且会受到编译模式的影响
 Windows 在默认情况下会将高地址的 2GB 空间分配给内核（也可以配置为1GB），而 Linux 默认情况下会将高地址的 1GB 空间分配给内核。也就是说，应用程序只能使用剩下的 2GB 或 3GB 的地址空间，称为**用户空间**（User Space）。
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/72f98ca8-61d8-4989-be0c-83de9d6708cf.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/72f98ca8-61d8-4989-be0c-83de9d6708cf.png)
 程序代码区、常量区、全局数据区在程序加载到内存后就分配好了，并且在程序运行期间一直存在，不能销毁也不能增加（大小已被固定），只能等到程序运行结束后由操作系统收回，所以全局变量、字符串常量等在程序的任何地方都能访问，因为它们的内存一直都在。
 **常量区**和**全局数据区**有时也被合称为**静态数据区**，意思是这段内存专门用来保存数据，在程序运行期间一直存在。
 
@@ -172,14 +172,14 @@ int main(){
 
 
 Linux下64位环境的用户空间内存分布情况：
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/7245061e-e30f-4e07-ba23-adc137072761.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/7245061e-e30f-4e07-ba23-adc137072761.png)
 
 
 ### Windows下C语言程序的内存布局（内存模型）
 不像 Linux，Windows 是闭源的，有版权保护，资料较少，不好深入研究每一个细节，至今仍有一些内部原理不被大家知晓。
 
 
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/0eee47dc-9b67-4ca1-b789-562356b6a88b.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/0eee47dc-9b67-4ca1-b789-562356b6a88b.png)
 
 
 ### 用户模式和内核模式
@@ -205,7 +205,7 @@ Linux下64位环境的用户空间内存分布情况：
 extend是因为从16位扩展到32位的原因，64的叫做：rbp，rsp
 对每个程序来说，栈能使用的内存是有限的，一般是 1M~8M，这在编译时就已经决定了，程序运行期间不能再改变。如果程序使用的栈内存超出最大值，就会发生栈溢出（Stack Overflow）错误。
 在 Linux GCC 下，默认是 8M。
-一个程序可以包含多个线程，每个线程都有自己的栈，严格来说，栈的最大值是**针对线程来说的**，而不是针对程序。
+一个程序可以包含多个线程，**每个线程都有自己的栈**，严格来说，栈的最大值是**针对线程来说的**，而不是针对程序。
 ```c
 //这个就会造成Stack Overflow
 int main(){
@@ -223,7 +223,7 @@ int main(){
 * 4) 一些需要保存的寄存器，例如 ebp、ebx、esi、edi 等。之所以要保存寄存器的值，是为了在函数退出时能够恢复到函数调用之前的场景，继续执行上层函数。
 理论上 ebp 寄存器应该指向栈底，但在实际应用中，它却指向了old ebp。
 
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/782251db-a035-4d22-b31e-9a3b7bc806e3.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/782251db-a035-4d22-b31e-9a3b7bc806e3.png)
 
 #### 关于数据的定位
 由于 esp 的值会随着数据的入栈而不断变化，要想根据 esp 找到参数、局部变量等数据是比较困难的，所以在实现上是根据 `ebp` 来定位栈内数据的。**ebp 的值是固定的，数据相对 ebp 的偏移也是固定的，ebp 的值加上偏移量就是数据的地址**。
@@ -271,7 +271,7 @@ int main(){
     return 0;
 }
 ```
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/51905165-064e-4506-a4ad-9571f7bfd4c6.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/51905165-064e-4506-a4ad-9571f7bfd4c6.png)
 局部数组也是在栈上分配内存，当输入"12345678901234567890" 时，会发生数组溢出，占用“4字节空白内存”、“old ebp”和“返回地址”所在的内存，并**将原有的数据覆盖掉**，这样当 main() 函数执行完成后，会取得一个错误的返回地址，该地址上的指令是不确定的，或者根本就没有指令，所以程序在返回时出错。
 C语言不会对数组溢出做检测，这是一个典型的由于数组溢出导致**覆盖了函数返回地址**的例子，我们将这样的错误称为“**栈溢出错误**”。
 这里的栈指的是当前的函数栈帧。
@@ -309,8 +309,8 @@ malloc() 实现是向操作系统申请一块适当大小的堆空间，然后�
 在程序运行过程中，堆内存从低地址向高地址连续分配，随着内存的释放，会出现不连续的空闲区域，
 带阴影的方框是已被分配的内存，白色方框是空闲内存或已被释放的内存。程序需要内存时，malloc() 首先遍历空闲区域，看是否有大小合适的内存块，如果有，就分配，如果没有，就向操作系统申请（发生系统调用）。
 内存块（包括已分配和空闲的）的结构类似于链表，它们之间通过指针连接在一起。
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/51aea78a-564d-473c-8990-8e71752f433e.png)
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/fafc237b-1ef4-4a42-a807-1ce302f01570.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/51aea78a-564d-473c-8990-8e71752f433e.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/fafc237b-1ef4-4a42-a807-1ce302f01570.png)
 malloc() 和 free() 所做的工作主要是对已有内存块的**分拆和合并**，并没有频繁地向操作系统申请内存，这大大提高了内存分配的效率。
 
 #### 链表式内存管理缺点：
@@ -412,7 +412,7 @@ void main()
     //…………………………
 }
 ```
-realloc时会把原来内存空间中的内容复制到新开辟的内存中，返回新的内存首地址。此时**q就成了悬空指针**。
+realloc 时会把原来内存空间中的内容复制到新开辟的内存中，返回新的内存首地址。此时**q就成了悬空指针**。
 
 
 ### 内存泄露
@@ -635,7 +635,7 @@ int main(){
 ```
 ### 二维数组指针（指向二维数组的指针）详解
 二维数组的三种形式：
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/659b6b52-2b75-4a3a-acf1-fe40a0513e44.bmp)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/659b6b52-2b75-4a3a-acf1-fe40a0513e44.bmp)
 
 ```
 int *(p1[5]); //指针数组，可以去掉括号直接写作 int *p1[5];    还可以用由近到远的原则判断
@@ -750,5 +750,5 @@ int copyObj(Teacher *to, Teacher *from)
 
 
 ## 段错误
-段错误是指访问的内存超出了系统给这个程序所设定的内存空间，例如访问了不存在的内存地址、访问了系统保护的内存地址、访问了只读的内存地址等等情况
+段错误是指访问的内存**超出了系统给这个程序所设定的内存空间**，例如访问了不存在的内存地址、访问了系统保护的内存地址、访问了只读的内存地址等等情况
 

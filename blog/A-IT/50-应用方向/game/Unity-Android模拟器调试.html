@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -183,22 +183,22 @@ jQuery(document).ready(function(){
 <p>运行模拟器时，模拟器窗口标题栏会显示模拟器的端口号和AVD名称，这个端口号是它的console端口号，其区间为5554-5584之间的偶数，而5555-5585之间的奇数则是对应的为adb保留的端口号。默认情况下运行第一个模拟器的console port为5554，adb port为5555，第二个模拟器的console port为5556，adb port为5557，依此类推。Console port和adb port用于下面的adb连接：<br />
 1、adb tcpip 5555将设备的adb daemon与宿主机的5555端口绑定。如果5555端口已经被占用，可以使用5555-5585之间其它的奇数。<br />
 默认情况下第一个模拟器的console port为5554，adb port为5555，因此可以跳过这步。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/a61fdfd5-0b08-4bfa-a5cd-92d53d5cc4df.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/a61fdfd5-0b08-4bfa-a5cd-92d53d5cc4df.png" /><br />
 2、adb connect 127.0.0.1:5555这里通过网络进行adb连接，5555为上一步设置好的模拟器adb port，127.0.0.1为本机环路地址。因为模拟器的adb daemon与本机的5555端口进行了绑定，因此adb连接本机（127.0.0.1/localhost）的5555端口时就是连接了模拟器。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/6cbcdb09-129d-4d65-af16-15279bba948f.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/6cbcdb09-129d-4d65-af16-15279bba948f.png" /><br />
 3、adb devices查看连接是否建立好。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/43e6182a-0d0f-4534-8c28-0a55a3ed8c85.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/43e6182a-0d0f-4534-8c28-0a55a3ed8c85.png" /><br />
 3.在vs的debug中attach上要调试的进程<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/84abdf30-ef05-42a2-83e6-1f631ab4266e.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/84abdf30-ef05-42a2-83e6-1f631ab4266e.png" /></p>
 <p>4.需要做的配置工作。<br />
 运行项目后，MonoDevelopment或UnityVS的Attach窗口会出现AndroidPlayer一项，这就是我们模拟器上运行的项目了。但如果此时直接Attach会发现Attach不上，我们还需要做些配置工作。<br />
 仔细看AndroidPlayer这项会发现有unknown_sdk@10.0.2.15这样的标识，这个10.0.2.15实际上是模拟器自己定义并分配的IP，直接Attach会尝试去连接这个IP，当然无法连接到模拟器，也就无法调试项目了。好在UnityVS有两个很好的功能，一个是列出了调试项目时需要连接模拟器的端口号，即上图的56997，另一个是允许自定义输入IP和端口号来进行远程调试。<br />
 1、打开UnityVS的Attach Unity Debugger窗口，记住AndroidPlayer的端口号。<br />
 2、打开cmd，输入telnet localhost 5554来进入Android Console，5554即前面提到的模拟器的console port。<br />
 3、Android Console中输入redir add tcp:5590:56997，将模拟器56997端口重定向为宿主机的5590端口。这里的56997即第1步需要记住的端口号，5590可以设置为任意你想用的端口号。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/cd89aecd-8cdf-4ce9-b1c2-31cf196a5b9f.jpg" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/cd89aecd-8cdf-4ce9-b1c2-31cf196a5b9f.jpg" /><br />
 4、在UnityVS Attach窗口点击“Input IP”，输入127.0.0.1:5590，点击“OK”将会连接到模拟器并Attach项目成功，接下来就可以体验“真机”调试了。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/516e3602-f94c-4e63-ac52-e64b46caf70b.jpg" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/516e3602-f94c-4e63-ac52-e64b46caf70b.jpg" /></p>
 <p>解决more than one device and emulator问题</p>
 <p>1、获取模拟器/设备列表 adb devices<br />
 2、指定device来执行 adb -s devicename shell</p>

@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -176,17 +176,103 @@ jQuery(document).ready(function(){
 </div> <!--id="header"-->
  <!--if(title)-->
 
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#介绍">介绍</a></li>
+<li><a href="#浏览器无法打开本地md文件">浏览器无法打开本地md文件</a></li>
+<li><a href="#markdown演示">markdown演示</a></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+</div>
  <!--if(toc)-->
 
-<p>Typora Typora 是一款支持实时预览的 Markdown 文本编辑器。界面很简洁，评价很好。</p>
-<p>MarkdownPad 一款全功能的编辑器，被很多人称赞为Windows 平台最好用的markdown编辑器</p>
-<p>安转之后出现错误-渲染错误<br />
-从上面的图片上我们可以看出来的出现的 this view has crash ，可以通过安装下面的组件来解决,先安装的就是:<br />
-awesomium1.6.6SDK。<br />
-链接地址: http://markdownpad.com/download/awesomium_v1.6.6_sdk_win.exe</p>
-<p>可以再设置里面选择markdown用那种方式渲染。</p>
-<p>【好用的Markdown编辑器一览】<br />
+<h2 id="介绍">介绍</h2>
+<p>Typora Typora 是一款支持实时预览的 Markdown 文本编辑器。界面很简洁，评价很好。<br />
+MarkdownPad 一款全功能的编辑器，被很多人称赞为Windows 平台最好用的markdown编辑器<br />
+【好用的Markdown编辑器一览】<br />
 https://www.williamlong.info/archives/4319.html</p>
+<h2 id="浏览器无法打开本地md文件">浏览器无法打开本地md文件</h2>
+<p>chorme浏览器的插件是：Markdown Viewer</p>
+<p><strong>解决浏览器打开本地md文件变成直接下载</strong><br />
+换成win11后之前用的chrome的插件markdown viewer突然不能用了，如果用浏览器直接打开本地文件的话会变成直接下载了。<br />
+原因是</p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230117202228.png" alt="image.png" /><br />
+注册表中的<code>.md</code>后缀的Content Type变成了<code>application/md</code>了，修改成<code>text/markdown</code>就好了。</p>
+<h2 id="markdown演示">markdown演示</h2>
+<pre><code>[TOC]
+
+# 一级标题
+## 二级标题
+### 三级标题
+
+**粗体**
+*斜体*
+
+* 无序列表
+* 无序列表 
+
+
+1. 有序列表
+2. 有序列表
+
+
+&gt; 引用文字
+
+
+
+链接： [少数派](https://sspai.com)
+
+
+表格
+-----------------------------
+|  表头   | 表头  |
+|  ----  | ----  |
+| 单元格  | 单元格 |
+| 单元格  | 单元格 |
+
+
+快状引用，比如快捷键
+`Ctrl+Alt+N`
+
+
+参考链接样式：数字型
+---------------------------
+我使用 [Google][1] 进行学术搜索多一些,使用 [百度][2]进行日常搜索多一些，很少使用[Bing][3] .
+我不能一边使用 [百度搜索][2] 一边骂他不如 [Google][1]，我们需要学会的是利用资源。
+
+[1]: https://www.google.com/ &quot;Google&quot;
+[2]: https://www.baidu.com/ &quot;Baidu Search&quot;
+[3]: https://cn.bing.com/ &quot;Bing Search&quot;
+
+
+参考链接样式：字母引用型
+---------------------------
+早饭后，我打开 [每日英语听力][TING] 学习英语。遇到不懂的英语单词，我借助 [欧路在线词典][zxB]
+查看释义并加入生词本，方便使用 [客户端][khd] 随时记忆单词。
+
+[ting]: https://dict.eudic.net/ting &quot;每日英语听力 - 欧路词典&quot;
+[zxb]: https://dict.eudic.net/ &quot;《欧路词典》在线版&quot;
+[khd]: https://www.eudic.net/v4/en/app/eudic &quot;《欧路词典》英语翻译软件官方主页&quot;
+
+
+
+
+自动链接
+---------------
+Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用 &lt; &gt; 包起来，Markdown 就会自动把它转成链接。一般网址的链接文字就和链接地址一样，邮址的自动链接也很类似，例如：
+&lt;http://example.com/&gt;
+&lt;address@example.com&gt;
+
+
+多媒体嵌入
+--------------
+&lt;audio src=&quot;./abc.mp3&quot; controls=&quot;controls&quot;&gt;
+</code></pre>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://www.zybuluo.com/mdeditor">markdown在线编辑器</a></li>
+</ul>
 
 <footer id="colophon" >
 		<div class="site-info col">

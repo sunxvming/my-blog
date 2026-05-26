@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -179,10 +179,10 @@ jQuery(document).ready(function(){
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
+<li><a href="#参考资料">参考资料</a></li>
 <li><a href="#简介">简介</a>
 <ul>
 <li><a href="#cmake">cmake</a></li>
-<li><a href="#参考资料">参考资料</a></li>
 </ul></li>
 <li><a href="#注意事项">注意事项</a>
 <ul>
@@ -232,6 +232,16 @@ jQuery(document).ready(function(){
 </div>
  <!--if(toc)-->
 
+<h3 id="参考资料">参考资料</h3>
+<ul>
+<li><a href="https://cgold.readthedocs.io/en/latest/">CGold: The Hitchhiker’s Guide to the CMake</a></li>
+<li><a href="https://www.zhihu.com/question/58949190">知乎问题 CMake 如何入门？</a></li>
+<li><a href="https://github.com/ttroy50/cmake-examples">关于cmake由浅入深的例子</a></li>
+<li><a href="https://github.com/onqtam/awesome-cmake">awesome-cmake</a></li>
+<li><a href="https://preshing.com/20170522/learn-cmakes-scripting-language-in-15-minutes/">Learn CMake's Scripting Language in 15 Minutes</a></li>
+<li><a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">CMake Tutorial — cmake官网的教程</a></li>
+<li><a href="https://www.runoob.com/cmake/cmake-tutorial.html">CMake 教程 | 菜鸟教程</a></li>
+</ul>
 <h2 id="简介">简介</h2>
 <h3 id="cmake">cmake</h3>
 <p>cmake允许开发者编写一种平台无关的 CMakeList.txt 文件来<strong>定制整个编译流程</strong>，然后再根据目标用户的平台进一步生成所需的本地化 Makefile 和工程文件，如 Unix 的 Makefile 或 Windows 的 Visual Studio 工程。从而做到“Write once, run everywhere”。</p>
@@ -243,15 +253,7 @@ make VERBOSE=1 来构建</p></li>
 <li><p>cmake进行编译并打印详细信息</p></li>
 </ul>
 <pre><code>cmake.EXE --build d:/project/c++/shipar/build --config Debug --target ALL_BUILD -j 22 --verbose</code></pre>
-<h3 id="参考资料">参考资料</h3>
-<p>参考资料：<br />
-知乎问题 CMake 如何入门？：https://www.zhihu.com/question/58949190</p>
-<p>关于cmake由浅入深的例子<br />
-https://github.com/ttroy50/cmake-examples</p>
-<p>awesome-cmake<br />
-https://github.com/onqtam/awesome-cmake</p>
-<p>Learn CMake's Scripting Language in 15 Minutes<br />
-https://preshing.com/20170522/learn-cmakes-scripting-language-in-15-minutes/</p>
+<p>整个构建的各个阶段过程：Configure → Generate → Build → Test → Install → Packing</p>
 <h2 id="注意事项">注意事项</h2>
 <h3 id="cmake缓存">cmake缓存</h3>
 <p>有时候改了cmake中的选项，比如：<br />
@@ -259,7 +261,7 @@ https://preshing.com/20170522/learn-cmakes-scripting-language-in-15-minutes/</p>
 对于这种情况可以直接删掉build目录，或者编译时加上选项,比如</p>
 <pre><code>cmake .. -DCCACHE=OFF</code></pre>
 <h3 id="编译时编译器">编译时编译器</h3>
-<p>默认情况下.cpp文件的编译方式为g++，以c结尾的文件编译方式为gcc。<br />
+<p>默认情况下.cpp文件的编译方式为<code>g++</code>，以c结尾的文件编译方式为<code>gcc</code>。<br />
 当存在c文件和c++文件混编的情况下要注意，若c文件用gcc编译，cpp文件用g++编译，可能会有问题。</p>
 <h2 id="编译流程">编译流程</h2>
 <h3 id="最简单例子">最简单例子</h3>
@@ -646,9 +648,9 @@ target_link_libraries(${PROJECT_NAME} PRIVATE ${OPENSCENEGRAPH_LIBRARIES})</code
 source code编辑框就是输入代码的所在的路径，这个路径能够找到一个CMakeLists.txt文件。<br />
 build the binaries编辑框就是编译输出的中间文件和最终的二进制文件的目录。<br />
 Add Entry添加预定义的变量<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/c8b32e20-2b60-493b-b07b-f0c644b1f3ab.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/c8b32e20-2b60-493b-b07b-f0c644b1f3ab.png" /></p>
 <p>因为CMake最终通过CMakeLists.txt文件生成Windows上对应的vs工程文件，不同的vs版本也会影响到最终生成vs工程文件，所以configure对话框就是选择代码编译工具的，如图所示：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/4b2979e6-edd8-42d0-9c31-25f0f795e993.jpg" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/4b2979e6-edd8-42d0-9c31-25f0f795e993.jpg" /></p>
 
 <footer id="colophon" >
 		<div class="site-info col">

@@ -206,11 +206,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -222,13 +222,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -310,33 +310,39 @@ std::move() 来“转移”，减少元素复制的成本：</p>
 <p><strong>容器分类</strong><br />
 常见的一种分类是依据元素的访问方式，分成顺序容器、有序容器和无序容器三大类别。<br />
 除了以上容器外，STL 还在两类容器的基础上屏蔽一部分功能，<strong>突出或增加另一部分功能</strong>，实现了三种<strong>容器适配器</strong>：<br />
-栈 stack、队列 queue、优先级队列 priority_queue。<br />
+- 栈 stack<br />
+- 队列 queue、<br />
+- 优先级队列 priority_queue<br />
+- 底层的实现是<strong>最大堆</strong><br />
 容器适配器 stack、queue 和 priority_queue 没有迭代器。</p>
 <h3 id="顺序容器">顺序容器</h3>
 <p>它们之所以被称为顺序容器，是因为将元素插入容器时，指定在什么位置（尾部、头部或中间某处）插入，元素就会位于什么位置。</p>
 <p>连续存储的数组：<br />
-* array<br />
-array 是静态数组，大小在初始化的时候就固定<br />
-* vector<br />
-* deque<br />
-它可以在两端高效地插入删除元素<br />
+* <strong>array</strong><br />
+- array 是静态数组，大小在初始化的时候就固定<br />
+* <strong>vector</strong><br />
+* <strong>deque</strong> 双端队列<br />
+- 它可以在两端高效地插入删除元素<br />
 指针结构的链表：<br />
-* list<br />
-list 是双向链表，可以向前或者向后遍历，但查找效率比较低<br />
-* forward_list<br />
-forward_list，顾名思义，是单向链表，只能向前遍历，查找效率就更低了。</p>
-<p>链表结构比起数组结构还有一个缺点，就是存储成本略高，因为必须要为每个元素附加一个或者两个的指针，指向链表的前后节点。<br />
-当 vector 的容量到达上限的时候（capacity），它会再分配一块两倍大小的新内存，然后把旧元素拷贝或者移动过去。这个操作的成本是非常大的，所以，你在使用 vector 的时候最好能够“预估”容量，使用 <code>reserve</code> 提前分配足够的空间，减少动态扩容的拷贝代价。<br />
-vector 的做法太“激进”，而 deque、list 的的扩容策略就“保守”多了，只会按照固定的“步长”（例如 N 个字节、一个节点）去增加容量。但在短时间内插入大量数据的时候就会频繁分配内存，效果反而不如 vector 一次分配来得好。</p>
+* <strong>list</strong><br />
+- list 是双向链表，可以向前或者向后遍历，但查找效率比较低<br />
+* <strong>forward_list</strong><br />
+- forward_list，顾名思义，是单向链表，只能向前遍历，查找效率就更低了。</p>
+<p>链表结构比起数组结构还有一个缺点，就是<strong>存储成本略高</strong>，因为必须要为每个元素附加一个或者两个的指针，指向链表的前后节点。<br />
+当 vector 的容量到达上限的时候（capacity），它会再分配一块两倍大小的新内存，然后把旧元素拷贝或者移动过去。这个操作的成本是非常大的，所以，你在使用 vector 的时候最好能够“预估”容量，使用 <code>reserve</code> 提前分配足够的空间，减少动态扩容的拷贝代价。</p>
 <h3 id="有序关联容器">有序关联容器</h3>
-<p>顺序容器的特点是，元素的次序是由它插入的次序而决定的，访问元素也就按照最初插入的顺序。而有序容器则不同，它的元素在插入容器后就被按照某种规则自动排序，所以是“有序”的。<br />
-C++ 的有序容器使用的是树结构，通常是红黑树——有着最好查找性能的二叉树。<br />
+<p><strong>顺序</strong>容器的特点是，元素的次序是由它插入的次序而决定的，访问元素也就按照最初插入的顺序。<br />
+而<strong>有序</strong>容器则不同，它的元素在插入容器后就被按照某种规则自动排序，所以是“有序”的。<br />
+C++ 的有序容器使用的是树结构，通常是<strong>红黑树</strong>——有着最好查找性能的二叉树。<br />
 * set/multiset<br />
 * map/multimap<br />
 在定义容器的时候必须要指定 key 的比较函数,解决这个问题有两种办法: 一个是重载<code>&lt;</code>，另一个是自定义模板参数。</p>
 <h3 id="无序关联容器">无序关联容器</h3>
 <p>内部是散列表<br />
-unordered_set/unordered_multiset、unordered_map/unordered_multimap。</p>
+unordered_set<br />
+unordered_multiset<br />
+unordered_map<br />
+unordered_multimap。</p>
 <p>无序容器对 key的要求：<br />
 一是可以计算 <strong>hash值</strong>，二是能够执行<strong>相等比较</strong>操作。<br />
 第一个是因为散列表的要求，只有计算 hash 值才能放入散列表，<br />
@@ -583,7 +589,7 @@ STL 中还有一个函数模板 <code>make_pair</code>，其功能是生成一
 <h3 id="priority_queue">priority_queue</h3>
 <p>priority_queue 是“优先队列”。它和普通队列的区别在于，优先队列的队头元素总是<strong>最大的</strong>——即执行 pop 操作时，删除的总是最大的元素；执行 top 操作时，返回的是最大元素的引用。<br />
 priority_queue 可以用 vector 和 deque 实现，默认情况下用 vector 实现。<br />
-priority_queue实现是<strong>二叉堆</strong>，特别适用于“不停地在一堆元素中取走最大的元素”</p>
+priority_queue实现是 <strong>二叉堆</strong>，特别适用于“不停地在一堆元素中取走最大的元素”</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;queue&gt;</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="pp">#</span><span class="er">include &lt;iostream&gt;</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>using namespace std;</span>

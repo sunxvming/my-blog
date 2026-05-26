@@ -1,0 +1,616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/QT/自定义委托</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#自定义委托delegate的全面能力解析">自定义委托（Delegate）的全面能力解析</a>
+<ul>
+<li><a href="#完全自定义绘制paint">1. 完全自定义绘制（paint）</a></li>
+<li><a href="#交互控制">2. 交互控制</a></li>
+<li><a href="#编辑器创建与管理">3. 编辑器创建与管理</a></li>
+<li><a href="#动画效果">4. 动画效果</a></li>
+<li><a href="#复杂布局">5. 复杂布局</a></li>
+<li><a href="#状态管理">6. 状态管理</a></li>
+<li><a href="#数据可视化">7. 数据可视化</a></li>
+<li><a href="#性能优化">8. 性能优化</a></li>
+<li><a href="#自定义控件集成">9. 自定义控件集成</a></li>
+<li><a href="#高级样式控制">10. 高级样式控制</a></li>
+<li><a href="#完整自定义委托示例">完整自定义委托示例</a></li>
+<li><a href="#何时使用自定义委托">何时使用自定义委托</a></li>
+<li><a href="#最佳实践建议">最佳实践建议</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h1 id="自定义委托delegate的全面能力解析">自定义委托（Delegate）的全面能力解析</h1>
+<p>在 Qt 中，自定义委托（Delegate）是控制视图项（Item）呈现和行为的强大工具。除了设置高度外，自定义委托还可以实现以下功能：</p>
+<h2 id="完全自定义绘制paint">1. 完全自定义绘制（paint）</h2>
+<ul>
+<li><strong>文本渲染</strong>：自定义字体、颜色、对齐方式</li>
+<li><strong>图形绘制</strong>：绘制形状、图标、波形图等</li>
+<li><strong>背景样式</strong>：根据状态（选中、悬停等）改变背景</li>
+<li><strong>动画效果</strong>：实现动态过渡效果</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="dt">void</span> WaveItemDelegate::paint(<span class="ex">QPainter</span> *painter, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>                            <span class="at">const</span> <span class="ex">QStyleOptionViewItem</span> &amp;option, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>                            <span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index) <span class="at">const</span> {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    <span class="co">// 保存原始状态</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    painter-&gt;save();</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>    </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    <span class="co">// 设置背景</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>    <span class="cf">if</span> (option.state &amp; <span class="ex">QStyle::</span>State_Selected) {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>        painter-&gt;fillRect(option.rect, <span class="ex">QColor</span>(<span class="st">&quot;#e6f7ff&quot;</span>)); <span class="co">// 选中状态</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>    } <span class="cf">else</span> <span class="cf">if</span> (option.state &amp; <span class="ex">QStyle::</span>State_MouseOver) {</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>        painter-&gt;fillRect(option.rect, <span class="ex">QColor</span>(<span class="st">&quot;#f5f5f5&quot;</span>)); <span class="co">// 悬停状态</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>    } <span class="cf">else</span> {</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>        painter-&gt;fillRect(option.rect, <span class="ex">Qt::</span>white); <span class="co">// 默认状态</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>    }</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>    </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>    <span class="co">// 绘制边框</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>    painter-&gt;setPen(<span class="ex">QColor</span>(<span class="st">&quot;#e0e0e0&quot;</span>));</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>    painter-&gt;drawRect(option.rect.adjusted(<span class="dv">0</span>, <span class="dv">0</span>, -<span class="dv">1</span>, -<span class="dv">1</span>));</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>    </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>    <span class="co">// 获取数据</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a>    MuItemData data = index.data(<span class="ex">Qt::</span>UserRole+<span class="dv">1</span>).value&lt;MuItemData&gt;();</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>    </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>    <span class="co">// 绘制文件名</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a>    painter-&gt;setPen(<span class="ex">Qt::</span>black);</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a>    <span class="ex">QFont</span> font = painter-&gt;font();</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a>    font.setBold(<span class="kw">true</span>);</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true"></a>    painter-&gt;setFont(font);</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true"></a>    painter-&gt;drawText(option.rect.adjusted(<span class="dv">10</span>, <span class="dv">5</span>, -<span class="dv">10</span>, -<span class="dv">30</span>), </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true"></a>                     <span class="ex">Qt::</span>AlignLeft | <span class="ex">Qt::</span>AlignTop, </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true"></a>                     data.filename);</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true"></a>    </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true"></a>    <span class="co">// 绘制波形预览</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true"></a>    painter-&gt;setPen(<span class="ex">QColor</span>(<span class="st">&quot;#1890ff&quot;</span>));</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true"></a>    <span class="ex">QRect</span> waveRect = option.rect.adjusted(<span class="dv">10</span>, <span class="dv">30</span>, -<span class="dv">10</span>, -<span class="dv">10</span>);</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true"></a>    drawWavePreview(painter, waveRect, data.waveData);</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true"></a>    </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true"></a>    <span class="co">// 绘制时长信息</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true"></a>    painter-&gt;setPen(<span class="ex">Qt::</span>darkGray);</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true"></a>    painter-&gt;setFont(<span class="ex">QFont</span>(<span class="st">&quot;Arial&quot;</span>, <span class="dv">8</span>));</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true"></a>    painter-&gt;drawText(waveRect, <span class="ex">Qt::</span>AlignRight | <span class="ex">Qt::</span>AlignBottom, </span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true"></a>                     formatDuration(data.duration));</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true"></a>    </span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true"></a>    <span class="co">// 恢复原始状态</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true"></a>    painter-&gt;restore();</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="交互控制">2. 交互控制</h2>
+<ul>
+<li><strong>鼠标事件</strong>：自定义点击、双击、悬停行为</li>
+<li><strong>键盘事件</strong>：处理特定按键操作</li>
+<li><strong>拖放支持</strong>：实现拖拽功能</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="dt">bool</span> WaveItemDelegate::editorEvent(<span class="ex">QEvent</span> *event, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>                                  <span class="ex">QAbstractItemModel</span> *model, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>                                  <span class="at">const</span> <span class="ex">QStyleOptionViewItem</span> &amp;option, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>                                  <span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index) {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>    <span class="cf">if</span> (event-&gt;type() == <span class="ex">QEvent::</span>MouseButtonPress) {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>        <span class="ex">QMouseEvent</span> *me = <span class="kw">static_cast</span>&lt;<span class="ex">QMouseEvent</span>*&gt;(event);</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>        <span class="cf">if</span> (me-&gt;button() == <span class="ex">Qt::</span>LeftButton) {</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>            <span class="co">// 检测是否点击了删除按钮区域</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>            <span class="ex">QRect</span> deleteButton = calculateDeleteButtonRect(option.rect);</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>            <span class="cf">if</span> (deleteButton.contains(me-&gt;pos())) {</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>                <span class="ex">emit</span> deleteRequested(index);</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>                <span class="cf">return</span> <span class="kw">true</span>;</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>            }</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>        }</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>    }</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>    <span class="cf">return</span> <span class="ex">QStyledItemDelegate::</span>editorEvent(event, model, option, index);</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="编辑器创建与管理">3. 编辑器创建与管理</h2>
+<ul>
+<li><strong>创建自定义编辑器</strong>：实现复杂的数据编辑</li>
+<li><strong>设置编辑器数据</strong>：从模型加载数据到编辑器</li>
+<li><strong>保存编辑结果</strong>：将编辑器数据保存回模型</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co">// 创建自定义编辑器</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="ex">QWidget</span>* WaveItemDelegate::createEditor(<span class="ex">QWidget</span> *parent, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>                                       <span class="at">const</span> <span class="ex">QStyleOptionViewItem</span> &amp;option, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>                                       <span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index) <span class="at">const</span> {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>    WaveItemEditor *editor = <span class="kw">new</span> WaveItemEditor(parent);</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>    <span class="co">// 设置编辑器属性...</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>    <span class="cf">return</span> editor;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>}</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a><span class="co">// 设置编辑器数据</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a><span class="dt">void</span> WaveItemDelegate::setEditorData(<span class="ex">QWidget</span> *editor, </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>                                    <span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index) <span class="at">const</span> {</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>    WaveItemEditor *customEditor = <span class="kw">static_cast</span>&lt;WaveItemEditor*&gt;(editor);</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>    MuItemData data = index.data(<span class="ex">Qt::</span>UserRole+<span class="dv">1</span>).value&lt;MuItemData&gt;();</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>    customEditor-&gt;setData(data);</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>}</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a><span class="co">// 保存数据到模型</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a><span class="dt">void</span> WaveItemDelegate::setModelData(<span class="ex">QWidget</span> *editor, </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a>                                   <span class="ex">QAbstractItemModel</span> *model, </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true"></a>                                   <span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index) <span class="at">const</span> {</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true"></a>    WaveItemEditor *customEditor = <span class="kw">static_cast</span>&lt;WaveItemEditor*&gt;(editor);</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true"></a>    MuItemData newData = customEditor-&gt;getData();</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true"></a>    model-&gt;setData(index, <span class="ex">QVariant::</span>fromValue(newData), <span class="ex">Qt::</span>UserRole+<span class="dv">1</span>);</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="动画效果">4. 动画效果</h2>
+<ul>
+<li><strong>状态过渡动画</strong>：实现平滑的状态变化</li>
+<li><strong>加载动画</strong>：显示数据加载过程</li>
+<li><strong>交互反馈</strong>：点击/悬停动画效果</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="dt">void</span> WaveItemDelegate::paint(<span class="ex">QPainter</span> *painter, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>                            <span class="at">const</span> <span class="ex">QStyleOptionViewItem</span> &amp;option, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>                            <span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index) <span class="at">const</span> {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    <span class="co">// ...</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>    </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    <span class="co">// 绘制加载动画</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>    <span class="cf">if</span> (data.isLoading) {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>        <span class="dt">int</span> progress = calculateProgress();</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>        drawLoadingAnimation(painter, option.rect, progress);</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>    }</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>    </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a>    <span class="co">// 绘制交互反馈</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a>    <span class="cf">if</span> (<span class="va">m_hoverIndex</span> == index) {</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a>        drawHoverEffect(painter, option.rect);</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>    }</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="复杂布局">5. 复杂布局</h2>
+<ul>
+<li><strong>多元素组合</strong>：文本、图标、进度条等组合</li>
+<li><strong>动态布局</strong>：根据内容调整布局</li>
+<li><strong>响应式设计</strong>：适应不同尺寸</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="ex">QSize</span> WaveItemDelegate::sizeHint(<span class="at">const</span> <span class="ex">QStyleOptionViewItem</span> &amp;option, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>                                <span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index) <span class="at">const</span> {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>    MuItemData data = index.data(<span class="ex">Qt::</span>UserRole+<span class="dv">1</span>).value&lt;MuItemData&gt;();</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    <span class="co">// 计算所需高度</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    <span class="dt">int</span> height = <span class="dv">60</span>; <span class="co">// 基础高度</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>    <span class="cf">if</span> (data.hasTags) height += <span class="dv">20</span>; <span class="co">// 如果有标签额外高度</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>    <span class="cf">if</span> (data.hasPreview) height += <span class="dv">30</span>; <span class="co">// 如果有预览额外高度</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>    </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>    <span class="cf">return</span> <span class="ex">QSize</span>(option.rect.width(), height);</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="状态管理">6. 状态管理</h2>
+<ul>
+<li><strong>自定义状态</strong>：实现复杂的状态逻辑</li>
+<li><strong>持久状态</strong>：跨会话保持状态</li>
+<li><strong>条件渲染</strong>：根据状态改变显示内容</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="dt">void</span> WaveItemDelegate::paint(<span class="ex">QPainter</span> *painter, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>                            <span class="at">const</span> <span class="ex">QStyleOptionViewItem</span> &amp;option, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>                            <span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index) <span class="at">const</span> {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>    <span class="co">// ...</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>    </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>    <span class="co">// 根据状态显示不同图标</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>    <span class="cf">if</span> (data.status == MuItemData::Processing) {</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>        drawIcon(painter, option.rect.topRight(), <span class="ex">QIcon</span>(<span class="st">&quot;:/processing.png&quot;</span>));</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>    } <span class="cf">else</span> <span class="cf">if</span> (data.status == MuItemData::Completed) {</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>        drawIcon(painter, option.rect.topRight(), <span class="ex">QIcon</span>(<span class="st">&quot;:/completed.png&quot;</span>));</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>    } <span class="cf">else</span> <span class="cf">if</span> (data.status == MuItemData::Error) {</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>        drawIcon(painter, option.rect.topRight(), <span class="ex">QIcon</span>(<span class="st">&quot;:/error.png&quot;</span>));</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>    }</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="数据可视化">7. 数据可视化</h2>
+<ul>
+<li><strong>图表集成</strong>：在项中绘制图表</li>
+<li><strong>进度指示</strong>：显示加载进度</li>
+<li><strong>波形可视化</strong>：音频波形预览</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="dt">void</span> WaveItemDelegate::drawWavePreview(<span class="ex">QPainter</span> *painter, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>                                      <span class="at">const</span> <span class="ex">QRect</span> &amp;rect, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>                                      <span class="at">const</span> <span class="ex">QVector</span>&lt;<span class="dt">float</span>&gt; &amp;waveData) <span class="at">const</span> {</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>    <span class="cf">if</span> (waveData.isEmpty()) <span class="cf">return</span>;</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>    </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>    painter-&gt;save();</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>    <span class="ex">QPainterPath</span> path;</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>    path.moveTo(rect.left(), rect.center().y());</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a>    </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a>    <span class="dt">float</span> dx = <span class="kw">static_cast</span>&lt;<span class="dt">float</span>&gt;(rect.width()) / (waveData.size() - <span class="dv">1</span>);</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; waveData.size(); ++i) {</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a>        <span class="dt">float</span> y = rect.center().y() - waveData[i] * rect.height() / <span class="dv">2</span>;</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true"></a>        path.lineTo(rect.left() + i * dx, y);</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true"></a>    }</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true"></a>    </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true"></a>    painter-&gt;setPen(<span class="ex">QPen</span>(<span class="ex">QColor</span>(<span class="st">&quot;#1890ff&quot;</span>), <span class="fl">1.5</span>));</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true"></a>    painter-&gt;drawPath(path);</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true"></a>    painter-&gt;restore();</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="性能优化">8. 性能优化</h2>
+<ul>
+<li><strong>缓存机制</strong>：缓存复杂渲染结果</li>
+<li><strong>部分重绘</strong>：仅重绘变化部分</li>
+<li><strong>懒加载</strong>：延迟加载资源</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co">// 在委托类中添加缓存</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="at">mutable</span> <span class="ex">QCache</span>&lt;<span class="ex">QString</span>, <span class="ex">QPixmap</span>&gt; <span class="va">m_iconCache</span>;</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a><span class="dt">void</span> WaveItemDelegate::drawIcon(<span class="ex">QPainter</span> *painter, </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>                               <span class="at">const</span> <span class="ex">QPoint</span> &amp;pos, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>                               <span class="at">const</span> <span class="ex">QString</span> &amp;iconPath) <span class="at">const</span> {</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>    <span class="co">// 检查缓存</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>    <span class="cf">if</span> (!<span class="va">m_iconCache</span>.contains(iconPath)) {</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>        <span class="ex">QPixmap</span> icon(iconPath);</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a>        icon = icon.scaled(<span class="dv">16</span>, <span class="dv">16</span>, <span class="ex">Qt::</span>KeepAspectRatio, <span class="ex">Qt::</span>SmoothTransformation);</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a>        <span class="va">m_iconCache</span>.insert(iconPath, <span class="kw">new</span> <span class="ex">QPixmap</span>(icon));</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a>    }</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a>    </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a>    painter-&gt;drawPixmap(pos, *<span class="va">m_iconCache</span>.object(iconPath));</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="自定义控件集成">9. 自定义控件集成</h2>
+<ul>
+<li><strong>复杂控件嵌入</strong>：在项中嵌入按钮、滑块等</li>
+<li><strong>交互元素</strong>：实现项内交互</li>
+<li><strong>动态控件</strong>：根据状态显示不同控件</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="dt">void</span> WaveItemDelegate::paint(<span class="ex">QPainter</span> *painter, </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>                            <span class="at">const</span> <span class="ex">QStyleOptionViewItem</span> &amp;option, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>                            <span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index) <span class="at">const</span> {</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>    <span class="co">// ...</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>    </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>    <span class="co">// 绘制播放按钮</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>    <span class="cf">if</span> (data.canPlay) {</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>        <span class="ex">QRect</span> playRect = calculatePlayButtonRect(option.rect);</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a>        drawPlayButton(painter, playRect, data.isPlaying);</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a>    }</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a>    </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a>    <span class="co">// 绘制音量控制</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>    <span class="cf">if</span> (data.showVolumeControl) {</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a>        <span class="ex">QRect</span> volumeRect = calculateVolumeRect(option.rect);</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a>        drawVolumeControl(painter, volumeRect, data.volume);</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a>    }</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="高级样式控制">10. 高级样式控制</h2>
+<ul>
+<li><strong>主题支持</strong>：适配不同主题</li>
+<li><strong>动态样式</strong>：根据内容调整样式</li>
+<li><strong>自定义状态效果</strong>：悬停、选中等状态的复杂效果</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="dt">void</span> WaveItemDelegate::paint(<span class="ex">QPainter</span> *painter, </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>                            <span class="at">const</span> <span class="ex">QStyleOptionViewItem</span> &amp;option, </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>                            <span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index) <span class="at">const</span> {</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>    <span class="co">// ...</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>    </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>    <span class="co">// 根据主题设置颜色</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>    <span class="ex">QColor</span> textColor = <span class="va">m_theme</span> == DarkTheme ? <span class="ex">Qt::</span>white : <span class="ex">Qt::</span>black;</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>    <span class="ex">QColor</span> bgColor = <span class="va">m_theme</span> == DarkTheme ? <span class="ex">QColor</span>(<span class="st">&quot;#333&quot;</span>) : <span class="ex">Qt::</span>white;</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>    </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a>    <span class="co">// 绘制特殊状态效果</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a>    <span class="cf">if</span> (data.isModified) {</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a>        painter-&gt;setPen(<span class="ex">QPen</span>(<span class="ex">Qt::</span>yellow, <span class="dv">2</span>));</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a>        painter-&gt;drawRect(option.rect.adjusted(<span class="dv">1</span>, <span class="dv">1</span>, -<span class="dv">1</span>, -<span class="dv">1</span>));</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a>    }</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="完整自定义委托示例">完整自定义委托示例</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">class</span> AdvancedWaveDelegate : <span class="kw">public</span> <span class="ex">QStyledItemDelegate</span> {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>    <span class="ex">Q_OBJECT</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a><span class="kw">public</span>:</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>    <span class="kw">explicit</span> AdvancedWaveDelegate(<span class="ex">QObject</span> *parent = <span class="kw">nullptr</span>);</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>    </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>    <span class="ex">QSize</span> sizeHint(<span class="at">const</span> <span class="ex">QStyleOptionViewItem</span> &amp;option, </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>                  <span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index) <span class="at">const</span> <span class="kw">override</span>;</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>    </span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>    <span class="dt">void</span> paint(<span class="ex">QPainter</span> *painter, </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>               <span class="at">const</span> <span class="ex">QStyleOptionViewItem</span> &amp;option, </span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a>               <span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index) <span class="at">const</span> <span class="kw">override</span>;</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a>    </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a>    <span class="dt">bool</span> editorEvent(<span class="ex">QEvent</span> *event, </span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true"></a>                    <span class="ex">QAbstractItemModel</span> *model, </span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true"></a>                    <span class="at">const</span> <span class="ex">QStyleOptionViewItem</span> &amp;option, </span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true"></a>                    <span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index) <span class="kw">override</span>;</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true"></a>    </span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true"></a><span class="ex">signals</span>:</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true"></a>    <span class="dt">void</span> playClicked(<span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index);</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true"></a>    <span class="dt">void</span> deleteClicked(<span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index);</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true"></a>    <span class="dt">void</span> volumeChanged(<span class="at">const</span> <span class="ex">QModelIndex</span> &amp;index, <span class="dt">int</span> volume);</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true"></a>    </span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true"></a><span class="kw">private</span>:</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true"></a>    <span class="dt">void</span> drawWavePreview(<span class="ex">QPainter</span> *painter, <span class="at">const</span> <span class="ex">QRect</span> &amp;rect, </span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true"></a>                        <span class="at">const</span> <span class="ex">QVector</span>&lt;<span class="dt">float</span>&gt; &amp;waveData) <span class="at">const</span>;</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true"></a>    <span class="dt">void</span> drawPlayButton(<span class="ex">QPainter</span> *painter, <span class="at">const</span> <span class="ex">QRect</span> &amp;rect, </span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true"></a>                       <span class="dt">bool</span> isPlaying) <span class="at">const</span>;</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true"></a>    <span class="dt">void</span> drawVolumeControl(<span class="ex">QPainter</span> *painter, <span class="at">const</span> <span class="ex">QRect</span> &amp;rect, </span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true"></a>                          <span class="dt">int</span> volume) <span class="at">const</span>;</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true"></a>    <span class="ex">QRect</span> playButtonRect(<span class="at">const</span> <span class="ex">QRect</span> &amp;itemRect) <span class="at">const</span>;</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true"></a>    <span class="ex">QRect</span> deleteButtonRect(<span class="at">const</span> <span class="ex">QRect</span> &amp;itemRect) <span class="at">const</span>;</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true"></a>    <span class="ex">QRect</span> volumeControlRect(<span class="at">const</span> <span class="ex">QRect</span> &amp;itemRect) <span class="at">const</span>;</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true"></a>    </span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true"></a>    <span class="at">mutable</span> <span class="ex">QModelIndex</span> <span class="va">m_hoverIndex</span>;</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true"></a>    <span class="dt">int</span> <span class="va">m_activeVolumeControl</span> = -<span class="dv">1</span>; <span class="co">// 当前激活的音量控制项</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true"></a>};</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true"></a></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true"></a><span class="co">// 实现略... 包含上述所有功能</span></span></code></pre></div>
+<h2 id="何时使用自定义委托">何时使用自定义委托</h2>
+<table>
+<thead>
+<tr class="header">
+<th>场景</th>
+<th>推荐方法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>简单高度调整</td>
+<td>使用<code>sizeHint()</code></td>
+</tr>
+<tr class="even">
+<td>复杂视觉效果</td>
+<td>完全重写<code>paint()</code></td>
+</tr>
+<tr class="odd">
+<td>项内交互</td>
+<td>实现<code>editorEvent()</code></td>
+</tr>
+<tr class="even">
+<td>自定义编辑</td>
+<td>实现<code>createEditor()</code>系列方法</td>
+</tr>
+<tr class="odd">
+<td>性能敏感场景</td>
+<td>使用缓存和部分重绘优化</td>
+</tr>
+</tbody>
+</table>
+<h2 id="最佳实践建议">最佳实践建议</h2>
+<ol>
+<li><strong>性能优先</strong>：对于大型列表，避免在<code>paint()</code>中进行复杂计算</li>
+<li><strong>状态管理</strong>：使用模型存储持久状态，委托只负责显示</li>
+<li><strong>代码复用</strong>：将绘制功能拆分为独立方法</li>
+<li><strong>主题支持</strong>：通过配置变量支持多种主题</li>
+<li><strong>响应式设计</strong>：确保委托适应不同尺寸</li>
+<li><strong>交互反馈</strong>：提供清晰的视觉反馈</li>
+<li><strong>可访问性</strong>：考虑高对比度模式和屏幕阅读器支持</li>
+</ol>
+<p>自定义委托是 Qt 视图系统中功能最强大的组件之一，通过合理利用其能力，可以实现几乎任何类型的列表/表格项呈现效果和交互行为。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

@@ -1,5 +1,5 @@
 ## 使用mavicat连接redshift
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/03fde49b-f29f-4259-b998-4da7a0278abd.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/03fde49b-f29f-4259-b998-4da7a0278abd.png)
 
 
 

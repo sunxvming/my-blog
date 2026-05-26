@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -179,17 +179,41 @@ jQuery(document).ready(function(){
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
+<li><a href="#section">2.9</a></li>
+<li><a href="#section-1">1.16</a>
+<ul>
+<li><a href="#问题">问题</a></li>
 <li><a href="#工具类库">工具类库</a></li>
+<li><a href="#生成代码">生成代码</a></li>
+</ul></li>
 </ul>
 </div>
  <!--if(toc)-->
 
+<h2 id="section">2.9</h2>
+<p>增加一个接口涉及到的位置：<br />
+- api增加xxReq、xxRes方法<br />
+- app/boot 下面添加logic<br />
+- router增加路由<br />
+- controller 增删改查的接口方法，其逻辑是调用service<br />
+- service 定义了增删改查的interface<br />
+- logic 对应service中接口的具体实现，并在init()方法中创建实例对象，以供service中获取其实例<br />
+- dao 外部的dao再调用internal中的dao<br />
+- model<br />
+- do<br />
+- entity</p>
+<h2 id="section-1">1.16</h2>
+<p><a href="https://goframe.org/display/gf116">GoFrame (ZH)-v1.16 - GoFrame (ZH)-v1.16 - GoFrame官网 - 类似PHP-Laravel, Java-SpringBoot的Go企业级开发框架</a></p>
 <p>解决方案的沉淀优先采用工具以及代码形式，而不是文档。</p>
-<h2 id="工具类库">工具类库</h2>
+<h3 id="问题">问题</h3>
+<p><a href="https://blog.csdn.net/qlynick/article/details/126524195">在Goframe使用pgsql的时候使用Save的方法_goframe pgsql-CSDN博客</a></p>
+<h3 id="工具类库">工具类库</h3>
 <p>gconv 进行各种类型转换</p>
 <p>配置文件</p>
 <p>数据库操作debug日志</p>
 <p>日志功能</p>
+<h3 id="生成代码">生成代码</h3>
+<p>gf gen dao</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

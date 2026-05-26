@@ -206,11 +206,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -222,13 +222,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -243,13 +243,27 @@ jQuery(document).ready(function(){
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#python中使用报错">python中使用报错</a></li>
+<li><a href="#python中使用tts">python中使用TTS</a>
+<ul>
+<li><a href="#python代码中的使用的报错">python代码中的使用的报错</a></li>
+</ul></li>
+<li><a href="#qt中使用tts">Qt中使用TTS</a>
+<ul>
+<li><a href="#qt的语音合成模块">Qt的语音合成模块</a></li>
+<li><a href="#tts引擎">tts引擎</a>
+<ul>
+<li><a href="#espeak">espeak</a></li>
+<li><a href="#espeak-ng">espeak-ng</a></li>
+</ul></li>
+<li><a href="#speech-dispatcher">Speech Dispatcher</a></li>
+</ul></li>
 </ul>
 </div>
  <!--if(toc)-->
 
+<h2 id="python中使用tts">python中使用TTS</h2>
 <p>pyttsx3 是一个用于文本到语音转换的 Python 库。它允许你将文字转化为语音，并播放出来。</p>
-<p><code>pyttsx3</code> 是一个基于 ESpeak 和 NSSpeechSynthesizer 的 Python 包装器，用于实现文本到语音的转换。底层的工作原理取决于系统和平台，因为它使用了系统中可用的文本到语音引擎。</p>
+<p><code>pyttsx3</code> 是一个基于SAPI5、 ESpeak 和 NSSpeechSynthesizer 的 Python 包装器，用于实现文本到语音的转换。底层的工作原理取决于系统和平台，因为它使用了系统中可用的文本到语音引擎。</p>
 <p>以下是 <code>pyttsx3</code> 在不同平台上的工作原理：</p>
 <ol>
 <li><strong>Windows:</strong>
@@ -270,7 +284,7 @@ jQuery(document).ready(function(){
 </ol>
 <p>在每种情况下，<code>pyttsx3</code> 通过调用底层系统的语音合成引擎来实现文本到语音的转换。这样的设计使得 <code>pyttsx3</code> 能够适应不同平台，并使用各个系统上可用的最佳语音合成引擎。</p>
 <p>深度学习在语音合成领域也有应用，例如 Tacotron 和 WaveNet 等模型，它们能够生成更自然和高质量的语音。然而，<code>pyttsx3</code> 并不使用这些深度学习模型，而是依赖于本地系统提供的传统的 TTS 引擎。深度学习实现通常需要大量的训练数据和计算资源，而<strong>传统的规则和合成方法</strong>在一些场景中仍然能够提供良好的效果。</p>
-<h2 id="python中使用报错">python中使用报错</h2>
+<h3 id="python代码中的使用的报错">python代码中的使用的报错</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="im">import</span> pyttsx3</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="im">import</span> soundcard        <span class="co"># 加上这一行就会报错，去掉没事儿</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
@@ -328,6 +342,41 @@ OSError: [WinError -2147417850] 无法在设置线程模式后对其加以更改
 <p>解决</p>
 <pre><code>pip uninstall pyttsx3
 pip install pyttsx3==2.71</code></pre>
+<h2 id="qt中使用tts">Qt中使用TTS</h2>
+<h3 id="qt的语音合成模块">Qt的语音合成模块</h3>
+<p>linux下首先下载tts的动态库</p>
+<pre><code>sudo apt-get install  libqt5texttospeech5 libqt5texttospeech5-dev</code></pre>
+<p>源码位置；<code>Qt5.12.12\5.12.12\Src\qtspeech\src\tts</code></p>
+<p>其次再下载qt tts的插件</p>
+<pre><code>sudo apt-get install  qtspeech5-speechd-plugin</code></pre>
+<p>源码位置；<code>Qt5.12.12\5.12.12\Src\qtspeech\src\plugins\tts</code></p>
+<p>为什么要用动态库+插件的形式？<br />
+因为不同平台下的语音合成的实现方式不同，故Qt要提供一个统一的接口给用户，而不同平台的实现对应着一个插件<br />
+- windows对应的是 <code>qtexttospeech_sapi.dll</code>, 调用的是 <code>sapi</code><br />
+- linux下对应的是n<code>qtspeech5-speechd-plugin</code>, 调用的是 <code>speechdispatcher</code> 服务提供的接口</p>
+<p>插件动态库所在的目录为： <code>plugins\texttospeech</code></p>
+<h3 id="tts引擎">tts引擎</h3>
+<h4 id="espeak">espeak</h4>
+<pre><code>sudo apt-get install  espeak  espeak-data  # espeak-data是其对应的各种语言的语言包</code></pre>
+<p><strong>问题</strong>：espeak自带了中文语音库，但是运行Qt提供的官方的语音识别的例子的时候，可以识别出中文地区和地区对应的不同语音，但是不同的音乐都不能生成中文</p>
+<h4 id="espeak-ng">espeak-ng</h4>
+<p>espeak-ng, 是espeak的下一代，ng:next generation, espeak不咋维护了，espeak-ng接手，是espeak的改进版</p>
+<pre><code>sudo apt-get install espeak-ng espeak-ng-data</code></pre>
+<p>检查 espeak、espeak-ng 是否支持中文<br />
+首先，确认你的 espeak-ng 是否已经支持中文。你可以通过以下命令检查：</p>
+<pre><code>espeak-ng --voices | grep zh</code></pre>
+<p>你应该能够看到类似以下的输出：</p>
+<pre><code>5  zh          chinese           中文</code></pre>
+<p><strong>问题</strong>：<br />
+1. espeak-ng默认版本没有带有中文语言包，需要下载源码，开启带中文的编译选项，程序才能支持中文<br />
+2. espeak-ng程序支持中文没问题，但是在Qt的示例程序中，连中文地区也识别不了</p>
+<h3 id="speech-dispatcher">Speech Dispatcher</h3>
+<p>在 Ubuntu 系统中，<strong>Speech Dispatcher</strong> 是一个用于管理和提供语音合成服务的中间件。它允许多个应用程序通过统一的接口访问语音合成功能，并与不同的 TTS（文本转语音）引擎进行通信，如 <code>espeak-ng</code>、<code>Festival</code> 等。Speech Dispatcher 提供了一个抽象层，应用程序可以通过它来调用不同的语音引擎，而不需要直接处理各个引擎的具体实现细节。</p>
+<p>下载对应引擎的插件，如espeak、espeak-ng插件<br />
+espeak插件</p>
+<pre><code>sudo apt install  speech-dispatcher-espeak</code></pre>
+<p>espeak-ng插件</p>
+<pre><code>sudo apt install  speech-dispatcher-espeak-ng</code></pre>
 
 <footer id="colophon" >
 		<div class="site-info col">

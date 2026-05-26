@@ -53,10 +53,10 @@
 从软件开发的角度来看，一个软件系统想要提供具有良好用户体验的功能，**最基本的要求就是控制缺陷**。
 为了控制缺陷，在软件工程中，我们定义了各种各样的流程，从代码的格式，到 linting，到 code review，再到单元测试、集成测试、手工测试。
 所有这些手段就像一个个漏斗，不断筛查代码，把缺陷一层层过滤掉，让软件在交付到用户时尽善尽美
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230203211135.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230203211135.png)
 
 ### 引入缺陷的代价
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230203212228.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230203212228.png)
 
 
 
@@ -133,7 +133,7 @@ copy的规则：
 
 生命周期的主要目标是避免**悬垂引用**（_dangling references_）
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230210220323.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230210220323.png)
 
 
 ### 编译器如何识别生命周期
@@ -183,7 +183,7 @@ String 和 `Vec<u8>` 占用相同的大小，都是 24 个字节。其实，如�
 
 ## 15｜数据结构：这些浓眉大眼的结构竟然都是智能指针？
 在 Rust 中，凡是需要做资源回收的数据结构，且实现了 Deref/DerefMut/Drop，都是智能指针。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230228205653.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230228205653.png)
 
 String 对堆上的值有所有权，而 &str 是没有所有权的，这是 Rust 中智能指针和普通胖指针的区别。
 
@@ -203,12 +203,12 @@ String 对堆上的值有所有权，而 &str 是没有所有权的，这是 Rus
 `&mut [T]`：表示一个可写的切片引用。
 `Box<[T]>`：一个在堆上分配的切片。
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230301213037.png)
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230301213104.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230301213037.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230301213104.png)
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230303114652.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230303114652.png)
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230303114615.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230303114615.png)
 
 ### 切片和迭代器 Iterator
 迭代器可以说是切片的孪生兄弟。切片是集合数据的视图，而迭代器定义了对集合数据的各种各样的访问操作。

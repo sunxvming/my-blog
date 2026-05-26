@@ -15,25 +15,9 @@ ssh-copy-id user@host
 ```
 
 核心是：B公钥加密，A私钥解密，B再进行验证
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/12731350.png)     
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/12731350.png)     
 
 
-
-## Enabling SSH on Ubuntu
-By default, when Ubuntu is first installed, remote access via SSH is not allowed. Enabling SSH on Ubuntu is fairly straightforward.
-```
-sudo apt update
-sudo apt install openssh-server -y
-sudo service ssh start
-```
-Ubuntu ships with a firewall configuration tool called UFW. If the firewall is enabled on your system, make sure to open the SSH port:
-```
-sudo ufw allow ssh
-```
-sshd: no hostkeys available – exiting.
-```
-ssh-keygen -A
-```
 
 
 ## SSH通过代理连接

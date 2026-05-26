@@ -30,7 +30,7 @@ ANDROID_SDK_HOME D:\Android\sdk
 Path %ANDROID_SDK_HOME%\platform-tools;%ANDROID_SDK_HOME%\tools
 ```
 ### 4.设置unity
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/c144cc20-32ab-48e0-a809-aaf6daa61155.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/c144cc20-32ab-48e0-a809-aaf6daa61155.png)
 
 ## 二：andriod studio的基本使用
 
@@ -39,12 +39,12 @@ i.有些功能在unity层是实现不了的，比如：。需要修改安卓的M
 ii.调试安卓包的时候也会用到andriod studio
 
 ### 2.常用工具
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/973e8690-04f9-45a4-8cd8-0fe18caac0f6.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/973e8690-04f9-45a4-8cd8-0fe18caac0f6.png)
 * Android SDK Manager
 主要是下载和管理sdk的
 * AVD(Android Virtual Device) Manager
 管理模拟器的，创建一个，然后点这里的运行就可以出来一个andriod模拟器了
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/bb3058b1-4db9-454b-9afd-08d2439e473a.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/bb3058b1-4db9-454b-9afd-08d2439e473a.png)
 * 模拟器添加APK文件的方法
 1.将要安装的apk文件放在sdk文件的platform-tools文件下 例：D:\Android\Sdk\platform-tools
 2.命令行下，在Android\Sdk\platform-tools 目录下执行
@@ -53,7 +53,7 @@ adb install xxx.apk //出现success就添加成功了。
 ```
 * android device monitor
 监控模拟器信息的
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/52b1d9bc-dfa8-42e8-a334-c963c60fd596.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/52b1d9bc-dfa8-42e8-a334-c963c60fd596.png)
 文件管理显示空白：参考网上的替换了monitor中的ddmlib.jar这个包后就好了
 data目录下空白：是因为没有权限，执行如下命令即可：
  adb shell
@@ -73,7 +73,7 @@ jar -cvf class.jar com -- jar包会生成在当前目录下
 安卓打包apk的解压目录(最简包，什么都不包括）
 
 unity打包的解压目录
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/eceac7b0-cbb9-4627-aef7-78ae39b3153d.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/eceac7b0-cbb9-4627-aef7-78ae39b3153d.png)
 多的内容为asserts和lib目录，lib中的内容如下:
 libmain.so libmono.so libunity.so
 
@@ -117,14 +117,14 @@ C:\Users\qud\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6p2dg9u9ohc3hw9下�
 ## 三：打包时可能会遇到问题
 ### 1.tools版本太高
 打包是报如下错误：
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/4a163601-9145-4035-bc64-4b90933c5962.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/4a163601-9145-4035-bc64-4b90933c5962.png)
 ```
 Error:Invalid command android
 UnityEditor.BuildPlayerWindow:BuildPlayerAndRun()
 ```
 原因是
 Unity在编译时会调用Android SDK tools中的android命令，而在新版本的Android SDK tools 中，android这个命令已经废弃了，导致Unity 无法正常编译。所以下载一个旧版本的tools就行，然后替换下面的目录就行
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/ae8be862-4763-4e9f-8bf2-3b6cf1965cab.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/ae8be862-4763-4e9f-8bf2-3b6cf1965cab.png)
 换成tools_r25.2.3-windows.zip 这版本的就不会报错了。
 
 ## 四：如何一键打包

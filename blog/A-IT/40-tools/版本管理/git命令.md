@@ -65,7 +65,7 @@ Port 443
 3. 版本库区，最后是 HEAD，指向你最近一次提交后的结果。
 工作区  -- add--> Index(暂存区)  --commit-->   HEAD
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230907165531.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230907165531.png)
 
 
 【https方式下设置密码】
@@ -253,7 +253,7 @@ git checkout -b save
 项目中经常会使用到第三方的 git 库, 将三方库整合到项目中最简单的办法就是复制粘贴
 也可以使用git-submodule 操作, 直接把第三方的版本库合并到自己的库中.
 涉及的配置文件：.gitmodules   .git/config
-git submodule update --init   --recursive #更新第三方源码
+git submodule update --init   --recursive     //  更新第三方源码
 
 把其他git工程作为Submodule
 git submodule add git@gitlab1.minervagame.com:gm/gm-doc.git doc

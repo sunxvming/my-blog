@@ -206,11 +206,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -222,13 +222,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -294,7 +294,7 @@ jQuery(document).ready(function(){
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a> }</span></code></pre></div>
 <h2 id="object.method1.method2-是什么意思">object.method1().method2() 是什么意思? </h2>
 <p>第一个被执行的是 object.method1()。它返回对象，可能是<strong>对象的引用</strong>（如，method1()可能以 return <code>*this</code> 结束），或可能是一些其他对象。我们姑且把返回的对象称为objectB。然后objectB成为method2()的this对象。<br />
-方法链最常用的地方是iostream库。例如，cout &lt;&lt; x &lt;&lt; y 可以执行因为 cout &lt;&lt; x是一个返回cout.的函数</p>
+方法链（链式调用）最常用的地方是iostream库。例如，cout &lt;&lt; x &lt;&lt; y 可以执行因为 cout &lt;&lt; x是一个返回cout.的函数</p>
 <h2 id="引用在本质上是什么它和指针到底有什么区别">引用在本质上是什么，它和指针到底有什么区别？</h2>
 <p><strong>其实引用只是对指针进行了简单的封装，它的底层依然是通过指针实现的</strong>，引用在C++中的内部实现是一个<strong>常量指针</strong><br />
 <code>Type&amp; name 等价于 Type* const name</code><br />
@@ -312,7 +312,7 @@ jQuery(document).ready(function(){
 <p>使用&amp;r取地址时，编译器会对代码进行<strong>隐式的转换</strong>，使得代码输出的是 r 的内容（引用的对象的地址），而不是 r 的地址，这就是为什么获取不到引用变量的地址的原因。也就是说，不是变量 r 不占用内存，而是<strong>编译器不让获取它的地址</strong>。<br />
 C++ 的发明人 Bjarne Stroustrup 也说过，他在 C++ 中引入引用的直接目的是为了<strong>让代码的书写更加漂亮</strong>，尤其是在运算符重载中，不借助引用有时候会使得运算符的使用很麻烦。</p>
 <h3 id="引用和指针的其他区别">引用和指针的其他区别</h3>
-<p>1. 引用必须在定义时初始化，不存在空引用，并且以后也要从一而终，不能再指向其他数据；而指针没有这个限制，指针在定义时不必赋值，以后也能指向任意数据。<br />
+<p>1. <strong>引用必须在定义时初始化</strong>，不存在空引用，并且以后也要从一而终，不能再指向其他数据；而指针没有这个限制，指针在定义时不必赋值，以后也能指向任意数据。<br />
 2. 指针和引用的自增（++）自减（--）运算意义不一样。对指针使用 ++ 表示指向下一份数据，对引用使用 ++ 表示它所指代的数据本身加 1；<br />
 3. 可以有 const 指针，但是没有 const 引用。也就是说，引用变量不能定义为下面的形式：</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>int a = <span class="dv">20</span>;</span>

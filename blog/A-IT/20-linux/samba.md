@@ -37,12 +37,12 @@ smbpasswd -a root#添加用户root到Samba用户数据库中
 ```
 \\192.168.85.128\root
 ```
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/24271de2-ce92-441a-a148-b14f9daaa2a4.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/24271de2-ce92-441a-a148-b14f9daaa2a4.png)
 
 
 5. 这些弄好之后在windows上进行 映射网络驱动
 右击此电脑，添加网络驱动
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/a2845685-d1af-4264-99dd-860ce08b3d9b.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/a2845685-d1af-4264-99dd-860ce08b3d9b.png)
 
 
 

@@ -62,7 +62,7 @@ export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 
 ### 7. 执行流程分析
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs20230923221833.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a320230923221833.png)
 
 
 字节码文件是一种和任何具体机器环境及操作系统环境无关的中间代码。它是一种二进制文件，是 Java 源文件由 Java 编译器编译后生成的目标代码文件。
@@ -95,7 +95,7 @@ JDK 就是 JRE 加上一些常用工具组成的。JDK 不仅能运行已经被�
 - **Oracle JDK**，Java开发工具包的官方Oracle版本。
 - **OpenJDK**，Java开发工具包的开源实现。尽管OpenJDK已经足够满足大多数的案例，但是许多程序比如Android Studio建议使用Oracle JDK，以避免UI/性能问题。
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs20230924110944.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a320230924110944.png)
 
 
 ### 10. java和C/C++的区别
@@ -371,7 +371,7 @@ StringBuffer 对象.reverse();
 
 
 ### String、StringBuffer和StringBuilder类的区别
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs20230924160956.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a320230924160956.png)
 - String 是 Java 中基础且重要的类，被声明为 final class，是不可变字符串。因为它的不可变性，所以拼接字符串时候会产生很多无用的中间对象，如果频繁的进行这样的操作对性能有所影响。  
 - StringBuffer 就是为了解决大量拼接字符串时产生很多中间对象问题而提供的一个类。它提供了 append 和 add 方法，可以将字符串添加到已有序列的末尾或指定位置，它的本质是一个线程安全的可修改的字符序列。  
 - StringBuilder 是 JDK1.5 发布的，它和 StringBuffer 本质上没什么区别，就是去掉了保证线程安全的那部分，减少了开销。
@@ -585,7 +585,7 @@ public class TwoDimensionTest {
 }
 ```
 **内存示意图：**
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230925170604.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230925170604.png)
 
 ### Arrays工具类
 Arrays 类是一个工具类，其中包含了数组操作的很多方法。这个 Arrays 类里均为 static 修饰的方法
@@ -1279,10 +1279,10 @@ Lambda表达式是一种用于定义匿名函数或闭包的简洁语法，它�
 
 在 Java 中所有异常类型都是内置类 java.lang.Throwable 类的子类，即 Throwable 位于异常类层次结构的顶层
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231023174043.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231023174043.png)
 
-![1__jXNZuPLKMTQ5IKjBzb8jA.webp](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/1__jXNZuPLKMTQ5IKjBzb8jA.webp)
-![java-exceptions-hierarchy-example.png.webp](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/java-exceptions-hierarchy-example.png.webp)
+![1__jXNZuPLKMTQ5IKjBzb8jA.webp](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/1__jXNZuPLKMTQ5IKjBzb8jA.webp)
+![java-exceptions-hierarchy-example.png.webp](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/java-exceptions-hierarchy-example.png.webp)
 
 
 - Exception 类用于用户程序可能出现的异常情况，它也是用来创建自定义异常类型类的类。
@@ -1532,9 +1532,9 @@ public class Test {
 Java 集合类型分为 Collection 和 Map
 Collection 接口定义了一些通用的方法，通过这些方法可以实现对集合的基本操作。定义的方法既可用于操作 Set 集合，也可用于操作 List 和 Queue 集合。
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230927090743.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230927090743.png)
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230927090754.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230927090754.png)
 
 
 
@@ -2345,7 +2345,7 @@ public class Test01 {
 |getModifiers()|获得可以解析出该方法所采用修饰符的整数|
 
 ### 在远程方法调用中运用反射机制
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230928104011.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230928104011.png)
 
 **Call类，封装了远程过程调用信息**
 ```java
@@ -2578,7 +2578,7 @@ public class ObjectFactory2 {
     - `InputStream` 提供了字节读取方法，如 `read(byte[] buffer)`，`read()` 等，用于读取字节。
     - `Reader` 提供了字符读取方法，如 `read(char[] buffer)`，`read()` 等，用于读取字符。  `char`为两个字节
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20230928112857.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230928112857.png)
 
 
 **缓冲流**
@@ -2819,7 +2819,7 @@ myThread.start();
 - 另一种是线程被提前强制性终止。
 
 线程的生命周期图，图中给出从一种状态转变成另一种状态的各种可能的原因。
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231009093953.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231009093953.png)
 
 **线程调度与优先级**
 Java 提供了一个线程调度器来监视和控制就绪状态的线程。线程的调度策略采用 **抢占式**，优先级高的线程比优先级

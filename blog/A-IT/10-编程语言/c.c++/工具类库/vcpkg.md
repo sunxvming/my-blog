@@ -77,7 +77,7 @@ git clone https://github.com/microsoft/vcpkg
 修改`vcpkg\ports\opencv4\vcpkg.json` ，在其中增加ffmpeg模块
 在[vcpkg官网](https://vcpkg.link/ports/opencv4)查看opencv都有哪些模块
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20240311190612.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20240311190612.png)
 
 
 

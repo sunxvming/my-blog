@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/30-database/Oracle/oracle表空间、用户、表</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#基础">基础</a></li>
+<li><a href="#细节">细节</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="基础">基础</h2>
+<p>其实在Oracle中的概念并不是创建数据库，而是创建一个<strong>表空间</strong>，然后再<strong>创建一个用户</strong>，设置该用户的默认表空间为我们新创建的表空间，这些操作之后，便和你之前用过的mysql数据库创建完数据库一模一样了。</p>
+<p>在SQL Server或者MySQL中，一般情况下，一个项目对应DBMS中的一个数据库，连接字符串中是用“<strong>用户名+密码+数据库名</strong>”来唯一标识数据库，一个用户可以管理多个数据库；<br />
+而连接oracle中的字符串主要是 <strong>用户名+密码</strong> 来标识数据库，通俗来说，除了数据库地址，一个程序连接MySQL或SQLServer需要提供用户名、密码和它需要连接的数据库名，连接Oracle则需要提供用户名和密码即可。</p>
+<p>一般在 oracle 中建立方案的步骤为：1.创建表空间→2.创建用户并设置其表空间和权限→3.创建数据库对象（表、视图、索引等）</p>
+<p>新建表空间</p>
+<pre><code>create tablespace tbs_danny datafile &#39;D:\oracle\oracledata\danny\danny_data.dbf&#39; size 50M;</code></pre>
+<p>新建用户并为此用户分配默认的表空间</p>
+<pre><code>create user danny identified by danny default tablespace tbs_danny;</code></pre>
+<p>为用户授权</p>
+<pre><code>grant connect to danny;
+grant resource to danny;</code></pre>
+<p>建立表</p>
+<pre><code>create table t_user_by_danny(id varchar(32),name varchar(32)) tablespace tbs_danny;
+create table t_user_by_danny(id varchar(32),name varchar(32));   #也可以不指定表空间</code></pre>
+<ol>
+<li><strong>表空间 (Tablespace)</strong>
+<ul>
+<li>表空间是Oracle中<strong>管理存储的逻辑结构</strong>，它由一个或多个物理数据文件（如 <code>.dbf</code> 文件）组成。</li>
+<li>它就像是<strong>共享的物理仓库</strong>，不同用户的表都可以把数据存放在这个仓库里（即同一个表空间），但仓库里的货物（表数据）具体是谁的，是通过“用户”（模式）来区分的139。</li>
+</ul></li>
+<li><strong>用户/模式 (User/Schema)</strong>
+<ul>
+<li>在Oracle中，“用户”和“模式”基本是同义词。创建一个用户的同时，就会生成一个同名的<strong>模式</strong>来存放其所有的数据库对象（如表、视图等）。</li>
+<li><strong>模式是对象的逻辑容器，也是真正的命名空间</strong>。这意味着，表的“唯一身份”是由<strong>模式名 + 表名</strong>共同决定的。</li>
+<li><strong>模式</strong>是对象的逻辑容器，隔离性非常强。<strong>为不同应用创建不同的用户（模式）是一种常见的做法</strong>，每个应用的用户管理自己的一套表，即使表名相同也互不干扰。</li>
+</ul></li>
+<li><strong>表 (Table)</strong>
+<ul>
+<li>表是实际存储数据的对象。它<strong>属于某个特定的模式</strong>，但可以指定存储在某个表空间中。</li>
+</ul></li>
+</ol>
+<h2 id="细节">细节</h2>
+<p>数据库存储结构分为：逻辑存储结构、物理存储结构。</p>
+<p>2.2 逻辑存储结构：由小到大分为 数据块、数据区、数据段、逻辑对象、表空间、数据库。</p>
+<ul>
+<li>1数据块：逻辑最小单位，通常是操作系统块的整数倍。由块头、表目录、行目录、空余空间、行数据5部分组成。</li>
+<li>2数据区：一些数据块组成，会自行扩展。Oracle储存分配的最小单元。</li>
+<li>3数据段：一些数据区组成，用于存储表、索引或簇等占用空间的数据对象。包括：数据段、索引段、回滚段、临时段。</li>
+<li>4表空间：最大的逻辑区分，物理上对应数据文件。Oracle系统自动生成：
+<ul>
+<li>4.1SYSTEM表空间：存放系统表与数据字典。</li>
+<li>4.2SYSAUX表空间：辅助SYSTEM。</li>
+<li>4.3UODO表空间：撤销表空间。</li>
+<li>4.4USERS表空间：用户表空间。</li>
+</ul></li>
+</ul>
+<p>2.3 物理存储结构：数据文件、控制文件、重做日志文件、归档日志文件、参数文件、口令文件、警告日志文件等。</p>
+<ul>
+<li>1数据文件：保存用户应用程序数据和Oracle系统内部数据的文件。在读取数据时，Oracle会先从高速数据缓存区中取，没有再从数据文件中取。
+<ul>
+<li>系统数据文件、撤销数据文件、用户数据文件</li>
+</ul></li>
+<li>2控制文件：记录了数据库的物理结构，包括数据库名、数据文件与日志文件的名称和位置等</li>
+<li>3日志文件：日志进程LGWR、归档进程ARCH
+<ul>
+<li>重做日志文件：记录了数据库所发生过得更改信息（修改、删除、添加等）。</li>
+<li>归档日志文件：非归档模式会在日志记满时覆盖、归档模式会日志写满时运行归档进程。</li>
+</ul></li>
+<li>4服务器参数文件：记录了Oracle数据库的基础参数信息（数据库名、控制文件所在路径、日志缓冲大小等）。查询数据库的服务器参数：
+<ul>
+<li>1.select name,value,ismodified from <strong>v$parameter;</strong></li>
+<li>2.SQL*Plus 的show parameter</li>
+<li>3 修改服务器参数 ALTER SYSTEM;</li>
+</ul></li>
+<li>5密码文件：用于密码的验证：NONE表示只要通过操作系统验证，就不用通过Oracle密码文件验证。SHARED表示多个数据库实例都可以采用此密码文件验证。EXCLUSIVE表示只有一个数据库实例可以使用此密码文件验证。</li>
+<li>6警告文件：记录Oracle系统的运行信息和错误信息。</li>
+<li>7跟踪文件：后台进程跟踪文件用于记录后台进程的警告或错误信息、用户进程跟踪文件用于记载与用户进程相关的信息。</li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

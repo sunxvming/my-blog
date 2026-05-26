@@ -9,11 +9,16 @@
 ## excel
 ### 冻结表头
 选第几行几列的固定点
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/cf67020c-6bcd-4278-87ba-93caae77d878.png)
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/8bf76a47-1823-4209-9617-5d3aeda98d5f.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/cf67020c-6bcd-4278-87ba-93caae77d878.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/8bf76a47-1823-4209-9617-5d3aeda98d5f.png)
  
 
 
+快捷键
+ctrl + `+`   插入一行
+ctrl + `-`   删除一行
+
+移动行   选中一行，出现+号的移动符号后，按住shift进行移动
  
 ### WORD字数统计
 ```

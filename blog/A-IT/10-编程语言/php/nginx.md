@@ -1,4 +1,29 @@
 
+
+## windows上运行
+
+启动：
+```
+start nginx
+```
+
+
+查看是否运行
+```
+tasklist /fi "imagename eq nginx.exe"
+```
+
+其他命令
+```
+nginx -s stop	fast shutdown
+nginx -s quit	graceful shutdown
+nginx -s reload	changing configuration, starting new worker processes with a new configuration, graceful shutdown of old worker processes
+nginx -s reopen	re-opening log files
+```
+
+
+[nginx for Windows](https://nginx.org/en/docs/windows.html)
+
 ## 1.nginx 的安装
 Nginx ("engine x") 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。
 
@@ -380,7 +405,7 @@ location /foo {
 即 '/'能从左前缀匹配 '/foo', '/foo'也能左前缀匹配'/foo',
 此时, 真正访问 /var/www/html/index.html
 原因:'/foo'匹配的更长,因此使用之.;
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/95ad9212-77d6-482c-a04e-7781a2b96137.jpg)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/95ad9212-77d6-482c-a04e-7781a2b96137.jpg)
 
 
 
@@ -720,7 +745,7 @@ Js,css等小时级的缓存.
 
 
 ## 10.nginx反向代理服务器+负载均衡
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/25d33256-aa03-4a0d-941c-bdab559d7ca7.jpg)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/25d33256-aa03-4a0d-941c-bdab559d7ca7.jpg)
 
 
 用户A始终认为它访问的是原始服务器B而不是代理服务器Z，但实用际上反向代理服务器接 受用户A的应答，
@@ -790,39 +815,9 @@ location ~ .*\.(jpg|png|gif|bmp)$ {
 
 
 
-## Nginx---->php-fpm之间的优化
-
-
-在很多个nginx来访问fpm时, fpm的进程要是不够用, 会生成子进程.(不用了会自动消失，对高并发的网站，时刻都需要子进程，）
-
-
-生成子进程需要内核来调度,比较耗时,  如果网站并发比较大,   我们可以用静态方式一次性生成若干子进程,保持在内存中.
-
-
-方法 -- 修改php-fpm.conf
-```
-Pm = static  让fpm进程始终保持,不要动态生成
-Pm.max_children= 32  始终保持的子进程数量
-```
-
-
-
-
-
-
-
-
-
-
-
 
 ## 常见问题
 权限问题导致Nginx 403 Forbidden错误的解决方法
-
-
-
-
-
 
 系统中的路径查询结果：
 [root@lizhong html]# ll /root/html/
@@ -831,9 +826,6 @@ Pm.max_children= 32  始终保持的子进程数量
 目录时存在，重启nginx还是这个错误，后来想到是不是权限问题？于是在nginx.conf头部加入一行：
 user  root;
 重启nginx再访问，就可以正常访问了
-
-
-
 
 如果不想使用root用户运行，可以通过修改目录访问权限解决403问题，但不能把目录放在root用户宿主目录下，放在任意一个位置并给它755，或者通过chown改变它的拥有者与nginx运行身份一致也可以解决权限问题。
 

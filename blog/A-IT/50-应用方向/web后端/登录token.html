@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/50-应用方向/web后端/登录token</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#token机制">1. Token机制</a></li>
+<li><a href="#jwt机制">2. JWT机制</a></li>
+<li><a href="#核心区别对比表">核心区别对比表</a></li>
+<li><a href="#如何选择">如何选择？</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<ul>
+<li><strong>Token机制</strong> 是一个<strong>广义的概念</strong>，指的是一种使用令牌（一串字符）来代表用户身份和权限的认证方式。</li>
+<li><strong>JWT</strong> 是 <strong>Token机制的一种具体实现</strong>，是一种特定格式的Token。</li>
+</ul>
+<h3 id="token机制">1. Token机制</h3>
+<p>“Token机制”通常指的是一种<strong>基于令牌的身份验证</strong>模式。其中最主流、最典型的实现是 <strong>OAuth 2.0</strong> 和 <strong>OpenID Connect</strong> 中使用的 <strong>不透明令牌</strong>。</p>
+<p><strong>核心流程（以OAuth 2.0为例）：</strong><br />
+1. <strong>登录</strong>：用户提供凭证（如用户名密码）给认证服务器。<br />
+2. <strong>颁发Token</strong>：认证服务器验证通过后，生成一个<strong>唯一的、随机的字符串</strong>（即Token），例如 <code>a1b2c3d4e5f6g7h8</code>。服务器会将该Token与用户的身份信息（如用户ID、权限范围）的映射关系<strong>存储在数据库或缓存（如Redis）中</strong>。<br />
+3. <strong>使用Token</strong>：客户端（如前端App）在后续请求的Header（如 <code>Authorization: Bearer &lt;token&gt;</code>）中携带此Token。<br />
+4. <strong>验证Token</strong>：资源服务器（如后端API）收到请求后，需要<strong>向认证服务器发起查询</strong>，或者<strong>自己检查数据库/缓存</strong>，来验证这个Token是否有效、是否过期、以及对应的用户权限是什么。<br />
+5. <strong>返回资源</strong>：验证通过后，资源服务器返回请求的数据。</p>
+<p><strong>关键特点：</strong><br />
+* <strong>不透明</strong>：Token本身只是一串无意义的随机字符，不包含任何信息。<br />
+* <strong>服务器有状态</strong>：服务器必须存储（Stateful）每个Token及其对应的会话信息。这是一种<strong>中心化</strong>的存储方式。<br />
+* <strong>需要查库</strong>：每次验证Token的有效性都需要查询数据库或缓存，会带来一定的性能开销和延迟。<br />
+* <strong>强控制力</strong>：服务器可以随时让某个Token失效（直接从数据库中删除即可），这是其最大优点。</p>
+<hr />
+<h3 id="jwt机制">2. JWT机制</h3>
+<p>JWT 是 <strong>JSON Web Token</strong> 的缩写，它是一种<strong>开放的标准</strong>，定义了一种紧凑且自包含的方式，用于在各方之间安全地传输信息作为JSON对象。</p>
+<p>gwt流程：<br />
+- 首次登录<br />
+- token = GenerateToken(user.Id, user.Username, user.Password)<br />
+- 创建Claims结构体，包含用户信息和加密相关的设置，比如过期事件，token发行方人<br />
+- 使用指定的<strong>加密密钥</strong>进行加密生成token串<br />
+- 非首次登录<br />
+- 从http头中获取token<br />
+- 使用指定的<strong>加密密钥</strong>对token串进行解密，并还原出Clains结构体</p>
+<p><strong>核心流程：</strong><br />
+1. <strong>登录</strong>：用户提供凭证给认证服务器。<br />
+2. <strong>颁发JWT</strong>：认证服务器验证通过后，会<strong>将用户的身份信息（Claims，载荷）打包到一个JSON结构中</strong>，然后用密钥对其进行<strong>签名</strong>，生成一个JWT。一个典型的JWT看起来像这样：<code>xxxxx.yyyyy.zzzzz</code>（由Header、Payload、Signature三部分组成）。<br />
+3. <strong>使用JWT</strong>：客户端在后续请求Header中携带此JWT。<br />
+4. <strong>验证JWT</strong>：资源服务器收到JWT后：<br />
+* 检查签名：使用预先约定好的密钥（或公钥）验证签名是否有效，以证明Token未被篡改。<br />
+* 检查标准声明：检查有效期（<code>exp</code>）、受众（<code>aud</code>）等是否合法。<br />
+* <strong>整个过程不需要查询数据库或认证服务器！</strong><br />
+5. <strong>返回资源</strong>：验证通过后，资源服务器直接从JWT的Payload中读取用户信息（如用户ID），然后返回数据。</p>
+<p><strong>关键特点：</strong><br />
+* <strong>自包含</strong>：Token本身包含了所有需要的用户信息，不需要在服务器端存储会话状态。<br />
+* <strong>无状态</strong>：服务器不需要存储JWT本身，只需要验证其签名和声明即可。这是一种<strong>去中心化</strong>的验证方式。<br />
+* <strong>性能好</strong>：避免了每次请求都查询数据库的开销，适合分布式微服务架构。<br />
+* <strong>控制力弱</strong>：由于服务器无状态，无法在JWT自然过期前让其失效（除非引入额外的黑名单机制，但这又违背了无状态的初衷）。</p>
+<hr />
+<h3 id="核心区别对比表">核心区别对比表</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">特性</th>
+<th style="text-align: left;">传统Token (不透明令牌)</th>
+<th style="text-align: left;">JWT (JSON Web Token)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>含义</strong></td>
+<td style="text-align: left;">一个广义概念，指代令牌认证模式</td>
+<td style="text-align: left;">一种具体的Token实现标准</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>信息存储</strong></td>
+<td style="text-align: left;"><strong>存储在服务器端</strong>的数据库/缓存中</td>
+<td style="text-align: left;"><strong>自包含</strong>在Token本身的Payload中</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>服务器状态</strong></td>
+<td style="text-align: left;"><strong>有状态</strong>，需要维护Token会话信息</td>
+<td style="text-align: left;"><strong>无状态</strong>，无需存储Token本身</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>验证方式</strong></td>
+<td style="text-align: left;">必须<strong>查询数据库/认证服务器</strong>进行验证</td>
+<td style="text-align: left;"><strong>本地验证</strong>签名和声明，无需查库</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>性能</strong></td>
+<td style="text-align: left;">每次验证有网络I/O和数据库查询开销</td>
+<td style="text-align: left;">验证速度快，无网络开销，适合分布式系统</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>失效控制</strong></td>
+<td style="text-align: left;"><strong>强控制</strong>，可从服务器端立即撤销</td>
+<td style="text-align: left;"><strong>弱控制</strong>，在到期前难以主动撤销（需额外手段）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>内容</strong></td>
+<td style="text-align: left;">随机字符串，<strong>不透明</strong></td>
+<td style="text-align: left;">编码后的JSON，<strong>可解码查看内容</strong>（但不防篡改）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>主要场景</strong></td>
+<td style="text-align: left;">需要强安全控制、可即时撤销会话的场景</td>
+<td style="text-align: left;">一次性验证、短期有效、分布式系统的授权</td>
+</tr>
+</tbody>
+</table>
+<h3 id="如何选择">如何选择？</h3>
+<ul>
+<li><strong>使用传统不透明Token的场景</strong>：
+<ul>
+<li>对安全性要求极高，需要能够<strong>立即吊销用户访问权限</strong>（如用户修改密码、管理员踢人）。</li>
+<li>典型的Web应用会话管理。</li>
+</ul></li>
+<li><strong>使用JWT的场景</strong>：
+<ul>
+<li><strong>一次性验证</strong>：如用户注册后收到的激活链接。</li>
+<li><strong>短期API授权</strong>：Token有效期很短（如几分钟），用于完成特定操作。</li>
+<li><strong>分布式微服务系统</strong>：服务之间需要频繁认证，但不想引入中心化的Token查询瓶颈。</li>
+<li><strong>第三方单点登录</strong>。</li>
+</ul></li>
+</ul>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

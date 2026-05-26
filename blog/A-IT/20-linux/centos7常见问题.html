@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/20-linux/centos7常见问题</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#如何配置国内yum源镜像">如何配置国内yum源镜像</a>
+<ul>
+<li><a href="#备份系统原始yum源配置文件">1. 备份系统原始yum源配置文件</a></li>
+<li><a href="#下载阿里云等镜像站的yum配置文件">2. 下载阿里云等镜像站的yum配置文件</a></li>
+<li><a href="#重建本地缓存">3重建本地缓存</a></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul></li>
+<li><a href="#centos7升级gcc8版本">Centos7升级GCC8版本</a></li>
+<li><a href="#centos7安装opengl库">centos7安装opengl库</a></li>
+<li><a href="#centos修改ip地址">centos修改ip地址</a></li>
+<li><a href="#centos7无法识别u盘">centos7无法识别U盘</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="如何配置国内yum源镜像">如何配置国内yum源镜像</h2>
+<p>CentOS发行版作为<strong>红帽RedHat商业发行版的下游社区版本</strong>，因其稳定性极佳，并且提供LTS长期技术支持，所以备受企业客户们的喜爱。丰盘ECM作为一款企业级私有部署的文档管理软件，出于稳定可靠性考虑，最早也是推荐CentOS作为首选操作系统。</p>
+<p>而当IBM在2018年年底收购了红帽之后，红帽调整了RedHat和CentOS的发行策略，推出CentOS Stream发行版，<strong>将CentOS从原先红帽RedHat商业发行版的代码下游分支转变为上游分支</strong>，相当于变成了红帽RedHat系统新特性的试验田。这意味着，后续官方发行的CentOS Stream，将会有更频繁的代码变更，以及实验特性的加入，没有了原先稳定性的优势。</p>
+<p><strong>2024年6月30号，CentOS发行版的最后一个LTS长周期版本的支持服务正式终止</strong>，官方的yum源也会下架。如果您单位仍在使用CentOS 7/8的旧版本，那么Linux系统管理员执行 <code>yum install</code> 安装软件包的时候都会报错，自然也就无法安装Docker以及丰盘ECM系统。</p>
+<p>您有几种解决方案可选择：</p>
+<ul>
+<li><strong>将系统内置yum源切换成国内第三方维护的镜像站点；</strong></li>
+<li>升级至CentOS Stream系列，如CentOS Stream 9的生命周期可至2027年；</li>
+<li>替换为与CentOS/RedHat二进制兼容的发行版Rocky Linux/Alma Linux/Anolis OS，运维技术和操作习惯接近；</li>
+<li>切换至Debian/Ubuntu等其他主流发行版，与CentOS二进制不兼容，运维技术和操作习惯差异较大；</li>
+</ul>
+<p>以下介绍第一种方案，在旧的CentOS发行版上切换至国内可用的镜像站点，切换成功之后，您可以运行丰盘自动化安装脚本，实现系统快速部署。</p>
+<h3 id="备份系统原始yum源配置文件">1. 备份系统原始yum源配置文件</h3>
+<p>将系统内置或手工配置的yum源配置文件移动至至新的目录，例如 <code>/etc/yum.repos.d/bak240712/</code> ，这样后续如果想恢复或者重置也比较方便。<strong>注意，如果不移走的话，最后步骤「重建本地缓存」的时候，有可能会受到老配置文件的影响而失败。</strong></p>
+<p>bash</p>
+<pre><code># 创建备份文件夹
+sudo mkdir -p /etc/yum.repos.d/bak$(date +&quot;%y%m%d&quot;)
+# 将源配置移动至备份文件夹
+sudo mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/bak$(date +&quot;%y%m%d&quot;)</code></pre>
+<h3 id="下载阿里云等镜像站的yum配置文件">2. 下载阿里云等镜像站的yum配置文件</h3>
+<p>国内目前有很多知名的yum源镜像站点，首选三大公有云厂商（阿里云、腾讯云和华为云）的站点，镜像访问比较稳定。</p>
+<p>以阿里云为例，可访问 <a href="https://mirrors.aliyun.com/repo/">https://mirrors.aliyun.com/repo/</a> 地址查看相关镜像清单。</p>
+<p>在Linux终端根据当前操作系统版本下载不同的yum配置文件，由于Docker系统无法安装在Centos6上，此处推荐使用业界较为广泛使用的Centos7.9版本。</p>
+<pre><code># 推荐Centos7
+sudo wget -O /etc/yum.repos.d/Centos-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+
+# Centos8
+sudo wget -O /etc/yum.repos.d/Centos-Base.repo http://mirrors.aliyun.com/repo/Centos-8.repo</code></pre>
+<p>然后<strong>下载epel源配置文件。</strong></p>
+<p>EPEL (Extra Packages for Enterprise Linux) 是一个为 企业级Linux发行版提供额外软件包的项目，由 Fedora 社区维护，旨在为这些 Linux 发行版提供高质量的附加软件包。</p>
+<pre><code># 推荐Centos7
+sudo wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+
+# Centos8
+sudo wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-archive-8.repo</code></pre>
+<h3 id="重建本地缓存">3重建本地缓存</h3>
+<pre><code># 运行以下两行命令重建本地缓存即可生效
+sudo yum clean all &amp;&amp; yum makecache
+
+# 测试安装软件包是否正常
+sudo yum install curl wget</code></pre>
+<h3 id="参考链接">参考链接</h3>
+<ul>
+<li><a href="https://www.ekbcloud.com/docs/admin_manual/centos.html">CentOS停服后如何配置国内yum源镜像 | 丰盘ECM帮助中心</a></li>
+<li><a href="https://blog.csdn.net/zhyue77yuyi/article/details/124702213">CentOS 7.6镜像下载_centos7.6镜像-CSDN博客</a></li>
+</ul>
+<h2 id="centos7升级gcc8版本">Centos7升级GCC8版本</h2>
+<p>1.安装scl源：<br />
+yum install centos-release-scl scl-utils-build</p>
+<p>2.列出scl可用源<br />
+yum list all --enablerepo='centos-sclo-rh' | grep "devtoolset-"</p>
+<p>3.安装8版本的gcc、gcc-c++、gdb工具链（toolchian）：<br />
+yum install -y devtoolset-8-toolchain<br />
+scl enable devtoolset-8 bash<br />
+gcc --version</p>
+<p><strong>如何让 devtoolset-8 永久生效</strong></p>
+<p>1.在用户级别永久生效</p>
+<pre><code>vim ~/.bashrc
+# 在文件末尾添加这一行：
+source /opt/rh/devtoolset-8/enable
+
+# 保存退出后执行
+source ~/.bashrc</code></pre>
+<p>2.系统级别永久生效</p>
+<pre><code>sudo sh -c &#39;echo &quot;source /opt/rh/devtoolset-8/enable&quot; &gt;&gt; /etc/profile&#39;
+
+source /etc/profile</code></pre>
+<h2 id="centos7安装opengl库">centos7安装opengl库</h2>
+<p>当你在 <strong>Red Hat 7</strong>（或 CentOS 7）上编译程序时遇到错误：</p>
+<pre><code>/usr/bin/ld: cannot find -lGL
+collect2: error: ld returned 1 exit status</code></pre>
+<p>编译参数 <code>-lGL</code> 表示链接 OpenGL 主库 <code>libGL.so</code>。<br />
+在 Red Hat 7 上，这个库通常由 <strong>Mesa</strong> 提供。执行以下命令进行安装</p>
+<pre><code>sudo yum install mesa-libGL-devel mesa-libGLU-devel</code></pre>
+<h2 id="centos修改ip地址">centos修改ip地址</h2>
+<p>1. </p>
+<pre><code>vi /etc/sysconfig/network-scripts/ifcfg-ethxx
+</code></pre>
+<ol>
+<li></li>
+</ol>
+<pre><code>TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=static    # ip分配方式
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens33
+UUID=30949b72-c749-4599-8cc4-061216b0650c
+DEVICE=ens33
+ONBOOT=yes
+IPADDR=192.168.1.21    # 需要修改
+GATEWAY=192.168.1.1    # 需要修改
+NETMASK=255.255.255.0  # 需要修改
+DNS1=8.8.8.8           # 需要修改
+ZONE=</code></pre>
+<ol>
+<li></li>
+</ol>
+<pre><code>service network restart</code></pre>
+<h2 id="centos7无法识别u盘">centos7无法识别U盘</h2>
+<p>插上u盘，在文件管理其中应该能看到u盘，</p>
+<p>在centons 7中打开U盘，报错file <a href="https://so.csdn.net/so/search?q=type&amp;spm=1001.2101.3001.7020">type</a> exfat not configured in kernel。<br />
+这是因为Linux采用的文件系统和我U盘的文件系统不一致引起。U盘的文件系统是exFat。</p>
+<p><strong>解决方法</strong><br />
+既然已知文件系统不支持导致，那么只要在Linux 下载安装用于读写ExFAT文件系统的工具和库就可以解决了。具体的下载安装命令如下</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="ex">yum</span> install -y http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-1.el7.nux.noarch.rpm </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="ex">yum</span> install exfat-utils fuse-exfat</span></code></pre></div>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

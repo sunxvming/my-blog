@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/30-database/Oracle/Oracle入门</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#导入导出">导入导出</a></li>
+<li><a href="#windows上的启动">windows上的启动</a></li>
+<li><a href="#同义词名">同义词名</a></li>
+<li><a href="#学习资料">学习资料</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p>用户密码<br />
+orcl 123456</p>
+<p>点击口令管理，取消锁定 SCOTT，对应的默认初始密码为 tiger，点击确定。</p>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20250807092615.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<h2 id="导入导出">导入导出</h2>
+<p>exp SXM/123456@orcl OWNER=SXM FILE=tables.dmp ROWS=N</p>
+<h2 id="windows上的启动">windows上的启动</h2>
+<p>启动脚本</p>
+<pre class="bat"><code>:: 取得管理员权限
+:Main
+@echo off
+cd /d &quot;%~dp0&quot;
+cacls.exe &quot;%SystemDrive%\System Volume Information&quot; &gt;nul 2&gt;nul
+if %errorlevel%==0 goto Admin
+if exist &quot;%temp%\getadmin.vbs&quot; del /f /q &quot;%temp%\getadmin.vbs&quot;
+echo Set RequestUAC = CreateObject^(&quot;Shell.Application&quot;^)&gt;&quot;%temp%\getadmin.vbs&quot;
+echo RequestUAC.ShellExecute &quot;%~s0&quot;,&quot;&quot;,&quot;&quot;,&quot;runas&quot;,1 &gt;&gt;&quot;%temp%\getadmin.vbs&quot;
+echo WScript.Quit &gt;&gt;&quot;%temp%\getadmin.vbs&quot;
+&quot;%temp%\getadmin.vbs&quot; /f
+if exist &quot;%temp%\getadmin.vbs&quot; del /f /q &quot;%temp%\getadmin.vbs&quot;
+exit
+:Admin
+
+:: 手动启动 oracle 服务,因安装环境不同,需将下列服务名称替换成自己的
+net start &quot;OracleServiceORCL&quot;
+net start &quot;OracleOraDb11g_home1TNSListener&quot;
+net start &quot;OracleOraDb11g_home1ClrAgent&quot;
+
+:: 如果需要使用控制台服务，将下面这行前面的 :: 删掉,并将服务名称替换成自己的
+net start &quot;OracleDBConsoleorcl&quot;
+pause</code></pre>
+<ul>
+<li><a href="https://blog.csdn.net/m0_37941483/article/details/95238426">启动windows环境下的oracle的三种方式_windows启动oracle-CSDN博客</a></li>
+</ul>
+<h2 id="同义词名">同义词名</h2>
+<hr />
+<p>CREATE SYNONYM WFDISC FOR IDCX.WFDISC;<br />
+CREATE SYNONYM SITE FOR STATIC.SITE;</p>
+<p>CREATE SYNONYM IN_ARRIVAL FOR SEL3.ARRIVAL;<br />
+CREATE SYNONYM IN_ASSOC FOR SEL3.ASSOC;<br />
+CREATE SYNONYM IN_ORIGIN FOR SEL3.ORIGIN;<br />
+CREATE SYNONYM IN_ORIGERR FOR SEL3.ORIGERR;</p>
+<p>CREATE SYNONYM OUT_ARRIVAL FOR LEB.ARRIVAL;<br />
+CREATE SYNONYM OUT_ASSOC FOR LEB.ASSOC;<br />
+CREATE SYNONYM OUT_ORIGIN FOR LEB.ORIGIN;<br />
+CREATE SYNONYM OUT_ORIGERR FOR LEB.ORIGERR;</p>
+<h2 id="学习资料">学习资料</h2>
+<ul>
+<li><a href="https://developer.aliyun.com/article/1266361">Oracle 11g安装配置完美教程 - Windows（上）-阿里云开发者社区</a></li>
+<li><a href="https://developer.aliyun.com/article/1266362?spm=5176.26934562.main.3.8e5271c6YZoMO6">Oracle 11g安装配置完美教程 - Windows（下）-阿里云开发者社区</a></li>
+<li><a href="https://blog.csdn.net/qq_55629923/article/details/127514889">windows安装Oracle11下载地址以及安装步骤带图详解每个步骤_widows上oralce 11安装-CSDN博客</a></li>
+<li><a href="https://blog.csdn.net/qiushisoftware/article/details/100734470">Navicat for oracle创建数据库_navicat oracle 创建数据库-CSDN博客</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/2155752">使用navicat创建Oracle数据库[通俗易懂]-腾讯云开发者社区-腾讯云</a></li>
+<li><a href="https://www.cnblogs.com/luckyplj/p/11365245.html">Navicat使用笔记05---Navicat 创建oracle表空间、新建用户、授权 - 雨后观山色 - 博客园</a></li>
+</ul>
+<p>表空间<br />
+- <a href="https://freesion.com/article/8362791744/">探秘Oracle表空间、用户、表之间的关系 - 灰信网（软件开发博客聚合）</a></p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

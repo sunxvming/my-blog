@@ -1,4 +1,16 @@
 
+
+### 参考资料
+- [CGold: The Hitchhiker’s Guide to the CMake](https://cgold.readthedocs.io/en/latest/)
+- [知乎问题 CMake 如何入门？](https://www.zhihu.com/question/58949190)
+- [关于cmake由浅入深的例子](https://github.com/ttroy50/cmake-examples)
+- [awesome-cmake](https://github.com/onqtam/awesome-cmake)
+- [Learn CMake's Scripting Language in 15 Minutes](https://preshing.com/20170522/learn-cmakes-scripting-language-in-15-minutes/)
+- [CMake Tutorial — cmake官网的教程](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)
+- [CMake 教程 | 菜鸟教程](https://www.runoob.com/cmake/cmake-tutorial.html)
+
+
+
 ## 简介
 
 ### cmake
@@ -8,7 +20,6 @@ cmake允许开发者编写一种平台无关的 CMakeList.txt 文件来**定�
 * 内部构建和外部构建
 cmake强烈推荐的是外部构建(out-of-source build)，好处是不影响源码。即新建build目录，构建的工作和生成的中间文件都在这个目录
 
-
 * 查看更详细的编译信息
 make VERBOSE=1 来构建
 
@@ -17,26 +28,10 @@ make VERBOSE=1 来构建
 cmake.EXE --build d:/project/c++/shipar/build --config Debug --target ALL_BUILD -j 22 --verbose
 ```
 
-### 参考资料
-参考资料：
-知乎问题 CMake 如何入门？：https://www.zhihu.com/question/58949190
-
-
-关于cmake由浅入深的例子
-https://github.com/ttroy50/cmake-examples
-
-
-awesome-cmake
-https://github.com/onqtam/awesome-cmake
-
-
-Learn CMake's Scripting Language in 15 Minutes
-https://preshing.com/20170522/learn-cmakes-scripting-language-in-15-minutes/
 
 
 
-
-
+整个构建的各个阶段过程：Configure → Generate → Build → Test → Install → Packing
 
 ## 注意事项
 ### cmake缓存
@@ -47,7 +42,7 @@ https://preshing.com/20170522/learn-cmakes-scripting-language-in-15-minutes/
 cmake .. -DCCACHE=OFF
 ```
 ### 编译时编译器
-默认情况下.cpp文件的编译方式为g++，以c结尾的文件编译方式为gcc。
+默认情况下.cpp文件的编译方式为`g++`，以c结尾的文件编译方式为`gcc`。
 当存在c文件和c++文件混编的情况下要注意，若c文件用gcc编译，cpp文件用g++编译，可能会有问题。
 
 
@@ -600,11 +595,11 @@ Windows上使用CMake也很方便，除了传统的命令行方式使用CMake，
 source code编辑框就是输入代码的所在的路径，这个路径能够找到一个CMakeLists.txt文件。
 build the binaries编辑框就是编译输出的中间文件和最终的二进制文件的目录。
 Add Entry添加预定义的变量
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/c8b32e20-2b60-493b-b07b-f0c644b1f3ab.png)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/c8b32e20-2b60-493b-b07b-f0c644b1f3ab.png)
 
 
 因为CMake最终通过CMakeLists.txt文件生成Windows上对应的vs工程文件，不同的vs版本也会影响到最终生成vs工程文件，所以configure对话框就是选择代码编译工具的，如图所示：
-![](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/4b2979e6-edd8-42d0-9c31-25f0f795e993.jpg)
+![](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/4b2979e6-edd8-42d0-9c31-25f0f795e993.jpg)
 
 
 

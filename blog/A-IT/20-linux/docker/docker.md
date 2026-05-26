@@ -48,7 +48,8 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-
 
 
 
-
+## 配置国内镜像
+[镜像加速器 | Docker — 从入门到实践](https://yeasy.gitbook.io/docker_practice/install/mirror)
 
 ## 使用
 ```

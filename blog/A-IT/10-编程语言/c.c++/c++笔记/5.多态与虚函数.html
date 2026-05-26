@@ -206,11 +206,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -222,13 +222,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -306,6 +306,7 @@ C++ 中的构造函数用于在创建对象时进行初始化工作，在执行�
 <li><p>为什么delete的时，会同时调用派生类和基类的析构函数呢？<br />
 虚析构函数会根据指针指向的类型调用<strong>派生类的析构函数</strong>，而在执行派生类的析构函数的过程中，又会调用基类的析构函数。派生类析构函数始终会调用基类的析构函数，并且这个<strong>过程是隐式完成的</strong>。<br />
 在派生类的析构函数中不用显式地调用基类的析构函数，因为每个类只有一个析构函数，编译器知道如何选择，无需程序员干涉。</p></li>
+<li><p>Never call virtual functions from your constructor or destructor. These calls will never be directed to a subclass (Meyers, 2005)</p></li>
 </ol>
 <h2 id="纯虚函数和抽象类详解">纯虚函数和抽象类详解</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>virtual 返回值类型 函数名 (函数参数) = <span class="dv">0</span>;</span></code></pre></div>
@@ -319,7 +320,7 @@ C++ 中的构造函数用于在创建对象时进行初始化工作，在执行�
 <li>在对象的开头位置有一个指针 <code>vfptr</code>，指向虚函数表，并且这个指针始终位于<strong>对象的开头位置</strong>。</li>
 <li>仔细观察虚函数表，可以发现基类的虚函数在 vtable 中的索引（下标）是固定的，不会随着继承层次的增加而改变，派生类新增的虚函数放在 vtable 的最后。如果派生类<strong>有同名的虚函数遮蔽（覆盖）了基类的虚函数</strong>，那么将使用派生类的虚函数<strong>替换</strong>基类的虚函数(<strong>这就是多态的原因</strong>)。</li>
 </ul>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/27b003e2-81ea-4aaa-afb9-1cceb27047b7.png" /></p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/27b003e2-81ea-4aaa-afb9-1cceb27047b7.png" /></p>
 <h2 id="typeid运算符获取类型信息">typeid运算符：获取类型信息</h2>
 <p><code>typeid</code> 运算符用来获取一个表达式的类型信息。类型信息对于编程语言非常重要，它描述了数据的各种属性：<br />
 * 对于基本类型（int、float 等C++内置类型）的数据，类型信息所包含的内容比较简单，主要是指数据的类型。<br />
@@ -345,7 +346,7 @@ C++ 中的构造函数用于在创建对象时进行初始化工作，在执行�
 比如：一个基类对象有两个赋值的分支<br />
 在编译期间确定的情况下，有一个对象的方法调用是直接就load相应的代码段了，如果是虚函数的话，需要在运行是<strong>确定其类型</strong>，然后通过虚函数指针找到虚函数表然后再找到对应的方法。<br />
 带有虚函数的对象模型：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/e1db42a8-f727-43e5-8bba-ca507aa05efb.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/e1db42a8-f727-43e5-8bba-ca507aa05efb.png" /><br />
 编译器会在虚函数表 vftable 的开头插入一个指针，指向当前类对应的 <code>type_info</code> 对象。当程序在<strong>运行阶段获取类型信息时（调用typeid）</strong>，可以通过对象指针 p 找到虚函数表指针 vfptr，再通过 vfptr 找到 type_info 对象的指针，进而取得类型信息。下面的代码演示了这种转换过程：<code>**(p-&gt;vfptr - 1)</code><br />
 例子：</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co">//基类</span></span>

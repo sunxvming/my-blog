@@ -142,11 +142,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -158,13 +158,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -194,16 +194,16 @@ jQuery(document).ready(function(){
 <h2 id="在虚拟机设置中添加新的硬盘">1. 在虚拟机设置中添加新的硬盘</h2>
 <h2 id="查看系统分区的详细情况">2. 查看系统分区的详细情况</h2>
 <p>fdisk -l<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/be14ea04-cf48-4f69-91bf-6280fb64b108.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/be14ea04-cf48-4f69-91bf-6280fb64b108.png" /><br />
 如果没有识别到新的磁盘即sdb，解决办法：重启虚拟机 reboot</p>
 <h2 id="对新的磁盘进行分区">3. 对新的磁盘进行分区</h2>
 <p>fdisk /dev/sdb<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/150bf569-d52b-4bd4-a6b1-94a665dd4387.png" /><br />
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/150bf569-d52b-4bd4-a6b1-94a665dd4387.png" /><br />
 按如上步骤，提示卷的起始地址和结束地址，都保持默认 用回车代替<br />
 查看是否分区成功<br />
 fdisk -l</p>
 <p>成功 如下图所示：<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/bbbcbd39-3307-48e7-a6ce-98cc16392fd1.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/bbbcbd39-3307-48e7-a6ce-98cc16392fd1.png" /></p>
 <h2 id="对新分区进行格式化">4.对新分区进行格式化</h2>
 <p>mkfs.ext3 /dev/sdb1<br />
 或者 mkfs -t ext3 /dev/sdb1<br />
@@ -238,7 +238,7 @@ mkfs -t ext3 /dev/sdb1</p>
 <p>【5.挂载】<br />
 mount /dev/sdb1 /data</p>
 <p>一次断电之后，4T的那块硬盘在启动的时候没有被挂载上，于是去mount /dev/sdb1 /data，结果报 mount: you must specify the filesystem type，后来才发现是我把名字搞错了，我挂载成了硬盘的名字了，而不是硬盘分区的名字了。<br />
-<img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/511057f1-6dff-4922-b630-5b555baf78dd.png" /></p>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/511057f1-6dff-4922-b630-5b555baf78dd.png" /></p>
 <p>mount -t ext3 /dev/sdb1 /data</p>
 
 <footer id="colophon" >

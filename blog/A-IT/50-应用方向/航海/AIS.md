@@ -44,7 +44,11 @@ AIVDM消息中的MessageType字段表示AIS消息的类型。每个AIS消息类�
 8. Standard SAR Aircraft Position Report: MessageType 4 - 标准搜救飞机位置报告
 9. Base Station Report: MessageType 21 - 基站报告
 
-A类消息通常由较大的商船或船舶发送，发送频率更高，提供更详细的船只信息。而B类消息主要由小型船只、渔船等非商业船只发送
+A类消息通常由较大的商船或船舶发送，发送频率更高，提供更详细的船只信息。而B类消息主要由小型船只、渔船等非商业船只发送。
+
+
+
+
 
 ```
 $GNGLL
@@ -79,5 +83,10 @@ aipov   heading  pitch  roll  utctime
 
 
 ## 参考资料
+- [AIS Online Decoder. AIVDM & AIVDO NMEA Messages](https://www.aggsoft.com/ais-decoder.htm)
+- [AIVDM/AIVDO protocol decoding](https://gpsd.gitlab.io/gpsd/AIVDM.html)
 - [Automatic identification system - Wikipedia](https://en.wikipedia.org/wiki/Automatic_identification_system)
 - [船舶定位AIS数据源是从哪来的？ - 知乎](https://www.zhihu.com/question/21633927)
+- [古野，FURUNO ENVISION AR导航系统 | FURUNO](https://www.furuno.com/special/cn/envision/)
+
+

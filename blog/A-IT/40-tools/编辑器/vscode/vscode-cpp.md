@@ -4,7 +4,7 @@
 - 安装了C/C++扩展同时会自动安装`clang-format`，通过配置.clang-format文件可以对代码格式化进行一些自己的设置。这样就可以按照自己的设置来进行一键格式化了。
 
 
-![image.png](https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/20231024114011.png)
+![image.png](https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231024114011.png)
 
 
 > [!warning]

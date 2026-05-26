@@ -206,11 +206,11 @@ jQuery(document).ready(function(){
         <span class="site-title" style="font-size: 2.2rem">
             <span>
                 <img width="60px" height="60px"
-                    src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/16833443.jpg">
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
             </span>
 
 
-            <a href="http://www.sunxvming.com/" rel="home">忧郁的大能猫</a>
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
         </span>
         <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
     </div><!-- .site-branding -->
@@ -222,13 +222,13 @@ jQuery(document).ready(function(){
                 <ul id="primary-menu" class="menu">
                     <li id="menu-item-38"
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
-                        <a href="http://www.sunxvming.com">首页</a></li>
+                        <a href="http://www.sunxvming.cn">首页</a></li>
                     <li id="menu-item-175"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
-                            href="http://www.sunxvming.com/">所有文章</a></li>
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
                     <li id="menu-item-176"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
-                            href="http://www.sunxvming.com/blog/about-me.html">关于俺</a></li>
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
                 </ul>
             </div>
         </div><!-- .io-menu -->
@@ -302,14 +302,14 @@ jQuery(document).ready(function(){
 * 信号屏蔽字<br />
 * 调度优先级</p>
 <h2 id="线程的内存布局">线程的内存布局</h2>
-<p><img src="https://sxm-upload.oss-cn-beijing.aliyuncs.com/imgs/7245061e-e30f-4e07-ba23-adc137072761.png" /></p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/7245061e-e30f-4e07-ba23-adc137072761.png" /></p>
 <p>虚拟内存中的整体布局：<br />
 1. <strong>代码段</strong>：所有线程共享相同的代码段，这包括程序的可执行指令和常量数据。这意味着多个线程执行相同的代码，无需每个线程都有自己的代码段。<br />
 2. <strong>数据段</strong>：线程共享全局变量、静态变量和初始化的全局数据。这些数据位于进程的数据段，所有线程都可以访问和修改这些共享数据。<br />
 3. <strong>堆</strong>：多个线程共享进程的堆空间。堆是用于动态内存分配的区域，因此在多线程环境中需要考虑线程安全性来避免竞争条件。<br />
-4. <strong>栈</strong>：每个线程都有自己的栈空间，用于存储局部变量和函数调用的上下文信息。每个线程的栈是线程<strong>私有的</strong>，不会被其他线程访问。<br />
+4. <strong>栈</strong>：每个线程都有自己的<strong>栈空间</strong>，用于存储局部变量和函数调用的上下文信息。每个线程的栈是线程<strong>私有的</strong>，不会被其他线程访问。<br />
 5. <strong>文件描述符表</strong>：在多线程进程中，所有线程共享同一个文件描述符表。这意味着在一个线程中打开的文件，其他线程也可以访问。<br />
-6. <strong>线程特定数据</strong>：每个线程可以拥有自己的线程特定数据，这是一种在线程中存储特定于该线程的数据的机制。线程特定数据对于每个线程都是私有的，不会被其他线程访问。比如：<code>thread_local</code></p>
+6. <strong>线程特定数据（Thread-Local Storage, TLS）</strong>：每个线程可以拥有自己的线程特定数据，这是一种在线程中存储特定于该线程的数据的机制。线程特定数据对于每个线程都是私有的，不会被其他线程访问。比如：<code>thread_local</code></p>
 <p>多个栈区的布局：<br />
 1. <strong>栈空间大小的设定</strong>：<br />
 - 在创建线程时，操作系统会为每个线程分配栈空间。栈空间的大小通常是固定的，由操作系统或应用程序设置。<br />
@@ -325,6 +325,9 @@ jQuery(document).ready(function(){
 - 在函数调用或局部变量分配时，栈底指针通常保持不变。<br />
 5. <strong>栈空间的回收</strong>：<br />
 - 当线程结束时，操作系统会回收该线程的栈空间，并将该空间标记为可重用。这样，线程的栈内存可以被重新利用，或者在不需要时可以释放。</p>
+<p>TLS的存储位置依赖于操作系统和运行时环境的实现，但通常它们存储在以下两个地方之一：<br />
+1. <strong>线程栈的扩展区域</strong>：一些实现可能会在每个线程的栈中为TLS分配存储空间。由于每个线程都有独立的栈，TLS数据在这里是线程安全的。<br />
+2. <strong>专门的TLS段</strong>：在更复杂的实现中，编译器和操作系统会为每个线程分配一个专门的段或内存区域，用来存储TLS变量。这个段通常是在程序加载时动态分配的，不属于堆区或栈区。</p>
 <h2 id="常见问题">常见问题</h2>
 <h3 id="主线程退出支线程也将退出吗">主线程退出，支线程也将退出吗</h3>
 <p>在 Windows 系统中，如果主线程结束而子线程没有结束，通常情况下，整个程序会继续运行直到所有线程都结束。<br />

@@ -1,13 +1,14 @@
 ## 二进制工具
 ###  程序工具
 - fresh
-go install github.com/pilu/fresh
 执行时直接用`fresh`，不用`go run .`
 
 
 - air
-go get -v -u  github.com/cosmtrek/air
-比fresh功能稍强一些
+```shell
+go install github.com/air-verse/air@latest
+```
+比fresh功能稍强一些，直接运行`air`就行
 
 
 - dlv
