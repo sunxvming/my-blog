@@ -180,12 +180,56 @@ jQuery(document).ready(function(){
 <div id="TOC">
 <ul>
 <li><a href="#全局路径规划---rrt算法原理">全局路径规划 - RRT算法原理</a></li>
+<li><a href="#基于海图的路径规划">基于海图的路径规划</a></li>
+<li><a href="#路径二次优化">路径二次优化</a></li>
+<li><a href="#拐点算法">拐点算法</a></li>
 <li><a href="#参考链接">参考链接</a></li>
 </ul>
 </div>
  <!--if(toc)-->
 
-<p>众所周知，无人驾驶大致可以分为三个方面的工作：感知，决策及控制。</p>
+<ul>
+<li><strong>深度优先搜索（DFS）</strong>：
+<ul>
+<li>沿深度遍历</li>
+<li>可用递归或<strong>栈</strong>实现</li>
+</ul></li>
+<li><strong>广度优先搜索（BFS）</strong>：
+<ul>
+<li>核心结构：<strong>队列</strong>。从起点开始逐层访问邻接点；适合无权图最短路径，但效率低 O(n²)，无权重，无法处理障碍物。</li>
+</ul></li>
+<li><strong>Dijkstra 算法</strong>：
+<ul>
+<li>基于 BFS 增加边权，贪心选最小代价顶点；可找带权最短路径，但无方向性，时间复杂度 O(V²)。</li>
+<li>维护<strong>最小优先队列</strong>（按当前距离排序），每次取出距离最小的顶点，对其邻接点尝试松弛（<code>if u.d + w &lt; v.d</code> 则更新）。</li>
+<li>本质：按当前最小代价扩散，比 BFS 多了权重考量。</li>
+<li>相对于A* 的 h = 0， 启发函数始终为0</li>
+<li>一定是<strong>最优</strong>的
+<ul>
+<li>原因：<strong>贪心策略</strong>成立 —— 每次从优先队列中取出的节点，其当前距离已经不可能再被其他路径缩短（因为所有边权非负），因此该节点可以永久确定最短路径。</li>
+</ul></li>
+</ul></li>
+<li><strong>贪婪最佳优先搜索</strong>：
+<ul>
+<li>按到目标点的启发距离排序；速度快，但不保证最短路径。</li>
+<li>有障碍的情况，路径基本上都不是最优的</li>
+<li>每次探索优先探索距离目标点最近的格子</li>
+<li>相对于A* 的 g = 0</li>
+</ul></li>
+<li><strong>A星算法</strong>：
+<ul>
+<li>结合 Dijkstra（实际代价）与贪婪启发（估计代价）；既保证最短路径又减少搜索顶点，高效常用。</li>
+<li>A* 最核心的一句话下一步选择 g+h 最小的点</li>
+<li>openlist：待探索节点集合。通常需要维护一个最小优先队列（Min Heap）</li>
+<li>closelist：已访问集合。
+<ul>
+<li>为什么需要 Close List？ 假设存在回路，如果没有 Close List，会不断重复搜索</li>
+</ul></li>
+<li>A* 可能不是最优的，如何启发函数 h(n)<strong>高估路径</strong>，得到的可能不是最优的路径</li>
+<li>宁可低估，不可高估。低估无损最优性，只牺牲一点速度。</li>
+</ul></li>
+</ul>
+<p>众所周知，无人驾驶大致可以分为三个方面的工作：<strong>感知，决策及控制</strong>。</p>
 <p>路径规划是感知和控制之间的决策阶段，主要目的是考虑到车辆动力学、机动能力以及相应规则和道路边界条件下，为车辆提供通往目的地的安全和无碰撞的路径。</p>
 <p>路径规划问题可以分为两个方面：</p>
 <p>（一）全局路径规划：全局路径规划算法属于静态规划算法，根据已有的地图信息（SLAM）为基础进行路径规划，寻找一条从起点到目标点的最优路径。</p>
@@ -208,9 +252,91 @@ jQuery(document).ready(function(){
 （3）由于树的扩展是节点之间相连，使得最终生成的路径不平滑；<br />
 （4）不适合动态环境，当环境中出现动态障碍物时，RRT算法无法进行有效的检测；<br />
 （5）对于狭长地形，可能无法规划出路径。</p>
+<h2 id="基于海图的路径规划">基于海图的路径规划</h2>
+<p>主流程：<br />
+1. 根据海图元素（点、线）生成障碍物点集，并构建一个二维网格地图（grid map）。<br />
+2. 在每个网格上标记是否可通行（isWalkable）。<br />
+3. 提供从起点到终点的路径规划接口（A* 或 DFS）。<br />
+4. 对规划出的路径做二次优化（去除冗余拐点）。</p>
+<pre><code>栅格化
+    栅格的区域的确定
+        选择起点到终点区域
+        获取所有线和点的信息
+        遍历所有点确定minx、miny、maxx、maxy形成的矩形框
+            起点和终点必在矩形框中
+        确定格子的长度
+        按照格子的长度在线段之间补充点，以保证格子可以覆盖到
+        进行障碍物膨胀（将障碍物所在格子及其周围 extend_num 范围内的格子都设为不可通行）
+    格子的数据结构的定义
+        map
+            vector&lt;vector&lt;grid&gt;&gt; map
+        grid
+            index
+                x*grid_num + y
+            区域类型
+            是否可行走
+            经纬度坐标,格子的中心点
+                相对坐标和绝对经纬度的转换
+
+    格子的绘制和显示
+        先画格子的线
+        不可行走区的绘制
+            灰色
+路径规划
+    规划算法
+        起始点所在的格子
+            getGridIndex(double x, double y)   通过经纬度坐标，获取格子的索引，进行得到起始点的格子
+        深度优先遍历
+        输出为格子的路径
+            path
+                vector&lt;grid&gt;
+
+        异常情况处理
+            起点和终点在不可行走区域
+                增加一个检查的函数，航路规划前进行判断，若在不可行走区域则进行提示
+            起点终点在封闭区域内
+                进行规划，如果探索过的区域只占很小一部分，则可以判断起点在封闭区域内
+                如果规划的路径为空，则说明终点在封闭区域内
+
+    绘制规划的路径所在的格子
+    绘制初始路径
+    绘制探索过的格子
+
+路径二次优化
+    根据是否和其他多边形相交来逐步优化路径
+    绘制优化后的路径
+    绘制优化后的路径</code></pre>
+<h2 id="路径二次优化">路径二次优化</h2>
+<p><strong>路径平滑化</strong>：通过在已有路径上进行局部调整，使得路径更加平滑和自然，从而降低路径的曲率和不连续性。<br />
+<strong>路径连接优化</strong>：优化路径的连接方式，以减少转折和不必要的拐弯，从而提高路径的连续性。<br />
+<strong>剪枝算法</strong>：通过移除不必要或冗余的路径部分，减少路径的长度和复杂性。<br />
+<strong>曲线拟合</strong>：将原始路径的曲线部分拟合为更平滑的曲线，以减少路径的曲率，例如使用贝塞尔曲线拟合。</p>
+<h2 id="拐点算法">拐点算法</h2>
+<p>下图的5个凸多边形是已经生成的导航网格，多边形外部的区域为不可行走区域，current为起点，goal为终点，从图中就可以看出最短路径为图中红线，蓝色圈出的点为我们需要找出的点。所有多边形顶点均按<strong>逆时针方向存储</strong></p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/586cbcb0-e7aa-4a30-8dac-c885ca2f1f74.jpg" /></p>
+<p>（1）下图显示出各区域之间的入口，即多边形的临边。由图中可以看出每个临边均为起点穿出该多边形区域的边，故以下称该边为<strong>穿出边</strong>。</p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/d92c569f-aeb1-449d-b7fc-8e078e0feafc.jpg" /></p>
+<p>（2）首先找到起始点所在的多边形和穿出边的两个端点，由起点连接两个端点，形成两个线段<strong>lineLeft</strong> 和<strong>lineRight</strong>。如下图。绿色圈表示左点，红色表示右点（左点、右点是根据多边形顶点保存顺序而来）。</p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/f9e92ff9-665b-4d8d-82f2-cc615bf73481.jpg" /></p>
+<p>（3）继续找到下一个穿出边的两个端点，判断新的左点是否在lineLeft 和lineRigh之间，如果在，则更新lineLeft为起点到新左点的线段。</p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/6a0cd0a6-4239-4932-81df-4b119e5e7670.jpg" /></p>
+<p>同样处理新穿出边的右点，如下图</p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/73d25ff0-b3b2-4404-a89e-e166a1dca922.jpg" /></p>
+<p>该步最后得到两个新的线段，如下图。</p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/e260d681-f348-4f53-b383-9c9f552b4b04.jpg" /></p>
+<p>（4） 继续判断下一个穿出边的两个端点，如下图，新的左点在lineLeft和lineRight的外面，则不更新线段。</p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/e3371cb7-a6a7-4ae7-8de2-c56a413ac107.jpg" /></p>
+<p>下图说明新的右点在两条直线之间，更新lineRight。</p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/b36427e0-81ec-4232-b918-6158967ee7a2.jpg" /></p>
+<p>该步最后得到两个新的线段，如下图。</p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/b11733e7-bed7-449b-8d8d-368b0c8ee24e.jpg" /></p>
+<p>（5） 继续循环判断下一个穿出边的两个端点，该穿出边的两个端点都在lineRight的右侧，表示lineRight的终点即为路径的一个拐角点。</p>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/2db4de44-e6d6-4737-b511-1b0415770e18.jpg" /></p>
+<p>（6） 循环以上步骤都可以找到从起点到终点的一条完整路径。</p>
 <h2 id="参考链接">参考链接</h2>
 <ul>
 <li><a href="https://cloud.tencent.com/developer/news/992189">一文解读全局路径规划RRT算法原理 - 腾讯云开发者社区-腾讯云</a></li>
+<li><a href="https://blog.csdn.net/ynnmnm/article/details/44833007">Nav导航网格寻路_导航网格寻路原理-CSDN博客</a>， 拐点算法</li>
 </ul>
 
 <footer id="colophon" >

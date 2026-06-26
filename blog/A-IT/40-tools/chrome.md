@@ -9,6 +9,11 @@
 `ctrl + w` 关闭一个tab
 
 ## 实用的功能
+
+### 无痕模式
+ctrl + shift + N
+
+
 ### 阅读清单
 添加：右键点击相应标签页 然后 添加到阅读清单
 查看：点击“侧边栏”图标 ![](https://storage.googleapis.com/support-kms-prod/Pwg2wh6CWlXKeSZsQhqaYcrEAQ1rvwMfXSXx)。依次点击向下箭头然后 阅读清单。

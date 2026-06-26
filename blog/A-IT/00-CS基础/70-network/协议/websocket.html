@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/00-CS基础/70-network/协议/websocket</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#websocket-工作流程">WebSocket 工作流程</a></li>
+<li><a href="#websocket-frame">WebSocket Frame</a></li>
+<li><a href="#数据帧和控制帧">数据帧和控制帧</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<p> HTTP 协议有一个缺陷：通信只能由客户端发起。<br />
+ 只能是客户端向服务器发出请求，服务器返回查询结果。HTTP 协议做不到服务器主动向客户端推送信息。<br />
+ 如果服务器有连续的状态变化，客户端要获知就非常麻烦。我们只能使用"轮询"：每隔一段时候，就发出一个询问，了解服务器有没有新的信息。最典型的场景就是聊天室。<br />
+轮询的效率低，非常浪费资源，于是WebSocket 就是这样发明的。</p>
+<p>特点包括：</p>
+<p>（1）建立在 TCP 协议之上，服务器端的实现比较容易。<br />
+（2）与 HTTP 协议有着良好的兼容性。默认端口也是80和443，并且握手阶段采用 HTTP 协议，因此握手时不容易屏蔽，能通过各种 HTTP 代理服务器。<br />
+（3）数据格式比较轻量，性能开销小，通信高效。<br />
+（4）可以发送<strong>文本</strong> or <strong>二进制数据</strong>。<br />
+（5）没有同源限制，客户端可以与任意服务器通信。<br />
+（6）协议标识符是ws（如果加密，则为wss），服务器网址就是 URL。 <code>ws://example.com:80/some/path</code></p>
+<p>网页端例子：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">var</span> ws <span class="op">=</span> <span class="kw">new</span> <span class="bu">WebSocket</span>(<span class="st">&quot;wss://echo.websocket.org&quot;</span>)<span class="op">;</span>   <span class="co">// 执行语句之后，客户端就会与服务器进行连接</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>ws<span class="op">.</span><span class="at">onopen</span> <span class="op">=</span> <span class="kw">function</span>(evt) { </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Connection open ...&quot;</span>)<span class="op">;</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>  ws<span class="op">.</span><span class="fu">send</span>(<span class="st">&quot;Hello WebSockets!&quot;</span>)<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>ws<span class="op">.</span><span class="at">onmessage</span> <span class="op">=</span> <span class="kw">function</span>(evt) {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>( <span class="st">&quot;Received Message: &quot;</span> <span class="op">+</span> evt<span class="op">.</span><span class="at">data</span>)<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>  ws<span class="op">.</span><span class="fu">close</span>()<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>ws<span class="op">.</span><span class="at">onclose</span> <span class="op">=</span> <span class="kw">function</span>(evt) {</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Connection closed.&quot;</span>)<span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>}<span class="op">;</span>      </span></code></pre></div>
+<h2 id="websocket-工作流程">WebSocket 工作流程</h2>
+<pre><code>Client                         Server
+  |                               |
+  |----------TCP三次握手----------&gt;|  1.TCP连接
+  |&lt;-----------------------------&gt;|
+  |                               |
+  |------HTTP Upgrade请求--------&gt;|   2.发送HTTP Upgrade请求,升级协议。用的是http协议，GET请求
+  |&lt;-----101 Switching------------|
+  |                               |
+  |====== WebSocket连接建立 ====== |   3.WebSocket连接
+  |                               |
+  |&lt;====== 双向通信 =============&gt;|
+  |                               |
+  |----------TCP四次挥手----------&gt;|</code></pre>
+<p>客户端请求：</p>
+<pre><code>GET /chat HTTP/1.1
+
+Host: localhost:8080
+
+Upgrade: websocket
+
+Connection: Upgrade
+
+Sec-WebSocket-Key:
+dGhlIHNhbXBsZSBub25jZQ==
+
+Sec-WebSocket-Version: 13</code></pre>
+<p>服务器响应：</p>
+<pre><code>HTTP/1.1 101 Switching Protocols
+
+Upgrade: websocket
+
+Connection: Upgrade
+
+Sec-WebSocket-Accept:
+s3pPLMBiTxaQ9kYGzzhZRbK+xOo=</code></pre>
+<p>WebSocket 并不是一种新的传输层连接，它是运行在 TCP 之上的应用层协议。<br />
+客户端先通过 TCP 三次握手建立 TCP 连接，然后利用这个 TCP 连接发送 HTTP Upgrade 请求；<br />
+服务器返回 <code>101 Switching Protocols</code> 后，双方才正式把这条 TCP 连接从 HTTP 协议切换为 WebSocket 协议。<br />
+从这一刻开始，后续数据都以 WebSocket Frame 的形式在同一条 TCP 连接上传输，直到最终通过 TCP 四次挥手关闭连接。</p>
+<h2 id="websocket-frame">WebSocket Frame</h2>
+<pre class="plain"><code> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-------+-+-------------+-------------------------------+
+|F|R|R|R| opcode|M| Payload len |    Extended payload length    |
+|I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |
+|N|V|V|V|       |S|             |   (if payload len==126/127)   |
+| |1|2|3|       |K|             |                               |
++-+-+-+-+-------+-+-------------+ - - - - - - - - - - - - - - - +
+|     Extended payload length continued, if payload len == 127  |
++ - - - - - - - - - - - - - - - +-------------------------------+
+|                               |Masking-key, if MASK set to 1  |
++-------------------------------+-------------------------------+
+| Masking-key (continued)       |          Payload Data         |
++-------------------------------- - - - - - - - - - - - - - - - +
+:                     Payload Data continued ...                :
++ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+|                     Payload Data continued ...                |
++---------------------------------------------------------------+</code></pre>
+<p>Frame 主要由 FIN、Opcode、Mask、Payload Length、Masking Key 和 Payload Data 组成。<br />
+- FIN 表示消息是否结束<br />
+- Opcode 表示数据类型（文本、二进制、Ping、Pong 、Close等）<br />
+- Payload Length 表示消息长度。<br />
+- 客户端发送的数据必须携带 Mask Key，并对 Payload 做 XOR 掩码处理；服务端发送给客户端则不需要 Mask。<br />
+- 接收方先解析帧头获取长度，再读取对应长度的数据，因此能够正确区分消息边界，避免 TCP 粘包拆包问题。</p>
+<h2 id="数据帧和控制帧">数据帧和控制帧</h2>
+<p>WebSocket帧可以分两大类<br />
+- 数据帧（Data Frame）：Text、Binary<br />
+- 控制帧（Control Frame）：Close、Ping、Pong</p>
+<p>WebSocket 中 Opcode=0x8 表示 Close，用于正常关闭连接。当客户端关闭页面、服务端主动断开连接、协议错误或异常情况发生时，会发送 Close Frame，<strong>双方完成 Close 握手后再关闭底层 TCP 连接</strong>。</p>
+<p>Opcode=0x9 表示 Ping，主要用于心跳检测和保活。连接建立后，客户端或服务端都可以定时发送 Ping 来检测对方是否仍然在线。</p>
+<p>Opcode=0xA 表示 Pong，用于响应 Ping。根据 RFC6455，收到 Ping 后必须返回 Pong。实际项目中通常由服务端定时发送 Ping，如果连续多次收不到 Pong，则认为连接已经失效并主动关闭连接。</p>
+<p>Ping/Pong 属于 WebSocket 应用层心跳机制，与 TCP KeepAlive 不同，检测周期可以由应用自由控制，因此更适合实时系统。</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

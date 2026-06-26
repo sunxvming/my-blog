@@ -301,8 +301,8 @@ jQuery(document).ready(function(){
 - 如果output buffer里还有待发送的数据，而程序又想关闭连接，得等数据发送完毕再关</p>
 <p><strong>如何设计并使用缓冲区？</strong><br />
 Buffer的设计要点：<br />
-·对外表现为一块连续的内存(char* p, int len)，以方便客户代码的编写。<br />
-·其size()可以自动增长，以适应不同大小的消息。</p>
+- 对外表现为一块连续的内存(char* p, int len)，以方便客户代码的编写。<br />
+- 其size()可以自动增长，以适应不同大小的消息。</p>
 <p><strong>Buffer大小的设计？</strong><br />
 一方面我们希望减少系统调用，一次读的数据越多越划算。另一方面希望减少内存占用。如果有10000个并发连接，每个连接一建立就分配各50kB的读写缓冲区的话，将占用1GB内存。<br />
 在栈上准备一个65536字节的extrabuf，然后利用readv()来读取数据，iovec有两块，第一块指向muduo Buffer中的writable字节，另一块指向栈上的extrabuf。这样如果读入的数据不多，那么全部都读到Buffer中去了；如果长度超过Buffer的writable字节数，就会读到栈上的extrabuf里，然后程序再把extrabuf里的数据append()到Buffer中<br />

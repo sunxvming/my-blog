@@ -724,10 +724,9 @@
         散列表的查找缺点：
             不能进行范围区间查找
     树
-        数的表示
-            于指针的的链式存储法
+        树的表示
+            基于指针的的链式存储法
             基于数组的顺序存储法
-   
         树
             表示法
                 带双亲的孩子链表法
@@ -933,8 +932,8 @@
             数转成二叉树
             森林转换成二叉树
             二叉树转换成森林       
-    图
-        概念：顶点、边、度(degree)、入度、入度、无向图、有向图、带权图
+    图G
+        概念：顶点V、边E、度(degree)、入度、入度、无向图、有向图、带权图
         表示方法：
             邻接矩阵
                 底层依赖一个二维数组
@@ -943,6 +942,10 @@
             邻接表
                 每个顶点都对应一个链表，存储与其相连接的其他顶点
                 缺点：查找比较麻烦，但可以将节点的链表换成其他的，比如红黑树、有序动态数组、跳表等
+        
+        G:G = (V,E)
+        s:start
+        t:target        
         图的遍历
             广度搜索（BFS Breadth-First-Search）
                 def print_path(prev, s, t):
@@ -955,9 +958,8 @@
                     prev = [None] * graph._num_vertices
                     visited = [False] * graph._num_vertices
                     visited[s] = True
-                    q = deque()
+                    q = deque()     # 核心处理结构
                     q.append(s)
-
                     while q:
                         v = q.popleft()
                         for neighbour in self._adjacency[v]:
@@ -968,12 +970,14 @@
                                     return
                                 visited[neighbour] = True
                                 q.append(neighbour)
-            深度搜索（DFS）
+            深度搜索（DFS Deep-First-Searc）
                 深度优先搜索用的是一种比较著名的算法思想，回溯思想
+                走迷宫就是用的这种思想
+                ##### 递归版 #####
                 def dfs(graph, s, t):
                     found = False
                     visited = [False] * graph._num_vertices
-                    prev = [None] * graph._num_vertices
+                    prev = [None] * graph._num_vertices   #前驱节点
 
                     def _dfs(from_vertex):
                         nonlocal found
@@ -989,37 +993,97 @@
                    
                     _dfs(s)
                     print_path(prev, s, t)       
+                ##### 非递归版 #####
+                def dfs(graph, s, t):
+                    visited = [False] * graph._num_vertices
+                    prev = [None] * graph._num_vertices
+                    stack = [s]        # 核心需要一个栈
+                    visited[s] = True
+                    found = False
+                    while stack:
+                        vertex = stack.pop()
+                        if vertex == t:
+                            found = True
+                            break
+                        for neighbour in graph._adjacency[vertex]:
+                            if not visited[neighbour]:
+                                visited[neighbour] = True
+                                prev[neighbour] = vertex
+                                stack.append(neighbour)
+                    if found:
+                        print_path(prev, s, t)
+
         最短路径
             最短路径的最优子结构：最短路径的子路径也是最短路径
             Dijkstra
-                带权重的(非负)有向图上单源最短路径算法 
-                G:G = (V,E)
-                s:start
+                本质：BFS是按层扩散，Dijkstra是按当前最小代价扩散             
+                带权重的(非负)有向图上最短路径算法 
+                从指定的节点（源节点）出发，寻找它与图中所有其它节点之间的最短路径。
+                +------+--------+------+
+                | 顶点  | 距离   | 前驱  |
+                +------+--------+------+
+                | A    | 0      | -    |
+                | B    | ∞      | -    |
+                | C    | ∞      | -    |
+                | D    | ∞      | -    |                
                 init_single_source(G,s)
                     for v in G.V
                         v.d = ∞       //距离
-                        v.pre = null
+                        v.pre = null  //前驱节点
                     s.d = 0
-                relax(u,v,w)    //从u到v是否更优，w是权重表，
-                    if v.d > u.d + w(u,v)
+                relax(u,v,w)    //松弛操作，经过点u到v的距离是否更优，w是权重表，
+                    if u.d + w(u,v) < v.d    //经过点u到v的距离更小
                         v.d = u.d + w(u,v)
-                        v.pre = u
+                        v.pre = u           //更新前驱节点
                 dijkstra(G,w,s)
                     init_single_source(G,s)
-                    Q = G.V    //最小优先队列，以距离为准
+                    Q = G.V       //核心结构：最小优先队列，以距离为准
                     while Q
                         u = extract_min(Q)
                         for v in Adj[u]
                             relax(u,v,w)
+                        decrease_key(Q, v)  // 更新优先队列（decrease-key）    
        
             A*寻路算法
                 dijkstra只考虑了顶点与起点的路径长度的大小，来安排出队列顺序的
-                与起点越近的顶点，就会越早出队列。我们并没有考虑到这个顶点到终点的距离
+                与起点越近的顶点，就会越早出队列。我们并没有考虑到这个顶点到终点的距离(探索的方向)
                
                 A* 算法属于一种启发式搜索算法（Heuristically Search Algorithm）
                 f(i)的专业叫法叫做：估价函数（evaluation function）
                 f(i)=g(i)+h(i)  g：起点到当前点的距离  h：当前点到目标点的距离
-               
+                Open List: 已发现、待处理
+                Close List:已处理、不再处理
+                init_single_source(G,s)
+                    for v in G.V
+                        v.g = ∞
+                        v.f = ∞
+                        v.pre = null
+                    s.g = 0
+                    s.f = h(s)
+                relax(u,v,w)   //松弛操作，经过点u到v的距离是否更优，w是权重表，
+                    if u.d + w(u,v) < v.d 
+                        v.g = u.g + w(u,v)
+                        v.f = v.g + h(v)
+                        v.pre = u
+                astar(G,w,s,t)
+                    init_single_source(G,s)
+                    OpenList = {s}  // 最小优先队列,按 f 值排序
+                    CloseList = {}
+                    while OpenList
+                        u = extract_min(OpenList)
+                        if u == t
+                            break
+                        add u to CloseList
+                        for v in Adj[u]
+                            if v in CloseList
+                                continue
+                            old_g = v.g
+                            relax(u,v,w)
+                            if v not in OpenList
+                                insert(OpenList,v)
+                            else if v.g < old_g
+                                decrease_key(OpenList,v)
+
         最小生成树
             Prim算法
             Kruskal算法

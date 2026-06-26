@@ -477,7 +477,7 @@ linux下的有<code>__thread</code>关键字</p>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>  do_something();</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>  do_something_else();</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>});</span></code></pre></div>
-<p>启动了线程，你需要明确是要等待线程结束，还是让其自主运行如果std::thread对象销毁之前还没有做出决定，程序就会终止，std::thread的析构函数会调用std::terminate()</p>
+<p>启动了线程，你需要明确是要等待线程结束，还是让其自主运行。如果std::thread对象销毁之前还没有做出决定，程序就会终止，std::thread的析构函数会调用std::terminate()</p>
 <h3 id="stdthis_thread">std::this_thread</h3>
 <p>std::this_thread::yield<br />
 std::this_thread::get_id<br />

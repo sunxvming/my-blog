@@ -242,10 +242,11 @@ jQuery(document).ready(function(){
 
  <!--if(toc)-->
 
-<p>这种算法的核心思想在于模拟一个轮盘赌游戏。整个轮盘的刻度范围等于总权重，每个元素的权重决定了它在轮盘上的刻度区域。随机数的落在某个刻度区域，对应于选择了相应的元素。<br />
+<p>这种算法的核心思想在于模拟一个轮盘赌游戏。<br />
 也可这样模拟：每一段为一个概率区间，可以看作一个小球从天上落下来，看落在哪个区间上。算法的核心是判断小球落在的那个区间。<br />
 那如何判断呢？<br />
-假如权重为{20, 30, 50}，权重区间为<code>| 20 |   30   |     50      |</code>随机值为25。那就是落到了第二个区间。从头开始遍历概率区间，累加每个元素的权重值，判断累加值是否超过或等于随机数生成的随机数。首次超过的就是随机到的概率区间。</p>
+假如权重为{20, 30, 50}，权重区间为<code>| 20 |   30   |     50      |</code>随机值为25。那就是落到了第二个区间。</p>
+<p>从头开始遍历概率区间，累加每个元素的权重值，判断累加值是否超过或等于随机数生成的随机数。首次超过的就是随机到的概率区间。</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode lua"><code class="sourceCode lua"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">--返回权重随机区间 r=math.weight({20, 30, 50})20%=1,30%=2,50%=3</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">function</span> math<span class="op">.</span>weight<span class="op">(</span> ratetb <span class="op">)</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a> <span class="cf">if</span> <span class="op">#</span>ratetb <span class="op">==</span> <span class="dv">1</span> <span class="cf">then</span> <span class="cf">return</span> <span class="dv">1</span> <span class="cf">end</span></span>

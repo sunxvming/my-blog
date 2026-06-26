@@ -4,7 +4,7 @@ GDB 不仅是一个调试工具，它也是一个学习源码的好工具。用�
 
 gdb 程序名 [corefile]          corefile是可选的，但能增强gdb的调试能力。
 Linux默认是不生成corefile的，所以需要在.bashrc文件中添加(开发期间设置打开就行)
-ulimit -c unlimited
+`ulimit -c unlimited`
 (修改完.bashrc文件后记得. .bashrc让修改生效)
 
 
@@ -130,3 +130,6 @@ gdbserver <host>:<port> <目标程序路径>
 ```
 
 
+
+## 参考链接
+- [GDB调试指南 | 守望的个人博客](https://www.yanbinghu.com/2019/04/20/41283.html)

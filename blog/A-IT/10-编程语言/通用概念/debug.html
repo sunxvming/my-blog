@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/通用概念/debug</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#debug的策略">debug的策略</a></li>
+<li><a href="#调试技术">调试技术</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="debug的策略">debug的策略</h2>
+<p><strong>调试心理学</strong><br />
+去解决问题，而不是责备<br />
+不要恐慌bug，永远去发掘问题的根本原因，而不仅仅停留在问题的表面现象</p>
+<p><strong>理解系统</strong><br />
+即在调试之前，需要先搞明白系统的运作方式。包括并不限于阅读文档，阅读源码，寻找熟悉系统的同事交流。</p>
+<p>理解了你自己的系统后，还会获得一个额外的好处。当你找到bug时，<strong>必须在不破坏其他地方的前提下修复它们</strong>。理解系统行为是不破坏系统的第一步。理解了系统之后，你会明白什么是对的，什么是错的——</p>
+<p><strong>稳定复现bug</strong><br />
+为了修复 bug，我们需要找到引发 bug 的条件，确保可以有规律的重现 bug，接下来才是修复：<br />
+当问题没有修复时，如果你执行 X 操作，失败率为100%；在修复问题后，再执行 X 操作，如果失败率为0，那么你知道bug确实已被修复。<br />
+为了有规律的重现 bug，我们应该想办法制造/增加 bug 出现的条件。如果车胎漏气，我们可以把车胎放在肥皂水里，寻找气泡。</p>
+<p><strong>分而治之，缩小范围</strong><br />
+通过反复地把问题分成好的一半和坏的一半，来缩小搜索范围，然后进一步研究有问题的那一半。</p>
+<p><strong>控制变量法，一次只改一个地方</strong><br />
+1.这叫控制变量法，每次只控制一个变量才能确定次变量对系统的影响<br />
+2.如果你所做的更改没有起到预期的作用，那么就把它改回来。它们可能会产生无法预料的影响。</p>
+<p><strong>检查插头（Check the Plug）</strong><br />
+当电器出现问题的时候，应该问自己一个古老的、看似愚蠢的问题：“插头插上了吗？”虽然这个问题看上去很愚蠢，但它经常发生。<br />
+它的核心思想是：在花几个小时研究复杂问题之前，先排查那些最简单、最容易被忽略的原因。<br />
+很多经验丰富的工程师遇到问题时，第一步往往不是看代码，而是先问：<br />
+1. 服务启动了吗？<br />
+2. 请求发出去了吗？<br />
+3. 请求到达了吗？<br />
+4. 参数对吗？<br />
+5. 配置对吗？<br />
+6. 环境对吗？<br />
+7. 日志对吗？<br />
+8. 数据真的存在吗？</p>
+<blockquote>
+<p>80% 的 Bug 都不是算法错了，而是“插头没插好”——配置、环境、权限、路径、参数、缓存、拼写等基础问题出了错。</p>
+</blockquote>
+<p><strong>寻求他人帮助</strong><br />
+与其自己与 bug 死扛，不如去寻求同事的帮助：</p>
+<p>别人寻求帮助至少有3个原因（还不算把整个问题甩给别人）：获得全新观点、专业知识和经验。而且，人们通常很愿意帮忙，因为这给了他们一个证明自己很聪明的机会。</p>
+<p>我们按照自己老一套的思路是很难看清全局的。我们都是普通人，对任何事情都有偏见，包括对bug隐藏在哪里的看法。这些偏见可能导致我们无法看清实际情况。而其他人则会从另一个角度来看问题，这可能会给我们很大的启发，帮助找到新的方法。</p>
+<p>即使无法从他们那里得到帮助，他们也可以安慰你一下，告诉你这个问题真是一个非常棘手的问题，也可以借给你肩膀靠一靠。</p>
+<p>无论你想要获得什么样的帮助，在向别人描述问题的时候，一定要记住一件事：<strong>报告症状，而不要讲你的理论</strong>。之所以要从别人那里获得全新的观点，就是因为你的理论起不到任何作用。如果你找了一个人，把你的理论告诉他，那么也会把他拉到你原来的思维定式中。</p>
+<p><strong>如果你不修复bug，它将依然存在</strong><br />
+当你认为你已经修复了一个设计问题时，取消这个修复，确定系统再次失败。然后再应用这个修复，再次验证问题已修复。</p>
+<h2 id="调试技术">调试技术</h2>
+<ul>
+<li>var_dump 对调试打印复杂类型很有用。</li>
+<li>善用 <strong>assert</strong>，这会自动帮你检查一些意外的情况</li>
+<li>善于记录和打印日志，在写功能的时候就尽量写全，写清晰，不然运行程序后发现没有再添加就会很影响效率<br />
+比如以下的log当只有一个用户登陆问题没问题，但用户多了之后就完全没意义了，<strong>需加上更多的信息</strong></li>
+</ul>
+<pre><code>log(&quot;last login time : %d&quot;, last_login_time);</code></pre>
+<ul>
+<li><p>不知道某个函数是如何被调用的，可以打个断点，然后查看<strong>调用堆栈</strong></p></li>
+<li><p>断点<br />
+调试器遇到断点时会把程序<strong>暂时挂起</strong>，让程序进入一种特殊的状态—<strong>中断状态</strong>，这种状态下操作系统不会终止程序的执行，也不会清除与程序相关的元素，比如变量、函数等，它们在内存中的位置不会发生变化。<br />
+关键是，处于中断状态下的程序允许用户查看和修改它的运行状态，比如查看和修改变量的值、查看和修改内存中的数据、查看函数调用关系等，这就是调试的奥秘。</p></li>
+<li><p>条件断点(conditional breakpoints)</p>
+<ul>
+<li>在一个循环体中设置断点，假设有一千次循环，我们想在第五百次循环中设置断点，这该怎么办？鼠标右键单击断点图标，在弹出的菜单中选择 <strong>命中次数(H)</strong> ,接下来会弹出如下图的一个对话框，我们在中间的选择框中选择 “中断，条件是命中次数等于”，让后选择次数</li>
+<li>鼠标右键单击左侧的断点图标，在弹出的菜单中选择<strong>条件(C)</strong>，IDE会弹出如下对话框，我们在条件输入框中输入 <code>a==b</code> ,然后在下面选择 为 true ,然后点击确定即可。</li>
+</ul></li>
+<li><p>数据断点(Data breakpoints)</p>
+<ul>
+<li>数据变了会停下来</li>
+<li>Data breakpoints break execution when a value stored at a specified memory address changes.</li>
+</ul></li>
+<li><p>Hit count</p>
+<ul>
+<li>执行多少次后可以触发的断点</li>
+</ul></li>
+<li><p>添加监视(Watch)</p>
+<ul>
+<li>如果你希望长时间观测某个变量或多个变量，还可以将该变量添加到监视窗口，每次变量的值被改变都会反映到该窗口中</li>
+</ul></li>
+<li><p>单步调试</p>
+<ul>
+<li>Step Over（F10）</li>
+<li>Step Into（F11）</li>
+<li>Step Out（shift + F11）</li>
+<li>Continue （F5）</li>
+</ul></li>
+<li><p>修改代码运行位置</p>
+<ul>
+<li>在VS中，调试器还允许我们直接跳过一段代码，不去执行它们。开始单步调试。假设我们不希望执行4~6行的代码，那么当程序执行到第4行时，可以将鼠标移动到黄色箭头处，直接向下拖动到第7行</li>
+<li>注意：随意修改程序运行位置是非常危险的行为，假设我们定义了一个指针，在第N行代码中让它指向了一个数组，如果我们在修改程序运行位置的时候跳过了第N行代码，并且后面也使用到了该指针，<strong>那么就极有可能导致程序崩溃</strong>。</li>
+</ul></li>
+<li><p>即时窗口的使用<br />
+“即时窗口”是VS提供的一项非常强大的功能，在调试模式下，我们可以在即时窗口中输入C语言代码并立即运行<br />
+在即时窗口中可以使用代码中的变量，可以输出变量或表达式的值，也可以修改变量的值，还可以调用函数。<br />
+即时窗口本质上是一个<strong>命令解释器</strong>，它负责解释我们输入的代码，再由VS中的对应模块执行，最后将输出结果呈现到即时窗口。<br />
+需要注意的是，在即时窗口中<strong>不能定义新的变量</strong>，因为程序运行时 Windows 已经为它分配好了只够刚好使用的内存，定义变量是需要额外分配内存的，所以调试器不允许在程序运行的过程中定义变量，因为这可能会导致不可预知的后果。</p></li>
+<li><p>内存查看窗口（查看、修改运行时的内存）<br />
+菜单 -&gt; 调试(D) -&gt; 窗口 (W) -&gt; 内存 (M) -&gt; 内存1(1)，就可以调出内存窗口了<br />
+默认的内存是没有格式的，所以我们应该以四字节的形式格式化这些内存数据(假设是查看int型数据的)，这时我们在内存窗口中单击我们的鼠标右键，在弹出的菜单中选择“4字节整数(4)”</p></li>
+<li><p>assert()断言函数,在assert.h头文件中定义</p>
+<ul>
+<li>原则1：每次断言只能检验一个条件。要不然不知道是哪个条件出问题了</li>
+<li>原则2：不要使用会改变环境的语句作为断言函数的参数，这可能导致实际运行中出现问题</li>
+<li>原则3: assert 是用来判断我们程序中的代码级别的错误的。像用户输入错误，调用其他函数库错误，这些问题我们都是可以用 if 语句检测处理的</li>
+</ul></li>
+</ul>
+<p>查程序崩溃<br />
+Qt下程序崩溃，但是没有崩溃时的堆栈<br />
+若出现崩溃错误，一定要消灭在萌芽中，不可放任不管，因为在刚发现时，往往知道是修改那个功能出现的崩溃，拖得越久，<strong>越难以确定崩溃的范围</strong></p>
+<p>查找步骤：<br />
+1. 查找稳定复现的方法<br />
+2. 在代码中加打印，从大范围，到小范围确定出问题的代码段<br />
+3. 锁定可疑的代码，如系统调用，容器越界，容器删除等操作<br />
+4. 修改可疑代码，验证是否解决</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

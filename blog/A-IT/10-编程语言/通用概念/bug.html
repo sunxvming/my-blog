@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/通用概念/bug</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#通用">通用</a></li>
+<li><a href="#多线程错误">多线程错误</a></li>
+<li><a href="#编译问题">编译问题</a></li>
+<li><a href="#c">c++</a></li>
+<li><a href="#项目">项目</a></li>
+<li><a href="#web框架常见错误">web框架常见错误</a></li>
+<li><a href="#php常见错误">php常见错误</a></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="通用">通用</h2>
+<ul>
+<li>拼写错误
+<ul>
+<li>用查找的高亮来检查，静态检查一般也能发现这个错误</li>
+<li>一般出现在解释性语言中，编译语言中一般编译就会报错</li>
+</ul></li>
+<li>数组越界
+<ul>
+<li><code>xxArray[xxArray.size() - 1]</code>, 本意是取数组元素的最后一个，但是数组可能是空，结果是去-1位置的元素，程序就会崩溃掉了</li>
+</ul></li>
+<li>循环语句没有留意边界条件
+<ul>
+<li>死循环</li>
+</ul></li>
+<li>条件语句的分支没有做到不重不漏</li>
+<li>除0</li>
+<li>缓冲区溢出（buffer overflow）</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>void foo(char *str)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>{</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    char buf[<span class="dv">10</span>];</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    strcpy(buf, str);</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    ......</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>}</span></code></pre></div>
+<ul>
+<li>悬空指针</li>
+<li>内存泄漏</li>
+<li>if(x == 3) 写成 if(x = 3)</li>
+<li>x = 3; 手抖了写成了 x == 3;</li>
+<li>误删文件</li>
+<li>双层循环造成cpu消耗过大</li>
+<li>函数参数错误
+<ul>
+<li>单位不对：比如秒、毫秒</li>
+<li>参数的意义不对： 如fwrite(路径，模式）；w写模式，文件的内容就被删掉,追加得用a模式</li>
+</ul></li>
+<li>段错误
+<ul>
+<li>每次崩溃都报段错误，而且每次错误的位置又都不太相同，错误又出在系统函数上。那gdb报错的位置不一定是真正出错的位置，可能是别的地方内存溢出了原因，需要具体的来看。</li>
+</ul></li>
+<li>浮点精度的问题，比如错把double类型写成了int类型
+<ul>
+<li>在一个波形数据显示的程序中，要在波形的知道的时间上显示震相，本应该是double类型，写成int类型后，震相的位置就有一定的错误偏差了</li>
+</ul></li>
+<li>gdb启动和普通启动的表现不一样
+<ul>
+<li>比如网络连接的时候</li>
+</ul></li>
+<li>尽早崩溃：在问题发生的地方尽早崩溃，能让找到问题和诊断问题更加容易</li>
+</ul>
+<h2 id="多线程错误">多线程错误</h2>
+<ul>
+<li>一个线程删除了某个资源，但另一个线程还在使用这个资源</li>
+<li>不可重入函数的操作，同时修改了全局的变量，本质原因是异步操作，线程不安全</li>
+<li>死锁问题</li>
+</ul>
+<h2 id="编译问题">编译问题</h2>
+<p>debug版本和release版本的库进行混编，这种混合使用不同版本的库可能会导致程序闪退或出现各种异常。<br />
+原因：<br />
+1. <strong>不匹配的库版本</strong>: Release 版本的库和 Debug 版本的库通常是经过不同编译设置生成的，它们可能具有不同的符号、优化方式等。因此，当 debug 版本的程序尝试使用 release 版本的库时，可能会导致不匹配的符号、链接错误或其他不一致性，从而导致程序崩溃。<br />
+2. <strong>运行时错误</strong>: Debug 版本的程序可能会包含额外的调试信息或检查机制，而 release 版本的库可能没有这些信息或机制。这可能导致在调试信息不匹配的情况下出现未定义的行为，进而导致程序崩溃。</p>
+<h2 id="c">c++</h2>
+<ul>
+<li>类中的方法找不到符号，看看是不是命名空间有问题，方法实现中是不是忘了加类名</li>
+<li>别在遍历容器的时候进行删除操作，这相当于埋了个不定时炸弹</li>
+</ul>
+<h2 id="项目">项目</h2>
+<p>计算向量的垂直向量时，原向量 vector2D(b.x-a.x, b.y-a.y), 少加了括号误写成 vector2D(-b.y-a.y, b.x-a.x,), 应该是vector2D(-(b.y-a.y), b.x-a.x,),</p>
+<p>实时客服的后台因为没有按天监控系统的运行情况，包括插入速度，磁盘空间等，导致2T的磁盘空间满了，啥程序都运行不了了，还是自己对工作的态度不是很认真负责，以及思维不缜密的特点造成的</p>
+<h2 id="web框架常见错误">web框架常见错误</h2>
+<ul>
+<li>框架运行报错，查看日志等是否有写权限</li>
+<li>图片上传错误，查看上传目录是否有写权限</li>
+</ul>
+<h2 id="php常见错误">php常见错误</h2>
+<p><strong>查看php错误日志</strong><br />
+php配置文件、错误日志位置可以从php_info中看到</p>
+<p><strong>php本身错误</strong><br />
+某些函数找不到，可能是没有安装相应的模块。<br />
+安装了相应的模块还是不生效，那就再重启下php-fpm，之后模块就可以找到了。</p>
+<p><strong>php数组占用过多内存空间</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">$startMemory</span> = <span class="fu">memory_get_usage</span><span class="ot">();</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">$array</span> = <span class="fu">range</span><span class="ot">(</span><span class="dv">1</span><span class="ot">,</span> <span class="dv">100000</span><span class="ot">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">echo</span> <span class="fu">memory_get_usage</span><span class="ot">()</span> - <span class="kw">$startMemory</span><span class="ot">,</span> <span class="st">&#39; bytes&#39;</span><span class="ot">;</span></span></code></pre></div>
+<p>How much would you expect it to be? Simple, one integer is 8 bytes and you got 100000 integers, so you obviously will need 800000 bytes. That’s something like 0.76 MBs.<br />
+but this gives me 14649024 bytes. Yes, you heard right, that’s 13.97 MB - 18 times more than we estimated.<br />
+因为要存其他额外的信息，所以多了很多其他的空间，就是c要实现php的数组结构要维护其他很多的额外信息</p>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

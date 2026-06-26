@@ -10,6 +10,7 @@
 写这个博客，一方面是记录自己的学习、思考和踩坑过程；另一方面，也希望能分享一些有点价值的技术内容，顺便认识一些志同道合的朋友。
 
 以下是俺的联系方式
+
 * Mail: sunxvming@163.com
 * [github](https://github.com/sunxvming)：https://github.com/sunxvming
 

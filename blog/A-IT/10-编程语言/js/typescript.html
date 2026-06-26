@@ -254,8 +254,6 @@ jQuery(document).ready(function(){
 <li><a href="#promise">Promise</a></li>
 <li><a href="#async-await">async await</a></li>
 </ul></li>
-<li><a href="#构建工具">构建工具</a></li>
-<li><a href="#类和接口的区别">类和接口的区别</a></li>
 </ul>
 </div>
  <!--if(toc)-->
@@ -404,51 +402,6 @@ await针对所跟不同表达式的处理方式：<br />
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>    throw error<span class="op">;</span></span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a>  }</span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a>}<span class="op">;</span></span></code></pre></div>
-<h2 id="构建工具">构建工具</h2>
-<h2 id="类和接口的区别">类和接口的区别</h2>
-<p>在 TypeScript 中，类（<code>class</code>）和接口（<code>interface</code>）都用于定义对象的结构和行为，但它们有一些重要的区别：</p>
-<ol>
-<li><strong>目的不同</strong>：
-<ul>
-<li>类（<code>class</code>）：类主要用于创建对象的构造函数，并包含对象的属性和方法。类用于创建实际的对象实例，可以实例化（<code>new</code>）并使用。</li>
-<li>接口（<code>interface</code>）：接口主要用于定义对象的形状（结构）和契约（约定），但它们不创建实际的对象。接口用于描述对象应该具有的属性和方法，以便在编译时进行类型检查。</li>
-</ul></li>
-<li><strong>实例化</strong>：
-<ul>
-<li>类可以被实例化，而接口不能。类的实例是真正的对象，可以在运行时创建和操作。</li>
-<li>接口在运行时不会生成任何 JavaScript 代码，它们只用于编译时类型检查。</li>
-</ul></li>
-<li><strong>继承</strong>：
-<ul>
-<li>类可以相互继承，一个类可以继承另一个类的属性和方法，从而创建更复杂的类。</li>
-<li>接口可以相互继承，一个接口可以继承另一个接口，从而扩展接口的结构。</li>
-</ul></li>
-<li><strong>多重继承</strong>：
-<ul>
-<li>类支持单一继承，一个类只能继承自一个父类。</li>
-<li>接口支持多重继承，一个类可以实现多个接口，从而获得多个接口定义的属性和方法。</li>
-</ul></li>
-<li><strong>属性实现</strong>：
-<ul>
-<li>类中的属性可以有具体的实现（赋予初始值），而接口中的属性只是声明，不包含实际的实现。</li>
-<li>接口中的属性通常没有初始值，因为接口只定义了对象的形状。</li>
-</ul></li>
-<li><strong>构造函数</strong>：
-<ul>
-<li>类可以定义构造函数，用于初始化对象的属性。</li>
-<li>接口不能定义构造函数，因为它们不创建对象。</li>
-</ul></li>
-<li><strong>访问修饰符</strong>：
-<ul>
-<li>类可以使用访问修饰符（如 <code>public</code>、<code>private</code>、<code>protected</code>）来控制属性和方法的可访问性。</li>
-<li>接口中的属性和方法默认为 <code>public</code>，不能包含访问修饰符。</li>
-</ul></li>
-<li><strong>实例方法</strong>：
-<ul>
-<li>类中的方法可以包含实际的实现逻辑，可以操作对象的属性和状态。</li>
-<li>接口中的方法只是声明，不包含实际的实现，需要在实现接口的类中提供方法的具体实现。</li>
-</ul></li>
-</ol>
 
 <footer id="colophon" >
 		<div class="site-info col">

@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="pandoc" />
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="../../../../.././css/style.css" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed%3A400%2C700&ver=4.9.18" type="text/css" />
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('pre').each(function(){
+        var el = jQuery(this).find('code');
+        var code_block = el.html(); 
+ 
+        if (el.length > 0) { 
+            jQuery(this).addClass('prettyprint').html(code_block).attr('style', 'max-height:450px');
+        } else { 
+            jQuery(this).removeClass().addClass('prettyprint'); 
+        }
+    });
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+
+
+<body>
+<div id="wrapper">
+
+
+<style type="text/css">
+
+#masthead .site-branding {
+    margin-bottom: 7px;
+}
+
+#masthead .site-branding .site-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+#masthead .site-description{
+	margin:0px;
+}
+
+
+
+
+#masthead .site-branding .site-title a {
+    display: inline-block;
+    position: relative;
+    top: -11px;
+}
+
+#masthead  a {
+    <!-- color: #007bff; -->
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+.io-menu-desktop {
+    display: block;
+    text-align: right;
+}
+.io-menu-desktop span.io-menu-button-span {
+    display: none;
+}
+.io-menu-desktop ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    display: block;
+}
+.io-menu-desktop ul > li {
+    margin-right: -4px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop ul > li > a {
+    padding: 0;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    color: #212529;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    font-weight: 400;
+}
+.io-menu-desktop a {
+    display: block;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.io-menu-desktop > ul > li.current-menu-item > a, .io-menu-desktop > div > ul > li.current-menu-item > a {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+
+
+#colophon {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+#colophon .site-info {
+    text-align: center;
+}
+
+</style>
+
+
+<header id="masthead" class="site-header row">
+    <div class="site-branding col-sm-6">
+        <span class="site-title" style="font-size: 2.2rem">
+            <span>
+                <img width="60px" height="60px"
+                    src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/16833443.jpg">
+            </span>
+
+
+            <a href="http://www.sunxvming.cn/" rel="home">忧郁的大能猫</a>
+        </span>
+        <p class="site-description">好奇的探索者，理性的思考者，踏实的行动者。</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation col-sm-9">
+        <div class="io-menu io-menu-desktop"><span class="io-menu-button io-menu-button-span">≡</span>
+
+            <div class="menu-%e4%b8%bb%e8%8f%9c%e5%8d%95-container">
+                <ul id="primary-menu" class="menu">
+                    <li id="menu-item-38"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38">
+                        <a href="http://www.sunxvming.cn">首页</a></li>
+                    <li id="menu-item-175"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a
+                            href="http://www.sunxvming.cn/">所有文章</a></li>
+                    <li id="menu-item-176"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a
+                            href="http://www.sunxvming.cn/blog/about-me.html">关于俺</a></li>
+                </ul>
+            </div>
+        </div><!-- .io-menu -->
+    </nav><!-- #site-navigation -->
+</header>
+
+<div id="header">
+<h1 class="title">blog/A-IT/10-编程语言/c.c++/1-c++笔记/c++标准库-function和bind</h1>
+</div> <!--id="header"-->
+ <!--if(title)-->
+
+<p>Table of Contents:</p>
+<div id="TOC">
+<ul>
+<li><a href="#可调用对象">1. 可调用对象</a></li>
+<li><a href="#stdfunction">2. std::function</a></li>
+<li><a href="#stdbind">3. std::bind</a>
+<ul>
+<li><a href="#固定部分参数">1. 固定部分参数</a></li>
+<li><a href="#参数重排序">2. 参数重排序</a></li>
+<li><a href="#绑定成员函数">3. 绑定成员函数</a></li>
+</ul></li>
+</ul>
+</div>
+ <!--if(toc)-->
+
+<h2 id="可调用对象">1. 可调用对象</h2>
+<p>可调用对象有一下几种定义：<br />
+* 是一个函数指针<br />
+*  lambda表达式<br />
+* 是一个具有operator()成员函数的类的对象，函数对象<br />
+* 一个类成员函数指针；</p>
+<p>C++中可调用对象的虽然都有一个比较统一的<strong>操作形式</strong>，但是<strong>定义方法</strong>五花八门，这样就导致使用统一的方式<strong>保存</strong>可调用对象或者<strong>传递</strong>可调用对象时，会十分繁琐。C++11中提供了std::function和std::bind统一了可调用对象的各种操作。</p>
+<p>不同类型可能具有相同的调用形式，如：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">// 普通函数</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>int add(int a, int b){return a+b;} </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="co">// lambda表达式</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>auto mod = [](int a, int b){ return a % b;}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="co">// 函数对象类</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>struct divide{</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>    int <span class="kw">operator</span>()(int denominator, int divisor){</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>        return denominator/divisor;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>    }</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>};</span></code></pre></div>
+<p>上述三种可调用对象虽然类型不同，但是共享了一种调用形式：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="dt">int</span>(int ,<span class="dt">int</span>)</span></code></pre></div>
+<p>std::function就可以将上述类型保存起来，如下：</p>
+<pre><code>std::function&lt;int(int ,int)&gt; a = add; 
+std::function&lt;int(int ,int)&gt; b = mod ; 
+std::function&lt;int(int ,int)&gt; c = divide(); </code></pre>
+<h2 id="stdfunction">2. std::function</h2>
+<p>std::function 是一个<strong>可调用对象包装器，是一个类模板</strong>，它可以用统一的方式处理函数、函数对象、函数指针，并允许保存和延迟它们的执行。</p>
+<pre><code>template&lt; class R, class... Args &gt;
+class function&lt;R(Args...)&gt;;</code></pre>
+<p>std::function可以取代<strong>函数指针的作用</strong>，因为它可以<strong>延迟函数的执行</strong>，特别适合作为<strong>回调函数</strong>使用。它比普通函数指针更加的灵活和便利。</p>
+<h2 id="stdbind">3. std::bind</h2>
+<p>可将std::bind函数看作一个<strong>通用的函数适配器</strong>，它接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表。<br />
+<strong>输入</strong>是一个可调用对象，<strong>输出</strong>是一个变了参数个数新的可调用对象</p>
+<p>除非需要与旧代码（如 C++03）兼容，否则总是优先使用 Lambda。std::bind 在现代 C++ 中已基本被 Lambda 取代，仅偶尔在极深度的泛型元编程中配合 std::placeholders 使用</p>
+<h3 id="固定部分参数">1. 固定部分参数</h3>
+<p><strong>需求</strong>：有一个 <code>add(a,b)</code> 函数，固定第一个参数为 10，生成新函数 <code>add10(b)</code>。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co">// 使用 std::bind</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="kw">auto</span> add10 = <span class="bu">std::</span>bind(add, <span class="dv">10</span>, <span class="bu">std::</span>placeholders<span class="bu">::</span>_1);</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="dt">int</span> result = add10(<span class="dv">5</span>);  <span class="co">// 15</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a><span class="co">// 使用 Lambda（推荐）</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a><span class="kw">auto</span> add10_lambda = [](<span class="dt">int</span> b) { <span class="cf">return</span> add(<span class="dv">10</span>, b); };</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a><span class="co">// 或者通用版（如果绑定多个参数）</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a><span class="kw">auto</span> add10_lambda2 = [](<span class="kw">auto</span>&amp;&amp;... args) { <span class="cf">return</span> add(<span class="dv">10</span>, <span class="bu">std::</span>forward&lt;<span class="kw">decltype</span>(args)&gt;(args)...); };</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a><span class="dt">int</span> result2 = add10_lambda(<span class="dv">5</span>);   <span class="co">// 15</span></span></code></pre></div>
+<blockquote>
+<p><strong>Lambda 优势</strong>：清晰直观，无占位符的晦涩语法。</p>
+</blockquote>
+<h3 id="参数重排序">2. 参数重排序</h3>
+<p><strong>需求</strong>：<code>add(a,b)</code> 变成新函数，调用时参数顺序反转（<code>add(b,a)</code>）。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co">// 使用 std::bind</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="kw">auto</span> rev = <span class="bu">std::</span>bind(add, <span class="bu">std::</span>placeholders<span class="bu">::</span>_2, <span class="bu">std::</span>placeholders<span class="bu">::</span>_1);</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="dt">int</span> r = rev(<span class="dv">1</span>, <span class="dv">2</span>);  <span class="co">// add(2,1) = 3</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="co">// 使用 Lambda</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a><span class="kw">auto</span> rev_lambda = [](<span class="dt">int</span> a, <span class="dt">int</span> b) { <span class="cf">return</span> add(b, a); };</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a><span class="dt">int</span> r2 = rev_lambda(<span class="dv">1</span>, <span class="dv">2</span>);  <span class="co">// 3</span></span></code></pre></div>
+<blockquote>
+<p><strong>Lambda 优势</strong>：参数顺序一目了然。</p>
+</blockquote>
+<h3 id="绑定成员函数">3. 绑定成员函数</h3>
+<p><strong>需求</strong>：将对象的成员函数包装成普通函数对象（第一个参数为对象本身）。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="kw">struct</span> Foo { <span class="dt">int</span> mul(<span class="dt">int</span> a, <span class="dt">int</span> b) <span class="at">const</span> { <span class="cf">return</span> a * b; } };</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>Foo foo;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="co">// 使用 std::bind</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a><span class="kw">auto</span> bind_mul = <span class="bu">std::</span>bind(&amp;Foo::mul, &amp;foo, <span class="dv">3</span>, <span class="bu">std::</span>placeholders<span class="bu">::</span>_1);</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a><span class="dt">int</span> r = bind_mul(<span class="dv">4</span>);  <span class="co">// 3*4 = 12</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a><span class="co">// 使用 Lambda（推荐）</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a><span class="kw">auto</span> lambda_mul = [&amp;foo](<span class="dt">int</span> b) { <span class="cf">return</span> foo.mul(<span class="dv">3</span>, b); };</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a><span class="dt">int</span> r2 = lambda_mul(<span class="dv">4</span>);  <span class="co">// 12</span></span></code></pre></div>
+
+<footer id="colophon" >
+		<div class="site-info col">
+			Powered by <a href="https://github.com/sunxvming/my-blog">my-blog</a>
+			<span class="sep"> | </span>
+				<span><a target="_blank" href="http://beian.miit.gov.cn">【京ICP备19018538号】</a></span>
+			<span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502037753">【京公网安备 11010502037753号】</a></span>
+		</div><!-- .site-info col -->
+        <div class="site-info col"> This page is hosted at <a target="_blank" href="https://github.com/sunxvming">Github</a>.To see the source code you can visit the <a target="_blank" href="https://github.com/sunxvming/my-blog">repo</a> and I'd be glad if you like and star it.</div>
+</footer>
+</div> <!--wrapper-->
+</body>
+</html>

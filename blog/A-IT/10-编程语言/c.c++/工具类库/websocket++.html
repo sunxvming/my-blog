@@ -181,7 +181,102 @@ jQuery(document).ready(function(){
 <p>在C++环境下使用websocket，比较常用的有2个库：websocket++ 和 libwebsockets。<br />
 前者是用C++写的，依赖C++11和boost， 后者是用C语言写的，依赖openssl</p>
 <p>websocket++ <a href="https://github.com/zaphoyd/websocketpp">github</a> <a href="https://www.zaphoyd.com/projects/websocketpp/">官方网站</a></p>
-<p>最容易的入门是看源代码中给出的例子。</p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 3%" />
+<col style="width: 22%" />
+<col style="width: 20%" />
+<col style="width: 6%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>库</th>
+<th>语言</th>
+<th>底层依赖</th>
+<th>编程模型</th>
+<th>性能</th>
+<th>易用性</th>
+<th>工业使用</th>
+<th>典型场景</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Boost.Beast</strong></td>
+<td>C++</td>
+<td>Boost.Asio</td>
+<td>Reactor / async IO</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>工业后端 / AOI / 现代C++服务</td>
+</tr>
+<tr class="even">
+<td><strong>libwebsockets</strong></td>
+<td>C</td>
+<td>OpenSSL + epoll/kqueue</td>
+<td>event loop (Reactor)</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>嵌入式 / 工业设备 / 高并发</td>
+</tr>
+<tr class="odd">
+<td><strong>uWebSockets</strong></td>
+<td>C++</td>
+<td>epoll / io_uring</td>
+<td>极致事件驱动</td>
+<td>⭐⭐⭐⭐⭐⭐</td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>高频交易 / 超高并发推送</td>
+</tr>
+<tr class="even">
+<td><strong>websocket++</strong></td>
+<td>C++</td>
+<td>Boost.Asio</td>
+<td>async callback</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>中小型服务 / 教学 / 偏旧</td>
+</tr>
+<tr class="odd">
+<td><strong>Drogon</strong></td>
+<td>C++</td>
+<td>Boost.Asio / 自研</td>
+<td>框架式MVC</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>Web后端 / REST + WS</td>
+</tr>
+<tr class="even">
+<td><strong>Poco</strong></td>
+<td>C++</td>
+<td>自带网络栈</td>
+<td>OO封装</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>工业软件 / 设备控制</td>
+</tr>
+<tr class="odd">
+<td><strong>Qt WebSocket</strong></td>
+<td>C++</td>
+<td>Qt Network</td>
+<td>Qt event loop</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>桌面客户端 / GUI系统</td>
+</tr>
+</tbody>
+</table>
 
 <footer id="colophon" >
 		<div class="site-info col">

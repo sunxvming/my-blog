@@ -248,6 +248,7 @@ jQuery(document).ready(function(){
 <li><a href="#常用命令">常用命令</a></li>
 <li><a href="#远程调试">远程调试</a></li>
 </ul></li>
+<li><a href="#参考链接">参考链接</a></li>
 </ul>
 </div>
  <!--if(toc)-->
@@ -256,7 +257,7 @@ jQuery(document).ready(function(){
 <p>GDB 不仅是一个调试工具，它也是一个学习源码的好工具。用它开跟踪代码的分支和数据的流向，这样走上几个来回之后，再结合源码，就能够对程序的整体情况“了然于胸”。</p>
 <p>gdb 程序名 [corefile] corefile是可选的，但能增强gdb的调试能力。<br />
 Linux默认是不生成corefile的，所以需要在.bashrc文件中添加(开发期间设置打开就行)<br />
-ulimit -c unlimited<br />
+<code>ulimit -c unlimited</code><br />
 (修改完.bashrc文件后记得. .bashrc让修改生效)</p>
 <h3 id="常用命令">常用命令</h3>
 <pre><code>help  h         按模块列出命令类 
@@ -372,6 +373,10 @@ handle SIGINT nostop print pass
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="co"># client端</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="ex">1.</span>运行 gdb</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="ex">2.</span>执行 target remote <span class="op">&lt;</span>被调试主机的IP地址<span class="op">&gt;</span>:<span class="op">&lt;</span>端口号<span class="op">&gt;</span></span></code></pre></div>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://www.yanbinghu.com/2019/04/20/41283.html">GDB调试指南 | 守望的个人博客</a></li>
+</ul>
 
 <footer id="colophon" >
 		<div class="site-info col">

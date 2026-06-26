@@ -123,3 +123,7 @@ Circle
 * [Nav导航网格寻路](https://blog.csdn.net/ynnmnm/article/details/44833007)
 * [深入理解游戏中寻路算法](https://my.oschina.net/u/1859679/blog/1486636)
 * [Astar寻路算法-中文](https://github.com/sunxvming/navmesh/blob/master/doc/Astar%E5%AF%BB%E8%B7%AF%E7%AE%97%E6%B3%95-%E4%B8%AD%E6%96%87.doc)
+* [NevMesh.Js你可以在Laya引擎中直接使用的AI寻路](http://ask.layabox.com/question/47899)
+* [recastnavigation: Navigation-mesh Toolset for Games](https://github.com/recastnavigation/recastnavigation)
+* [Amit’s A* Pages](https://theory.stanford.edu/~amitp/GameProgramming/)
+* [Introduction to the A* Algorithm](https://www.redblobgames.com/pathfinding/a-star/introduction.html)

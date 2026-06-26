@@ -2477,7 +2477,7 @@ goroutine 是一种非常轻量级的实现，可在单个进程里执行成千�
 说到底 goroutine 其实就是线程，但是它比线程更小，十几个 goroutine 可能体现在底层就是五六个线程，而且Go语言内部也实现了 goroutine 之间的内存共享。
 
 
-channel 是Go语言在语言级别提供的 goroutine 间的通信方式。我们可以使用 channel 在两个或多个 goroutine 之间传递消息。
+**channel** 是Go语言在语言级别提供的 goroutine 间的通信方式。我们可以使用 channel 在两个或多个 goroutine 之间传递消息。
 channel 是类型相关的，也就是说，一个 channel 只能传递一种类型的值，这个类型需要在声明 channel 时指定。
 定义一个 channel 时，也需要定义发送到 channel 的值的类型，注意，**必须使用 make 创建 channel**
 ```

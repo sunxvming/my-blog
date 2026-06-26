@@ -206,7 +206,7 @@ std::thread my_thread([]{
 ```
 
 
-启动了线程，你需要明确是要等待线程结束，还是让其自主运行如果std::thread对象销毁之前还没有做出决定，程序就会终止，std::thread的析构函数会调用std::terminate()
+启动了线程，你需要明确是要等待线程结束，还是让其自主运行。如果std::thread对象销毁之前还没有做出决定，程序就会终止，std::thread的析构函数会调用std::terminate()
 ### std::this_thread
 std::this_thread::yield
 std::this_thread::get_id

@@ -179,34 +179,104 @@ jQuery(document).ready(function(){
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
+<li><a href="#同步传输">同步传输</a></li>
+<li><a href="#异步传输">异步传输</a></li>
 <li><a href="#一串行通信的数据格式">一、串行通信的数据格式</a></li>
 <li><a href="#二异步串行通信的波特率">二、异步串行通信的波特率</a></li>
 <li><a href="#遇到问题">遇到问题</a></li>
+<li><a href="#modbus">modbus</a>
+<ul>
+<li><a href="#modbus-rtu最常见">1. Modbus RTU（最常见）</a></li>
+<li><a href="#modbus-ascii">2. Modbus ASCII</a></li>
+<li><a href="#modbus-tcp">3. Modbus TCP</a></li>
+<li><a href="#灯控程序的例子">灯控程序的例子</a></li>
+</ul></li>
 <li><a href="#相关软件">相关软件</a></li>
 </ul>
 </div>
  <!--if(toc)-->
 
-<p>串口是串行接口的简称<br />
+<p>串口是<strong>串行接口</strong>的简称<br />
 串行接口是采用串行通信方式的接口。<br />
-串行通信是一种将需要传输的数据由低位到高位一位一位地在一条传输线上逐个传输的通信方式。<br />
-特点是通信线路简单，只要一对传输线就可以实现双向通信,最少只需一根传输线即可完成，特别适用于<strong>近距离通信,但传送速度较慢</strong></p>
+串行通信是一种将需要传输的数据由低位到高位<strong>一位一位地在一条传输线上逐个传输</strong>的通信方式。<br />
+特点是<strong>通信线路简单</strong>，只要一对传输线就可以实现双向通信,最少只需一根传输线即可完成，特别适用于<strong>近距离通信,但传送速度较慢</strong></p>
+<h2 id="同步传输">同步传输</h2>
+<p><img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20260617112518.png" alt="image.png" /><br />
+需要两根线，一个数据线，一个时钟信号线，两个数据都发送后，接收端就能知道用什么间隔频率(采样点)去解码</p>
+<h2 id="异步传输">异步传输</h2>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20260617113603.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>只需要一个线，但需要规定好波特率</p>
 <h2 id="一串行通信的数据格式">一、串行通信的数据格式</h2>
 <p>串行通信的一帧数据由起始位、数据位、校验位以及停止位组成。<br />
 <img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20230531135837.png" alt="image.png" /></p>
-<p>起始位：低电平，标志着一帧数据的开始；<br />
-数据位：数据内容，可选择为5、6、7、8位；<br />
-校验位：用于确保传输数据的正确性，可分为奇校验和偶校验。奇校验时数据位和校验位中1的总数应为奇数，同理，偶校验时数据位和校验位中1的总数应为偶数；<br />
-停止位：高电平，标志着一帧数据的结束。</p>
+<p><strong>起始位</strong>：低电平，标志着一帧数据的开始；<br />
+<strong>数据位</strong>：数据内容，可选择为5、6、7、8位；<br />
+<strong>校验位</strong>：用于确保传输数据的正确性，可分为奇校验和偶校验。奇校验时数据位和校验位中1的总数应为奇数，同理，偶校验时数据位和校验位中1的总数应为偶数；<br />
+<strong>停止位</strong>：高电平，标志着一帧数据的结束。</p>
 <h2 id="二异步串行通信的波特率">二、异步串行通信的波特率</h2>
 <p>串行通信可以分为两种形式：同步串行通信和异步串行通信。<br />
 <strong>同步串行通信</strong>：通信双方在<strong>同一时钟控制下</strong>同步传输数据；<br />
 <strong>异步串行通信</strong>：通信双方使用各自的时钟控制数据传输。<br />
 <strong>波特率</strong>：对于异步串行通信来说，虽然没有同步时钟，但是通信双方必须约定并遵循同样的设置，这就需要异步串行通信中一个重要的参数来设置，该参数即波特率。</p>
-<p>波特率即<strong>串口通信的速率</strong>，它表示<strong>每秒传输二进制数据的位数</strong>，单位是bps，即位/秒，常用的波特率有9600、19200、38400、57600和115200等。<br />
+<p>波特率即<strong>串口通信的速率</strong>，它表示<strong>每秒传输二进制数据的位数</strong>，单位是bps，即 <strong>位/秒</strong>，常用的波特率有9600、19200、38400、57600和115200等。<br />
 因此，在通信双方约定波特率为115200的情况下，只要发送方发送的每位比特位的持续时间为8.68us(1/115200)，那么正常情况下接收方就能准确无误地解析数据。</p>
 <h2 id="遇到问题">遇到问题</h2>
 <p>接收物理串口发送的数据，显示乱码，但是用串口调试工具接收的是正常的，猜测可能是波特率设置错误的问题。然后在程序中下断点发现界面设置的波特率和程序中真正用的波特率不一样才导致的乱码</p>
+<h2 id="modbus">modbus</h2>
+<p>Modbus Protocol 是一种工业自动化领域广泛使用的通信协议，<br />
+它的目标很简单：让 PLC、传感器、仪表、变频器等工业设备能够使用统一的方式交换数据。</p>
+<p>Modbus 的特点： 协议结构简单，容易实现。</p>
+<p>例如：<br />
+- 读取温度<br />
+- 读取压力<br />
+- 写入频率设定值<br />
+- 启动设备<br />
+- 停止设备</p>
+<p>本质都是：<br />
+- 读寄存器<br />
+- 写寄存器</p>
+<p>Modbus 的通信模式<br />
+采用：Master（主站）-&gt; Slave（从站）<br />
+例如：上位机 -&gt;PLC -&gt; 温度传感器</p>
+<p>主站发请求：请读取温度<br />
+从站回复：当前温度 25℃<br />
+从站不会主动发送数据。</p>
+<h3 id="modbus-rtu最常见">1. Modbus RTU（最常见）</h3>
+<p>运行在：RS232 RS485上。</p>
+<p>数据是二进制格式：</p>
+<pre><code>01 03 00 00 00 02 C4 0B</code></pre>
+<p>优点：<br />
+- 数据量小<br />
+- 传输效率高<br />
+- 工业现场最常见</p>
+<h3 id="modbus-ascii">2. Modbus ASCII</h3>
+<p>数据是文本格式：</p>
+<pre><code>:010300000002FA</code></pre>
+<p>优点：<br />
+- 人眼容易看懂</p>
+<p>缺点：<br />
+- 效率低</p>
+<p>现在已经比较少见。</p>
+<h3 id="modbus-tcp">3. Modbus TCP</h3>
+<p>运行在以太网上。</p>
+<pre><code>Ethernet  -&gt; TCP/IP  -&gt;  Modbus TCP</code></pre>
+<p>常见端口：</p>
+<pre><code>502</code></pre>
+<h3 id="灯控程序的例子">灯控程序的例子</h3>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20260617114034.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20260617113851.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20260617113936.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20260617114139.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
 <h2 id="相关软件">相关软件</h2>
 <ul>
 <li><a href="https://blog.csdn.net/denghuajing/article/details/121318869">(Virtual Serial Port Driver )虚拟串口驱动</a>, 可以在电脑上新增成对的虚拟串口。</li>

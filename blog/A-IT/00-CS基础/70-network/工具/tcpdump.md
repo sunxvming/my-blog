@@ -1,10 +1,8 @@
 [原文地址](https://opensource.com/article/18/10/introduction-tcpdump)
 
 
-# An introduction to using tcpdump at the Linux command line
 
-## 1. Installation on Linux
-## 2. Capturing packets with tcpdump
+##  Capturing packets with tcpdump
 use the command `tcpdump -D` to see which interfaces are available for capture
 ```
 # -c 数量   -nn不进行域名解析
@@ -42,3 +40,17 @@ tcpdump -nn -r tcpdump.txt
 ```
 This command saves the output in a file named webserver.pcap. The .pcap extension stands for "packet capture" and is the convention for this file format.
 You can also use any of the filters we've discussed to filter the content from the file, just as you would with real-time data
+
+
+
+tcpdump -i any -nn  host 47.108.52.94
+tcpdump -i any -nn  des 47.108.52.94
+tcpdump -i any -nn  src 47.108.52.94
+
+tcpdump -i any -nn  host  123.179.23.127
+
+
+
+tcpdump -i any -nn  host 47.105.219.186
+tcpdump -i any -nn  port 11187
+tcpdump -i any -nn  host 47.108.65.199

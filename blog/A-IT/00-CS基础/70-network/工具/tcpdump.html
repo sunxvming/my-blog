@@ -179,23 +179,17 @@ jQuery(document).ready(function(){
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
-<li><a href="#an-introduction-to-using-tcpdump-at-the-linux-command-line">An introduction to using tcpdump at the Linux command line</a>
-<ul>
-<li><a href="#installation-on-linux">1. Installation on Linux</a></li>
-<li><a href="#capturing-packets-with-tcpdump">2. Capturing packets with tcpdump</a></li>
+<li><a href="#capturing-packets-with-tcpdump">Capturing packets with tcpdump</a></li>
 <li><a href="#understanding-the-output-format">3. Understanding the output format</a></li>
 <li><a href="#filtering-packets">4. Filtering packets</a></li>
 <li><a href="#checking-packet-content">5. Checking packet content</a></li>
 <li><a href="#saving-captures-to-a-file">6. Saving captures to a file</a></li>
-</ul></li>
 </ul>
 </div>
  <!--if(toc)-->
 
 <p><a href="https://opensource.com/article/18/10/introduction-tcpdump">原文地址</a></p>
-<h1 id="an-introduction-to-using-tcpdump-at-the-linux-command-line">An introduction to using tcpdump at the Linux command line</h1>
-<h2 id="installation-on-linux">1. Installation on Linux</h2>
-<h2 id="capturing-packets-with-tcpdump">2. Capturing packets with tcpdump</h2>
+<h2 id="capturing-packets-with-tcpdump">Capturing packets with tcpdump</h2>
 <p>use the command <code>tcpdump -D</code> to see which interfaces are available for capture</p>
 <pre><code># -c 数量   -nn不进行域名解析
 tcpdump -i any -c5 -nn</code></pre>
@@ -221,6 +215,13 @@ tcpdump -i any -c10 -nn -w webserver.pcap port 80
 tcpdump -nn -r tcpdump.txt</code></pre>
 <p>This command saves the output in a file named webserver.pcap. The .pcap extension stands for "packet capture" and is the convention for this file format.<br />
 You can also use any of the filters we've discussed to filter the content from the file, just as you would with real-time data</p>
+<p>tcpdump -i any -nn host 47.108.52.94<br />
+tcpdump -i any -nn des 47.108.52.94<br />
+tcpdump -i any -nn src 47.108.52.94</p>
+<p>tcpdump -i any -nn host 123.179.23.127</p>
+<p>tcpdump -i any -nn host 47.105.219.186<br />
+tcpdump -i any -nn port 11187<br />
+tcpdump -i any -nn host 47.108.65.199</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

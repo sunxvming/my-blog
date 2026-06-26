@@ -247,8 +247,8 @@ jQuery(document).ready(function(){
 <li><a href="#理解代码编译器的前端技术">01 | 理解代码：编译器的前端技术</a>
 <ul>
 <li><a href="#词法分析">词法分析</a></li>
-<li><a href="#语法分析">语法分析</a></li>
-<li><a href="#语义分析">语义分析</a></li>
+<li><a href="#语法分析上下文无关">语法分析（上下文无关）</a></li>
+<li><a href="#语义分析上下文相关">语义分析（上下文相关）</a></li>
 <li><a href="#课程小结">课程小结</a></li>
 </ul></li>
 <li><a href="#正则文法和有限自动机纯手工打造词法分析器">02 | 正则文法和有限自动机：纯手工打造词法分析器</a>
@@ -399,12 +399,9 @@ jQuery(document).ready(function(){
 
 <p><a href="https://github.com/RichardGong/PlayWithCompiler">github代码地址</a></p>
 <h2 id="开篇词-为什么你要学习编译原理">开篇词 | 为什么你要学习编译原理？</h2>
-<p>编译原理不是只能用于炫耀的屠龙技。 别的不说，作为程序员，在实际工作中你经常会碰到需要编译技术的场景。</p>
-<ul>
-<li>处理形式语言的一般都能用到编译原理的技术。</li>
-<li>文本分析场景，软件需要用户自定义功能的场景以及前端编程语言的翻译场景等</li>
-<li>很多国外厂商的软件，普遍都具备<strong>二次编程能力</strong>，比如 Office、CAD、GIS、Mathematica 等等。德国 SAP 公司的企业应用软件也是用自己的业务级语言编写的。</li>
-</ul>
+<p>编译原理不是只能用于炫耀的屠龙技。 别的不说，作为程序员，在实际工作中你经常会碰到需要编译技术的场景。<br />
+- 处理<strong>形式语言</strong>的一般都能用到编译原理的技术。<br />
+- 很多国外厂商的软件，普遍都具备<strong>二次编程能力</strong>，比如 Office、CAD、GIS、Mathematica 等等。德国 SAP 公司的企业应用软件也是用自己的业务级语言编写的。</p>
 <figure>
 <img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231221091740.png" alt="" /><figcaption>image.png</figcaption>
 </figure>
@@ -425,20 +422,18 @@ jQuery(document).ready(function(){
 <p><strong>有限自动机</strong>是有限个状态的自动机器。我们可以拿抽水马桶举例，它分为两个状态：“注水”和“水满”。摁下冲马桶的按钮，它转到“注水”的状态，而浮球上升到一定高度，就会把注水阀门关闭，它转到“水满”状态。<br />
 词法分析器也是一样，它分析整个程序的字符串，<strong>当遇到不同的字符时，会驱使它迁移到不同的状态</strong>。例如，词法分析程序在扫描 age 的时候，处于“标识符”状态，等它遇到一个 &gt; 符号，就切换到“比较操作符”的状态。词法分析过程，就是这样一个个状态迁移的过程。<br />
 <img src="https://sxm-upload-e383a8b8-13b6-4243-b006-9dd061056eb0.oss-cn-beijing.aliyuncs.com/imgs-25d2a8f0-6458-4bca-a92f-6d0ff90484a3/20231221093656.png" alt="image.png" /></p>
-<h3 id="语法分析">语法分析</h3>
+<h3 id="语法分析上下文无关">语法分析（上下文无关）</h3>
 <p>词法分析是识别一个个的单词，而语法分析就是在词法分析的基础上识别出程序的<strong>语法结构</strong>。这个结构是一个<strong>树状结构</strong>，是<strong>计算机容易理解和执行的</strong>。</p>
 <p>程序有定义良好的语法结构，它的语法分析过程，就是构造这么一棵树。一个程序就是一棵树，这棵树叫做<strong>抽象语法树</strong>（Abstract Syntax Tree，<strong>AST</strong>）。树的每个节点（子树）是一个<strong>语法单元</strong>，这个单元的构成规则就叫“语法”。每个节点还可以有下级节点。<br />
 形成 AST 以后有什么好处呢？<strong>就是计算机很容易去处理</strong>。比如，针对表达式形成的这棵树，从根节点<strong>遍历</strong>整棵树就可以获得表达式的值。<br />
-如果再把循环语句、判断语句、赋值语句等节点加到 AST 上，并<strong>解释执行它</strong>，那么你实际上就实现了一个脚本语言。而执行脚本语言的过程，就是遍历 AST 的过程。</p>
+如果再把循环语句、判断语句、赋值语句等节点加到 AST 上，并<strong>解释执行它</strong>，那么你实际上就实现了一个脚本语言。<strong>而执行脚本语言的过程，就是遍历 AST 的过程。</strong></p>
 <p>好了，你已经知道了 AST 的作用，那么怎样<strong>写程序构造它</strong>呢？<br />
 例如：<code>int age = 45;</code><br />
 一种非常直观的构造思路是自上而下进行分析。首先构造根节点，代表整个程序，之后向下扫描 Token 串，构建它的子节点。当它看到一个 int 类型的 Token 时，知道这儿遇到了一个变量声明语句，于是建立一个“变量声明”节点；接着遇到 age，建立一个子节点，这是第一个变量；之后遇到 =，意味着这个变量有初始化值，那么建立一个初始化的子节点；最后，遇到“字面量”，其值是 45。<br />
 这样，一棵子树就扫描完毕了。程序退回到根节点，开始构建根节点的第二个子节点。这样递归地扫描，直到构建起一棵完整的树。<br />
 这个算法就是非常常用的<strong>递归下降算法</strong>。<br />
 递归下降算法是一种<strong>自顶向下的算法</strong>，与之对应的，还有<strong>自底向上的算法</strong>。这个算法会先将最下面的叶子节点识别出来，然后再组装上一级节点。有点儿像搭积木，我们总是先构造出小的单元，然后再组装成更大的单元。原理就是这么简单。</p>
-<p>很多同学其实已经做过语法解析的工作，比如编写一个自定义公式的功能，对公式的解析就是语法分析过程。另一个例子是分析日志文件等文本文件，对每行日志的解析，本质上也是语法分析过程。解析用 XML、JSON 写的各种配置文件、模型定义文件的过程，其实本质也是语法分析过程，甚至还包含了语义分析工作。<br />
-<a href="https://blog.csdn.net/gongwx/article/details/99645305">现成的语法分析工具</a></p>
-<h3 id="语义分析">语义分析</h3>
+<h3 id="语义分析上下文相关">语义分析（上下文相关）</h3>
 <p>语义分析就是要让计算机理解我们的真实意图，把一些模棱两可的地方消除掉。<br />
 比如分析变量的类型、作用域、初值等。<br />
 语义分析工作的某些成果，<strong>会作为属性标注在抽象语法树上</strong>，比如在 age 这个标识符节点和 45 这个字面量节点上，都会标识它的数据类型是 int 型的。<br />
@@ -447,9 +442,9 @@ jQuery(document).ready(function(){
 语法阶段是上下文无关的，语义阶段则<strong>专门处理上下文</strong>。</p>
 <h3 id="课程小结">课程小结</h3>
 <ul>
-<li><strong>词法分析</strong>是把程序分割成一个个 Token 的过程，可以通过构造有限自动机来实现。</li>
-<li><strong>语法分析</strong>是把程序的结构识别出来，并形成一棵便于由计算机处理的抽象语法树。可以用<strong>递归下降</strong>的算法来实现。</li>
-<li><strong>语义分析</strong>是消除语义模糊，<strong>生成一些属性信息</strong>，让计算机能够依据这些信息生成目标代码。</li>
+<li><strong>词法分析</strong>是把程序分割成一个个 Token 的过程，可以通过构造<strong>有限自动机</strong>来实现。</li>
+<li><strong>语法分析</strong>是把<strong>程序的结构识别出来</strong>，并形成一棵便于由计算机处理的<strong>抽象语法树</strong>。可以用<strong>递归下降</strong>的算法来实现。</li>
+<li><strong>语义分析</strong>是消除语义模糊，生成一些<strong>属性信息</strong>，让计算机能够依据这些信息生成目标代码。</li>
 </ul>
 <h2 id="正则文法和有限自动机纯手工打造词法分析器">02 | 正则文法和有限自动机：纯手工打造词法分析器</h2>
 <p>词法分析的工作是一边读取一边识别字符串的，不是把字符串都读到内存再识别。你在听一位朋友讲话的时候，其实也是同样的过程，一边听，一边提取信息。<br />
@@ -477,7 +472,7 @@ jQuery(document).ready(function(){
 问题是，Grammar这个词，在中文很多应用场景中也叫做语法。这是会引起混淆的地方。我们在使用的时候要小心一点就行了。<br />
 比如，我做了一个规则文件，里面都是一些词法规则（Lexer Grammar），我会说，这是一个词法规则文件，或者词法文法文件。这个时候，把它说成是一个语法规则文件，就有点含义模糊。因为这里面并没有语法规则（Syntax Grammar）。</p>
 <h3 id="解析变量声明语句理解下降的含义">解析变量声明语句：理解“下降”的含义</h3>
-<p>我们首先把变量声明语句的<strong>规则</strong>，用形式化的方法表达一下。它的左边是一个<strong>非终结符</strong>（Non-terminal）。右边是它的<strong>产生式</strong>（Production Rule）。在语法解析的过程中，左边会被右边替代。如果替代之后还有非终结符，那么继续这个替代过程，直到最后全部都是终结符（Terminal），也就是 Token。只有终结符才可以成为 AST 的叶子节点。这个过程，也叫做<strong>推导（Derivation）</strong>过程：</p>
+<p>我们首先把变量声明语句的<strong>规则</strong>，用形式化的方法表达一下。它的左边是一个<strong>非终结符</strong>（Non-terminal）。右边是它的<strong>产生式</strong>（Production Rule）。在语法解析的过程中，左边会被右边替代。如果替代之后还有非终结符，那么继续这个替代过程，直到最后全部都是<strong>终结符</strong>（Terminal），也就是 Token。只有终结符才可以成为 AST 的叶子节点。这个过程，也叫做<strong>推导</strong>（Derivation）过程：</p>
 <pre><code>intDeclaration : Int Identifier (&#39;=&#39; additiveExpression)?;</code></pre>
 <div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">private</span> SimpleASTNode <span class="fu">intDeclare</span>(TokenReader tokens) <span class="kw">throws</span> <span class="bu">Exception</span> {</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    SimpleASTNode node = <span class="kw">null</span>;</span>
@@ -541,7 +536,7 @@ multiplicativeExpression: IntLiteral | multiplicativeExpression Star IntLiteral;
 <p>上下文无关的意思是，无论在任何情况下，<strong>文法的推导规则都是一样的</strong>。比如，在变量声明语句中可能要用到一个算术表达式来做变量初始化，而在其他地方可能也会用到算术表达式。不管在什么地方，算术表达式的语法都一样，都允许用加法和乘法，计算优先级也不变。好在你见到的大多数计算机语言，都能用上下文无关文法来表达它的语法。</p>
 <p>那有没有上下文相关的情况需要处理呢？也是有的，但那不是<strong>语法分析阶段</strong>负责的，而是放在语义分析阶段来处理的。</p>
 <h3 id="解析算术表达式理解递归的含义">解析算术表达式：理解“递归”的含义</h3>
-<p>因为上下文无关文法定义时就是递归定义的，处理时自然要进行递归的处理<br />
+<p>因为上下文无关文法定义时就是<strong>递归定义的</strong>，处理时自然要进行递归的处理<br />
 为了简单化，我们采用下面这个简化的文法，去掉了乘法的层次：</p>
 <pre><code>additiveExpression :IntLiteral |additiveExpression Plus IntLiteral;</code></pre>
 <p>在解析 “2 + 3”这样一个最简单的加法表达式的时候，我们直观地将其翻译成算法，结果出现了如下的情况：<br />
@@ -576,10 +571,10 @@ multiplicativeExpression: IntLiteral | multiplicativeExpression Star IntLiteral;
 <p>重点知识：<br />
 - <strong>优先级</strong>是通过在语法推导中的层次来决定的，优先级越低的，越先尝试推导。<br />
 - <strong>结合性</strong>是跟左递归还是右递归有关的，左递归导致左结合，右递归导致右结合。<br />
-- <strong>左递归</strong>可以通过改写语法规则来避免，而改写后的语法又可以表达成简洁的 EBNF 格式，从而启发我们用循环代替右递归。</p>
+- <strong>左递归</strong>可以通过改写语法规则来避免，而改写后的语法又可以表达成简洁的 EBNF 格式，从而启发我们<strong>用循环代替右递归</strong>。</p>
 <p>在<strong>二元表达式的语法规则</strong>中，如果产生式的第一个元素是它自身，那么程序就会无限地递归下去，这种情况就叫做<strong>左递归</strong>。比如加法表达式的产生式“加法表达式 + 乘法表达式”，就是左递归的。</p>
 <h3 id="书写语法规则并进行推导">书写语法规则，并进行推导</h3>
-<p>我们已经知道，语法规则是由上下文无关文法表示的，而上下文无关文法是由一组替换规则（又叫产生式）组成的，比如算术表达式的文法规则可以表达成下面这种形式：</p>
+<p>我们已经知道，语法规则是由上下文无关文法表示的，而上下文无关文法是由一组替换规则（又叫<strong>产生式</strong>）组成的，比如算术表达式的文法规则可以表达成下面这种形式：</p>
 <pre><code>add -&gt; mul | add + mul
 mul -&gt; pri | mul * pri
 pri -&gt; Id | Num | (add) </code></pre>
@@ -593,7 +588,7 @@ mul ::= pri | mul * pri
 pri ::= Id | Num | (add) </code></pre>
 <p>你有时还会听到一个术语，叫做<strong>扩展巴科斯范式 (EBNF)</strong>。它跟普通的 BNF 表达式最大的区别，就是里面会用到类似正则表达式的一些写法。比如下面这个规则中运用了 * 号，来表示这个部分可以重复 0 到多次：</p>
 <pre><code>add -&gt; mul (+ mul)*</code></pre>
-<p>其实这种写法跟标准的 BNF 写法是等价的，但是更简洁。为什么是等价的呢？因为一个项多次重复，就等价于通过递归来推导。从这里我们还可以得到一个推论：就是上下文无关文法包含了正则文法，比正则文法能做更多的事情。</p>
+<p>其实这种写法跟标准的 BNF 写法是等价的，但是更简洁。为什么是等价的呢？因为一个项多次重复，就等价于通过递归来推导。从这里我们还可以得到一个推论：<strong>就是上下文无关文法包含了正则文法，比正则文法能做更多的事情</strong>。</p>
 <h3 id="确保正确的优先级">确保正确的优先级</h3>
 <p>掌握了语法规则的写法之后，我们来看看如何用语法规则来<strong>保证表达式的优先级</strong>。刚刚，我们<strong>由加法规则推导到乘法规则</strong>，这种方式保证了 AST 中的乘法节点一定会<strong>在加法节点的下层</strong>，也就保证了乘法计算优先于加法计算。<br />
 实际语言中还有更多不同的优先级，优先级越低，所处在语法树的位置就越高。<br />
@@ -611,7 +606,7 @@ pri -&gt; Id | Literal | (exp)</code></pre>
 <p>这里表达的优先级从低到高是：赋值运算、逻辑运算（or）、逻辑运算（and）、相等比较（equal）、大小比较（rel）、加法运算（add）、乘法运算（mul）和基础表达式（pri）。</p>
 <h3 id="确保正确的结合性消除左递归">确保正确的结合性,消除左递归</h3>
 <p>对于左结合的运算符，递归项要放在左边；而右结合的运算符，递归项放在右边。<br />
-消除左递归，用一个标准的方法，就能够把左递归文法改写成非左递归的文法。以加法表达式规则为例，原来的文法是“add -&gt; add + mul | Literal ”，现在我们改写成：</p>
+消除左递归，用一个标准的方法，就能够把左递归文法改写成<strong>非左递归的文法</strong>。以加法表达式规则为例，原来的文法是“add -&gt; add + mul | Literal ”，现在我们改写成：</p>
 <pre><code>add -&gt; mul add&#39;
 add&#39; -&gt; + mul add&#39; | ε</code></pre>
 <p><code>ε</code>（读作 epsilon）是空集的意思<br />

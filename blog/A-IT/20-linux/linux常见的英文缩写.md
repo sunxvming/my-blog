@@ -93,3 +93,7 @@ umask = User's MASK
 wall = write all
 wc = Word Count
 
+
+
+-r  递归  recursion
+-R 相反的   reverse

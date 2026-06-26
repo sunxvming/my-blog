@@ -243,6 +243,9 @@ jQuery(document).ready(function(){
 <p>Table of Contents:</p>
 <div id="TOC">
 <ul>
+<li><a href="#go编译速度为什么比c快">go编译速度为什么比c++快</a></li>
+<li><a href="#模块编译">模块编译</a>
+<ul>
 <li><a href="#模块编译的基本原理">1. 模块编译的基本原理</a></li>
 <li><a href="#模块编译的步骤">2. 模块编译的步骤</a>
 <ul>
@@ -252,11 +255,20 @@ jQuery(document).ready(function(){
 </ul></li>
 <li><a href="#模块机制编译与链接的整体流程">3. 模块机制编译与链接的整体流程</a></li>
 <li><a href="#编译器支持与模块缓存">4. 编译器支持与模块缓存</a></li>
+</ul></li>
 </ul>
 </div>
  <!--if(toc)-->
 
-<p>C++至今（包括C++11）没有模块机制，不能像其他现代编程语言那样用import或using 来引入当前源文件用到的库（含其他package/module里的函数或类），而必须用include头文 件的方式来机械地将库的接口声明以文本替换的方式载入，再重新parse一遍。<br />
+<h2 id="go编译速度为什么比c快">go编译速度为什么比c++快</h2>
+<p>与其说Go的编译为什么快，不如先说说C++的编译为什么慢<br />
+C++编译慢的主要两个大头原因:<br />
+1、头文件的include方式 2、模板的编译</p>
+<p>C++使用include方式引用头文件，会让需要编译的代码有乘数级的增加，例如当同一个头文件被同一个项目下的N个文件include时，编译器会将头文件引入到每一份代码中，所以同一个头文件会被编译N次（这在大多数时候都是不必要的）；</p>
+<p>C++使用的模板是为了支持泛型编程，在编写对不同类型的泛型函数时，可以提供很大的便利，但是这对于编译器来说，会增加非常多不必要的编译负担。</p>
+<p>大部分后来的编程语言在引入文件的方式上，使用了import module来代替include 头文件的方式，import解决了<strong>重复编译的问题</strong>，当然Go也是使用的import方式；</p>
+<h2 id="模块编译">模块编译</h2>
+<p>C++至今（包括C++11）没有模块机制，不能像其他现代编程语言那样用import或using 来引入当前源文件用到的库（含其他package/module里的函数或类），而必须用include头文 件的方式来机械地将库的接口声明以文本替换的方式载入，再重新 <strong>parse</strong> 一遍。<br />
 这种方式有几个显著的缺点：<br />
 1. <strong>重复解析</strong>：每次 <code>#include</code> 一个头文件时，编译器都会重新解析并处理这个头文件中的所有内容，即使它已经在其他地方被包含过。这会导致编译时间的增加，特别是在大型项目中。<br />
 2. <strong>缺乏封装</strong>：<code>#include</code> 头文件实际上只是简单的文本替换，所有包含的代码都会被直接引入到当前编译单元中，缺乏封装性和独立性。头文件的任何更改都会导致相关文件重新编译，这也增加了维护的复杂性。<br />
@@ -275,8 +287,7 @@ jQuery(document).ready(function(){
 <li><p><strong>编译接口</strong>：编译器将接口单元中的代码编译为一个 BMI 文件。这个文件包含模块中导出符号的编译信息，如函数签名、类定义等。</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">// example.cpp</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">export</span> <span class="kw">module</span> mymodule; <span class="co">// 声明模块</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="kw">export</span> <span class="dt">void</span> myFunction(); <span class="co">// 导出函数</span></span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="kw">export</span> <span class="dt">void</span> myFunction(); <span class="co">// 导出函数</span></span></code></pre></div>
 <p>该代码在编译时，会生成一个与 <code>mymodule</code> 相关的 <strong>BMI</strong> 文件。</p></li>
 </ul>
 <h4 id="模块实现单元的编译">2.2. 模块实现单元的编译</h4>
@@ -301,13 +312,13 @@ jQuery(document).ready(function(){
 </ul>
 <h3 id="模块机制编译与链接的整体流程">3. 模块机制编译与链接的整体流程</h3>
 <ol>
-<li><strong>模块接口单元</strong>被编译成 BMI 文件和目标文件。</li>
+<li><strong>模块接口单元</strong>被编译成 BMI 文件。</li>
 <li><strong>模块实现单元</strong>被编译成目标文件。</li>
 <li>其他<strong>用户代码单元</strong>导入 BMI 文件，并生成目标文件。</li>
-<li>最后，通过链接器将所有目标文件链接成可执行文件或库。</li>
+<li>最后，通过<strong>链接器</strong>将所有目标文件链接成可执行文件或库。</li>
 </ol>
 <h3 id="编译器支持与模块缓存">4. 编译器支持与模块缓存</h3>
-<p>大多数现代 C++ 编译器（如 GCC、Clang 和 MSVC）在支持 C++20 模块时，都会实现模块的缓存机制。编译器会将已编译好的 BMI 文件缓存起来，以避免在多次编译中重复生成这些文件，这可以显著提升编译速度。</p>
+<p>大多数现代 C++ 编译器（如 GCC、Clang 和 MSVC）在支持 C++20 模块时，都会实现<strong>模块的缓存机制</strong>。编译器会将已编译好的 BMI 文件缓存起来，以避免在多次编译中重复生成这些文件，这可以显著提升编译速度。</p>
 
 <footer id="colophon" >
 		<div class="site-info col">

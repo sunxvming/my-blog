@@ -1,4 +1,4 @@
-而Hiredis是一个Redis的C客户端库函数，基本实现了Redis的协议的最小集。在C/C++开发中如果要使用Redis，则Hiredis是比较常用到的。
+而Hiredis是一个Redis的 C客户端库函数，基本实现了Redis的协议的最小集。在C/C++开发中如果要使用Redis，则Hiredis是比较常用到的。
 Hiredis就是一个C库函数，提供了基本的操作函数：
 比如数据库连接、发送命令、释放资源：
 ```c
